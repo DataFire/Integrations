@@ -14,7 +14,7 @@ module.exports = (args, callback=()=>{}) => {
     if (fs.existsSync(packageFile)) {
       pkg = require(packageFile);
     }
-    pkg.name = 'datafire/' + args.name;
+    pkg.name = '@datafire/' + args.name;
     pkg.description = "DataFire integration for " + spec.info.title || spec.info.host;
     pkg.datafire = pkg.datafire || {};
     pkg.datafire.origin = args.openapi;
