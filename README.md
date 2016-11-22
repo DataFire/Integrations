@@ -1,2 +1,2 @@
-# integrations
-Integration registry for DataFire
+# DataFire Integrations
+This is an integration registry for DataFire.
