@@ -1,0 +1,19 @@
+{
+  "name": "@datafire/azure-arm-trafficmanager",
+  "version": "0.0.1",
+  "description": "DataFire integration for TrafficManagerManagementClient",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/azure.com/arm-trafficmanager/2015-11-01/swagger.json",
+    "type": "openapi"
+  }
+}

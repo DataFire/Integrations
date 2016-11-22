@@ -1,0 +1,19 @@
+{
+  "name": "@datafire/channel4",
+  "version": "0.0.1",
+  "description": "DataFire integration for Channel 4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/channel4.com/1.0.0/swagger.json",
+    "type": "openapi"
+  }
+}

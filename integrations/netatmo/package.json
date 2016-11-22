@@ -1,0 +1,19 @@
+{
+  "name": "@datafire/netatmo",
+  "version": "0.0.1",
+  "description": "DataFire integration for Netatmo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/netatmo.net/1.1.0/swagger.json",
+    "type": "openapi"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@datafire/nytimes-top_stories",
+  "version": "0.0.1",
+  "description": "DataFire integration for Top Stories V2",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/nytimes.com/top_stories/2.0.0/swagger.json",
+    "type": "openapi"
+  }
+}
