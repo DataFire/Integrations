@@ -1,0 +1,20 @@
+{
+  "name": "integrations",
+  "version": "1.0.0",
+  "description": "This is an integration registry for DataFire.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "request": "^2.79.0",
+    "yargs": "^6.4.0"
+  }
+}
