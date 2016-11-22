@@ -14,6 +14,7 @@ const NAME_CHANGES = {
   "citrixonline.com": "citrix",
   "hetrascertification.net": "hetras",
   "nrel.gov": "nrel",
+  "posty-api.herokuapp.com": "posty"
 }
 
 request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {

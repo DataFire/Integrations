@@ -1,5 +1,5 @@
 {
-  "name": "@datafire/posty-api.herokuapp",
+  "name": "@datafire/posty",
   "version": "0.0.1",
   "description": "DataFire integration for posty_API",
   "repository": {

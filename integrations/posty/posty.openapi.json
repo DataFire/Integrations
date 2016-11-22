@@ -16,7 +16,7 @@
     },
     "x-preferred": true,
     "x-providerName": "posty-api.herokuapp.com",
-    "x-datafire-name": "posty-api.herokuapp"
+    "x-datafire-name": "posty"
   },
   "produces": [
     "application/json"
