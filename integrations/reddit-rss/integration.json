@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/.rss": {
+      "get": {
+        "operationId": "frontPage",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Feed"
+            }
+          }
+        },
+        "parameters": [],
+        "summary": "reddit: the front page of the internet"
+      }
+    },
+    "/r/{subreddit}/.rss": {
+      "get": {
+        "operationId": "subreddit",
+        "description": "Retrieve the RSS feed",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Feed"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "subreddit",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "x-datafire": {
+      "name": "reddit-rss",
+      "type": "rss"
+    }
+  },
+  "host": "www.reddit.com",
+  "schemes": [
+    "https"
+  ]
+}

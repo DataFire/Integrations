@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "paths": {
+    "/news/world/us_and_canada/rss.xml": {
+      "get": {
+        "operationId": "worldNews",
+        "description": "BBC News - US & Canada",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Feed"
+            }
+          }
+        },
+        "parameters": [],
+        "summary": "BBC News - US & Canada"
+      }
+    }
+  },
+  "definitions": {
+    "Feed": {
+      "type": "object",
+      "properties": {
+        "feed": {
+          "type": "object",
+          "properties": {
+            "link": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "feedUrl": {
+              "type": "string"
+            },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "pubDate": {
+                    "type": "string"
+                  },
+                  "author": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "contentSnippet": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "x-datafire": {
+      "name": "bbc-rss",
+      "type": "rss"
+    }
+  },
+  "host": "feeds.bbci.co.uk",
+  "schemes": [
+    "http"
+  ]
+}
