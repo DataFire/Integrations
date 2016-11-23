@@ -1187,6 +1187,12 @@
       "type": "openapi"
     }
   },
+  "bbc-rss": {
+    "x-datafire": {
+      "name": "bbc-rss",
+      "type": "rss"
+    }
+  },
   "bbci": {
     "contact": {
       "email": "ibl-team@lists.forge.bbc.co.uk",
@@ -5319,6 +5325,10 @@
       "type": "openapi"
     }
   },
+  "mongodb": {
+    "title": "MongoDB",
+    "description": "Access to MongoDB"
+  },
   "moonmoonmoonmoon": {
     "description": "Turn nothing into something – make a drawing, make a mark.",
     "title": "Moon by Ai Weiwei & Olafur Eliasson",
@@ -6285,6 +6295,12 @@
     "x-datafire": {
       "name": "rebilly",
       "type": "openapi"
+    }
+  },
+  "reddit-rss": {
+    "x-datafire": {
+      "name": "reddit-rss",
+      "type": "rss"
     }
   },
   "refugerestrooms": {
