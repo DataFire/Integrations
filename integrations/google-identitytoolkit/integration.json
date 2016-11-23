@@ -44,6 +44,16 @@
         "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

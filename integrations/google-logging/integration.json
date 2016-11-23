@@ -49,6 +49,20 @@
         "https://www.googleapis.com/auth/logging.write": "Submit log data for your projects"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/logging.admin": "Administrate log data for your projects",
+        "https://www.googleapis.com/auth/logging.read": "View log data for your projects",
+        "https://www.googleapis.com/auth/logging.write": "Submit log data for your projects"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

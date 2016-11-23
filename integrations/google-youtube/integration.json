@@ -49,6 +49,21 @@
         "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
+        "https://www.googleapis.com/auth/youtube.force-ssl": "Manage your YouTube account",
+        "https://www.googleapis.com/auth/youtube.readonly": "View your YouTube account",
+        "https://www.googleapis.com/auth/youtube.upload": "Manage your YouTube videos",
+        "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
+        "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

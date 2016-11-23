@@ -45,6 +45,17 @@
         "https://www.googleapis.com/auth/adsense.readonly": "View your AdSense data"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/adsense": "View and manage your AdSense data",
+        "https://www.googleapis.com/auth/adsense.readonly": "View your AdSense data"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

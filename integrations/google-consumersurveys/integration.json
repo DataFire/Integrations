@@ -43,6 +43,18 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/consumersurveys": "View and edit your surveys and results",
+        "https://www.googleapis.com/auth/consumersurveys.readonly": "View the results for your surveys",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

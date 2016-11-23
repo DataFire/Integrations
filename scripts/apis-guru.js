@@ -25,9 +25,10 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
       let version = api.preferred + '.0';
       api = api.versions[api.preferred];
       let name = NAME_CHANGES[key];
+      let provider = '';
       if (!name) {
         name = key.substring(key.indexOf(':') + 1);
-        let provider = key.substring(0, key.indexOf(':'));
+        provider = key.substring(0, key.indexOf(':'));
         provider = NAME_CHANGES[provider] || provider;
         SUFFIXES.forEach(suffix => {
           let regex = new RegExp(suffix.replace(/\./g, '\\.') + '$');
@@ -40,6 +41,7 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
         name,
         version,
         openapi: api.swaggerUrl,
+        patch: maybeGetPatch(name) || maybeGetPatch(provider),
       }, acb);
     }
   }), err => {
@@ -47,3 +49,11 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
     console.log('done');
   })
 })
+
+const maybeGetPatch = (name) => {
+  try {
+    return require('../patches/' + name);
+  } catch (e) {
+    return;
+  }
+}

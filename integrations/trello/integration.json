@@ -41,17 +41,13 @@
   "securityDefinitions": {
     "api_key": {
       "in": "header",
-      "name": "api_key",
+      "name": "key",
       "type": "apiKey"
     },
-    "trello_auth": {
-      "authorizationUrl": "https://trello.com/1/appKey/generate",
-      "flow": "implicit",
-      "scopes": {
-        "read:boards": "read any of the boards in your account",
-        "write:boards": "modify any of the boards in your account"
-      },
-      "type": "oauth2"
+    "api_token": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "token"
     }
   },
   "tags": [

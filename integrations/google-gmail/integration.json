@@ -53,6 +53,25 @@
         "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://mail.google.com/": "View and manage your mail",
+        "https://www.googleapis.com/auth/gmail.compose": "Manage drafts and send emails",
+        "https://www.googleapis.com/auth/gmail.insert": "Insert mail into your mailbox",
+        "https://www.googleapis.com/auth/gmail.labels": "Manage mailbox labels",
+        "https://www.googleapis.com/auth/gmail.metadata": "View your email message metadata such as labels and headers, but not the email body",
+        "https://www.googleapis.com/auth/gmail.modify": "View and modify but not delete your email",
+        "https://www.googleapis.com/auth/gmail.readonly": "View your emails messages and settings",
+        "https://www.googleapis.com/auth/gmail.send": "Send email on your behalf",
+        "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
+        "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

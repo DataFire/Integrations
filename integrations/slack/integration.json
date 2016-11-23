@@ -76,7 +76,8 @@
         "users:write": ""
       },
       "tokenUrl": "https://slack.com/api/oauth.access",
-      "type": "oauth2"
+      "type": "oauth2",
+      "name": "token"
     }
   },
   "paths": {
@@ -106,7 +107,8 @@
               "identify"
             ]
           }
-        ]
+        ],
+        "operationId": "authTest"
       }
     },
     "/channels.history": {
@@ -158,7 +160,8 @@
               "$ref": "#/definitions/channelsHistory"
             }
           }
-        }
+        },
+        "operationId": "channelsHistory"
       }
     },
     "/channels.info": {
@@ -180,7 +183,8 @@
               "$ref": "#/definitions/searchAll"
             }
           }
-        }
+        },
+        "operationId": "channelsInfo"
       }
     },
     "/channels.invite": {
@@ -209,7 +213,8 @@
               "$ref": "#/definitions/channelsInvite"
             }
           }
-        }
+        },
+        "operationId": "channelsInvite"
       }
     },
     "/channels.join": {
@@ -231,7 +236,8 @@
               "$ref": "#/definitions/channelsInvite"
             }
           }
-        }
+        },
+        "operationId": "channelsJoin"
       }
     },
     "/channels.leave": {
@@ -253,7 +259,8 @@
               "$ref": "#/definitions/ok"
             }
           }
-        }
+        },
+        "operationId": "channelsLeave"
       }
     },
     "/channels.list": {
@@ -274,7 +281,8 @@
               "$ref": "#/definitions/channels"
             }
           }
-        }
+        },
+        "operationId": "channelsList"
       }
     },
     "/channels.mark": {
@@ -303,7 +311,8 @@
               "$ref": "#/definitions/ok"
             }
           }
-        }
+        },
+        "operationId": "channelsMark"
       }
     },
     "/channels.setPurpose": {
@@ -332,7 +341,8 @@
               "$ref": "#/definitions/purpose"
             }
           }
-        }
+        },
+        "operationId": "channelsSetPurpose"
       }
     },
     "/channels.setTopic": {
@@ -361,7 +371,8 @@
               "$ref": "#/definitions/topic"
             }
           }
-        }
+        },
+        "operationId": "channelsSetTopic"
       }
     },
     "/chat.delete": {
@@ -390,7 +401,8 @@
               "$ref": "#/definitions/chatOk"
             }
           }
-        }
+        },
+        "operationId": "chatDelete"
       }
     },
     "/chat.postMessage": {
@@ -461,7 +473,8 @@
               "$ref": "#/definitions/chatOk"
             }
           }
-        }
+        },
+        "operationId": "chatPostMessage"
       }
     },
     "/chat.update": {
@@ -497,7 +510,8 @@
               "$ref": "#/definitions/chatUpdate"
             }
           }
-        }
+        },
+        "operationId": "chatUpdate"
       }
     },
     "/emoji.list": {
@@ -510,7 +524,8 @@
               "$ref": "#/definitions/emojiList"
             }
           }
-        }
+        },
+        "operationId": "emojiList"
       }
     },
     "/files.info": {
@@ -546,7 +561,8 @@
               "$ref": "#/definitions/fileObj"
             }
           }
-        }
+        },
+        "operationId": "filesInfo"
       }
     },
     "/files.list": {
@@ -602,7 +618,8 @@
               "$ref": "#/definitions/files"
             }
           }
-        }
+        },
+        "operationId": "filesList"
       }
     },
     "/files.upload": {
@@ -659,7 +676,8 @@
               "$ref": "#/definitions/fileObj"
             }
           }
-        }
+        },
+        "operationId": "filesUpload"
       }
     },
     "/groups.history": {
@@ -711,7 +729,8 @@
               "$ref": "#/definitions/channelsHistory"
             }
           }
-        }
+        },
+        "operationId": "groupsHistory"
       }
     },
     "/groups.list": {
@@ -732,7 +751,8 @@
               "$ref": "#/definitions/groups"
             }
           }
-        }
+        },
+        "operationId": "groupsList"
       }
     },
     "/groups.mark": {
@@ -761,7 +781,8 @@
               "$ref": "#/definitions/ok"
             }
           }
-        }
+        },
+        "operationId": "groupsMark"
       }
     },
     "/groups.setPurpose": {
@@ -790,7 +811,8 @@
               "$ref": "#/definitions/purpose"
             }
           }
-        }
+        },
+        "operationId": "groupsSetPurpose"
       }
     },
     "/groups.setTopic": {
@@ -819,7 +841,8 @@
               "$ref": "#/definitions/topic"
             }
           }
-        }
+        },
+        "operationId": "groupsSetTopic"
       }
     },
     "/im.history": {
@@ -871,7 +894,8 @@
               "$ref": "#/definitions/channelsHistory"
             }
           }
-        }
+        },
+        "operationId": "imHistory"
       }
     },
     "/im.list": {
@@ -884,7 +908,8 @@
               "$ref": "#/definitions/ims"
             }
           }
-        }
+        },
+        "operationId": "imList"
       }
     },
     "/im.mark": {
@@ -913,7 +938,8 @@
               "$ref": "#/definitions/ok"
             }
           }
-        }
+        },
+        "operationId": "imMark"
       }
     },
     "/search.all": {
@@ -977,7 +1003,8 @@
               "$ref": "#/definitions/searchAll"
             }
           }
-        }
+        },
+        "operationId": "searchAll"
       }
     },
     "/search.files": {
@@ -1041,7 +1068,8 @@
               "$ref": "#/definitions/searchFiles"
             }
           }
-        }
+        },
+        "operationId": "searchFiles"
       }
     },
     "/search.messages": {
@@ -1105,7 +1133,8 @@
               "$ref": "#/definitions/searchMessages"
             }
           }
-        }
+        },
+        "operationId": "searchMessages"
       }
     },
     "/stars.list": {
@@ -1140,7 +1169,8 @@
               "$ref": "#/definitions/starList"
             }
           }
-        }
+        },
+        "operationId": "starsList"
       }
     },
     "/users.list": {
@@ -1153,7 +1183,8 @@
               "$ref": "#/definitions/usersList"
             }
           }
-        }
+        },
+        "operationId": "usersList"
       }
     }
   },

@@ -46,6 +46,18 @@
         "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/drive.appdata": "View and manage its own configuration data in your Google Drive",
+        "https://www.googleapis.com/auth/games": "Share your Google+ profile information and view and manage your game activity",
+        "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

@@ -50,6 +50,22 @@
         "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager containers"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/tagmanager.delete.containers": "Delete your Google Tag Manager containers",
+        "https://www.googleapis.com/auth/tagmanager.edit.containers": "Manage your Google Tag Manager containers",
+        "https://www.googleapis.com/auth/tagmanager.edit.containerversions": "Manage your Google Tag Manager container versions",
+        "https://www.googleapis.com/auth/tagmanager.manage.accounts": "Manage your Google Tag Manager accounts",
+        "https://www.googleapis.com/auth/tagmanager.manage.users": "Manage user permissions of your Google Tag Manager data",
+        "https://www.googleapis.com/auth/tagmanager.publish": "Publish your Google Tag Manager containers",
+        "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager containers"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

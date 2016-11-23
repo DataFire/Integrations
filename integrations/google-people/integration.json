@@ -52,6 +52,24 @@
         "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/contacts": "Manage your contacts",
+        "https://www.googleapis.com/auth/contacts.readonly": "View your contacts",
+        "https://www.googleapis.com/auth/plus.login": "Know your basic profile info and list of people in your circles.",
+        "https://www.googleapis.com/auth/user.addresses.read": "View your street addresses",
+        "https://www.googleapis.com/auth/user.birthday.read": "View your complete date of birth",
+        "https://www.googleapis.com/auth/user.emails.read": "View your email addresses",
+        "https://www.googleapis.com/auth/user.phonenumbers.read": "View your phone numbers",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address",
+        "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

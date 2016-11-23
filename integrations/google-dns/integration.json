@@ -47,6 +47,19 @@
         "https://www.googleapis.com/auth/ndev.clouddns.readwrite": "View and manage your DNS records hosted by Google Cloud DNS"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/ndev.clouddns.readonly": "View your DNS records hosted by Google Cloud DNS",
+        "https://www.googleapis.com/auth/ndev.clouddns.readwrite": "View and manage your DNS records hosted by Google Cloud DNS"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

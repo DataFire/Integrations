@@ -43,6 +43,18 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/surveys": "View and manage your surveys and results",
+        "https://www.googleapis.com/auth/surveys.readonly": "View your surveys and survey results",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

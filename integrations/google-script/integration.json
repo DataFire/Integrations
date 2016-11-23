@@ -54,6 +54,26 @@
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://mail.google.com/": "View and manage your mail",
+        "https://www.google.com/calendar/feeds": "Manage your calendars",
+        "https://www.google.com/m8/feeds": "Manage your contacts",
+        "https://www.googleapis.com/auth/admin.directory.group": "View and manage the provisioning of groups on your domain",
+        "https://www.googleapis.com/auth/admin.directory.user": "View and manage the provisioning of users on your domain",
+        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/forms": "View and manage your forms in Google Drive",
+        "https://www.googleapis.com/auth/forms.currentonly": "View and manage forms that this application has been installed in",
+        "https://www.googleapis.com/auth/groups": "View and manage your Google Groups",
+        "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

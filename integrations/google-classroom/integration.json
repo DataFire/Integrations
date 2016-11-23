@@ -56,6 +56,28 @@
         "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/classroom.course-work.readonly": "View instructions for teacher-assigned work in your Google Classroom classes",
+        "https://www.googleapis.com/auth/classroom.courses": "Manage your Google Classroom classes",
+        "https://www.googleapis.com/auth/classroom.courses.readonly": "View your Google Classroom classes",
+        "https://www.googleapis.com/auth/classroom.coursework.me": "Manage your course work and view your grades in Google Classroom",
+        "https://www.googleapis.com/auth/classroom.coursework.me.readonly": "View your course work and grades in Google Classroom",
+        "https://www.googleapis.com/auth/classroom.coursework.students": "Manage course work and grades for students in the Google Classroom classes you teach and view the course work and grades for classes you administer",
+        "https://www.googleapis.com/auth/classroom.coursework.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer",
+        "https://www.googleapis.com/auth/classroom.profile.emails": "View the email addresses of people in your classes",
+        "https://www.googleapis.com/auth/classroom.profile.photos": "View the profile photos of people in your classes",
+        "https://www.googleapis.com/auth/classroom.rosters": "Manage your Google Classroom class rosters",
+        "https://www.googleapis.com/auth/classroom.rosters.readonly": "View your Google Classroom class rosters",
+        "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly": "View your course work and grades in Google Classroom",
+        "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

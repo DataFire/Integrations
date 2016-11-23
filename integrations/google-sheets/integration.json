@@ -47,6 +47,19 @@
         "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
+        "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
+        "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

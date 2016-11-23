@@ -45,6 +45,17 @@
         "https://www.googleapis.com/auth/calendar.readonly": "View your calendars"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/calendar": "Manage your calendars",
+        "https://www.googleapis.com/auth/calendar.readonly": "View your calendars"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {

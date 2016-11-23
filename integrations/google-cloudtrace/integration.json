@@ -46,6 +46,18 @@
         "https://www.googleapis.com/auth/trace.readonly": "Read Trace data for a project or application"
       },
       "type": "oauth2"
+    },
+    "offline": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/trace.append": "Write Trace data for a project or application",
+        "https://www.googleapis.com/auth/trace.readonly": "Read Trace data for a project or application"
+      },
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://www.googleapis.com/oauth2/v4/token",
+      "description": "Allows offline access using a refresh_token"
     }
   },
   "parameters": {
