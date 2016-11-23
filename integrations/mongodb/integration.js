@@ -1,4 +1,4 @@
-let datafire = require('../index');
+let datafire = require('datafire');
 let mongodb = require('mongodb');
 
 let QUERY_PARAM = {
@@ -116,6 +116,10 @@ class MongoDBIntegration extends datafire.Integration {
   constructor(mockClient) {
     super('mongodb', SPEC);
     this.client = mockClient || mongodb.MongoClient;
+  }
+
+  static get spec() {
+    return SPEC;
   }
 
   // Override
