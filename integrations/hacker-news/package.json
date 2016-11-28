@@ -1,0 +1,19 @@
+{
+  "name": "@datafire/hacker-news",
+  "version": "0.0.1",
+  "description": "DataFire integration for Hacker News",
+  "main": "integration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "type": "openapi"
+  }
+}
