@@ -324,10 +324,6 @@
           "$ref": "#/definitions/IosInfo",
           "description": "iOS related information. See iOS related parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/ios#create-a-dynamic-link-programmatically)."
         },
-        "isAd": {
-          "description": "Declares that the Dynamic Link is used in an advertisement.\nSee the 'ad' parameter in the\n[documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).",
-          "type": "boolean"
-        },
         "link": {
           "description": "The link your app will open, You can specify any URL your app can handle.\nThis link must be a well-formatted URL, be properly URL-encoded, and use\nthe HTTP or HTTPS scheme. See 'link' parameters in the\n[documentation](https://firebase.google.com/docs/dynamic-links/android#create-a-dynamic-link-programmatically).\n\nRequired.",
           "type": "string"

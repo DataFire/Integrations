@@ -159,19 +159,22 @@
   },
   "tags": [
     {
-      "name": "projects"
+      "name": "folders"
+    },
+    {
+      "name": "billingAccounts"
     },
     {
       "name": "organizations"
+    },
+    {
+      "name": "projects"
     },
     {
       "name": "entries"
     },
     {
       "name": "monitoredResourceDescriptors"
-    },
-    {
-      "name": "billingAccounts"
     }
   ],
   "paths": {
@@ -445,7 +448,7 @@
     "/v2/{logName}": {
       "delete": {
         "description": "Deletes a log and all its log entries.\nThe log will reappear if it receives new entries.",
-        "operationId": "logging.billingAccounts.logs.delete",
+        "operationId": "logging.projects.logs.delete",
         "parameters": [
           {
             "description": "Required. The resource name of the log to delete.  Example:\n`\"projects/my-project/logs/syslog\"`.",
@@ -477,7 +480,7 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       },
       "parameters": [
@@ -857,7 +860,7 @@
     "/v2/{parent}/sinks": {
       "get": {
         "description": "Lists sinks.",
-        "operationId": "logging.billingAccounts.sinks.list",
+        "operationId": "logging.projects.sinks.list",
         "parameters": [
           {
             "description": "Required. The resource name where this sink was created.\nExample: `\"projects/my-logging-project\"`.",
@@ -911,7 +914,7 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       },
       "parameters": [
@@ -957,7 +960,7 @@
       ],
       "post": {
         "description": "Creates a sink.",
-        "operationId": "logging.billingAccounts.sinks.create",
+        "operationId": "logging.projects.sinks.create",
         "parameters": [
           {
             "description": "Required. The resource in which to create the sink.\nExample: `\"projects/my-project-id\"`.\nThe new sink must be provided in the request.",
@@ -1002,14 +1005,14 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       }
     },
     "/v2/{sinkName}": {
       "delete": {
         "description": "Deletes a sink.",
-        "operationId": "logging.billingAccounts.sinks.delete",
+        "operationId": "logging.projects.sinks.delete",
         "parameters": [
           {
             "description": "Required. The resource name of the sink to delete, including the parent\nresource and the sink identifier.  Example:\n`\"projects/my-project-id/sinks/my-sink-id\"`.  It is an error if the sink\ndoes not exist.",
@@ -1041,12 +1044,12 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       },
       "get": {
         "description": "Gets a sink.",
-        "operationId": "logging.billingAccounts.sinks.get",
+        "operationId": "logging.projects.sinks.get",
         "parameters": [
           {
             "description": "Required. The resource name of the sink to return.\nExample: `\"projects/my-project-id/sinks/my-sink-id\"`.",
@@ -1088,7 +1091,7 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       },
       "parameters": [
@@ -1134,7 +1137,7 @@
       ],
       "put": {
         "description": "Updates or creates a sink.",
-        "operationId": "logging.billingAccounts.sinks.update",
+        "operationId": "logging.projects.sinks.update",
         "parameters": [
           {
             "description": "Required. The resource name of the sink to update, including the parent\nresource and the sink identifier.  If the sink does not exist, this method\ncreates the sink.  Example: `\"projects/my-project-id/sinks/my-sink-id\"`.",
@@ -1179,7 +1182,7 @@
           }
         ],
         "tags": [
-          "billingAccounts"
+          "projects"
         ]
       }
     }
@@ -1284,7 +1287,7 @@
       "description": "The parameters to `ListLogEntries`.",
       "properties": {
         "filter": {
-          "description": "Optional. A filter that chooses which log entries to return.  See [Advanced\nLogs Filters](/logging/docs/view/advanced_filters).  Only log entries that\nmatch the filter are returned.  An empty filter matches all log entries.",
+          "description": "Optional. A filter that chooses which log entries to return.  See [Advanced\nLogs Filters](/logging/docs/view/advanced_filters).  Only log entries that\nmatch the filter are returned.  An empty filter matches all log entries.\nThe maximum length of the filter is 20000 characters.",
           "type": "string"
         },
         "orderBy": {
@@ -1520,7 +1523,7 @@
           "type": "string"
         },
         "filter": {
-          "description": "Required. An [advanced logs filter](/logging/docs/view/advanced_filters).\nExample: `\"resource.type=gae_app AND severity>=ERROR\"`.",
+          "description": "Required. An [advanced logs filter](/logging/docs/view/advanced_filters).\nExample: `\"resource.type=gae_app AND severity>=ERROR\"`.\nThe maximum length of the filter is 20000 characters.",
           "type": "string"
         },
         "name": {
@@ -1551,7 +1554,7 @@
           "type": "string"
         },
         "filter": {
-          "description": "Optional. An [advanced logs filter](/logging/docs/view/advanced_filters).\nOnly log entries matching the filter are exported. The filter\nmust be consistent with the log entry format specified by the\n`outputVersionFormat` parameter, regardless of the format of the\nlog entry that was originally written to Stackdriver Logging.\nExample filter (V2 format):\n\n    logName=projects/my-projectid/logs/syslog AND severity>=ERROR",
+          "description": "Optional. An [advanced logs filter](/logging/docs/view/advanced_filters).\nOnly log entries matching the filter are exported. The filter\nmust be consistent with the log entry format specified by the\n`outputVersionFormat` parameter, regardless of the format of the\nlog entry that was originally written to Stackdriver Logging.\nExample filter (V2 format):\n\n    logName=projects/my-projectid/logs/syslog AND severity>=ERROR\nThe maximum length of the filter is 20000 characters.",
           "type": "string"
         },
         "name": {
@@ -1651,7 +1654,7 @@
           "type": "boolean"
         },
         "first": {
-          "description": "Whether this is the first RequestLog entry for this request.  If an active\nrequest has several RequestLog entries written to Cloud Logging, this field\nwill be set for one of them.",
+          "description": "Whether this is the first `RequestLog` entry for this request.  If an\nactive request has several `RequestLog` entries written to Stackdriver\nLogging, then this field will be set for one of them.",
           "type": "boolean"
         },
         "host": {
@@ -1752,7 +1755,7 @@
           "type": "string"
         },
         "traceId": {
-          "description": "Cloud Trace identifier for this request.",
+          "description": "Stackdriver Trace identifier for this request.",
           "type": "string"
         },
         "urlMapEntry": {

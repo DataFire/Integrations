@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": "https://api.apis.guru/v2/specs/mondiamedia.com/2.15.1/swagger.json",
+    "origin": "https://api.apis.guru/v2/specs/mondiamedia.com/2.15.2/swagger.json",
     "type": "openapi"
   }
 }

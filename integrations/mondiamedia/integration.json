@@ -8,7 +8,7 @@
   "info": {
     "description": "<p>This is the API for building Mondia-Media-Products, like Tops.</p><p>Every call need a valid client or user-token.</p><p><ol><li>Client-Token can be get at our Police-API</li><li>User-Token can be get through a login on a customer specific Life-Cycle-Service</li><li>UseCases regarding Login, Register, Subscribe (incl. Payment) will be done by the Life-Cycle-Service</li></ol></p>",
     "title": "Queen",
-    "version": "2.15.1",
+    "version": "2.15.2",
     "x-logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.mondiamedia.com_content_themes_mondiamedia_library_assets_dist_img_logo_mm.png"
     },

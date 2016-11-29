@@ -185,6 +185,12 @@
             "in": "query",
             "name": "pageToken",
             "type": "string"
+          },
+          {
+            "description": "Include services consumed by the specified consumer.\n\nThe Google Service Management implementation accepts the following\nforms:\n- project:<project_id>",
+            "in": "query",
+            "name": "consumerId",
+            "type": "string"
           }
         ],
         "responses": {
@@ -301,7 +307,7 @@
     },
     "/v1/services/{serviceName}": {
       "delete": {
-        "description": "Deletes a managed service. This method will change the serivce in the\n`Soft-Delete` state for 30 days. Within this period, service producers may\ncall UndeleteService to restore the service.\nAfter 30 days, the service will be permanently deleted.\n\nOperation<response: google.protobuf.Empty>",
+        "description": "Deletes a managed service. This method will change the service to the\n`Soft-Delete` state for 30 days. Within this period, service producers may\ncall UndeleteService to restore the service.\nAfter 30 days, the service will be permanently deleted.\n\nOperation<response: google.protobuf.Empty>",
         "operationId": "servicemanagement.services.delete",
         "parameters": [
           {

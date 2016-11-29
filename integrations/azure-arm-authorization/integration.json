@@ -6,6 +6,7 @@
   "host": "management.azure.com",
   "x-hasEquivalentPaths": true,
   "info": {
+    "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.",
     "title": "AuthorizationManagementClient",
     "version": "2015-07-01",
     "x-apisguru-categories": [
@@ -59,14 +60,14 @@
   ],
   "parameters": {
     "ApiVersionParameter": {
-      "description": "Client Api Version.",
+      "description": "The API version to use for this operation.",
       "in": "query",
       "name": "api-version",
       "required": true,
       "type": "string"
     },
     "SubscriptionIdParameter": {
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
+      "description": "The ID of the target subscription.",
       "in": "path",
       "name": "subscriptionId",
       "required": true,
@@ -76,10 +77,11 @@
   "paths": {
     "/providers/Microsoft.Authorization/providerOperations": {
       "get": {
-        "description": "Gets provider operations metadata list",
+        "description": "Gets provider operations metadata for all resource providers.",
         "operationId": "ProviderOperationsMetadata_List",
         "parameters": [
           {
+            "description": "The API version to use for this operation.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -87,6 +89,7 @@
           },
           {
             "default": "resourceTypes",
+            "description": "Specifies whether to expand the values.",
             "in": "query",
             "name": "$expand",
             "required": false,
@@ -95,7 +98,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of the operations metadata.",
             "schema": {
               "$ref": "#/definitions/ProviderOperationsMetadataListResult"
             }
@@ -111,17 +114,18 @@
     },
     "/providers/Microsoft.Authorization/providerOperations/{resourceProviderNamespace}": {
       "get": {
-        "description": "Gets provider operations metadata",
+        "description": "Gets provider operations metadata for the specified resource provider.",
         "operationId": "ProviderOperationsMetadata_Get",
         "parameters": [
           {
-            "description": "Namespace of the resource provider.",
+            "description": "The namespace of the resource provider.",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
             "type": "string"
           },
           {
+            "description": "The API version to use for the operation.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -129,6 +133,7 @@
           },
           {
             "default": "resourceTypes",
+            "description": "Specifies whether to expand the values.",
             "in": "query",
             "name": "$expand",
             "required": false,
@@ -137,7 +142,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns the operations metadata.",
             "schema": {
               "$ref": "#/definitions/ProviderOperationsMetadata"
             }
@@ -150,10 +155,11 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/classicAdministrators": {
       "get": {
-        "description": "Gets a list of classic administrators for the subscription.",
+        "description": "Gets service administrator, account administrator, and co-administrators for the subscription.",
         "operationId": "ClassicAdministrators_List",
         "parameters": [
           {
+            "description": "The API version to use for this operation.",
             "in": "query",
             "name": "api-version",
             "required": true,
@@ -165,7 +171,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "Returns an array of administrators.",
             "schema": {
               "$ref": "#/definitions/ClassicAdministratorListResult"
             }
@@ -181,11 +187,11 @@
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments": {
       "get": {
-        "description": "Gets role assignments of the subscription.",
+        "description": "Gets all role assignments for the subscription.",
         "operationId": "RoleAssignments_List",
         "parameters": [
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -200,7 +206,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of role assignments.",
             "schema": {
               "$ref": "#/definitions/RoleAssignmentListResult"
             }
@@ -217,18 +223,18 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments": {
       "get": {
-        "description": "Gets role assignments of the resource group.",
+        "description": "Gets role assignments for a resource group.",
         "operationId": "RoleAssignments_ListForResourceGroup",
         "parameters": [
           {
-            "description": "Resource group name.",
+            "description": "The name of the resource group.",
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -243,7 +249,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of role assignments.",
             "schema": {
               "$ref": "#/definitions/RoleAssignmentListResult"
             }
@@ -260,11 +266,11 @@
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/permissions": {
       "get": {
-        "description": "Gets a resource group permissions.",
+        "description": "Gets all permissions the caller has for a resource group.",
         "operationId": "Permissions_ListForResourceGroup",
         "parameters": [
           {
-            "description": "Name of the resource group to get the permissions for.The name is case insensitive.",
+            "description": "The name of the resource group to get the permissions for. The name is case insensitive.",
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
@@ -279,7 +285,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of permissions.",
             "schema": {
               "$ref": "#/definitions/PermissionGetResult"
             }
@@ -295,25 +301,25 @@
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/permissions": {
       "get": {
-        "description": "Gets a resource permissions.",
+        "description": "Gets all permissions the caller has for a resource.",
         "operationId": "Permissions_ListForResource",
         "parameters": [
           {
-            "description": "The name of the resource group. The name is case insensitive.",
+            "description": "The name of the resource group containing the resource. The name is case insensitive.",
             "in": "path",
             "name": "resourceGroupName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Resource",
+            "description": "The namespace of the resource provider.",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Resource",
+            "description": "The parent resource identity.",
             "in": "path",
             "name": "parentResourcePath",
             "required": true,
@@ -321,7 +327,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Resource",
+            "description": "The resource type of the resource.",
             "in": "path",
             "name": "resourceType",
             "required": true,
@@ -329,7 +335,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Resource",
+            "description": "The name of the resource to get the permissions for.",
             "in": "path",
             "name": "resourceName",
             "required": true,
@@ -344,7 +350,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of permissions.",
             "schema": {
               "$ref": "#/definitions/PermissionGetResult"
             }
@@ -360,7 +366,7 @@
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}providers/Microsoft.Authorization/roleAssignments": {
       "get": {
-        "description": "Gets role assignments of the resource.",
+        "description": "Gets role assignments for a resource.",
         "operationId": "RoleAssignments_ListForResource",
         "parameters": [
           {
@@ -371,14 +377,14 @@
             "type": "string"
           },
           {
-            "description": "Resource identity.",
+            "description": "The namespace of the resource provider.",
             "in": "path",
             "name": "resourceProviderNamespace",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Resource identity.",
+            "description": "The parent resource identity.",
             "in": "path",
             "name": "parentResourcePath",
             "required": true,
@@ -386,7 +392,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Resource identity.",
+            "description": "The resource type of the resource.",
             "in": "path",
             "name": "resourceType",
             "required": true,
@@ -394,14 +400,14 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Resource identity.",
+            "description": "The name of the resource to get role assignments for.",
             "in": "path",
             "name": "resourceName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -416,7 +422,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of role assignments.",
             "schema": {
               "$ref": "#/definitions/RoleAssignmentListResult"
             }
@@ -433,11 +439,11 @@
     },
     "/{roleAssignmentId}": {
       "delete": {
-        "description": "Delete role assignment.",
+        "description": "Deletes a role assignment.",
         "operationId": "RoleAssignments_DeleteById",
         "parameters": [
           {
-            "description": "Role assignment Id",
+            "description": "The ID of the role assignment to delete.",
             "in": "path",
             "name": "roleAssignmentId",
             "required": true,
@@ -450,7 +456,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -461,11 +467,11 @@
         ]
       },
       "get": {
-        "description": "Get single role assignment.",
+        "description": "Gets a role assignment by ID.",
         "operationId": "RoleAssignments_GetById",
         "parameters": [
           {
-            "description": "Role assignment Id",
+            "description": "The ID of the role assignment to get.",
             "in": "path",
             "name": "roleAssignmentId",
             "required": true,
@@ -478,7 +484,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -489,11 +495,11 @@
         ]
       },
       "put": {
-        "description": "Create role assignment by Id.",
+        "description": "Creates a role assignment by ID.",
         "operationId": "RoleAssignments_CreateById",
         "parameters": [
           {
-            "description": "Role assignment Id",
+            "description": "The ID of the role assignment to create.",
             "in": "path",
             "name": "roleAssignmentId",
             "required": true,
@@ -501,7 +507,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role assignment.",
+            "description": "Parameters for the role assignment.",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -515,7 +521,7 @@
         ],
         "responses": {
           "201": {
-            "description": "",
+            "description": "Created - Returns the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -528,11 +534,11 @@
     },
     "/{roleDefinitionId}": {
       "get": {
-        "description": "Get role definition by name (GUID).",
+        "description": "Gets a role definition by ID.",
         "operationId": "RoleDefinitions_GetById",
         "parameters": [
           {
-            "description": "Fully qualified role definition Id",
+            "description": "The fully qualified role definition ID to get.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
@@ -545,7 +551,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role definition.",
             "schema": {
               "$ref": "#/definitions/RoleDefinition"
             }
@@ -558,11 +564,11 @@
     },
     "/{scope}/providers/Microsoft.Authorization/roleAssignments": {
       "get": {
-        "description": "Gets role assignments of the scope.",
+        "description": "Gets role assignments for a scope.",
         "operationId": "RoleAssignments_ListForScope",
         "parameters": [
           {
-            "description": "Scope.",
+            "description": "The scope of the role assignments.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -570,7 +576,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -582,7 +588,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of role assignments.",
             "schema": {
               "$ref": "#/definitions/RoleAssignmentListResult"
             }
@@ -599,11 +605,11 @@
     },
     "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}": {
       "delete": {
-        "description": "Delete role assignment.",
+        "description": "Deletes a role assignment.",
         "operationId": "RoleAssignments_Delete",
         "parameters": [
           {
-            "description": "Scope.",
+            "description": "The scope of the role assignment to delete.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -611,7 +617,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role assignment name.",
+            "description": "The name of the role assignment to delete.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
@@ -623,7 +629,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -634,11 +640,11 @@
         ]
       },
       "get": {
-        "description": "Get single role assignment.",
+        "description": "Get the specified role assignment.",
         "operationId": "RoleAssignments_Get",
         "parameters": [
           {
-            "description": "Scope.",
+            "description": "The scope of the role assignment.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -646,7 +652,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role assignment name.",
+            "description": "The name of the role assignment to get.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
@@ -658,7 +664,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -669,11 +675,11 @@
         ]
       },
       "put": {
-        "description": "Create role assignment.",
+        "description": "Creates a role assignment.",
         "operationId": "RoleAssignments_Create",
         "parameters": [
           {
-            "description": "Scope.",
+            "description": "The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -681,14 +687,14 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role assignment name.",
+            "description": "The name of the role assignment to create. It can be any valid GUID.",
             "in": "path",
             "name": "roleAssignmentName",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Role assignment.",
+            "description": "Parameters for the role assignment.",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -702,7 +708,7 @@
         ],
         "responses": {
           "201": {
-            "description": "",
+            "description": "Created - Returns information about the role assignment.",
             "schema": {
               "$ref": "#/definitions/RoleAssignment"
             }
@@ -715,11 +721,11 @@
     },
     "/{scope}/providers/Microsoft.Authorization/roleDefinitions": {
       "get": {
-        "description": "Get all role definitions that are applicable at scope and above. Use atScopeAndBelow filter to search below the given scope as well",
+        "description": "Get all role definitions that are applicable at scope and above.",
         "operationId": "RoleDefinitions_List",
         "parameters": [
           {
-            "description": "Scope",
+            "description": "The scope of the role definition.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -727,7 +733,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "The filter to apply on the operation.",
+            "description": "The filter to apply on the operation. Use atScopeAndBelow filter to search below the given scope as well.",
             "in": "query",
             "name": "$filter",
             "required": false,
@@ -739,7 +745,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns an array of role definitions.",
             "schema": {
               "$ref": "#/definitions/RoleDefinitionListResult"
             }
@@ -756,11 +762,11 @@
     },
     "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}": {
       "delete": {
-        "description": "Deletes the role definition.",
+        "description": "Deletes a role definition.",
         "operationId": "RoleDefinitions_Delete",
         "parameters": [
           {
-            "description": "Scope",
+            "description": "The scope of the role definition.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -768,7 +774,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role definition id.",
+            "description": "The ID of the role definition to delete.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
@@ -780,7 +786,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role definition.",
             "schema": {
               "$ref": "#/definitions/RoleDefinition"
             }
@@ -795,7 +801,7 @@
         "operationId": "RoleDefinitions_Get",
         "parameters": [
           {
-            "description": "Scope",
+            "description": "The scope of the role definition.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -803,7 +809,7 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role definition Id",
+            "description": "The ID of the role definition.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
@@ -815,7 +821,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK - Returns information about the role definition.",
             "schema": {
               "$ref": "#/definitions/RoleDefinition"
             }
@@ -830,7 +836,7 @@
         "operationId": "RoleDefinitions_CreateOrUpdate",
         "parameters": [
           {
-            "description": "Scope",
+            "description": "The scope of the role definition.",
             "in": "path",
             "name": "scope",
             "required": true,
@@ -838,14 +844,14 @@
             "x-ms-skip-url-encoding": true
           },
           {
-            "description": "Role definition id.",
+            "description": "The ID of the role definition.",
             "in": "path",
             "name": "roleDefinitionId",
             "required": true,
             "type": "string"
           },
           {
-            "description": "Role definition.",
+            "description": "The values for the role definition.",
             "in": "body",
             "name": "roleDefinition",
             "required": true,
@@ -859,7 +865,7 @@
         ],
         "responses": {
           "201": {
-            "description": "",
+            "description": "OK - Returns information about the role definition.",
             "schema": {
               "$ref": "#/definitions/RoleDefinition"
             }
@@ -876,19 +882,19 @@
       "description": "Classic Administrators",
       "properties": {
         "id": {
-          "description": "Gets or sets the classic administrator id.",
+          "description": "The ID of the administrator.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets the classic administrator name.",
+          "description": "The name of the administrator.",
           "type": "string"
         },
         "properties": {
           "$ref": "#/definitions/ClassicAdministratorProperties",
-          "description": "Gets or sets the classic administrator properties."
+          "description": "Properties for the classic administrator."
         },
         "type": {
-          "description": "Gets or sets the classic administrator type.",
+          "description": "The type of the administrator.",
           "type": "string"
         }
       }
@@ -897,11 +903,11 @@
       "description": "ClassicAdministrator list result information.",
       "properties": {
         "nextLink": {
-          "description": "Gets or sets the URL to get the next set of classic administrators results.",
+          "description": "The URL to use for getting the next set of results.",
           "type": "string"
         },
         "value": {
-          "description": "Gets or sets ClassicAdministrators.",
+          "description": "An array of administrators.",
           "items": {
             "$ref": "#/definitions/ClassicAdministrator"
           },
@@ -913,11 +919,11 @@
       "description": "Classic Administrator properties.",
       "properties": {
         "emailAddress": {
-          "description": "Gets or sets the email address",
+          "description": "The email address of the administrator.",
           "type": "string"
         },
         "role": {
-          "description": "Gets or sets the role",
+          "description": "The role of the administrator.",
           "type": "string"
         }
       }
@@ -926,14 +932,14 @@
       "description": "Role definition permissions.",
       "properties": {
         "actions": {
-          "description": "Role definition allowed actions.",
+          "description": "Allowed actions.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "notActions": {
-          "description": "Role definition denied actions.",
+          "description": "Denied actions.",
           "items": {
             "type": "string"
           },
@@ -945,11 +951,11 @@
       "description": "Permissions information.",
       "properties": {
         "nextLink": {
-          "description": "Gets or sets the URL to get the next set of permissions results.",
+          "description": "The URL to use for getting the next set of results.",
           "type": "string"
         },
         "value": {
-          "description": "Gets or sets permissions.",
+          "description": "An array of permissions.",
           "items": {
             "$ref": "#/definitions/Permission"
           },
@@ -961,23 +967,23 @@
       "description": "Operation",
       "properties": {
         "description": {
-          "description": "Gets or sets the operation description",
+          "description": "The operation description.",
           "type": "string"
         },
         "displayName": {
-          "description": "Gets or sets the operation display name",
+          "description": "The operation display name.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets the operation name",
+          "description": "The operation name.",
           "type": "string"
         },
         "origin": {
-          "description": "Gets or sets the operation origin",
+          "description": "The operation origin.",
           "type": "string"
         },
         "properties": {
-          "description": "Gets or sets the operation properties",
+          "description": "The operation properties.",
           "type": "object"
         }
       }
@@ -986,33 +992,33 @@
       "description": "Provider Operations metadata",
       "properties": {
         "displayName": {
-          "description": "Gets or sets the provider display name",
+          "description": "The provider display name.",
           "type": "string"
         },
         "id": {
-          "description": "Gets or sets the provider id.",
+          "description": "The provider id.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets the provider name",
+          "description": "The provider name.",
           "type": "string"
         },
         "operations": {
-          "description": "Gets or sets the provider operations",
+          "description": "The provider operations.",
           "items": {
             "$ref": "#/definitions/ProviderOperation"
           },
           "type": "array"
         },
         "resourceTypes": {
-          "description": "Gets or sets the provider resource types",
+          "description": "The provider resource types",
           "items": {
             "$ref": "#/definitions/ResourceType"
           },
           "type": "array"
         },
         "type": {
-          "description": "Gets or sets the provider type",
+          "description": "The provider type.",
           "type": "string"
         }
       }
@@ -1021,11 +1027,11 @@
       "description": "Provider operations metadata list",
       "properties": {
         "nextLink": {
-          "description": "Gets or sets the URL to get the next set of provider operations metadata results.",
+          "description": "The URL to use for getting the next set of results.",
           "type": "string"
         },
         "value": {
-          "description": "Gets or sets the list of providers.",
+          "description": "The list of providers.",
           "items": {
             "$ref": "#/definitions/ProviderOperationsMetadata"
           },
@@ -1037,15 +1043,15 @@
       "description": "Resource Type",
       "properties": {
         "displayName": {
-          "description": "Gets or sets the resource type display name",
+          "description": "The resource type display name.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets the resource type name",
+          "description": "The resource type name.",
           "type": "string"
         },
         "operations": {
-          "description": "Gets or sets the resource type operations",
+          "description": "The resource type operations.",
           "items": {
             "$ref": "#/definitions/ProviderOperation"
           },
@@ -1057,19 +1063,19 @@
       "description": "Role Assignments",
       "properties": {
         "id": {
-          "description": "Gets or sets role assignment id.",
+          "description": "The role assignment ID.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets role assignment name.",
+          "description": "The role assignment name.",
           "type": "string"
         },
         "properties": {
           "$ref": "#/definitions/RoleAssignmentPropertiesWithScope",
-          "description": "Gets or sets role assignment properties."
+          "description": "Role assignment properties."
         },
         "type": {
-          "description": "Gets or sets role assignment type.",
+          "description": "The role assignment type.",
           "type": "string"
         }
       }
@@ -1079,7 +1085,7 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/RoleAssignmentProperties",
-          "description": "Gets or sets role assignment properties."
+          "description": "Role assignment properties."
         }
       }
     },
@@ -1096,7 +1102,7 @@
       "description": "Role assignment list operation result.",
       "properties": {
         "nextLink": {
-          "description": "Gets or sets the URL to get the next set of role assignment results.",
+          "description": "The URL to use for getting the next set of results.",
           "type": "string"
         },
         "value": {
@@ -1112,11 +1118,11 @@
       "description": "Role assignment properties.",
       "properties": {
         "principalId": {
-          "description": "Gets or sets principal Id.",
+          "description": "The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.",
           "type": "string"
         },
         "roleDefinitionId": {
-          "description": "Gets or sets role definition id.",
+          "description": "The role definition ID used in the role assignment.",
           "type": "string"
         }
       }
@@ -1125,15 +1131,15 @@
       "description": "Role assignment properties with scope.",
       "properties": {
         "principalId": {
-          "description": "Gets or sets principal Id.",
+          "description": "The principal ID.",
           "type": "string"
         },
         "roleDefinitionId": {
-          "description": "Gets or sets role definition id.",
+          "description": "The role definition ID.",
           "type": "string"
         },
         "scope": {
-          "description": "Gets or sets role assignment scope.",
+          "description": "The role assignment scope.",
           "type": "string"
         }
       }
@@ -1142,19 +1148,19 @@
       "description": "Role definition.",
       "properties": {
         "id": {
-          "description": "Gets or sets role definition id.",
+          "description": "The role definition ID.",
           "type": "string"
         },
         "name": {
-          "description": "Gets or sets role definition name.",
+          "description": "The role definition name.",
           "type": "string"
         },
         "properties": {
           "$ref": "#/definitions/RoleDefinitionProperties",
-          "description": "Gets or sets role definition properties."
+          "description": "Role definition properties."
         },
         "type": {
-          "description": "Gets or sets role definition type.",
+          "description": "The role definition type.",
           "type": "string"
         }
       }
@@ -1172,7 +1178,7 @@
       "description": "Role definition list operation result.",
       "properties": {
         "nextLink": {
-          "description": "Gets or sets the URL to get the next set of role definitions results.",
+          "description": "The URL to use for getting the next set of results.",
           "type": "string"
         },
         "value": {
@@ -1188,29 +1194,29 @@
       "description": "Role definition properties.",
       "properties": {
         "assignableScopes": {
-          "description": "Gets or sets role definition assignable scopes.",
+          "description": "Role definition assignable scopes.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "description": {
-          "description": "Gets or sets role definition description.",
+          "description": "The role definition description.",
           "type": "string"
         },
         "permissions": {
-          "description": "Gets or sets role definition permissions.",
+          "description": "Role definition permissions.",
           "items": {
             "$ref": "#/definitions/Permission"
           },
           "type": "array"
         },
         "roleName": {
-          "description": "Gets or sets role name.",
+          "description": "The role name.",
           "type": "string"
         },
         "type": {
-          "description": "Gets or sets role type.",
+          "description": "The role type.",
           "type": "string"
         }
       }

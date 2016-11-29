@@ -7641,6 +7641,62 @@
         ]
       }
     },
+    "/previews/rule-actions/trigger-webhook": {
+      "post": {
+        "description": "Trigger a test webhook\n",
+        "parameters": [
+          {
+            "description": "Test webhook resource",
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendPreviewWebhook"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Test webhook was triggered",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/SendTestEmail"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "422": {
+            "description": "Invalid data was sent",
+            "schema": {
+              "$ref": "#/definitions/InvalidError"
+            }
+          }
+        },
+        "security": [
+          {
+            "RebAuth": []
+          }
+        ],
+        "summary": "Trigger a test webhook",
+        "tags": [
+          "Rules"
+        ]
+      }
+    },
     "/products": {
       "get": {
         "description": "Retrieve a list of products\n",
@@ -9771,6 +9827,34 @@
         }
       ]
     },
+    "/transactions/{id}/gateway-logs": {
+      "get": {
+        "description": "Retrieve Gateway communication Logs for Transaction with specified identifier string",
+        "responses": {
+          "200": {
+            "description": "Logs were retrieved successfully",
+            "schema": {
+              "$ref": "#/definitions/TransactionGatewayLog"
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Retrieve a Transaction Gateway Logs",
+        "tags": [
+          "Transactions"
+        ]
+      },
+      "parameters": [
+        {
+          "$ref": "#/parameters/resourceId"
+        }
+      ]
+    },
     "/transactions/{id}/refund": {
       "parameters": [
         {
@@ -10490,6 +10574,38 @@
       }
     },
     "/websites/{id}/webhook": {
+      "delete": {
+        "description": "Delete a webhook that belongs to a website with predefined ID\n",
+        "responses": {
+          "204": {
+            "description": "Webhook was deleted",
+            "headers": {
+              "Rate-Limit-Limit": {
+                "description": "The number of allowed requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Remaining": {
+                "description": "The number of remaining requests in the current period",
+                "type": "integer"
+              },
+              "Rate-Limit-Reset": {
+                "description": "The date in format defined by [RFC 822](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)\nwhen the current period will reset\n",
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/AccessForbidden"
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        },
+        "summary": "Delete a webhook",
+        "tags": [
+          "Websites"
+        ]
+      },
       "get": {
         "description": "Retrieve a webhook for website with specified identifier string\n",
         "responses": {
@@ -11169,13 +11285,10 @@
           ],
           "description": "The blacklist created time"
         },
-        "expireTime": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/ServerTimestamp"
-            }
-          ],
-          "description": "The blacklist expire time"
+        "expiredTime": {
+          "description": "The blacklist expired time",
+          "format": "date-time",
+          "type": "string"
         },
         "id": {
           "allOf": [
@@ -11185,11 +11298,6 @@
           ],
           "description": "The blacklist identifier string",
           "readOnly": true
-        },
-        "ttl": {
-          "description": "The blacklist time to live",
-          "minimum": 30,
-          "type": "integer"
         },
         "type": {
           "description": "The blacklist type",
@@ -12034,6 +12142,9 @@
             },
             {
               "$ref": "#/definitions/DefaultPaymentInstrumentLink"
+            },
+            {
+              "$ref": "#/definitions/LeadSourceLink"
             }
           ],
           "minItems": 3,
@@ -12312,21 +12423,6 @@
           "description": "Dispute deadline time",
           "format": "date-time",
           "type": "string"
-        },
-        "evidence": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/DisputeEvidence"
-            }
-          ]
-        },
-        "evidenceSubmissionTime": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/ServerTimestamp"
-            }
-          ],
-          "description": "Dispute evidence submission time"
         },
         "id": {
           "allOf": [
@@ -12915,6 +13011,13 @@
           "description": "True, if Gateway Account allows dynamic descriptor",
           "type": "boolean"
         },
+        "excludedDccQuoteCurrencies": {
+          "description": "Excluded Dynamic Currency Conversion Quote Currencies",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "gatewayName": {
           "$ref": "#/definitions/GatewayName"
         },
@@ -13262,6 +13365,9 @@
             },
             {
               "$ref": "#/definitions/OrganizationLink"
+            },
+            {
+              "$ref": "#/definitions/LeadSourceLink"
             }
           ],
           "maxItems": 6,
@@ -13708,6 +13814,26 @@
           "description": "LeadSource updated time"
         }
       },
+      "type": "object"
+    },
+    "LeadSourceLink": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NewLink"
+        }
+      ],
+      "properties": {
+        "rel": {
+          "description": "The link type",
+          "enum": [
+            "leadSource"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "rel"
+      ],
       "type": "object"
     },
     "Method": {
@@ -14234,6 +14360,9 @@
             },
             {
               "$ref": "#/definitions/ApprovalUrlLink"
+            },
+            {
+              "$ref": "#/definitions/LeadSourceLink"
             }
           ],
           "maxItems": 4,
@@ -15495,6 +15624,14 @@
       ],
       "type": "object"
     },
+    "SendPreviewWebhook": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Webhook"
+        }
+      ],
+      "description": "Trigger a test webhook"
+    },
     "SendTestEmail": {
       "allOf": [
         {
@@ -15639,15 +15776,9 @@
           "type": "string"
         },
         "merchantCategoryCode": {
-          "default": [
-            5734
-          ],
-          "description": "An array of merchant cateogries codes. Defaults to \"Computer Software Stores\"",
-          "items": {
-            "description": "Merchant category code",
-            "type": "integer"
-          },
-          "type": "array"
+          "default": 5734,
+          "description": "Merchant category code. Defaults to \"Computer Software Stores\"",
+          "type": "integer"
         },
         "password": {
           "description": "The user password",
@@ -15811,6 +15942,9 @@
             },
             {
               "$ref": "#/definitions/DeliveryContactLink"
+            },
+            {
+              "$ref": "#/definitions/LeadSourceLink"
             }
           ],
           "maxItems": 6,
@@ -16354,6 +16488,16 @@
           "readOnly": true,
           "type": "number"
         },
+        "childrenTransactions": {
+          "description": "The children transactions IDs",
+          "items": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "readOnly": true,
+          "type": "array"
+        },
         "createdTime": {
           "allOf": [
             {
@@ -16521,6 +16665,16 @@
           "description": "The transaction identifier string",
           "readOnly": true
         },
+        "invoiceIds": {
+          "description": "The invoice ids related to transaction",
+          "items": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "readOnly": true,
+          "type": "array"
+        },
         "method": {
           "$ref": "#/definitions/Method",
           "description": "Payment Method"
@@ -16542,6 +16696,9 @@
           ],
           "description": "Payment Card's ID",
           "readOnly": true
+        },
+        "paymentInstrument": {
+          "$ref": "#/definitions/PaymentInstrument"
         },
         "rebillNumber": {
           "description": "The transactions's rebill number",
@@ -16575,6 +16732,16 @@
           "readOnly": true,
           "type": "string"
         },
+        "subscriptionIds": {
+          "description": "The subscription ids related to transaction",
+          "items": [
+            {
+              "$ref": "#/definitions/ResourceId"
+            }
+          ],
+          "readOnly": true,
+          "type": "array"
+        },
         "type": {
           "description": "Transaction type",
           "enum": [
@@ -16596,6 +16763,11 @@
           ],
           "description": "Transaction updated time"
         },
+        "velocity": {
+          "description": "The number of transactions by the same customer in the past 24 hours",
+          "format": "integer",
+          "type": "number"
+        },
         "websiteId": {
           "allOf": [
             {
@@ -16606,6 +16778,54 @@
           "readOnly": true
         }
       },
+      "type": "object"
+    },
+    "TransactionGatewayLog": {
+      "properties": {
+        "_links": {
+          "description": "The links related to resource",
+          "items": [
+            {
+              "$ref": "#/definitions/TransactionLink"
+            }
+          ],
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "createdTime": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ServerTimestamp"
+            }
+          ],
+          "description": "The log entry created time"
+        },
+        "duration": {
+          "description": "The request time, msec",
+          "type": "integer"
+        },
+        "headers": {
+          "description": "The request headers",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "request": {
+          "description": "The request body",
+          "type": "string"
+        },
+        "response": {
+          "description": "The response body",
+          "type": "string"
+        },
+        "url": {
+          "description": "The request URL",
+          "type": "string"
+        }
+      },
+      "readOnly": true,
       "type": "object"
     },
     "TransactionLink": {
@@ -18011,31 +18231,6 @@
       "description": "Less than or equals condition",
       "type": "object"
     },
-    "minimum-order-amount": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CouponRestriction"
-        },
-        {
-          "properties": {
-            "amount": {
-              "description": "Restriction amount",
-              "type": "string"
-            },
-            "currency": {
-              "description": "Restriction currency",
-              "type": "string"
-            }
-          },
-          "required": [
-            "amount",
-            "currency"
-          ],
-          "type": "object"
-        }
-      ],
-      "description": "minimum-order-amount restrictions"
-    },
     "none": {
       "allOf": [
         {
@@ -18312,29 +18507,6 @@
       ],
       "description": "restrict-to-plans restrictions"
     },
-    "restrict-to-products": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CouponRestriction"
-        },
-        {
-          "properties": {
-            "productIds": {
-              "description": "Product IDs coupon can be applied to",
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "productIds"
-          ],
-          "type": "object"
-        }
-      ],
-      "description": "restrict-to-products restrictions"
-    },
     "restrict-to-subscriptions": {
       "allOf": [
         {
@@ -18415,26 +18587,6 @@
         }
       ],
       "description": "Stop active subscriptions"
-    },
-    "total-redemptions": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CouponRestriction"
-        },
-        {
-          "properties": {
-            "quantity": {
-              "description": "Restriction total quantity",
-              "type": "integer"
-            }
-          },
-          "required": [
-            "quantity"
-          ],
-          "type": "object"
-        }
-      ],
-      "description": "Total quantity restrictions"
     },
     "trigger-webhook": {
       "allOf": [

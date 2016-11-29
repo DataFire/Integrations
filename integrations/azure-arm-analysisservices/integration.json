@@ -60,14 +60,14 @@
   ],
   "parameters": {
     "ApiVersionParameter": {
-      "description": "Client API Version.",
+      "description": "The client API version.",
       "in": "query",
       "name": "api-version",
       "required": true,
       "type": "string"
     },
     "ResourceGroupNameParameter": {
-      "description": "Name of the Azure Resource group which a given Analysis Services server is part of.",
+      "description": "The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.",
       "in": "path",
       "maxLength": 90,
       "minLength": 1,
@@ -78,7 +78,7 @@
       "x-ms-parameter-location": "method"
     },
     "SubscriptionIdParameter": {
-      "description": "A unique identifier of a Microsoft Azure subscription. The subscription id forms part of the URI for every service call.",
+      "description": "A unique identifier for a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
       "in": "path",
       "name": "subscriptionId",
       "required": true,
@@ -88,7 +88,7 @@
   "paths": {
     "/subscriptions/{subscriptionId}/providers/Microsoft.AnalysisServices/servers": {
       "get": {
-        "description": "List all the Analysis Services servers for the given subscription",
+        "description": "Lists all the Analysis Services servers for the given subscription.",
         "operationId": "Servers_List",
         "parameters": [
           {
@@ -114,7 +114,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers": {
       "get": {
-        "description": "Gets all the Analysis Services servers for the given resource group",
+        "description": "Gets all the Analysis Services servers for the given resource group.",
         "operationId": "Servers_ListByResourceGroup",
         "parameters": [
           {
@@ -150,7 +150,7 @@
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -168,13 +168,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK."
           },
           "202": {
-            "description": "Accepted"
+            "description": "Accepted."
           },
           "204": {
-            "description": "No Content"
+            "description": "No Content."
           }
         },
         "tags": [
@@ -183,14 +183,14 @@
         "x-ms-long-running-operation": true
       },
       "get": {
-        "description": "Gets details about the specified Analysis Services server",
+        "description": "Gets details about the specified Analysis Services server.",
         "operationId": "Servers_GetDetails",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -208,7 +208,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The operation was successful.",
             "schema": {
               "$ref": "#/definitions/AnalysisServicesServer"
             }
@@ -219,14 +219,14 @@
         ]
       },
       "patch": {
-        "description": "Updates the current state of the specified Analysis Services server",
+        "description": "Updates the current state of the specified Analysis Services server.",
         "operationId": "Servers_Update",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -236,7 +236,7 @@
             "type": "string"
           },
           {
-            "description": "Request object for updating the server",
+            "description": "Request object that contains the updated information for the server.",
             "in": "body",
             "name": "serverUpdateParameters",
             "required": true,
@@ -264,14 +264,14 @@
         ]
       },
       "put": {
-        "description": "Provisions the specified Analysis Services server based on the configuration specified in the request",
+        "description": "Provisions the specified Analysis Services server based on the configuration specified in the request.",
         "operationId": "Servers_Create",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -281,7 +281,7 @@
             "type": "string"
           },
           {
-            "description": "Request body for provisioning",
+            "description": "Contains the information used to provision the Analysis Services server.",
             "in": "body",
             "name": "serverParameters",
             "required": true,
@@ -298,13 +298,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "OK. The operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/AnalysisServicesServer"
             }
           },
           "201": {
-            "description": "InProgress",
+            "description": "InProgress. The operation is still completing.",
             "schema": {
               "$ref": "#/definitions/AnalysisServicesServer"
             }
@@ -318,14 +318,14 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/resume": {
       "post": {
-        "description": "Resumes the specified Analysis Services server instance",
+        "description": "Resumes operation of the specified Analysis Services server instance.",
         "operationId": "Servers_Resume",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -357,14 +357,14 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AnalysisServices/servers/{serverName}/suspend": {
       "post": {
-        "description": "Supends the specified Analysis Services server instance",
+        "description": "Supends operation of the specified Analysis Services server instance.",
         "operationId": "Servers_Suspend",
         "parameters": [
           {
             "$ref": "#/parameters/ResourceGroupNameParameter"
           },
           {
-            "description": "Name of the Analysis Services server",
+            "description": "The name of the Analysis Services server. It must be at least 3 characters in length, and no more than 63.",
             "in": "path",
             "maxLength": 63,
             "minLength": 3,
@@ -382,10 +382,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK."
           },
           "202": {
-            "description": "Accepted"
+            "description": "Accepted."
           }
         },
         "tags": [
@@ -402,18 +402,18 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Represents an instance of Analysis Services resource",
+      "description": "Represents an instance of an Analysis Services resource.",
       "properties": {
         "properties": {
           "$ref": "#/definitions/AnalysisServicesServerProperties",
-          "description": "Provision request properties",
+          "description": "Properties of the provision operation request.",
           "x-ms-client-flatten": true
         }
       },
       "type": "object"
     },
     "AnalysisServicesServerMutableProperties": {
-      "description": "Represents a set of mutable Analysis Services resource properties",
+      "description": "An object that represents a set of mutable Analysis Services resource properties.",
       "properties": {
         "asAdministrators": {
           "$ref": "#/definitions/ServerAdministrators"
@@ -427,15 +427,15 @@
           "$ref": "#/definitions/AnalysisServicesServerMutableProperties"
         }
       ],
-      "description": "Properties of Analysis Services resource",
+      "description": "Properties of Analysis Services resource.",
       "properties": {
         "provisioningState": {
-          "description": "The current deployment state of Analysis Services resource",
+          "description": "The current deployment state of Analysis Services resource.",
           "readOnly": true,
           "type": "string"
         },
         "serverFullName": {
-          "description": "Full name of the Analysis Services resource",
+          "description": "The full name of the Analysis Services resource.",
           "readOnly": true,
           "type": "string"
         }
@@ -447,28 +447,28 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/AnalysisServicesServerMutableProperties",
-          "description": "Provision request properties",
+          "description": "Properties of the provision operation request.",
           "x-ms-client-flatten": true
         },
         "sku": {
           "$ref": "#/definitions/ResourceSku",
-          "description": "Sku of the Analysis Services resource"
+          "description": "The SKU of the Analysis Services resource."
         },
         "tags": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Key value pairs of additional properties that can ebe specified",
+          "description": "Key-value pairs of additional provisioning properties.",
           "type": "object"
         }
       },
       "type": "object"
     },
     "AnalysisServicesServers": {
-      "description": "A collection of Analysis Services resources",
+      "description": "An array of Analysis Services resources.",
       "properties": {
         "value": {
-          "description": "The collection of Analysis Services resources",
+          "description": "An array of Analysis Services resources.",
           "items": {
             "$ref": "#/definitions/AnalysisServicesServer"
           },
@@ -481,35 +481,35 @@
       "type": "object"
     },
     "Resource": {
-      "description": "Represents an instance of Analysis Services resource",
+      "description": "Represents an instance of an Analysis Services resource.",
       "properties": {
         "id": {
-          "description": "Identifier that represents the Analysis Services resource",
+          "description": "An identifier that represents the Analysis Services resource.",
           "readOnly": true,
           "type": "string"
         },
         "location": {
-          "description": "Location of the Analysis Services resource",
+          "description": "Location of the Analysis Services resource.",
           "type": "string"
         },
         "name": {
-          "description": "Name of the Analysis Services resource",
+          "description": "The name of the Analysis Services resource.",
           "readOnly": true,
           "type": "string"
         },
         "sku": {
           "$ref": "#/definitions/ResourceSku",
-          "description": "Sku of the Analysis Services resource"
+          "description": "The SKU of the Analysis Services resource."
         },
         "tags": {
           "additionalProperties": {
             "type": "string"
           },
-          "description": "Key value pairs of additional properties that can ebe specified",
+          "description": "Key-value pairs of additional resource provisioning properties.",
           "type": "object"
         },
         "type": {
-          "description": "Specifies the type of Analysis Services resource",
+          "description": "The type of the Analysis Services resource.",
           "readOnly": true,
           "type": "string"
         }
@@ -522,10 +522,10 @@
       "x-ms-azure-resource": true
     },
     "ResourceSku": {
-      "description": "Represents the SKU name and tier for Analysis Services resource",
+      "description": "Represents the SKU name and Azure pricing tier for Analysis Services resource.",
       "properties": {
         "name": {
-          "description": "Name of the Sku level for the server being provisioned.",
+          "description": "Name of the SKU level for the server being provisioned. Possible values are: 'S1', 'S2', 'S4', and 'D1'.",
           "enum": [
             "S1",
             "S2",
@@ -539,7 +539,7 @@
           }
         },
         "tier": {
-          "description": "Name of the tier to which the Sku applies.",
+          "description": "The name of the Azure pricing tier to which the SKU applies. Possible values are: 'Development' and 'Standard'.",
           "enum": [
             "Development",
             "Standard"
@@ -557,12 +557,12 @@
       "type": "object"
     },
     "ServerAdministrators": {
-      "description": "Array of administrator user identities",
+      "description": "An array of administrator user identities",
       "properties": {
         "members": {
-          "description": "Collection of administrator user identities",
+          "description": "An array of administrator user identities.",
           "items": {
-            "description": "UPN of the user. Example johnsmith@contoso.com.",
+            "description": "The UPN of the user. For example: johnsmith@contoso.com.",
             "type": "string"
           },
           "type": "array"

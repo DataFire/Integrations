@@ -256,7 +256,7 @@
       "properties": {
         "error": {
           "$ref": "#/definitions/Status",
-          "description": "If set, represents the error message for the operation.\nNote that filled-in mage annotations are guaranteed to be\ncorrect, even when <code>error</code> is non-empty."
+          "description": "If set, represents the error message for the operation.\nNote that filled-in image annotations are guaranteed to be\ncorrect, even when <code>error</code> is non-empty."
         },
         "faceAnnotations": {
           "description": "If present, face detection completed successfully.",
@@ -627,7 +627,7 @@
       "description": "Image context and/or feature-specific parameters.",
       "properties": {
         "languageHints": {
-          "description": "List of languages to use for TEXT_DETECTION. In most cases, an empty value\nyields the best results since it enables automatic language detection. For\nlanguages based on the Latin alphabet, setting `language_hints` is not\nneeded. In rare cases, when the language of the text in the image is known,\nsetting a hint will help get better results (although it will be a\nsignificant hindrance if the hint is wrong). Text detection returns an\nerror if one or more of the specified languages is not one of the\n[supported\nlanguages](/translate/v2/translate-reference#supported_languages).",
+          "description": "List of languages to use for TEXT_DETECTION. In most cases, an empty value\nyields the best results since it enables automatic language detection. For\nlanguages based on the Latin alphabet, setting `language_hints` is not\nneeded. In rare cases, when the language of the text in the image is known,\nsetting a hint will help get better results (although it will be a\nsignificant hindrance if the hint is wrong). Text detection returns an\nerror if one or more of the specified languages is not one of the\n[supported\nlanguages](/vision/docs/languages).",
           "items": {
             "type": "string"
           },

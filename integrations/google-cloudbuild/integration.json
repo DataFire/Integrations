@@ -835,12 +835,12 @@
           "type": "string"
         },
         "createTime": {
-          "description": "Time at which the build was created.\n@OutputOnly",
+          "description": "Time at which the request to create the build was received.\n@OutputOnly",
           "format": "google-datetime",
           "type": "string"
         },
         "finishTime": {
-          "description": "Time at which execution of the build was finished.\n@OutputOnly",
+          "description": "Time at which execution of the build was finished.\n\nThe difference between finish_time and start_time is the duration of the\nbuild's execution.\n@OutputOnly",
           "format": "google-datetime",
           "type": "string"
         },
@@ -884,7 +884,7 @@
           "description": "A permanent fixed identifier for source.\n@OutputOnly"
         },
         "startTime": {
-          "description": "Time at which execution of the build was started.\n@OutputOnly",
+          "description": "Time at which execution of the build was started.",
           "format": "google-datetime",
           "type": "string"
         },

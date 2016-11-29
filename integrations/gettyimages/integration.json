@@ -691,6 +691,77 @@
         ]
       }
     },
+    "/v3/boards/{board_id}/comments": {
+      "post": {
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "description": "Specifies the comment to be added to the board",
+            "in": "body",
+            "name": "comment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/comment_request"
+            }
+          },
+          {
+            "description": "Authorization token required. Used for applying content access restrictions. Use the OAuth2 Resource Owner Grant to auto-populate this value.",
+            "in": "header",
+            "name": "Authorization",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Accept-Language parameter optional. Used to restrict the set of natural languages that are preferred as a response to the request.",
+            "in": "header",
+            "name": "Accept-Language",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Specifies the Id of the board to add the comment to.",
+            "in": "path",
+            "name": "board_id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "No response was specified",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "InvalidParameterValue"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "InsufficientAccess"
+          },
+          "404": {
+            "description": "BoardNotFound"
+          }
+        },
+        "summary": "<b>***BETA***</b> Add a comment to a board",
+        "tags": [
+          "Boards"
+        ]
+      }
+    },
     "/v3/collections": {
       "get": {
         "consumes": [],
@@ -952,10 +1023,10 @@
             "description": "See Other"
           },
           "400": {
-            "description": "ParameterNotSupported"
+            "description": "ProductIdNotSpecified"
           },
           "401": {
-            "description": "OverageLimitReached"
+            "description": "ProductIdNotAvailableForUser"
           },
           "404": {
             "description": "FileDownloadSizeNotFound"
@@ -994,6 +1065,14 @@
             "type": "boolean"
           },
           {
+            "description": "Identifier of the instance for the selected product offering type.",
+            "format": "int32",
+            "in": "query",
+            "name": "product_id",
+            "required": false,
+            "type": "integer"
+          },
+          {
             "description": "Specifies the size to be downloaded.",
             "in": "query",
             "name": "size",
@@ -1015,11 +1094,14 @@
           "303": {
             "description": "See Other"
           },
+          "400": {
+            "description": "ProductIdNotSpecified"
+          },
           "401": {
-            "description": "NoAgreement"
+            "description": "ProductIdNotAvailableForUser"
           },
           "404": {
-            "description": "VideoNotFound"
+            "description": "FileDownloadSizeNotFound"
           }
         },
         "summary": "Download a video",
@@ -1123,10 +1205,10 @@
             "description": "See Other"
           },
           "400": {
-            "description": "ParameterNotSupported"
+            "description": "ProductIdNotSpecified"
           },
           "401": {
-            "description": "OverageLimitReached"
+            "description": "ProductIdNotAvailableForUser"
           },
           "404": {
             "description": "FileDownloadSizeNotFound"
@@ -5527,6 +5609,12 @@
           },
           "type": "array"
         },
+        "comments": {
+          "items": {
+            "$ref": "#/definitions/comment"
+          },
+          "type": "array"
+        },
         "date_created": {
           "format": "date-time",
           "type": "string"
@@ -5573,6 +5661,20 @@
       },
       "type": "object"
     },
+    "collaborator": {
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "collection": {
       "properties": {
         "asset_family": {
@@ -5614,6 +5716,35 @@
             "$ref": "#/definitions/collection"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "comment": {
+      "properties": {
+        "can_remove": {
+          "type": "boolean"
+        },
+        "created_by": {
+          "$ref": "#/definitions/collaborator"
+        },
+        "date_created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "comment_request": {
+      "properties": {
+        "text": {
+          "type": "string"
         }
       },
       "type": "object"

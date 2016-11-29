@@ -34,6 +34,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Load the details about all the hotels your application has access to.",
+        "operationId": "Hotels_GetHotels",
         "parameters": [
           {
             "description": "Application identifier",
@@ -92,6 +93,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Load the details about the specified hotel.",
+        "operationId": "Hotels_GetHotel",
         "parameters": [
           {
             "description": "Application identifier",
@@ -146,11 +148,193 @@
         ]
       }
     },
+    "/api/hotel/v0/hotels/{hotelId}/codes": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "With this call you can find codes for a hotel by type or code. By default and without any filter criteria\r\n            defined it will return you all available codes.",
+        "operationId": "Codes_GetCodes",
+        "parameters": [
+          {
+            "description": "Application identifier",
+            "in": "header",
+            "name": "App-Id",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_ids"
+          },
+          {
+            "description": "Application key.",
+            "in": "header",
+            "name": "App-Key",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_keys"
+          },
+          {
+            "description": "The hotel id you are trying to find codes for.",
+            "format": "int32",
+            "in": "path",
+            "name": "hotelId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Return all codes matching the code. Only the combinication of code and type\r\n            make a code unique, so it can happen that you get multiple codes with the same\r\n            value for different types",
+            "in": "query",
+            "name": "code",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Return all codes available for the specified type",
+            "enum": [
+              "GuestRequest",
+              "RequestDietary",
+              "VIPStatus",
+              "ReasonForRateChange",
+              "Regrets",
+              "MarketSegments",
+              "SourceOfBusiness",
+              "LoyaltyProgram",
+              "CancellationReason",
+              "AccountType",
+              "AccountRank",
+              "VIPLevel",
+              "Title",
+              "ContactFunction",
+              "Territory",
+              "CorrespondenceType",
+              "ExternalProgramType",
+              "RevenueBucket",
+              "AdditionalRevenueBucket",
+              "AdditionalStatisticsBuckets",
+              "MealPeriod",
+              "BillingCycle",
+              "ReminderCycle",
+              "MajorMarketSegments",
+              "DocumentType",
+              "ActivityType",
+              "ReservationLabels"
+            ],
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of codes for a requested hotel matching the filter criteria.",
+            "schema": {
+              "$ref": "#/definitions/CodesListResponse"
+            }
+          },
+          "204": {
+            "description": "There are no codes found for the given filtering criteria."
+          },
+          "401": {
+            "description": "You provided wrong credentials, or you reached your API limit."
+          },
+          "403": {
+            "description": "The application does not have access to the requested resource."
+          },
+          "404": {
+            "description": "Not Found. The server has not found anything matching the Request-URI."
+          },
+          "422": {
+            "description": "The request failed to validate."
+          },
+          "500": {
+            "description": "We caught an unexpected error on our side. Please report with providing the Hetras-Tracking-Id from the response headers and we will check the logfiles."
+          },
+          "503": {
+            "description": "The server is currently unavailable. Please try later."
+          }
+        },
+        "summary": "Get a list of codes for the specified hotel either filtered by type or code.",
+        "tags": [
+          "Codes"
+        ]
+      }
+    },
+    "/api/hotel/v0/hotels/{hotelId}/codes/{id}": {
+      "get": {
+        "consumes": [],
+        "deprecated": false,
+        "description": "Read the details about a specific code available for the defined hotel.",
+        "operationId": "Codes_GetCode",
+        "parameters": [
+          {
+            "description": "Application identifier",
+            "in": "header",
+            "name": "App-Id",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_ids"
+          },
+          {
+            "description": "Application key.",
+            "in": "header",
+            "name": "App-Key",
+            "required": true,
+            "type": "string",
+            "x-data-threescale-name": "app_keys"
+          },
+          {
+            "description": "The hotel id the code available for.",
+            "format": "int32",
+            "in": "path",
+            "name": "hotelId",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "The code identifier you want to see details for.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details for the given code and hotel.",
+            "schema": {
+              "$ref": "#/definitions/CodeFullEntry"
+            }
+          },
+          "401": {
+            "description": "You provided wrong credentials, or you reached your API limit."
+          },
+          "403": {
+            "description": "The application does not have access to the requested resource."
+          },
+          "404": {
+            "description": "Not Found. The server has not found anything matching the Request-URI or the requested rateplan could not be found."
+          },
+          "422": {
+            "description": "The request failed to validate."
+          },
+          "500": {
+            "description": "We caught an unexpected error on our side. Please report with providing the Hetras-Tracking-Id from the response headers and we will check the logfiles."
+          },
+          "503": {
+            "description": "The server is currently unavailable. Please try later."
+          }
+        },
+        "summary": "Get all the details for a specific code available for the hotel.",
+        "tags": [
+          "Codes"
+        ]
+      }
+    },
     "/api/hotel/v0/hotels/{hotelId}/rateplans": {
       "get": {
         "consumes": [],
         "deprecated": false,
         "description": "With this call you can find rateplans for a hotel by different filters. By default and without any filter criteria\r\n            defined it will return you all active rateplans.",
+        "operationId": "RatePlans_GetRateplans",
         "parameters": [
           {
             "description": "Application identifier",
@@ -224,6 +408,7 @@
             "type": "string"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans having one of the specified values as a market code",
             "in": "query",
             "items": {
@@ -234,6 +419,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans by which at least one of the specified room types are sold",
             "in": "query",
             "items": {
@@ -244,6 +430,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans having at least one of the specified services included",
             "in": "query",
             "items": {
@@ -310,7 +497,7 @@
             "description": "The server is currently unavailable. Please try later."
           }
         },
-        "summary": "Get a list of rateplans for for the specified hotel id matching the filter criteria.",
+        "summary": "Get a list of rateplans for the specified hotel id matching the filter criteria.",
         "tags": [
           "RatePlans"
         ]
@@ -320,6 +507,7 @@
       "get": {
         "consumes": [],
         "deprecated": false,
+        "operationId": "RatePlans_GetRateplansCount",
         "parameters": [
           {
             "description": "Application identifier",
@@ -393,6 +581,7 @@
             "type": "string"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans having one of the specified values as a market code",
             "in": "query",
             "items": {
@@ -403,6 +592,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans by which at least one of the specified room types are sold",
             "in": "query",
             "items": {
@@ -413,6 +603,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return all rateplans having at least one of the specified services included",
             "in": "query",
             "items": {
@@ -460,6 +651,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Read the details about a specific rateplan for the defined hotel.",
+        "operationId": "RatePlans_GetRateplan",
         "parameters": [
           {
             "description": "Application identifier",
@@ -530,6 +722,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "With this call you can read the daily rates setup including the cancellation policy and minimum guarantee per day for the\r\n            specified rateplan. You can specify a timeperiod to read the daily rates for. The rateplan needs to be active for at least\r\n            one business day in the defined time period and have rates loaded.",
+        "operationId": "RatePlans_GetRates",
         "parameters": [
           {
             "description": "Application identifier",
@@ -656,7 +849,8 @@
           "text/json"
         ],
         "deprecated": false,
-        "description": "The hetras API is using <a href=\"https://tools.ietf.org/html/rfc6902\" onfocus=\"this.blur()\" target=\"_blank\">IETF JSON Patch RFC 6902</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified time period.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified time period.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "operationId": "RatePlans_PatchRates",
         "parameters": [
           {
             "description": "Application identifier",
@@ -754,6 +948,7 @@
       "get": {
         "consumes": [],
         "deprecated": false,
+        "operationId": "RatePlans_GetRatesCount",
         "parameters": [
           {
             "description": "Application identifier",
@@ -840,6 +1035,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Read the setup of the daily rate for the defined rateplan for that specific business day.",
+        "operationId": "RatePlans_GetRate",
         "parameters": [
           {
             "description": "Application identifier",
@@ -918,7 +1114,8 @@
           "text/json"
         ],
         "deprecated": false,
-        "description": "The hetras API is using <a href=\"https://tools.ietf.org/html/rfc6902\" onfocus=\"this.blur()\" target=\"_blank\">IETF JSON Patch RFC 6902</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified business day.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to set the base price for non-derived rateplans if the rateplan\r\n            is active and already loaded for the specified business day.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/base_price\", \"value\": 120.00\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "operationId": "RatePlans_PatchRate",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1009,6 +1206,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "With this call you can load the details about a all available room types for the specified hotel.",
+        "operationId": "RoomTypes_GetRoomTypes",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1063,7 +1261,7 @@
         },
         "summary": "Get a list with the details of all room types for for the specified hotel id.",
         "tags": [
-          "RoomType"
+          "RoomTypes"
         ]
       }
     },
@@ -1072,6 +1270,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "With this call you can load the details about a specific room type in the hotel.",
+        "operationId": "RoomTypes_GetRoomType",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1130,7 +1329,7 @@
         },
         "summary": "Get all the details for a specific room type in the hotel.",
         "tags": [
-          "RoomType"
+          "RoomTypes"
         ]
       }
     },
@@ -1139,6 +1338,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "Find all rooms for the hotel that match the specified filter criteria. The filtering will be done based on the current state of\r\n            the rooms.",
+        "operationId": "Rooms_GetRooms",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1176,6 +1376,7 @@
             "type": "string"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return results only for rooms that have the given room condition status.",
             "in": "query",
             "items": {
@@ -1191,6 +1392,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return results only for rooms that have the given maintenance status.",
             "in": "query",
             "items": {
@@ -1208,6 +1410,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms for the given room types. Allows to pass a comma-separated list of room types.",
             "in": "query",
             "items": {
@@ -1218,6 +1421,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having all of the given amenities. You can provide a comma seperated list of \r\n            amenity codes.",
             "in": "query",
             "items": {
@@ -1228,6 +1432,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified views. You can provide a comma seperated list of \r\n            view codes.",
             "in": "query",
             "items": {
@@ -1238,6 +1443,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified locations. You can provide a comma seperated list of \r\n            location codes.",
             "in": "query",
             "items": {
@@ -1306,7 +1512,7 @@
         },
         "summary": "Get a list of rooms using the provided filtering and pagination criteria.",
         "tags": [
-          "Room"
+          "Rooms"
         ]
       }
     },
@@ -1314,6 +1520,7 @@
       "get": {
         "consumes": [],
         "deprecated": false,
+        "operationId": "Rooms_GetRoomsCount",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1351,6 +1558,7 @@
             "type": "string"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return results only for rooms that have the given room condition status.",
             "in": "query",
             "items": {
@@ -1366,6 +1574,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return results only for rooms that have the given maintenance status.",
             "in": "query",
             "items": {
@@ -1383,6 +1592,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms for the given room types. Allows to pass a comma-separated list of room types.",
             "in": "query",
             "items": {
@@ -1393,6 +1603,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having all of the given amenities. You can provide a comma seperated list of \r\n            amenity codes.",
             "in": "query",
             "items": {
@@ -1403,6 +1614,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified views. You can provide a comma seperated list of \r\n            view codes.",
             "in": "query",
             "items": {
@@ -1413,6 +1625,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified locations. You can provide a comma seperated list of \r\n            location codes.",
             "in": "query",
             "items": {
@@ -1451,7 +1664,7 @@
         },
         "summary": "Get the count of all rooms in the hotel matching the given filter criteria.",
         "tags": [
-          "Room"
+          "Rooms"
         ]
       }
     },
@@ -1459,6 +1672,7 @@
       "get": {
         "consumes": [],
         "deprecated": false,
+        "operationId": "Rooms_GetAvailableRooms",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1516,6 +1730,7 @@
             "type": "boolean"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms for the given room types. Allows to pass a comma-separated list of room types.",
             "in": "query",
             "items": {
@@ -1526,6 +1741,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having all of the given amenities. You can provide a comma seperated list of \r\n            amenity codes.",
             "in": "query",
             "items": {
@@ -1536,6 +1752,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified views. You can provide a comma seperated list of \r\n            view codes.",
             "in": "query",
             "items": {
@@ -1546,6 +1763,7 @@
             "type": "array"
           },
           {
+            "collectionFormat": "csv",
             "description": "Return result only for rooms having at least one of the specified locations. You can provide a comma seperated list of \r\n            location codes.",
             "in": "query",
             "items": {
@@ -1614,7 +1832,7 @@
         },
         "summary": "Request available rooms using a given criteria.",
         "tags": [
-          "Room"
+          "Rooms"
         ]
       }
     },
@@ -1623,6 +1841,7 @@
         "consumes": [],
         "deprecated": false,
         "description": "With this call you can load the details about a specific room in the hotel. It will show you the current status of the room.",
+        "operationId": "Rooms_GetRoom",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1681,7 +1900,7 @@
         },
         "summary": "Get all the details for a specific room in the hotel.",
         "tags": [
-          "Room"
+          "Rooms"
         ]
       },
       "patch": {
@@ -1690,7 +1909,8 @@
           "text/json"
         ],
         "deprecated": false,
-        "description": "The hetras API is using <a href=\"https://tools.ietf.org/html/rfc6902\" onfocus=\"this.blur()\" target=\"_blank\">IETF JSON Patch RFC 6902</a>\r\n            to partially update an existing resource. Currently this call only allows to modify condition and housekeeping occupancy status of the room.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/status/condition\", \"value\": \"CleanNotInspected\"\r\n              }, {\r\n                \"op\": \"replace\", \"path\": \"/status/housekeeping_occupancy\", \"value\": \"Vacant\"\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call only allows to modify condition and housekeeping occupancy status of the room.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/status/condition\", \"value\": \"CleanNotInspected\"\r\n              }, {\r\n                \"op\": \"replace\", \"path\": \"/status/housekeeping_occupancy\", \"value\": \"Vacant\"\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.<br />",
+        "operationId": "Rooms_PatchRoom",
         "parameters": [
           {
             "description": "Application identifier",
@@ -1764,7 +1984,7 @@
         },
         "summary": "Partially updates a room.",
         "tags": [
-          "Room"
+          "Rooms"
         ]
       }
     }
@@ -1782,6 +2002,190 @@
         "channel_group": {
           "description": "Code of the distribution channel group",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CodeBaseEntry": {
+      "properties": {
+        "_links": {
+          "additionalProperties": {
+            "$ref": "#/definitions/LinkObject"
+          },
+          "description": "Collection of links to related resources",
+          "type": "object"
+        },
+        "code": {
+          "description": "The code value. This value you will see in reservations as market code and in other\r\n            resources like the revenue buckets in transactions",
+          "type": "string"
+        },
+        "default": {
+          "description": "This attribute tells you if this code is the default code for the specific type or not.\r\n            Not all the types of codes need to have a default code",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The id of the code",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the code that usually is more human readable",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type or category of the code",
+          "enum": [
+            "GuestRequest",
+            "RequestDietary",
+            "VIPStatus",
+            "ReasonForRateChange",
+            "Regrets",
+            "MarketSegments",
+            "SourceOfBusiness",
+            "LoyaltyProgram",
+            "CancellationReason",
+            "AccountType",
+            "AccountRank",
+            "VIPLevel",
+            "Title",
+            "ContactFunction",
+            "Territory",
+            "CorrespondenceType",
+            "ExternalProgramType",
+            "RevenueBucket",
+            "AdditionalRevenueBucket",
+            "AdditionalStatisticsBuckets",
+            "MealPeriod",
+            "BillingCycle",
+            "ReminderCycle",
+            "MajorMarketSegments",
+            "DocumentType",
+            "ActivityType",
+            "ReservationLabels"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CodeFullEntry": {
+      "properties": {
+        "_links": {
+          "additionalProperties": {
+            "$ref": "#/definitions/LinkObject"
+          },
+          "description": "Collection of links to related resources",
+          "type": "object"
+        },
+        "code": {
+          "description": "The code value. This value you will see in reservations as market code and in other\r\n            resources like the revenue buckets in transactions",
+          "type": "string"
+        },
+        "comment": {
+          "description": "The comment for this code",
+          "type": "string"
+        },
+        "default": {
+          "description": "This attribute tells you if this code is the default code for the specific type or not.\r\n            Not all the types of codes need to have a default code",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The id of the code",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the code that usually is more human readable",
+          "type": "string"
+        },
+        "parent": {
+          "$ref": "#/definitions/CodeBaseEntry",
+          "description": "Some codes can have a hierarchie and a child code always points to\r\n            the parent"
+        },
+        "type": {
+          "description": "The type or category of the code",
+          "enum": [
+            "GuestRequest",
+            "RequestDietary",
+            "VIPStatus",
+            "ReasonForRateChange",
+            "Regrets",
+            "MarketSegments",
+            "SourceOfBusiness",
+            "LoyaltyProgram",
+            "CancellationReason",
+            "AccountType",
+            "AccountRank",
+            "VIPLevel",
+            "Title",
+            "ContactFunction",
+            "Territory",
+            "CorrespondenceType",
+            "ExternalProgramType",
+            "RevenueBucket",
+            "AdditionalRevenueBucket",
+            "AdditionalStatisticsBuckets",
+            "MealPeriod",
+            "BillingCycle",
+            "ReminderCycle",
+            "MajorMarketSegments",
+            "DocumentType",
+            "ActivityType",
+            "ReservationLabels"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CodesListRequest": {
+      "properties": {
+        "code": {
+          "description": "Return all codes matching the code. Only the combinication of code and type\r\n            make a code unique, so it can happen that you get multiple codes with the same\r\n            value for different types",
+          "type": "string"
+        },
+        "type": {
+          "description": "Return all codes available for the specified type",
+          "enum": [
+            "GuestRequest",
+            "RequestDietary",
+            "VIPStatus",
+            "ReasonForRateChange",
+            "Regrets",
+            "MarketSegments",
+            "SourceOfBusiness",
+            "LoyaltyProgram",
+            "CancellationReason",
+            "AccountType",
+            "AccountRank",
+            "VIPLevel",
+            "Title",
+            "ContactFunction",
+            "Territory",
+            "CorrespondenceType",
+            "ExternalProgramType",
+            "RevenueBucket",
+            "AdditionalRevenueBucket",
+            "AdditionalStatisticsBuckets",
+            "MealPeriod",
+            "BillingCycle",
+            "ReminderCycle",
+            "MajorMarketSegments",
+            "DocumentType",
+            "ActivityType",
+            "ReservationLabels"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CodesListResponse": {
+      "properties": {
+        "codes": {
+          "description": "The list of codes matching the defined filter criteria",
+          "items": {
+            "$ref": "#/definitions/CodeBaseEntry"
+          },
+          "type": "array"
         }
       },
       "type": "object"
