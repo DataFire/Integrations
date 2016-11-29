@@ -19,8 +19,17 @@
     "title": "AzureAnalysisServices",
     "description": "The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, updat..."
   },
+  "azure-arm-apimanagement-apimdeployment": {
+    "title": "ApiManagementClient",
+    "description": "Use these REST APIs to manage Azure API Management deployment."
+  },
+  "azure-arm-apimanagement-apimmanagement": {
+    "title": "ApiManagementClient",
+    "description": "Use these REST APIs for performing operations on entities like API, Product, and Subscription associated with your Azure..."
+  },
   "azure-arm-authorization": {
-    "title": "AuthorizationManagementClient"
+    "title": "AuthorizationManagementClient",
+    "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources ..."
   },
   "azure-arm-batch": {
     "title": "BatchManagement"
@@ -44,17 +53,24 @@
     "title": "ContainerServiceClient",
     "description": "The Container Service Client."
   },
+  "azure-arm-containerregistry": {
+    "title": "ContainerRegistryManagementClient"
+  },
   "azure-arm-devtestlabs": {
     "title": "DevTestLabsClient",
-    "description": "The DevTest Labs Client."
+    "description": "Azure DevTest Labs REST API."
   },
   "azure-arm-dns": {
     "title": "DnsManagementClient",
     "description": "The DNS Management Client."
   },
+  "azure-arm-documentdb": {
+    "title": "DocumentDB",
+    "description": "Azure DocumentDB Database Service Resource Provider REST API"
+  },
   "azure-arm-eventhub": {
     "title": "EventHubManagementClient",
-    "description": "Azure EventHub client"
+    "description": "Azure Event Hubs client"
   },
   "azure-arm-insights": {
     "title": "InsightsManagementClient"
@@ -72,7 +88,8 @@
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault."
   },
   "azure-arm-logic": {
-    "title": "LogicManagementClient"
+    "title": "LogicManagementClient",
+    "description": "REST API for Azure Logic Apps."
   },
   "azure-arm-machinelearning-commitmentplans": {
     "title": "Azure ML Commitment Plans Management Client",
@@ -100,7 +117,7 @@
   },
   "azure-arm-powerbiembedded": {
     "title": "Power BI Embedded Management Client",
-    "description": "Client to manage your Power BI embedded workspace collections and retrieve workspaces."
+    "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces."
   },
   "azure-arm-recoveryservices": {
     "title": "RecoveryServicesClient"
@@ -110,7 +127,7 @@
   },
   "azure-arm-redis": {
     "title": "RedisManagementClient",
-    "description": "REST API for Azure Redis Cache Service"
+    "description": "REST API for Azure Redis Cache Service."
   },
   "azure-arm-scheduler": {
     "title": "SchedulerManagementClient"
@@ -121,11 +138,15 @@
   },
   "azure-arm-servermanagement": {
     "title": "ServerManagement",
-    "description": "REST API for Azure Server Management Service"
+    "description": "REST API for Azure Server Management Service."
   },
   "azure-arm-servicebus": {
     "title": "ServiceBusManagementClient",
     "description": "Azure Service Bus client"
+  },
+  "azure-arm-sql": {
+    "title": "Azure SQL Database API spec",
+    "description": "Provides create, read, update and delete functionality for Azure SQL resources including servers, databases, elastic poo..."
   },
   "azure-arm-storage": {
     "title": "StorageManagementClient",
@@ -538,6 +559,10 @@
     "title": "Knowledge Graph Search",
     "description": "Knowledge Graph Search API allows developers to search the Google Knowledge Graph for entities."
   },
+  "google-language": {
+    "title": "Google Cloud Natural Language",
+    "description": "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include s..."
+  },
   "google-licensing": {
     "title": "Enterprise License Manager",
     "description": "Licensing API to view and manage license for your domain."
@@ -650,6 +675,10 @@
     "title": "Google Site Verification",
     "description": "Verifies ownership of websites or domains with Google."
   },
+  "google-slides": {
+    "title": "Google Slides",
+    "description": "An API for creating and editing Google Slides presentations."
+  },
   "google-spectrum": {
     "title": "Google Spectrum Database",
     "description": "API for spectrum-management functions."
@@ -725,6 +754,10 @@
   "graphhopper": {
     "title": "Route Optimization",
     "description": "Our Route Optimization API solves the so called vehicle routing problem fast. It calculates an optimal tour for a set of..."
+  },
+  "hacker-news": {
+    "title": "Hacker News",
+    "description": "Hacker News is a social news website focusing on computer science and entrepreneurship"
   },
   "healthcare.gov": {
     "title": "Healthcare"
@@ -1018,6 +1051,9 @@
   "spotify": {
     "title": "Spotify"
   },
+  "squareup": {
+    "title": "Square Connect"
+  },
   "stackexchange": {
     "title": "StackExchange",
     "description": "Stack Exchange is a network of 130+ Q&A communities including Stack Overflow."
@@ -1072,6 +1108,10 @@
   },
   "watchful.li": {
     "title": "watchful.li"
+  },
+  "wavecell": {
+    "title": "Wavecell.Sms.Api",
+    "description": "This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be ..."
   },
   "wikimedia": {
     "title": "Wikimedia",
