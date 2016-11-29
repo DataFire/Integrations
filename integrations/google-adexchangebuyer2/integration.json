@@ -157,7 +157,7 @@
     "/v2beta1/accounts/{accountId}/clients": {
       "get": {
         "description": "Lists all the clients for the current sponsor buyer.",
-        "operationId": "adexchangebuyer2.accounts.clients.list",
+        "operationId": "accounts.clients.list",
         "parameters": [
           {
             "description": "Unique numerical account ID of the sponsor buyer to list the clients for.",
@@ -241,7 +241,7 @@
       ],
       "post": {
         "description": "Creates a new client buyer.",
-        "operationId": "adexchangebuyer2.accounts.clients.create",
+        "operationId": "accounts.clients.create",
         "parameters": [
           {
             "description": "Unique numerical account ID for the buyer of which the client buyer\nis a customer; the sponsor buyer to create a client for. (required)",
@@ -281,7 +281,7 @@
     "/v2beta1/accounts/{accountId}/clients/{clientAccountId}": {
       "get": {
         "description": "Gets a client buyer with a given client account ID.",
-        "operationId": "adexchangebuyer2.accounts.clients.get",
+        "operationId": "accounts.clients.get",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",
@@ -360,7 +360,7 @@
       ],
       "put": {
         "description": "Updates an existing client buyer.",
-        "operationId": "adexchangebuyer2.accounts.clients.update",
+        "operationId": "accounts.clients.update",
         "parameters": [
           {
             "description": "Unique numerical account ID for the buyer of which the client buyer\nis a customer; the sponsor buyer to update a client for. (required)",
@@ -407,7 +407,7 @@
     "/v2beta1/accounts/{accountId}/clients/{clientAccountId}/invitations": {
       "get": {
         "description": "Lists all the client users invitations for a client\nwith a given account ID.",
-        "operationId": "adexchangebuyer2.accounts.clients.invitations.list",
+        "operationId": "accounts.clients.invitations.list",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",
@@ -498,7 +498,7 @@
       ],
       "post": {
         "description": "Creates and sends out an email invitation to access\nan Ad Exchange client buyer account.",
-        "operationId": "adexchangebuyer2.accounts.clients.invitations.create",
+        "operationId": "accounts.clients.invitations.create",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",
@@ -545,7 +545,7 @@
     "/v2beta1/accounts/{accountId}/clients/{clientAccountId}/invitations/{invitationId}": {
       "get": {
         "description": "Retrieves an existing client user invitation.",
-        "operationId": "adexchangebuyer2.accounts.clients.invitations.get",
+        "operationId": "accounts.clients.invitations.get",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",
@@ -633,7 +633,7 @@
     "/v2beta1/accounts/{accountId}/clients/{clientAccountId}/users": {
       "get": {
         "description": "Lists all the known client users for a specified\nsponsor buyer account ID.",
-        "operationId": "adexchangebuyer2.accounts.clients.users.list",
+        "operationId": "accounts.clients.users.list",
         "parameters": [
           {
             "description": "Numerical account ID of the sponsor buyer of the client to list users for.\n(required)",
@@ -726,7 +726,7 @@
     "/v2beta1/accounts/{accountId}/clients/{clientAccountId}/users/{userId}": {
       "get": {
         "description": "Retrieves an existing client user.",
-        "operationId": "adexchangebuyer2.accounts.clients.users.get",
+        "operationId": "accounts.clients.users.get",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",
@@ -812,7 +812,7 @@
       ],
       "put": {
         "description": "Updates an existing client user.\nOnly the user status can be changed on update.",
-        "operationId": "adexchangebuyer2.accounts.clients.users.update",
+        "operationId": "accounts.clients.users.update",
         "parameters": [
           {
             "description": "Numerical account ID of the client's sponsor buyer. (required)",

@@ -166,7 +166,7 @@
     "/v1/services": {
       "get": {
         "description": "Lists all managed services. The result is limited to services that the\ncaller has \"servicemanagement.services.get\" permission for. If the request\nis made without authentication, it returns only public services that are\navailable to everyone.",
-        "operationId": "servicemanagement.services.list",
+        "operationId": "services.list",
         "parameters": [
           {
             "description": "Requested size of the next page of data.",
@@ -270,7 +270,7 @@
       ],
       "post": {
         "description": "Creates a new managed service.\nPlease note one producer project can own no more than 20 services.\n\nOperation<response: ManagedService>",
-        "operationId": "servicemanagement.services.create",
+        "operationId": "services.create",
         "parameters": [
           {
             "in": "body",
@@ -308,7 +308,7 @@
     "/v1/services/{serviceName}": {
       "delete": {
         "description": "Deletes a managed service. This method will change the service to the\n`Soft-Delete` state for 30 days. Within this period, service producers may\ncall UndeleteService to restore the service.\nAfter 30 days, the service will be permanently deleted.\n\nOperation<response: google.protobuf.Empty>",
-        "operationId": "servicemanagement.services.delete",
+        "operationId": "services.delete",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -344,7 +344,7 @@
       },
       "get": {
         "description": "Gets a managed service. Authentication is required unless the service is\npublic.",
-        "operationId": "servicemanagement.services.get",
+        "operationId": "services.get",
         "parameters": [
           {
             "description": "The name of the service.  See the `ServiceManager` overview for naming\nrequirements.  For example: `example.googleapis.com`.",
@@ -433,7 +433,7 @@
     "/v1/services/{serviceName}/config": {
       "get": {
         "description": "Gets a service configuration (version) for a managed service.",
-        "operationId": "servicemanagement.services.getConfig",
+        "operationId": "services.getConfig",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -528,7 +528,7 @@
     "/v1/services/{serviceName}/configs": {
       "get": {
         "description": "Lists the history of the service configuration for a managed service,\nfrom the newest to the oldest.",
-        "operationId": "servicemanagement.services.configs.list",
+        "operationId": "services.configs.list",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -627,7 +627,7 @@
       ],
       "post": {
         "description": "Creates a new service configuration (version) for a managed service.\nThis method only stores the service configuration. To roll out the service\nconfiguration to backend systems please call\nCreateServiceRollout.",
-        "operationId": "servicemanagement.services.configs.create",
+        "operationId": "services.configs.create",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -672,7 +672,7 @@
     "/v1/services/{serviceName}/configs/{configId}": {
       "get": {
         "description": "Gets a service configuration (version) for a managed service.",
-        "operationId": "servicemanagement.services.configs.get",
+        "operationId": "services.configs.get",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -809,7 +809,7 @@
       ],
       "post": {
         "description": "Creates a new service configuration (version) for a managed service based\non\nuser-supplied configuration source files (for example: OpenAPI\nSpecification). This method stores the source configurations as well as the\ngenerated service configuration. To rollout the service configuration to\nother services,\nplease call CreateServiceRollout.\n\nOperation<response: SubmitConfigSourceResponse>",
-        "operationId": "servicemanagement.services.configs.submit",
+        "operationId": "services.configs.submit",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -854,7 +854,7 @@
     "/v1/services/{serviceName}/rollouts": {
       "get": {
         "description": "Lists the history of the service configuration rollouts for a managed\nservice, from the newest to the oldest.",
-        "operationId": "servicemanagement.services.rollouts.list",
+        "operationId": "services.rollouts.list",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -953,7 +953,7 @@
       ],
       "post": {
         "description": "Creates a new service configuration rollout. Based on rollout, the\nGoogle Service Management will roll out the service configurations to\ndifferent backend services. For example, the logging configuration will be\npushed to Google Cloud Logging.\n\nPlease note that any previous pending and running Rollouts and associated\nOperations will be automatically cancelled so that the latest Rollout will\nnot be blocked by previous Rollouts.\n\nOperation<response: Rollout>",
-        "operationId": "servicemanagement.services.rollouts.create",
+        "operationId": "services.rollouts.create",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -998,7 +998,7 @@
     "/v1/services/{serviceName}/rollouts/{rolloutId}": {
       "get": {
         "description": "Gets a service configuration rollout.",
-        "operationId": "servicemanagement.services.rollouts.get",
+        "operationId": "services.rollouts.get",
         "parameters": [
           {
             "description": "The name of the service.  See the [overview](/service-management/overview)\nfor naming requirements.  For example: `example.googleapis.com`.",
@@ -1135,7 +1135,7 @@
       ],
       "post": {
         "description": "Disable a managed service for a project.\n\nOperation<response: DisableServiceResponse>",
-        "operationId": "servicemanagement.services.disable",
+        "operationId": "services.disable",
         "parameters": [
           {
             "description": "Name of the service to disable. Specifying an unknown service name\nwill cause the request to fail.",
@@ -1221,7 +1221,7 @@
       ],
       "post": {
         "description": "Enable a managed service for a project with default setting.\n\nOperation<response: EnableServiceResponse>\n\ngoogle.rpc.Status errors may contain a\ngoogle.rpc.PreconditionFailure error detail.",
-        "operationId": "servicemanagement.services.enable",
+        "operationId": "services.enable",
         "parameters": [
           {
             "description": "Name of the service to enable. Specifying an unknown service name will\ncause the request to fail.",
@@ -1307,7 +1307,7 @@
       ],
       "post": {
         "description": "Revives a previously deleted managed service. The method restores the\nservice using the configuration at the time the service was deleted.\nThe target service must exist and must have been deleted within the\nlast 30 days.\n\nOperation<response: UndeleteServiceResponse>",
-        "operationId": "servicemanagement.services.undelete",
+        "operationId": "services.undelete",
         "parameters": [
           {
             "description": "The name of the service. See the [overview](/service-management/overview)\nfor naming requirements. For example: `example.googleapis.com`.",
@@ -1386,7 +1386,7 @@
       ],
       "post": {
         "description": "Generates and returns a report (errors, warnings and changes from\nexisting configurations) associated with\nGenerateConfigReportRequest.new_value\n\nIf GenerateConfigReportRequest.old_value is specified,\nGenerateConfigReportRequest will contain a single ChangeReport based on the\ncomparison between GenerateConfigReportRequest.new_value and\nGenerateConfigReportRequest.old_value.\nIf GenerateConfigReportRequest.old_value is not specified, this method\nwill compare GenerateConfigReportRequest.new_value with the last pushed\nservice configuration.",
-        "operationId": "servicemanagement.services.generateConfigReport",
+        "operationId": "services.generateConfigReport",
         "parameters": [
           {
             "in": "body",
@@ -1424,7 +1424,7 @@
     "/v1/{name}": {
       "get": {
         "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
-        "operationId": "servicemanagement.operations.get",
+        "operationId": "operations.get",
         "parameters": [
           {
             "description": "The name of the operation resource.",
@@ -1545,7 +1545,7 @@
       ],
       "post": {
         "description": "Gets the access control policy for a resource.\nReturns an empty policy if the resource exists and does not have a policy\nset.",
-        "operationId": "servicemanagement.services.getIamPolicy",
+        "operationId": "services.getIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being requested.\n`resource` is usually specified as a path. For example, a Project\nresource is specified as `projects/{project}`.",
@@ -1632,7 +1632,7 @@
       ],
       "post": {
         "description": "Sets the access control policy on the specified resource. Replaces any\nexisting policy.",
-        "operationId": "servicemanagement.services.setIamPolicy",
+        "operationId": "services.setIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being specified.\n`resource` is usually specified as a path. For example, a Project\nresource is specified as `projects/{project}`.",
@@ -1719,7 +1719,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified resource.",
-        "operationId": "servicemanagement.services.testIamPermissions",
+        "operationId": "services.testIamPermissions",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy detail is being requested.\n`resource` is usually specified as a path. For example, a Project\nresource is specified as `projects/{project}`.",

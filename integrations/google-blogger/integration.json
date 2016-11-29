@@ -137,7 +137,7 @@
     "/blogs/byurl": {
       "get": {
         "description": "Retrieve a Blog by URL.",
-        "operationId": "blogger.blogs.getByUrl",
+        "operationId": "blogs.getByUrl",
         "parameters": [
           {
             "description": "The URL of the blog to retrieve.",
@@ -209,7 +209,7 @@
     "/blogs/{blogId}": {
       "get": {
         "description": "Gets one blog by ID.",
-        "operationId": "blogger.blogs.get",
+        "operationId": "blogs.get",
         "parameters": [
           {
             "description": "The ID of the blog to get.",
@@ -287,7 +287,7 @@
     "/blogs/{blogId}/comments": {
       "get": {
         "description": "Retrieves the comments for a blog, across all posts, possibly filtered.",
-        "operationId": "blogger.comments.listByBlog",
+        "operationId": "comments.listByBlog",
         "parameters": [
           {
             "description": "ID of the blog to fetch comments from.",
@@ -393,7 +393,7 @@
     "/blogs/{blogId}/pages": {
       "get": {
         "description": "Retrieves the pages for a blog, optionally including non-LIVE statuses.",
-        "operationId": "blogger.pages.list",
+        "operationId": "pages.list",
         "parameters": [
           {
             "description": "ID of the blog to fetch Pages from.",
@@ -494,7 +494,7 @@
       ],
       "post": {
         "description": "Add a page.",
-        "operationId": "blogger.pages.insert",
+        "operationId": "pages.insert",
         "parameters": [
           {
             "description": "ID of the blog to add the page to.",
@@ -540,7 +540,7 @@
     "/blogs/{blogId}/pages/{pageId}": {
       "delete": {
         "description": "Delete a page by ID.",
-        "operationId": "blogger.pages.delete",
+        "operationId": "pages.delete",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -575,7 +575,7 @@
       },
       "get": {
         "description": "Gets one blog page by ID.",
-        "operationId": "blogger.pages.get",
+        "operationId": "pages.get",
         "parameters": [
           {
             "description": "ID of the blog containing the page.",
@@ -651,7 +651,7 @@
       ],
       "patch": {
         "description": "Update a page. This method supports patch semantics.",
-        "operationId": "blogger.pages.patch",
+        "operationId": "pages.patch",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -708,7 +708,7 @@
       },
       "put": {
         "description": "Update a page.",
-        "operationId": "blogger.pages.update",
+        "operationId": "pages.update",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -790,7 +790,7 @@
       ],
       "post": {
         "description": "Publishes a draft page.",
-        "operationId": "blogger.pages.publish",
+        "operationId": "pages.publish",
         "parameters": [
           {
             "description": "The ID of the blog.",
@@ -853,7 +853,7 @@
       ],
       "post": {
         "description": "Revert a published or scheduled page to draft state.",
-        "operationId": "blogger.pages.revert",
+        "operationId": "pages.revert",
         "parameters": [
           {
             "description": "The ID of the blog.",
@@ -893,7 +893,7 @@
     "/blogs/{blogId}/pageviews": {
       "get": {
         "description": "Retrieve pageview stats for a Blog.",
-        "operationId": "blogger.pageViews.get",
+        "operationId": "pageViews.get",
         "parameters": [
           {
             "description": "The ID of the blog to get.",
@@ -963,7 +963,7 @@
     "/blogs/{blogId}/posts": {
       "get": {
         "description": "Retrieves a list of posts, possibly filtered.",
-        "operationId": "blogger.posts.list",
+        "operationId": "posts.list",
         "parameters": [
           {
             "description": "ID of the blog to fetch posts from.",
@@ -1102,7 +1102,7 @@
       ],
       "post": {
         "description": "Add a post.",
-        "operationId": "blogger.posts.insert",
+        "operationId": "posts.insert",
         "parameters": [
           {
             "description": "ID of the blog to add the post to.",
@@ -1161,7 +1161,7 @@
     "/blogs/{blogId}/posts/bypath": {
       "get": {
         "description": "Retrieve a Post by Path.",
-        "operationId": "blogger.posts.getByPath",
+        "operationId": "posts.getByPath",
         "parameters": [
           {
             "description": "ID of the blog to fetch the post from.",
@@ -1246,7 +1246,7 @@
     "/blogs/{blogId}/posts/search": {
       "get": {
         "description": "Search for a post.",
-        "operationId": "blogger.posts.search",
+        "operationId": "posts.search",
         "parameters": [
           {
             "description": "ID of the blog to fetch the post from.",
@@ -1332,7 +1332,7 @@
     "/blogs/{blogId}/posts/{postId}": {
       "delete": {
         "description": "Delete a post by ID.",
-        "operationId": "blogger.posts.delete",
+        "operationId": "posts.delete",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -1367,7 +1367,7 @@
       },
       "get": {
         "description": "Get a post by ID.",
-        "operationId": "blogger.posts.get",
+        "operationId": "posts.get",
         "parameters": [
           {
             "description": "ID of the blog to fetch the post from.",
@@ -1463,7 +1463,7 @@
       ],
       "patch": {
         "description": "Update a post. This method supports patch semantics.",
-        "operationId": "blogger.posts.patch",
+        "operationId": "posts.patch",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -1539,7 +1539,7 @@
       },
       "put": {
         "description": "Update a post.",
-        "operationId": "blogger.posts.update",
+        "operationId": "posts.update",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -1617,7 +1617,7 @@
     "/blogs/{blogId}/posts/{postId}/comments": {
       "get": {
         "description": "Retrieves the comments for a post, possibly filtered.",
-        "operationId": "blogger.comments.list",
+        "operationId": "comments.list",
         "parameters": [
           {
             "description": "ID of the blog to fetch comments from.",
@@ -1741,7 +1741,7 @@
     "/blogs/{blogId}/posts/{postId}/comments/{commentId}": {
       "delete": {
         "description": "Delete a comment by ID.",
-        "operationId": "blogger.comments.delete",
+        "operationId": "comments.delete",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -1783,7 +1783,7 @@
       },
       "get": {
         "description": "Gets one comment by ID.",
-        "operationId": "blogger.comments.get",
+        "operationId": "comments.get",
         "parameters": [
           {
             "description": "ID of the blog to containing the comment.",
@@ -1892,7 +1892,7 @@
       ],
       "post": {
         "description": "Marks a comment as not spam.",
-        "operationId": "blogger.comments.approve",
+        "operationId": "comments.approve",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -1962,7 +1962,7 @@
       ],
       "post": {
         "description": "Removes the content of a comment.",
-        "operationId": "blogger.comments.removeContent",
+        "operationId": "comments.removeContent",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -2032,7 +2032,7 @@
       ],
       "post": {
         "description": "Marks a comment as spam.",
-        "operationId": "blogger.comments.markAsSpam",
+        "operationId": "comments.markAsSpam",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -2102,7 +2102,7 @@
       ],
       "post": {
         "description": "Publishes a draft post, optionally at the specific time of the given publishDate parameter.",
-        "operationId": "blogger.posts.publish",
+        "operationId": "posts.publish",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -2171,7 +2171,7 @@
       ],
       "post": {
         "description": "Revert a published or scheduled post to draft state.",
-        "operationId": "blogger.posts.revert",
+        "operationId": "posts.revert",
         "parameters": [
           {
             "description": "The ID of the Blog.",
@@ -2211,7 +2211,7 @@
     "/users/{userId}": {
       "get": {
         "description": "Gets one user by ID.",
-        "operationId": "blogger.users.get",
+        "operationId": "users.get",
         "parameters": [
           {
             "description": "The ID of the user to get.",
@@ -2272,7 +2272,7 @@
     "/users/{userId}/blogs": {
       "get": {
         "description": "Retrieves a list of blogs, possibly filtered.",
-        "operationId": "blogger.blogs.listByUser",
+        "operationId": "blogs.listByUser",
         "parameters": [
           {
             "description": "ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.",
@@ -2379,7 +2379,7 @@
     "/users/{userId}/blogs/{blogId}": {
       "get": {
         "description": "Gets one blog and user info pair by blogId and userId.",
-        "operationId": "blogger.blogUserInfos.get",
+        "operationId": "blogUserInfos.get",
         "parameters": [
           {
             "description": "ID of the user whose blogs are to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.",
@@ -2453,7 +2453,7 @@
     "/users/{userId}/blogs/{blogId}/posts": {
       "get": {
         "description": "Retrieves a list of post and post user info pairs, possibly filtered. The post user info contains per-user information about the post, such as access rights, specific to the user.",
-        "operationId": "blogger.postUserInfos.list",
+        "operationId": "postUserInfos.list",
         "parameters": [
           {
             "description": "ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.",
@@ -2594,7 +2594,7 @@
     "/users/{userId}/blogs/{blogId}/posts/{postId}": {
       "get": {
         "description": "Gets one post and user info pair, by post ID and user ID. The post user info contains per-user information about the post, such as access rights, specific to the user.",
-        "operationId": "blogger.postUserInfos.get",
+        "operationId": "postUserInfos.get",
         "parameters": [
           {
             "description": "ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote marks) or the user's profile identifier.",

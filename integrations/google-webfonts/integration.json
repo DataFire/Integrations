@@ -93,7 +93,7 @@
     "/webfonts": {
       "get": {
         "description": "Retrieves the list of fonts currently served by the Google Fonts Developer API",
-        "operationId": "webfonts.webfonts.list",
+        "operationId": "webfonts.list",
         "parameters": [
           {
             "description": "Enables sorting of the list",

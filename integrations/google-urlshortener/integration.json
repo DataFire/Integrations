@@ -114,7 +114,7 @@
     "/url": {
       "get": {
         "description": "Expands a short URL or gets creation time and analytics.",
-        "operationId": "urlshortener.url.get",
+        "operationId": "url.get",
         "parameters": [
           {
             "description": "The short URL, including the protocol.",
@@ -179,7 +179,7 @@
       ],
       "post": {
         "description": "Creates a new short URL.",
-        "operationId": "urlshortener.url.insert",
+        "operationId": "url.insert",
         "parameters": [
           {
             "in": "body",
@@ -212,7 +212,7 @@
     "/url/history": {
       "get": {
         "description": "Retrieves a list of URLs shortened by a user.",
-        "operationId": "urlshortener.url.list",
+        "operationId": "url.list",
         "parameters": [
           {
             "description": "Additional information to return.",

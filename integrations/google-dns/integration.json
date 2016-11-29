@@ -129,7 +129,7 @@
     "/{project}": {
       "get": {
         "description": "Fetch the representation of an existing Project.",
-        "operationId": "dns.projects.get",
+        "operationId": "projects.get",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -200,7 +200,7 @@
     "/{project}/managedZones": {
       "get": {
         "description": "Enumerate ManagedZones that have been created but not yet deleted.",
-        "operationId": "dns.managedZones.list",
+        "operationId": "managedZones.list",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -287,7 +287,7 @@
       ],
       "post": {
         "description": "Create a new ManagedZone.",
-        "operationId": "dns.managedZones.create",
+        "operationId": "managedZones.create",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -332,7 +332,7 @@
     "/{project}/managedZones/{managedZone}": {
       "delete": {
         "description": "Delete a previously created ManagedZone.",
-        "operationId": "dns.managedZones.delete",
+        "operationId": "managedZones.delete",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -372,7 +372,7 @@
       },
       "get": {
         "description": "Fetch the representation of an existing ManagedZone.",
-        "operationId": "dns.managedZones.get",
+        "operationId": "managedZones.get",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -450,7 +450,7 @@
     "/{project}/managedZones/{managedZone}/changes": {
       "get": {
         "description": "Enumerate Changes to a ResourceRecordSet collection.",
-        "operationId": "dns.changes.list",
+        "operationId": "changes.list",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -554,7 +554,7 @@
       ],
       "post": {
         "description": "Atomically update the ResourceRecordSet collection.",
-        "operationId": "dns.changes.create",
+        "operationId": "changes.create",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -606,7 +606,7 @@
     "/{project}/managedZones/{managedZone}/changes/{changeId}": {
       "get": {
         "description": "Fetch the representation of an existing Change.",
-        "operationId": "dns.changes.get",
+        "operationId": "changes.get",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",
@@ -691,7 +691,7 @@
     "/{project}/managedZones/{managedZone}/rrsets": {
       "get": {
         "description": "Enumerate ResourceRecordSets that have been created but not yet deleted.",
-        "operationId": "dns.resourceRecordSets.list",
+        "operationId": "resourceRecordSets.list",
         "parameters": [
           {
             "description": "Identifies the project addressed by this request.",

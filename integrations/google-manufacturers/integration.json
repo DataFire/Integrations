@@ -157,7 +157,7 @@
     "/v1/{parent}/products": {
       "get": {
         "description": "Lists all the products in a Manufacturer Center account.",
-        "operationId": "manufacturers.accounts.products.list",
+        "operationId": "accounts.products.list",
         "parameters": [
           {
             "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",
@@ -244,7 +244,7 @@
     "/v1/{parent}/products/{name}": {
       "get": {
         "description": "Gets the product from a Manufacturer Center account, including product\nissues.",
-        "operationId": "manufacturers.accounts.products.get",
+        "operationId": "accounts.products.get",
         "parameters": [
           {
             "description": "Parent ID in the format `accounts/{account_id}`.\n\n`account_id` - The ID of the Manufacturer Center account.",

@@ -133,7 +133,7 @@
     "/data/ga": {
       "get": {
         "description": "Returns Analytics data for a view (profile).",
-        "operationId": "analytics.data.ga.get",
+        "operationId": "data.ga.get",
         "parameters": [
           {
             "description": "Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.",
@@ -279,7 +279,7 @@
     "/data/mcf": {
       "get": {
         "description": "Returns Analytics Multi-Channel Funnels data for a view (profile).",
-        "operationId": "analytics.data.mcf.get",
+        "operationId": "data.mcf.get",
         "parameters": [
           {
             "description": "Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.",
@@ -403,7 +403,7 @@
     "/data/realtime": {
       "get": {
         "description": "Returns real time data for a view (profile).",
-        "operationId": "analytics.data.realtime.get",
+        "operationId": "data.realtime.get",
         "parameters": [
           {
             "description": "Unique table ID for retrieving real time data. Table ID is of the form ga:XXXX, where XXXX is the Analytics view (profile) ID.",
@@ -495,7 +495,7 @@
     "/management/accountSummaries": {
       "get": {
         "description": "Lists account summaries (lightweight tree comprised of accounts/properties/profiles) to which the user has access.",
-        "operationId": "analytics.management.accountSummaries.list",
+        "operationId": "management.accountSummaries.list",
         "parameters": [
           {
             "description": "The maximum number of account summaries to include in this response, where the largest acceptable value is 1000.",
@@ -562,7 +562,7 @@
     "/management/accounts": {
       "get": {
         "description": "Lists all accounts to which the user has access.",
-        "operationId": "analytics.management.accounts.list",
+        "operationId": "management.accounts.list",
         "parameters": [
           {
             "description": "The maximum number of accounts to include in this response.",
@@ -634,7 +634,7 @@
     "/management/accounts/{accountId}/entityUserLinks": {
       "get": {
         "description": "Lists account-user links for a given account.",
-        "operationId": "analytics.management.accountUserLinks.list",
+        "operationId": "management.accountUserLinks.list",
         "parameters": [
           {
             "description": "Account ID to retrieve the user links for.",
@@ -706,7 +706,7 @@
       ],
       "post": {
         "description": "Adds a new user to the given account.",
-        "operationId": "analytics.management.accountUserLinks.insert",
+        "operationId": "management.accountUserLinks.insert",
         "parameters": [
           {
             "description": "Account ID to create the user link for.",
@@ -746,7 +746,7 @@
     "/management/accounts/{accountId}/entityUserLinks/{linkId}": {
       "delete": {
         "description": "Removes a user from the given account.",
-        "operationId": "analytics.management.accountUserLinks.delete",
+        "operationId": "management.accountUserLinks.delete",
         "parameters": [
           {
             "description": "Account ID to delete the user link for.",
@@ -804,7 +804,7 @@
       ],
       "put": {
         "description": "Updates permissions for an existing user on the given account.",
-        "operationId": "analytics.management.accountUserLinks.update",
+        "operationId": "management.accountUserLinks.update",
         "parameters": [
           {
             "description": "Account ID to update the account-user link for.",
@@ -851,7 +851,7 @@
     "/management/accounts/{accountId}/filters": {
       "get": {
         "description": "Lists all filters for an account",
-        "operationId": "analytics.management.filters.list",
+        "operationId": "management.filters.list",
         "parameters": [
           {
             "description": "Account ID to retrieve filters for.",
@@ -923,7 +923,7 @@
       ],
       "post": {
         "description": "Create a new filter.",
-        "operationId": "analytics.management.filters.insert",
+        "operationId": "management.filters.insert",
         "parameters": [
           {
             "description": "Account ID to create filter for.",
@@ -963,7 +963,7 @@
     "/management/accounts/{accountId}/filters/{filterId}": {
       "delete": {
         "description": "Delete a filter.",
-        "operationId": "analytics.management.filters.delete",
+        "operationId": "management.filters.delete",
         "parameters": [
           {
             "description": "Account ID to delete the filter for.",
@@ -1001,7 +1001,7 @@
       },
       "get": {
         "description": "Returns a filters to which the user has access.",
-        "operationId": "analytics.management.filters.get",
+        "operationId": "management.filters.get",
         "parameters": [
           {
             "description": "Account ID to retrieve filters for.",
@@ -1067,7 +1067,7 @@
       ],
       "patch": {
         "description": "Updates an existing filter. This method supports patch semantics.",
-        "operationId": "analytics.management.filters.patch",
+        "operationId": "management.filters.patch",
         "parameters": [
           {
             "description": "Account ID to which the filter belongs.",
@@ -1112,7 +1112,7 @@
       },
       "put": {
         "description": "Updates an existing filter.",
-        "operationId": "analytics.management.filters.update",
+        "operationId": "management.filters.update",
         "parameters": [
           {
             "description": "Account ID to which the filter belongs.",
@@ -1159,7 +1159,7 @@
     "/management/accounts/{accountId}/webproperties": {
       "get": {
         "description": "Lists web properties to which the user has access.",
-        "operationId": "analytics.management.webproperties.list",
+        "operationId": "management.webproperties.list",
         "parameters": [
           {
             "description": "Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to.",
@@ -1236,7 +1236,7 @@
       ],
       "post": {
         "description": "Create a new property if the account has fewer than 20 properties. Web properties are visible in the Google Analytics interface only if they have at least one profile.",
-        "operationId": "analytics.management.webproperties.insert",
+        "operationId": "management.webproperties.insert",
         "parameters": [
           {
             "description": "Account ID to create the web property for.",
@@ -1276,7 +1276,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}": {
       "get": {
         "description": "Gets a web property to which the user has access.",
-        "operationId": "analytics.management.webproperties.get",
+        "operationId": "management.webproperties.get",
         "parameters": [
           {
             "description": "Account ID to retrieve the web property for.",
@@ -1342,7 +1342,7 @@
       ],
       "patch": {
         "description": "Updates an existing web property. This method supports patch semantics.",
-        "operationId": "analytics.management.webproperties.patch",
+        "operationId": "management.webproperties.patch",
         "parameters": [
           {
             "description": "Account ID to which the web property belongs",
@@ -1387,7 +1387,7 @@
       },
       "put": {
         "description": "Updates an existing web property.",
-        "operationId": "analytics.management.webproperties.update",
+        "operationId": "management.webproperties.update",
         "parameters": [
           {
             "description": "Account ID to which the web property belongs",
@@ -1434,7 +1434,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources": {
       "get": {
         "description": "List custom data sources to which the user has access.",
-        "operationId": "analytics.management.customDataSources.list",
+        "operationId": "management.customDataSources.list",
         "parameters": [
           {
             "description": "Account Id for the custom data sources to retrieve.",
@@ -1544,7 +1544,7 @@
       ],
       "post": {
         "description": "Delete data associated with a previous upload.",
-        "operationId": "analytics.management.uploads.deleteUploadData",
+        "operationId": "management.uploads.deleteUploadData",
         "parameters": [
           {
             "description": "Account Id for the uploads to be deleted.",
@@ -1600,7 +1600,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads": {
       "get": {
         "description": "List uploads to which the user has access.",
-        "operationId": "analytics.management.uploads.list",
+        "operationId": "management.uploads.list",
         "parameters": [
           {
             "description": "Account Id for the uploads to retrieve.",
@@ -1695,7 +1695,7 @@
           "application/octet-stream"
         ],
         "description": "Upload data for a custom data source.",
-        "operationId": "analytics.management.uploads.uploadData",
+        "operationId": "management.uploads.uploadData",
         "parameters": [
           {
             "description": "Account Id associated with the upload.",
@@ -1747,7 +1747,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads/{uploadId}": {
       "get": {
         "description": "List uploads to which the user has access.",
-        "operationId": "analytics.management.uploads.get",
+        "operationId": "management.uploads.get",
         "parameters": [
           {
             "description": "Account Id for the upload to retrieve.",
@@ -1834,7 +1834,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions": {
       "get": {
         "description": "Lists custom dimensions to which the user has access.",
-        "operationId": "analytics.management.customDimensions.list",
+        "operationId": "management.customDimensions.list",
         "parameters": [
           {
             "description": "Account ID for the custom dimensions to retrieve.",
@@ -1913,7 +1913,7 @@
       ],
       "post": {
         "description": "Create a new custom dimension.",
-        "operationId": "analytics.management.customDimensions.insert",
+        "operationId": "management.customDimensions.insert",
         "parameters": [
           {
             "description": "Account ID for the custom dimension to create.",
@@ -1960,7 +1960,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customDimensions/{customDimensionId}": {
       "get": {
         "description": "Get a custom dimension to which the user has access.",
-        "operationId": "analytics.management.customDimensions.get",
+        "operationId": "management.customDimensions.get",
         "parameters": [
           {
             "description": "Account ID for the custom dimension to retrieve.",
@@ -2033,7 +2033,7 @@
       ],
       "patch": {
         "description": "Updates an existing custom dimension. This method supports patch semantics.",
-        "operationId": "analytics.management.customDimensions.patch",
+        "operationId": "management.customDimensions.patch",
         "parameters": [
           {
             "description": "Account ID for the custom dimension to update.",
@@ -2092,7 +2092,7 @@
       },
       "put": {
         "description": "Updates an existing custom dimension.",
-        "operationId": "analytics.management.customDimensions.update",
+        "operationId": "management.customDimensions.update",
         "parameters": [
           {
             "description": "Account ID for the custom dimension to update.",
@@ -2153,7 +2153,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics": {
       "get": {
         "description": "Lists custom metrics to which the user has access.",
-        "operationId": "analytics.management.customMetrics.list",
+        "operationId": "management.customMetrics.list",
         "parameters": [
           {
             "description": "Account ID for the custom metrics to retrieve.",
@@ -2232,7 +2232,7 @@
       ],
       "post": {
         "description": "Create a new custom metric.",
-        "operationId": "analytics.management.customMetrics.insert",
+        "operationId": "management.customMetrics.insert",
         "parameters": [
           {
             "description": "Account ID for the custom metric to create.",
@@ -2279,7 +2279,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/customMetrics/{customMetricId}": {
       "get": {
         "description": "Get a custom metric to which the user has access.",
-        "operationId": "analytics.management.customMetrics.get",
+        "operationId": "management.customMetrics.get",
         "parameters": [
           {
             "description": "Account ID for the custom metric to retrieve.",
@@ -2352,7 +2352,7 @@
       ],
       "patch": {
         "description": "Updates an existing custom metric. This method supports patch semantics.",
-        "operationId": "analytics.management.customMetrics.patch",
+        "operationId": "management.customMetrics.patch",
         "parameters": [
           {
             "description": "Account ID for the custom metric to update.",
@@ -2411,7 +2411,7 @@
       },
       "put": {
         "description": "Updates an existing custom metric.",
-        "operationId": "analytics.management.customMetrics.update",
+        "operationId": "management.customMetrics.update",
         "parameters": [
           {
             "description": "Account ID for the custom metric to update.",
@@ -2472,7 +2472,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks": {
       "get": {
         "description": "Lists webProperty-AdWords links for a given web property.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.list",
+        "operationId": "management.webPropertyAdWordsLinks.list",
         "parameters": [
           {
             "description": "ID of the account which the given web property belongs to.",
@@ -2551,7 +2551,7 @@
       ],
       "post": {
         "description": "Creates a webProperty-AdWords link.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.insert",
+        "operationId": "management.webPropertyAdWordsLinks.insert",
         "parameters": [
           {
             "description": "ID of the Google Analytics account to create the link for.",
@@ -2598,7 +2598,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/entityAdWordsLinks/{webPropertyAdWordsLinkId}": {
       "delete": {
         "description": "Deletes a web property-AdWords link.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.delete",
+        "operationId": "management.webPropertyAdWordsLinks.delete",
         "parameters": [
           {
             "description": "ID of the account which the given web property belongs to.",
@@ -2640,7 +2640,7 @@
       },
       "get": {
         "description": "Returns a web property-AdWords link to which the user has access.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.get",
+        "operationId": "management.webPropertyAdWordsLinks.get",
         "parameters": [
           {
             "description": "ID of the account which the given web property belongs to.",
@@ -2713,7 +2713,7 @@
       ],
       "patch": {
         "description": "Updates an existing webProperty-AdWords link. This method supports patch semantics.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.patch",
+        "operationId": "management.webPropertyAdWordsLinks.patch",
         "parameters": [
           {
             "description": "ID of the account which the given web property belongs to.",
@@ -2765,7 +2765,7 @@
       },
       "put": {
         "description": "Updates an existing webProperty-AdWords link.",
-        "operationId": "analytics.management.webPropertyAdWordsLinks.update",
+        "operationId": "management.webPropertyAdWordsLinks.update",
         "parameters": [
           {
             "description": "ID of the account which the given web property belongs to.",
@@ -2819,7 +2819,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks": {
       "get": {
         "description": "Lists webProperty-user links for a given web property.",
-        "operationId": "analytics.management.webpropertyUserLinks.list",
+        "operationId": "management.webpropertyUserLinks.list",
         "parameters": [
           {
             "description": "Account ID which the given web property belongs to.",
@@ -2898,7 +2898,7 @@
       ],
       "post": {
         "description": "Adds a new user to the given web property.",
-        "operationId": "analytics.management.webpropertyUserLinks.insert",
+        "operationId": "management.webpropertyUserLinks.insert",
         "parameters": [
           {
             "description": "Account ID to create the user link for.",
@@ -2945,7 +2945,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}": {
       "delete": {
         "description": "Removes a user from the given web property.",
-        "operationId": "analytics.management.webpropertyUserLinks.delete",
+        "operationId": "management.webpropertyUserLinks.delete",
         "parameters": [
           {
             "description": "Account ID to delete the user link for.",
@@ -3010,7 +3010,7 @@
       ],
       "put": {
         "description": "Updates permissions for an existing user on the given web property.",
-        "operationId": "analytics.management.webpropertyUserLinks.update",
+        "operationId": "management.webpropertyUserLinks.update",
         "parameters": [
           {
             "description": "Account ID to update the account-user link for.",
@@ -3064,7 +3064,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles": {
       "get": {
         "description": "Lists views (profiles) to which the user has access.",
-        "operationId": "analytics.management.profiles.list",
+        "operationId": "management.profiles.list",
         "parameters": [
           {
             "description": "Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all', which refers to all the accounts to which the user has access.",
@@ -3148,7 +3148,7 @@
       ],
       "post": {
         "description": "Create a new view (profile).",
-        "operationId": "analytics.management.profiles.insert",
+        "operationId": "management.profiles.insert",
         "parameters": [
           {
             "description": "Account ID to create the view (profile) for.",
@@ -3195,7 +3195,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}": {
       "delete": {
         "description": "Deletes a view (profile).",
-        "operationId": "analytics.management.profiles.delete",
+        "operationId": "management.profiles.delete",
         "parameters": [
           {
             "description": "Account ID to delete the view (profile) for.",
@@ -3237,7 +3237,7 @@
       },
       "get": {
         "description": "Gets a view (profile) to which the user has access.",
-        "operationId": "analytics.management.profiles.get",
+        "operationId": "management.profiles.get",
         "parameters": [
           {
             "description": "Account ID to retrieve the view (profile) for.",
@@ -3310,7 +3310,7 @@
       ],
       "patch": {
         "description": "Updates an existing view (profile). This method supports patch semantics.",
-        "operationId": "analytics.management.profiles.patch",
+        "operationId": "management.profiles.patch",
         "parameters": [
           {
             "description": "Account ID to which the view (profile) belongs",
@@ -3362,7 +3362,7 @@
       },
       "put": {
         "description": "Updates an existing view (profile).",
-        "operationId": "analytics.management.profiles.update",
+        "operationId": "management.profiles.update",
         "parameters": [
           {
             "description": "Account ID to which the view (profile) belongs",
@@ -3416,7 +3416,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks": {
       "get": {
         "description": "Lists profile-user links for a given view (profile).",
-        "operationId": "analytics.management.profileUserLinks.list",
+        "operationId": "management.profileUserLinks.list",
         "parameters": [
           {
             "description": "Account ID which the given view (profile) belongs to.",
@@ -3502,7 +3502,7 @@
       ],
       "post": {
         "description": "Adds a new user to the given view (profile).",
-        "operationId": "analytics.management.profileUserLinks.insert",
+        "operationId": "management.profileUserLinks.insert",
         "parameters": [
           {
             "description": "Account ID to create the user link for.",
@@ -3556,7 +3556,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}": {
       "delete": {
         "description": "Removes a user from the given view (profile).",
-        "operationId": "analytics.management.profileUserLinks.delete",
+        "operationId": "management.profileUserLinks.delete",
         "parameters": [
           {
             "description": "Account ID to delete the user link for.",
@@ -3628,7 +3628,7 @@
       ],
       "put": {
         "description": "Updates permissions for an existing user on the given view (profile).",
-        "operationId": "analytics.management.profileUserLinks.update",
+        "operationId": "management.profileUserLinks.update",
         "parameters": [
           {
             "description": "Account ID to update the user link for.",
@@ -3689,7 +3689,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments": {
       "get": {
         "description": "Lists experiments to which the user has access.",
-        "operationId": "analytics.management.experiments.list",
+        "operationId": "management.experiments.list",
         "parameters": [
           {
             "description": "Account ID to retrieve experiments for.",
@@ -3780,7 +3780,7 @@
       ],
       "post": {
         "description": "Create a new experiment.",
-        "operationId": "analytics.management.experiments.insert",
+        "operationId": "management.experiments.insert",
         "parameters": [
           {
             "description": "Account ID to create the experiment for.",
@@ -3839,7 +3839,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}": {
       "delete": {
         "description": "Delete an experiment.",
-        "operationId": "analytics.management.experiments.delete",
+        "operationId": "management.experiments.delete",
         "parameters": [
           {
             "description": "Account ID to which the experiment belongs",
@@ -3893,7 +3893,7 @@
       },
       "get": {
         "description": "Returns an experiment to which the user has access.",
-        "operationId": "analytics.management.experiments.get",
+        "operationId": "management.experiments.get",
         "parameters": [
           {
             "description": "Account ID to retrieve the experiment for.",
@@ -3978,7 +3978,7 @@
       ],
       "patch": {
         "description": "Update an existing experiment. This method supports patch semantics.",
-        "operationId": "analytics.management.experiments.patch",
+        "operationId": "management.experiments.patch",
         "parameters": [
           {
             "description": "Account ID of the experiment to update.",
@@ -4042,7 +4042,7 @@
       },
       "put": {
         "description": "Update an existing experiment.",
-        "operationId": "analytics.management.experiments.update",
+        "operationId": "management.experiments.update",
         "parameters": [
           {
             "description": "Account ID of the experiment to update.",
@@ -4108,7 +4108,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals": {
       "get": {
         "description": "Lists goals to which the user has access.",
-        "operationId": "analytics.management.goals.list",
+        "operationId": "management.goals.list",
         "parameters": [
           {
             "description": "Account ID to retrieve goals for. Can either be a specific account ID or '~all', which refers to all the accounts that user has access to.",
@@ -4199,7 +4199,7 @@
       ],
       "post": {
         "description": "Create a new goal.",
-        "operationId": "analytics.management.goals.insert",
+        "operationId": "management.goals.insert",
         "parameters": [
           {
             "description": "Account ID to create the goal for.",
@@ -4253,7 +4253,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}": {
       "get": {
         "description": "Gets a goal to which the user has access.",
-        "operationId": "analytics.management.goals.get",
+        "operationId": "management.goals.get",
         "parameters": [
           {
             "description": "Account ID to retrieve the goal for.",
@@ -4333,7 +4333,7 @@
       ],
       "patch": {
         "description": "Updates an existing goal. This method supports patch semantics.",
-        "operationId": "analytics.management.goals.patch",
+        "operationId": "management.goals.patch",
         "parameters": [
           {
             "description": "Account ID to update the goal.",
@@ -4392,7 +4392,7 @@
       },
       "put": {
         "description": "Updates an existing goal.",
-        "operationId": "analytics.management.goals.update",
+        "operationId": "management.goals.update",
         "parameters": [
           {
             "description": "Account ID to update the goal.",
@@ -4453,7 +4453,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks": {
       "get": {
         "description": "Lists all profile filter links for a profile.",
-        "operationId": "analytics.management.profileFilterLinks.list",
+        "operationId": "management.profileFilterLinks.list",
         "parameters": [
           {
             "description": "Account ID to retrieve profile filter links for.",
@@ -4539,7 +4539,7 @@
       ],
       "post": {
         "description": "Create a new profile filter link.",
-        "operationId": "analytics.management.profileFilterLinks.insert",
+        "operationId": "management.profileFilterLinks.insert",
         "parameters": [
           {
             "description": "Account ID to create profile filter link for.",
@@ -4593,7 +4593,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/profileFilterLinks/{linkId}": {
       "delete": {
         "description": "Delete a profile filter link.",
-        "operationId": "analytics.management.profileFilterLinks.delete",
+        "operationId": "management.profileFilterLinks.delete",
         "parameters": [
           {
             "description": "Account ID to which the profile filter link belongs.",
@@ -4642,7 +4642,7 @@
       },
       "get": {
         "description": "Returns a single profile filter link.",
-        "operationId": "analytics.management.profileFilterLinks.get",
+        "operationId": "management.profileFilterLinks.get",
         "parameters": [
           {
             "description": "Account ID to retrieve profile filter link for.",
@@ -4722,7 +4722,7 @@
       ],
       "patch": {
         "description": "Update an existing profile filter link. This method supports patch semantics.",
-        "operationId": "analytics.management.profileFilterLinks.patch",
+        "operationId": "management.profileFilterLinks.patch",
         "parameters": [
           {
             "description": "Account ID to which profile filter link belongs.",
@@ -4781,7 +4781,7 @@
       },
       "put": {
         "description": "Update an existing profile filter link.",
-        "operationId": "analytics.management.profileFilterLinks.update",
+        "operationId": "management.profileFilterLinks.update",
         "parameters": [
           {
             "description": "Account ID to which profile filter link belongs.",
@@ -4842,7 +4842,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports": {
       "get": {
         "description": "Lists unsampled reports to which the user has access.",
-        "operationId": "analytics.management.unsampledReports.list",
+        "operationId": "management.unsampledReports.list",
         "parameters": [
           {
             "description": "Account ID to retrieve unsampled reports for. Must be a specific account ID, ~all is not supported.",
@@ -4933,7 +4933,7 @@
       ],
       "post": {
         "description": "Create a new unsampled report.",
-        "operationId": "analytics.management.unsampledReports.insert",
+        "operationId": "management.unsampledReports.insert",
         "parameters": [
           {
             "description": "Account ID to create the unsampled report for.",
@@ -4992,7 +4992,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/unsampledReports/{unsampledReportId}": {
       "delete": {
         "description": "Deletes an unsampled report.",
-        "operationId": "analytics.management.unsampledReports.delete",
+        "operationId": "management.unsampledReports.delete",
         "parameters": [
           {
             "description": "Account ID to delete the unsampled report for.",
@@ -5041,7 +5041,7 @@
       },
       "get": {
         "description": "Returns a single unsampled report.",
-        "operationId": "analytics.management.unsampledReports.get",
+        "operationId": "management.unsampledReports.get",
         "parameters": [
           {
             "description": "Account ID to retrieve unsampled report for.",
@@ -5128,7 +5128,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences": {
       "get": {
         "description": "Lists remarketing audiences to which the user has access.",
-        "operationId": "analytics.management.remarketingAudience.list",
+        "operationId": "management.remarketingAudience.list",
         "parameters": [
           {
             "description": "The account ID of the remarketing audiences to retrieve.",
@@ -5213,7 +5213,7 @@
       ],
       "post": {
         "description": "Creates a new remarketing audience.",
-        "operationId": "analytics.management.remarketingAudience.insert",
+        "operationId": "management.remarketingAudience.insert",
         "parameters": [
           {
             "description": "The account ID for which to create the remarketing audience.",
@@ -5260,7 +5260,7 @@
     "/management/accounts/{accountId}/webproperties/{webPropertyId}/remarketingAudiences/{remarketingAudienceId}": {
       "get": {
         "description": "Gets a remarketing audience to which the user has access.",
-        "operationId": "analytics.management.remarketingAudience.get",
+        "operationId": "management.remarketingAudience.get",
         "parameters": [
           {
             "description": "The account ID of the remarketing audience to retrieve.",
@@ -5333,7 +5333,7 @@
       ],
       "patch": {
         "description": "Updates an existing remarketing audience. This method supports patch semantics.",
-        "operationId": "analytics.management.remarketingAudience.patch",
+        "operationId": "management.remarketingAudience.patch",
         "parameters": [
           {
             "description": "The account ID of the remarketing audience to update.",
@@ -5385,7 +5385,7 @@
       },
       "put": {
         "description": "Updates an existing remarketing audience.",
-        "operationId": "analytics.management.remarketingAudience.update",
+        "operationId": "management.remarketingAudience.update",
         "parameters": [
           {
             "description": "The account ID of the remarketing audience to update.",
@@ -5439,7 +5439,7 @@
     "/management/segments": {
       "get": {
         "description": "Lists segments to which the user has access.",
-        "operationId": "analytics.management.segments.list",
+        "operationId": "management.segments.list",
         "parameters": [
           {
             "description": "The maximum number of segments to include in this response.",
@@ -5511,7 +5511,7 @@
     "/metadata/{reportType}/columns": {
       "get": {
         "description": "Lists all columns for a report type",
-        "operationId": "analytics.metadata.columns.list",
+        "operationId": "metadata.columns.list",
         "parameters": [
           {
             "description": "Report type. Allowed Values: 'ga'. Where 'ga' corresponds to the Core Reporting API",
@@ -5600,7 +5600,7 @@
       ],
       "post": {
         "description": "Creates an account ticket.",
-        "operationId": "analytics.provisioning.createAccountTicket",
+        "operationId": "provisioning.createAccountTicket",
         "parameters": [
           {
             "in": "body",

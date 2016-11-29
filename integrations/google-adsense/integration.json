@@ -144,7 +144,7 @@
     "/accounts": {
       "get": {
         "description": "List all accounts available to this AdSense account.",
-        "operationId": "adsense.accounts.list",
+        "operationId": "accounts.list",
         "parameters": [
           {
             "description": "The maximum number of accounts to include in the response, used for paging.",
@@ -212,7 +212,7 @@
     "/accounts/{accountId}": {
       "get": {
         "description": "Get information about the selected AdSense account.",
-        "operationId": "adsense.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "Account to get information about.",
@@ -279,7 +279,7 @@
     "/accounts/{accountId}/adclients": {
       "get": {
         "description": "List all ad clients in the specified account.",
-        "operationId": "adsense.accounts.adclients.list",
+        "operationId": "accounts.adclients.list",
         "parameters": [
           {
             "description": "Account for which to list ad clients.",
@@ -354,7 +354,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits": {
       "get": {
         "description": "List all ad units in the specified ad client for the specified account.",
-        "operationId": "adsense.accounts.adunits.list",
+        "operationId": "accounts.adunits.list",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -442,7 +442,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}": {
       "get": {
         "description": "Gets the specified ad unit in the specified ad client for the specified account.",
-        "operationId": "adsense.accounts.adunits.get",
+        "operationId": "accounts.adunits.get",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -517,7 +517,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/adcode": {
       "get": {
         "description": "Get ad code for the specified ad unit.",
-        "operationId": "adsense.accounts.adunits.getAdCode",
+        "operationId": "accounts.adunits.getAdCode",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -592,7 +592,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
       "get": {
         "description": "List all custom channels which the specified ad unit belongs to.",
-        "operationId": "adsense.accounts.adunits.customchannels.list",
+        "operationId": "accounts.adunits.customchannels.list",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -681,7 +681,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/customchannels": {
       "get": {
         "description": "List all custom channels in the specified ad client for the specified account.",
-        "operationId": "adsense.accounts.customchannels.list",
+        "operationId": "accounts.customchannels.list",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -763,7 +763,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}": {
       "get": {
         "description": "Get the specified custom channel from the specified ad client for the specified account.",
-        "operationId": "adsense.accounts.customchannels.get",
+        "operationId": "accounts.customchannels.get",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -838,7 +838,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
       "get": {
         "description": "List all ad units in the specified custom channel.",
-        "operationId": "adsense.accounts.customchannels.adunits.list",
+        "operationId": "accounts.customchannels.adunits.list",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -933,7 +933,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/urlchannels": {
       "get": {
         "description": "List all URL channels in the specified ad client for the specified account.",
-        "operationId": "adsense.accounts.urlchannels.list",
+        "operationId": "accounts.urlchannels.list",
         "parameters": [
           {
             "description": "Account to which the ad client belongs.",
@@ -1015,7 +1015,7 @@
     "/accounts/{accountId}/alerts": {
       "get": {
         "description": "List the alerts for the specified AdSense account.",
-        "operationId": "adsense.accounts.alerts.list",
+        "operationId": "accounts.alerts.list",
         "parameters": [
           {
             "description": "Account for which to retrieve the alerts.",
@@ -1082,7 +1082,7 @@
     "/accounts/{accountId}/alerts/{alertId}": {
       "delete": {
         "description": "Dismiss (delete) the specified alert from the specified publisher AdSense account.",
-        "operationId": "adsense.accounts.alerts.delete",
+        "operationId": "accounts.alerts.delete",
         "parameters": [
           {
             "description": "Account which contains the ad unit.",
@@ -1142,7 +1142,7 @@
     "/accounts/{accountId}/payments": {
       "get": {
         "description": "List the payments for the specified AdSense account.",
-        "operationId": "adsense.accounts.payments.list",
+        "operationId": "accounts.payments.list",
         "parameters": [
           {
             "description": "Account for which to retrieve the payments.",
@@ -1203,7 +1203,7 @@
     "/accounts/{accountId}/reports": {
       "get": {
         "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "adsense.accounts.reports.generate",
+        "operationId": "accounts.reports.generate",
         "parameters": [
           {
             "description": "Account upon which to report.",
@@ -1352,7 +1352,7 @@
     "/accounts/{accountId}/reports/saved": {
       "get": {
         "description": "List all saved reports in the specified AdSense account.",
-        "operationId": "adsense.accounts.reports.saved.list",
+        "operationId": "accounts.reports.saved.list",
         "parameters": [
           {
             "description": "Account to which the saved reports belong.",
@@ -1427,7 +1427,7 @@
     "/accounts/{accountId}/reports/{savedReportId}": {
       "get": {
         "description": "Generate an AdSense report based on the saved report ID sent in the query parameters.",
-        "operationId": "adsense.accounts.reports.saved.generate",
+        "operationId": "accounts.reports.saved.generate",
         "parameters": [
           {
             "description": "Account to which the saved reports belong.",
@@ -1517,7 +1517,7 @@
     "/accounts/{accountId}/savedadstyles": {
       "get": {
         "description": "List all saved ad styles in the specified account.",
-        "operationId": "adsense.accounts.savedadstyles.list",
+        "operationId": "accounts.savedadstyles.list",
         "parameters": [
           {
             "description": "Account for which to list saved ad styles.",
@@ -1592,7 +1592,7 @@
     "/accounts/{accountId}/savedadstyles/{savedAdStyleId}": {
       "get": {
         "description": "List a specific saved ad style for the specified account.",
-        "operationId": "adsense.accounts.savedadstyles.get",
+        "operationId": "accounts.savedadstyles.get",
         "parameters": [
           {
             "description": "Account for which to get the saved ad style.",
@@ -1660,7 +1660,7 @@
     "/adclients": {
       "get": {
         "description": "List all ad clients in this AdSense account.",
-        "operationId": "adsense.adclients.list",
+        "operationId": "adclients.list",
         "parameters": [
           {
             "description": "The maximum number of ad clients to include in the response, used for paging.",
@@ -1728,7 +1728,7 @@
     "/adclients/{adClientId}/adunits": {
       "get": {
         "description": "List all ad units in the specified ad client for this AdSense account.",
-        "operationId": "adsense.adunits.list",
+        "operationId": "adunits.list",
         "parameters": [
           {
             "description": "Ad client for which to list ad units.",
@@ -1809,7 +1809,7 @@
     "/adclients/{adClientId}/adunits/{adUnitId}": {
       "get": {
         "description": "Gets the specified ad unit in the specified ad client.",
-        "operationId": "adsense.adunits.get",
+        "operationId": "adunits.get",
         "parameters": [
           {
             "description": "Ad client for which to get the ad unit.",
@@ -1877,7 +1877,7 @@
     "/adclients/{adClientId}/adunits/{adUnitId}/adcode": {
       "get": {
         "description": "Get ad code for the specified ad unit.",
-        "operationId": "adsense.adunits.getAdCode",
+        "operationId": "adunits.getAdCode",
         "parameters": [
           {
             "description": "Ad client with contains the ad unit.",
@@ -1945,7 +1945,7 @@
     "/adclients/{adClientId}/adunits/{adUnitId}/customchannels": {
       "get": {
         "description": "List all custom channels which the specified ad unit belongs to.",
-        "operationId": "adsense.adunits.customchannels.list",
+        "operationId": "adunits.customchannels.list",
         "parameters": [
           {
             "description": "Ad client which contains the ad unit.",
@@ -2027,7 +2027,7 @@
     "/adclients/{adClientId}/customchannels": {
       "get": {
         "description": "List all custom channels in the specified ad client for this AdSense account.",
-        "operationId": "adsense.customchannels.list",
+        "operationId": "customchannels.list",
         "parameters": [
           {
             "description": "Ad client for which to list custom channels.",
@@ -2102,7 +2102,7 @@
     "/adclients/{adClientId}/customchannels/{customChannelId}": {
       "get": {
         "description": "Get the specified custom channel from the specified ad client.",
-        "operationId": "adsense.customchannels.get",
+        "operationId": "customchannels.get",
         "parameters": [
           {
             "description": "Ad client which contains the custom channel.",
@@ -2170,7 +2170,7 @@
     "/adclients/{adClientId}/customchannels/{customChannelId}/adunits": {
       "get": {
         "description": "List all ad units in the specified custom channel.",
-        "operationId": "adsense.customchannels.adunits.list",
+        "operationId": "customchannels.adunits.list",
         "parameters": [
           {
             "description": "Ad client which contains the custom channel.",
@@ -2258,7 +2258,7 @@
     "/adclients/{adClientId}/urlchannels": {
       "get": {
         "description": "List all URL channels in the specified ad client for this AdSense account.",
-        "operationId": "adsense.urlchannels.list",
+        "operationId": "urlchannels.list",
         "parameters": [
           {
             "description": "Ad client for which to list URL channels.",
@@ -2333,7 +2333,7 @@
     "/alerts": {
       "get": {
         "description": "List the alerts for this AdSense account.",
-        "operationId": "adsense.alerts.list",
+        "operationId": "alerts.list",
         "parameters": [
           {
             "description": "The locale to use for translating alert messages. The account locale will be used if this is not supplied. The AdSense default (English) will be used if the supplied locale is invalid or unsupported.",
@@ -2393,7 +2393,7 @@
     "/alerts/{alertId}": {
       "delete": {
         "description": "Dismiss (delete) the specified alert from the publisher's AdSense account.",
-        "operationId": "adsense.alerts.delete",
+        "operationId": "alerts.delete",
         "parameters": [
           {
             "description": "Alert to delete.",
@@ -2446,7 +2446,7 @@
     "/metadata/dimensions": {
       "get": {
         "description": "List the metadata for the dimensions available to this AdSense account.",
-        "operationId": "adsense.metadata.dimensions.list",
+        "operationId": "metadata.dimensions.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -2498,7 +2498,7 @@
     "/metadata/metrics": {
       "get": {
         "description": "List the metadata for the metrics available to this AdSense account.",
-        "operationId": "adsense.metadata.metrics.list",
+        "operationId": "metadata.metrics.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -2550,7 +2550,7 @@
     "/payments": {
       "get": {
         "description": "List the payments for this AdSense account.",
-        "operationId": "adsense.payments.list",
+        "operationId": "payments.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -2602,7 +2602,7 @@
     "/reports": {
       "get": {
         "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "adsense.reports.generate",
+        "operationId": "reports.generate",
         "parameters": [
           {
             "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",
@@ -2754,7 +2754,7 @@
     "/reports/saved": {
       "get": {
         "description": "List all saved reports in this AdSense account.",
-        "operationId": "adsense.reports.saved.list",
+        "operationId": "reports.saved.list",
         "parameters": [
           {
             "description": "The maximum number of saved reports to include in the response, used for paging.",
@@ -2822,7 +2822,7 @@
     "/reports/{savedReportId}": {
       "get": {
         "description": "Generate an AdSense report based on the saved report ID sent in the query parameters.",
-        "operationId": "adsense.reports.saved.generate",
+        "operationId": "reports.saved.generate",
         "parameters": [
           {
             "description": "The saved report to retrieve.",
@@ -2905,7 +2905,7 @@
     "/savedadstyles": {
       "get": {
         "description": "List all saved ad styles in the user's account.",
-        "operationId": "adsense.savedadstyles.list",
+        "operationId": "savedadstyles.list",
         "parameters": [
           {
             "description": "The maximum number of saved ad styles to include in the response, used for paging.",
@@ -2973,7 +2973,7 @@
     "/savedadstyles/{savedAdStyleId}": {
       "get": {
         "description": "Get a specific saved ad style from the user's account.",
-        "operationId": "adsense.savedadstyles.get",
+        "operationId": "savedadstyles.get",
         "parameters": [
           {
             "description": "Saved ad style to retrieve.",

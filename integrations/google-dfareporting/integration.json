@@ -295,7 +295,7 @@
     "/reports/{reportId}/files/{fileId}": {
       "get": {
         "description": "Retrieves a report file by its report ID and file ID.",
-        "operationId": "dfareporting.files.get",
+        "operationId": "files.get",
         "parameters": [
           {
             "description": "The ID of the report.",
@@ -358,7 +358,7 @@
     "/userprofiles": {
       "get": {
         "description": "Retrieves list of user profiles for a user.",
-        "operationId": "dfareporting.userProfiles.list",
+        "operationId": "userProfiles.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -410,7 +410,7 @@
     "/userprofiles/{profileId}": {
       "get": {
         "description": "Gets one user profile by ID.",
-        "operationId": "dfareporting.userProfiles.get",
+        "operationId": "userProfiles.get",
         "parameters": [
           {
             "description": "The user profile ID.",
@@ -471,7 +471,7 @@
     "/userprofiles/{profileId}/accountActiveAdSummaries/{summaryAccountId}": {
       "get": {
         "description": "Gets the account's active ad summary by account ID.",
-        "operationId": "dfareporting.accountActiveAdSummaries.get",
+        "operationId": "accountActiveAdSummaries.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -534,7 +534,7 @@
     "/userprofiles/{profileId}/accountPermissionGroups": {
       "get": {
         "description": "Retrieves the list of account permission groups.",
-        "operationId": "dfareporting.accountPermissionGroups.list",
+        "operationId": "accountPermissionGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -590,7 +590,7 @@
     "/userprofiles/{profileId}/accountPermissionGroups/{id}": {
       "get": {
         "description": "Gets one account permission group by ID.",
-        "operationId": "dfareporting.accountPermissionGroups.get",
+        "operationId": "accountPermissionGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -653,7 +653,7 @@
     "/userprofiles/{profileId}/accountPermissions": {
       "get": {
         "description": "Retrieves the list of account permissions.",
-        "operationId": "dfareporting.accountPermissions.list",
+        "operationId": "accountPermissions.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -709,7 +709,7 @@
     "/userprofiles/{profileId}/accountPermissions/{id}": {
       "get": {
         "description": "Gets one account permission by ID.",
-        "operationId": "dfareporting.accountPermissions.get",
+        "operationId": "accountPermissions.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -772,7 +772,7 @@
     "/userprofiles/{profileId}/accountUserProfiles": {
       "get": {
         "description": "Retrieves a list of account user profiles, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.accountUserProfiles.list",
+        "operationId": "accountUserProfiles.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -892,7 +892,7 @@
       ],
       "patch": {
         "description": "Updates an existing account user profile. This method supports patch semantics.",
-        "operationId": "dfareporting.accountUserProfiles.patch",
+        "operationId": "accountUserProfiles.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -937,7 +937,7 @@
       },
       "post": {
         "description": "Inserts a new account user profile.",
-        "operationId": "dfareporting.accountUserProfiles.insert",
+        "operationId": "accountUserProfiles.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -975,7 +975,7 @@
       },
       "put": {
         "description": "Updates an existing account user profile.",
-        "operationId": "dfareporting.accountUserProfiles.update",
+        "operationId": "accountUserProfiles.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1015,7 +1015,7 @@
     "/userprofiles/{profileId}/accountUserProfiles/{id}": {
       "get": {
         "description": "Gets one account user profile by ID.",
-        "operationId": "dfareporting.accountUserProfiles.get",
+        "operationId": "accountUserProfiles.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1078,7 +1078,7 @@
     "/userprofiles/{profileId}/accounts": {
       "get": {
         "description": "Retrieves the list of accounts, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.accounts.list",
+        "operationId": "accounts.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1186,7 +1186,7 @@
       ],
       "patch": {
         "description": "Updates an existing account. This method supports patch semantics.",
-        "operationId": "dfareporting.accounts.patch",
+        "operationId": "accounts.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1231,7 +1231,7 @@
       },
       "put": {
         "description": "Updates an existing account.",
-        "operationId": "dfareporting.accounts.update",
+        "operationId": "accounts.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1271,7 +1271,7 @@
     "/userprofiles/{profileId}/accounts/{id}": {
       "get": {
         "description": "Gets one account by ID.",
-        "operationId": "dfareporting.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1334,7 +1334,7 @@
     "/userprofiles/{profileId}/ads": {
       "get": {
         "description": "Retrieves a list of ads, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.ads.list",
+        "operationId": "ads.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1587,7 +1587,7 @@
       ],
       "patch": {
         "description": "Updates an existing ad. This method supports patch semantics.",
-        "operationId": "dfareporting.ads.patch",
+        "operationId": "ads.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1632,7 +1632,7 @@
       },
       "post": {
         "description": "Inserts a new ad.",
-        "operationId": "dfareporting.ads.insert",
+        "operationId": "ads.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1670,7 +1670,7 @@
       },
       "put": {
         "description": "Updates an existing ad.",
-        "operationId": "dfareporting.ads.update",
+        "operationId": "ads.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1710,7 +1710,7 @@
     "/userprofiles/{profileId}/ads/{id}": {
       "get": {
         "description": "Gets one ad by ID.",
-        "operationId": "dfareporting.ads.get",
+        "operationId": "ads.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1773,7 +1773,7 @@
     "/userprofiles/{profileId}/advertiserGroups": {
       "get": {
         "description": "Retrieves a list of advertiser groups, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.advertiserGroups.list",
+        "operationId": "advertiserGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1875,7 +1875,7 @@
       ],
       "patch": {
         "description": "Updates an existing advertiser group. This method supports patch semantics.",
-        "operationId": "dfareporting.advertiserGroups.patch",
+        "operationId": "advertiserGroups.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1920,7 +1920,7 @@
       },
       "post": {
         "description": "Inserts a new advertiser group.",
-        "operationId": "dfareporting.advertiserGroups.insert",
+        "operationId": "advertiserGroups.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1958,7 +1958,7 @@
       },
       "put": {
         "description": "Updates an existing advertiser group.",
-        "operationId": "dfareporting.advertiserGroups.update",
+        "operationId": "advertiserGroups.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -1998,7 +1998,7 @@
     "/userprofiles/{profileId}/advertiserGroups/{id}": {
       "delete": {
         "description": "Deletes an existing advertiser group.",
-        "operationId": "dfareporting.advertiserGroups.delete",
+        "operationId": "advertiserGroups.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2033,7 +2033,7 @@
       },
       "get": {
         "description": "Gets one advertiser group by ID.",
-        "operationId": "dfareporting.advertiserGroups.get",
+        "operationId": "advertiserGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2096,7 +2096,7 @@
     "/userprofiles/{profileId}/advertisers": {
       "get": {
         "description": "Retrieves a list of advertisers, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.advertisers.list",
+        "operationId": "advertisers.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2246,7 +2246,7 @@
       ],
       "patch": {
         "description": "Updates an existing advertiser. This method supports patch semantics.",
-        "operationId": "dfareporting.advertisers.patch",
+        "operationId": "advertisers.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2291,7 +2291,7 @@
       },
       "post": {
         "description": "Inserts a new advertiser.",
-        "operationId": "dfareporting.advertisers.insert",
+        "operationId": "advertisers.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2329,7 +2329,7 @@
       },
       "put": {
         "description": "Updates an existing advertiser.",
-        "operationId": "dfareporting.advertisers.update",
+        "operationId": "advertisers.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2369,7 +2369,7 @@
     "/userprofiles/{profileId}/advertisers/{id}": {
       "get": {
         "description": "Gets one advertiser by ID.",
-        "operationId": "dfareporting.advertisers.get",
+        "operationId": "advertisers.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2432,7 +2432,7 @@
     "/userprofiles/{profileId}/browsers": {
       "get": {
         "description": "Retrieves a list of browsers.",
-        "operationId": "dfareporting.browsers.list",
+        "operationId": "browsers.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2488,7 +2488,7 @@
     "/userprofiles/{profileId}/campaigns": {
       "get": {
         "description": "Retrieves a list of campaigns, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.campaigns.list",
+        "operationId": "campaigns.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2644,7 +2644,7 @@
       ],
       "patch": {
         "description": "Updates an existing campaign. This method supports patch semantics.",
-        "operationId": "dfareporting.campaigns.patch",
+        "operationId": "campaigns.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2689,7 +2689,7 @@
       },
       "post": {
         "description": "Inserts a new campaign.",
-        "operationId": "dfareporting.campaigns.insert",
+        "operationId": "campaigns.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2741,7 +2741,7 @@
       },
       "put": {
         "description": "Updates an existing campaign.",
-        "operationId": "dfareporting.campaigns.update",
+        "operationId": "campaigns.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2781,7 +2781,7 @@
     "/userprofiles/{profileId}/campaigns/{campaignId}/campaignCreativeAssociations": {
       "get": {
         "description": "Retrieves the list of creative IDs associated with the specified campaign. This method supports paging.",
-        "operationId": "dfareporting.campaignCreativeAssociations.list",
+        "operationId": "campaignCreativeAssociations.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2864,7 +2864,7 @@
       ],
       "post": {
         "description": "Associates a creative with the specified campaign. This method creates a default ad with dimensions matching the creative in the campaign if such a default ad does not exist already.",
-        "operationId": "dfareporting.campaignCreativeAssociations.insert",
+        "operationId": "campaignCreativeAssociations.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2911,7 +2911,7 @@
     "/userprofiles/{profileId}/campaigns/{campaignId}/landingPages": {
       "get": {
         "description": "Retrieves the list of landing pages for the specified campaign.",
-        "operationId": "dfareporting.landingPages.list",
+        "operationId": "landingPages.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -2972,7 +2972,7 @@
       ],
       "patch": {
         "description": "Updates an existing campaign landing page. This method supports patch semantics.",
-        "operationId": "dfareporting.landingPages.patch",
+        "operationId": "landingPages.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3024,7 +3024,7 @@
       },
       "post": {
         "description": "Inserts a new landing page for the specified campaign.",
-        "operationId": "dfareporting.landingPages.insert",
+        "operationId": "landingPages.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3069,7 +3069,7 @@
       },
       "put": {
         "description": "Updates an existing campaign landing page.",
-        "operationId": "dfareporting.landingPages.update",
+        "operationId": "landingPages.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3116,7 +3116,7 @@
     "/userprofiles/{profileId}/campaigns/{campaignId}/landingPages/{id}": {
       "delete": {
         "description": "Deletes an existing campaign landing page.",
-        "operationId": "dfareporting.landingPages.delete",
+        "operationId": "landingPages.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3158,7 +3158,7 @@
       },
       "get": {
         "description": "Gets one campaign landing page by ID.",
-        "operationId": "dfareporting.landingPages.get",
+        "operationId": "landingPages.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3228,7 +3228,7 @@
     "/userprofiles/{profileId}/campaigns/{id}": {
       "get": {
         "description": "Gets one campaign by ID.",
-        "operationId": "dfareporting.campaigns.get",
+        "operationId": "campaigns.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3291,7 +3291,7 @@
     "/userprofiles/{profileId}/changeLogs": {
       "get": {
         "description": "Retrieves a list of change logs. This method supports paging.",
-        "operationId": "dfareporting.changeLogs.list",
+        "operationId": "changeLogs.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3479,7 +3479,7 @@
     "/userprofiles/{profileId}/changeLogs/{id}": {
       "get": {
         "description": "Gets one change log by ID.",
-        "operationId": "dfareporting.changeLogs.get",
+        "operationId": "changeLogs.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3542,7 +3542,7 @@
     "/userprofiles/{profileId}/cities": {
       "get": {
         "description": "Retrieves a list of cities, possibly filtered.",
-        "operationId": "dfareporting.cities.list",
+        "operationId": "cities.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3634,7 +3634,7 @@
     "/userprofiles/{profileId}/connectionTypes": {
       "get": {
         "description": "Retrieves a list of connection types.",
-        "operationId": "dfareporting.connectionTypes.list",
+        "operationId": "connectionTypes.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3690,7 +3690,7 @@
     "/userprofiles/{profileId}/connectionTypes/{id}": {
       "get": {
         "description": "Gets one connection type by ID.",
-        "operationId": "dfareporting.connectionTypes.get",
+        "operationId": "connectionTypes.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3753,7 +3753,7 @@
     "/userprofiles/{profileId}/contentCategories": {
       "get": {
         "description": "Retrieves a list of content categories, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.contentCategories.list",
+        "operationId": "contentCategories.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3855,7 +3855,7 @@
       ],
       "patch": {
         "description": "Updates an existing content category. This method supports patch semantics.",
-        "operationId": "dfareporting.contentCategories.patch",
+        "operationId": "contentCategories.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3900,7 +3900,7 @@
       },
       "post": {
         "description": "Inserts a new content category.",
-        "operationId": "dfareporting.contentCategories.insert",
+        "operationId": "contentCategories.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3938,7 +3938,7 @@
       },
       "put": {
         "description": "Updates an existing content category.",
-        "operationId": "dfareporting.contentCategories.update",
+        "operationId": "contentCategories.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -3978,7 +3978,7 @@
     "/userprofiles/{profileId}/contentCategories/{id}": {
       "delete": {
         "description": "Deletes an existing content category.",
-        "operationId": "dfareporting.contentCategories.delete",
+        "operationId": "contentCategories.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4013,7 +4013,7 @@
       },
       "get": {
         "description": "Gets one content category by ID.",
-        "operationId": "dfareporting.contentCategories.get",
+        "operationId": "contentCategories.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4099,7 +4099,7 @@
       ],
       "post": {
         "description": "Inserts conversions.",
-        "operationId": "dfareporting.conversions.batchinsert",
+        "operationId": "conversions.batchinsert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4139,7 +4139,7 @@
     "/userprofiles/{profileId}/countries": {
       "get": {
         "description": "Retrieves a list of countries.",
-        "operationId": "dfareporting.countries.list",
+        "operationId": "countries.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4195,7 +4195,7 @@
     "/userprofiles/{profileId}/countries/{dartId}": {
       "get": {
         "description": "Gets one country by ID.",
-        "operationId": "dfareporting.countries.get",
+        "operationId": "countries.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4284,7 +4284,7 @@
           "application/octet-stream"
         ],
         "description": "Inserts a new creative asset.",
-        "operationId": "dfareporting.creativeAssets.insert",
+        "operationId": "creativeAssets.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4331,7 +4331,7 @@
     "/userprofiles/{profileId}/creativeFields": {
       "get": {
         "description": "Retrieves a list of creative fields, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.creativeFields.list",
+        "operationId": "creativeFields.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4443,7 +4443,7 @@
       ],
       "patch": {
         "description": "Updates an existing creative field. This method supports patch semantics.",
-        "operationId": "dfareporting.creativeFields.patch",
+        "operationId": "creativeFields.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4488,7 +4488,7 @@
       },
       "post": {
         "description": "Inserts a new creative field.",
-        "operationId": "dfareporting.creativeFields.insert",
+        "operationId": "creativeFields.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4526,7 +4526,7 @@
       },
       "put": {
         "description": "Updates an existing creative field.",
-        "operationId": "dfareporting.creativeFields.update",
+        "operationId": "creativeFields.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4566,7 +4566,7 @@
     "/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues": {
       "get": {
         "description": "Retrieves a list of creative field values, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.creativeFieldValues.list",
+        "operationId": "creativeFieldValues.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4675,7 +4675,7 @@
       ],
       "patch": {
         "description": "Updates an existing creative field value. This method supports patch semantics.",
-        "operationId": "dfareporting.creativeFieldValues.patch",
+        "operationId": "creativeFieldValues.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4727,7 +4727,7 @@
       },
       "post": {
         "description": "Inserts a new creative field value.",
-        "operationId": "dfareporting.creativeFieldValues.insert",
+        "operationId": "creativeFieldValues.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4772,7 +4772,7 @@
       },
       "put": {
         "description": "Updates an existing creative field value.",
-        "operationId": "dfareporting.creativeFieldValues.update",
+        "operationId": "creativeFieldValues.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4819,7 +4819,7 @@
     "/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues/{id}": {
       "delete": {
         "description": "Deletes an existing creative field value.",
-        "operationId": "dfareporting.creativeFieldValues.delete",
+        "operationId": "creativeFieldValues.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4861,7 +4861,7 @@
       },
       "get": {
         "description": "Gets one creative field value by ID.",
-        "operationId": "dfareporting.creativeFieldValues.get",
+        "operationId": "creativeFieldValues.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4931,7 +4931,7 @@
     "/userprofiles/{profileId}/creativeFields/{id}": {
       "delete": {
         "description": "Deletes an existing creative field.",
-        "operationId": "dfareporting.creativeFields.delete",
+        "operationId": "creativeFields.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -4966,7 +4966,7 @@
       },
       "get": {
         "description": "Gets one creative field by ID.",
-        "operationId": "dfareporting.creativeFields.get",
+        "operationId": "creativeFields.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5029,7 +5029,7 @@
     "/userprofiles/{profileId}/creativeGroups": {
       "get": {
         "description": "Retrieves a list of creative groups, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.creativeGroups.list",
+        "operationId": "creativeGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5147,7 +5147,7 @@
       ],
       "patch": {
         "description": "Updates an existing creative group. This method supports patch semantics.",
-        "operationId": "dfareporting.creativeGroups.patch",
+        "operationId": "creativeGroups.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5192,7 +5192,7 @@
       },
       "post": {
         "description": "Inserts a new creative group.",
-        "operationId": "dfareporting.creativeGroups.insert",
+        "operationId": "creativeGroups.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5230,7 +5230,7 @@
       },
       "put": {
         "description": "Updates an existing creative group.",
-        "operationId": "dfareporting.creativeGroups.update",
+        "operationId": "creativeGroups.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5270,7 +5270,7 @@
     "/userprofiles/{profileId}/creativeGroups/{id}": {
       "get": {
         "description": "Gets one creative group by ID.",
-        "operationId": "dfareporting.creativeGroups.get",
+        "operationId": "creativeGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5333,7 +5333,7 @@
     "/userprofiles/{profileId}/creatives": {
       "get": {
         "description": "Retrieves a list of creatives, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.creatives.list",
+        "operationId": "creatives.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5541,7 +5541,7 @@
       ],
       "patch": {
         "description": "Updates an existing creative. This method supports patch semantics.",
-        "operationId": "dfareporting.creatives.patch",
+        "operationId": "creatives.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5586,7 +5586,7 @@
       },
       "post": {
         "description": "Inserts a new creative.",
-        "operationId": "dfareporting.creatives.insert",
+        "operationId": "creatives.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5624,7 +5624,7 @@
       },
       "put": {
         "description": "Updates an existing creative.",
-        "operationId": "dfareporting.creatives.update",
+        "operationId": "creatives.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5664,7 +5664,7 @@
     "/userprofiles/{profileId}/creatives/{id}": {
       "get": {
         "description": "Gets one creative by ID.",
-        "operationId": "dfareporting.creatives.get",
+        "operationId": "creatives.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5750,7 +5750,7 @@
       ],
       "post": {
         "description": "Retrieves list of report dimension values for a list of filters.",
-        "operationId": "dfareporting.dimensionValues.query",
+        "operationId": "dimensionValues.query",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -5804,7 +5804,7 @@
     "/userprofiles/{profileId}/directorySiteContacts": {
       "get": {
         "description": "Retrieves a list of directory site contacts, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.directorySiteContacts.list",
+        "operationId": "directorySiteContacts.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5918,7 +5918,7 @@
     "/userprofiles/{profileId}/directorySiteContacts/{id}": {
       "get": {
         "description": "Gets one directory site contact by ID.",
-        "operationId": "dfareporting.directorySiteContacts.get",
+        "operationId": "directorySiteContacts.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -5981,7 +5981,7 @@
     "/userprofiles/{profileId}/directorySites": {
       "get": {
         "description": "Retrieves a list of directory sites, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.directorySites.list",
+        "operationId": "directorySites.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6125,7 +6125,7 @@
       ],
       "post": {
         "description": "Inserts a new directory site.",
-        "operationId": "dfareporting.directorySites.insert",
+        "operationId": "directorySites.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6165,7 +6165,7 @@
     "/userprofiles/{profileId}/directorySites/{id}": {
       "get": {
         "description": "Gets one directory site by ID.",
-        "operationId": "dfareporting.directorySites.get",
+        "operationId": "directorySites.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6228,7 +6228,7 @@
     "/userprofiles/{profileId}/dynamicTargetingKeys": {
       "get": {
         "description": "Retrieves a list of dynamic targeting keys.",
-        "operationId": "dfareporting.dynamicTargetingKeys.list",
+        "operationId": "dynamicTargetingKeys.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6316,7 +6316,7 @@
       ],
       "post": {
         "description": "Inserts a new dynamic targeting key. Keys must be created at the advertiser level before being assigned to the advertiser's ads, creatives, or placements. There is a maximum of 1000 keys per advertiser, out of which a maximum of 20 keys can be assigned per ad, creative, or placement.",
-        "operationId": "dfareporting.dynamicTargetingKeys.insert",
+        "operationId": "dynamicTargetingKeys.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6356,7 +6356,7 @@
     "/userprofiles/{profileId}/dynamicTargetingKeys/{objectId}": {
       "delete": {
         "description": "Deletes an existing dynamic targeting key.",
-        "operationId": "dfareporting.dynamicTargetingKeys.delete",
+        "operationId": "dynamicTargetingKeys.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6436,7 +6436,7 @@
     "/userprofiles/{profileId}/eventTags": {
       "get": {
         "description": "Retrieves a list of event tags, possibly filtered.",
-        "operationId": "dfareporting.eventTags.list",
+        "operationId": "eventTags.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6571,7 +6571,7 @@
       ],
       "patch": {
         "description": "Updates an existing event tag. This method supports patch semantics.",
-        "operationId": "dfareporting.eventTags.patch",
+        "operationId": "eventTags.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6616,7 +6616,7 @@
       },
       "post": {
         "description": "Inserts a new event tag.",
-        "operationId": "dfareporting.eventTags.insert",
+        "operationId": "eventTags.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6654,7 +6654,7 @@
       },
       "put": {
         "description": "Updates an existing event tag.",
-        "operationId": "dfareporting.eventTags.update",
+        "operationId": "eventTags.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6694,7 +6694,7 @@
     "/userprofiles/{profileId}/eventTags/{id}": {
       "delete": {
         "description": "Deletes an existing event tag.",
-        "operationId": "dfareporting.eventTags.delete",
+        "operationId": "eventTags.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6729,7 +6729,7 @@
       },
       "get": {
         "description": "Gets one event tag by ID.",
-        "operationId": "dfareporting.eventTags.get",
+        "operationId": "eventTags.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -6792,7 +6792,7 @@
     "/userprofiles/{profileId}/files": {
       "get": {
         "description": "Lists files for a user profile.",
-        "operationId": "dfareporting.files.list",
+        "operationId": "files.list",
         "parameters": [
           {
             "description": "The DFA profile ID.",
@@ -6896,7 +6896,7 @@
     "/userprofiles/{profileId}/floodlightActivities": {
       "get": {
         "description": "Retrieves a list of floodlight activities, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.floodlightActivities.list",
+        "operationId": "floodlightActivities.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7048,7 +7048,7 @@
       ],
       "patch": {
         "description": "Updates an existing floodlight activity. This method supports patch semantics.",
-        "operationId": "dfareporting.floodlightActivities.patch",
+        "operationId": "floodlightActivities.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7093,7 +7093,7 @@
       },
       "post": {
         "description": "Inserts a new floodlight activity.",
-        "operationId": "dfareporting.floodlightActivities.insert",
+        "operationId": "floodlightActivities.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7131,7 +7131,7 @@
       },
       "put": {
         "description": "Updates an existing floodlight activity.",
-        "operationId": "dfareporting.floodlightActivities.update",
+        "operationId": "floodlightActivities.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7194,7 +7194,7 @@
       ],
       "post": {
         "description": "Generates a tag for a floodlight activity.",
-        "operationId": "dfareporting.floodlightActivities.generatetag",
+        "operationId": "floodlightActivities.generatetag",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7233,7 +7233,7 @@
     "/userprofiles/{profileId}/floodlightActivities/{id}": {
       "delete": {
         "description": "Deletes an existing floodlight activity.",
-        "operationId": "dfareporting.floodlightActivities.delete",
+        "operationId": "floodlightActivities.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7268,7 +7268,7 @@
       },
       "get": {
         "description": "Gets one floodlight activity by ID.",
-        "operationId": "dfareporting.floodlightActivities.get",
+        "operationId": "floodlightActivities.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7331,7 +7331,7 @@
     "/userprofiles/{profileId}/floodlightActivityGroups": {
       "get": {
         "description": "Retrieves a list of floodlight activity groups, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.floodlightActivityGroups.list",
+        "operationId": "floodlightActivityGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7455,7 +7455,7 @@
       ],
       "patch": {
         "description": "Updates an existing floodlight activity group. This method supports patch semantics.",
-        "operationId": "dfareporting.floodlightActivityGroups.patch",
+        "operationId": "floodlightActivityGroups.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7500,7 +7500,7 @@
       },
       "post": {
         "description": "Inserts a new floodlight activity group.",
-        "operationId": "dfareporting.floodlightActivityGroups.insert",
+        "operationId": "floodlightActivityGroups.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7538,7 +7538,7 @@
       },
       "put": {
         "description": "Updates an existing floodlight activity group.",
-        "operationId": "dfareporting.floodlightActivityGroups.update",
+        "operationId": "floodlightActivityGroups.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7578,7 +7578,7 @@
     "/userprofiles/{profileId}/floodlightActivityGroups/{id}": {
       "get": {
         "description": "Gets one floodlight activity group by ID.",
-        "operationId": "dfareporting.floodlightActivityGroups.get",
+        "operationId": "floodlightActivityGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7641,7 +7641,7 @@
     "/userprofiles/{profileId}/floodlightConfigurations": {
       "get": {
         "description": "Retrieves a list of floodlight configurations, possibly filtered.",
-        "operationId": "dfareporting.floodlightConfigurations.list",
+        "operationId": "floodlightConfigurations.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7705,7 +7705,7 @@
       ],
       "patch": {
         "description": "Updates an existing floodlight configuration. This method supports patch semantics.",
-        "operationId": "dfareporting.floodlightConfigurations.patch",
+        "operationId": "floodlightConfigurations.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7750,7 +7750,7 @@
       },
       "put": {
         "description": "Updates an existing floodlight configuration.",
-        "operationId": "dfareporting.floodlightConfigurations.update",
+        "operationId": "floodlightConfigurations.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7790,7 +7790,7 @@
     "/userprofiles/{profileId}/floodlightConfigurations/{id}": {
       "get": {
         "description": "Gets one floodlight configuration by ID.",
-        "operationId": "dfareporting.floodlightConfigurations.get",
+        "operationId": "floodlightConfigurations.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7853,7 +7853,7 @@
     "/userprofiles/{profileId}/languages": {
       "get": {
         "description": "Retrieves a list of languages.",
-        "operationId": "dfareporting.languages.list",
+        "operationId": "languages.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7909,7 +7909,7 @@
     "/userprofiles/{profileId}/metros": {
       "get": {
         "description": "Retrieves a list of metros.",
-        "operationId": "dfareporting.metros.list",
+        "operationId": "metros.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -7965,7 +7965,7 @@
     "/userprofiles/{profileId}/mobileCarriers": {
       "get": {
         "description": "Retrieves a list of mobile carriers.",
-        "operationId": "dfareporting.mobileCarriers.list",
+        "operationId": "mobileCarriers.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8021,7 +8021,7 @@
     "/userprofiles/{profileId}/mobileCarriers/{id}": {
       "get": {
         "description": "Gets one mobile carrier by ID.",
-        "operationId": "dfareporting.mobileCarriers.get",
+        "operationId": "mobileCarriers.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8084,7 +8084,7 @@
     "/userprofiles/{profileId}/operatingSystemVersions": {
       "get": {
         "description": "Retrieves a list of operating system versions.",
-        "operationId": "dfareporting.operatingSystemVersions.list",
+        "operationId": "operatingSystemVersions.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8140,7 +8140,7 @@
     "/userprofiles/{profileId}/operatingSystemVersions/{id}": {
       "get": {
         "description": "Gets one operating system version by ID.",
-        "operationId": "dfareporting.operatingSystemVersions.get",
+        "operationId": "operatingSystemVersions.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8203,7 +8203,7 @@
     "/userprofiles/{profileId}/operatingSystems": {
       "get": {
         "description": "Retrieves a list of operating systems.",
-        "operationId": "dfareporting.operatingSystems.list",
+        "operationId": "operatingSystems.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8259,7 +8259,7 @@
     "/userprofiles/{profileId}/operatingSystems/{dartId}": {
       "get": {
         "description": "Gets one operating system by DART ID.",
-        "operationId": "dfareporting.operatingSystems.get",
+        "operationId": "operatingSystems.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8322,7 +8322,7 @@
     "/userprofiles/{profileId}/placementGroups": {
       "get": {
         "description": "Retrieves a list of placement groups, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.placementGroups.list",
+        "operationId": "placementGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8542,7 +8542,7 @@
       ],
       "patch": {
         "description": "Updates an existing placement group. This method supports patch semantics.",
-        "operationId": "dfareporting.placementGroups.patch",
+        "operationId": "placementGroups.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8587,7 +8587,7 @@
       },
       "post": {
         "description": "Inserts a new placement group.",
-        "operationId": "dfareporting.placementGroups.insert",
+        "operationId": "placementGroups.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8625,7 +8625,7 @@
       },
       "put": {
         "description": "Updates an existing placement group.",
-        "operationId": "dfareporting.placementGroups.update",
+        "operationId": "placementGroups.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8665,7 +8665,7 @@
     "/userprofiles/{profileId}/placementGroups/{id}": {
       "get": {
         "description": "Gets one placement group by ID.",
-        "operationId": "dfareporting.placementGroups.get",
+        "operationId": "placementGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8728,7 +8728,7 @@
     "/userprofiles/{profileId}/placementStrategies": {
       "get": {
         "description": "Retrieves a list of placement strategies, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.placementStrategies.list",
+        "operationId": "placementStrategies.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8830,7 +8830,7 @@
       ],
       "patch": {
         "description": "Updates an existing placement strategy. This method supports patch semantics.",
-        "operationId": "dfareporting.placementStrategies.patch",
+        "operationId": "placementStrategies.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8875,7 +8875,7 @@
       },
       "post": {
         "description": "Inserts a new placement strategy.",
-        "operationId": "dfareporting.placementStrategies.insert",
+        "operationId": "placementStrategies.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8913,7 +8913,7 @@
       },
       "put": {
         "description": "Updates an existing placement strategy.",
-        "operationId": "dfareporting.placementStrategies.update",
+        "operationId": "placementStrategies.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8953,7 +8953,7 @@
     "/userprofiles/{profileId}/placementStrategies/{id}": {
       "delete": {
         "description": "Deletes an existing placement strategy.",
-        "operationId": "dfareporting.placementStrategies.delete",
+        "operationId": "placementStrategies.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -8988,7 +8988,7 @@
       },
       "get": {
         "description": "Gets one placement strategy by ID.",
-        "operationId": "dfareporting.placementStrategies.get",
+        "operationId": "placementStrategies.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9051,7 +9051,7 @@
     "/userprofiles/{profileId}/placements": {
       "get": {
         "description": "Retrieves a list of placements, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.placements.list",
+        "operationId": "placements.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9308,7 +9308,7 @@
       ],
       "patch": {
         "description": "Updates an existing placement. This method supports patch semantics.",
-        "operationId": "dfareporting.placements.patch",
+        "operationId": "placements.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9353,7 +9353,7 @@
       },
       "post": {
         "description": "Inserts a new placement.",
-        "operationId": "dfareporting.placements.insert",
+        "operationId": "placements.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9391,7 +9391,7 @@
       },
       "put": {
         "description": "Updates an existing placement.",
-        "operationId": "dfareporting.placements.update",
+        "operationId": "placements.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9454,7 +9454,7 @@
       ],
       "post": {
         "description": "Generates tags for a placement.",
-        "operationId": "dfareporting.placements.generatetags",
+        "operationId": "placements.generatetags",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9533,7 +9533,7 @@
     "/userprofiles/{profileId}/placements/{id}": {
       "get": {
         "description": "Gets one placement by ID.",
-        "operationId": "dfareporting.placements.get",
+        "operationId": "placements.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9596,7 +9596,7 @@
     "/userprofiles/{profileId}/platformTypes": {
       "get": {
         "description": "Retrieves a list of platform types.",
-        "operationId": "dfareporting.platformTypes.list",
+        "operationId": "platformTypes.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9652,7 +9652,7 @@
     "/userprofiles/{profileId}/platformTypes/{id}": {
       "get": {
         "description": "Gets one platform type by ID.",
-        "operationId": "dfareporting.platformTypes.get",
+        "operationId": "platformTypes.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9715,7 +9715,7 @@
     "/userprofiles/{profileId}/postalCodes": {
       "get": {
         "description": "Retrieves a list of postal codes.",
-        "operationId": "dfareporting.postalCodes.list",
+        "operationId": "postalCodes.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9771,7 +9771,7 @@
     "/userprofiles/{profileId}/postalCodes/{code}": {
       "get": {
         "description": "Gets one postal code by ID.",
-        "operationId": "dfareporting.postalCodes.get",
+        "operationId": "postalCodes.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9834,7 +9834,7 @@
     "/userprofiles/{profileId}/projects": {
       "get": {
         "description": "Retrieves a list of projects, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.projects.list",
+        "operationId": "projects.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -9948,7 +9948,7 @@
     "/userprofiles/{profileId}/projects/{id}": {
       "get": {
         "description": "Gets one project by ID.",
-        "operationId": "dfareporting.projects.get",
+        "operationId": "projects.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10011,7 +10011,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/inventoryItems": {
       "get": {
         "description": "Retrieves a list of inventory items, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.inventoryItems.list",
+        "operationId": "inventoryItems.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10152,7 +10152,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/inventoryItems/{id}": {
       "get": {
         "description": "Gets one inventory item by ID.",
-        "operationId": "dfareporting.inventoryItems.get",
+        "operationId": "inventoryItems.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10222,7 +10222,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/orderDocuments": {
       "get": {
         "description": "Retrieves a list of order documents, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.orderDocuments.list",
+        "operationId": "orderDocuments.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10359,7 +10359,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/orderDocuments/{id}": {
       "get": {
         "description": "Gets one order document by ID.",
-        "operationId": "dfareporting.orderDocuments.get",
+        "operationId": "orderDocuments.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10429,7 +10429,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/orders": {
       "get": {
         "description": "Retrieves a list of orders, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.orders.list",
+        "operationId": "orders.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10550,7 +10550,7 @@
     "/userprofiles/{profileId}/projects/{projectId}/orders/{id}": {
       "get": {
         "description": "Gets one order by ID.",
-        "operationId": "dfareporting.orders.get",
+        "operationId": "orders.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10620,7 +10620,7 @@
     "/userprofiles/{profileId}/regions": {
       "get": {
         "description": "Retrieves a list of regions.",
-        "operationId": "dfareporting.regions.list",
+        "operationId": "regions.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10699,7 +10699,7 @@
       ],
       "patch": {
         "description": "Updates an existing remarketing list share. This method supports patch semantics.",
-        "operationId": "dfareporting.remarketingListShares.patch",
+        "operationId": "remarketingListShares.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10744,7 +10744,7 @@
       },
       "put": {
         "description": "Updates an existing remarketing list share.",
-        "operationId": "dfareporting.remarketingListShares.update",
+        "operationId": "remarketingListShares.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10784,7 +10784,7 @@
     "/userprofiles/{profileId}/remarketingListShares/{remarketingListId}": {
       "get": {
         "description": "Gets one remarketing list share by remarketing list ID.",
-        "operationId": "dfareporting.remarketingListShares.get",
+        "operationId": "remarketingListShares.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10847,7 +10847,7 @@
     "/userprofiles/{profileId}/remarketingLists": {
       "get": {
         "description": "Retrieves a list of remarketing lists, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.remarketingLists.list",
+        "operationId": "remarketingLists.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -10958,7 +10958,7 @@
       ],
       "patch": {
         "description": "Updates an existing remarketing list. This method supports patch semantics.",
-        "operationId": "dfareporting.remarketingLists.patch",
+        "operationId": "remarketingLists.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11003,7 +11003,7 @@
       },
       "post": {
         "description": "Inserts a new remarketing list.",
-        "operationId": "dfareporting.remarketingLists.insert",
+        "operationId": "remarketingLists.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11041,7 +11041,7 @@
       },
       "put": {
         "description": "Updates an existing remarketing list.",
-        "operationId": "dfareporting.remarketingLists.update",
+        "operationId": "remarketingLists.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11081,7 +11081,7 @@
     "/userprofiles/{profileId}/remarketingLists/{id}": {
       "get": {
         "description": "Gets one remarketing list by ID.",
-        "operationId": "dfareporting.remarketingLists.get",
+        "operationId": "remarketingLists.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11144,7 +11144,7 @@
     "/userprofiles/{profileId}/reports": {
       "get": {
         "description": "Retrieves list of reports.",
-        "operationId": "dfareporting.reports.list",
+        "operationId": "reports.list",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11246,7 +11246,7 @@
       ],
       "post": {
         "description": "Creates a report.",
-        "operationId": "dfareporting.reports.insert",
+        "operationId": "reports.insert",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11309,7 +11309,7 @@
       ],
       "post": {
         "description": "Returns the fields that are compatible to be selected in the respective sections of a report criteria, given the fields already selected in the input report and user permissions.",
-        "operationId": "dfareporting.reports.compatibleFields.query",
+        "operationId": "reports.compatibleFields.query",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11349,7 +11349,7 @@
     "/userprofiles/{profileId}/reports/{reportId}": {
       "delete": {
         "description": "Deletes a report by its ID.",
-        "operationId": "dfareporting.reports.delete",
+        "operationId": "reports.delete",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11384,7 +11384,7 @@
       },
       "get": {
         "description": "Retrieves a report by its ID.",
-        "operationId": "dfareporting.reports.get",
+        "operationId": "reports.get",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11445,7 +11445,7 @@
       ],
       "patch": {
         "description": "Updates a report. This method supports patch semantics.",
-        "operationId": "dfareporting.reports.patch",
+        "operationId": "reports.patch",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11490,7 +11490,7 @@
       },
       "put": {
         "description": "Updates a report.",
-        "operationId": "dfareporting.reports.update",
+        "operationId": "reports.update",
         "parameters": [
           {
             "description": "The DFA user profile ID.",
@@ -11537,7 +11537,7 @@
     "/userprofiles/{profileId}/reports/{reportId}/files": {
       "get": {
         "description": "Lists files for a report.",
-        "operationId": "dfareporting.reports.files.list",
+        "operationId": "reports.files.list",
         "parameters": [
           {
             "description": "The DFA profile ID.",
@@ -11636,7 +11636,7 @@
     "/userprofiles/{profileId}/reports/{reportId}/files/{fileId}": {
       "get": {
         "description": "Retrieves a report file.",
-        "operationId": "dfareporting.reports.files.get",
+        "operationId": "reports.files.get",
         "parameters": [
           {
             "description": "The DFA profile ID.",
@@ -11729,7 +11729,7 @@
       ],
       "post": {
         "description": "Runs a report.",
-        "operationId": "dfareporting.reports.run",
+        "operationId": "reports.run",
         "parameters": [
           {
             "description": "The DFA profile ID.",
@@ -11775,7 +11775,7 @@
     "/userprofiles/{profileId}/sites": {
       "get": {
         "description": "Retrieves a list of sites, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.sites.list",
+        "operationId": "sites.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11939,7 +11939,7 @@
       ],
       "patch": {
         "description": "Updates an existing site. This method supports patch semantics.",
-        "operationId": "dfareporting.sites.patch",
+        "operationId": "sites.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -11984,7 +11984,7 @@
       },
       "post": {
         "description": "Inserts a new site.",
-        "operationId": "dfareporting.sites.insert",
+        "operationId": "sites.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12022,7 +12022,7 @@
       },
       "put": {
         "description": "Updates an existing site.",
-        "operationId": "dfareporting.sites.update",
+        "operationId": "sites.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12062,7 +12062,7 @@
     "/userprofiles/{profileId}/sites/{id}": {
       "get": {
         "description": "Gets one site by ID.",
-        "operationId": "dfareporting.sites.get",
+        "operationId": "sites.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12125,7 +12125,7 @@
     "/userprofiles/{profileId}/sizes": {
       "get": {
         "description": "Retrieves a list of sizes, possibly filtered.",
-        "operationId": "dfareporting.sizes.list",
+        "operationId": "sizes.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12207,7 +12207,7 @@
       ],
       "post": {
         "description": "Inserts a new size.",
-        "operationId": "dfareporting.sizes.insert",
+        "operationId": "sizes.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12247,7 +12247,7 @@
     "/userprofiles/{profileId}/sizes/{id}": {
       "get": {
         "description": "Gets one size by ID.",
-        "operationId": "dfareporting.sizes.get",
+        "operationId": "sizes.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12310,7 +12310,7 @@
     "/userprofiles/{profileId}/subaccounts": {
       "get": {
         "description": "Gets a list of subaccounts, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.subaccounts.list",
+        "operationId": "subaccounts.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12412,7 +12412,7 @@
       ],
       "patch": {
         "description": "Updates an existing subaccount. This method supports patch semantics.",
-        "operationId": "dfareporting.subaccounts.patch",
+        "operationId": "subaccounts.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12457,7 +12457,7 @@
       },
       "post": {
         "description": "Inserts a new subaccount.",
-        "operationId": "dfareporting.subaccounts.insert",
+        "operationId": "subaccounts.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12495,7 +12495,7 @@
       },
       "put": {
         "description": "Updates an existing subaccount.",
-        "operationId": "dfareporting.subaccounts.update",
+        "operationId": "subaccounts.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12535,7 +12535,7 @@
     "/userprofiles/{profileId}/subaccounts/{id}": {
       "get": {
         "description": "Gets one subaccount by ID.",
-        "operationId": "dfareporting.subaccounts.get",
+        "operationId": "subaccounts.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12598,7 +12598,7 @@
     "/userprofiles/{profileId}/targetableRemarketingLists": {
       "get": {
         "description": "Retrieves a list of targetable remarketing lists, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.targetableRemarketingLists.list",
+        "operationId": "targetableRemarketingLists.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12705,7 +12705,7 @@
     "/userprofiles/{profileId}/targetableRemarketingLists/{id}": {
       "get": {
         "description": "Gets one remarketing list by ID.",
-        "operationId": "dfareporting.targetableRemarketingLists.get",
+        "operationId": "targetableRemarketingLists.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12768,7 +12768,7 @@
     "/userprofiles/{profileId}/targetingTemplates": {
       "get": {
         "description": "Retrieves a list of targeting templates, optionally filtered. This method supports paging.",
-        "operationId": "dfareporting.targetingTemplates.list",
+        "operationId": "targetingTemplates.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12876,7 +12876,7 @@
       ],
       "patch": {
         "description": "Updates an existing targeting template. This method supports patch semantics.",
-        "operationId": "dfareporting.targetingTemplates.patch",
+        "operationId": "targetingTemplates.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12921,7 +12921,7 @@
       },
       "post": {
         "description": "Inserts a new targeting template.",
-        "operationId": "dfareporting.targetingTemplates.insert",
+        "operationId": "targetingTemplates.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12959,7 +12959,7 @@
       },
       "put": {
         "description": "Updates an existing targeting template.",
-        "operationId": "dfareporting.targetingTemplates.update",
+        "operationId": "targetingTemplates.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -12999,7 +12999,7 @@
     "/userprofiles/{profileId}/targetingTemplates/{id}": {
       "get": {
         "description": "Gets one targeting template by ID.",
-        "operationId": "dfareporting.targetingTemplates.get",
+        "operationId": "targetingTemplates.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13062,7 +13062,7 @@
     "/userprofiles/{profileId}/userRolePermissionGroups": {
       "get": {
         "description": "Gets a list of all supported user role permission groups.",
-        "operationId": "dfareporting.userRolePermissionGroups.list",
+        "operationId": "userRolePermissionGroups.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13118,7 +13118,7 @@
     "/userprofiles/{profileId}/userRolePermissionGroups/{id}": {
       "get": {
         "description": "Gets one user role permission group by ID.",
-        "operationId": "dfareporting.userRolePermissionGroups.get",
+        "operationId": "userRolePermissionGroups.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13181,7 +13181,7 @@
     "/userprofiles/{profileId}/userRolePermissions": {
       "get": {
         "description": "Gets a list of user role permissions, possibly filtered.",
-        "operationId": "dfareporting.userRolePermissions.list",
+        "operationId": "userRolePermissions.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13247,7 +13247,7 @@
     "/userprofiles/{profileId}/userRolePermissions/{id}": {
       "get": {
         "description": "Gets one user role permission by ID.",
-        "operationId": "dfareporting.userRolePermissions.get",
+        "operationId": "userRolePermissions.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13310,7 +13310,7 @@
     "/userprofiles/{profileId}/userRoles": {
       "get": {
         "description": "Retrieves a list of user roles, possibly filtered. This method supports paging.",
-        "operationId": "dfareporting.userRoles.list",
+        "operationId": "userRoles.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13424,7 +13424,7 @@
       ],
       "patch": {
         "description": "Updates an existing user role. This method supports patch semantics.",
-        "operationId": "dfareporting.userRoles.patch",
+        "operationId": "userRoles.patch",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13469,7 +13469,7 @@
       },
       "post": {
         "description": "Inserts a new user role.",
-        "operationId": "dfareporting.userRoles.insert",
+        "operationId": "userRoles.insert",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13507,7 +13507,7 @@
       },
       "put": {
         "description": "Updates an existing user role.",
-        "operationId": "dfareporting.userRoles.update",
+        "operationId": "userRoles.update",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13547,7 +13547,7 @@
     "/userprofiles/{profileId}/userRoles/{id}": {
       "delete": {
         "description": "Deletes an existing user role.",
-        "operationId": "dfareporting.userRoles.delete",
+        "operationId": "userRoles.delete",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13582,7 +13582,7 @@
       },
       "get": {
         "description": "Gets one user role by ID.",
-        "operationId": "dfareporting.userRoles.get",
+        "operationId": "userRoles.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13645,7 +13645,7 @@
     "/userprofiles/{profileId}/videoFormats": {
       "get": {
         "description": "Lists available video formats.",
-        "operationId": "dfareporting.videoFormats.list",
+        "operationId": "videoFormats.list",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",
@@ -13701,7 +13701,7 @@
     "/userprofiles/{profileId}/videoFormats/{id}": {
       "get": {
         "description": "Gets one video format by ID.",
-        "operationId": "dfareporting.videoFormats.get",
+        "operationId": "videoFormats.get",
         "parameters": [
           {
             "description": "User profile ID associated with this request.",

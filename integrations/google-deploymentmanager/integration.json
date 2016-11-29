@@ -132,7 +132,7 @@
     "/{project}/global/deployments": {
       "get": {
         "description": "Lists all deployments for a given project.",
-        "operationId": "deploymentmanager.deployments.list",
+        "operationId": "deployments.list",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -228,7 +228,7 @@
       ],
       "post": {
         "description": "Creates a deployment and all of the resources described by the deployment manifest.",
-        "operationId": "deploymentmanager.deployments.insert",
+        "operationId": "deployments.insert",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -279,7 +279,7 @@
     "/{project}/global/deployments/{deployment}": {
       "delete": {
         "description": "Deletes a deployment and all of the resources in the deployment.",
-        "operationId": "deploymentmanager.deployments.delete",
+        "operationId": "deployments.delete",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -322,7 +322,7 @@
       },
       "get": {
         "description": "Gets information about a specific deployment.",
-        "operationId": "deploymentmanager.deployments.get",
+        "operationId": "deployments.get",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -398,7 +398,7 @@
       ],
       "patch": {
         "description": "Updates a deployment and all of the resources described by the deployment manifest. This method supports patch semantics.",
-        "operationId": "deploymentmanager.deployments.patch",
+        "operationId": "deployments.patch",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -477,7 +477,7 @@
       },
       "put": {
         "description": "Updates a deployment and all of the resources described by the deployment manifest.",
-        "operationId": "deploymentmanager.deployments.update",
+        "operationId": "deployments.update",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -581,7 +581,7 @@
       ],
       "post": {
         "description": "Cancels and removes the preview currently associated with the deployment.",
-        "operationId": "deploymentmanager.deployments.cancelPreview",
+        "operationId": "deployments.cancelPreview",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -633,7 +633,7 @@
     "/{project}/global/deployments/{deployment}/manifests": {
       "get": {
         "description": "Lists all manifests for a given deployment.",
-        "operationId": "deploymentmanager.manifests.list",
+        "operationId": "manifests.list",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -738,7 +738,7 @@
     "/{project}/global/deployments/{deployment}/manifests/{manifest}": {
       "get": {
         "description": "Gets information about a specific manifest.",
-        "operationId": "deploymentmanager.manifests.get",
+        "operationId": "manifests.get",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -823,7 +823,7 @@
     "/{project}/global/deployments/{deployment}/resources": {
       "get": {
         "description": "Lists all resources in a given deployment.",
-        "operationId": "deploymentmanager.resources.list",
+        "operationId": "resources.list",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -928,7 +928,7 @@
     "/{project}/global/deployments/{deployment}/resources/{resource}": {
       "get": {
         "description": "Gets information about a single resource.",
-        "operationId": "deploymentmanager.resources.get",
+        "operationId": "resources.get",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -1036,7 +1036,7 @@
       ],
       "post": {
         "description": "Stops an ongoing operation. This does not roll back any work that has already been completed, but prevents any new work from being started.",
-        "operationId": "deploymentmanager.deployments.stop",
+        "operationId": "deployments.stop",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -1088,7 +1088,7 @@
     "/{project}/global/deployments/{resource}/getIamPolicy": {
       "get": {
         "description": "Gets the access control policy for a resource. May be empty if no such policy or resource exists.",
-        "operationId": "deploymentmanager.deployments.getIamPolicy",
+        "operationId": "deployments.getIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1179,7 +1179,7 @@
       ],
       "post": {
         "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
-        "operationId": "deploymentmanager.deployments.setIamPolicy",
+        "operationId": "deployments.setIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1254,7 +1254,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified resource.",
-        "operationId": "deploymentmanager.deployments.testIamPermissions",
+        "operationId": "deployments.testIamPermissions",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1306,7 +1306,7 @@
     "/{project}/global/operations": {
       "get": {
         "description": "Lists all operations for a project.",
-        "operationId": "deploymentmanager.operations.list",
+        "operationId": "operations.list",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -1404,7 +1404,7 @@
     "/{project}/global/operations/{operation}": {
       "get": {
         "description": "Gets information about a specific operation.",
-        "operationId": "deploymentmanager.operations.get",
+        "operationId": "operations.get",
         "parameters": [
           {
             "description": "The project ID for this request.",
@@ -1482,7 +1482,7 @@
     "/{project}/global/types": {
       "get": {
         "description": "Lists all resource types for Deployment Manager.",
-        "operationId": "deploymentmanager.types.list",
+        "operationId": "types.list",
         "parameters": [
           {
             "description": "The project ID for this request.",

@@ -119,7 +119,7 @@
   "paths": {
     "/oauth2/v2/certs": {
       "get": {
-        "operationId": "oauth2.getCertForOpenIdConnect",
+        "operationId": "getCertForOpenIdConnect",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -178,7 +178,7 @@
         }
       ],
       "post": {
-        "operationId": "oauth2.tokeninfo",
+        "operationId": "tokeninfo",
         "parameters": [
           {
             "in": "query",
@@ -208,7 +208,7 @@
     },
     "/oauth2/v2/userinfo": {
       "get": {
-        "operationId": "oauth2.userinfo.get",
+        "operationId": "userinfo.get",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -269,7 +269,7 @@
     },
     "/userinfo/v2/me": {
       "get": {
-        "operationId": "oauth2.userinfo.v2.me.get",
+        "operationId": "userinfo.v2.me.get",
         "responses": {
           "200": {
             "description": "Successful response",

@@ -199,7 +199,7 @@
     "/activities": {
       "get": {
         "description": "Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.",
-        "operationId": "youtube.activities.list",
+        "operationId": "activities.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more activity resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in an activity resource, the snippet property contains other properties that identify the type of activity, a display title for the activity, and so forth. If you set part=snippet, the API response will also contain all of those nested properties.",
@@ -314,7 +314,7 @@
       ],
       "post": {
         "description": "Posts a bulletin for a specific channel. (The user submitting the request must be authorized to act on the channel's behalf.)\n\nNote: Even though an activity resource can contain information about actions like a user rating a video or marking a video as a favorite, you need to use other API methods to generate those activity resources. For example, you would use the API's videos.rate() method to rate a video and the playlistItems.insert() method to mark a video as a favorite.",
-        "operationId": "youtube.activities.insert",
+        "operationId": "activities.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
@@ -359,7 +359,7 @@
     "/captions": {
       "delete": {
         "description": "Deletes a specified caption track.",
-        "operationId": "youtube.captions.delete",
+        "operationId": "captions.delete",
         "parameters": [
           {
             "description": "The id parameter identifies the caption track that is being deleted. The value is a caption track ID as identified by the id property in a caption resource.",
@@ -404,7 +404,7 @@
       },
       "get": {
         "description": "Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that the captions.download method provides the ability to retrieve a caption track.",
-        "operationId": "youtube.captions.list",
+        "operationId": "captions.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more caption resource parts that the API response will include. The part names that you can include in the parameter value are id and snippet.",
@@ -492,7 +492,7 @@
           "text/xml"
         ],
         "description": "Uploads a caption track.",
-        "operationId": "youtube.captions.insert",
+        "operationId": "captions.insert",
         "parameters": [
           {
             "description": "The part parameter specifies the caption resource parts that the API response will include. Set the parameter value to snippet.",
@@ -557,7 +557,7 @@
           "text/xml"
         ],
         "description": "Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both.",
-        "operationId": "youtube.captions.update",
+        "operationId": "captions.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the property value to snippet if you are updating the track's draft status. Otherwise, set the property value to id.",
@@ -620,7 +620,7 @@
     "/captions/{id}": {
       "get": {
         "description": "Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.",
-        "operationId": "youtube.captions.download",
+        "operationId": "captions.download",
         "parameters": [
           {
             "description": "The id parameter identifies the caption track that is being retrieved. The value is a caption track ID as identified by the id property in a caption resource.",
@@ -737,7 +737,7 @@
           "image/png"
         ],
         "description": "Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:\n\n- Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192 pixels.\n- Extract the url property's value from the response that the API returns for step 1.\n- Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the URL obtained in step 2.",
-        "operationId": "youtube.channelBanners.insert",
+        "operationId": "channelBanners.insert",
         "parameters": [
           {
             "description": "Note: This parameter is intended exclusively for YouTube content partners.\n\nThe onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
@@ -786,7 +786,7 @@
     "/channelSections": {
       "delete": {
         "description": "Deletes a channelSection.",
-        "operationId": "youtube.channelSections.delete",
+        "operationId": "channelSections.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube channelSection ID for the resource that is being deleted. In a channelSection resource, the id property specifies the YouTube channelSection ID.",
@@ -830,7 +830,7 @@
       },
       "get": {
         "description": "Returns channelSection resources that match the API request criteria.",
-        "operationId": "youtube.channelSections.list",
+        "operationId": "channelSections.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more channelSection resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, and contentDetails.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channelSection resource, the snippet property contains other properties, such as a display title for the channelSection. If you set part=snippet, the API response will also contain all of those nested properties.",
@@ -929,7 +929,7 @@
       ],
       "post": {
         "description": "Adds a channelSection for the authenticated user's channel.",
-        "operationId": "youtube.channelSections.insert",
+        "operationId": "channelSections.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part names that you can include in the parameter value are snippet and contentDetails.",
@@ -989,7 +989,7 @@
       },
       "put": {
         "description": "Update a channelSection.",
-        "operationId": "youtube.channelSections.update",
+        "operationId": "channelSections.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part names that you can include in the parameter value are snippet and contentDetails.",
@@ -1045,7 +1045,7 @@
     "/channels": {
       "get": {
         "description": "Returns a collection of zero or more channel resources that match the request criteria.",
-        "operationId": "youtube.channels.list",
+        "operationId": "channels.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more channel resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a channel resource, the contentDetails property contains other properties, such as the uploads properties. As such, if you set part=contentDetails, the API response will also contain all of those nested properties.",
@@ -1182,7 +1182,7 @@
       ],
       "put": {
         "description": "Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.",
-        "operationId": "youtube.channels.update",
+        "operationId": "channels.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe API currently only allows the parameter value to be set to either brandingSettings or invideoPromotion. (You cannot update both of those parts with a single request.)\n\nNote that this method overrides the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies.",
@@ -1238,7 +1238,7 @@
     "/commentThreads": {
       "get": {
         "description": "Returns a list of comment threads that match the API request parameters.",
-        "operationId": "youtube.commentThreads.list",
+        "operationId": "commentThreads.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more commentThread resource properties that the API response will include.",
@@ -1370,7 +1370,7 @@
       ],
       "post": {
         "description": "Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.",
-        "operationId": "youtube.commentThreads.insert",
+        "operationId": "commentThreads.insert",
         "parameters": [
           {
             "description": "The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.",
@@ -1408,7 +1408,7 @@
       },
       "put": {
         "description": "Modifies the top-level comment in a comment thread.",
-        "operationId": "youtube.commentThreads.update",
+        "operationId": "commentThreads.update",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of commentThread resource properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.",
@@ -1448,7 +1448,7 @@
     "/comments": {
       "delete": {
         "description": "Deletes a comment.",
-        "operationId": "youtube.comments.delete",
+        "operationId": "comments.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the comment ID for the resource that is being deleted.",
@@ -1476,7 +1476,7 @@
       },
       "get": {
         "description": "Returns a list of comments that match the API request parameters.",
-        "operationId": "youtube.comments.list",
+        "operationId": "comments.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more comment resource properties that the API response will include.",
@@ -1568,7 +1568,7 @@
       ],
       "post": {
         "description": "Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method.",
-        "operationId": "youtube.comments.insert",
+        "operationId": "comments.insert",
         "parameters": [
           {
             "description": "The part parameter identifies the properties that the API response will include. Set the parameter value to snippet. The snippet part has a quota cost of 2 units.",
@@ -1606,7 +1606,7 @@
       },
       "put": {
         "description": "Modifies a comment.",
-        "operationId": "youtube.comments.update",
+        "operationId": "comments.update",
         "parameters": [
           {
             "description": "The part parameter identifies the properties that the API response will include. You must at least include the snippet part in the parameter value since that part contains all of the properties that the API request can update.",
@@ -1669,7 +1669,7 @@
       ],
       "post": {
         "description": "Expresses the caller's opinion that one or more comments should be flagged as spam.",
-        "operationId": "youtube.comments.markAsSpam",
+        "operationId": "comments.markAsSpam",
         "parameters": [
           {
             "description": "The id parameter specifies a comma-separated list of IDs of comments that the caller believes should be classified as spam.",
@@ -1722,7 +1722,7 @@
       ],
       "post": {
         "description": "Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.",
-        "operationId": "youtube.comments.setModerationStatus",
+        "operationId": "comments.setModerationStatus",
         "parameters": [
           {
             "description": "The id parameter specifies a comma-separated list of IDs that identify the comments for which you are updating the moderation status.",
@@ -1771,7 +1771,7 @@
     "/fanFundingEvents": {
       "get": {
         "description": "Lists fan funding events for a channel.",
-        "operationId": "youtube.fanFundingEvents.list",
+        "operationId": "fanFundingEvents.list",
         "parameters": [
           {
             "description": "The part parameter specifies the fanFundingEvent resource parts that the API response will include. Supported values are id and snippet.",
@@ -1858,7 +1858,7 @@
     "/guideCategories": {
       "get": {
         "description": "Returns a list of categories that can be associated with YouTube channels.",
-        "operationId": "youtube.guideCategories.list",
+        "operationId": "guideCategories.list",
         "parameters": [
           {
             "description": "The part parameter specifies the guideCategory resource properties that the API response will include. Set the parameter value to snippet.",
@@ -1948,7 +1948,7 @@
     "/i18nLanguages": {
       "get": {
         "description": "Returns a list of application languages that the YouTube website supports.",
-        "operationId": "youtube.i18nLanguages.list",
+        "operationId": "i18nLanguages.list",
         "parameters": [
           {
             "description": "The part parameter specifies the i18nLanguage resource properties that the API response will include. Set the parameter value to snippet.",
@@ -2026,7 +2026,7 @@
     "/i18nRegions": {
       "get": {
         "description": "Returns a list of content regions that the YouTube website supports.",
-        "operationId": "youtube.i18nRegions.list",
+        "operationId": "i18nRegions.list",
         "parameters": [
           {
             "description": "The part parameter specifies the i18nRegion resource properties that the API response will include. Set the parameter value to snippet.",
@@ -2104,7 +2104,7 @@
     "/liveBroadcasts": {
       "delete": {
         "description": "Deletes a broadcast.",
-        "operationId": "youtube.liveBroadcasts.delete",
+        "operationId": "liveBroadcasts.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube live broadcast ID for the resource that is being deleted.",
@@ -2149,7 +2149,7 @@
       },
       "get": {
         "description": "Returns a list of YouTube broadcasts that match the API request parameters.",
-        "operationId": "youtube.liveBroadcasts.list",
+        "operationId": "liveBroadcasts.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more liveBroadcast resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, contentDetails, and status.",
@@ -2276,7 +2276,7 @@
       ],
       "post": {
         "description": "Creates a broadcast.",
-        "operationId": "youtube.liveBroadcasts.insert",
+        "operationId": "liveBroadcasts.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part properties that you can include in the parameter value are id, snippet, contentDetails, and status.",
@@ -2331,7 +2331,7 @@
       },
       "put": {
         "description": "Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object.",
-        "operationId": "youtube.liveBroadcasts.update",
+        "operationId": "liveBroadcasts.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part properties that you can include in the parameter value are id, snippet, contentDetails, and status.\n\nNote that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a broadcast's privacy status is defined in the status part. As such, if your request is updating a private or unlisted broadcast, and the request's part parameter value includes the status part, the broadcast's privacy setting will be updated to whatever value the request body specifies. If the request body does not specify a value, the existing privacy setting will be removed and the broadcast will revert to the default privacy setting.",
@@ -2411,7 +2411,7 @@
       ],
       "post": {
         "description": "Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.",
-        "operationId": "youtube.liveBroadcasts.bind",
+        "operationId": "liveBroadcasts.bind",
         "parameters": [
           {
             "description": "The id parameter specifies the unique ID of the broadcast that is being bound to a video stream.",
@@ -2497,7 +2497,7 @@
       ],
       "post": {
         "description": "Controls the settings for a slate that can be displayed in the broadcast stream.",
-        "operationId": "youtube.liveBroadcasts.control",
+        "operationId": "liveBroadcasts.control",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube live broadcast ID that uniquely identifies the broadcast in which the slate is being updated.",
@@ -2595,7 +2595,7 @@
       ],
       "post": {
         "description": "Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.",
-        "operationId": "youtube.liveBroadcasts.transition",
+        "operationId": "liveBroadcasts.transition",
         "parameters": [
           {
             "description": "The broadcastStatus parameter identifies the state to which the broadcast is changing. Note that to transition a broadcast to either the testing or live state, the status.streamStatus must be active for the stream that the broadcast is bound to.",
@@ -2664,7 +2664,7 @@
     "/liveChat/bans": {
       "delete": {
         "description": "Removes a chat ban.",
-        "operationId": "youtube.liveChatBans.delete",
+        "operationId": "liveChatBans.delete",
         "parameters": [
           {
             "description": "The id parameter identifies the chat ban to remove. The value uniquely identifies both the ban and the chat.",
@@ -2720,7 +2720,7 @@
       ],
       "post": {
         "description": "Adds a new ban to the chat.",
-        "operationId": "youtube.liveChatBans.insert",
+        "operationId": "liveChatBans.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.",
@@ -2765,7 +2765,7 @@
     "/liveChat/messages": {
       "delete": {
         "description": "Deletes a chat message.",
-        "operationId": "youtube.liveChatMessages.delete",
+        "operationId": "liveChatMessages.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube chat message ID of the resource that is being deleted.",
@@ -2798,7 +2798,7 @@
       },
       "get": {
         "description": "Lists live chat messages for a specific chat.",
-        "operationId": "youtube.liveChatMessages.list",
+        "operationId": "liveChatMessages.list",
         "parameters": [
           {
             "description": "The liveChatId parameter specifies the ID of the chat whose messages will be returned.",
@@ -2898,7 +2898,7 @@
       ],
       "post": {
         "description": "Adds a message to a live chat.",
-        "operationId": "youtube.liveChatMessages.insert",
+        "operationId": "liveChatMessages.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes. It identifies the properties that the write operation will set as well as the properties that the API response will include. Set the parameter value to snippet.",
@@ -2943,7 +2943,7 @@
     "/liveChat/moderators": {
       "delete": {
         "description": "Removes a chat moderator.",
-        "operationId": "youtube.liveChatModerators.delete",
+        "operationId": "liveChatModerators.delete",
         "parameters": [
           {
             "description": "The id parameter identifies the chat moderator to remove. The value uniquely identifies both the moderator and the chat.",
@@ -2976,7 +2976,7 @@
       },
       "get": {
         "description": "Lists moderators for a live chat.",
-        "operationId": "youtube.liveChatModerators.list",
+        "operationId": "liveChatModerators.list",
         "parameters": [
           {
             "description": "The liveChatId parameter specifies the YouTube live chat for which the API should return moderators.",
@@ -3062,7 +3062,7 @@
       ],
       "post": {
         "description": "Adds a new moderator for the chat.",
-        "operationId": "youtube.liveChatModerators.insert",
+        "operationId": "liveChatModerators.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response returns. Set the parameter value to snippet.",
@@ -3107,7 +3107,7 @@
     "/liveStreams": {
       "delete": {
         "description": "Deletes a video stream.",
-        "operationId": "youtube.liveStreams.delete",
+        "operationId": "liveStreams.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube live stream ID for the resource that is being deleted.",
@@ -3152,7 +3152,7 @@
       },
       "get": {
         "description": "Returns a list of video streams that match the API request parameters.",
-        "operationId": "youtube.liveStreams.list",
+        "operationId": "liveStreams.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more liveStream resource properties that the API response will include. The part names that you can include in the parameter value are id, snippet, cdn, and status.",
@@ -3255,7 +3255,7 @@
       ],
       "post": {
         "description": "Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience.",
-        "operationId": "youtube.liveStreams.insert",
+        "operationId": "liveStreams.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part properties that you can include in the parameter value are id, snippet, cdn, and status.",
@@ -3310,7 +3310,7 @@
       },
       "put": {
         "description": "Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings.",
-        "operationId": "youtube.liveStreams.update",
+        "operationId": "liveStreams.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nThe part properties that you can include in the parameter value are id, snippet, cdn, and status.\n\nNote that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. If the request body does not specify a value for a mutable property, the existing value for that property will be removed.",
@@ -3367,7 +3367,7 @@
     "/playlistItems": {
       "delete": {
         "description": "Deletes a playlist item.",
-        "operationId": "youtube.playlistItems.delete",
+        "operationId": "playlistItems.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube playlist item ID for the playlist item that is being deleted. In a playlistItem resource, the id property specifies the playlist item's ID.",
@@ -3411,7 +3411,7 @@
       },
       "get": {
         "description": "Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or retrieve one or more playlist items by their unique IDs.",
-        "operationId": "youtube.playlistItems.list",
+        "operationId": "playlistItems.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more playlistItem resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlistItem resource, the snippet property contains numerous fields, including the title, description, position, and resourceId properties. As such, if you set part=snippet, the API response will contain all of those properties.",
@@ -3519,7 +3519,7 @@
       ],
       "post": {
         "description": "Adds a resource to a playlist.",
-        "operationId": "youtube.playlistItems.insert",
+        "operationId": "playlistItems.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
@@ -3573,7 +3573,7 @@
       },
       "put": {
         "description": "Modifies a playlist item. For example, you could update the item's position in the playlist.",
-        "operationId": "youtube.playlistItems.update",
+        "operationId": "playlistItems.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nNote that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a playlist item can specify a start time and end time, which identify the times portion of the video that should play when users watch the video in the playlist. If your request is updating a playlist item that sets these values, and the request's part parameter value includes the contentDetails part, the playlist item's start and end times will be updated to whatever value the request body specifies. If the request body does not specify values, the existing start and end times will be removed and replaced with the default settings.",
@@ -3629,7 +3629,7 @@
     "/playlists": {
       "delete": {
         "description": "Deletes a playlist.",
-        "operationId": "youtube.playlists.delete",
+        "operationId": "playlists.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube playlist ID for the playlist that is being deleted. In a playlist resource, the id property specifies the playlist's ID.",
@@ -3673,7 +3673,7 @@
       },
       "get": {
         "description": "Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns, or you can retrieve one or more playlists by their unique IDs.",
-        "operationId": "youtube.playlists.list",
+        "operationId": "playlists.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more playlist resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a playlist resource, the snippet property contains properties like author, title, description, tags, and timeCreated. As such, if you set part=snippet, the API response will contain all of those properties.",
@@ -3793,7 +3793,7 @@
       ],
       "post": {
         "description": "Creates a playlist.",
-        "operationId": "youtube.playlists.insert",
+        "operationId": "playlists.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
@@ -3853,7 +3853,7 @@
       },
       "put": {
         "description": "Modifies a playlist. For example, you could change a playlist's title, description, or privacy status.",
-        "operationId": "youtube.playlists.update",
+        "operationId": "playlists.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nNote that this method will override the existing values for mutable properties that are contained in any parts that the request body specifies. For example, a playlist's description is contained in the snippet part, which must be included in the request body. If the request does not specify a value for the snippet.description property, the playlist's existing description will be deleted.",
@@ -3909,7 +3909,7 @@
     "/search": {
       "get": {
         "description": "Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.",
-        "operationId": "youtube.search.list",
+        "operationId": "search.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet.",
@@ -4226,7 +4226,7 @@
     "/sponsors": {
       "get": {
         "description": "Lists sponsors for a channel.",
-        "operationId": "youtube.sponsors.list",
+        "operationId": "sponsors.list",
         "parameters": [
           {
             "description": "The part parameter specifies the sponsor resource parts that the API response will include. Supported values are id and snippet.",
@@ -4318,7 +4318,7 @@
     "/subscriptions": {
       "delete": {
         "description": "Deletes a subscription.",
-        "operationId": "youtube.subscriptions.delete",
+        "operationId": "subscriptions.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube subscription ID for the resource that is being deleted. In a subscription resource, the id property specifies the YouTube subscription ID.",
@@ -4356,7 +4356,7 @@
       },
       "get": {
         "description": "Returns subscription resources that match the API request criteria.",
-        "operationId": "youtube.subscriptions.list",
+        "operationId": "subscriptions.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more subscription resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a subscription resource, the snippet property contains other properties, such as a display title for the subscription. If you set part=snippet, the API response will also contain all of those nested properties.",
@@ -4500,7 +4500,7 @@
       ],
       "post": {
         "description": "Adds a subscription for the authenticated user's channel.",
-        "operationId": "youtube.subscriptions.insert",
+        "operationId": "subscriptions.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.",
@@ -4578,7 +4578,7 @@
           "image/png"
         ],
         "description": "Uploads a custom video thumbnail to YouTube and sets it for a video.",
-        "operationId": "youtube.thumbnails.set",
+        "operationId": "thumbnails.set",
         "parameters": [
           {
             "description": "The videoId parameter specifies a YouTube video ID for which the custom video thumbnail is being provided.",
@@ -4632,7 +4632,7 @@
     "/videoAbuseReportReasons": {
       "get": {
         "description": "Returns a list of abuse reasons that can be used for reporting abusive videos.",
-        "operationId": "youtube.videoAbuseReportReasons.list",
+        "operationId": "videoAbuseReportReasons.list",
         "parameters": [
           {
             "description": "The part parameter specifies the videoCategory resource parts that the API response will include. Supported values are id and snippet.",
@@ -4705,7 +4705,7 @@
     "/videoCategories": {
       "get": {
         "description": "Returns a list of categories that can be associated with YouTube videos.",
-        "operationId": "youtube.videoCategories.list",
+        "operationId": "videoCategories.list",
         "parameters": [
           {
             "description": "The part parameter specifies the videoCategory resource properties that the API response will include. Set the parameter value to snippet.",
@@ -4795,7 +4795,7 @@
     "/videos": {
       "delete": {
         "description": "Deletes a YouTube video.",
-        "operationId": "youtube.videos.delete",
+        "operationId": "videos.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube video ID for the resource that is being deleted. In a video resource, the id property specifies the video's ID.",
@@ -4839,7 +4839,7 @@
       },
       "get": {
         "description": "Returns a list of videos that match the API request parameters.",
-        "operationId": "youtube.videos.list",
+        "operationId": "videos.list",
         "parameters": [
           {
             "description": "The part parameter specifies a comma-separated list of one or more video resource properties that the API response will include.\n\nIf the parameter identifies a property that contains child properties, the child properties will be included in the response. For example, in a video resource, the snippet property contains the channelId, title, description, tags, and categoryId properties. As such, if you set part=snippet, the API response will contain all of those properties.",
@@ -5092,7 +5092,7 @@
           "video/x-smv"
         ],
         "description": "Uploads a video to YouTube and optionally sets the video's metadata.",
-        "operationId": "youtube.videos.insert",
+        "operationId": "videos.insert",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nNote that not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.",
@@ -5176,7 +5176,7 @@
       },
       "put": {
         "description": "Updates a video's metadata.",
-        "operationId": "youtube.videos.update",
+        "operationId": "videos.update",
         "parameters": [
           {
             "description": "The part parameter serves two purposes in this operation. It identifies the properties that the write operation will set as well as the properties that the API response will include.\n\nNote that this method will override the existing values for all of the mutable properties that are contained in any parts that the parameter value specifies. For example, a video's privacy setting is contained in the status part. As such, if your request is updating a private video, and the request's part parameter value includes the status part, the video's privacy setting will be updated to whatever value the request body specifies. If the request body does not specify a value, the existing privacy setting will be removed and the video will revert to the default privacy setting.\n\nIn addition, not all parts contain properties that can be set when inserting or updating a video. For example, the statistics object encapsulates statistics that YouTube calculates for a video and does not contain values that you can set or modify. If the parameter value specifies a part that does not contain mutable values, that part will still be included in the API response.",
@@ -5232,7 +5232,7 @@
     "/videos/getRating": {
       "get": {
         "description": "Retrieves the ratings that the authorized user gave to a list of specified videos.",
-        "operationId": "youtube.videos.getRating",
+        "operationId": "videos.getRating",
         "parameters": [
           {
             "description": "The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s) for which you are retrieving rating data. In a video resource, the id property specifies the video's ID.",
@@ -5327,7 +5327,7 @@
       ],
       "post": {
         "description": "Add a like or dislike rating to a video or remove a rating from a video.",
-        "operationId": "youtube.videos.rate",
+        "operationId": "videos.rate",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube video ID of the video that is being rated or having its rating removed.",
@@ -5402,7 +5402,7 @@
       ],
       "post": {
         "description": "Report abuse for a video.",
-        "operationId": "youtube.videos.reportAbuse",
+        "operationId": "videos.reportAbuse",
         "parameters": [
           {
             "description": "Note: This parameter is intended exclusively for YouTube content partners.\n\nThe onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
@@ -5476,7 +5476,7 @@
           "image/png"
         ],
         "description": "Uploads a watermark image to YouTube and sets it for a channel.",
-        "operationId": "youtube.watermarks.set",
+        "operationId": "watermarks.set",
         "parameters": [
           {
             "description": "The channelId parameter specifies the YouTube channel ID for which the watermark is being provided.",
@@ -5557,7 +5557,7 @@
       ],
       "post": {
         "description": "Deletes a channel's watermark image.",
-        "operationId": "youtube.watermarks.unset",
+        "operationId": "watermarks.unset",
         "parameters": [
           {
             "description": "The channelId parameter specifies the YouTube channel ID for which the watermark is being unset.",

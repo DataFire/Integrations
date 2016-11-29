@@ -93,7 +93,7 @@
     "/apis": {
       "get": {
         "description": "Retrieve the list of APIs supported at this endpoint.",
-        "operationId": "discovery.apis.list",
+        "operationId": "apis.list",
         "parameters": [
           {
             "description": "Only include APIs with the given name.",
@@ -148,7 +148,7 @@
     "/apis/{api}/{version}/rest": {
       "get": {
         "description": "Retrieve the description of a particular version of an api.",
-        "operationId": "discovery.apis.getRest",
+        "operationId": "apis.getRest",
         "parameters": [
           {
             "description": "The name of the API.",

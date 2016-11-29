@@ -139,7 +139,7 @@
       ],
       "post": {
         "description": "Get a verification token for placing on a website or domain.",
-        "operationId": "siteVerification.webResource.getToken",
+        "operationId": "webResource.getToken",
         "parameters": [
           {
             "in": "body",
@@ -177,7 +177,7 @@
     "/webResource": {
       "get": {
         "description": "Get the list of your verified websites and domains.",
-        "operationId": "siteVerification.webResource.list",
+        "operationId": "webResource.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -222,7 +222,7 @@
       ],
       "post": {
         "description": "Attempt verification of a website or domain.",
-        "operationId": "siteVerification.webResource.insert",
+        "operationId": "webResource.insert",
         "parameters": [
           {
             "description": "The method to use for verifying a site or domain.",
@@ -267,7 +267,7 @@
     "/webResource/{id}": {
       "delete": {
         "description": "Relinquish ownership of a website or domain.",
-        "operationId": "siteVerification.webResource.delete",
+        "operationId": "webResource.delete",
         "parameters": [
           {
             "description": "The id of a verified site or domain.",
@@ -295,7 +295,7 @@
       },
       "get": {
         "description": "Get the most current data for a website or domain.",
-        "operationId": "siteVerification.webResource.get",
+        "operationId": "webResource.get",
         "parameters": [
           {
             "description": "The id of a verified site or domain.",
@@ -349,7 +349,7 @@
       ],
       "patch": {
         "description": "Modify the list of owners for your website or domain. This method supports patch semantics.",
-        "operationId": "siteVerification.webResource.patch",
+        "operationId": "webResource.patch",
         "parameters": [
           {
             "description": "The id of a verified site or domain.",
@@ -387,7 +387,7 @@
       },
       "put": {
         "description": "Modify the list of owners for your website or domain.",
-        "operationId": "siteVerification.webResource.update",
+        "operationId": "webResource.update",
         "parameters": [
           {
             "description": "The id of a verified site or domain.",

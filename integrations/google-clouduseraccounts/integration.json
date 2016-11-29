@@ -129,7 +129,7 @@
     "/{project}/global/groups": {
       "get": {
         "description": "Retrieves the list of groups contained within the specified project.",
-        "operationId": "clouduseraccounts.groups.list",
+        "operationId": "groups.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -225,7 +225,7 @@
       ],
       "post": {
         "description": "Creates a Group resource in the specified project using the data included in the request.",
-        "operationId": "clouduseraccounts.groups.insert",
+        "operationId": "groups.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -270,7 +270,7 @@
     "/{project}/global/groups/{groupName}": {
       "delete": {
         "description": "Deletes the specified Group resource.",
-        "operationId": "clouduseraccounts.groups.delete",
+        "operationId": "groups.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -313,7 +313,7 @@
       },
       "get": {
         "description": "Returns the specified Group resource.",
-        "operationId": "clouduseraccounts.groups.get",
+        "operationId": "groups.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -414,7 +414,7 @@
       ],
       "post": {
         "description": "Adds users to the specified group.",
-        "operationId": "clouduseraccounts.groups.addMember",
+        "operationId": "groups.addMember",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -489,7 +489,7 @@
       ],
       "post": {
         "description": "Removes users from the specified group.",
-        "operationId": "clouduseraccounts.groups.removeMember",
+        "operationId": "groups.removeMember",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -541,7 +541,7 @@
     "/{project}/global/groups/{resource}/getIamPolicy": {
       "get": {
         "description": "Gets the access control policy for a resource. May be empty if no such policy or resource exists.",
-        "operationId": "clouduseraccounts.groups.getIamPolicy",
+        "operationId": "groups.getIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -642,7 +642,7 @@
       ],
       "post": {
         "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
-        "operationId": "clouduseraccounts.groups.setIamPolicy",
+        "operationId": "groups.setIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -727,7 +727,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified resource.",
-        "operationId": "clouduseraccounts.groups.testIamPermissions",
+        "operationId": "groups.testIamPermissions",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -789,7 +789,7 @@
     "/{project}/global/operations": {
       "get": {
         "description": "Retrieves the list of operation resources contained within the specified project.",
-        "operationId": "clouduseraccounts.globalAccountsOperations.list",
+        "operationId": "globalAccountsOperations.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -887,7 +887,7 @@
     "/{project}/global/operations/{operation}": {
       "delete": {
         "description": "Deletes the specified operation resource.",
-        "operationId": "clouduseraccounts.globalAccountsOperations.delete",
+        "operationId": "globalAccountsOperations.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -927,7 +927,7 @@
       },
       "get": {
         "description": "Retrieves the specified operation resource.",
-        "operationId": "clouduseraccounts.globalAccountsOperations.get",
+        "operationId": "globalAccountsOperations.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1005,7 +1005,7 @@
     "/{project}/global/users": {
       "get": {
         "description": "Retrieves a list of users contained within the specified project.",
-        "operationId": "clouduseraccounts.users.list",
+        "operationId": "users.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1101,7 +1101,7 @@
       ],
       "post": {
         "description": "Creates a User resource in the specified project using the data included in the request.",
-        "operationId": "clouduseraccounts.users.insert",
+        "operationId": "users.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1146,7 +1146,7 @@
     "/{project}/global/users/{resource}/getIamPolicy": {
       "get": {
         "description": "Gets the access control policy for a resource. May be empty if no such policy or resource exists.",
-        "operationId": "clouduseraccounts.users.getIamPolicy",
+        "operationId": "users.getIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1247,7 +1247,7 @@
       ],
       "post": {
         "description": "Sets the access control policy on the specified resource. Replaces any existing policy.",
-        "operationId": "clouduseraccounts.users.setIamPolicy",
+        "operationId": "users.setIamPolicy",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1332,7 +1332,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified resource.",
-        "operationId": "clouduseraccounts.users.testIamPermissions",
+        "operationId": "users.testIamPermissions",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1394,7 +1394,7 @@
     "/{project}/global/users/{user}": {
       "delete": {
         "description": "Deletes the specified User resource.",
-        "operationId": "clouduseraccounts.users.delete",
+        "operationId": "users.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1437,7 +1437,7 @@
       },
       "get": {
         "description": "Returns the specified User resource.",
-        "operationId": "clouduseraccounts.users.get",
+        "operationId": "users.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1538,7 +1538,7 @@
       ],
       "post": {
         "description": "Adds a public key to the specified User resource with the data included in the request.",
-        "operationId": "clouduseraccounts.users.addPublicKey",
+        "operationId": "users.addPublicKey",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1613,7 +1613,7 @@
       ],
       "post": {
         "description": "Removes the specified public key from the user.",
-        "operationId": "clouduseraccounts.users.removePublicKey",
+        "operationId": "users.removePublicKey",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1688,7 +1688,7 @@
       ],
       "post": {
         "description": "Returns a list of authorized public keys for a specific user account.",
-        "operationId": "clouduseraccounts.linux.getAuthorizedKeysView",
+        "operationId": "linux.getAuthorizedKeysView",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1786,7 +1786,7 @@
       ],
       "post": {
         "description": "Retrieves a list of user accounts for an instance within a specific project.",
-        "operationId": "clouduseraccounts.linux.getLinuxAccountViews",
+        "operationId": "linux.getLinuxAccountViews",
         "parameters": [
           {
             "description": "Project ID for this request.",

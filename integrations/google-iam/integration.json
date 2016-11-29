@@ -192,7 +192,7 @@
       ],
       "post": {
         "description": "Queries roles that can be granted on a particular resource. A role is grantable if it can be used as the role in a binding for a policy for that resource.",
-        "operationId": "iam.roles.queryGrantableRoles",
+        "operationId": "roles.queryGrantableRoles",
         "parameters": [
           {
             "in": "body",
@@ -225,7 +225,7 @@
     "/v1/{name}": {
       "delete": {
         "description": "Deletes a ServiceAccountKey.",
-        "operationId": "iam.projects.serviceAccounts.keys.delete",
+        "operationId": "projects.serviceAccounts.keys.delete",
         "parameters": [
           {
             "description": "The resource name of the service account key in the following format: `projects/{project}/serviceAccounts/{account}/keys/{key}`. Using `-` as a wildcard for the project will infer the project from the account. The `account` value can be the `email` address or the `unique_id` of the service account.",
@@ -257,7 +257,7 @@
       },
       "get": {
         "description": "Gets the ServiceAccountKey by key id.",
-        "operationId": "iam.projects.serviceAccounts.keys.get",
+        "operationId": "projects.serviceAccounts.keys.get",
         "parameters": [
           {
             "description": "The resource name of the service account key in the following format: `projects/{project}/serviceAccounts/{account}/keys/{key}`. Using `-` as a wildcard for the project will infer the project from the account. The `account` value can be the `email` address or the `unique_id` of the service account.",
@@ -341,7 +341,7 @@
       ],
       "put": {
         "description": "Updates a ServiceAccount. Currently, only the following fields are updatable: `display_name` . The `etag` is mandatory.",
-        "operationId": "iam.projects.serviceAccounts.update",
+        "operationId": "projects.serviceAccounts.update",
         "parameters": [
           {
             "description": "The resource name of the service account in the following format: `projects/{project}/serviceAccounts/{account}`. Requests using `-` as a wildcard for the project will infer the project from the `account` and the `account` value can be the `email` address or the `unique_id` of the service account. In responses the resource name will always be in the format `projects/{project}/serviceAccounts/{email}`.",
@@ -382,7 +382,7 @@
     "/v1/{name}/keys": {
       "get": {
         "description": "Lists ServiceAccountKeys.",
-        "operationId": "iam.projects.serviceAccounts.keys.list",
+        "operationId": "projects.serviceAccounts.keys.list",
         "parameters": [
           {
             "description": "The resource name of the service account in the following format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a wildcard for the project, will infer the project from the account. The `account` value can be the `email` address or the `unique_id` of the service account.",
@@ -470,7 +470,7 @@
       ],
       "post": {
         "description": "Creates a ServiceAccountKey and returns it.",
-        "operationId": "iam.projects.serviceAccounts.keys.create",
+        "operationId": "projects.serviceAccounts.keys.create",
         "parameters": [
           {
             "description": "The resource name of the service account in the following format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a wildcard for the project will infer the project from the account. The `account` value can be the `email` address or the `unique_id` of the service account.",
@@ -511,7 +511,7 @@
     "/v1/{name}/serviceAccounts": {
       "get": {
         "description": "Lists ServiceAccounts for a project.",
-        "operationId": "iam.projects.serviceAccounts.list",
+        "operationId": "projects.serviceAccounts.list",
         "parameters": [
           {
             "description": "Required. The resource name of the project associated with the service accounts, such as `projects/my-project-123`.",
@@ -596,7 +596,7 @@
       ],
       "post": {
         "description": "Creates a ServiceAccount and returns it.",
-        "operationId": "iam.projects.serviceAccounts.create",
+        "operationId": "projects.serviceAccounts.create",
         "parameters": [
           {
             "description": "Required. The resource name of the project associated with the service accounts, such as `projects/my-project-123`.",
@@ -678,7 +678,7 @@
       ],
       "post": {
         "description": "Signs a blob using a service account's system-managed private key.",
-        "operationId": "iam.projects.serviceAccounts.signBlob",
+        "operationId": "projects.serviceAccounts.signBlob",
         "parameters": [
           {
             "description": "The resource name of the service account in the following format: `projects/{project}/serviceAccounts/{account}`. Using `-` as a wildcard for the project will infer the project from the account. The `account` value can be the `email` address or the `unique_id` of the service account.",
@@ -760,7 +760,7 @@
       ],
       "post": {
         "description": "Returns the IAM access control policy for a ServiceAccount.",
-        "operationId": "iam.projects.serviceAccounts.getIamPolicy",
+        "operationId": "projects.serviceAccounts.getIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -835,7 +835,7 @@
       ],
       "post": {
         "description": "Sets the IAM access control policy for a ServiceAccount.",
-        "operationId": "iam.projects.serviceAccounts.setIamPolicy",
+        "operationId": "projects.serviceAccounts.setIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being specified. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -917,7 +917,7 @@
       ],
       "post": {
         "description": "Tests the specified permissions against the IAM access control policy for a ServiceAccount.",
-        "operationId": "iam.projects.serviceAccounts.testIamPermissions",
+        "operationId": "projects.serviceAccounts.testIamPermissions",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy detail is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",

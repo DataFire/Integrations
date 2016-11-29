@@ -1,4 +1,20 @@
 module.exports = (spec) => {
+  fixOperationIds(spec);
+  fixSecurityDefs(spec);
+}
+
+const fixOperationIds = (spec) => {
+  for (let path in spec.paths) {
+    for (let method in spec.paths[path]) {
+      let op = spec.paths[path][method];
+      if (op.operationId && op.operationId.indexOf('.') !== -1) {
+        op.operationId = op.operationId.substring(op.operationId.indexOf('.') + 1);
+      }
+    }
+  }
+}
+
+const fixSecurityDefs = (spec) => {
   if (!spec.securityDefinitions) return;
   let curDef = Object.keys(spec.securityDefinitions)
         .map(k => spec.securityDefinitions[k])

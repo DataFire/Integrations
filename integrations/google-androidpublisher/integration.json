@@ -148,7 +148,7 @@
         }
       ],
       "post": {
-        "operationId": "androidpublisher.inappproducts.batch",
+        "operationId": "inappproducts.batch",
         "parameters": [
           {
             "in": "body",
@@ -204,7 +204,7 @@
       ],
       "post": {
         "description": "Creates a new edit for an app, populated with the app's current state.",
-        "operationId": "androidpublisher.edits.insert",
+        "operationId": "edits.insert",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -244,7 +244,7 @@
     "/{packageName}/edits/{editId}": {
       "delete": {
         "description": "Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to preemptively abandon an edit.",
-        "operationId": "androidpublisher.edits.delete",
+        "operationId": "edits.delete",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -279,7 +279,7 @@
       },
       "get": {
         "description": "Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired).",
-        "operationId": "androidpublisher.edits.get",
+        "operationId": "edits.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -341,7 +341,7 @@
     },
     "/{packageName}/edits/{editId}/apks": {
       "get": {
-        "operationId": "androidpublisher.edits.apks.list",
+        "operationId": "edits.apks.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -405,7 +405,7 @@
           "application/octet-stream",
           "application/vnd.android.package-archive"
         ],
-        "operationId": "androidpublisher.edits.apks.upload",
+        "operationId": "edits.apks.upload",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -468,7 +468,7 @@
       ],
       "post": {
         "description": "Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.",
-        "operationId": "androidpublisher.edits.apks.addexternallyhosted",
+        "operationId": "edits.apks.addexternallyhosted",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -541,7 +541,7 @@
           "application/octet-stream"
         ],
         "description": "Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced.",
-        "operationId": "androidpublisher.edits.deobfuscationfiles.upload",
+        "operationId": "edits.deobfuscationfiles.upload",
         "parameters": [
           {
             "description": "Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, \"com.spiffygame\".",
@@ -597,7 +597,7 @@
     "/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}": {
       "get": {
         "description": "Fetches the Expansion File configuration for the APK specified.",
-        "operationId": "androidpublisher.edits.expansionfiles.get",
+        "operationId": "edits.expansionfiles.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -675,7 +675,7 @@
       ],
       "patch": {
         "description": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This method supports patch semantics.",
-        "operationId": "androidpublisher.edits.expansionfiles.patch",
+        "operationId": "edits.expansionfiles.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -740,7 +740,7 @@
           "application/octet-stream"
         ],
         "description": "Uploads and attaches a new Expansion File to the APK specified.",
-        "operationId": "androidpublisher.edits.expansionfiles.upload",
+        "operationId": "edits.expansionfiles.upload",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -795,7 +795,7 @@
       },
       "put": {
         "description": "Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method.",
-        "operationId": "androidpublisher.edits.expansionfiles.update",
+        "operationId": "edits.expansionfiles.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -859,7 +859,7 @@
     "/{packageName}/edits/{editId}/apks/{apkVersionCode}/listings": {
       "delete": {
         "description": "Deletes all the APK-specific localized listings for a specified APK.",
-        "operationId": "androidpublisher.edits.apklistings.deleteall",
+        "operationId": "edits.apklistings.deleteall",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -901,7 +901,7 @@
       },
       "get": {
         "description": "Lists all the APK-specific localized listings for a specified APK.",
-        "operationId": "androidpublisher.edits.apklistings.list",
+        "operationId": "edits.apklistings.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -971,7 +971,7 @@
     "/{packageName}/edits/{editId}/apks/{apkVersionCode}/listings/{language}": {
       "delete": {
         "description": "Deletes the APK-specific localized listing for a specified APK and language code.",
-        "operationId": "androidpublisher.edits.apklistings.delete",
+        "operationId": "edits.apklistings.delete",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1020,7 +1020,7 @@
       },
       "get": {
         "description": "Fetches the APK-specific localized listing for a specified APK and language code.",
-        "operationId": "androidpublisher.edits.apklistings.get",
+        "operationId": "edits.apklistings.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1095,7 +1095,7 @@
       ],
       "patch": {
         "description": "Updates or creates the APK-specific localized listing for a specified APK and language code. This method supports patch semantics.",
-        "operationId": "androidpublisher.edits.apklistings.patch",
+        "operationId": "edits.apklistings.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1154,7 +1154,7 @@
       },
       "put": {
         "description": "Updates or creates the APK-specific localized listing for a specified APK and language code.",
-        "operationId": "androidpublisher.edits.apklistings.update",
+        "operationId": "edits.apklistings.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1215,7 +1215,7 @@
     "/{packageName}/edits/{editId}/details": {
       "get": {
         "description": "Fetches app details for this edit. This includes the default language and developer support contact information.",
-        "operationId": "androidpublisher.edits.details.get",
+        "operationId": "edits.details.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1276,7 +1276,7 @@
       ],
       "patch": {
         "description": "Updates app details for this edit. This method supports patch semantics.",
-        "operationId": "androidpublisher.edits.details.patch",
+        "operationId": "edits.details.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1321,7 +1321,7 @@
       },
       "put": {
         "description": "Updates app details for this edit.",
-        "operationId": "androidpublisher.edits.details.update",
+        "operationId": "edits.details.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1368,7 +1368,7 @@
     "/{packageName}/edits/{editId}/listings": {
       "delete": {
         "description": "Deletes all localized listings from an edit.",
-        "operationId": "androidpublisher.edits.listings.deleteall",
+        "operationId": "edits.listings.deleteall",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1403,7 +1403,7 @@
       },
       "get": {
         "description": "Returns all of the localized store listings attached to this edit.",
-        "operationId": "androidpublisher.edits.listings.list",
+        "operationId": "edits.listings.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1466,7 +1466,7 @@
     "/{packageName}/edits/{editId}/listings/{language}": {
       "delete": {
         "description": "Deletes the specified localized store listing from an edit.",
-        "operationId": "androidpublisher.edits.listings.delete",
+        "operationId": "edits.listings.delete",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1508,7 +1508,7 @@
       },
       "get": {
         "description": "Fetches information about a localized store listing.",
-        "operationId": "androidpublisher.edits.listings.get",
+        "operationId": "edits.listings.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1576,7 +1576,7 @@
       ],
       "patch": {
         "description": "Creates or updates a localized store listing. This method supports patch semantics.",
-        "operationId": "androidpublisher.edits.listings.patch",
+        "operationId": "edits.listings.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1628,7 +1628,7 @@
       },
       "put": {
         "description": "Creates or updates a localized store listing.",
-        "operationId": "androidpublisher.edits.listings.update",
+        "operationId": "edits.listings.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1682,7 +1682,7 @@
     "/{packageName}/edits/{editId}/listings/{language}/{imageType}": {
       "delete": {
         "description": "Deletes all images for the specified language and image type.",
-        "operationId": "androidpublisher.edits.images.deleteall",
+        "operationId": "edits.images.deleteall",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1744,7 +1744,7 @@
       },
       "get": {
         "description": "Lists all images for the specified language and image type.",
-        "operationId": "androidpublisher.edits.images.list",
+        "operationId": "edits.images.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1908,7 +1908,7 @@
           "image/x-xwindowdump"
         ],
         "description": "Uploads a new image and adds it to the list of images for the specified language and image type.",
-        "operationId": "androidpublisher.edits.images.upload",
+        "operationId": "edits.images.upload",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -1972,7 +1972,7 @@
     "/{packageName}/edits/{editId}/listings/{language}/{imageType}/{imageId}": {
       "delete": {
         "description": "Deletes the image (specified by id) from the edit.",
-        "operationId": "androidpublisher.edits.images.delete",
+        "operationId": "edits.images.delete",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2062,7 +2062,7 @@
     },
     "/{packageName}/edits/{editId}/testers/{track}": {
       "get": {
-        "operationId": "androidpublisher.edits.testers.get",
+        "operationId": "edits.testers.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2134,7 +2134,7 @@
         }
       ],
       "patch": {
-        "operationId": "androidpublisher.edits.testers.patch",
+        "operationId": "edits.testers.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2190,7 +2190,7 @@
         ]
       },
       "put": {
-        "operationId": "androidpublisher.edits.testers.update",
+        "operationId": "edits.testers.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2249,7 +2249,7 @@
     "/{packageName}/edits/{editId}/tracks": {
       "get": {
         "description": "Lists all the track configurations for this edit.",
-        "operationId": "androidpublisher.edits.tracks.list",
+        "operationId": "edits.tracks.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2312,7 +2312,7 @@
     "/{packageName}/edits/{editId}/tracks/{track}": {
       "get": {
         "description": "Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track.",
-        "operationId": "androidpublisher.edits.tracks.get",
+        "operationId": "edits.tracks.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2386,7 +2386,7 @@
       ],
       "patch": {
         "description": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume. This method supports patch semantics.",
-        "operationId": "androidpublisher.edits.tracks.patch",
+        "operationId": "edits.tracks.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2444,7 +2444,7 @@
       },
       "put": {
         "description": "Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume.",
-        "operationId": "androidpublisher.edits.tracks.update",
+        "operationId": "edits.tracks.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2527,7 +2527,7 @@
       ],
       "post": {
         "description": "Commits/applies the changes made in this edit back to the app.",
-        "operationId": "androidpublisher.edits.commit",
+        "operationId": "edits.commit",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2590,7 +2590,7 @@
       ],
       "post": {
         "description": "Checks that the edit can be successfully committed. The edit's changes are not applied to the live app.",
-        "operationId": "androidpublisher.edits.validate",
+        "operationId": "edits.validate",
         "parameters": [
           {
             "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\".",
@@ -2630,7 +2630,7 @@
     "/{packageName}/entitlements": {
       "get": {
         "description": "Lists the user's current inapp item or subscription entitlements",
-        "operationId": "androidpublisher.entitlements.list",
+        "operationId": "entitlements.list",
         "parameters": [
           {
             "description": "The package name of the application the inapp product was sold in (for example, 'com.some.thing').",
@@ -2700,7 +2700,7 @@
     "/{packageName}/inappproducts": {
       "get": {
         "description": "List all the in-app products for an Android app, both subscriptions and managed in-app products..",
-        "operationId": "androidpublisher.inappproducts.list",
+        "operationId": "inappproducts.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app with in-app products; for example, \"com.spiffygame\".",
@@ -2769,7 +2769,7 @@
       ],
       "post": {
         "description": "Creates a new in-app product for an app.",
-        "operationId": "androidpublisher.inappproducts.insert",
+        "operationId": "inappproducts.insert",
         "parameters": [
           {
             "description": "Unique identifier for the Android app; for example, \"com.spiffygame\".",
@@ -2815,7 +2815,7 @@
     "/{packageName}/inappproducts/{sku}": {
       "delete": {
         "description": "Delete an in-app product for an app.",
-        "operationId": "androidpublisher.inappproducts.delete",
+        "operationId": "inappproducts.delete",
         "parameters": [
           {
             "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\".",
@@ -2850,7 +2850,7 @@
       },
       "get": {
         "description": "Returns information about the in-app product specified.",
-        "operationId": "androidpublisher.inappproducts.get",
+        "operationId": "inappproducts.get",
         "parameters": [
           {
             "in": "path",
@@ -2910,7 +2910,7 @@
       ],
       "patch": {
         "description": "Updates the details of an in-app product. This method supports patch semantics.",
-        "operationId": "androidpublisher.inappproducts.patch",
+        "operationId": "inappproducts.patch",
         "parameters": [
           {
             "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\".",
@@ -2961,7 +2961,7 @@
       },
       "put": {
         "description": "Updates the details of an in-app product.",
-        "operationId": "androidpublisher.inappproducts.update",
+        "operationId": "inappproducts.update",
         "parameters": [
           {
             "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\".",
@@ -3014,7 +3014,7 @@
     "/{packageName}/purchases/products/{productId}/tokens/{token}": {
       "get": {
         "description": "Checks the purchase and consumption status of an inapp item.",
-        "operationId": "androidpublisher.purchases.products.get",
+        "operationId": "purchases.products.get",
         "parameters": [
           {
             "description": "The package name of the application the inapp product was sold in (for example, 'com.some.thing').",
@@ -3084,7 +3084,7 @@
     "/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}": {
       "get": {
         "description": "Checks whether a user's subscription purchase is valid and returns its expiry time.",
-        "operationId": "androidpublisher.purchases.subscriptions.get",
+        "operationId": "purchases.subscriptions.get",
         "parameters": [
           {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
@@ -3177,7 +3177,7 @@
       ],
       "post": {
         "description": "Cancels a user's subscription purchase. The subscription remains valid until its expiration time.",
-        "operationId": "androidpublisher.purchases.subscriptions.cancel",
+        "operationId": "purchases.subscriptions.cancel",
         "parameters": [
           {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
@@ -3244,7 +3244,7 @@
       ],
       "post": {
         "description": "Defers a user's subscription purchase until a specified future expiration time.",
-        "operationId": "androidpublisher.purchases.subscriptions.defer",
+        "operationId": "purchases.subscriptions.defer",
         "parameters": [
           {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
@@ -3321,7 +3321,7 @@
       ],
       "post": {
         "description": "Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur.",
-        "operationId": "androidpublisher.purchases.subscriptions.refund",
+        "operationId": "purchases.subscriptions.refund",
         "parameters": [
           {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
@@ -3388,7 +3388,7 @@
       ],
       "post": {
         "description": "Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring.",
-        "operationId": "androidpublisher.purchases.subscriptions.revoke",
+        "operationId": "purchases.subscriptions.revoke",
         "parameters": [
           {
             "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing').",
@@ -3432,7 +3432,7 @@
     "/{packageName}/reviews": {
       "get": {
         "description": "Returns a list of reviews.",
-        "operationId": "androidpublisher.reviews.list",
+        "operationId": "reviews.list",
         "parameters": [
           {
             "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\".",
@@ -3503,7 +3503,7 @@
     "/{packageName}/reviews/{reviewId}": {
       "get": {
         "description": "Returns a single review.",
-        "operationId": "androidpublisher.reviews.get",
+        "operationId": "reviews.get",
         "parameters": [
           {
             "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\".",
@@ -3588,7 +3588,7 @@
       ],
       "post": {
         "description": "Reply to a single review, or update an existing reply.",
-        "operationId": "androidpublisher.reviews.reply",
+        "operationId": "reviews.reply",
         "parameters": [
           {
             "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\".",

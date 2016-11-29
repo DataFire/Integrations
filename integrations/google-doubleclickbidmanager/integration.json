@@ -125,7 +125,7 @@
       ],
       "post": {
         "description": "Retrieves line items in CSV format.",
-        "operationId": "doubleclickbidmanager.lineitems.downloadlineitems",
+        "operationId": "lineitems.downloadlineitems",
         "parameters": [
           {
             "in": "body",
@@ -174,7 +174,7 @@
       ],
       "post": {
         "description": "Uploads line items in CSV format.",
-        "operationId": "doubleclickbidmanager.lineitems.uploadlineitems",
+        "operationId": "lineitems.uploadlineitems",
         "parameters": [
           {
             "in": "body",
@@ -200,7 +200,7 @@
     "/queries": {
       "get": {
         "description": "Retrieves stored queries.",
-        "operationId": "doubleclickbidmanager.queries.listqueries",
+        "operationId": "queries.listqueries",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -240,7 +240,7 @@
     "/queries/{queryId}/reports": {
       "get": {
         "description": "Retrieves stored reports.",
-        "operationId": "doubleclickbidmanager.reports.listreports",
+        "operationId": "reports.listreports",
         "parameters": [
           {
             "description": "Query ID with which the reports are associated.",
@@ -312,7 +312,7 @@
       ],
       "post": {
         "description": "Creates a query.",
-        "operationId": "doubleclickbidmanager.queries.createquery",
+        "operationId": "queries.createquery",
         "parameters": [
           {
             "in": "body",
@@ -338,7 +338,7 @@
     "/query/{queryId}": {
       "delete": {
         "description": "Deletes a stored query as well as the associated stored reports.",
-        "operationId": "doubleclickbidmanager.queries.deletequery",
+        "operationId": "queries.deletequery",
         "parameters": [
           {
             "description": "Query ID to delete.",
@@ -359,7 +359,7 @@
       },
       "get": {
         "description": "Retrieves a stored query.",
-        "operationId": "doubleclickbidmanager.queries.getquery",
+        "operationId": "queries.getquery",
         "parameters": [
           {
             "description": "Query ID to retrieve.",
@@ -406,7 +406,7 @@
       ],
       "post": {
         "description": "Runs a stored query to generate a report.",
-        "operationId": "doubleclickbidmanager.queries.runquery",
+        "operationId": "queries.runquery",
         "parameters": [
           {
             "description": "Query ID to run.",
@@ -459,7 +459,7 @@
       ],
       "post": {
         "description": "Retrieves entities in SDF format.",
-        "operationId": "doubleclickbidmanager.sdf.download",
+        "operationId": "sdf.download",
         "parameters": [
           {
             "in": "body",

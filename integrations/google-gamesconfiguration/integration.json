@@ -120,7 +120,7 @@
     "/achievements/{achievementId}": {
       "delete": {
         "description": "Delete the achievement configuration with the given ID.",
-        "operationId": "gamesConfiguration.achievementConfigurations.delete",
+        "operationId": "achievementConfigurations.delete",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -148,7 +148,7 @@
       },
       "get": {
         "description": "Retrieves the metadata of the achievement configuration with the given ID.",
-        "operationId": "gamesConfiguration.achievementConfigurations.get",
+        "operationId": "achievementConfigurations.get",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -202,7 +202,7 @@
       ],
       "patch": {
         "description": "Update the metadata of the achievement configuration with the given ID. This method supports patch semantics.",
-        "operationId": "gamesConfiguration.achievementConfigurations.patch",
+        "operationId": "achievementConfigurations.patch",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -240,7 +240,7 @@
       },
       "put": {
         "description": "Update the metadata of the achievement configuration with the given ID.",
-        "operationId": "gamesConfiguration.achievementConfigurations.update",
+        "operationId": "achievementConfigurations.update",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -280,7 +280,7 @@
     "/applications/{applicationId}/achievements": {
       "get": {
         "description": "Returns a list of the achievement configurations in this application.",
-        "operationId": "gamesConfiguration.achievementConfigurations.list",
+        "operationId": "achievementConfigurations.list",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -348,7 +348,7 @@
       ],
       "post": {
         "description": "Insert a new achievement configuration in this application.",
-        "operationId": "gamesConfiguration.achievementConfigurations.insert",
+        "operationId": "achievementConfigurations.insert",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -388,7 +388,7 @@
     "/applications/{applicationId}/leaderboards": {
       "get": {
         "description": "Returns a list of the leaderboard configurations in this application.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.list",
+        "operationId": "leaderboardConfigurations.list",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -456,7 +456,7 @@
       ],
       "post": {
         "description": "Insert a new leaderboard configuration in this application.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.insert",
+        "operationId": "leaderboardConfigurations.insert",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -598,7 +598,7 @@
           "image/x-xwindowdump"
         ],
         "description": "Uploads an image for a resource with the given ID and image type.",
-        "operationId": "gamesConfiguration.imageConfigurations.upload",
+        "operationId": "imageConfigurations.upload",
         "parameters": [
           {
             "description": "The ID of the resource used by this method.",
@@ -642,7 +642,7 @@
     "/leaderboards/{leaderboardId}": {
       "delete": {
         "description": "Delete the leaderboard configuration with the given ID.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.delete",
+        "operationId": "leaderboardConfigurations.delete",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -670,7 +670,7 @@
       },
       "get": {
         "description": "Retrieves the metadata of the leaderboard configuration with the given ID.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.get",
+        "operationId": "leaderboardConfigurations.get",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -724,7 +724,7 @@
       ],
       "patch": {
         "description": "Update the metadata of the leaderboard configuration with the given ID. This method supports patch semantics.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.patch",
+        "operationId": "leaderboardConfigurations.patch",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -762,7 +762,7 @@
       },
       "put": {
         "description": "Update the metadata of the leaderboard configuration with the given ID.",
-        "operationId": "gamesConfiguration.leaderboardConfigurations.update",
+        "operationId": "leaderboardConfigurations.update",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",

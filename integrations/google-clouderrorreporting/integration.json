@@ -158,7 +158,7 @@
     "/v1beta1/{groupName}": {
       "get": {
         "description": "Get the specified group.",
-        "operationId": "clouderrorreporting.projects.groups.get",
+        "operationId": "projects.groups.get",
         "parameters": [
           {
             "description": "[Required] The group resource name. Written as\n<code>projects/<var>projectID</var>/groups/<var>group_name</var></code>.\nCall\n<a href=\"/error-reporting/reference/rest/v1beta1/projects.groupStats/list\">\n<code>groupStats.list</code></a> to return a list of groups belonging to\nthis project.\n\nExample: <code>projects/my-project-123/groups/my-group</code>",
@@ -274,7 +274,7 @@
       ],
       "put": {
         "description": "Replace the data for the specified group.\nFails if the group does not exist.",
-        "operationId": "clouderrorreporting.projects.groups.update",
+        "operationId": "projects.groups.update",
         "parameters": [
           {
             "description": "The group resource name.\nExample: <code>projects/my-project-123/groups/my-groupid</code>",
@@ -315,7 +315,7 @@
     "/v1beta1/{projectName}/events": {
       "delete": {
         "description": "Deletes all error events of a given project.",
-        "operationId": "clouderrorreporting.projects.deleteEvents",
+        "operationId": "projects.deleteEvents",
         "parameters": [
           {
             "description": "[Required] The resource name of the Google Cloud Platform project. Written\nas `projects/` plus the\n[Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).\nExample: `projects/my-project-123`.",
@@ -347,7 +347,7 @@
       },
       "get": {
         "description": "Lists the specified events.",
-        "operationId": "clouderrorreporting.projects.events.list",
+        "operationId": "projects.events.list",
         "parameters": [
           {
             "description": "[Required] The resource name of the Google Cloud Platform project. Written\nas `projects/` plus the\n[Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).\nExample: `projects/my-project-123`.",
@@ -507,7 +507,7 @@
       ],
       "post": {
         "description": "Report an individual error event.\n\nThis endpoint accepts <strong>either</strong> an OAuth token,\n<strong>or</strong> an\n<a href=\"https://support.google.com/cloud/answer/6158862\">API key</a>\nfor authentication. To use an API key, append it to the URL as the value of\na `key` parameter. For example:\n<pre>POST https://clouderrorreporting.googleapis.com/v1beta1/projects/example-project/events:report?key=123ABC456</pre>",
-        "operationId": "clouderrorreporting.projects.events.report",
+        "operationId": "projects.events.report",
         "parameters": [
           {
             "description": "[Required] The resource name of the Google Cloud Platform project. Written\nas `projects/` plus the\n[Google Cloud Platform project ID](https://support.google.com/cloud/answer/6158840).\nExample: `projects/my-project-123`.",
@@ -548,7 +548,7 @@
     "/v1beta1/{projectName}/groupStats": {
       "get": {
         "description": "Lists the specified groups.",
-        "operationId": "clouderrorreporting.projects.groupStats.list",
+        "operationId": "projects.groupStats.list",
         "parameters": [
           {
             "description": "[Required] The resource name of the Google Cloud Platform project. Written\nas <code>projects/</code> plus the\n<a href=\"https://support.google.com/cloud/answer/6158840\">Google Cloud\nPlatform project ID</a>.\n\nExample: <code>projects/my-project-123</code>.",

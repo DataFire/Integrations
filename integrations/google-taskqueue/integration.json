@@ -119,7 +119,7 @@
     "/{project}/taskqueues/{taskqueue}": {
       "get": {
         "description": "Get detailed information about a TaskQueue.",
-        "operationId": "taskqueue.taskqueues.get",
+        "operationId": "taskqueues.get",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -193,7 +193,7 @@
     "/{project}/taskqueues/{taskqueue}/tasks": {
       "get": {
         "description": "List Tasks in a TaskQueue",
-        "operationId": "taskqueue.tasks.list",
+        "operationId": "tasks.list",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -259,7 +259,7 @@
       ],
       "post": {
         "description": "Insert a new task in a TaskQueue",
-        "operationId": "taskqueue.tasks.insert",
+        "operationId": "tasks.insert",
         "parameters": [
           {
             "description": "The project under which the queue lies",
@@ -334,7 +334,7 @@
       ],
       "post": {
         "description": "Lease 1 or more tasks from a TaskQueue.",
-        "operationId": "taskqueue.tasks.lease",
+        "operationId": "tasks.lease",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -405,7 +405,7 @@
     "/{project}/taskqueues/{taskqueue}/tasks/{task}": {
       "delete": {
         "description": "Delete a task from a TaskQueue.",
-        "operationId": "taskqueue.tasks.delete",
+        "operationId": "tasks.delete",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -452,7 +452,7 @@
       },
       "get": {
         "description": "Get a particular task from a TaskQueue.",
-        "operationId": "taskqueue.tasks.get",
+        "operationId": "tasks.get",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -525,7 +525,7 @@
       ],
       "patch": {
         "description": "Update tasks that are leased out of a TaskQueue. This method supports patch semantics.",
-        "operationId": "taskqueue.tasks.patch",
+        "operationId": "tasks.patch",
         "parameters": [
           {
             "description": "The project under which the queue lies.",
@@ -587,7 +587,7 @@
       },
       "post": {
         "description": "Update tasks that are leased out of a TaskQueue.",
-        "operationId": "taskqueue.tasks.update",
+        "operationId": "tasks.update",
         "parameters": [
           {
             "description": "The project under which the queue lies.",

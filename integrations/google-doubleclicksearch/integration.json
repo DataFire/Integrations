@@ -120,7 +120,7 @@
     "/agency/{agencyId}/advertiser/{advertiserId}/engine/{engineAccountId}/conversion": {
       "get": {
         "description": "Retrieves a list of conversions from a DoubleClick Search engine account.",
-        "operationId": "doubleclicksearch.conversion.get",
+        "operationId": "conversion.get",
         "parameters": [
           {
             "description": "Numeric ID of the agency.",
@@ -248,7 +248,7 @@
     "/agency/{agencyId}/advertiser/{advertiserId}/savedcolumns": {
       "get": {
         "description": "Retrieve the list of saved columns for a specified advertiser.",
-        "operationId": "doubleclicksearch.savedColumns.list",
+        "operationId": "savedColumns.list",
         "parameters": [
           {
             "description": "DS ID of the agency.",
@@ -334,7 +334,7 @@
       ],
       "patch": {
         "description": "Updates a batch of conversions in DoubleClick Search. This method supports patch semantics.",
-        "operationId": "doubleclicksearch.conversion.patch",
+        "operationId": "conversion.patch",
         "parameters": [
           {
             "description": "Numeric ID of the advertiser.",
@@ -420,7 +420,7 @@
       },
       "post": {
         "description": "Inserts a batch of new conversions into DoubleClick Search.",
-        "operationId": "doubleclicksearch.conversion.insert",
+        "operationId": "conversion.insert",
         "parameters": [
           {
             "in": "body",
@@ -451,7 +451,7 @@
       },
       "put": {
         "description": "Updates a batch of conversions in DoubleClick Search.",
-        "operationId": "doubleclicksearch.conversion.update",
+        "operationId": "conversion.update",
         "parameters": [
           {
             "in": "body",
@@ -507,7 +507,7 @@
       ],
       "post": {
         "description": "Updates the availabilities of a batch of floodlight activities in DoubleClick Search.",
-        "operationId": "doubleclicksearch.conversion.updateAvailability",
+        "operationId": "conversion.updateAvailability",
         "parameters": [
           {
             "in": "body",
@@ -563,7 +563,7 @@
       ],
       "post": {
         "description": "Inserts a report request into the reporting system.",
-        "operationId": "doubleclicksearch.reports.request",
+        "operationId": "reports.request",
         "parameters": [
           {
             "in": "body",
@@ -619,7 +619,7 @@
       ],
       "post": {
         "description": "Generates and returns a report immediately.",
-        "operationId": "doubleclicksearch.reports.generate",
+        "operationId": "reports.generate",
         "parameters": [
           {
             "in": "body",
@@ -652,7 +652,7 @@
     "/reports/{reportId}": {
       "get": {
         "description": "Polls for the status of a report request.",
-        "operationId": "doubleclicksearch.reports.get",
+        "operationId": "reports.get",
         "parameters": [
           {
             "description": "ID of the report request being polled.",
@@ -708,7 +708,7 @@
     "/reports/{reportId}/files/{reportFragment}": {
       "get": {
         "description": "Downloads a report file encoded in UTF-8.",
-        "operationId": "doubleclicksearch.reports.getFile",
+        "operationId": "reports.getFile",
         "parameters": [
           {
             "description": "ID of the report.",

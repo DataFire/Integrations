@@ -132,7 +132,7 @@
     "/{userId}/drafts": {
       "get": {
         "description": "Lists the drafts in the user's mailbox.",
-        "operationId": "gmail.users.drafts.list",
+        "operationId": "users.drafts.list",
         "parameters": [
           {
             "default": "me",
@@ -231,7 +231,7 @@
           "message/rfc822"
         ],
         "description": "Creates a new draft with the DRAFT label.",
-        "operationId": "gmail.users.drafts.create",
+        "operationId": "users.drafts.create",
         "parameters": [
           {
             "default": "me",
@@ -308,7 +308,7 @@
           "message/rfc822"
         ],
         "description": "Sends the specified, existing draft to the recipients in the To, Cc, and Bcc headers.",
-        "operationId": "gmail.users.drafts.send",
+        "operationId": "users.drafts.send",
         "parameters": [
           {
             "default": "me",
@@ -359,7 +359,7 @@
     "/{userId}/drafts/{id}": {
       "delete": {
         "description": "Immediately and permanently deletes the specified draft. Does not simply trash it.",
-        "operationId": "gmail.users.drafts.delete",
+        "operationId": "users.drafts.delete",
         "parameters": [
           {
             "default": "me",
@@ -405,7 +405,7 @@
       },
       "get": {
         "description": "Gets the specified draft.",
-        "operationId": "gmail.users.drafts.get",
+        "operationId": "users.drafts.get",
         "parameters": [
           {
             "default": "me",
@@ -498,7 +498,7 @@
           "message/rfc822"
         ],
         "description": "Replaces a draft's content.",
-        "operationId": "gmail.users.drafts.update",
+        "operationId": "users.drafts.update",
         "parameters": [
           {
             "default": "me",
@@ -556,7 +556,7 @@
     "/{userId}/history": {
       "get": {
         "description": "Lists the history of all changes to the given mailbox. History results are returned in chronological order (increasing historyId).",
-        "operationId": "gmail.users.history.list",
+        "operationId": "users.history.list",
         "parameters": [
           {
             "default": "me",
@@ -653,7 +653,7 @@
     "/{userId}/labels": {
       "get": {
         "description": "Lists all labels in the user's mailbox.",
-        "operationId": "gmail.users.labels.list",
+        "operationId": "users.labels.list",
         "parameters": [
           {
             "default": "me",
@@ -728,7 +728,7 @@
       ],
       "post": {
         "description": "Creates a new label.",
-        "operationId": "gmail.users.labels.create",
+        "operationId": "users.labels.create",
         "parameters": [
           {
             "default": "me",
@@ -779,7 +779,7 @@
     "/{userId}/labels/{id}": {
       "delete": {
         "description": "Immediately and permanently deletes the specified label and removes it from any messages and threads that it is applied to.",
-        "operationId": "gmail.users.labels.delete",
+        "operationId": "users.labels.delete",
         "parameters": [
           {
             "default": "me",
@@ -825,7 +825,7 @@
       },
       "get": {
         "description": "Gets the specified label.",
-        "operationId": "gmail.users.labels.get",
+        "operationId": "users.labels.get",
         "parameters": [
           {
             "default": "me",
@@ -907,7 +907,7 @@
       ],
       "patch": {
         "description": "Updates the specified label. This method supports patch semantics.",
-        "operationId": "gmail.users.labels.patch",
+        "operationId": "users.labels.patch",
         "parameters": [
           {
             "default": "me",
@@ -963,7 +963,7 @@
       },
       "put": {
         "description": "Updates the specified label.",
-        "operationId": "gmail.users.labels.update",
+        "operationId": "users.labels.update",
         "parameters": [
           {
             "default": "me",
@@ -1021,7 +1021,7 @@
     "/{userId}/messages": {
       "get": {
         "description": "Lists the messages in the user's mailbox.",
-        "operationId": "gmail.users.messages.list",
+        "operationId": "users.messages.list",
         "parameters": [
           {
             "default": "me",
@@ -1130,7 +1130,7 @@
           "message/rfc822"
         ],
         "description": "Directly inserts a message into only this user's mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.",
-        "operationId": "gmail.users.messages.insert",
+        "operationId": "users.messages.insert",
         "parameters": [
           {
             "default": "me",
@@ -1222,7 +1222,7 @@
       ],
       "post": {
         "description": "Deletes many messages by message ID. Provides no guarantees that messages were not already deleted or even existed at all.",
-        "operationId": "gmail.users.messages.batchDelete",
+        "operationId": "users.messages.batchDelete",
         "parameters": [
           {
             "default": "me",
@@ -1286,7 +1286,7 @@
           "message/rfc822"
         ],
         "description": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.",
-        "operationId": "gmail.users.messages.import",
+        "operationId": "users.messages.import",
         "parameters": [
           {
             "default": "me",
@@ -1395,7 +1395,7 @@
           "message/rfc822"
         ],
         "description": "Sends the specified message to the recipients in the To, Cc, and Bcc headers.",
-        "operationId": "gmail.users.messages.send",
+        "operationId": "users.messages.send",
         "parameters": [
           {
             "default": "me",
@@ -1451,7 +1451,7 @@
     "/{userId}/messages/{id}": {
       "delete": {
         "description": "Immediately and permanently deletes the specified message. This operation cannot be undone. Prefer messages.trash instead.",
-        "operationId": "gmail.users.messages.delete",
+        "operationId": "users.messages.delete",
         "parameters": [
           {
             "default": "me",
@@ -1487,7 +1487,7 @@
       },
       "get": {
         "description": "Gets the specified message.",
-        "operationId": "gmail.users.messages.get",
+        "operationId": "users.messages.get",
         "parameters": [
           {
             "default": "me",
@@ -1612,7 +1612,7 @@
       ],
       "post": {
         "description": "Modifies the labels on the specified message.",
-        "operationId": "gmail.users.messages.modify",
+        "operationId": "users.messages.modify",
         "parameters": [
           {
             "default": "me",
@@ -1688,7 +1688,7 @@
       ],
       "post": {
         "description": "Moves the specified message to the trash.",
-        "operationId": "gmail.users.messages.trash",
+        "operationId": "users.messages.trash",
         "parameters": [
           {
             "default": "me",
@@ -1757,7 +1757,7 @@
       ],
       "post": {
         "description": "Removes the specified message from the trash.",
-        "operationId": "gmail.users.messages.untrash",
+        "operationId": "users.messages.untrash",
         "parameters": [
           {
             "default": "me",
@@ -1803,7 +1803,7 @@
     "/{userId}/messages/{messageId}/attachments/{id}": {
       "get": {
         "description": "Gets the specified message attachment.",
-        "operationId": "gmail.users.messages.attachments.get",
+        "operationId": "users.messages.attachments.get",
         "parameters": [
           {
             "default": "me",
@@ -1884,7 +1884,7 @@
     "/{userId}/profile": {
       "get": {
         "description": "Gets the current user's Gmail profile.",
-        "operationId": "gmail.users.getProfile",
+        "operationId": "users.getProfile",
         "parameters": [
           {
             "default": "me",
@@ -1961,7 +1961,7 @@
     "/{userId}/settings/autoForwarding": {
       "get": {
         "description": "Gets the auto-forwarding setting for the specified account.",
-        "operationId": "gmail.users.settings.getAutoForwarding",
+        "operationId": "users.settings.getAutoForwarding",
         "parameters": [
           {
             "default": "me",
@@ -2031,7 +2031,7 @@
       ],
       "put": {
         "description": "Updates the auto-forwarding setting for the specified account. A verified forwarding address must be specified when auto-forwarding is enabled.",
-        "operationId": "gmail.users.settings.updateAutoForwarding",
+        "operationId": "users.settings.updateAutoForwarding",
         "parameters": [
           {
             "default": "me",
@@ -2072,7 +2072,7 @@
     "/{userId}/settings/filters": {
       "get": {
         "description": "Lists the message filters of a Gmail user.",
-        "operationId": "gmail.users.settings.filters.list",
+        "operationId": "users.settings.filters.list",
         "parameters": [
           {
             "default": "me",
@@ -2142,7 +2142,7 @@
       ],
       "post": {
         "description": "Creates a filter.",
-        "operationId": "gmail.users.settings.filters.create",
+        "operationId": "users.settings.filters.create",
         "parameters": [
           {
             "default": "me",
@@ -2183,7 +2183,7 @@
     "/{userId}/settings/filters/{id}": {
       "delete": {
         "description": "Deletes a filter.",
-        "operationId": "gmail.users.settings.filters.delete",
+        "operationId": "users.settings.filters.delete",
         "parameters": [
           {
             "default": "me",
@@ -2219,7 +2219,7 @@
       },
       "get": {
         "description": "Gets a filter.",
-        "operationId": "gmail.users.settings.filters.get",
+        "operationId": "users.settings.filters.get",
         "parameters": [
           {
             "default": "me",
@@ -2298,7 +2298,7 @@
     "/{userId}/settings/forwardingAddresses": {
       "get": {
         "description": "Lists the forwarding addresses for the specified account.",
-        "operationId": "gmail.users.settings.forwardingAddresses.list",
+        "operationId": "users.settings.forwardingAddresses.list",
         "parameters": [
           {
             "default": "me",
@@ -2368,7 +2368,7 @@
       ],
       "post": {
         "description": "Creates a forwarding address. If ownership verification is required, a message will be sent to the recipient and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted.",
-        "operationId": "gmail.users.settings.forwardingAddresses.create",
+        "operationId": "users.settings.forwardingAddresses.create",
         "parameters": [
           {
             "default": "me",
@@ -2409,7 +2409,7 @@
     "/{userId}/settings/forwardingAddresses/{forwardingEmail}": {
       "delete": {
         "description": "Deletes the specified forwarding address and revokes any verification that may have been required.",
-        "operationId": "gmail.users.settings.forwardingAddresses.delete",
+        "operationId": "users.settings.forwardingAddresses.delete",
         "parameters": [
           {
             "default": "me",
@@ -2445,7 +2445,7 @@
       },
       "get": {
         "description": "Gets the specified forwarding address.",
-        "operationId": "gmail.users.settings.forwardingAddresses.get",
+        "operationId": "users.settings.forwardingAddresses.get",
         "parameters": [
           {
             "default": "me",
@@ -2524,7 +2524,7 @@
     "/{userId}/settings/imap": {
       "get": {
         "description": "Gets IMAP settings.",
-        "operationId": "gmail.users.settings.getImap",
+        "operationId": "users.settings.getImap",
         "parameters": [
           {
             "default": "me",
@@ -2594,7 +2594,7 @@
       ],
       "put": {
         "description": "Updates IMAP settings.",
-        "operationId": "gmail.users.settings.updateImap",
+        "operationId": "users.settings.updateImap",
         "parameters": [
           {
             "default": "me",
@@ -2635,7 +2635,7 @@
     "/{userId}/settings/pop": {
       "get": {
         "description": "Gets POP settings.",
-        "operationId": "gmail.users.settings.getPop",
+        "operationId": "users.settings.getPop",
         "parameters": [
           {
             "default": "me",
@@ -2705,7 +2705,7 @@
       ],
       "put": {
         "description": "Updates POP settings.",
-        "operationId": "gmail.users.settings.updatePop",
+        "operationId": "users.settings.updatePop",
         "parameters": [
           {
             "default": "me",
@@ -2746,7 +2746,7 @@
     "/{userId}/settings/sendAs": {
       "get": {
         "description": "Lists the send-as aliases for the specified account. The result includes the primary send-as address associated with the account as well as any custom \"from\" aliases.",
-        "operationId": "gmail.users.settings.sendAs.list",
+        "operationId": "users.settings.sendAs.list",
         "parameters": [
           {
             "default": "me",
@@ -2816,7 +2816,7 @@
       ],
       "post": {
         "description": "Creates a custom \"from\" send-as alias. If an SMTP MSA is specified, Gmail will attempt to connect to the SMTP service to validate the configuration before creating the alias. If ownership verification is required for the alias, a message will be sent to the email address and the resource's verification status will be set to pending; otherwise, the resource will be created with verification status set to accepted. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.",
-        "operationId": "gmail.users.settings.sendAs.create",
+        "operationId": "users.settings.sendAs.create",
         "parameters": [
           {
             "default": "me",
@@ -2857,7 +2857,7 @@
     "/{userId}/settings/sendAs/{sendAsEmail}": {
       "delete": {
         "description": "Deletes the specified send-as alias. Revokes any verification that may have been required for using it.",
-        "operationId": "gmail.users.settings.sendAs.delete",
+        "operationId": "users.settings.sendAs.delete",
         "parameters": [
           {
             "default": "me",
@@ -2893,7 +2893,7 @@
       },
       "get": {
         "description": "Gets the specified send-as alias. Fails with an HTTP 404 error if the specified address is not a member of the collection.",
-        "operationId": "gmail.users.settings.sendAs.get",
+        "operationId": "users.settings.sendAs.get",
         "parameters": [
           {
             "default": "me",
@@ -2970,7 +2970,7 @@
       ],
       "patch": {
         "description": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias. This method supports patch semantics.",
-        "operationId": "gmail.users.settings.sendAs.patch",
+        "operationId": "users.settings.sendAs.patch",
         "parameters": [
           {
             "default": "me",
@@ -3021,7 +3021,7 @@
       },
       "put": {
         "description": "Updates a send-as alias. If a signature is provided, Gmail will sanitize the HTML before saving it with the alias.",
-        "operationId": "gmail.users.settings.sendAs.update",
+        "operationId": "users.settings.sendAs.update",
         "parameters": [
           {
             "default": "me",
@@ -3097,7 +3097,7 @@
       ],
       "post": {
         "description": "Sends a verification email to the specified send-as alias address. The verification status must be pending.",
-        "operationId": "gmail.users.settings.sendAs.verify",
+        "operationId": "users.settings.sendAs.verify",
         "parameters": [
           {
             "default": "me",
@@ -3135,7 +3135,7 @@
     "/{userId}/settings/vacation": {
       "get": {
         "description": "Gets vacation responder settings.",
-        "operationId": "gmail.users.settings.getVacation",
+        "operationId": "users.settings.getVacation",
         "parameters": [
           {
             "default": "me",
@@ -3205,7 +3205,7 @@
       ],
       "put": {
         "description": "Updates vacation responder settings.",
-        "operationId": "gmail.users.settings.updateVacation",
+        "operationId": "users.settings.updateVacation",
         "parameters": [
           {
             "default": "me",
@@ -3269,7 +3269,7 @@
       ],
       "post": {
         "description": "Stop receiving push notifications for the given user mailbox.",
-        "operationId": "gmail.users.stop",
+        "operationId": "users.stop",
         "parameters": [
           {
             "default": "me",
@@ -3315,7 +3315,7 @@
     "/{userId}/threads": {
       "get": {
         "description": "Lists the threads in the user's mailbox.",
-        "operationId": "gmail.users.threads.list",
+        "operationId": "users.threads.list",
         "parameters": [
           {
             "default": "me",
@@ -3423,7 +3423,7 @@
     "/{userId}/threads/{id}": {
       "delete": {
         "description": "Immediately and permanently deletes the specified thread. This operation cannot be undone. Prefer threads.trash instead.",
-        "operationId": "gmail.users.threads.delete",
+        "operationId": "users.threads.delete",
         "parameters": [
           {
             "default": "me",
@@ -3459,7 +3459,7 @@
       },
       "get": {
         "description": "Gets the specified thread.",
-        "operationId": "gmail.users.threads.get",
+        "operationId": "users.threads.get",
         "parameters": [
           {
             "default": "me",
@@ -3583,7 +3583,7 @@
       ],
       "post": {
         "description": "Modifies the labels applied to the thread. This applies to all messages in the thread.",
-        "operationId": "gmail.users.threads.modify",
+        "operationId": "users.threads.modify",
         "parameters": [
           {
             "default": "me",
@@ -3659,7 +3659,7 @@
       ],
       "post": {
         "description": "Moves the specified thread to the trash.",
-        "operationId": "gmail.users.threads.trash",
+        "operationId": "users.threads.trash",
         "parameters": [
           {
             "default": "me",
@@ -3728,7 +3728,7 @@
       ],
       "post": {
         "description": "Removes the specified thread from the trash.",
-        "operationId": "gmail.users.threads.untrash",
+        "operationId": "users.threads.untrash",
         "parameters": [
           {
             "default": "me",
@@ -3797,7 +3797,7 @@
       ],
       "post": {
         "description": "Set up or update a push notification watch on the given user mailbox.",
-        "operationId": "gmail.users.watch",
+        "operationId": "users.watch",
         "parameters": [
           {
             "default": "me",

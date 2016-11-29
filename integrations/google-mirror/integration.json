@@ -154,7 +154,7 @@
       ],
       "post": {
         "description": "Inserts a new account for a user",
-        "operationId": "mirror.accounts.insert",
+        "operationId": "accounts.insert",
         "parameters": [
           {
             "description": "The ID for the user.",
@@ -201,7 +201,7 @@
     "/contacts": {
       "get": {
         "description": "Retrieves a list of contacts for the authenticated user.",
-        "operationId": "mirror.contacts.list",
+        "operationId": "contacts.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -246,7 +246,7 @@
       ],
       "post": {
         "description": "Inserts a new contact.",
-        "operationId": "mirror.contacts.insert",
+        "operationId": "contacts.insert",
         "parameters": [
           {
             "in": "body",
@@ -279,7 +279,7 @@
     "/contacts/{id}": {
       "delete": {
         "description": "Deletes a contact.",
-        "operationId": "mirror.contacts.delete",
+        "operationId": "contacts.delete",
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -307,7 +307,7 @@
       },
       "get": {
         "description": "Gets a single contact by ID.",
-        "operationId": "mirror.contacts.get",
+        "operationId": "contacts.get",
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -361,7 +361,7 @@
       ],
       "patch": {
         "description": "Updates a contact in place. This method supports patch semantics.",
-        "operationId": "mirror.contacts.patch",
+        "operationId": "contacts.patch",
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -399,7 +399,7 @@
       },
       "put": {
         "description": "Updates a contact in place.",
-        "operationId": "mirror.contacts.update",
+        "operationId": "contacts.update",
         "parameters": [
           {
             "description": "The ID of the contact.",
@@ -439,7 +439,7 @@
     "/locations": {
       "get": {
         "description": "Retrieves a list of locations for the user.",
-        "operationId": "mirror.locations.list",
+        "operationId": "locations.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -491,7 +491,7 @@
     "/locations/{id}": {
       "get": {
         "description": "Gets a single location by ID.",
-        "operationId": "mirror.locations.get",
+        "operationId": "locations.get",
         "parameters": [
           {
             "description": "The ID of the location or latest for the last known location.",
@@ -552,7 +552,7 @@
     "/settings/{id}": {
       "get": {
         "description": "Gets a single setting by ID.",
-        "operationId": "mirror.settings.get",
+        "operationId": "settings.get",
         "parameters": [
           {
             "description": "The ID of the setting. The following IDs are valid: \n- locale - The key to the user’s language/locale (BCP 47 identifier) that Glassware should use to render localized content. \n- timezone - The key to the user’s current time zone region as defined in the tz database. Example: America/Los_Angeles.",
@@ -608,7 +608,7 @@
     "/subscriptions": {
       "get": {
         "description": "Retrieves a list of subscriptions for the authenticated user and service.",
-        "operationId": "mirror.subscriptions.list",
+        "operationId": "subscriptions.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -653,7 +653,7 @@
       ],
       "post": {
         "description": "Creates a new subscription.",
-        "operationId": "mirror.subscriptions.insert",
+        "operationId": "subscriptions.insert",
         "parameters": [
           {
             "in": "body",
@@ -686,7 +686,7 @@
     "/subscriptions/{id}": {
       "delete": {
         "description": "Deletes a subscription.",
-        "operationId": "mirror.subscriptions.delete",
+        "operationId": "subscriptions.delete",
         "parameters": [
           {
             "description": "The ID of the subscription.",
@@ -737,7 +737,7 @@
       ],
       "put": {
         "description": "Updates an existing subscription in place.",
-        "operationId": "mirror.subscriptions.update",
+        "operationId": "subscriptions.update",
         "parameters": [
           {
             "description": "The ID of the subscription.",
@@ -777,7 +777,7 @@
     "/timeline": {
       "get": {
         "description": "Retrieves a list of timeline items for the authenticated user.",
-        "operationId": "mirror.timeline.list",
+        "operationId": "timeline.list",
         "parameters": [
           {
             "description": "If provided, only items with the given bundleId will be returned.",
@@ -1217,7 +1217,7 @@
           "video/x-smv"
         ],
         "description": "Inserts a new item into the timeline.",
-        "operationId": "mirror.timeline.insert",
+        "operationId": "timeline.insert",
         "parameters": [
           {
             "in": "body",
@@ -1255,7 +1255,7 @@
     "/timeline/{id}": {
       "delete": {
         "description": "Deletes a timeline item.",
-        "operationId": "mirror.timeline.delete",
+        "operationId": "timeline.delete",
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1288,7 +1288,7 @@
       },
       "get": {
         "description": "Gets a single timeline item by ID.",
-        "operationId": "mirror.timeline.get",
+        "operationId": "timeline.get",
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1347,7 +1347,7 @@
       ],
       "patch": {
         "description": "Updates a timeline item in place. This method supports patch semantics.",
-        "operationId": "mirror.timeline.patch",
+        "operationId": "timeline.patch",
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1732,7 +1732,7 @@
           "video/x-smv"
         ],
         "description": "Updates a timeline item in place.",
-        "operationId": "mirror.timeline.update",
+        "operationId": "timeline.update",
         "parameters": [
           {
             "description": "The ID of the timeline item.",
@@ -1777,7 +1777,7 @@
     "/timeline/{itemId}/attachments": {
       "get": {
         "description": "Returns a list of attachments for a timeline item.",
-        "operationId": "mirror.timeline.attachments.list",
+        "operationId": "timeline.attachments.list",
         "parameters": [
           {
             "description": "The ID of the timeline item whose attachments should be listed.",
@@ -2173,7 +2173,7 @@
           "video/x-smv"
         ],
         "description": "Adds a new attachment to a timeline item.",
-        "operationId": "mirror.timeline.attachments.insert",
+        "operationId": "timeline.attachments.insert",
         "parameters": [
           {
             "description": "The ID of the timeline item the attachment belongs to.",
@@ -2206,7 +2206,7 @@
     "/timeline/{itemId}/attachments/{attachmentId}": {
       "delete": {
         "description": "Deletes an attachment from a timeline item.",
-        "operationId": "mirror.timeline.attachments.delete",
+        "operationId": "timeline.attachments.delete",
         "parameters": [
           {
             "description": "The ID of the timeline item the attachment belongs to.",
@@ -2241,7 +2241,7 @@
       },
       "get": {
         "description": "Retrieves an attachment on a timeline item by item ID and attachment ID.",
-        "operationId": "mirror.timeline.attachments.get",
+        "operationId": "timeline.attachments.get",
         "parameters": [
           {
             "description": "The ID of the timeline item the attachment belongs to.",

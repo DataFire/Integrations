@@ -135,7 +135,7 @@
     "/batchReportDefinitions": {
       "get": {
         "description": "Retrieves a list of available batch report definitions.",
-        "operationId": "youtubeAnalytics.batchReportDefinitions.list",
+        "operationId": "batchReportDefinitions.list",
         "parameters": [
           {
             "description": "The onBehalfOfContentOwner parameter identifies the content owner that the user is acting on behalf of.",
@@ -196,7 +196,7 @@
     "/batchReports": {
       "get": {
         "description": "Retrieves a list of processed batch reports.",
-        "operationId": "youtubeAnalytics.batchReports.list",
+        "operationId": "batchReports.list",
         "parameters": [
           {
             "description": "The batchReportDefinitionId parameter specifies the ID of the batch reportort definition for which you are retrieving reports.",
@@ -264,7 +264,7 @@
     "/groupItems": {
       "delete": {
         "description": "Removes an item from a group.",
-        "operationId": "youtubeAnalytics.groupItems.delete",
+        "operationId": "groupItems.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube group item ID for the group that is being deleted.",
@@ -303,7 +303,7 @@
       },
       "get": {
         "description": "Returns a collection of group items that match the API request parameters.",
-        "operationId": "youtubeAnalytics.groupItems.list",
+        "operationId": "groupItems.list",
         "parameters": [
           {
             "description": "The id parameter specifies the unique ID of the group for which you want to retrieve group items.",
@@ -378,7 +378,7 @@
       ],
       "post": {
         "description": "Creates a group item.",
-        "operationId": "youtubeAnalytics.groupItems.insert",
+        "operationId": "groupItems.insert",
         "parameters": [
           {
             "description": "Note: This parameter is intended exclusively for YouTube content partners.\n\nThe onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
@@ -422,7 +422,7 @@
     "/groups": {
       "delete": {
         "description": "Deletes a group.",
-        "operationId": "youtubeAnalytics.groups.delete",
+        "operationId": "groups.delete",
         "parameters": [
           {
             "description": "The id parameter specifies the YouTube group ID for the group that is being deleted.",
@@ -461,7 +461,7 @@
       },
       "get": {
         "description": "Returns a collection of groups that match the API request parameters. For example, you can retrieve all groups that the authenticated user owns, or you can retrieve one or more groups by their unique IDs.",
-        "operationId": "youtubeAnalytics.groups.list",
+        "operationId": "groups.list",
         "parameters": [
           {
             "description": "The id parameter specifies a comma-separated list of the YouTube group ID(s) for the resource(s) that are being retrieved. In a group resource, the id property specifies the group's YouTube group ID.",
@@ -547,7 +547,7 @@
       ],
       "post": {
         "description": "Creates a group.",
-        "operationId": "youtubeAnalytics.groups.insert",
+        "operationId": "groups.insert",
         "parameters": [
           {
             "description": "Note: This parameter is intended exclusively for YouTube content partners.\n\nThe onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
@@ -589,7 +589,7 @@
       },
       "put": {
         "description": "Modifies a group. For example, you could change a group's title.",
-        "operationId": "youtubeAnalytics.groups.update",
+        "operationId": "groups.update",
         "parameters": [
           {
             "description": "Note: This parameter is intended exclusively for YouTube content partners.\n\nThe onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify a YouTube CMS user who is acting on behalf of the content owner specified in the parameter value. This parameter is intended for YouTube content partners that own and manage many different YouTube channels. It allows content owners to authenticate once and get access to all their video and channel data, without having to provide authentication credentials for each individual channel. The CMS account that the user authenticates with must be linked to the specified YouTube content owner.",
@@ -633,7 +633,7 @@
     "/reports": {
       "get": {
         "description": "Retrieve your YouTube Analytics reports.",
-        "operationId": "youtubeAnalytics.reports.query",
+        "operationId": "reports.query",
         "parameters": [
           {
             "description": "Identifies the YouTube channel or content owner for which you are retrieving YouTube Analytics data.\n- To request data for a YouTube user, set the ids parameter value to channel==CHANNEL_ID, where CHANNEL_ID specifies the unique YouTube channel ID.\n- To request data for a YouTube CMS content owner, set the ids parameter value to contentOwner==OWNER_NAME, where OWNER_NAME is the CMS name of the content owner.",

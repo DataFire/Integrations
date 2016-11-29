@@ -198,7 +198,7 @@
       ],
       "post": {
         "description": "Creates a short Dynamic Link given either a valid long Dynamic Link or\ndetails such as Dynamic Link domain, Android and iOS app information.\nThe created short Dynamic Link will not expire.\n\nRepeated calls with the same long Dynamic Link or Dynamic Link information\nwill produce the same short Dynamic Link.\n\nThe Dynamic Link domain in the request must be owned by requester's\nFirebase project.",
-        "operationId": "firebasedynamiclinks.shortLinks.create",
+        "operationId": "shortLinks.create",
         "parameters": [
           {
             "in": "body",

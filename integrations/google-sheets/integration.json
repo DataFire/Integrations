@@ -204,7 +204,7 @@
       ],
       "post": {
         "description": "Creates a spreadsheet, returning the newly created spreadsheet.",
-        "operationId": "sheets.spreadsheets.create",
+        "operationId": "spreadsheets.create",
         "parameters": [
           {
             "in": "body",
@@ -242,7 +242,7 @@
     "/v4/spreadsheets/{spreadsheetId}": {
       "get": {
         "description": "Returns the spreadsheet at the given ID.\nThe caller must specify the spreadsheet ID.\n\nBy default, data within grids will not be returned.\nYou can include grid data one of two ways:\n\n* Specify a field mask listing your desired fields using the `fields` URL\nparameter in HTTP\n\n* Set the includeGridData\nURL parameter to true.  If a field mask is set, the `includeGridData`\nparameter is ignored\n\nFor large spreadsheets, it is recommended to retrieve only the specific\nfields of the spreadsheet that you want.\n\nTo retrieve only subsets of the spreadsheet, use the\nranges URL parameter.\nMultiple ranges can be specified.  Limiting the range will\nreturn only the portions of the spreadsheet that intersect the requested\nranges. Ranges are specified using A1 notation.",
-        "operationId": "sheets.spreadsheets.get",
+        "operationId": "spreadsheets.get",
         "parameters": [
           {
             "description": "The spreadsheet to request.",
@@ -388,7 +388,7 @@
       ],
       "post": {
         "description": "Copies a single sheet from a spreadsheet to another spreadsheet.\nReturns the properties of the newly created sheet.",
-        "operationId": "sheets.spreadsheets.sheets.copyTo",
+        "operationId": "spreadsheets.sheets.copyTo",
         "parameters": [
           {
             "description": "The ID of the spreadsheet containing the sheet to copy.",
@@ -440,7 +440,7 @@
     "/v4/spreadsheets/{spreadsheetId}/values/{range}": {
       "get": {
         "description": "Returns a range of values from a spreadsheet.\nThe caller must specify the spreadsheet ID and a range.",
-        "operationId": "sheets.spreadsheets.values.get",
+        "operationId": "spreadsheets.values.get",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to retrieve data from.",
@@ -566,7 +566,7 @@
       ],
       "put": {
         "description": "Sets values in a range of a spreadsheet.\nThe caller must specify the spreadsheet ID, range, and\na valueInputOption.",
-        "operationId": "sheets.spreadsheets.values.update",
+        "operationId": "spreadsheets.values.update",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to update.",
@@ -697,7 +697,7 @@
       ],
       "post": {
         "description": "Appends values to a spreadsheet. The input range is used to search for\nexisting data and find a \"table\" within that range. Values will be\nappended to the next row of the table, starting with the first column of\nthe table. See the\n[guide](/sheets/guides/values#appending_values)\nand\n[sample code](/sheets/samples/writing#append_values)\nfor specific details of how tables are detected and data is appended.\n\nThe caller must specify the spreadsheet ID, range, and\na valueInputOption.  The `valueInputOption` only\ncontrols how the input data will be added to the sheet (column-wise or\nrow-wise), it does not influence what cell the data starts being written\nto.",
-        "operationId": "sheets.spreadsheets.values.append",
+        "operationId": "spreadsheets.values.append",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to update.",
@@ -838,7 +838,7 @@
       ],
       "post": {
         "description": "Clears values from a spreadsheet.\nThe caller must specify the spreadsheet ID and range.\nOnly values are cleared -- all other properties of the cell (such as\nformatting, data validation, etc..) are kept.",
-        "operationId": "sheets.spreadsheets.values.clear",
+        "operationId": "spreadsheets.values.clear",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to update.",
@@ -931,7 +931,7 @@
       ],
       "post": {
         "description": "Clears one or more ranges of values from a spreadsheet.\nThe caller must specify the spreadsheet ID and one or more ranges.\nOnly values are cleared -- all other properties of the cell (such as\nformatting, data validation, etc..) are kept.",
-        "operationId": "sheets.spreadsheets.values.batchClear",
+        "operationId": "spreadsheets.values.batchClear",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to update.",
@@ -976,7 +976,7 @@
     "/v4/spreadsheets/{spreadsheetId}/values:batchGet": {
       "get": {
         "description": "Returns one or more ranges of values from a spreadsheet.\nThe caller must specify the spreadsheet ID and one or more ranges.",
-        "operationId": "sheets.spreadsheets.values.batchGet",
+        "operationId": "spreadsheets.values.batchGet",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to retrieve data from.",
@@ -1148,7 +1148,7 @@
       ],
       "post": {
         "description": "Sets values in one or more ranges of a spreadsheet.\nThe caller must specify the spreadsheet ID,\na valueInputOption, and one or more\nValueRanges.",
-        "operationId": "sheets.spreadsheets.values.batchUpdate",
+        "operationId": "spreadsheets.values.batchUpdate",
         "parameters": [
           {
             "description": "The ID of the spreadsheet to update.",
@@ -1234,7 +1234,7 @@
       ],
       "post": {
         "description": "Applies one or more updates to the spreadsheet.\n\nEach request is validated before\nbeing applied. If any request is not valid then the entire request will\nfail and nothing will be applied.\n\nSome requests have replies to\ngive you some information about how\nthey are applied. The replies will mirror the requests.  For example,\nif you applied 4 updates and the 3rd one had a reply, then the\nresponse will have 2 empty replies, the actual reply, and another empty\nreply, in that order.\n\nDue to the collaborative nature of spreadsheets, it is not guaranteed that\nthe spreadsheet will reflect exactly your changes after this completes,\nhowever it is guaranteed that the updates in the request will be\napplied together atomically. Your changes may be altered with respect to\ncollaborator changes. If there are no collaborators, the spreadsheet\nshould reflect your changes.",
-        "operationId": "sheets.spreadsheets.batchUpdate",
+        "operationId": "spreadsheets.batchUpdate",
         "parameters": [
           {
             "description": "The spreadsheet to apply the updates to.",

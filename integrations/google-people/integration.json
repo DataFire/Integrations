@@ -164,7 +164,7 @@
     "/v1/people:batchGet": {
       "get": {
         "description": "Provides information about a list of specific people by specifying a list of requested resource names. Use `people/me` to indicate the authenticated user.",
-        "operationId": "people.people.getBatchGet",
+        "operationId": "people.getBatchGet",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -287,7 +287,7 @@
     "/v1/{resourceName}": {
       "get": {
         "description": "Provides information about a person resource for a resource name. Use `people/me` to indicate the authenticated user.",
-        "operationId": "people.people.get",
+        "operationId": "people.get",
         "parameters": [
           {
             "description": "The resource name of the person to provide information about. - To get information about the authenticated user, specify `people/me`. - To get information about any user, specify the resource name that identifies the user, such as the resource names returned by [`people.connections.list`](/people/api/rest/v1/people.connections/list).",
@@ -408,7 +408,7 @@
     "/v1/{resourceName}/connections": {
       "get": {
         "description": "Provides a list of the authenticated user's contacts merged with any linked profiles.",
-        "operationId": "people.people.connections.list",
+        "operationId": "people.connections.list",
         "parameters": [
           {
             "description": "The resource name to return connections for. Only `people/me` is valid.",

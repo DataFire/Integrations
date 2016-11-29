@@ -125,7 +125,7 @@
     "/activity/users/{userKey}/applications/{applicationName}": {
       "get": {
         "description": "Retrieves a list of activities for a specific customer and application.",
-        "operationId": "reports.activities.list",
+        "operationId": "activities.list",
         "parameters": [
           {
             "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
@@ -261,7 +261,7 @@
       ],
       "post": {
         "description": "Push changes to activities",
-        "operationId": "reports.activities.watch",
+        "operationId": "activities.watch",
         "parameters": [
           {
             "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.",
@@ -381,7 +381,7 @@
       ],
       "post": {
         "description": "Stop watching resources through this channel",
-        "operationId": "admin.channels.stop",
+        "operationId": "channels.stop",
         "parameters": [
           {
             "in": "body",
@@ -411,7 +411,7 @@
     "/usage/dates/{date}": {
       "get": {
         "description": "Retrieves a report which is a collection of properties / statistics for a specific customer.",
-        "operationId": "reports.customerUsageReports.get",
+        "operationId": "customerUsageReports.get",
         "parameters": [
           {
             "description": "Represents the date in yyyy-mm-dd format for which the data is to be fetched.",
@@ -485,7 +485,7 @@
     "/usage/users/{userKey}/dates/{date}": {
       "get": {
         "description": "Retrieves a report which is a collection of properties / statistics for a set of users.",
-        "operationId": "reports.userUsageReport.get",
+        "operationId": "userUsageReport.get",
         "parameters": [
           {
             "description": "Represents the profile id or the user email for which the data should be filtered.",

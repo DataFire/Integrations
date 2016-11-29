@@ -160,7 +160,7 @@
       ],
       "post": {
         "description": "Creates a secondary calendar.",
-        "operationId": "calendar.calendars.insert",
+        "operationId": "calendars.insert",
         "parameters": [
           {
             "in": "body",
@@ -193,7 +193,7 @@
     "/calendars/{calendarId}": {
       "delete": {
         "description": "Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.",
-        "operationId": "calendar.calendars.delete",
+        "operationId": "calendars.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -221,7 +221,7 @@
       },
       "get": {
         "description": "Returns metadata for a calendar.",
-        "operationId": "calendar.calendars.get",
+        "operationId": "calendars.get",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -280,7 +280,7 @@
       ],
       "patch": {
         "description": "Updates metadata for a calendar. This method supports patch semantics.",
-        "operationId": "calendar.calendars.patch",
+        "operationId": "calendars.patch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -318,7 +318,7 @@
       },
       "put": {
         "description": "Updates metadata for a calendar.",
-        "operationId": "calendar.calendars.update",
+        "operationId": "calendars.update",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -358,7 +358,7 @@
     "/calendars/{calendarId}/acl": {
       "get": {
         "description": "Returns the rules in the access control list for the calendar.",
-        "operationId": "calendar.acl.list",
+        "operationId": "acl.list",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -437,7 +437,7 @@
       ],
       "post": {
         "description": "Creates an access control rule.",
-        "operationId": "calendar.acl.insert",
+        "operationId": "acl.insert",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -500,7 +500,7 @@
       ],
       "post": {
         "description": "Watch for changes to ACL resources.",
-        "operationId": "calendar.acl.watch",
+        "operationId": "acl.watch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -565,7 +565,7 @@
     "/calendars/{calendarId}/acl/{ruleId}": {
       "delete": {
         "description": "Deletes an access control rule.",
-        "operationId": "calendar.acl.delete",
+        "operationId": "acl.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -600,7 +600,7 @@
       },
       "get": {
         "description": "Returns an access control rule.",
-        "operationId": "calendar.acl.get",
+        "operationId": "acl.get",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -666,7 +666,7 @@
       ],
       "patch": {
         "description": "Updates an access control rule. This method supports patch semantics.",
-        "operationId": "calendar.acl.patch",
+        "operationId": "acl.patch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -711,7 +711,7 @@
       },
       "put": {
         "description": "Updates an access control rule.",
-        "operationId": "calendar.acl.update",
+        "operationId": "acl.update",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -781,7 +781,7 @@
       ],
       "post": {
         "description": "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.",
-        "operationId": "calendar.calendars.clear",
+        "operationId": "calendars.clear",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -811,7 +811,7 @@
     "/calendars/{calendarId}/events": {
       "get": {
         "description": "Returns events on the specified calendar.",
-        "operationId": "calendar.events.list",
+        "operationId": "events.list",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -987,7 +987,7 @@
       ],
       "post": {
         "description": "Creates an event.",
-        "operationId": "calendar.events.insert",
+        "operationId": "events.insert",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1069,7 +1069,7 @@
       ],
       "post": {
         "description": "Imports an event. This operation is used to add a private copy of an existing event to a calendar.",
-        "operationId": "calendar.events.import",
+        "operationId": "events.import",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1138,7 +1138,7 @@
       ],
       "post": {
         "description": "Creates an event based on a simple text string.",
-        "operationId": "calendar.events.quickAdd",
+        "operationId": "events.quickAdd",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1207,7 +1207,7 @@
       ],
       "post": {
         "description": "Watch for changes to Events resources.",
-        "operationId": "calendar.events.watch",
+        "operationId": "events.watch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1369,7 +1369,7 @@
     "/calendars/{calendarId}/events/{eventId}": {
       "delete": {
         "description": "Deletes an event.",
-        "operationId": "calendar.events.delete",
+        "operationId": "events.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1410,7 +1410,7 @@
       },
       "get": {
         "description": "Returns an event.",
-        "operationId": "calendar.events.get",
+        "operationId": "events.get",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1495,7 +1495,7 @@
       ],
       "patch": {
         "description": "Updates an event. This method supports patch semantics.",
-        "operationId": "calendar.events.patch",
+        "operationId": "events.patch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1565,7 +1565,7 @@
       },
       "put": {
         "description": "Updates an event.",
-        "operationId": "calendar.events.update",
+        "operationId": "events.update",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1637,7 +1637,7 @@
     "/calendars/{calendarId}/events/{eventId}/instances": {
       "get": {
         "description": "Returns instances of the specified recurring event.",
-        "operationId": "calendar.events.instances",
+        "operationId": "events.instances",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -1784,7 +1784,7 @@
       ],
       "post": {
         "description": "Moves an event to another calendar, i.e. changes an event's organizer.",
-        "operationId": "calendar.events.move",
+        "operationId": "events.move",
         "parameters": [
           {
             "description": "Calendar identifier of the source calendar where the event currently is on.",
@@ -1860,7 +1860,7 @@
       ],
       "post": {
         "description": "Stop watching resources through this channel",
-        "operationId": "calendar.channels.stop",
+        "operationId": "channels.stop",
         "parameters": [
           {
             "in": "body",
@@ -1895,7 +1895,7 @@
     "/colors": {
       "get": {
         "description": "Returns the color definitions for calendars and events.",
-        "operationId": "calendar.colors.get",
+        "operationId": "colors.get",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -1970,7 +1970,7 @@
       ],
       "post": {
         "description": "Returns free/busy information for a set of calendars.",
-        "operationId": "calendar.freebusy.query",
+        "operationId": "freebusy.query",
         "parameters": [
           {
             "in": "body",
@@ -2008,7 +2008,7 @@
     "/users/me/calendarList": {
       "get": {
         "description": "Returns entries on the user's calendar list.",
-        "operationId": "calendar.calendarList.list",
+        "operationId": "calendarList.list",
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2103,7 +2103,7 @@
       ],
       "post": {
         "description": "Adds an entry to the user's calendar list.",
-        "operationId": "calendar.calendarList.insert",
+        "operationId": "calendarList.insert",
         "parameters": [
           {
             "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
@@ -2165,7 +2165,7 @@
       ],
       "post": {
         "description": "Watch for changes to CalendarList resources.",
-        "operationId": "calendar.calendarList.watch",
+        "operationId": "calendarList.watch",
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2246,7 +2246,7 @@
     "/users/me/calendarList/{calendarId}": {
       "delete": {
         "description": "Deletes an entry on the user's calendar list.",
-        "operationId": "calendar.calendarList.delete",
+        "operationId": "calendarList.delete",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2274,7 +2274,7 @@
       },
       "get": {
         "description": "Returns an entry on the user's calendar list.",
-        "operationId": "calendar.calendarList.get",
+        "operationId": "calendarList.get",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2333,7 +2333,7 @@
       ],
       "patch": {
         "description": "Updates an entry on the user's calendar list. This method supports patch semantics.",
-        "operationId": "calendar.calendarList.patch",
+        "operationId": "calendarList.patch",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2377,7 +2377,7 @@
       },
       "put": {
         "description": "Updates an entry on the user's calendar list.",
-        "operationId": "calendar.calendarList.update",
+        "operationId": "calendarList.update",
         "parameters": [
           {
             "description": "Calendar identifier. To retrieve calendar IDs call the calendarList.list method. If you want to access the primary calendar of the currently logged in user, use the \"primary\" keyword.",
@@ -2423,7 +2423,7 @@
     "/users/me/settings": {
       "get": {
         "description": "Returns all user settings for the authenticated user.",
-        "operationId": "calendar.settings.list",
+        "operationId": "settings.list",
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2519,7 +2519,7 @@
       ],
       "post": {
         "description": "Watch for changes to Settings resources.",
-        "operationId": "calendar.settings.watch",
+        "operationId": "settings.watch",
         "parameters": [
           {
             "description": "Maximum number of entries returned on one result page. By default the value is 100 entries. The page size can never be larger than 250 entries. Optional.",
@@ -2576,7 +2576,7 @@
     "/users/me/settings/{setting}": {
       "get": {
         "description": "Returns a single user setting.",
-        "operationId": "calendar.settings.get",
+        "operationId": "settings.get",
         "parameters": [
           {
             "description": "The id of the user setting.",

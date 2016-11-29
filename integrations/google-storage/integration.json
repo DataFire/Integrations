@@ -137,7 +137,7 @@
     "/b": {
       "get": {
         "description": "Retrieves a list of buckets for a given project.",
-        "operationId": "storage.buckets.list",
+        "operationId": "buckets.list",
         "parameters": [
           {
             "description": "A valid API project identifier.",
@@ -240,7 +240,7 @@
       ],
       "post": {
         "description": "Creates a new bucket.",
-        "operationId": "storage.buckets.insert",
+        "operationId": "buckets.insert",
         "parameters": [
           {
             "description": "A valid API project identifier.",
@@ -327,7 +327,7 @@
     "/b/{bucket}": {
       "delete": {
         "description": "Permanently deletes an empty bucket.",
-        "operationId": "storage.buckets.delete",
+        "operationId": "buckets.delete",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -377,7 +377,7 @@
       },
       "get": {
         "description": "Returns metadata for the specified bucket.",
-        "operationId": "storage.buckets.get",
+        "operationId": "buckets.get",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -473,7 +473,7 @@
       ],
       "patch": {
         "description": "Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate. This method supports patch semantics.",
-        "operationId": "storage.buckets.patch",
+        "operationId": "buckets.patch",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -565,7 +565,7 @@
       },
       "put": {
         "description": "Updates a bucket. Changes to the bucket will be readable immediately after writing, but configuration changes may take time to propagate.",
-        "operationId": "storage.buckets.update",
+        "operationId": "buckets.update",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -659,7 +659,7 @@
     "/b/{bucket}/acl": {
       "get": {
         "description": "Retrieves ACL entries on the specified bucket.",
-        "operationId": "storage.bucketAccessControls.list",
+        "operationId": "bucketAccessControls.list",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -718,7 +718,7 @@
       ],
       "post": {
         "description": "Creates a new ACL entry on the specified bucket.",
-        "operationId": "storage.bucketAccessControls.insert",
+        "operationId": "bucketAccessControls.insert",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -763,7 +763,7 @@
     "/b/{bucket}/acl/{entity}": {
       "delete": {
         "description": "Permanently deletes the ACL entry for the specified entity on the specified bucket.",
-        "operationId": "storage.bucketAccessControls.delete",
+        "operationId": "bucketAccessControls.delete",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -803,7 +803,7 @@
       },
       "get": {
         "description": "Returns the ACL entry for the specified entity on the specified bucket.",
-        "operationId": "storage.bucketAccessControls.get",
+        "operationId": "bucketAccessControls.get",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -869,7 +869,7 @@
       ],
       "patch": {
         "description": "Updates an ACL entry on the specified bucket. This method supports patch semantics.",
-        "operationId": "storage.bucketAccessControls.patch",
+        "operationId": "bucketAccessControls.patch",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -919,7 +919,7 @@
       },
       "put": {
         "description": "Updates an ACL entry on the specified bucket.",
-        "operationId": "storage.bucketAccessControls.update",
+        "operationId": "bucketAccessControls.update",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -971,7 +971,7 @@
     "/b/{bucket}/defaultObjectAcl": {
       "get": {
         "description": "Retrieves default object ACL entries on the specified bucket.",
-        "operationId": "storage.defaultObjectAccessControls.list",
+        "operationId": "defaultObjectAccessControls.list",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1042,7 +1042,7 @@
       ],
       "post": {
         "description": "Creates a new default object ACL entry on the specified bucket.",
-        "operationId": "storage.defaultObjectAccessControls.insert",
+        "operationId": "defaultObjectAccessControls.insert",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1087,7 +1087,7 @@
     "/b/{bucket}/defaultObjectAcl/{entity}": {
       "delete": {
         "description": "Permanently deletes the default object ACL entry for the specified entity on the specified bucket.",
-        "operationId": "storage.defaultObjectAccessControls.delete",
+        "operationId": "defaultObjectAccessControls.delete",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1127,7 +1127,7 @@
       },
       "get": {
         "description": "Returns the default object ACL entry for the specified entity on the specified bucket.",
-        "operationId": "storage.defaultObjectAccessControls.get",
+        "operationId": "defaultObjectAccessControls.get",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1193,7 +1193,7 @@
       ],
       "patch": {
         "description": "Updates a default object ACL entry on the specified bucket. This method supports patch semantics.",
-        "operationId": "storage.defaultObjectAccessControls.patch",
+        "operationId": "defaultObjectAccessControls.patch",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1243,7 +1243,7 @@
       },
       "put": {
         "description": "Updates a default object ACL entry on the specified bucket.",
-        "operationId": "storage.defaultObjectAccessControls.update",
+        "operationId": "defaultObjectAccessControls.update",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -1295,7 +1295,7 @@
     "/b/{bucket}/o": {
       "get": {
         "description": "Retrieves a list of objects matching the criteria.",
-        "operationId": "storage.objects.list",
+        "operationId": "objects.list",
         "parameters": [
           {
             "description": "Name of the bucket in which to look for objects.",
@@ -1413,7 +1413,7 @@
           "application/octet-stream"
         ],
         "description": "Stores a new object and metadata.",
-        "operationId": "storage.objects.insert",
+        "operationId": "objects.insert",
         "parameters": [
           {
             "description": "Name of the bucket in which to store the new object. Overrides the provided object metadata's bucket value, if any.",
@@ -1546,7 +1546,7 @@
       ],
       "post": {
         "description": "Watch for changes on all objects in a bucket.",
-        "operationId": "storage.objects.watchAll",
+        "operationId": "objects.watchAll",
         "parameters": [
           {
             "description": "Name of the bucket in which to look for objects.",
@@ -1647,7 +1647,7 @@
     "/b/{bucket}/o/{object}": {
       "delete": {
         "description": "Deletes an object and its metadata. Deletions are permanent if versioning is not enabled for the bucket, or if the generation parameter is used.",
-        "operationId": "storage.objects.delete",
+        "operationId": "objects.delete",
         "parameters": [
           {
             "description": "Name of the bucket in which the object resides.",
@@ -1722,7 +1722,7 @@
       },
       "get": {
         "description": "Retrieves an object or its metadata.",
-        "operationId": "storage.objects.get",
+        "operationId": "objects.get",
         "parameters": [
           {
             "description": "Name of the bucket in which the object resides.",
@@ -1843,7 +1843,7 @@
       ],
       "patch": {
         "description": "Updates an object's metadata. This method supports patch semantics.",
-        "operationId": "storage.objects.patch",
+        "operationId": "objects.patch",
         "parameters": [
           {
             "description": "Name of the bucket in which the object resides.",
@@ -1947,7 +1947,7 @@
       },
       "put": {
         "description": "Updates an object's metadata.",
-        "operationId": "storage.objects.update",
+        "operationId": "objects.update",
         "parameters": [
           {
             "description": "Name of the bucket in which the object resides.",
@@ -2053,7 +2053,7 @@
     "/b/{bucket}/o/{object}/acl": {
       "get": {
         "description": "Retrieves ACL entries on the specified object.",
-        "operationId": "storage.objectAccessControls.list",
+        "operationId": "objectAccessControls.list",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2125,7 +2125,7 @@
       ],
       "post": {
         "description": "Creates a new ACL entry on the specified object.",
-        "operationId": "storage.objectAccessControls.insert",
+        "operationId": "objectAccessControls.insert",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2183,7 +2183,7 @@
     "/b/{bucket}/o/{object}/acl/{entity}": {
       "delete": {
         "description": "Permanently deletes the ACL entry for the specified entity on the specified object.",
-        "operationId": "storage.objectAccessControls.delete",
+        "operationId": "objectAccessControls.delete",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2236,7 +2236,7 @@
       },
       "get": {
         "description": "Returns the ACL entry for the specified entity on the specified object.",
-        "operationId": "storage.objectAccessControls.get",
+        "operationId": "objectAccessControls.get",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2315,7 +2315,7 @@
       ],
       "patch": {
         "description": "Updates an ACL entry on the specified object. This method supports patch semantics.",
-        "operationId": "storage.objectAccessControls.patch",
+        "operationId": "objectAccessControls.patch",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2378,7 +2378,7 @@
       },
       "put": {
         "description": "Updates an ACL entry on the specified object.",
-        "operationId": "storage.objectAccessControls.update",
+        "operationId": "objectAccessControls.update",
         "parameters": [
           {
             "description": "Name of a bucket.",
@@ -2466,7 +2466,7 @@
       ],
       "post": {
         "description": "Concatenates a list of existing objects into a new object in the same bucket.",
-        "operationId": "storage.objects.compose",
+        "operationId": "objects.compose",
         "parameters": [
           {
             "description": "Name of the bucket in which to store the new object.",
@@ -2572,7 +2572,7 @@
       ],
       "post": {
         "description": "Copies a source object to a destination object. Optionally overrides metadata.",
-        "operationId": "storage.objects.copy",
+        "operationId": "objects.copy",
         "parameters": [
           {
             "description": "Name of the bucket in which to find the source object.",
@@ -2744,7 +2744,7 @@
       ],
       "post": {
         "description": "Rewrites a source object to a destination object. Optionally overrides metadata.",
-        "operationId": "storage.objects.rewrite",
+        "operationId": "objects.rewrite",
         "parameters": [
           {
             "description": "Name of the bucket in which to find the source object.",
@@ -2928,7 +2928,7 @@
       ],
       "post": {
         "description": "Stop watching resources through this channel",
-        "operationId": "storage.channels.stop",
+        "operationId": "channels.stop",
         "parameters": [
           {
             "in": "body",

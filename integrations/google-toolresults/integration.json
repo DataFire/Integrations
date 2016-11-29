@@ -114,7 +114,7 @@
     "/{projectId}/histories": {
       "get": {
         "description": "Lists Histories for a given Project.\n\nThe histories are sorted by modification time in descending order. The history_id key will be used to order the history with the same modification time.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist",
-        "operationId": "toolresults.projects.histories.list",
+        "operationId": "projects.histories.list",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -186,7 +186,7 @@
       ],
       "post": {
         "description": "Creates a History.\n\nThe returned History will have the id set.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing project does not exist",
-        "operationId": "toolresults.projects.histories.create",
+        "operationId": "projects.histories.create",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -232,7 +232,7 @@
     "/{projectId}/histories/{historyId}": {
       "get": {
         "description": "Gets a History.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the History does not exist",
-        "operationId": "toolresults.projects.histories.get",
+        "operationId": "projects.histories.get",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -295,7 +295,7 @@
     "/{projectId}/histories/{historyId}/executions": {
       "get": {
         "description": "Lists Histories for a given Project.\n\nThe executions are sorted by creation_time in descending order. The execution_id key will be used to order the executions with the same creation_time.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist",
-        "operationId": "toolresults.projects.histories.executions.list",
+        "operationId": "projects.histories.executions.list",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -368,7 +368,7 @@
       ],
       "post": {
         "description": "Creates an Execution.\n\nThe returned Execution will have the id set.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the containing History does not exist",
-        "operationId": "toolresults.projects.histories.executions.create",
+        "operationId": "projects.histories.executions.create",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -421,7 +421,7 @@
     "/{projectId}/histories/{historyId}/executions/{executionId}": {
       "get": {
         "description": "Gets an Execution.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Execution does not exist",
-        "operationId": "toolresults.projects.histories.executions.get",
+        "operationId": "projects.histories.executions.get",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -489,7 +489,7 @@
       ],
       "patch": {
         "description": "Updates an existing Execution with the supplied partial entity.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal - NOT_FOUND - if the containing History does not exist",
-        "operationId": "toolresults.projects.histories.executions.patch",
+        "operationId": "projects.histories.executions.patch",
         "parameters": [
           {
             "description": "A Project id. Required.",
@@ -549,7 +549,7 @@
     "/{projectId}/histories/{historyId}/executions/{executionId}/steps": {
       "get": {
         "description": "Lists Steps for a given Execution.\n\nThe steps are sorted by creation_time in descending order. The step_id key will be used to order the steps with the same creation_time.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if an argument in the request happens to be invalid; e.g. if an attempt is made to list the children of a nonexistent Step - NOT_FOUND - if the containing Execution does not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.list",
+        "operationId": "projects.histories.executions.steps.list",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -629,7 +629,7 @@
       ],
       "post": {
         "description": "Creates a Step.\n\nThe returned Step will have the id set.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.create",
+        "operationId": "projects.histories.executions.steps.create",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -689,7 +689,7 @@
     "/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}": {
       "get": {
         "description": "Gets a Step.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the Step does not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.get",
+        "operationId": "projects.histories.executions.steps.get",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -764,7 +764,7 @@
       ],
       "patch": {
         "description": "Updates an existing Step with the supplied partial entity.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal (e.g try to upload a duplicate xml file), if the updated step is too large (more than 10Mib) - NOT_FOUND - if the containing Execution does not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.patch",
+        "operationId": "projects.histories.executions.steps.patch",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -831,7 +831,7 @@
     "/{projectId}/histories/{historyId}/executions/{executionId}/steps/{stepId}/thumbnails": {
       "get": {
         "description": "Lists thumbnails of images attached to a step.\n\nMay return any of the following canonical error codes: - PERMISSION_DENIED - if the user is not authorized to read from the project, or from any of the images - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND - if the step does not exist, or if any of the images do not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.thumbnails.list",
+        "operationId": "projects.histories.executions.steps.thumbnails.list",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -943,7 +943,7 @@
       ],
       "post": {
         "description": "Publish xml files to an existing Step.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to write project - INVALID_ARGUMENT - if the request is malformed - FAILED_PRECONDITION - if the requested state transition is illegal, e.g try to upload a duplicate xml file or a file too large. - NOT_FOUND - if the containing Execution does not exist",
-        "operationId": "toolresults.projects.histories.executions.steps.publishXunitXmlFiles",
+        "operationId": "projects.histories.executions.steps.publishXunitXmlFiles",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -1004,7 +1004,7 @@
     "/{projectId}/settings": {
       "get": {
         "description": "Gets the Tool Results settings for a project.\n\nMay return any of the following canonical error codes:\n\n- PERMISSION_DENIED - if the user is not authorized to read from project",
-        "operationId": "toolresults.projects.getSettings",
+        "operationId": "projects.getSettings",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",
@@ -1083,7 +1083,7 @@
       ],
       "post": {
         "description": "Creates resources for settings which have not yet been set.\n\nCurrently, this creates a single resource: a Google Cloud Storage bucket, to be used as the default bucket for this project. The bucket is created in the name of the user calling. Except in rare cases, calling this method in parallel from multiple clients will only create a single bucket. In order to avoid unnecessary storage charges, the bucket is configured to automatically delete objects older than 90 days.\n\nThe bucket is created with the project-private ACL: All project team members are given permissions to the bucket and objects created within it according to their roles. Project owners have owners rights, and so on. The default ACL on objects created in the bucket is project-private as well. See Google Cloud Storage documentation for more details.\n\nIf there is already a default bucket set and the project can access the bucket, this call does nothing. However, if the project doesn't have the permission to access the bucket or the bucket is deteleted, a new bucket will be created.\n\nMay return any canonical error codes, including the following:\n\n- PERMISSION_DENIED - if the user is not authorized to write to project - Any error code raised by Google Cloud Storage",
-        "operationId": "toolresults.projects.initializeSettings",
+        "operationId": "projects.initializeSettings",
         "parameters": [
           {
             "description": "A Project id.\n\nRequired.",

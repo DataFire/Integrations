@@ -130,7 +130,7 @@
     "/accounts": {
       "get": {
         "description": "List hosted accounts associated with this AdSense account by ad client id.",
-        "operationId": "adsensehost.accounts.list",
+        "operationId": "accounts.list",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -190,7 +190,7 @@
     "/accounts/{accountId}": {
       "get": {
         "description": "Get information about the selected associated AdSense account.",
-        "operationId": "adsensehost.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "Account to get information about.",
@@ -246,7 +246,7 @@
     "/accounts/{accountId}/adclients": {
       "get": {
         "description": "List all hosted ad clients in the specified hosted account.",
-        "operationId": "adsensehost.accounts.adclients.list",
+        "operationId": "accounts.adclients.list",
         "parameters": [
           {
             "description": "Account for which to list ad clients.",
@@ -316,7 +316,7 @@
     "/accounts/{accountId}/adclients/{adClientId}": {
       "get": {
         "description": "Get information about one of the ad clients in the specified publisher's AdSense account.",
-        "operationId": "adsensehost.accounts.adclients.get",
+        "operationId": "accounts.adclients.get",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -379,7 +379,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits": {
       "get": {
         "description": "List all ad units in the specified publisher's AdSense account.",
-        "operationId": "adsensehost.accounts.adunits.list",
+        "operationId": "accounts.adunits.list",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -460,7 +460,7 @@
       ],
       "patch": {
         "description": "Update the supplied ad unit in the specified publisher AdSense account. This method supports patch semantics.",
-        "operationId": "adsensehost.accounts.adunits.patch",
+        "operationId": "accounts.adunits.patch",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -512,7 +512,7 @@
       },
       "post": {
         "description": "Insert the supplied ad unit into the specified publisher AdSense account.",
-        "operationId": "adsensehost.accounts.adunits.insert",
+        "operationId": "accounts.adunits.insert",
         "parameters": [
           {
             "description": "Account which will contain the ad unit.",
@@ -557,7 +557,7 @@
       },
       "put": {
         "description": "Update the supplied ad unit in the specified publisher AdSense account.",
-        "operationId": "adsensehost.accounts.adunits.update",
+        "operationId": "accounts.adunits.update",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -604,7 +604,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}": {
       "delete": {
         "description": "Delete the specified ad unit from the specified publisher AdSense account.",
-        "operationId": "adsensehost.accounts.adunits.delete",
+        "operationId": "accounts.adunits.delete",
         "parameters": [
           {
             "description": "Account which contains the ad unit.",
@@ -649,7 +649,7 @@
       },
       "get": {
         "description": "Get the specified host ad unit in this AdSense account.",
-        "operationId": "adsensehost.accounts.adunits.get",
+        "operationId": "accounts.adunits.get",
         "parameters": [
           {
             "description": "Account which contains the ad unit.",
@@ -719,7 +719,7 @@
     "/accounts/{accountId}/adclients/{adClientId}/adunits/{adUnitId}/adcode": {
       "get": {
         "description": "Get ad code for the specified ad unit, attaching the specified host custom channels.",
-        "operationId": "adsensehost.accounts.adunits.getAdCode",
+        "operationId": "accounts.adunits.getAdCode",
         "parameters": [
           {
             "description": "Account which contains the ad client.",
@@ -799,7 +799,7 @@
     "/accounts/{accountId}/reports": {
       "get": {
         "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "adsensehost.accounts.reports.generate",
+        "operationId": "accounts.reports.generate",
         "parameters": [
           {
             "description": "Hosted account upon which to report.",
@@ -931,7 +931,7 @@
     "/adclients": {
       "get": {
         "description": "List all host ad clients in this AdSense account.",
-        "operationId": "adsensehost.adclients.list",
+        "operationId": "adclients.list",
         "parameters": [
           {
             "description": "The maximum number of ad clients to include in the response, used for paging.",
@@ -994,7 +994,7 @@
     "/adclients/{adClientId}": {
       "get": {
         "description": "Get information about one of the ad clients in the Host AdSense account.",
-        "operationId": "adsensehost.adclients.get",
+        "operationId": "adclients.get",
         "parameters": [
           {
             "description": "Ad client to get.",
@@ -1050,7 +1050,7 @@
     "/adclients/{adClientId}/customchannels": {
       "get": {
         "description": "List all host custom channels in this AdSense account.",
-        "operationId": "adsensehost.customchannels.list",
+        "operationId": "customchannels.list",
         "parameters": [
           {
             "description": "Ad client for which to list custom channels.",
@@ -1118,7 +1118,7 @@
       ],
       "patch": {
         "description": "Update a custom channel in the host AdSense account. This method supports patch semantics.",
-        "operationId": "adsensehost.customchannels.patch",
+        "operationId": "customchannels.patch",
         "parameters": [
           {
             "description": "Ad client in which the custom channel will be updated.",
@@ -1163,7 +1163,7 @@
       },
       "post": {
         "description": "Add a new custom channel to the host AdSense account.",
-        "operationId": "adsensehost.customchannels.insert",
+        "operationId": "customchannels.insert",
         "parameters": [
           {
             "description": "Ad client to which the new custom channel will be added.",
@@ -1201,7 +1201,7 @@
       },
       "put": {
         "description": "Update a custom channel in the host AdSense account.",
-        "operationId": "adsensehost.customchannels.update",
+        "operationId": "customchannels.update",
         "parameters": [
           {
             "description": "Ad client in which the custom channel will be updated.",
@@ -1241,7 +1241,7 @@
     "/adclients/{adClientId}/customchannels/{customChannelId}": {
       "delete": {
         "description": "Delete a specific custom channel from the host AdSense account.",
-        "operationId": "adsensehost.customchannels.delete",
+        "operationId": "customchannels.delete",
         "parameters": [
           {
             "description": "Ad client from which to delete the custom channel.",
@@ -1279,7 +1279,7 @@
       },
       "get": {
         "description": "Get a specific custom channel from the host AdSense account.",
-        "operationId": "adsensehost.customchannels.get",
+        "operationId": "customchannels.get",
         "parameters": [
           {
             "description": "Ad client from which to get the custom channel.",
@@ -1342,7 +1342,7 @@
     "/adclients/{adClientId}/urlchannels": {
       "get": {
         "description": "List all host URL channels in the host AdSense account.",
-        "operationId": "adsensehost.urlchannels.list",
+        "operationId": "urlchannels.list",
         "parameters": [
           {
             "description": "Ad client for which to list URL channels.",
@@ -1410,7 +1410,7 @@
       ],
       "post": {
         "description": "Add a new URL channel to the host AdSense account.",
-        "operationId": "adsensehost.urlchannels.insert",
+        "operationId": "urlchannels.insert",
         "parameters": [
           {
             "description": "Ad client to which the new URL channel will be added.",
@@ -1450,7 +1450,7 @@
     "/adclients/{adClientId}/urlchannels/{urlChannelId}": {
       "delete": {
         "description": "Delete a URL channel from the host AdSense account.",
-        "operationId": "adsensehost.urlchannels.delete",
+        "operationId": "urlchannels.delete",
         "parameters": [
           {
             "description": "Ad client from which to delete the URL channel.",
@@ -1513,7 +1513,7 @@
     "/associationsessions/start": {
       "get": {
         "description": "Create an association session for initiating an association with an AdSense user.",
-        "operationId": "adsensehost.associationsessions.start",
+        "operationId": "associationsessions.start",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -1599,7 +1599,7 @@
     "/associationsessions/verify": {
       "get": {
         "description": "Verify an association session after the association callback returns from AdSense signup.",
-        "operationId": "adsensehost.associationsessions.verify",
+        "operationId": "associationsessions.verify",
         "parameters": [
           {
             "description": "The token returned to the association callback URL.",
@@ -1655,7 +1655,7 @@
     "/reports": {
       "get": {
         "description": "Generate an AdSense report based on the report request sent in the query parameters. Returns the result as JSON; to retrieve output in CSV format specify \"alt=csv\" as a query parameter.",
-        "operationId": "adsensehost.reports.generate",
+        "operationId": "reports.generate",
         "parameters": [
           {
             "description": "Start of the date range to report on in \"YYYY-MM-DD\" format, inclusive.",

@@ -126,7 +126,7 @@
     "/activities": {
       "get": {
         "description": "Search public activities.",
-        "operationId": "plus.activities.search",
+        "operationId": "activities.search",
         "parameters": [
           {
             "description": "Full-text search query string.",
@@ -220,7 +220,7 @@
     "/activities/{activityId}": {
       "get": {
         "description": "Get an activity.",
-        "operationId": "plus.activities.get",
+        "operationId": "activities.get",
         "parameters": [
           {
             "description": "The ID of the activity to get.",
@@ -281,7 +281,7 @@
     "/activities/{activityId}/comments": {
       "get": {
         "description": "List all of the comments for an activity.",
-        "operationId": "plus.comments.list",
+        "operationId": "comments.list",
         "parameters": [
           {
             "description": "The ID of the activity to get comments for.",
@@ -368,7 +368,7 @@
     "/activities/{activityId}/people/{collection}": {
       "get": {
         "description": "List all of the people in the specified collection for a particular activity.",
-        "operationId": "plus.people.listByActivity",
+        "operationId": "people.listByActivity",
         "parameters": [
           {
             "description": "The ID of the activity to get the list of people for.",
@@ -455,7 +455,7 @@
     "/comments/{commentId}": {
       "get": {
         "description": "Get a comment.",
-        "operationId": "plus.comments.get",
+        "operationId": "comments.get",
         "parameters": [
           {
             "description": "The ID of the comment to get.",
@@ -516,7 +516,7 @@
     "/people": {
       "get": {
         "description": "Search all public profiles.",
-        "operationId": "plus.people.search",
+        "operationId": "people.search",
         "parameters": [
           {
             "description": "Specify a query string for full text search of public text in all profiles.",
@@ -599,7 +599,7 @@
     "/people/{userId}": {
       "get": {
         "description": "Get a person's profile. If your app uses scope https://www.googleapis.com/auth/plus.login, this method is guaranteed to return ageRange and language.",
-        "operationId": "plus.people.get",
+        "operationId": "people.get",
         "parameters": [
           {
             "description": "The ID of the person to get the profile for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -670,7 +670,7 @@
     "/people/{userId}/activities/{collection}": {
       "get": {
         "description": "List all of the activities in the specified collection for a particular user.",
-        "operationId": "plus.activities.list",
+        "operationId": "activities.list",
         "parameters": [
           {
             "description": "The ID of the user to get activities for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -756,7 +756,7 @@
     "/people/{userId}/people/{collection}": {
       "get": {
         "description": "List all of the people in the specified collection.",
-        "operationId": "plus.people.list",
+        "operationId": "people.list",
         "parameters": [
           {
             "description": "Get the collection of people for the person identified. Use \"me\" to indicate the authenticated user.",

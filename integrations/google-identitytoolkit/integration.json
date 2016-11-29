@@ -137,7 +137,7 @@
       ],
       "post": {
         "description": "Creates the URI used by the IdP to authenticate the user.",
-        "operationId": "identitytoolkit.relyingparty.createAuthUri",
+        "operationId": "relyingparty.createAuthUri",
         "parameters": [
           {
             "in": "body",
@@ -186,7 +186,7 @@
       ],
       "post": {
         "description": "Delete user account.",
-        "operationId": "identitytoolkit.relyingparty.deleteAccount",
+        "operationId": "relyingparty.deleteAccount",
         "parameters": [
           {
             "in": "body",
@@ -235,7 +235,7 @@
       ],
       "post": {
         "description": "Batch download user accounts.",
-        "operationId": "identitytoolkit.relyingparty.downloadAccount",
+        "operationId": "relyingparty.downloadAccount",
         "parameters": [
           {
             "in": "body",
@@ -291,7 +291,7 @@
       ],
       "post": {
         "description": "Returns the account info.",
-        "operationId": "identitytoolkit.relyingparty.getAccountInfo",
+        "operationId": "relyingparty.getAccountInfo",
         "parameters": [
           {
             "in": "body",
@@ -340,7 +340,7 @@
       ],
       "post": {
         "description": "Get a code for user action confirmation.",
-        "operationId": "identitytoolkit.relyingparty.getOobConfirmationCode",
+        "operationId": "relyingparty.getOobConfirmationCode",
         "parameters": [
           {
             "in": "body",
@@ -366,7 +366,7 @@
     "/getProjectConfig": {
       "get": {
         "description": "Get project configuration.",
-        "operationId": "identitytoolkit.relyingparty.getProjectConfig",
+        "operationId": "relyingparty.getProjectConfig",
         "parameters": [
           {
             "description": "Delegated GCP project number of the request.",
@@ -420,7 +420,7 @@
     "/getRecaptchaParam": {
       "get": {
         "description": "Get recaptcha secure param.",
-        "operationId": "identitytoolkit.relyingparty.getRecaptchaParam",
+        "operationId": "relyingparty.getRecaptchaParam",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -460,7 +460,7 @@
     "/publicKeys": {
       "get": {
         "description": "Get token signing public key.",
-        "operationId": "identitytoolkit.relyingparty.getPublicKeys",
+        "operationId": "relyingparty.getPublicKeys",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -523,7 +523,7 @@
       ],
       "post": {
         "description": "Reset password for a user.",
-        "operationId": "identitytoolkit.relyingparty.resetPassword",
+        "operationId": "relyingparty.resetPassword",
         "parameters": [
           {
             "in": "body",
@@ -572,7 +572,7 @@
       ],
       "post": {
         "description": "Set account info for a user.",
-        "operationId": "identitytoolkit.relyingparty.setAccountInfo",
+        "operationId": "relyingparty.setAccountInfo",
         "parameters": [
           {
             "in": "body",
@@ -621,7 +621,7 @@
       ],
       "post": {
         "description": "Set project configuration.",
-        "operationId": "identitytoolkit.relyingparty.setProjectConfig",
+        "operationId": "relyingparty.setProjectConfig",
         "parameters": [
           {
             "in": "body",
@@ -670,7 +670,7 @@
       ],
       "post": {
         "description": "Sign out user.",
-        "operationId": "identitytoolkit.relyingparty.signOutUser",
+        "operationId": "relyingparty.signOutUser",
         "parameters": [
           {
             "in": "body",
@@ -719,7 +719,7 @@
       ],
       "post": {
         "description": "Signup new user.",
-        "operationId": "identitytoolkit.relyingparty.signupNewUser",
+        "operationId": "relyingparty.signupNewUser",
         "parameters": [
           {
             "in": "body",
@@ -768,7 +768,7 @@
       ],
       "post": {
         "description": "Batch upload existing user accounts.",
-        "operationId": "identitytoolkit.relyingparty.uploadAccount",
+        "operationId": "relyingparty.uploadAccount",
         "parameters": [
           {
             "in": "body",
@@ -824,7 +824,7 @@
       ],
       "post": {
         "description": "Verifies the assertion returned by the IdP.",
-        "operationId": "identitytoolkit.relyingparty.verifyAssertion",
+        "operationId": "relyingparty.verifyAssertion",
         "parameters": [
           {
             "in": "body",
@@ -873,7 +873,7 @@
       ],
       "post": {
         "description": "Verifies the developer asserted ID token.",
-        "operationId": "identitytoolkit.relyingparty.verifyCustomToken",
+        "operationId": "relyingparty.verifyCustomToken",
         "parameters": [
           {
             "in": "body",
@@ -922,7 +922,7 @@
       ],
       "post": {
         "description": "Verifies the user entered password.",
-        "operationId": "identitytoolkit.relyingparty.verifyPassword",
+        "operationId": "relyingparty.verifyPassword",
         "parameters": [
           {
             "in": "body",

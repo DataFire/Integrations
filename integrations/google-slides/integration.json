@@ -208,7 +208,7 @@
       ],
       "post": {
         "description": "Creates a new presentation using the title given in the request. Other\nfields in the request are ignored.\nReturns the created presentation.",
-        "operationId": "slides.presentations.create",
+        "operationId": "presentations.create",
         "parameters": [
           {
             "in": "body",
@@ -246,7 +246,7 @@
     "/v1/presentations/{presentationId}": {
       "get": {
         "description": "Gets the latest version of the specified presentation.",
-        "operationId": "slides.presentations.get",
+        "operationId": "presentations.get",
         "parameters": [
           {
             "description": "The ID of the presentation to retrieve.",
@@ -336,7 +336,7 @@
     "/v1/presentations/{presentationId}/pages/{pageObjectId}": {
       "get": {
         "description": "Gets the latest version of the specified page in the presentation.",
-        "operationId": "slides.presentations.pages.get",
+        "operationId": "presentations.pages.get",
         "parameters": [
           {
             "description": "The ID of the presentation to retrieve.",
@@ -473,7 +473,7 @@
       ],
       "post": {
         "description": "Applies one or more updates to the presentation.\n\nEach request is validated before\nbeing applied. If any request is not valid then the entire request will\nfail and nothing will be applied.\n\nSome requests have replies to\ngive you some information about how they are applied. Other requests do\nnot need to return information; these each return an empty reply.\nThe order of replies matches that of the requests.\n\nFor example, suppose you call batchUpdate with four updates, and only the\nthird one returns information. The response would have two empty replies,\nthe reply to the third request, and another empty reply, in that order.\n\nBecause other users may be editing the presentation, it is not guaranteed\nthat the presentation will exactly reflect your changes: your changes may\nbe altered with respect to collaborator changes. If there are no\ncollaborators, the presentation should reflect your changes. In any case,\nit is guaranteed that the updates in your request will be applied together\natomically.",
-        "operationId": "slides.presentations.batchUpdate",
+        "operationId": "presentations.batchUpdate",
         "parameters": [
           {
             "description": "The presentation to apply the updates to.",

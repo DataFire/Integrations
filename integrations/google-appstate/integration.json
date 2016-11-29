@@ -114,7 +114,7 @@
     "/states": {
       "get": {
         "description": "Lists all the states keys, and optionally the state data.",
-        "operationId": "appstate.states.list",
+        "operationId": "states.list",
         "parameters": [
           {
             "default": false,
@@ -170,7 +170,7 @@
     "/states/{stateKey}": {
       "delete": {
         "description": "Deletes a key and the data associated with it. The key is removed and no longer counts against the key quota. Note that since this method is not safe in the face of concurrent modifications, it should only be used for development and testing purposes. Invoking this method in shipping code can result in data loss and data corruption.",
-        "operationId": "appstate.states.delete",
+        "operationId": "states.delete",
         "parameters": [
           {
             "description": "The key for the data to be retrieved.",
@@ -200,7 +200,7 @@
       },
       "get": {
         "description": "Retrieves the data corresponding to the passed key. If the key does not exist on the server, an HTTP 404 will be returned.",
-        "operationId": "appstate.states.get",
+        "operationId": "states.get",
         "parameters": [
           {
             "description": "The key for the data to be retrieved.",
@@ -256,7 +256,7 @@
       ],
       "put": {
         "description": "Update the data associated with the input key if and only if the passed version matches the currently stored version. This method is safe in the face of concurrent writes. Maximum per-key size is 128KB.",
-        "operationId": "appstate.states.update",
+        "operationId": "states.update",
         "parameters": [
           {
             "description": "The key for the data to be retrieved.",
@@ -327,7 +327,7 @@
       ],
       "post": {
         "description": "Clears (sets to empty) the data for the passed key if and only if the passed version matches the currently stored version. This method results in a conflict error on version mismatch.",
-        "operationId": "appstate.states.clear",
+        "operationId": "states.clear",
         "parameters": [
           {
             "description": "The key for the data to be retrieved.",

@@ -132,7 +132,7 @@
     "/query": {
       "get": {
         "description": "Executes a SQL statement which can be any of \n- SELECT\n- SHOW\n- DESCRIBE",
-        "operationId": "fusiontables.query.sqlGet",
+        "operationId": "query.sqlGet",
         "parameters": [
           {
             "description": "A SQL statement which can be any of \n- SELECT\n- SHOW\n- DESCRIBE",
@@ -203,7 +203,7 @@
       ],
       "post": {
         "description": "Executes a Fusion Tables SQL statement, which can be any of \n- SELECT\n- INSERT\n- UPDATE\n- DELETE\n- SHOW\n- DESCRIBE\n- CREATE statement.",
-        "operationId": "fusiontables.query.sql",
+        "operationId": "query.sql",
         "parameters": [
           {
             "description": "A Fusion Tables SQL statement, which can be any of \n- SELECT\n- INSERT\n- UPDATE\n- DELETE\n- SHOW\n- DESCRIBE\n- CREATE",
@@ -253,7 +253,7 @@
     "/tables": {
       "get": {
         "description": "Retrieves a list of tables a user owns.",
-        "operationId": "fusiontables.table.list",
+        "operationId": "table.list",
         "parameters": [
           {
             "description": "Maximum number of tables to return. Default is 5.",
@@ -318,7 +318,7 @@
       ],
       "post": {
         "description": "Creates a new table.",
-        "operationId": "fusiontables.table.insert",
+        "operationId": "table.insert",
         "parameters": [
           {
             "in": "body",
@@ -377,7 +377,7 @@
           "application/octet-stream"
         ],
         "description": "Imports a new table.",
-        "operationId": "fusiontables.table.importTable",
+        "operationId": "table.importTable",
         "parameters": [
           {
             "description": "The name to be assigned to the new table.",
@@ -422,7 +422,7 @@
     "/tables/{tableId}": {
       "delete": {
         "description": "Deletes a table.",
-        "operationId": "fusiontables.table.delete",
+        "operationId": "table.delete",
         "parameters": [
           {
             "description": "ID of the table to be deleted.",
@@ -450,7 +450,7 @@
       },
       "get": {
         "description": "Retrieves a specific table by its ID.",
-        "operationId": "fusiontables.table.get",
+        "operationId": "table.get",
         "parameters": [
           {
             "description": "Identifier for the table being requested.",
@@ -509,7 +509,7 @@
       ],
       "patch": {
         "description": "Updates an existing table. Unless explicitly requested, only the name, description, and attribution will be updated. This method supports patch semantics.",
-        "operationId": "fusiontables.table.patch",
+        "operationId": "table.patch",
         "parameters": [
           {
             "description": "ID of the table that is being updated.",
@@ -553,7 +553,7 @@
       },
       "put": {
         "description": "Updates an existing table. Unless explicitly requested, only the name, description, and attribution will be updated.",
-        "operationId": "fusiontables.table.update",
+        "operationId": "table.update",
         "parameters": [
           {
             "description": "ID of the table that is being updated.",
@@ -599,7 +599,7 @@
     "/tables/{tableId}/columns": {
       "get": {
         "description": "Retrieves a list of columns.",
-        "operationId": "fusiontables.column.list",
+        "operationId": "column.list",
         "parameters": [
           {
             "description": "Table whose columns are being listed.",
@@ -671,7 +671,7 @@
       ],
       "post": {
         "description": "Adds a new column to the table.",
-        "operationId": "fusiontables.column.insert",
+        "operationId": "column.insert",
         "parameters": [
           {
             "description": "Table for which a new column is being added.",
@@ -711,7 +711,7 @@
     "/tables/{tableId}/columns/{columnId}": {
       "delete": {
         "description": "Deletes the specified column.",
-        "operationId": "fusiontables.column.delete",
+        "operationId": "column.delete",
         "parameters": [
           {
             "description": "Table from which the column is being deleted.",
@@ -746,7 +746,7 @@
       },
       "get": {
         "description": "Retrieves a specific column by its ID.",
-        "operationId": "fusiontables.column.get",
+        "operationId": "column.get",
         "parameters": [
           {
             "description": "Table to which the column belongs.",
@@ -812,7 +812,7 @@
       ],
       "patch": {
         "description": "Updates the name or type of an existing column. This method supports patch semantics.",
-        "operationId": "fusiontables.column.patch",
+        "operationId": "column.patch",
         "parameters": [
           {
             "description": "Table for which the column is being updated.",
@@ -857,7 +857,7 @@
       },
       "put": {
         "description": "Updates the name or type of an existing column.",
-        "operationId": "fusiontables.column.update",
+        "operationId": "column.update",
         "parameters": [
           {
             "description": "Table for which the column is being updated.",
@@ -927,7 +927,7 @@
       ],
       "post": {
         "description": "Copies a table.",
-        "operationId": "fusiontables.table.copy",
+        "operationId": "table.copy",
         "parameters": [
           {
             "description": "ID of the table that is being copied.",
@@ -997,7 +997,7 @@
           "application/octet-stream"
         ],
         "description": "Imports more rows into a table.",
-        "operationId": "fusiontables.table.importRows",
+        "operationId": "table.importRows",
         "parameters": [
           {
             "description": "The table into which new rows are being imported.",
@@ -1086,7 +1086,7 @@
           "application/octet-stream"
         ],
         "description": "Replaces rows of an existing table. Current rows remain visible until all replacement rows are ready.",
-        "operationId": "fusiontables.table.replaceRows",
+        "operationId": "table.replaceRows",
         "parameters": [
           {
             "description": "Table whose rows will be replaced.",
@@ -1149,7 +1149,7 @@
     "/tables/{tableId}/styles": {
       "get": {
         "description": "Retrieves a list of styles.",
-        "operationId": "fusiontables.style.list",
+        "operationId": "style.list",
         "parameters": [
           {
             "description": "Table whose styles are being listed",
@@ -1221,7 +1221,7 @@
       ],
       "post": {
         "description": "Adds a new style for the table.",
-        "operationId": "fusiontables.style.insert",
+        "operationId": "style.insert",
         "parameters": [
           {
             "description": "Table for which a new style is being added",
@@ -1261,7 +1261,7 @@
     "/tables/{tableId}/styles/{styleId}": {
       "delete": {
         "description": "Deletes a style.",
-        "operationId": "fusiontables.style.delete",
+        "operationId": "style.delete",
         "parameters": [
           {
             "description": "Table from which the style is being deleted",
@@ -1296,7 +1296,7 @@
       },
       "get": {
         "description": "Gets a specific style.",
-        "operationId": "fusiontables.style.get",
+        "operationId": "style.get",
         "parameters": [
           {
             "description": "Table to which the requested style belongs",
@@ -1362,7 +1362,7 @@
       ],
       "patch": {
         "description": "Updates an existing style. This method supports patch semantics.",
-        "operationId": "fusiontables.style.patch",
+        "operationId": "style.patch",
         "parameters": [
           {
             "description": "Table whose style is being updated.",
@@ -1407,7 +1407,7 @@
       },
       "put": {
         "description": "Updates an existing style.",
-        "operationId": "fusiontables.style.update",
+        "operationId": "style.update",
         "parameters": [
           {
             "description": "Table whose style is being updated.",
@@ -1454,7 +1454,7 @@
     "/tables/{tableId}/tasks": {
       "get": {
         "description": "Retrieves a list of tasks.",
-        "operationId": "fusiontables.task.list",
+        "operationId": "task.list",
         "parameters": [
           {
             "description": "Table whose tasks are being listed.",
@@ -1534,7 +1534,7 @@
     "/tables/{tableId}/tasks/{taskId}": {
       "delete": {
         "description": "Deletes a specific task by its ID, unless that task has already started running.",
-        "operationId": "fusiontables.task.delete",
+        "operationId": "task.delete",
         "parameters": [
           {
             "description": "Table from which the task is being deleted.",
@@ -1569,7 +1569,7 @@
       },
       "get": {
         "description": "Retrieves a specific task by its ID.",
-        "operationId": "fusiontables.task.get",
+        "operationId": "task.get",
         "parameters": [
           {
             "description": "Table to which the task belongs.",
@@ -1637,7 +1637,7 @@
     "/tables/{tableId}/templates": {
       "get": {
         "description": "Retrieves a list of templates.",
-        "operationId": "fusiontables.template.list",
+        "operationId": "template.list",
         "parameters": [
           {
             "description": "Identifier for the table whose templates are being requested",
@@ -1709,7 +1709,7 @@
       ],
       "post": {
         "description": "Creates a new template for the table.",
-        "operationId": "fusiontables.template.insert",
+        "operationId": "template.insert",
         "parameters": [
           {
             "description": "Table for which a new template is being created",
@@ -1749,7 +1749,7 @@
     "/tables/{tableId}/templates/{templateId}": {
       "delete": {
         "description": "Deletes a template",
-        "operationId": "fusiontables.template.delete",
+        "operationId": "template.delete",
         "parameters": [
           {
             "description": "Table from which the template is being deleted",
@@ -1784,7 +1784,7 @@
       },
       "get": {
         "description": "Retrieves a specific template by its id",
-        "operationId": "fusiontables.template.get",
+        "operationId": "template.get",
         "parameters": [
           {
             "description": "Table to which the template belongs",
@@ -1850,7 +1850,7 @@
       ],
       "patch": {
         "description": "Updates an existing template. This method supports patch semantics.",
-        "operationId": "fusiontables.template.patch",
+        "operationId": "template.patch",
         "parameters": [
           {
             "description": "Table to which the updated template belongs",
@@ -1895,7 +1895,7 @@
       },
       "put": {
         "description": "Updates an existing template",
-        "operationId": "fusiontables.template.update",
+        "operationId": "template.update",
         "parameters": [
           {
             "description": "Table to which the updated template belongs",

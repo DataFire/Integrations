@@ -148,7 +148,7 @@
       ],
       "post": {
         "description": "Submit input and request an output against a hosted model.",
-        "operationId": "prediction.hostedmodels.predict",
+        "operationId": "hostedmodels.predict",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -223,7 +223,7 @@
       ],
       "post": {
         "description": "Train a Prediction API model.",
-        "operationId": "prediction.trainedmodels.insert",
+        "operationId": "trainedmodels.insert",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -283,7 +283,7 @@
     "/{project}/trainedmodels/list": {
       "get": {
         "description": "List available models.",
-        "operationId": "prediction.trainedmodels.list",
+        "operationId": "trainedmodels.list",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -357,7 +357,7 @@
     "/{project}/trainedmodels/{id}": {
       "delete": {
         "description": "Delete a trained model.",
-        "operationId": "prediction.trainedmodels.delete",
+        "operationId": "trainedmodels.delete",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -397,7 +397,7 @@
       },
       "get": {
         "description": "Check training status of your model.",
-        "operationId": "prediction.trainedmodels.get",
+        "operationId": "trainedmodels.get",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -463,7 +463,7 @@
       ],
       "put": {
         "description": "Add new data to a trained model.",
-        "operationId": "prediction.trainedmodels.update",
+        "operationId": "trainedmodels.update",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -515,7 +515,7 @@
     "/{project}/trainedmodels/{id}/analyze": {
       "get": {
         "description": "Get analysis of the model and the data the model was trained on.",
-        "operationId": "prediction.trainedmodels.analyze",
+        "operationId": "trainedmodels.analyze",
         "parameters": [
           {
             "description": "The project associated with the model.",
@@ -606,7 +606,7 @@
       ],
       "post": {
         "description": "Submit model id and request a prediction.",
-        "operationId": "prediction.trainedmodels.predict",
+        "operationId": "trainedmodels.predict",
         "parameters": [
           {
             "description": "The project associated with the model.",

@@ -163,7 +163,7 @@
     "/v3/{name}": {
       "delete": {
         "description": "Deletes a metric descriptor. Only user-created custom metrics (/monitoring/custom-metrics) can be deleted.",
-        "operationId": "monitoring.projects.metricDescriptors.delete",
+        "operationId": "projects.metricDescriptors.delete",
         "parameters": [
           {
             "description": "The metric descriptor on which to execute the request. The format is &quot;projects/{project_id_or_number}/metricDescriptors/{metric_id}&quot;. An example of {metric_id} is: &quot;custom.googleapis.com/my_test_metric&quot;.",
@@ -200,7 +200,7 @@
       },
       "get": {
         "description": "Gets a single monitored resource descriptor. This method does not require a Stackdriver account.",
-        "operationId": "monitoring.projects.monitoredResourceDescriptors.get",
+        "operationId": "projects.monitoredResourceDescriptors.get",
         "parameters": [
           {
             "description": "The monitored resource descriptor to get. The format is &quot;projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}&quot;. The {resource_type} is a predefined type, such as cloudsql_database.",
@@ -288,7 +288,7 @@
       ],
       "put": {
         "description": "Updates an existing group. You can change any group attributes except name.",
-        "operationId": "monitoring.projects.groups.update",
+        "operationId": "projects.groups.update",
         "parameters": [
           {
             "description": "Output only. The name of this group. The format is &quot;projects/{project_id_or_number}/groups/{group_id}&quot;. When creating a group, this field is ignored and a new name is created consisting of the project specified in the call to CreateGroup and a unique {group_id} that is generated automatically.",
@@ -381,7 +381,7 @@
       ],
       "post": {
         "description": "Stackdriver Monitoring Agent only: Creates a new time series.<aside class=\"caution\">This method is only for use by the Stackdriver Monitoring Agent. Use projects.timeSeries.create instead.</aside>",
-        "operationId": "monitoring.projects.collectdTimeSeries.create",
+        "operationId": "projects.collectdTimeSeries.create",
         "parameters": [
           {
             "description": "The project in which to create the time series. The format is &quot;projects/PROJECT_ID_OR_NUMBER&quot;.",
@@ -432,7 +432,7 @@
     "/v3/{name}/groups": {
       "get": {
         "description": "Lists the existing groups.",
-        "operationId": "monitoring.projects.groups.list",
+        "operationId": "projects.groups.list",
         "parameters": [
           {
             "description": "The project whose groups are to be listed. The format is &quot;projects/{project_id_or_number}&quot;.",
@@ -545,7 +545,7 @@
       ],
       "post": {
         "description": "Creates a new group.",
-        "operationId": "monitoring.projects.groups.create",
+        "operationId": "projects.groups.create",
         "parameters": [
           {
             "description": "The project in which to create the group. The format is &quot;projects/{project_id_or_number}&quot;.",
@@ -597,7 +597,7 @@
     "/v3/{name}/members": {
       "get": {
         "description": "Lists the monitored resources that are members of a group.",
-        "operationId": "monitoring.projects.groups.members.list",
+        "operationId": "projects.groups.members.list",
         "parameters": [
           {
             "description": "The group whose members are listed. The format is &quot;projects/{project_id_or_number}/groups/{group_id}&quot;.",
@@ -712,7 +712,7 @@
     "/v3/{name}/metricDescriptors": {
       "get": {
         "description": "Lists metric descriptors that match a filter. This method does not require a Stackdriver account.",
-        "operationId": "monitoring.projects.metricDescriptors.list",
+        "operationId": "projects.metricDescriptors.list",
         "parameters": [
           {
             "description": "The project on which to execute the request. The format is &quot;projects/{project_id_or_number}&quot;.",
@@ -818,7 +818,7 @@
       ],
       "post": {
         "description": "Creates a new metric descriptor. User-created metric descriptors define custom metrics (/monitoring/custom-metrics).",
-        "operationId": "monitoring.projects.metricDescriptors.create",
+        "operationId": "projects.metricDescriptors.create",
         "parameters": [
           {
             "description": "The project on which to execute the request. The format is &quot;projects/{project_id_or_number}&quot;.",
@@ -869,7 +869,7 @@
     "/v3/{name}/monitoredResourceDescriptors": {
       "get": {
         "description": "Lists monitored resource descriptors that match a filter. This method does not require a Stackdriver account.",
-        "operationId": "monitoring.projects.monitoredResourceDescriptors.list",
+        "operationId": "projects.monitoredResourceDescriptors.list",
         "parameters": [
           {
             "description": "The project on which to execute the request. The format is &quot;projects/{project_id_or_number}&quot;.",
@@ -977,7 +977,7 @@
     "/v3/{name}/timeSeries": {
       "get": {
         "description": "Lists time series that match a filter. This method does not require a Stackdriver account.",
-        "operationId": "monitoring.projects.timeSeries.list",
+        "operationId": "projects.timeSeries.list",
         "parameters": [
           {
             "description": "The project on which to execute the request. The format is \"projects/{project_id_or_number}\".",
@@ -1168,7 +1168,7 @@
       ],
       "post": {
         "description": "Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response.",
-        "operationId": "monitoring.projects.timeSeries.create",
+        "operationId": "projects.timeSeries.create",
         "parameters": [
           {
             "description": "The project on which to execute the request. The format is &quot;projects/{project_id_or_number}&quot;.",

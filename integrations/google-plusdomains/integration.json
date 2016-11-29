@@ -147,7 +147,7 @@
     "/activities/{activityId}": {
       "get": {
         "description": "Get an activity.",
-        "operationId": "plusDomains.activities.get",
+        "operationId": "activities.get",
         "parameters": [
           {
             "description": "The ID of the activity to get.",
@@ -213,7 +213,7 @@
     "/activities/{activityId}/comments": {
       "get": {
         "description": "List all of the comments for an activity.",
-        "operationId": "plusDomains.comments.list",
+        "operationId": "comments.list",
         "parameters": [
           {
             "description": "The ID of the activity to get comments for.",
@@ -298,7 +298,7 @@
       ],
       "post": {
         "description": "Create a new comment in reply to an activity.",
-        "operationId": "plusDomains.comments.insert",
+        "operationId": "comments.insert",
         "parameters": [
           {
             "description": "The ID of the activity to reply to.",
@@ -343,7 +343,7 @@
     "/activities/{activityId}/people/{collection}": {
       "get": {
         "description": "List all of the people in the specified collection for a particular activity.",
-        "operationId": "plusDomains.people.listByActivity",
+        "operationId": "people.listByActivity",
         "parameters": [
           {
             "description": "The ID of the activity to get the list of people for.",
@@ -431,7 +431,7 @@
     "/circles/{circleId}": {
       "delete": {
         "description": "Delete a circle.",
-        "operationId": "plusDomains.circles.remove",
+        "operationId": "circles.remove",
         "parameters": [
           {
             "description": "The ID of the circle to delete.",
@@ -464,7 +464,7 @@
       },
       "get": {
         "description": "Get a circle.",
-        "operationId": "plusDomains.circles.get",
+        "operationId": "circles.get",
         "parameters": [
           {
             "description": "The ID of the circle to get.",
@@ -523,7 +523,7 @@
       ],
       "patch": {
         "description": "Update a circle's description. This method supports patch semantics.",
-        "operationId": "plusDomains.circles.patch",
+        "operationId": "circles.patch",
         "parameters": [
           {
             "description": "The ID of the circle to update.",
@@ -566,7 +566,7 @@
       },
       "put": {
         "description": "Update a circle's description.",
-        "operationId": "plusDomains.circles.update",
+        "operationId": "circles.update",
         "parameters": [
           {
             "description": "The ID of the circle to update.",
@@ -611,7 +611,7 @@
     "/circles/{circleId}/people": {
       "delete": {
         "description": "Remove a person from a circle.",
-        "operationId": "plusDomains.circles.removePeople",
+        "operationId": "circles.removePeople",
         "parameters": [
           {
             "description": "The ID of the circle to remove the person from.",
@@ -664,7 +664,7 @@
       },
       "get": {
         "description": "List all of the people who are members of a circle.",
-        "operationId": "plusDomains.people.listByCircle",
+        "operationId": "people.listByCircle",
         "parameters": [
           {
             "description": "The ID of the circle to get the members of.",
@@ -738,7 +738,7 @@
       ],
       "put": {
         "description": "Add a person to a circle. Google+ limits certain circle operations, including the number of circle adds. Learn More.",
-        "operationId": "plusDomains.circles.addPeople",
+        "operationId": "circles.addPeople",
         "parameters": [
           {
             "description": "The ID of the circle to add the person to.",
@@ -796,7 +796,7 @@
     "/comments/{commentId}": {
       "get": {
         "description": "Get a comment.",
-        "operationId": "plusDomains.comments.get",
+        "operationId": "comments.get",
         "parameters": [
           {
             "description": "The ID of the comment to get.",
@@ -857,7 +857,7 @@
     "/people/{userId}": {
       "get": {
         "description": "Get a person's profile.",
-        "operationId": "plusDomains.people.get",
+        "operationId": "people.get",
         "parameters": [
           {
             "description": "The ID of the person to get the profile for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -956,7 +956,7 @@
       ],
       "post": {
         "description": "Create a new activity for the authenticated user.",
-        "operationId": "plusDomains.activities.insert",
+        "operationId": "activities.insert",
         "parameters": [
           {
             "description": "The ID of the user to create the activity on behalf of. Its value should be \"me\", to indicate the authenticated user.",
@@ -1012,7 +1012,7 @@
     "/people/{userId}/activities/{collection}": {
       "get": {
         "description": "List all of the activities in the specified collection for a particular user.",
-        "operationId": "plusDomains.activities.list",
+        "operationId": "activities.list",
         "parameters": [
           {
             "description": "The ID of the user to get activities for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -1103,7 +1103,7 @@
     "/people/{userId}/audiences": {
       "get": {
         "description": "List all of the audiences to which a user can share.",
-        "operationId": "plusDomains.audiences.list",
+        "operationId": "audiences.list",
         "parameters": [
           {
             "description": "The ID of the user to get audiences for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -1184,7 +1184,7 @@
     "/people/{userId}/circles": {
       "get": {
         "description": "List all of the circles for a user.",
-        "operationId": "plusDomains.circles.list",
+        "operationId": "circles.list",
         "parameters": [
           {
             "description": "The ID of the user to get circles for. The special value \"me\" can be used to indicate the authenticated user.",
@@ -1263,7 +1263,7 @@
       ],
       "post": {
         "description": "Create a new circle for the authenticated user.",
-        "operationId": "plusDomains.circles.insert",
+        "operationId": "circles.insert",
         "parameters": [
           {
             "description": "The ID of the user to create the circle on behalf of. The value \"me\" can be used to indicate the authenticated user.",
@@ -1509,7 +1509,7 @@
           "video/x-smv"
         ],
         "description": "Add a new media item to an album. The current upload size limitations are 36MB for a photo and 1GB for a video. Uploads do not count against quota if photos are less than 2048 pixels on their longest side or videos are less than 15 minutes in length.",
-        "operationId": "plusDomains.media.insert",
+        "operationId": "media.insert",
         "parameters": [
           {
             "description": "The ID of the user to create the activity on behalf of.",
@@ -1568,7 +1568,7 @@
     "/people/{userId}/people/{collection}": {
       "get": {
         "description": "List all of the people in the specified collection.",
-        "operationId": "plusDomains.people.list",
+        "operationId": "people.list",
         "parameters": [
           {
             "description": "Get the collection of people for the person identified. Use \"me\" to indicate the authenticated user.",

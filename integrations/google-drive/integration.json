@@ -149,7 +149,7 @@
     "/about": {
       "get": {
         "description": "Gets information about the user, the user's Drive, and system capabilities.",
-        "operationId": "drive.about.get",
+        "operationId": "about.get",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -226,7 +226,7 @@
     "/changes": {
       "get": {
         "description": "Lists changes for a user.",
-        "operationId": "drive.changes.list",
+        "operationId": "changes.list",
         "parameters": [
           {
             "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
@@ -342,7 +342,7 @@
     "/changes/startPageToken": {
       "get": {
         "description": "Gets the starting pageToken for listing future changes.",
-        "operationId": "drive.changes.getStartPageToken",
+        "operationId": "changes.getStartPageToken",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -442,7 +442,7 @@
       ],
       "post": {
         "description": "Subscribes to changes for a user.",
-        "operationId": "drive.changes.watch",
+        "operationId": "changes.watch",
         "parameters": [
           {
             "description": "The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response or to the response from the getStartPageToken method.",
@@ -565,7 +565,7 @@
       ],
       "post": {
         "description": "Stop watching resources through this channel",
-        "operationId": "drive.channels.stop",
+        "operationId": "channels.stop",
         "parameters": [
           {
             "in": "body",
@@ -625,7 +625,7 @@
     "/files": {
       "get": {
         "description": "Lists or searches files.",
-        "operationId": "drive.files.list",
+        "operationId": "files.list",
         "parameters": [
           {
             "default": "user",
@@ -750,7 +750,7 @@
           "application/octet-stream"
         ],
         "description": "Creates a new file.",
-        "operationId": "drive.files.create",
+        "operationId": "files.create",
         "parameters": [
           {
             "default": false,
@@ -820,7 +820,7 @@
     "/files/generateIds": {
       "get": {
         "description": "Generates a set of file IDs which can be provided in create requests.",
-        "operationId": "drive.files.generateIds",
+        "operationId": "files.generateIds",
         "parameters": [
           {
             "default": 10,
@@ -895,7 +895,7 @@
     "/files/trash": {
       "delete": {
         "description": "Permanently deletes all of the user's trashed files.",
-        "operationId": "drive.files.emptyTrash",
+        "operationId": "files.emptyTrash",
         "responses": {
           "200": {
             "description": "Successful response"
@@ -939,7 +939,7 @@
     "/files/{fileId}": {
       "delete": {
         "description": "Permanently deletes a file owned by the user without moving it to the trash. If the target is a folder, all descendants owned by the user are also deleted.",
-        "operationId": "drive.files.delete",
+        "operationId": "files.delete",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -977,7 +977,7 @@
       },
       "get": {
         "description": "Gets a file's metadata or content by ID.",
-        "operationId": "drive.files.get",
+        "operationId": "files.get",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1071,7 +1071,7 @@
           "application/octet-stream"
         ],
         "description": "Updates a file's metadata and/or content with patch semantics.",
-        "operationId": "drive.files.update",
+        "operationId": "files.update",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1163,7 +1163,7 @@
     "/files/{fileId}/comments": {
       "get": {
         "description": "Lists a file's comments.",
-        "operationId": "drive.comments.list",
+        "operationId": "comments.list",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1255,7 +1255,7 @@
       ],
       "post": {
         "description": "Creates a new comment on a file.",
-        "operationId": "drive.comments.create",
+        "operationId": "comments.create",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1300,7 +1300,7 @@
     "/files/{fileId}/comments/{commentId}": {
       "delete": {
         "description": "Deletes a comment.",
-        "operationId": "drive.comments.delete",
+        "operationId": "comments.delete",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1340,7 +1340,7 @@
       },
       "get": {
         "description": "Gets a comment by ID.",
-        "operationId": "drive.comments.get",
+        "operationId": "comments.get",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1418,7 +1418,7 @@
       ],
       "patch": {
         "description": "Updates a comment with patch semantics.",
-        "operationId": "drive.comments.update",
+        "operationId": "comments.update",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1470,7 +1470,7 @@
     "/files/{fileId}/comments/{commentId}/replies": {
       "get": {
         "description": "Lists a comment's replies.",
-        "operationId": "drive.replies.list",
+        "operationId": "replies.list",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1563,7 +1563,7 @@
       ],
       "post": {
         "description": "Creates a new reply to a comment.",
-        "operationId": "drive.replies.create",
+        "operationId": "replies.create",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1615,7 +1615,7 @@
     "/files/{fileId}/comments/{commentId}/replies/{replyId}": {
       "delete": {
         "description": "Deletes a reply.",
-        "operationId": "drive.replies.delete",
+        "operationId": "replies.delete",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1662,7 +1662,7 @@
       },
       "get": {
         "description": "Gets a reply by ID.",
-        "operationId": "drive.replies.get",
+        "operationId": "replies.get",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1747,7 +1747,7 @@
       ],
       "patch": {
         "description": "Updates a reply with patch semantics.",
-        "operationId": "drive.replies.update",
+        "operationId": "replies.update",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1829,7 +1829,7 @@
       ],
       "post": {
         "description": "Creates a copy of a file and applies any requested updates with patch semantics.",
-        "operationId": "drive.files.copy",
+        "operationId": "files.copy",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1904,7 +1904,7 @@
     "/files/{fileId}/export": {
       "get": {
         "description": "Exports a Google Doc to the requested MIME type and returns the exported content.",
-        "operationId": "drive.files.export",
+        "operationId": "files.export",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -1974,7 +1974,7 @@
     "/files/{fileId}/permissions": {
       "get": {
         "description": "Lists a file's permissions.",
-        "operationId": "drive.permissions.list",
+        "operationId": "permissions.list",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2053,7 +2053,7 @@
       ],
       "post": {
         "description": "Creates a permission for a file.",
-        "operationId": "drive.permissions.create",
+        "operationId": "permissions.create",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2117,7 +2117,7 @@
     "/files/{fileId}/permissions/{permissionId}": {
       "delete": {
         "description": "Deletes a permission.",
-        "operationId": "drive.permissions.delete",
+        "operationId": "permissions.delete",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2157,7 +2157,7 @@
       },
       "get": {
         "description": "Gets a permission by ID.",
-        "operationId": "drive.permissions.get",
+        "operationId": "permissions.get",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2243,7 +2243,7 @@
       ],
       "patch": {
         "description": "Updates a permission with patch semantics.",
-        "operationId": "drive.permissions.update",
+        "operationId": "permissions.update",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2309,7 +2309,7 @@
     "/files/{fileId}/revisions": {
       "get": {
         "description": "Lists a file's revisions.",
-        "operationId": "drive.revisions.list",
+        "operationId": "revisions.list",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2410,7 +2410,7 @@
     "/files/{fileId}/revisions/{revisionId}": {
       "delete": {
         "description": "Permanently deletes a revision. This method is only applicable to files with binary content in Drive.",
-        "operationId": "drive.revisions.delete",
+        "operationId": "revisions.delete",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2455,7 +2455,7 @@
       },
       "get": {
         "description": "Gets a revision's metadata or content by ID.",
-        "operationId": "drive.revisions.get",
+        "operationId": "revisions.get",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2553,7 +2553,7 @@
       ],
       "patch": {
         "description": "Updates a revision with patch semantics.",
-        "operationId": "drive.revisions.update",
+        "operationId": "revisions.update",
         "parameters": [
           {
             "description": "The ID of the file.",
@@ -2633,7 +2633,7 @@
       ],
       "post": {
         "description": "Subscribes to changes to a file",
-        "operationId": "drive.files.watch",
+        "operationId": "files.watch",
         "parameters": [
           {
             "description": "The ID of the file.",

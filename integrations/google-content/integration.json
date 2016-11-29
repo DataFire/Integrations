@@ -144,7 +144,7 @@
     "/accounts/authinfo": {
       "get": {
         "description": "Returns information about the authenticated user.",
-        "operationId": "content.accounts.authinfo",
+        "operationId": "accounts.authinfo",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -214,7 +214,7 @@
       ],
       "post": {
         "description": "Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request.",
-        "operationId": "content.accounts.custombatch",
+        "operationId": "accounts.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -276,7 +276,7 @@
       ],
       "post": {
         "description": "Retrieves and updates the shipping settings of multiple accounts in a single request.",
-        "operationId": "content.accountshipping.custombatch",
+        "operationId": "accountshipping.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -337,7 +337,7 @@
         }
       ],
       "post": {
-        "operationId": "content.accountstatuses.custombatch",
+        "operationId": "accountstatuses.custombatch",
         "parameters": [
           {
             "in": "body",
@@ -393,7 +393,7 @@
       ],
       "post": {
         "description": "Retrieves and updates tax settings of multiple accounts in a single request.",
-        "operationId": "content.accounttax.custombatch",
+        "operationId": "accounttax.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -454,7 +454,7 @@
         }
       ],
       "post": {
-        "operationId": "content.datafeeds.custombatch",
+        "operationId": "datafeeds.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -515,7 +515,7 @@
         }
       ],
       "post": {
-        "operationId": "content.datafeedstatuses.custombatch",
+        "operationId": "datafeedstatuses.custombatch",
         "parameters": [
           {
             "in": "body",
@@ -571,7 +571,7 @@
       ],
       "post": {
         "description": "Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products.",
-        "operationId": "content.inventory.custombatch",
+        "operationId": "inventory.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -633,7 +633,7 @@
       ],
       "post": {
         "description": "Retrieves or modifies multiple orders in a single request.",
-        "operationId": "content.orders.custombatch",
+        "operationId": "orders.custombatch",
         "parameters": [
           {
             "in": "body",
@@ -689,7 +689,7 @@
       ],
       "post": {
         "description": "Retrieves, inserts, and deletes multiple products in a single request.",
-        "operationId": "content.products.custombatch",
+        "operationId": "products.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -751,7 +751,7 @@
       ],
       "post": {
         "description": "Gets the statuses of multiple products in a single request.",
-        "operationId": "content.productstatuses.custombatch",
+        "operationId": "productstatuses.custombatch",
         "parameters": [
           {
             "in": "body",
@@ -807,7 +807,7 @@
       ],
       "post": {
         "description": "Retrieves and updates the shipping settings of multiple accounts in a single request.",
-        "operationId": "content.shippingsettings.custombatch",
+        "operationId": "shippingsettings.custombatch",
         "parameters": [
           {
             "description": "Flag to run the request in dry-run mode.",
@@ -846,7 +846,7 @@
     "/{merchantId}/accounts": {
       "get": {
         "description": "Lists the sub-accounts in your Merchant Center account.",
-        "operationId": "content.accounts.list",
+        "operationId": "accounts.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -912,7 +912,7 @@
       ],
       "post": {
         "description": "Creates a Merchant Center sub-account.",
-        "operationId": "content.accounts.insert",
+        "operationId": "accounts.insert",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -958,7 +958,7 @@
     "/{merchantId}/accounts/{accountId}": {
       "delete": {
         "description": "Deletes a Merchant Center sub-account.",
-        "operationId": "content.accounts.delete",
+        "operationId": "accounts.delete",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -999,7 +999,7 @@
       },
       "get": {
         "description": "Retrieves a Merchant Center account.",
-        "operationId": "content.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1060,7 +1060,7 @@
       ],
       "patch": {
         "description": "Updates a Merchant Center account. This method supports patch semantics.",
-        "operationId": "content.accounts.patch",
+        "operationId": "accounts.patch",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1111,7 +1111,7 @@
       },
       "put": {
         "description": "Updates a Merchant Center account.",
-        "operationId": "content.accounts.update",
+        "operationId": "accounts.update",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1164,7 +1164,7 @@
     "/{merchantId}/accountshipping": {
       "get": {
         "description": "Lists the shipping settings of the sub-accounts in your Merchant Center account.",
-        "operationId": "content.accountshipping.list",
+        "operationId": "accountshipping.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1232,7 +1232,7 @@
     "/{merchantId}/accountshipping/{accountId}": {
       "get": {
         "description": "Retrieves the shipping settings of the account.",
-        "operationId": "content.accountshipping.get",
+        "operationId": "accountshipping.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1293,7 +1293,7 @@
       ],
       "patch": {
         "description": "Updates the shipping settings of the account. This method supports patch semantics.",
-        "operationId": "content.accountshipping.patch",
+        "operationId": "accountshipping.patch",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1344,7 +1344,7 @@
       },
       "put": {
         "description": "Updates the shipping settings of the account.",
-        "operationId": "content.accountshipping.update",
+        "operationId": "accountshipping.update",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1397,7 +1397,7 @@
     "/{merchantId}/accountstatuses": {
       "get": {
         "description": "Lists the statuses of the sub-accounts in your Merchant Center account.",
-        "operationId": "content.accountstatuses.list",
+        "operationId": "accountstatuses.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1465,7 +1465,7 @@
     "/{merchantId}/accountstatuses/{accountId}": {
       "get": {
         "description": "Retrieves the status of a Merchant Center account.",
-        "operationId": "content.accountstatuses.get",
+        "operationId": "accountstatuses.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1528,7 +1528,7 @@
     "/{merchantId}/accounttax": {
       "get": {
         "description": "Lists the tax settings of the sub-accounts in your Merchant Center account.",
-        "operationId": "content.accounttax.list",
+        "operationId": "accounttax.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1596,7 +1596,7 @@
     "/{merchantId}/accounttax/{accountId}": {
       "get": {
         "description": "Retrieves the tax settings of the account.",
-        "operationId": "content.accounttax.get",
+        "operationId": "accounttax.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1657,7 +1657,7 @@
       ],
       "patch": {
         "description": "Updates the tax settings of the account. This method supports patch semantics.",
-        "operationId": "content.accounttax.patch",
+        "operationId": "accounttax.patch",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1708,7 +1708,7 @@
       },
       "put": {
         "description": "Updates the tax settings of the account.",
-        "operationId": "content.accounttax.update",
+        "operationId": "accounttax.update",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1761,7 +1761,7 @@
     "/{merchantId}/datafeeds": {
       "get": {
         "description": "Lists the datafeeds in your Merchant Center account.",
-        "operationId": "content.datafeeds.list",
+        "operationId": "datafeeds.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -1827,7 +1827,7 @@
       ],
       "post": {
         "description": "Registers a datafeed with your Merchant Center account.",
-        "operationId": "content.datafeeds.insert",
+        "operationId": "datafeeds.insert",
         "parameters": [
           {
             "in": "path",
@@ -1872,7 +1872,7 @@
     "/{merchantId}/datafeeds/{datafeedId}": {
       "delete": {
         "description": "Deletes a datafeed from your Merchant Center account.",
-        "operationId": "content.datafeeds.delete",
+        "operationId": "datafeeds.delete",
         "parameters": [
           {
             "in": "path",
@@ -1911,7 +1911,7 @@
       },
       "get": {
         "description": "Retrieves a datafeed from your Merchant Center account.",
-        "operationId": "content.datafeeds.get",
+        "operationId": "datafeeds.get",
         "parameters": [
           {
             "in": "path",
@@ -1970,7 +1970,7 @@
       ],
       "patch": {
         "description": "Updates a datafeed of your Merchant Center account. This method supports patch semantics.",
-        "operationId": "content.datafeeds.patch",
+        "operationId": "datafeeds.patch",
         "parameters": [
           {
             "in": "path",
@@ -2019,7 +2019,7 @@
       },
       "put": {
         "description": "Updates a datafeed of your Merchant Center account.",
-        "operationId": "content.datafeeds.update",
+        "operationId": "datafeeds.update",
         "parameters": [
           {
             "in": "path",
@@ -2070,7 +2070,7 @@
     "/{merchantId}/datafeedstatuses": {
       "get": {
         "description": "Lists the statuses of the datafeeds in your Merchant Center account.",
-        "operationId": "content.datafeedstatuses.list",
+        "operationId": "datafeedstatuses.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2138,7 +2138,7 @@
     "/{merchantId}/datafeedstatuses/{datafeedId}": {
       "get": {
         "description": "Retrieves the status of a datafeed from your Merchant Center account.",
-        "operationId": "content.datafeedstatuses.get",
+        "operationId": "datafeedstatuses.get",
         "parameters": [
           {
             "in": "path",
@@ -2222,7 +2222,7 @@
       ],
       "post": {
         "description": "Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product.",
-        "operationId": "content.inventory.set",
+        "operationId": "inventory.set",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2282,7 +2282,7 @@
     "/{merchantId}/orders": {
       "get": {
         "description": "Lists the orders in your Merchant Center account.",
-        "operationId": "content.orders.list",
+        "operationId": "orders.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2401,7 +2401,7 @@
     "/{merchantId}/orders/{orderId}": {
       "get": {
         "description": "Retrieves an order from your Merchant Center account.",
-        "operationId": "content.orders.get",
+        "operationId": "orders.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2487,7 +2487,7 @@
       ],
       "post": {
         "description": "Marks an order as acknowledged.",
-        "operationId": "content.orders.acknowledge",
+        "operationId": "orders.acknowledge",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2557,7 +2557,7 @@
       ],
       "post": {
         "description": "Cancels all line items in an order.",
-        "operationId": "content.orders.cancel",
+        "operationId": "orders.cancel",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2627,7 +2627,7 @@
       ],
       "post": {
         "description": "Cancels a line item.",
-        "operationId": "content.orders.cancellineitem",
+        "operationId": "orders.cancellineitem",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2697,7 +2697,7 @@
       ],
       "post": {
         "description": "Refund a portion of the order, up to the full amount paid.",
-        "operationId": "content.orders.refund",
+        "operationId": "orders.refund",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2767,7 +2767,7 @@
       ],
       "post": {
         "description": "Returns a line item.",
-        "operationId": "content.orders.returnlineitem",
+        "operationId": "orders.returnlineitem",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2837,7 +2837,7 @@
       ],
       "post": {
         "description": "Marks line item(s) as shipped.",
-        "operationId": "content.orders.shiplineitems",
+        "operationId": "orders.shiplineitems",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2907,7 +2907,7 @@
       ],
       "post": {
         "description": "Updates the merchant order ID for a given order.",
-        "operationId": "content.orders.updatemerchantorderid",
+        "operationId": "orders.updatemerchantorderid",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -2977,7 +2977,7 @@
       ],
       "post": {
         "description": "Updates a shipment's status, carrier, and/or tracking ID.",
-        "operationId": "content.orders.updateshipment",
+        "operationId": "orders.updateshipment",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3024,7 +3024,7 @@
     "/{merchantId}/ordersbymerchantid/{merchantOrderId}": {
       "get": {
         "description": "Retrieves an order using merchant order id.",
-        "operationId": "content.orders.getbymerchantorderid",
+        "operationId": "orders.getbymerchantorderid",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3087,7 +3087,7 @@
     "/{merchantId}/products": {
       "get": {
         "description": "Lists the products in your Merchant Center account.",
-        "operationId": "content.products.list",
+        "operationId": "products.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3159,7 +3159,7 @@
       ],
       "post": {
         "description": "Uploads a product to your Merchant Center account.",
-        "operationId": "content.products.insert",
+        "operationId": "products.insert",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3205,7 +3205,7 @@
     "/{merchantId}/products/{productId}": {
       "delete": {
         "description": "Deletes a product from your Merchant Center account.",
-        "operationId": "content.products.delete",
+        "operationId": "products.delete",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3246,7 +3246,7 @@
       },
       "get": {
         "description": "Retrieves a product from your Merchant Center account.",
-        "operationId": "content.products.get",
+        "operationId": "products.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3309,7 +3309,7 @@
     "/{merchantId}/productstatuses": {
       "get": {
         "description": "Lists the statuses of the products in your Merchant Center account.",
-        "operationId": "content.productstatuses.list",
+        "operationId": "productstatuses.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3383,7 +3383,7 @@
     "/{merchantId}/productstatuses/{productId}": {
       "get": {
         "description": "Gets the status of a product from your Merchant Center account.",
-        "operationId": "content.productstatuses.get",
+        "operationId": "productstatuses.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3446,7 +3446,7 @@
     "/{merchantId}/shippingsettings": {
       "get": {
         "description": "Lists the shipping settings of the sub-accounts in your Merchant Center account.",
-        "operationId": "content.shippingsettings.list",
+        "operationId": "shippingsettings.list",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3514,7 +3514,7 @@
     "/{merchantId}/shippingsettings/{accountId}": {
       "get": {
         "description": "Retrieves the shipping settings of the account.",
-        "operationId": "content.shippingsettings.get",
+        "operationId": "shippingsettings.get",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3575,7 +3575,7 @@
       ],
       "patch": {
         "description": "Updates the shipping settings of the account. This method supports patch semantics.",
-        "operationId": "content.shippingsettings.patch",
+        "operationId": "shippingsettings.patch",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3626,7 +3626,7 @@
       },
       "put": {
         "description": "Updates the shipping settings of the account.",
-        "operationId": "content.shippingsettings.update",
+        "operationId": "shippingsettings.update",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3679,7 +3679,7 @@
     "/{merchantId}/supportedCarriers": {
       "get": {
         "description": "Retrieves supported carriers and carrier services for an account.",
-        "operationId": "content.shippingsettings.getsupportedcarriers",
+        "operationId": "shippingsettings.getsupportedcarriers",
         "parameters": [
           {
             "description": "The ID of the account for which to retrieve the supported carriers.",
@@ -3758,7 +3758,7 @@
       ],
       "post": {
         "description": "Sandbox only. Creates a test order.",
-        "operationId": "content.orders.createtestorder",
+        "operationId": "orders.createtestorder",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3821,7 +3821,7 @@
       ],
       "post": {
         "description": "Sandbox only. Moves a test order from state \"inProgress\" to state \"pendingShipment\".",
-        "operationId": "content.orders.advancetestorder",
+        "operationId": "orders.advancetestorder",
         "parameters": [
           {
             "description": "The ID of the managing account.",
@@ -3861,7 +3861,7 @@
     "/{merchantId}/testordertemplates/{templateName}": {
       "get": {
         "description": "Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox.",
-        "operationId": "content.orders.gettestordertemplate",
+        "operationId": "orders.gettestordertemplate",
         "parameters": [
           {
             "description": "The ID of the managing account.",

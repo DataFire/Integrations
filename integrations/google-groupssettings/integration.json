@@ -115,7 +115,7 @@
     "/{groupUniqueId}": {
       "get": {
         "description": "Gets one resource by id.",
-        "operationId": "groupsSettings.groups.get",
+        "operationId": "groups.get",
         "parameters": [
           {
             "description": "The resource ID",
@@ -169,7 +169,7 @@
       ],
       "patch": {
         "description": "Updates an existing resource. This method supports patch semantics.",
-        "operationId": "groupsSettings.groups.patch",
+        "operationId": "groups.patch",
         "parameters": [
           {
             "description": "The resource ID",
@@ -207,7 +207,7 @@
       },
       "put": {
         "description": "Updates an existing resource.",
-        "operationId": "groupsSettings.groups.update",
+        "operationId": "groups.update",
         "parameters": [
           {
             "description": "The resource ID",

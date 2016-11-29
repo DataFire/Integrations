@@ -157,7 +157,7 @@
     "/v1beta1/{name}": {
       "delete": {
         "description": "Deletes a long-running operation. This method indicates that the client is\nno longer interested in the operation result. It does not cancel the\noperation. If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.",
-        "operationId": "ml.projects.operations.delete",
+        "operationId": "projects.operations.delete",
         "parameters": [
           {
             "description": "The name of the operation resource to be deleted.",
@@ -189,7 +189,7 @@
       },
       "get": {
         "description": "Gets the latest state of a long-running operation.  Clients can use this\nmethod to poll the operation result at intervals as recommended by the API\nservice.",
-        "operationId": "ml.projects.operations.get",
+        "operationId": "projects.operations.get",
         "parameters": [
           {
             "description": "The name of the operation resource.",
@@ -264,7 +264,7 @@
     "/v1beta1/{name}/operations": {
       "get": {
         "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding below allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`.",
-        "operationId": "ml.projects.operations.list",
+        "operationId": "projects.operations.list",
         "parameters": [
           {
             "description": "The name of the operation collection.",
@@ -398,7 +398,7 @@
       ],
       "post": {
         "description": "Starts asynchronous cancellation on a long-running operation.  The server\nmakes a best effort to cancel the operation, but success is not\nguaranteed.  If the server doesn't support this method, it returns\n`google.rpc.Code.UNIMPLEMENTED`.  Clients can use\nOperations.GetOperation or\nother methods to check whether the cancellation succeeded or whether the\noperation completed despite cancellation. On successful cancellation,\nthe operation is not deleted; instead, it becomes an operation with\nan Operation.error value with a google.rpc.Status.code of 1,\ncorresponding to `Code.CANCELLED`.",
-        "operationId": "ml.projects.operations.cancel",
+        "operationId": "projects.operations.cancel",
         "parameters": [
           {
             "description": "The name of the operation resource to be cancelled.",
@@ -439,7 +439,7 @@
     "/v1beta1/{name}:getConfig": {
       "get": {
         "description": "Get the service account information associated with your project. You need\nthis information in order to grant the service account persmissions for\nthe Google Cloud Storage location where you put your model training code\nfor training the model with Google Cloud Machine Learning.",
-        "operationId": "ml.projects.getConfig",
+        "operationId": "projects.getConfig",
         "parameters": [
           {
             "description": "Required. The project name.\n\nAuthorization: requires `Viewer` role on the specified project.",
@@ -555,7 +555,7 @@
       ],
       "post": {
         "description": "Performs prediction on the data in the request.\n\nResponses are very similar to requests. There are two top-level fields,\neach of which are JSON lists:\n\n<dl>\n  <dt>predictions</dt>\n  <dd>The list of predictions, one per instance in the request.</dd>\n  <dt>error</dt>\n  <dd>An error message returned instead of a prediction list if any\n      instance produced an error.</dd>\n</dl>\n\nIf the call is successful, the response body will contain one prediction\nentry per instance in the request body. If prediction fails for any\ninstance, the response body will contain no predictions and will contian\na single error entry instead.\n\nEven though there is one prediction per instance, the format of a\nprediction is not directly related to the format of an instance.\nPredictions take whatever format is specified in the outputs collection\ndefined in the model. The collection of predictions is returned in a JSON\nlist. Each member of the list can be a simple value, a list, or a JSON\nobject of any complexity. If your model has more than one output tensor,\neach prediction will be a JSON object containing a name/value pair for each\noutput. The names identify the output aliases in the graph.\n\nThe following examples show some possible responses:\n\nA simple set of predictions for three input instances, where each\nprediction is an integer value:\n<pre>\n{\"predictions\": [5, 4, 3]}\n</pre>\nA more complex set of predictions, each containing two named values that\ncorrespond to output tensors, named **label** and **scores** respectively.\nThe value of **label** is the predicted category (\"car\" or \"beach\") and\n**scores** contains a list of probabilities for that instance across the\npossible categories.\n<pre>\n{\"predictions\": [{\"label\": \"beach\", \"scores\": [0.1, 0.9]},\n                 {\"label\": \"car\", \"scores\": [0.75, 0.25]}]}\n</pre>\nA response when there is an error processing an input instance:\n<pre>\n{\"error\": \"Divide by zero\"}\n</pre>",
-        "operationId": "ml.projects.predict",
+        "operationId": "projects.predict",
         "parameters": [
           {
             "description": "Required. The resource name of a model or a version.\n\nAuthorization: requires `Viewer` role on the parent project.",
@@ -637,7 +637,7 @@
       ],
       "post": {
         "description": "Designates a version to be the default for the model.\n\nThe default version is used for prediction requests made against the model\nthat don't specify a version.\n\nThe first version to be created for a model is automatically set as the\ndefault. You must make any subsequent changes to the default version\nsetting manually using this method.",
-        "operationId": "ml.projects.models.versions.setDefault",
+        "operationId": "projects.models.versions.setDefault",
         "parameters": [
           {
             "description": "Required. The name of the version to make the default for the model. You\ncan get the names of all the versions of a model by calling\n[projects.models.versions.list](/ml/reference/rest/v1beta1/projects.models.versions/list).\n\nAuthorization: requires `Editor` role on the parent project.",
@@ -678,7 +678,7 @@
     "/v1beta1/{parent}/jobs": {
       "get": {
         "description": "Lists the jobs in the project.",
-        "operationId": "ml.projects.jobs.list",
+        "operationId": "projects.jobs.list",
         "parameters": [
           {
             "description": "Required. The name of the project for which to list jobs.\n\nAuthorization: requires `Viewer` role on the specified project.",
@@ -769,7 +769,7 @@
       ],
       "post": {
         "description": "Creates a training or a batch prediction job.",
-        "operationId": "ml.projects.jobs.create",
+        "operationId": "projects.jobs.create",
         "parameters": [
           {
             "description": "Required. The project name.\n\nAuthorization: requires `Editor` role on the specified project.",
@@ -810,7 +810,7 @@
     "/v1beta1/{parent}/models": {
       "get": {
         "description": "Lists the models in a project.\n\nEach project can contain multiple models, and each model can have multiple\nversions.",
-        "operationId": "ml.projects.models.list",
+        "operationId": "projects.models.list",
         "parameters": [
           {
             "description": "Required. The name of the project whose models are to be listed.\n\nAuthorization: requires `Viewer` role on the specified project.",
@@ -895,7 +895,7 @@
       ],
       "post": {
         "description": "Creates a model which will later contain one or more versions.\n\nYou must add at least one version before you can request predictions from\nthe model. Add versions by calling\n[projects.models.versions.create](/ml/reference/rest/v1beta1/projects.models.versions/create).",
-        "operationId": "ml.projects.models.create",
+        "operationId": "projects.models.create",
         "parameters": [
           {
             "description": "Required. The project name.\n\nAuthorization: requires `Editor` role on the specified project.",
@@ -936,7 +936,7 @@
     "/v1beta1/{parent}/versions": {
       "get": {
         "description": "Gets basic information about all the versions of a model.\n\nIf you expect that a model has a lot of versions, or if you need to handle\nonly a limited number of results at a time, you can request that the list\nbe retrieved in batches (called pages):",
-        "operationId": "ml.projects.models.versions.list",
+        "operationId": "projects.models.versions.list",
         "parameters": [
           {
             "description": "Required. The name of the model for which to list the version.\n\nAuthorization: requires `Viewer` role on the parent project.",
@@ -1021,7 +1021,7 @@
       ],
       "post": {
         "description": "Creates a new version of a model from a trained TensorFlow model.\n\nIf the version created in the cloud by this call is the first deployed\nversion of the specified model, it will be made the default version of the\nmodel. When you add a version to a model that already has one or more\nversions, the default version does not automatically change. If you want a\nnew version to be the default, you must call\n[projects.models.versions.setDefault](/ml/reference/rest/v1beta1/projects.models.versions/setDefault).",
-        "operationId": "ml.projects.models.versions.create",
+        "operationId": "projects.models.versions.create",
         "parameters": [
           {
             "description": "Required. The name of the model.\n\nAuthorization: requires `Editor` role on the parent project.",

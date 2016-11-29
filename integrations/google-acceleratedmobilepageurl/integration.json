@@ -177,7 +177,7 @@
       ],
       "post": {
         "description": "Returns AMP URL(s) and equivalent\n[AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).",
-        "operationId": "acceleratedmobilepageurl.ampUrls.batchGet",
+        "operationId": "ampUrls.batchGet",
         "parameters": [
           {
             "in": "body",

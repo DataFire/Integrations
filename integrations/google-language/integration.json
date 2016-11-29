@@ -198,7 +198,7 @@
       ],
       "post": {
         "description": "Finds named entities (currently finds proper names) in the text,\nentity types, salience, mentions for each entity, and other properties.",
-        "operationId": "language.documents.analyzeEntities",
+        "operationId": "documents.analyzeEntities",
         "parameters": [
           {
             "in": "body",
@@ -272,7 +272,7 @@
       ],
       "post": {
         "description": "Analyzes the sentiment of the provided text.",
-        "operationId": "language.documents.analyzeSentiment",
+        "operationId": "documents.analyzeSentiment",
         "parameters": [
           {
             "in": "body",
@@ -346,7 +346,7 @@
       ],
       "post": {
         "description": "Analyzes the syntax of the text and provides sentence boundaries and\ntokenization along with part of speech tags, dependency trees, and other\nproperties.",
-        "operationId": "language.documents.analyzeSyntax",
+        "operationId": "documents.analyzeSyntax",
         "parameters": [
           {
             "in": "body",
@@ -420,7 +420,7 @@
       ],
       "post": {
         "description": "A convenience method that provides all the features that analyzeSentiment,\nanalyzeEntities, and analyzeSyntax provide in one call.",
-        "operationId": "language.documents.annotateText",
+        "operationId": "documents.annotateText",
         "parameters": [
           {
             "in": "body",

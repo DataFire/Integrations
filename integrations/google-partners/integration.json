@@ -177,7 +177,7 @@
       ],
       "post": {
         "description": "Logs a generic message from the client, such as `Failed to render component`, `Profile page is running slow`, `More than 500 users have accessed this result.`, etc.",
-        "operationId": "partners.clientMessages.log",
+        "operationId": "clientMessages.log",
         "parameters": [
           {
             "in": "body",
@@ -203,7 +203,7 @@
     "/v2/companies": {
       "get": {
         "description": "Lists companies.",
-        "operationId": "partners.companies.list",
+        "operationId": "companies.list",
         "parameters": [
           {
             "description": "IP address to use instead of the user's geo-located IP address.",
@@ -458,7 +458,7 @@
     "/v2/companies/{companyId}": {
       "get": {
         "description": "Gets a company.",
-        "operationId": "partners.companies.get",
+        "operationId": "companies.get",
         "parameters": [
           {
             "description": "The ID of the company to retrieve.",
@@ -640,7 +640,7 @@
       ],
       "post": {
         "description": "Creates an advertiser lead for the given company ID.",
-        "operationId": "partners.companies.leads.create",
+        "operationId": "companies.leads.create",
         "parameters": [
           {
             "description": "The ID of the company to contact.",
@@ -714,7 +714,7 @@
       ],
       "post": {
         "description": "Logs a user event.",
-        "operationId": "partners.userEvents.log",
+        "operationId": "userEvents.log",
         "parameters": [
           {
             "in": "body",
@@ -740,7 +740,7 @@
     "/v2/userStates": {
       "get": {
         "description": "Lists states for current user.",
-        "operationId": "partners.userStates.list",
+        "operationId": "userStates.list",
         "parameters": [
           {
             "description": "IP address to use instead of the user's geo-located IP address.",

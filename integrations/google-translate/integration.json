@@ -99,7 +99,7 @@
     "/v2": {
       "get": {
         "description": "Returns text translations from one language to another.",
-        "operationId": "language.translations.list",
+        "operationId": "translations.list",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -185,7 +185,7 @@
     "/v2/detect": {
       "get": {
         "description": "Detect the language of text.",
-        "operationId": "language.detections.list",
+        "operationId": "detections.list",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -238,7 +238,7 @@
     "/v2/languages": {
       "get": {
         "description": "List the source/target languages supported by the API",
-        "operationId": "language.languages.list",
+        "operationId": "languages.list",
         "parameters": [
           {
             "description": "the language and collation in which the localized results should be returned",

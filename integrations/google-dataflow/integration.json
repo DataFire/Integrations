@@ -191,7 +191,7 @@
       ],
       "post": {
         "description": "Send a worker_message to the service.",
-        "operationId": "dataflow.projects.workerMessages",
+        "operationId": "projects.workerMessages",
         "parameters": [
           {
             "description": "The project to send the WorkerMessages to.",
@@ -236,7 +236,7 @@
     "/v1b3/projects/{projectId}/jobs": {
       "get": {
         "description": "List the jobs of a project",
-        "operationId": "dataflow.projects.jobs.list",
+        "operationId": "projects.jobs.list",
         "parameters": [
           {
             "description": "The project which owns the jobs.",
@@ -354,7 +354,7 @@
       ],
       "post": {
         "description": "Creates a dataflow job.",
-        "operationId": "dataflow.projects.jobs.create",
+        "operationId": "projects.jobs.create",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -422,7 +422,7 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}": {
       "get": {
         "description": "Gets the state of the specified dataflow job.",
-        "operationId": "dataflow.projects.jobs.get",
+        "operationId": "projects.jobs.get",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -523,7 +523,7 @@
       ],
       "put": {
         "description": "Updates the state of an existing dataflow job.",
-        "operationId": "dataflow.projects.jobs.update",
+        "operationId": "projects.jobs.update",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -622,7 +622,7 @@
       ],
       "post": {
         "description": "Get encoded debug configuration for component. Not cacheable.",
-        "operationId": "dataflow.projects.jobs.debug.getConfig",
+        "operationId": "projects.jobs.debug.getConfig",
         "parameters": [
           {
             "description": "The project id.",
@@ -715,7 +715,7 @@
       ],
       "post": {
         "description": "Send encoded debug capture data for component.",
-        "operationId": "dataflow.projects.jobs.debug.sendCapture",
+        "operationId": "projects.jobs.debug.sendCapture",
         "parameters": [
           {
             "description": "The project id.",
@@ -767,7 +767,7 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}/messages": {
       "get": {
         "description": "Request the job status.",
-        "operationId": "dataflow.projects.jobs.messages.list",
+        "operationId": "projects.jobs.messages.list",
         "parameters": [
           {
             "description": "A project id.",
@@ -897,7 +897,7 @@
     "/v1b3/projects/{projectId}/jobs/{jobId}/metrics": {
       "get": {
         "description": "Request the job status.",
-        "operationId": "dataflow.projects.jobs.getMetrics",
+        "operationId": "projects.jobs.getMetrics",
         "parameters": [
           {
             "description": "A project id.",
@@ -1036,7 +1036,7 @@
       ],
       "post": {
         "description": "Leases a dataflow WorkItem to run.",
-        "operationId": "dataflow.projects.jobs.workItems.lease",
+        "operationId": "projects.jobs.workItems.lease",
         "parameters": [
           {
             "description": "Identifies the project this worker belongs to.",
@@ -1129,7 +1129,7 @@
       ],
       "post": {
         "description": "Reports the status of dataflow WorkItems leased by a worker.",
-        "operationId": "dataflow.projects.jobs.workItems.reportStatus",
+        "operationId": "projects.jobs.workItems.reportStatus",
         "parameters": [
           {
             "description": "The project which owns the WorkItem's job.",
@@ -1181,7 +1181,7 @@
     "/v1b3/projects/{projectId}/locations/{location}/jobs": {
       "get": {
         "description": "List the jobs of a project",
-        "operationId": "dataflow.projects.locations.jobs.list",
+        "operationId": "projects.locations.jobs.list",
         "parameters": [
           {
             "description": "The project which owns the jobs.",
@@ -1300,7 +1300,7 @@
       ],
       "post": {
         "description": "Creates a dataflow job.",
-        "operationId": "dataflow.projects.locations.jobs.create",
+        "operationId": "projects.locations.jobs.create",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -1369,7 +1369,7 @@
     "/v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}": {
       "get": {
         "description": "Gets the state of the specified dataflow job.",
-        "operationId": "dataflow.projects.locations.jobs.get",
+        "operationId": "projects.locations.jobs.get",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -1471,7 +1471,7 @@
       ],
       "put": {
         "description": "Updates the state of an existing dataflow job.",
-        "operationId": "dataflow.projects.locations.jobs.update",
+        "operationId": "projects.locations.jobs.update",
         "parameters": [
           {
             "description": "The project which owns the job.",
@@ -1530,7 +1530,7 @@
     "/v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/messages": {
       "get": {
         "description": "Request the job status.",
-        "operationId": "dataflow.projects.locations.jobs.messages.list",
+        "operationId": "projects.locations.jobs.messages.list",
         "parameters": [
           {
             "description": "A project id.",
@@ -1661,7 +1661,7 @@
     "/v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/metrics": {
       "get": {
         "description": "Request the job status.",
-        "operationId": "dataflow.projects.locations.jobs.getMetrics",
+        "operationId": "projects.locations.jobs.getMetrics",
         "parameters": [
           {
             "description": "A project id.",
@@ -1801,7 +1801,7 @@
       ],
       "post": {
         "description": "Leases a dataflow WorkItem to run.",
-        "operationId": "dataflow.projects.locations.jobs.workItems.lease",
+        "operationId": "projects.locations.jobs.workItems.lease",
         "parameters": [
           {
             "description": "Identifies the project this worker belongs to.",
@@ -1901,7 +1901,7 @@
       ],
       "post": {
         "description": "Reports the status of dataflow WorkItems leased by a worker.",
-        "operationId": "dataflow.projects.locations.jobs.workItems.reportStatus",
+        "operationId": "projects.locations.jobs.workItems.reportStatus",
         "parameters": [
           {
             "description": "The project which owns the WorkItem's job.",
@@ -2001,7 +2001,7 @@
       ],
       "post": {
         "description": "Creates a dataflow job from a template.",
-        "operationId": "dataflow.projects.templates.create",
+        "operationId": "projects.templates.create",
         "parameters": [
           {
             "description": "The project which owns the job.",

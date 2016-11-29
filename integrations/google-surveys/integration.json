@@ -121,7 +121,7 @@
     "/mobileAppPanels": {
       "get": {
         "description": "Lists the MobileAppPanels available to the authenticated user.",
-        "operationId": "surveys.mobileapppanels.list",
+        "operationId": "mobileapppanels.list",
         "parameters": [
           {
             "in": "query",
@@ -195,7 +195,7 @@
     "/mobileAppPanels/{panelId}": {
       "get": {
         "description": "Retrieves a MobileAppPanel that is available to the authenticated user.",
-        "operationId": "surveys.mobileapppanels.get",
+        "operationId": "mobileapppanels.get",
         "parameters": [
           {
             "description": "External URL ID for the panel.",
@@ -259,7 +259,7 @@
       ],
       "put": {
         "description": "Updates a MobileAppPanel. Currently the only property that can be updated is the owners property.",
-        "operationId": "surveys.mobileapppanels.update",
+        "operationId": "mobileapppanels.update",
         "parameters": [
           {
             "description": "External URL ID for the panel.",
@@ -304,7 +304,7 @@
     "/surveys": {
       "get": {
         "description": "Lists the surveys owned by the authenticated user.",
-        "operationId": "surveys.surveys.list",
+        "operationId": "surveys.list",
         "parameters": [
           {
             "in": "query",
@@ -376,7 +376,7 @@
       ],
       "post": {
         "description": "Creates a survey.",
-        "operationId": "surveys.surveys.insert",
+        "operationId": "surveys.insert",
         "parameters": [
           {
             "in": "body",
@@ -437,7 +437,7 @@
       ],
       "post": {
         "description": "Begins running a survey.",
-        "operationId": "surveys.surveys.start",
+        "operationId": "surveys.start",
         "parameters": [
           {
             "in": "path",
@@ -504,7 +504,7 @@
       ],
       "post": {
         "description": "Stops a running survey.",
-        "operationId": "surveys.surveys.stop",
+        "operationId": "surveys.stop",
         "parameters": [
           {
             "in": "path",
@@ -541,7 +541,7 @@
     "/surveys/{surveyUrlId}": {
       "delete": {
         "description": "Removes a survey from view in all user GET requests.",
-        "operationId": "surveys.surveys.delete",
+        "operationId": "surveys.delete",
         "parameters": [
           {
             "description": "External URL ID for the survey.",
@@ -577,7 +577,7 @@
       },
       "get": {
         "description": "Retrieves information about the specified survey.",
-        "operationId": "surveys.surveys.get",
+        "operationId": "surveys.get",
         "parameters": [
           {
             "description": "External URL ID for the survey.",
@@ -641,7 +641,7 @@
       ],
       "put": {
         "description": "Updates a survey. Currently the only property that can be updated is the owners property.",
-        "operationId": "surveys.surveys.update",
+        "operationId": "surveys.update",
         "parameters": [
           {
             "description": "External URL ID for the survey.",
@@ -686,7 +686,7 @@
     "/surveys/{surveyUrlId}/results": {
       "get": {
         "description": "Retrieves any survey results that have been produced so far. Results are formatted as an Excel file. You must add \"?alt=media\" to the URL as an argument to get results.",
-        "operationId": "surveys.results.get",
+        "operationId": "results.get",
         "parameters": [
           {
             "description": "External URL ID for the survey.",

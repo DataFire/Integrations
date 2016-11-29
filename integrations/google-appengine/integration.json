@@ -155,7 +155,7 @@
     "/experimental/apps/{appsId}/operations": {
       "get": {
         "description": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding below allows API services to override the binding to use different resource name schemes, such as `users/*/operations`.",
-        "operationId": "appengine.experimental.apps.operations.list",
+        "operationId": "experimental.apps.operations.list",
         "parameters": [
           {
             "description": "Part of `name`. The name of the operation collection.",
@@ -257,7 +257,7 @@
     "/experimental/apps/{appsId}/operations/{operationsId}": {
       "get": {
         "description": "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.",
-        "operationId": "appengine.experimental.apps.operations.get",
+        "operationId": "experimental.apps.operations.get",
         "parameters": [
           {
             "description": "Part of `name`. The name of the operation resource.",
@@ -389,7 +389,7 @@
       ],
       "post": {
         "description": "Creates an App Engine application for a Google Cloud Platform project. This requires a project that excludes an App Engine application. For details about creating a project without an application, see the [Google Cloud Resource Manager create project topic](https://cloud.google.com/resource-manager/docs/creating-project).",
-        "operationId": "appengine.apps.create",
+        "operationId": "apps.create",
         "parameters": [
           {
             "in": "body",
@@ -422,7 +422,7 @@
     "/v1/apps/{appsId}": {
       "get": {
         "description": "Gets information about an application.",
-        "operationId": "appengine.apps.get",
+        "operationId": "apps.get",
         "parameters": [
           {
             "description": "Part of `name`. Name of the Application resource to get. Example: `apps/myapp`.",
@@ -504,7 +504,7 @@
       ],
       "patch": {
         "description": "Updates the specified Application resource. You can update the following fields: * [`auth_domain`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps#Application.FIELDS.auth_domain) * [`default_cookie_expiration`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps#Application.FIELDS.default_cookie_expiration)",
-        "operationId": "appengine.apps.patch",
+        "operationId": "apps.patch",
         "parameters": [
           {
             "description": "Part of `name`. Name of the Application resource to update. Example: `apps/myapp`.",
@@ -550,7 +550,7 @@
     "/v1/apps/{appsId}/locations": {
       "get": {
         "description": "Lists information about the supported locations for this service.",
-        "operationId": "appengine.apps.locations.list",
+        "operationId": "apps.locations.list",
         "parameters": [
           {
             "description": "Part of `name`. The resource that owns the locations collection, if applicable.",
@@ -652,7 +652,7 @@
     "/v1/apps/{appsId}/locations/{locationsId}": {
       "get": {
         "description": "Get information about a location.",
-        "operationId": "appengine.apps.locations.get",
+        "operationId": "apps.locations.get",
         "parameters": [
           {
             "description": "Part of `name`. Resource name for the location.",
@@ -743,7 +743,7 @@
     "/v1/apps/{appsId}/operations": {
       "get": {
         "description": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the `name` binding below allows API services to override the binding to use different resource name schemes, such as `users/*/operations`.",
-        "operationId": "appengine.apps.operations.list",
+        "operationId": "apps.operations.list",
         "parameters": [
           {
             "description": "Part of `name`. The name of the operation collection.",
@@ -845,7 +845,7 @@
     "/v1/apps/{appsId}/operations/{operationsId}": {
       "get": {
         "description": "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.",
-        "operationId": "appengine.apps.operations.get",
+        "operationId": "apps.operations.get",
         "parameters": [
           {
             "description": "Part of `name`. The name of the operation resource.",
@@ -936,7 +936,7 @@
     "/v1/apps/{appsId}/services": {
       "get": {
         "description": "Lists all the services in the application.",
-        "operationId": "appengine.apps.services.list",
+        "operationId": "apps.services.list",
         "parameters": [
           {
             "description": "Part of `parent`. Name of the parent Application resource. Example: `apps/myapp`.",
@@ -1032,7 +1032,7 @@
     "/v1/apps/{appsId}/services/{servicesId}": {
       "delete": {
         "description": "Deletes the specified service and all enclosed versions.",
-        "operationId": "appengine.apps.services.delete",
+        "operationId": "apps.services.delete",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default`.",
@@ -1070,7 +1070,7 @@
       },
       "get": {
         "description": "Gets the current configuration of the specified service.",
-        "operationId": "appengine.apps.services.get",
+        "operationId": "apps.services.get",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default`.",
@@ -1159,7 +1159,7 @@
       ],
       "patch": {
         "description": "Updates the configuration of the specified service.",
-        "operationId": "appengine.apps.services.patch",
+        "operationId": "apps.services.patch",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource to update. Example: `apps/myapp/services/default`.",
@@ -1218,7 +1218,7 @@
     "/v1/apps/{appsId}/services/{servicesId}/versions": {
       "get": {
         "description": "Lists the versions of a service.",
-        "operationId": "appengine.apps.services.versions.list",
+        "operationId": "apps.services.versions.list",
         "parameters": [
           {
             "description": "Part of `parent`. Name of the parent Service resource. Example: `apps/myapp/services/default`.",
@@ -1329,7 +1329,7 @@
       ],
       "post": {
         "description": "Deploys code and resource files to a new version.",
-        "operationId": "appengine.apps.services.versions.create",
+        "operationId": "apps.services.versions.create",
         "parameters": [
           {
             "description": "Part of `parent`. Name of the parent resource to create this version under. Example: `apps/myapp/services/default`.",
@@ -1376,7 +1376,7 @@
     "/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}": {
       "delete": {
         "description": "Deletes an existing Version resource.",
-        "operationId": "appengine.apps.services.versions.delete",
+        "operationId": "apps.services.versions.delete",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default/versions/v1`.",
@@ -1421,7 +1421,7 @@
       },
       "get": {
         "description": "Gets the specified Version resource. By default, only a `BASIC_VIEW` will be returned. Specify the `FULL_VIEW` parameter to get the full resource.",
-        "operationId": "appengine.apps.services.versions.get",
+        "operationId": "apps.services.versions.get",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default/versions/v1`.",
@@ -1527,7 +1527,7 @@
       ],
       "patch": {
         "description": "Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses: * [`serving_status`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status): For Version resources that use basic scaling, manual scaling, or run in the App Engine flexible environment. * [`instance_class`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class): For Version resources that run in the App Engine standard environment. * [`automatic_scaling.min_idle_instances`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling): For Version resources that use automatic scaling and run in the App Engine standard environment. * [`automatic_scaling.max_idle_instances`](https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling): For Version resources that use automatic scaling and run in the App Engine standard environment.",
-        "operationId": "appengine.apps.services.versions.patch",
+        "operationId": "apps.services.versions.patch",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource to update. Example: `apps/myapp/services/default/versions/1`.",
@@ -1587,7 +1587,7 @@
     "/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances": {
       "get": {
         "description": "Lists the instances of a version.",
-        "operationId": "appengine.apps.services.versions.instances.list",
+        "operationId": "apps.services.versions.instances.list",
         "parameters": [
           {
             "description": "Part of `parent`. Name of the parent Version resource. Example: `apps/myapp/services/default/versions/v1`.",
@@ -1697,7 +1697,7 @@
     "/v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}": {
       "delete": {
         "description": "Stops a running instance.",
-        "operationId": "appengine.apps.services.versions.instances.delete",
+        "operationId": "apps.services.versions.instances.delete",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.",
@@ -1749,7 +1749,7 @@
       },
       "get": {
         "description": "Gets instance information.",
-        "operationId": "appengine.apps.services.versions.instances.get",
+        "operationId": "apps.services.versions.instances.get",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.",
@@ -1895,7 +1895,7 @@
       ],
       "post": {
         "description": "Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in \"debug mode\", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started. Only applicable for instances in App Engine flexible environment.",
-        "operationId": "appengine.apps.services.versions.instances.debug",
+        "operationId": "apps.services.versions.instances.debug",
         "parameters": [
           {
             "description": "Part of `name`. Name of the resource requested. Example: `apps/myapp/services/default/versions/v1/instances/instance-1`.",
@@ -1997,7 +1997,7 @@
       ],
       "post": {
         "description": "Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, *Error retrieving the App Engine service account*.",
-        "operationId": "appengine.apps.repair",
+        "operationId": "apps.repair",
         "parameters": [
           {
             "description": "Part of `name`. Name of the application to repair. Example: `apps/myapp`",

@@ -127,7 +127,7 @@
     "/{project}/zones/{zone}/operations": {
       "get": {
         "description": "Retrieves the list of operation resources contained within the specified zone.",
-        "operationId": "resourceviews.zoneOperations.list",
+        "operationId": "zoneOperations.list",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -236,7 +236,7 @@
     "/{project}/zones/{zone}/operations/{operation}": {
       "get": {
         "description": "Retrieves the specified zone-specific operation resource.",
-        "operationId": "resourceviews.zoneOperations.get",
+        "operationId": "zoneOperations.get",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -331,7 +331,7 @@
     "/{project}/zones/{zone}/resourceViews": {
       "get": {
         "description": "List resource views.",
-        "operationId": "resourceviews.zoneViews.list",
+        "operationId": "zoneViews.list",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -432,7 +432,7 @@
       ],
       "post": {
         "description": "Create a resource view.",
-        "operationId": "resourceviews.zoneViews.insert",
+        "operationId": "zoneViews.insert",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -489,7 +489,7 @@
     "/{project}/zones/{zone}/resourceViews/{resourceView}": {
       "delete": {
         "description": "Delete a resource view.",
-        "operationId": "resourceviews.zoneViews.delete",
+        "operationId": "zoneViews.delete",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -544,7 +544,7 @@
       },
       "get": {
         "description": "Get the information of a zonal resource view.",
-        "operationId": "resourceviews.zoneViews.get",
+        "operationId": "zoneViews.get",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -662,7 +662,7 @@
       ],
       "post": {
         "description": "Add resources to the view.",
-        "operationId": "resourceviews.zoneViews.addResources",
+        "operationId": "zoneViews.addResources",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -749,7 +749,7 @@
       ],
       "post": {
         "description": "Get the service information of a resource view or a resource.",
-        "operationId": "resourceviews.zoneViews.getService",
+        "operationId": "zoneViews.getService",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -835,7 +835,7 @@
       ],
       "post": {
         "description": "Remove resources from the view.",
-        "operationId": "resourceviews.zoneViews.removeResources",
+        "operationId": "zoneViews.removeResources",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -899,7 +899,7 @@
     "/{project}/zones/{zone}/resourceViews/{resourceView}/resources": {
       "get": {
         "description": "List the resources of the resource view.",
-        "operationId": "resourceviews.zoneViews.listResources",
+        "operationId": "zoneViews.listResources",
         "parameters": [
           {
             "description": "The project name of the resource view.",
@@ -1060,7 +1060,7 @@
       ],
       "post": {
         "description": "Update the service information of a resource view or a resource.",
-        "operationId": "resourceviews.zoneViews.setService",
+        "operationId": "zoneViews.setService",
         "parameters": [
           {
             "description": "The project name of the resource view.",

@@ -194,7 +194,7 @@
       ],
       "post": {
         "description": "Registers the debuggee with the controller service. All agents attached to the same application should call this method with the same request content to get back the same stable `debuggee_id`. Agents should call this method again whenever `google.rpc.Code.NOT_FOUND` is returned from any controller method. This allows the controller service to disable the agent or recover from any data loss. If the debuggee is disabled by the server, the response will have `is_disabled` set to `true`.",
-        "operationId": "clouddebugger.controller.debuggees.register",
+        "operationId": "controller.debuggees.register",
         "parameters": [
           {
             "in": "body",
@@ -232,7 +232,7 @@
     "/v2/controller/debuggees/{debuggeeId}/breakpoints": {
       "get": {
         "description": "Returns the list of all active breakpoints for the debuggee. The breakpoint specification (location, condition, and expression fields) is semantically immutable, although the field values may change. For example, an agent may update the location line number to reflect the actual line where the breakpoint was set, but this doesn't change the breakpoint semantics. This means that an agent does not need to check if a breakpoint has changed when it encounters the same breakpoint on a successive call. Moreover, an agent should remember the breakpoints that are completed until the controller removes them from the active list to avoid setting those breakpoints again.",
-        "operationId": "clouddebugger.controller.debuggees.breakpoints.list",
+        "operationId": "controller.debuggees.breakpoints.list",
         "parameters": [
           {
             "description": "Identifies the debuggee.",
@@ -364,7 +364,7 @@
       ],
       "put": {
         "description": "Updates the breakpoint state or mutable fields. The entire Breakpoint message must be sent back to the controller service. Updates to active breakpoint fields are only allowed if the new value does not change the breakpoint specification. Updates to the `location`, `condition` and `expression` fields should not alter the breakpoint semantics. These may only make changes such as canonicalizing a value or snapping the location to the correct line of code.",
-        "operationId": "clouddebugger.controller.debuggees.breakpoints.update",
+        "operationId": "controller.debuggees.breakpoints.update",
         "parameters": [
           {
             "description": "Identifies the debuggee being debugged.",
@@ -416,7 +416,7 @@
     "/v2/debugger/debuggees": {
       "get": {
         "description": "Lists all the debuggees that the user can set breakpoints to.",
-        "operationId": "clouddebugger.debugger.debuggees.list",
+        "operationId": "debugger.debuggees.list",
         "parameters": [
           {
             "description": "Project number of a Google Cloud project whose debuggees to list.",
@@ -506,7 +506,7 @@
     "/v2/debugger/debuggees/{debuggeeId}/breakpoints": {
       "get": {
         "description": "Lists all breakpoints for the debuggee.",
-        "operationId": "clouddebugger.debugger.debuggees.breakpoints.list",
+        "operationId": "debugger.debuggees.breakpoints.list",
         "parameters": [
           {
             "description": "ID of the debuggee whose breakpoints to list.",
@@ -666,7 +666,7 @@
       ],
       "post": {
         "description": "Sets the breakpoint to the debuggee.",
-        "operationId": "clouddebugger.debugger.debuggees.breakpoints.set",
+        "operationId": "debugger.debuggees.breakpoints.set",
         "parameters": [
           {
             "description": "ID of the debuggee where the breakpoint is to be set.",
@@ -717,7 +717,7 @@
     "/v2/debugger/debuggees/{debuggeeId}/breakpoints/{breakpointId}": {
       "delete": {
         "description": "Deletes the breakpoint from the debuggee.",
-        "operationId": "clouddebugger.debugger.debuggees.breakpoints.delete",
+        "operationId": "debugger.debuggees.breakpoints.delete",
         "parameters": [
           {
             "description": "ID of the debuggee whose breakpoint to delete.",
@@ -766,7 +766,7 @@
       },
       "get": {
         "description": "Gets breakpoint information.",
-        "operationId": "clouddebugger.debugger.debuggees.breakpoints.get",
+        "operationId": "debugger.debuggees.breakpoints.get",
         "parameters": [
           {
             "description": "ID of the debuggee whose breakpoint to get.",

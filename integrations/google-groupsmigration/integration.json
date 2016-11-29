@@ -140,7 +140,7 @@
       ],
       "post": {
         "description": "Inserts a new mail into the archive of the Google group.",
-        "operationId": "groupsmigration.archive.insert",
+        "operationId": "archive.insert",
         "parameters": [
           {
             "description": "The group ID",

@@ -177,7 +177,7 @@
       ],
       "post": {
         "description": "Finds the full hashes that match the requested hash prefixes.",
-        "operationId": "safebrowsing.fullHashes.find",
+        "operationId": "fullHashes.find",
         "parameters": [
           {
             "in": "body",
@@ -244,7 +244,7 @@
       ],
       "post": {
         "description": "Fetches the most recent threat list updates. A client can request updates for multiple lists at once.",
-        "operationId": "safebrowsing.threatListUpdates.fetch",
+        "operationId": "threatListUpdates.fetch",
         "parameters": [
           {
             "in": "body",
@@ -270,7 +270,7 @@
     "/v4/threatLists": {
       "get": {
         "description": "Lists the Safe Browsing threat lists available for download.",
-        "operationId": "safebrowsing.threatLists.list",
+        "operationId": "threatLists.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -369,7 +369,7 @@
       ],
       "post": {
         "description": "Finds the threat entries that match the Safe Browsing lists.",
-        "operationId": "safebrowsing.threatMatches.find",
+        "operationId": "threatMatches.find",
         "parameters": [
           {
             "in": "body",

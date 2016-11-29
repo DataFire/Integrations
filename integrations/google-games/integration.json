@@ -160,7 +160,7 @@
     "/achievements": {
       "get": {
         "description": "Lists all the achievement definitions for your application.",
-        "operationId": "games.achievementDefinitions.list",
+        "operationId": "achievementDefinitions.list",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -263,7 +263,7 @@
       ],
       "post": {
         "description": "Updates multiple achievements for the currently authenticated player.",
-        "operationId": "games.achievements.updateMultiple",
+        "operationId": "achievements.updateMultiple",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -330,7 +330,7 @@
       ],
       "post": {
         "description": "Increments the steps of the achievement with the given ID for the currently authenticated player.",
-        "operationId": "games.achievements.increment",
+        "operationId": "achievements.increment",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -411,7 +411,7 @@
       ],
       "post": {
         "description": "Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player.",
-        "operationId": "games.achievements.reveal",
+        "operationId": "achievements.reveal",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -478,7 +478,7 @@
       ],
       "post": {
         "description": "Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified.",
-        "operationId": "games.achievements.setStepsAtLeast",
+        "operationId": "achievements.setStepsAtLeast",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -553,7 +553,7 @@
       ],
       "post": {
         "description": "Unlocks this achievement for the currently authenticated player.",
-        "operationId": "games.achievements.unlock",
+        "operationId": "achievements.unlock",
         "parameters": [
           {
             "description": "The ID of the achievement used by this method.",
@@ -620,7 +620,7 @@
       ],
       "post": {
         "description": "Indicate that the the currently authenticated user is playing your application.",
-        "operationId": "games.applications.played",
+        "operationId": "applications.played",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -654,7 +654,7 @@
     "/applications/{applicationId}": {
       "get": {
         "description": "Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.",
-        "operationId": "games.applications.get",
+        "operationId": "applications.get",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -738,7 +738,7 @@
     "/applications/{applicationId}/verify": {
       "get": {
         "description": "Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for.",
-        "operationId": "games.applications.verify",
+        "operationId": "applications.verify",
         "parameters": [
           {
             "description": "The application ID from the Google Play developer console.",
@@ -805,7 +805,7 @@
     "/eventDefinitions": {
       "get": {
         "description": "Returns a list of the event definitions in this application.",
-        "operationId": "games.events.listDefinitions",
+        "operationId": "events.listDefinitions",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -885,7 +885,7 @@
     "/events": {
       "get": {
         "description": "Returns a list showing the current progress on events in this application for the currently authenticated user.",
-        "operationId": "games.events.listByPlayer",
+        "operationId": "events.listByPlayer",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -963,7 +963,7 @@
       ],
       "post": {
         "description": "Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.",
-        "operationId": "games.events.record",
+        "operationId": "events.record",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -1013,7 +1013,7 @@
     "/leaderboards": {
       "get": {
         "description": "Lists all the leaderboard metadata for your application.",
-        "operationId": "games.leaderboards.list",
+        "operationId": "leaderboards.list",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -1116,7 +1116,7 @@
       ],
       "post": {
         "description": "Submits multiple scores to leaderboards.",
-        "operationId": "games.scores.submitMultiple",
+        "operationId": "scores.submitMultiple",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -1166,7 +1166,7 @@
     "/leaderboards/{leaderboardId}": {
       "get": {
         "description": "Retrieves the metadata of the leaderboard with the given ID.",
-        "operationId": "games.leaderboards.get",
+        "operationId": "leaderboards.get",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -1262,7 +1262,7 @@
       ],
       "post": {
         "description": "Submits a score to the specified leaderboard.",
-        "operationId": "games.scores.submit",
+        "operationId": "scores.submit",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -1325,7 +1325,7 @@
     "/leaderboards/{leaderboardId}/scores/{collection}": {
       "get": {
         "description": "Lists the scores in a leaderboard, starting from the top.",
-        "operationId": "games.scores.list",
+        "operationId": "scores.list",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -1436,7 +1436,7 @@
     "/leaderboards/{leaderboardId}/window/{collection}": {
       "get": {
         "description": "Lists the scores in a leaderboard around (and including) a player's score.",
-        "operationId": "games.scores.listWindow",
+        "operationId": "scores.listWindow",
         "parameters": [
           {
             "description": "The ID of the leaderboard.",
@@ -1559,7 +1559,7 @@
     "/metagameConfig": {
       "get": {
         "description": "Return the metagame configuration data for the calling application.",
-        "operationId": "games.metagame.getMetagameConfig",
+        "operationId": "metagame.getMetagameConfig",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -1619,7 +1619,7 @@
     "/players/me/players/{collection}": {
       "get": {
         "description": "Get the collection of players for the currently authenticated user.",
-        "operationId": "games.players.list",
+        "operationId": "players.list",
         "parameters": [
           {
             "description": "Collection of players being retrieved",
@@ -1712,7 +1712,7 @@
     "/players/{playerId}": {
       "get": {
         "description": "Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me.",
-        "operationId": "games.players.get",
+        "operationId": "players.get",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -1785,7 +1785,7 @@
     "/players/{playerId}/achievements": {
       "get": {
         "description": "Lists the progress for all your application's achievements for the currently authenticated player.",
-        "operationId": "games.achievements.list",
+        "operationId": "achievements.list",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -1884,7 +1884,7 @@
     "/players/{playerId}/categories/{collection}": {
       "get": {
         "description": "List play data aggregated per category for the player corresponding to playerId.",
-        "operationId": "games.metagame.listCategoriesByPlayer",
+        "operationId": "metagame.listCategoriesByPlayer",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -1981,7 +1981,7 @@
     "/players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}": {
       "get": {
         "description": "Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to ALL to retrieve data for all leaderboards in a given time span.\nNOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.",
-        "operationId": "games.scores.get",
+        "operationId": "scores.get",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -2099,7 +2099,7 @@
     "/players/{playerId}/quests": {
       "get": {
         "description": "Get a list of quests for your application and the currently authenticated player.",
-        "operationId": "games.quests.list",
+        "operationId": "quests.list",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -2186,7 +2186,7 @@
     "/players/{playerId}/snapshots": {
       "get": {
         "description": "Retrieves a list of snapshots created by your application for the player corresponding to the player ID.",
-        "operationId": "games.snapshots.list",
+        "operationId": "snapshots.list",
         "parameters": [
           {
             "description": "A player ID. A value of me may be used in place of the authenticated player's ID.",
@@ -2301,7 +2301,7 @@
       ],
       "put": {
         "description": "Registers a push token for the current user and application.",
-        "operationId": "games.pushtokens.update",
+        "operationId": "pushtokens.update",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -2365,7 +2365,7 @@
       ],
       "post": {
         "description": "Removes a push token for the current user and application. Removing a non-existent push token will report success.",
-        "operationId": "games.pushtokens.remove",
+        "operationId": "pushtokens.remove",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -2429,7 +2429,7 @@
       ],
       "post": {
         "description": "Indicates that the currently authorized user will participate in the quest.",
-        "operationId": "games.quests.accept",
+        "operationId": "quests.accept",
         "parameters": [
           {
             "description": "The ID of the quest.",
@@ -2502,7 +2502,7 @@
       ],
       "put": {
         "description": "Report that a reward for the milestone corresponding to milestoneId for the quest corresponding to questId has been claimed by the currently authorized user.",
-        "operationId": "games.questMilestones.claim",
+        "operationId": "questMilestones.claim",
         "parameters": [
           {
             "description": "The ID of the quest.",
@@ -2557,7 +2557,7 @@
     "/revisions/check": {
       "get": {
         "description": "Checks whether the games client is out of date.",
-        "operationId": "games.revisions.check",
+        "operationId": "revisions.check",
         "parameters": [
           {
             "description": "The revision of the client SDK used by your application. Format:\n[PLATFORM_TYPE]:[VERSION_NUMBER]. Possible values of PLATFORM_TYPE are:\n \n- \"ANDROID\" - Client is running the Android SDK. \n- \"IOS\" - Client is running the iOS SDK. \n- \"WEB_APP\" - Client is running as a Web App.",
@@ -2624,7 +2624,7 @@
     "/rooms": {
       "get": {
         "description": "Returns invitations to join rooms.",
-        "operationId": "games.rooms.list",
+        "operationId": "rooms.list",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -2727,7 +2727,7 @@
       ],
       "post": {
         "description": "Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.create",
+        "operationId": "rooms.create",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -2777,7 +2777,7 @@
     "/rooms/{roomId}": {
       "get": {
         "description": "Get the data for a room.",
-        "operationId": "games.rooms.get",
+        "operationId": "rooms.get",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -2873,7 +2873,7 @@
       ],
       "post": {
         "description": "Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.decline",
+        "operationId": "rooms.decline",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -2946,7 +2946,7 @@
       ],
       "post": {
         "description": "Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.dismiss",
+        "operationId": "rooms.dismiss",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -3010,7 +3010,7 @@
       ],
       "post": {
         "description": "Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.join",
+        "operationId": "rooms.join",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -3090,7 +3090,7 @@
       ],
       "post": {
         "description": "Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.leave",
+        "operationId": "rooms.leave",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -3170,7 +3170,7 @@
       ],
       "post": {
         "description": "Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported.",
-        "operationId": "games.rooms.reportStatus",
+        "operationId": "rooms.reportStatus",
         "parameters": [
           {
             "description": "The ID of the room.",
@@ -3227,7 +3227,7 @@
     "/snapshots/{snapshotId}": {
       "get": {
         "description": "Retrieves the metadata for a given snapshot ID.",
-        "operationId": "games.snapshots.get",
+        "operationId": "snapshots.get",
         "parameters": [
           {
             "description": "The ID of the snapshot.",
@@ -3305,7 +3305,7 @@
     "/turnbasedmatches": {
       "get": {
         "description": "Returns turn-based matches the player is or was involved in.",
-        "operationId": "games.turnBasedMatches.list",
+        "operationId": "turnBasedMatches.list",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -3422,7 +3422,7 @@
       ],
       "post": {
         "description": "Create a turn-based match.",
-        "operationId": "games.turnBasedMatches.create",
+        "operationId": "turnBasedMatches.create",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -3472,7 +3472,7 @@
     "/turnbasedmatches/sync": {
       "get": {
         "description": "Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.",
-        "operationId": "games.turnBasedMatches.sync",
+        "operationId": "turnBasedMatches.sync",
         "parameters": [
           {
             "description": "The last-seen mutation timestamp.",
@@ -3566,7 +3566,7 @@
     "/turnbasedmatches/{matchId}": {
       "get": {
         "description": "Get the data for a turn-based match.",
-        "operationId": "games.turnBasedMatches.get",
+        "operationId": "turnBasedMatches.get",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -3668,7 +3668,7 @@
       ],
       "put": {
         "description": "Cancel a turn-based match.",
-        "operationId": "games.turnBasedMatches.cancel",
+        "operationId": "turnBasedMatches.cancel",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -3732,7 +3732,7 @@
       ],
       "put": {
         "description": "Decline an invitation to play a turn-based match.",
-        "operationId": "games.turnBasedMatches.decline",
+        "operationId": "turnBasedMatches.decline",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -3805,7 +3805,7 @@
       ],
       "put": {
         "description": "Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications.",
-        "operationId": "games.turnBasedMatches.dismiss",
+        "operationId": "turnBasedMatches.dismiss",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -3869,7 +3869,7 @@
       ],
       "put": {
         "description": "Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call to Finish, and can pass in the final match state.",
-        "operationId": "games.turnBasedMatches.finish",
+        "operationId": "turnBasedMatches.finish",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -3949,7 +3949,7 @@
       ],
       "put": {
         "description": "Join a turn-based match.",
-        "operationId": "games.turnBasedMatches.join",
+        "operationId": "turnBasedMatches.join",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -4022,7 +4022,7 @@
       ],
       "put": {
         "description": "Leave a turn-based match when it is not the current player's turn, without canceling the match.",
-        "operationId": "games.turnBasedMatches.leave",
+        "operationId": "turnBasedMatches.leave",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -4095,7 +4095,7 @@
       ],
       "put": {
         "description": "Leave a turn-based match during the current player's turn, without canceling the match.",
-        "operationId": "games.turnBasedMatches.leaveTurn",
+        "operationId": "turnBasedMatches.leaveTurn",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -4181,7 +4181,7 @@
       ],
       "post": {
         "description": "Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.",
-        "operationId": "games.turnBasedMatches.rematch",
+        "operationId": "turnBasedMatches.rematch",
         "parameters": [
           {
             "description": "The ID of the match.",
@@ -4260,7 +4260,7 @@
       ],
       "put": {
         "description": "Commit the results of a player turn.",
-        "operationId": "games.turnBasedMatches.takeTurn",
+        "operationId": "turnBasedMatches.takeTurn",
         "parameters": [
           {
             "description": "The ID of the match.",

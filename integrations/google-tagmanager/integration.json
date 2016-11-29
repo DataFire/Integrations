@@ -126,7 +126,7 @@
     "/accounts": {
       "get": {
         "description": "Lists all GTM Accounts that a user has access to.",
-        "operationId": "tagmanager.accounts.list",
+        "operationId": "accounts.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -183,7 +183,7 @@
     "/accounts/{accountId}": {
       "get": {
         "description": "Gets a GTM Account.",
-        "operationId": "tagmanager.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -247,7 +247,7 @@
       ],
       "put": {
         "description": "Updates a GTM Account.",
-        "operationId": "tagmanager.accounts.update",
+        "operationId": "accounts.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -293,7 +293,7 @@
     "/accounts/{accountId}/containers": {
       "get": {
         "description": "Lists all Containers that belongs to a GTM Account.",
-        "operationId": "tagmanager.accounts.containers.list",
+        "operationId": "accounts.containers.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -352,7 +352,7 @@
       ],
       "post": {
         "description": "Creates a Container.",
-        "operationId": "tagmanager.accounts.containers.create",
+        "operationId": "accounts.containers.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -392,7 +392,7 @@
     "/accounts/{accountId}/containers/{containerId}": {
       "delete": {
         "description": "Deletes a Container.",
-        "operationId": "tagmanager.accounts.containers.delete",
+        "operationId": "accounts.containers.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -427,7 +427,7 @@
       },
       "get": {
         "description": "Gets a Container.",
-        "operationId": "tagmanager.accounts.containers.get",
+        "operationId": "accounts.containers.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -493,7 +493,7 @@
       ],
       "put": {
         "description": "Updates a Container.",
-        "operationId": "tagmanager.accounts.containers.update",
+        "operationId": "accounts.containers.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -546,7 +546,7 @@
     "/accounts/{accountId}/containers/{containerId}/environments": {
       "get": {
         "description": "Lists all GTM Environments of a GTM Container.",
-        "operationId": "tagmanager.accounts.containers.environments.list",
+        "operationId": "accounts.containers.environments.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -612,7 +612,7 @@
       ],
       "post": {
         "description": "Creates a GTM Environment.",
-        "operationId": "tagmanager.accounts.containers.environments.create",
+        "operationId": "accounts.containers.environments.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -659,7 +659,7 @@
     "/accounts/{accountId}/containers/{containerId}/environments/{environmentId}": {
       "delete": {
         "description": "Deletes a GTM Environment.",
-        "operationId": "tagmanager.accounts.containers.environments.delete",
+        "operationId": "accounts.containers.environments.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -701,7 +701,7 @@
       },
       "get": {
         "description": "Gets a GTM Environment.",
-        "operationId": "tagmanager.accounts.containers.environments.get",
+        "operationId": "accounts.containers.environments.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -774,7 +774,7 @@
       ],
       "patch": {
         "description": "Updates a GTM Environment. This method supports patch semantics.",
-        "operationId": "tagmanager.accounts.containers.environments.patch",
+        "operationId": "accounts.containers.environments.patch",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -832,7 +832,7 @@
       },
       "put": {
         "description": "Updates a GTM Environment.",
-        "operationId": "tagmanager.accounts.containers.environments.update",
+        "operationId": "accounts.containers.environments.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -892,7 +892,7 @@
     "/accounts/{accountId}/containers/{containerId}/folders": {
       "get": {
         "description": "Lists all GTM Folders of a Container.",
-        "operationId": "tagmanager.accounts.containers.folders.list",
+        "operationId": "accounts.containers.folders.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -958,7 +958,7 @@
       ],
       "post": {
         "description": "Creates a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.folders.create",
+        "operationId": "accounts.containers.folders.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1005,7 +1005,7 @@
     "/accounts/{accountId}/containers/{containerId}/folders/{folderId}": {
       "delete": {
         "description": "Deletes a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.folders.delete",
+        "operationId": "accounts.containers.folders.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1047,7 +1047,7 @@
       },
       "get": {
         "description": "Gets a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.folders.get",
+        "operationId": "accounts.containers.folders.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1120,7 +1120,7 @@
       ],
       "put": {
         "description": "Updates a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.folders.update",
+        "operationId": "accounts.containers.folders.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1180,7 +1180,7 @@
     "/accounts/{accountId}/containers/{containerId}/folders/{folderId}/entities": {
       "get": {
         "description": "List all entities in a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.folders.entities.list",
+        "operationId": "accounts.containers.folders.entities.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1278,7 +1278,7 @@
       ],
       "put": {
         "description": "Moves entities to a GTM Folder.",
-        "operationId": "tagmanager.accounts.containers.move_folders.update",
+        "operationId": "accounts.containers.move_folders.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1382,7 +1382,7 @@
       ],
       "put": {
         "description": "Re-generates the authorization code for a GTM Environment.",
-        "operationId": "tagmanager.accounts.containers.reauthorize_environments.update",
+        "operationId": "accounts.containers.reauthorize_environments.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1436,7 +1436,7 @@
     "/accounts/{accountId}/containers/{containerId}/tags": {
       "get": {
         "description": "Lists all GTM Tags of a Container.",
-        "operationId": "tagmanager.accounts.containers.tags.list",
+        "operationId": "accounts.containers.tags.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1502,7 +1502,7 @@
       ],
       "post": {
         "description": "Creates a GTM Tag.",
-        "operationId": "tagmanager.accounts.containers.tags.create",
+        "operationId": "accounts.containers.tags.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1549,7 +1549,7 @@
     "/accounts/{accountId}/containers/{containerId}/tags/{tagId}": {
       "delete": {
         "description": "Deletes a GTM Tag.",
-        "operationId": "tagmanager.accounts.containers.tags.delete",
+        "operationId": "accounts.containers.tags.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1591,7 +1591,7 @@
       },
       "get": {
         "description": "Gets a GTM Tag.",
-        "operationId": "tagmanager.accounts.containers.tags.get",
+        "operationId": "accounts.containers.tags.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1664,7 +1664,7 @@
       ],
       "put": {
         "description": "Updates a GTM Tag.",
-        "operationId": "tagmanager.accounts.containers.tags.update",
+        "operationId": "accounts.containers.tags.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1724,7 +1724,7 @@
     "/accounts/{accountId}/containers/{containerId}/triggers": {
       "get": {
         "description": "Lists all GTM Triggers of a Container.",
-        "operationId": "tagmanager.accounts.containers.triggers.list",
+        "operationId": "accounts.containers.triggers.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1790,7 +1790,7 @@
       ],
       "post": {
         "description": "Creates a GTM Trigger.",
-        "operationId": "tagmanager.accounts.containers.triggers.create",
+        "operationId": "accounts.containers.triggers.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1837,7 +1837,7 @@
     "/accounts/{accountId}/containers/{containerId}/triggers/{triggerId}": {
       "delete": {
         "description": "Deletes a GTM Trigger.",
-        "operationId": "tagmanager.accounts.containers.triggers.delete",
+        "operationId": "accounts.containers.triggers.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1879,7 +1879,7 @@
       },
       "get": {
         "description": "Gets a GTM Trigger.",
-        "operationId": "tagmanager.accounts.containers.triggers.get",
+        "operationId": "accounts.containers.triggers.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -1952,7 +1952,7 @@
       ],
       "put": {
         "description": "Updates a GTM Trigger.",
-        "operationId": "tagmanager.accounts.containers.triggers.update",
+        "operationId": "accounts.containers.triggers.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2012,7 +2012,7 @@
     "/accounts/{accountId}/containers/{containerId}/variables": {
       "get": {
         "description": "Lists all GTM Variables of a Container.",
-        "operationId": "tagmanager.accounts.containers.variables.list",
+        "operationId": "accounts.containers.variables.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2078,7 +2078,7 @@
       ],
       "post": {
         "description": "Creates a GTM Variable.",
-        "operationId": "tagmanager.accounts.containers.variables.create",
+        "operationId": "accounts.containers.variables.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2125,7 +2125,7 @@
     "/accounts/{accountId}/containers/{containerId}/variables/{variableId}": {
       "delete": {
         "description": "Deletes a GTM Variable.",
-        "operationId": "tagmanager.accounts.containers.variables.delete",
+        "operationId": "accounts.containers.variables.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2167,7 +2167,7 @@
       },
       "get": {
         "description": "Gets a GTM Variable.",
-        "operationId": "tagmanager.accounts.containers.variables.get",
+        "operationId": "accounts.containers.variables.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2240,7 +2240,7 @@
       ],
       "put": {
         "description": "Updates a GTM Variable.",
-        "operationId": "tagmanager.accounts.containers.variables.update",
+        "operationId": "accounts.containers.variables.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2300,7 +2300,7 @@
     "/accounts/{accountId}/containers/{containerId}/versions": {
       "get": {
         "description": "Lists all Container Versions of a GTM Container.",
-        "operationId": "tagmanager.accounts.containers.versions.list",
+        "operationId": "accounts.containers.versions.list",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2385,7 +2385,7 @@
       ],
       "post": {
         "description": "Creates a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.create",
+        "operationId": "accounts.containers.versions.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2432,7 +2432,7 @@
     "/accounts/{accountId}/containers/{containerId}/versions/{containerVersionId}": {
       "delete": {
         "description": "Deletes a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.delete",
+        "operationId": "accounts.containers.versions.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2474,7 +2474,7 @@
       },
       "get": {
         "description": "Gets a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.get",
+        "operationId": "accounts.containers.versions.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2552,7 +2552,7 @@
       ],
       "put": {
         "description": "Updates a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.update",
+        "operationId": "accounts.containers.versions.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2635,7 +2635,7 @@
       ],
       "post": {
         "description": "Publishes a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.publish",
+        "operationId": "accounts.containers.versions.publish",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2711,7 +2711,7 @@
       ],
       "post": {
         "description": "Restores a Container Version. This will overwrite the container's current configuration (including its variables, triggers and tags). The operation will not have any effect on the version that is being served (i.e. the published version).",
-        "operationId": "tagmanager.accounts.containers.versions.restore",
+        "operationId": "accounts.containers.versions.restore",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2781,7 +2781,7 @@
       ],
       "post": {
         "description": "Undeletes a Container Version.",
-        "operationId": "tagmanager.accounts.containers.versions.undelete",
+        "operationId": "accounts.containers.versions.undelete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2828,7 +2828,7 @@
     "/accounts/{accountId}/permissions": {
       "get": {
         "description": "List all users that have access to the account along with Account and Container Permissions granted to each of them.",
-        "operationId": "tagmanager.accounts.permissions.list",
+        "operationId": "accounts.permissions.list",
         "parameters": [
           {
             "description": "The GTM Account ID. @required tagmanager.accounts.permissions.list",
@@ -2882,7 +2882,7 @@
       ],
       "post": {
         "description": "Creates a user's Account & Container Permissions.",
-        "operationId": "tagmanager.accounts.permissions.create",
+        "operationId": "accounts.permissions.create",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2922,7 +2922,7 @@
     "/accounts/{accountId}/permissions/{permissionId}": {
       "delete": {
         "description": "Removes a user from the account, revoking access to it and all of its containers.",
-        "operationId": "tagmanager.accounts.permissions.delete",
+        "operationId": "accounts.permissions.delete",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -2957,7 +2957,7 @@
       },
       "get": {
         "description": "Gets a user's Account & Container Permissions.",
-        "operationId": "tagmanager.accounts.permissions.get",
+        "operationId": "accounts.permissions.get",
         "parameters": [
           {
             "description": "The GTM Account ID.",
@@ -3018,7 +3018,7 @@
       ],
       "put": {
         "description": "Updates a user's Account & Container Permissions.",
-        "operationId": "tagmanager.accounts.permissions.update",
+        "operationId": "accounts.permissions.update",
         "parameters": [
           {
             "description": "The GTM Account ID.",

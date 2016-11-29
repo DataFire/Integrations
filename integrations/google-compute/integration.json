@@ -250,7 +250,7 @@
     "/{project}": {
       "get": {
         "description": "Returns the specified Project resource.",
-        "operationId": "compute.projects.get",
+        "operationId": "projects.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -316,7 +316,7 @@
     "/{project}/aggregated/addresses": {
       "get": {
         "description": "Retrieves an aggregated list of addresses.",
-        "operationId": "compute.addresses.aggregatedList",
+        "operationId": "addresses.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -409,7 +409,7 @@
     "/{project}/aggregated/autoscalers": {
       "get": {
         "description": "Retrieves an aggregated list of autoscalers.",
-        "operationId": "compute.autoscalers.aggregatedList",
+        "operationId": "autoscalers.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -502,7 +502,7 @@
     "/{project}/aggregated/backendServices": {
       "get": {
         "description": "Retrieves the list of all BackendService resources, regional and global, available to the specified project.",
-        "operationId": "compute.backendServices.aggregatedList",
+        "operationId": "backendServices.aggregatedList",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -595,7 +595,7 @@
     "/{project}/aggregated/diskTypes": {
       "get": {
         "description": "Retrieves an aggregated list of disk types.",
-        "operationId": "compute.diskTypes.aggregatedList",
+        "operationId": "diskTypes.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -688,7 +688,7 @@
     "/{project}/aggregated/disks": {
       "get": {
         "description": "Retrieves an aggregated list of persistent disks.",
-        "operationId": "compute.disks.aggregatedList",
+        "operationId": "disks.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -781,7 +781,7 @@
     "/{project}/aggregated/forwardingRules": {
       "get": {
         "description": "Retrieves an aggregated list of forwarding rules.",
-        "operationId": "compute.forwardingRules.aggregatedList",
+        "operationId": "forwardingRules.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -874,7 +874,7 @@
     "/{project}/aggregated/instanceGroupManagers": {
       "get": {
         "description": "Retrieves the list of managed instance groups and groups them by zone.",
-        "operationId": "compute.instanceGroupManagers.aggregatedList",
+        "operationId": "instanceGroupManagers.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -967,7 +967,7 @@
     "/{project}/aggregated/instanceGroups": {
       "get": {
         "description": "Retrieves the list of instance groups and sorts them by zone.",
-        "operationId": "compute.instanceGroups.aggregatedList",
+        "operationId": "instanceGroups.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1060,7 +1060,7 @@
     "/{project}/aggregated/instances": {
       "get": {
         "description": "Retrieves aggregated list of instances.",
-        "operationId": "compute.instances.aggregatedList",
+        "operationId": "instances.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1153,7 +1153,7 @@
     "/{project}/aggregated/machineTypes": {
       "get": {
         "description": "Retrieves an aggregated list of machine types.",
-        "operationId": "compute.machineTypes.aggregatedList",
+        "operationId": "machineTypes.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1246,7 +1246,7 @@
     "/{project}/aggregated/operations": {
       "get": {
         "description": "Retrieves an aggregated list of all operations.",
-        "operationId": "compute.globalOperations.aggregatedList",
+        "operationId": "globalOperations.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1339,7 +1339,7 @@
     "/{project}/aggregated/routers": {
       "get": {
         "description": "Retrieves an aggregated list of routers.",
-        "operationId": "compute.routers.aggregatedList",
+        "operationId": "routers.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1432,7 +1432,7 @@
     "/{project}/aggregated/subnetworks": {
       "get": {
         "description": "Retrieves an aggregated list of subnetworks.",
-        "operationId": "compute.subnetworks.aggregatedList",
+        "operationId": "subnetworks.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1525,7 +1525,7 @@
     "/{project}/aggregated/targetInstances": {
       "get": {
         "description": "Retrieves an aggregated list of target instances.",
-        "operationId": "compute.targetInstances.aggregatedList",
+        "operationId": "targetInstances.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1618,7 +1618,7 @@
     "/{project}/aggregated/targetPools": {
       "get": {
         "description": "Retrieves an aggregated list of target pools.",
-        "operationId": "compute.targetPools.aggregatedList",
+        "operationId": "targetPools.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1711,7 +1711,7 @@
     "/{project}/aggregated/targetVpnGateways": {
       "get": {
         "description": "Retrieves an aggregated list of target VPN gateways.",
-        "operationId": "compute.targetVpnGateways.aggregatedList",
+        "operationId": "targetVpnGateways.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1804,7 +1804,7 @@
     "/{project}/aggregated/vpnTunnels": {
       "get": {
         "description": "Retrieves an aggregated list of VPN tunnels.",
-        "operationId": "compute.vpnTunnels.aggregatedList",
+        "operationId": "vpnTunnels.aggregatedList",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1897,7 +1897,7 @@
     "/{project}/global/addresses": {
       "get": {
         "description": "Retrieves a list of global addresses.",
-        "operationId": "compute.globalAddresses.list",
+        "operationId": "globalAddresses.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -1988,7 +1988,7 @@
       ],
       "post": {
         "description": "Creates an address resource in the specified project using the data included in the request.",
-        "operationId": "compute.globalAddresses.insert",
+        "operationId": "globalAddresses.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2033,7 +2033,7 @@
     "/{project}/global/addresses/{address}": {
       "delete": {
         "description": "Deletes the specified address resource.",
-        "operationId": "compute.globalAddresses.delete",
+        "operationId": "globalAddresses.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2076,7 +2076,7 @@
       },
       "get": {
         "description": "Returns the specified address resource. Get a list of available addresses by making a list() request.",
-        "operationId": "compute.globalAddresses.get",
+        "operationId": "globalAddresses.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2149,7 +2149,7 @@
     "/{project}/global/backendServices": {
       "get": {
         "description": "Retrieves the list of BackendService resources available to the specified project.",
-        "operationId": "compute.backendServices.list",
+        "operationId": "backendServices.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2240,7 +2240,7 @@
       ],
       "post": {
         "description": "Creates a BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a backend service. Read  Restrictions and Guidelines for more information.",
-        "operationId": "compute.backendServices.insert",
+        "operationId": "backendServices.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2285,7 +2285,7 @@
     "/{project}/global/backendServices/{backendService}": {
       "delete": {
         "description": "Deletes the specified BackendService resource.",
-        "operationId": "compute.backendServices.delete",
+        "operationId": "backendServices.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2328,7 +2328,7 @@
       },
       "get": {
         "description": "Returns the specified BackendService resource. Get a list of available backend services by making a list() request.",
-        "operationId": "compute.backendServices.get",
+        "operationId": "backendServices.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2399,7 +2399,7 @@
       ],
       "patch": {
         "description": "Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.",
-        "operationId": "compute.backendServices.patch",
+        "operationId": "backendServices.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2449,7 +2449,7 @@
       },
       "put": {
         "description": "Updates the specified BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.",
-        "operationId": "compute.backendServices.update",
+        "operationId": "backendServices.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2524,7 +2524,7 @@
       ],
       "post": {
         "description": "Gets the most recent health check results for this BackendService.",
-        "operationId": "compute.backendServices.getHealth",
+        "operationId": "backendServices.getHealth",
         "parameters": [
           {
             "in": "path",
@@ -2580,7 +2580,7 @@
     "/{project}/global/firewalls": {
       "get": {
         "description": "Retrieves the list of firewall rules available to the specified project.",
-        "operationId": "compute.firewalls.list",
+        "operationId": "firewalls.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2671,7 +2671,7 @@
       ],
       "post": {
         "description": "Creates a firewall rule in the specified project using the data included in the request.",
-        "operationId": "compute.firewalls.insert",
+        "operationId": "firewalls.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2716,7 +2716,7 @@
     "/{project}/global/firewalls/{firewall}": {
       "delete": {
         "description": "Deletes the specified firewall.",
-        "operationId": "compute.firewalls.delete",
+        "operationId": "firewalls.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2759,7 +2759,7 @@
       },
       "get": {
         "description": "Returns the specified firewall.",
-        "operationId": "compute.firewalls.get",
+        "operationId": "firewalls.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2830,7 +2830,7 @@
       ],
       "patch": {
         "description": "Updates the specified firewall rule with the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.firewalls.patch",
+        "operationId": "firewalls.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2880,7 +2880,7 @@
       },
       "put": {
         "description": "Updates the specified firewall rule with the data included in the request.",
-        "operationId": "compute.firewalls.update",
+        "operationId": "firewalls.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -2932,7 +2932,7 @@
     "/{project}/global/forwardingRules": {
       "get": {
         "description": "Retrieves a list of ForwardingRule resources available to the specified project.",
-        "operationId": "compute.globalForwardingRules.list",
+        "operationId": "globalForwardingRules.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3023,7 +3023,7 @@
       ],
       "post": {
         "description": "Creates a ForwardingRule resource in the specified project and region using the data included in the request.",
-        "operationId": "compute.globalForwardingRules.insert",
+        "operationId": "globalForwardingRules.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3068,7 +3068,7 @@
     "/{project}/global/forwardingRules/{forwardingRule}": {
       "delete": {
         "description": "Deletes the specified ForwardingRule resource.",
-        "operationId": "compute.globalForwardingRules.delete",
+        "operationId": "globalForwardingRules.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3111,7 +3111,7 @@
       },
       "get": {
         "description": "Returns the specified ForwardingRule resource. Get a list of available forwarding rules by making a list() request.",
-        "operationId": "compute.globalForwardingRules.get",
+        "operationId": "globalForwardingRules.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3207,7 +3207,7 @@
       ],
       "post": {
         "description": "Changes target URL for forwarding rule. The new target should be of the same type as the old target.",
-        "operationId": "compute.globalForwardingRules.setTarget",
+        "operationId": "globalForwardingRules.setTarget",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3259,7 +3259,7 @@
     "/{project}/global/healthChecks": {
       "get": {
         "description": "Retrieves the list of HealthCheck resources available to the specified project.",
-        "operationId": "compute.healthChecks.list",
+        "operationId": "healthChecks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3350,7 +3350,7 @@
       ],
       "post": {
         "description": "Creates a HealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.healthChecks.insert",
+        "operationId": "healthChecks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3395,7 +3395,7 @@
     "/{project}/global/healthChecks/{healthCheck}": {
       "delete": {
         "description": "Deletes the specified HealthCheck resource.",
-        "operationId": "compute.healthChecks.delete",
+        "operationId": "healthChecks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3438,7 +3438,7 @@
       },
       "get": {
         "description": "Returns the specified HealthCheck resource. Get a list of available health checks by making a list() request.",
-        "operationId": "compute.healthChecks.get",
+        "operationId": "healthChecks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3509,7 +3509,7 @@
       ],
       "patch": {
         "description": "Updates a HealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.healthChecks.patch",
+        "operationId": "healthChecks.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3559,7 +3559,7 @@
       },
       "put": {
         "description": "Updates a HealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.healthChecks.update",
+        "operationId": "healthChecks.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3611,7 +3611,7 @@
     "/{project}/global/httpHealthChecks": {
       "get": {
         "description": "Retrieves the list of HttpHealthCheck resources available to the specified project.",
-        "operationId": "compute.httpHealthChecks.list",
+        "operationId": "httpHealthChecks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3702,7 +3702,7 @@
       ],
       "post": {
         "description": "Creates a HttpHealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.httpHealthChecks.insert",
+        "operationId": "httpHealthChecks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3747,7 +3747,7 @@
     "/{project}/global/httpHealthChecks/{httpHealthCheck}": {
       "delete": {
         "description": "Deletes the specified HttpHealthCheck resource.",
-        "operationId": "compute.httpHealthChecks.delete",
+        "operationId": "httpHealthChecks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3790,7 +3790,7 @@
       },
       "get": {
         "description": "Returns the specified HttpHealthCheck resource. Get a list of available HTTP health checks by making a list() request.",
-        "operationId": "compute.httpHealthChecks.get",
+        "operationId": "httpHealthChecks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3861,7 +3861,7 @@
       ],
       "patch": {
         "description": "Updates a HttpHealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.httpHealthChecks.patch",
+        "operationId": "httpHealthChecks.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3911,7 +3911,7 @@
       },
       "put": {
         "description": "Updates a HttpHealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.httpHealthChecks.update",
+        "operationId": "httpHealthChecks.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -3963,7 +3963,7 @@
     "/{project}/global/httpsHealthChecks": {
       "get": {
         "description": "Retrieves the list of HttpsHealthCheck resources available to the specified project.",
-        "operationId": "compute.httpsHealthChecks.list",
+        "operationId": "httpsHealthChecks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4054,7 +4054,7 @@
       ],
       "post": {
         "description": "Creates a HttpsHealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.httpsHealthChecks.insert",
+        "operationId": "httpsHealthChecks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4099,7 +4099,7 @@
     "/{project}/global/httpsHealthChecks/{httpsHealthCheck}": {
       "delete": {
         "description": "Deletes the specified HttpsHealthCheck resource.",
-        "operationId": "compute.httpsHealthChecks.delete",
+        "operationId": "httpsHealthChecks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4142,7 +4142,7 @@
       },
       "get": {
         "description": "Returns the specified HttpsHealthCheck resource. Get a list of available HTTPS health checks by making a list() request.",
-        "operationId": "compute.httpsHealthChecks.get",
+        "operationId": "httpsHealthChecks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4213,7 +4213,7 @@
       ],
       "patch": {
         "description": "Updates a HttpsHealthCheck resource in the specified project using the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.httpsHealthChecks.patch",
+        "operationId": "httpsHealthChecks.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4263,7 +4263,7 @@
       },
       "put": {
         "description": "Updates a HttpsHealthCheck resource in the specified project using the data included in the request.",
-        "operationId": "compute.httpsHealthChecks.update",
+        "operationId": "httpsHealthChecks.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4315,7 +4315,7 @@
     "/{project}/global/images": {
       "get": {
         "description": "Retrieves the list of private images available to the specified project. Private images are images you create that belong to your project. This method does not get any images that belong to other projects, including publicly-available images, like Debian 8. If you want to get a list of publicly-available images, use this method to make a request to the respective image project, such as debian-cloud or windows-cloud.",
-        "operationId": "compute.images.list",
+        "operationId": "images.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4406,7 +4406,7 @@
       ],
       "post": {
         "description": "Creates an image in the specified project using the data included in the request.",
-        "operationId": "compute.images.insert",
+        "operationId": "images.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4466,7 +4466,7 @@
     "/{project}/global/images/family/{family}": {
       "get": {
         "description": "Returns the latest image that is part of an image family and is not deprecated.",
-        "operationId": "compute.images.getFromFamily",
+        "operationId": "images.getFromFamily",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4539,7 +4539,7 @@
     "/{project}/global/images/{image}": {
       "delete": {
         "description": "Deletes the specified image.",
-        "operationId": "compute.images.delete",
+        "operationId": "images.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4582,7 +4582,7 @@
       },
       "get": {
         "description": "Returns the specified image. Get a list of available images by making a list() request.",
-        "operationId": "compute.images.get",
+        "operationId": "images.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4678,7 +4678,7 @@
       ],
       "post": {
         "description": "Sets the deprecation status of an image.\n\nIf an empty request body is given, clears the deprecation status instead.",
-        "operationId": "compute.images.deprecate",
+        "operationId": "images.deprecate",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4730,7 +4730,7 @@
     "/{project}/global/instanceTemplates": {
       "get": {
         "description": "Retrieves a list of instance templates that are contained within the specified project and zone.",
-        "operationId": "compute.instanceTemplates.list",
+        "operationId": "instanceTemplates.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4821,7 +4821,7 @@
       ],
       "post": {
         "description": "Creates an instance template in the specified project using the data that is included in the request. If you are creating a new template to update an existing instance group, your new instance template must use the same network or, if applicable, the same subnetwork as the original template.",
-        "operationId": "compute.instanceTemplates.insert",
+        "operationId": "instanceTemplates.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4866,7 +4866,7 @@
     "/{project}/global/instanceTemplates/{instanceTemplate}": {
       "delete": {
         "description": "Deletes the specified instance template. If you delete an instance template that is being referenced from another instance group, the instance group will not be able to create or recreate virtual machine instances. Deleting an instance template is permanent and cannot be undone.",
-        "operationId": "compute.instanceTemplates.delete",
+        "operationId": "instanceTemplates.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4909,7 +4909,7 @@
       },
       "get": {
         "description": "Returns the specified instance template. Get a list of available instance templates by making a list() request.",
-        "operationId": "compute.instanceTemplates.get",
+        "operationId": "instanceTemplates.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -4982,7 +4982,7 @@
     "/{project}/global/licenses/{license}": {
       "get": {
         "description": "Returns the specified License resource. Get a list of available licenses by making a list() request.",
-        "operationId": "compute.licenses.get",
+        "operationId": "licenses.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5055,7 +5055,7 @@
     "/{project}/global/networks": {
       "get": {
         "description": "Retrieves the list of networks available to the specified project.",
-        "operationId": "compute.networks.list",
+        "operationId": "networks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5146,7 +5146,7 @@
       ],
       "post": {
         "description": "Creates a network in the specified project using the data included in the request.",
-        "operationId": "compute.networks.insert",
+        "operationId": "networks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5191,7 +5191,7 @@
     "/{project}/global/networks/{network}": {
       "delete": {
         "description": "Deletes the specified network.",
-        "operationId": "compute.networks.delete",
+        "operationId": "networks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5234,7 +5234,7 @@
       },
       "get": {
         "description": "Returns the specified network. Get a list of available networks by making a list() request.",
-        "operationId": "compute.networks.get",
+        "operationId": "networks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5330,7 +5330,7 @@
       ],
       "post": {
         "description": "Switches the network mode from auto subnet mode to custom subnet mode.",
-        "operationId": "compute.networks.switchToCustomMode",
+        "operationId": "networks.switchToCustomMode",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5375,7 +5375,7 @@
     "/{project}/global/operations": {
       "get": {
         "description": "Retrieves a list of Operation resources contained within the specified project.",
-        "operationId": "compute.globalOperations.list",
+        "operationId": "globalOperations.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5468,7 +5468,7 @@
     "/{project}/global/operations/{operation}": {
       "delete": {
         "description": "Deletes the specified Operations resource.",
-        "operationId": "compute.globalOperations.delete",
+        "operationId": "globalOperations.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5508,7 +5508,7 @@
       },
       "get": {
         "description": "Retrieves the specified Operations resource. Get a list of operations by making a list() request.",
-        "operationId": "compute.globalOperations.get",
+        "operationId": "globalOperations.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5581,7 +5581,7 @@
     "/{project}/global/routes": {
       "get": {
         "description": "Retrieves the list of Route resources available to the specified project.",
-        "operationId": "compute.routes.list",
+        "operationId": "routes.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5672,7 +5672,7 @@
       ],
       "post": {
         "description": "Creates a Route resource in the specified project using the data included in the request.",
-        "operationId": "compute.routes.insert",
+        "operationId": "routes.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5717,7 +5717,7 @@
     "/{project}/global/routes/{route}": {
       "delete": {
         "description": "Deletes the specified Route resource.",
-        "operationId": "compute.routes.delete",
+        "operationId": "routes.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5760,7 +5760,7 @@
       },
       "get": {
         "description": "Returns the specified Route resource. Get a list of available routes by making a list() request.",
-        "operationId": "compute.routes.get",
+        "operationId": "routes.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5833,7 +5833,7 @@
     "/{project}/global/snapshots": {
       "get": {
         "description": "Retrieves the list of Snapshot resources contained within the specified project.",
-        "operationId": "compute.snapshots.list",
+        "operationId": "snapshots.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5926,7 +5926,7 @@
     "/{project}/global/snapshots/{snapshot}": {
       "delete": {
         "description": "Deletes the specified Snapshot resource. Keep in mind that deleting a single snapshot might not necessarily delete all the data on that snapshot. If any data on the snapshot that is marked for deletion is needed for subsequent snapshots, the data will be moved to the next corresponding snapshot.\n\nFor more information, see Deleting snaphots.",
-        "operationId": "compute.snapshots.delete",
+        "operationId": "snapshots.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -5969,7 +5969,7 @@
       },
       "get": {
         "description": "Returns the specified Snapshot resource. Get a list of available snapshots by making a list() request.",
-        "operationId": "compute.snapshots.get",
+        "operationId": "snapshots.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6042,7 +6042,7 @@
     "/{project}/global/sslCertificates": {
       "get": {
         "description": "Retrieves the list of SslCertificate resources available to the specified project.",
-        "operationId": "compute.sslCertificates.list",
+        "operationId": "sslCertificates.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6133,7 +6133,7 @@
       ],
       "post": {
         "description": "Creates a SslCertificate resource in the specified project using the data included in the request.",
-        "operationId": "compute.sslCertificates.insert",
+        "operationId": "sslCertificates.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6178,7 +6178,7 @@
     "/{project}/global/sslCertificates/{sslCertificate}": {
       "delete": {
         "description": "Deletes the specified SslCertificate resource.",
-        "operationId": "compute.sslCertificates.delete",
+        "operationId": "sslCertificates.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6221,7 +6221,7 @@
       },
       "get": {
         "description": "Returns the specified SslCertificate resource. Get a list of available SSL certificates by making a list() request.",
-        "operationId": "compute.sslCertificates.get",
+        "operationId": "sslCertificates.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6294,7 +6294,7 @@
     "/{project}/global/targetHttpProxies": {
       "get": {
         "description": "Retrieves the list of TargetHttpProxy resources available to the specified project.",
-        "operationId": "compute.targetHttpProxies.list",
+        "operationId": "targetHttpProxies.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6385,7 +6385,7 @@
       ],
       "post": {
         "description": "Creates a TargetHttpProxy resource in the specified project using the data included in the request.",
-        "operationId": "compute.targetHttpProxies.insert",
+        "operationId": "targetHttpProxies.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6430,7 +6430,7 @@
     "/{project}/global/targetHttpProxies/{targetHttpProxy}": {
       "delete": {
         "description": "Deletes the specified TargetHttpProxy resource.",
-        "operationId": "compute.targetHttpProxies.delete",
+        "operationId": "targetHttpProxies.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6473,7 +6473,7 @@
       },
       "get": {
         "description": "Returns the specified TargetHttpProxy resource. Get a list of available target HTTP proxies by making a list() request.",
-        "operationId": "compute.targetHttpProxies.get",
+        "operationId": "targetHttpProxies.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6546,7 +6546,7 @@
     "/{project}/global/targetHttpsProxies": {
       "get": {
         "description": "Retrieves the list of TargetHttpsProxy resources available to the specified project.",
-        "operationId": "compute.targetHttpsProxies.list",
+        "operationId": "targetHttpsProxies.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6637,7 +6637,7 @@
       ],
       "post": {
         "description": "Creates a TargetHttpsProxy resource in the specified project using the data included in the request.",
-        "operationId": "compute.targetHttpsProxies.insert",
+        "operationId": "targetHttpsProxies.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6682,7 +6682,7 @@
     "/{project}/global/targetHttpsProxies/{targetHttpsProxy}": {
       "delete": {
         "description": "Deletes the specified TargetHttpsProxy resource.",
-        "operationId": "compute.targetHttpsProxies.delete",
+        "operationId": "targetHttpsProxies.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6725,7 +6725,7 @@
       },
       "get": {
         "description": "Returns the specified TargetHttpsProxy resource. Get a list of available target HTTPS proxies by making a list() request.",
-        "operationId": "compute.targetHttpsProxies.get",
+        "operationId": "targetHttpsProxies.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6798,7 +6798,7 @@
     "/{project}/global/targetSslProxies": {
       "get": {
         "description": "Retrieves the list of TargetSslProxy resources available to the specified project.",
-        "operationId": "compute.targetSslProxies.list",
+        "operationId": "targetSslProxies.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6889,7 +6889,7 @@
       ],
       "post": {
         "description": "Creates a TargetSslProxy resource in the specified project using the data included in the request.",
-        "operationId": "compute.targetSslProxies.insert",
+        "operationId": "targetSslProxies.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6934,7 +6934,7 @@
     "/{project}/global/targetSslProxies/{targetSslProxy}": {
       "delete": {
         "description": "Deletes the specified TargetSslProxy resource.",
-        "operationId": "compute.targetSslProxies.delete",
+        "operationId": "targetSslProxies.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -6977,7 +6977,7 @@
       },
       "get": {
         "description": "Returns the specified TargetSslProxy resource. Get a list of available target SSL proxies by making a list() request.",
-        "operationId": "compute.targetSslProxies.get",
+        "operationId": "targetSslProxies.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7073,7 +7073,7 @@
       ],
       "post": {
         "description": "Changes the BackendService for TargetSslProxy.",
-        "operationId": "compute.targetSslProxies.setBackendService",
+        "operationId": "targetSslProxies.setBackendService",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7148,7 +7148,7 @@
       ],
       "post": {
         "description": "Changes the ProxyHeaderType for TargetSslProxy.",
-        "operationId": "compute.targetSslProxies.setProxyHeader",
+        "operationId": "targetSslProxies.setProxyHeader",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7223,7 +7223,7 @@
       ],
       "post": {
         "description": "Changes SslCertificates for TargetSslProxy.",
-        "operationId": "compute.targetSslProxies.setSslCertificates",
+        "operationId": "targetSslProxies.setSslCertificates",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7275,7 +7275,7 @@
     "/{project}/global/urlMaps": {
       "get": {
         "description": "Retrieves the list of UrlMap resources available to the specified project.",
-        "operationId": "compute.urlMaps.list",
+        "operationId": "urlMaps.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7366,7 +7366,7 @@
       ],
       "post": {
         "description": "Creates a UrlMap resource in the specified project using the data included in the request.",
-        "operationId": "compute.urlMaps.insert",
+        "operationId": "urlMaps.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7411,7 +7411,7 @@
     "/{project}/global/urlMaps/{urlMap}": {
       "delete": {
         "description": "Deletes the specified UrlMap resource.",
-        "operationId": "compute.urlMaps.delete",
+        "operationId": "urlMaps.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7454,7 +7454,7 @@
       },
       "get": {
         "description": "Returns the specified UrlMap resource. Get a list of available URL maps by making a list() request.",
-        "operationId": "compute.urlMaps.get",
+        "operationId": "urlMaps.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7525,7 +7525,7 @@
       ],
       "patch": {
         "description": "Updates the specified UrlMap resource with the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.urlMaps.patch",
+        "operationId": "urlMaps.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7575,7 +7575,7 @@
       },
       "put": {
         "description": "Updates the specified UrlMap resource with the data included in the request.",
-        "operationId": "compute.urlMaps.update",
+        "operationId": "urlMaps.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7650,7 +7650,7 @@
       ],
       "post": {
         "description": "Initiates a cache invalidation operation, invalidating the specified path, scoped to the specified UrlMap.",
-        "operationId": "compute.urlMaps.invalidateCache",
+        "operationId": "urlMaps.invalidateCache",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7725,7 +7725,7 @@
       ],
       "post": {
         "description": "Runs static validation for the UrlMap. In particular, the tests of the provided UrlMap will be run. Calling this method does NOT create the UrlMap.",
-        "operationId": "compute.urlMaps.validate",
+        "operationId": "urlMaps.validate",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7800,7 +7800,7 @@
       ],
       "post": {
         "description": "Moves a persistent disk from one zone to another.",
-        "operationId": "compute.projects.moveDisk",
+        "operationId": "projects.moveDisk",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7868,7 +7868,7 @@
       ],
       "post": {
         "description": "Moves an instance and its attached persistent disks from one zone to another.",
-        "operationId": "compute.projects.moveInstance",
+        "operationId": "projects.moveInstance",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -7913,7 +7913,7 @@
     "/{project}/regions": {
       "get": {
         "description": "Retrieves the list of region resources available to the specified project.",
-        "operationId": "compute.regions.list",
+        "operationId": "regions.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8006,7 +8006,7 @@
     "/{project}/regions/{region}": {
       "get": {
         "description": "Returns the specified Region resource. Get a list of available regions by making a list() request.",
-        "operationId": "compute.regions.get",
+        "operationId": "regions.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8079,7 +8079,7 @@
     "/{project}/regions/{region}/addresses": {
       "get": {
         "description": "Retrieves a list of addresses contained within the specified region.",
-        "operationId": "compute.addresses.list",
+        "operationId": "addresses.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8177,7 +8177,7 @@
       ],
       "post": {
         "description": "Creates an address resource in the specified project using the data included in the request.",
-        "operationId": "compute.addresses.insert",
+        "operationId": "addresses.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8229,7 +8229,7 @@
     "/{project}/regions/{region}/addresses/{address}": {
       "delete": {
         "description": "Deletes the specified address resource.",
-        "operationId": "compute.addresses.delete",
+        "operationId": "addresses.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8279,7 +8279,7 @@
       },
       "get": {
         "description": "Returns the specified address resource.",
-        "operationId": "compute.addresses.get",
+        "operationId": "addresses.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8359,7 +8359,7 @@
     "/{project}/regions/{region}/autoscalers": {
       "get": {
         "description": "Retrieves a list of autoscalers contained within the specified region.",
-        "operationId": "compute.regionAutoscalers.list",
+        "operationId": "regionAutoscalers.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8457,7 +8457,7 @@
       ],
       "patch": {
         "description": "Updates an autoscaler in the specified project using the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.regionAutoscalers.patch",
+        "operationId": "regionAutoscalers.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8514,7 +8514,7 @@
       },
       "post": {
         "description": "Creates an autoscaler in the specified project using the data included in the request.",
-        "operationId": "compute.regionAutoscalers.insert",
+        "operationId": "regionAutoscalers.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8564,7 +8564,7 @@
       },
       "put": {
         "description": "Updates an autoscaler in the specified project using the data included in the request.",
-        "operationId": "compute.regionAutoscalers.update",
+        "operationId": "regionAutoscalers.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8622,7 +8622,7 @@
     "/{project}/regions/{region}/autoscalers/{autoscaler}": {
       "delete": {
         "description": "Deletes the specified autoscaler.",
-        "operationId": "compute.regionAutoscalers.delete",
+        "operationId": "regionAutoscalers.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8672,7 +8672,7 @@
       },
       "get": {
         "description": "Returns the specified autoscaler.",
-        "operationId": "compute.regionAutoscalers.get",
+        "operationId": "regionAutoscalers.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8752,7 +8752,7 @@
     "/{project}/regions/{region}/backendServices": {
       "get": {
         "description": "Retrieves the list of regional BackendService resources available to the specified project in the given region.",
-        "operationId": "compute.regionBackendServices.list",
+        "operationId": "regionBackendServices.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8850,7 +8850,7 @@
       ],
       "post": {
         "description": "Creates a regional BackendService resource in the specified project using the data included in the request. There are several restrictions and guidelines to keep in mind when creating a regional backend service. Read  Restrictions and Guidelines for more information.",
-        "operationId": "compute.regionBackendServices.insert",
+        "operationId": "regionBackendServices.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8902,7 +8902,7 @@
     "/{project}/regions/{region}/backendServices/{backendService}": {
       "delete": {
         "description": "Deletes the specified regional BackendService resource.",
-        "operationId": "compute.regionBackendServices.delete",
+        "operationId": "regionBackendServices.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -8952,7 +8952,7 @@
       },
       "get": {
         "description": "Returns the specified regional BackendService resource.",
-        "operationId": "compute.regionBackendServices.get",
+        "operationId": "regionBackendServices.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9030,7 +9030,7 @@
       ],
       "patch": {
         "description": "Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information. This method supports patch semantics.",
-        "operationId": "compute.regionBackendServices.patch",
+        "operationId": "regionBackendServices.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9087,7 +9087,7 @@
       },
       "put": {
         "description": "Updates the specified regional BackendService resource with the data included in the request. There are several restrictions and guidelines to keep in mind when updating a backend service. Read  Restrictions and Guidelines for more information.",
-        "operationId": "compute.regionBackendServices.update",
+        "operationId": "regionBackendServices.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9169,7 +9169,7 @@
       ],
       "post": {
         "description": "Gets the most recent health check results for this regional BackendService.",
-        "operationId": "compute.regionBackendServices.getHealth",
+        "operationId": "regionBackendServices.getHealth",
         "parameters": [
           {
             "in": "path",
@@ -9232,7 +9232,7 @@
     "/{project}/regions/{region}/forwardingRules": {
       "get": {
         "description": "Retrieves a list of ForwardingRule resources available to the specified project and region.",
-        "operationId": "compute.forwardingRules.list",
+        "operationId": "forwardingRules.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9330,7 +9330,7 @@
       ],
       "post": {
         "description": "Creates a ForwardingRule resource in the specified project and region using the data included in the request.",
-        "operationId": "compute.forwardingRules.insert",
+        "operationId": "forwardingRules.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9382,7 +9382,7 @@
     "/{project}/regions/{region}/forwardingRules/{forwardingRule}": {
       "delete": {
         "description": "Deletes the specified ForwardingRule resource.",
-        "operationId": "compute.forwardingRules.delete",
+        "operationId": "forwardingRules.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9432,7 +9432,7 @@
       },
       "get": {
         "description": "Returns the specified ForwardingRule resource.",
-        "operationId": "compute.forwardingRules.get",
+        "operationId": "forwardingRules.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9535,7 +9535,7 @@
       ],
       "post": {
         "description": "Changes target URL for forwarding rule. The new target should be of the same type as the old target.",
-        "operationId": "compute.forwardingRules.setTarget",
+        "operationId": "forwardingRules.setTarget",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9594,7 +9594,7 @@
     "/{project}/regions/{region}/instanceGroupManagers": {
       "get": {
         "description": "Retrieves the list of managed instance groups that are contained within the specified region.",
-        "operationId": "compute.regionInstanceGroupManagers.list",
+        "operationId": "regionInstanceGroupManagers.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9692,7 +9692,7 @@
       ],
       "post": {
         "description": "Creates a managed instance group using the information that you specify in the request. After the group is created, it schedules an action to create instances in the group using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.",
-        "operationId": "compute.regionInstanceGroupManagers.insert",
+        "operationId": "regionInstanceGroupManagers.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9744,7 +9744,7 @@
     "/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}": {
       "delete": {
         "description": "Deletes the specified managed instance group and all of the instances in that group.",
-        "operationId": "compute.regionInstanceGroupManagers.delete",
+        "operationId": "regionInstanceGroupManagers.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9794,7 +9794,7 @@
       },
       "get": {
         "description": "Returns all of the details about the specified managed instance group.",
-        "operationId": "compute.regionInstanceGroupManagers.get",
+        "operationId": "regionInstanceGroupManagers.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9897,7 +9897,7 @@
       ],
       "post": {
         "description": "Schedules a group action to remove the specified instances from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.",
-        "operationId": "compute.regionInstanceGroupManagers.abandonInstances",
+        "operationId": "regionInstanceGroupManagers.abandonInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -9979,7 +9979,7 @@
       ],
       "post": {
         "description": "Schedules a group action to delete the specified instances in the managed instance group. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.",
-        "operationId": "compute.regionInstanceGroupManagers.deleteInstances",
+        "operationId": "regionInstanceGroupManagers.deleteInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10061,7 +10061,7 @@
       ],
       "post": {
         "description": "Lists the instances in the managed instance group and instances that are scheduled to be created. The list includes any current actions that the group has scheduled for its instances.",
-        "operationId": "compute.regionInstanceGroupManagers.listManagedInstances",
+        "operationId": "regionInstanceGroupManagers.listManagedInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10141,7 +10141,7 @@
       ],
       "post": {
         "description": "Schedules a group action to recreate the specified instances in the managed instance group. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the action is scheduled even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.",
-        "operationId": "compute.regionInstanceGroupManagers.recreateInstances",
+        "operationId": "regionInstanceGroupManagers.recreateInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10223,7 +10223,7 @@
       ],
       "post": {
         "description": "Changes the intended size for the managed instance group. If you increase the size, the group schedules actions to create new instances using the current instance template. If you decrease the size, the group schedules delete actions on one or more instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.",
-        "operationId": "compute.regionInstanceGroupManagers.resize",
+        "operationId": "regionInstanceGroupManagers.resize",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10306,7 +10306,7 @@
       ],
       "post": {
         "description": "Sets the instance template to use when creating new instances or recreating instances in this group. Existing instances are not affected.",
-        "operationId": "compute.regionInstanceGroupManagers.setInstanceTemplate",
+        "operationId": "regionInstanceGroupManagers.setInstanceTemplate",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10388,7 +10388,7 @@
       ],
       "post": {
         "description": "Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.",
-        "operationId": "compute.regionInstanceGroupManagers.setTargetPools",
+        "operationId": "regionInstanceGroupManagers.setTargetPools",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10447,7 +10447,7 @@
     "/{project}/regions/{region}/instanceGroups": {
       "get": {
         "description": "Retrieves the list of instance group resources contained within the specified region.",
-        "operationId": "compute.regionInstanceGroups.list",
+        "operationId": "regionInstanceGroups.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10547,7 +10547,7 @@
     "/{project}/regions/{region}/instanceGroups/{instanceGroup}": {
       "get": {
         "description": "Returns the specified instance group resource.",
-        "operationId": "compute.regionInstanceGroups.get",
+        "operationId": "regionInstanceGroups.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10650,7 +10650,7 @@
       ],
       "post": {
         "description": "Lists the instances in the specified instance group and displays information about the named ports. Depending on the specified options, this method can list all instances or only the instances that are running.",
-        "operationId": "compute.regionInstanceGroups.listInstances",
+        "operationId": "regionInstanceGroups.listInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10764,7 +10764,7 @@
       ],
       "post": {
         "description": "Sets the named ports for the specified regional instance group.",
-        "operationId": "compute.regionInstanceGroups.setNamedPorts",
+        "operationId": "regionInstanceGroups.setNamedPorts",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10823,7 +10823,7 @@
     "/{project}/regions/{region}/operations": {
       "get": {
         "description": "Retrieves a list of Operation resources contained within the specified region.",
-        "operationId": "compute.regionOperations.list",
+        "operationId": "regionOperations.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10923,7 +10923,7 @@
     "/{project}/regions/{region}/operations/{operation}": {
       "delete": {
         "description": "Deletes the specified region-specific Operations resource.",
-        "operationId": "compute.regionOperations.delete",
+        "operationId": "regionOperations.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -10970,7 +10970,7 @@
       },
       "get": {
         "description": "Retrieves the specified region-specific Operations resource.",
-        "operationId": "compute.regionOperations.get",
+        "operationId": "regionOperations.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11050,7 +11050,7 @@
     "/{project}/regions/{region}/routers": {
       "get": {
         "description": "Retrieves a list of Router resources available to the specified project.",
-        "operationId": "compute.routers.list",
+        "operationId": "routers.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11148,7 +11148,7 @@
       ],
       "post": {
         "description": "Creates a Router resource in the specified project and region using the data included in the request.",
-        "operationId": "compute.routers.insert",
+        "operationId": "routers.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11200,7 +11200,7 @@
     "/{project}/regions/{region}/routers/{router}": {
       "delete": {
         "description": "Deletes the specified Router resource.",
-        "operationId": "compute.routers.delete",
+        "operationId": "routers.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11250,7 +11250,7 @@
       },
       "get": {
         "description": "Returns the specified Router resource. Get a list of available routers by making a list() request.",
-        "operationId": "compute.routers.get",
+        "operationId": "routers.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11328,7 +11328,7 @@
       ],
       "patch": {
         "description": "Updates the specified Router resource with the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.routers.patch",
+        "operationId": "routers.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11385,7 +11385,7 @@
       },
       "put": {
         "description": "Updates the specified Router resource with the data included in the request.",
-        "operationId": "compute.routers.update",
+        "operationId": "routers.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11444,7 +11444,7 @@
     "/{project}/regions/{region}/routers/{router}/getRouterStatus": {
       "get": {
         "description": "Retrieves runtime information of the specified router.",
-        "operationId": "compute.routers.getRouterStatus",
+        "operationId": "routers.getRouterStatus",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11547,7 +11547,7 @@
       ],
       "post": {
         "description": "Preview fields auto-generated during router create and update operations. Calling this method does NOT create or update the router.",
-        "operationId": "compute.routers.preview",
+        "operationId": "routers.preview",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11611,7 +11611,7 @@
     "/{project}/regions/{region}/subnetworks": {
       "get": {
         "description": "Retrieves a list of subnetworks available to the specified project.",
-        "operationId": "compute.subnetworks.list",
+        "operationId": "subnetworks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11709,7 +11709,7 @@
       ],
       "post": {
         "description": "Creates a subnetwork in the specified project using the data included in the request.",
-        "operationId": "compute.subnetworks.insert",
+        "operationId": "subnetworks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11761,7 +11761,7 @@
     "/{project}/regions/{region}/subnetworks/{subnetwork}": {
       "delete": {
         "description": "Deletes the specified subnetwork.",
-        "operationId": "compute.subnetworks.delete",
+        "operationId": "subnetworks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11811,7 +11811,7 @@
       },
       "get": {
         "description": "Returns the specified subnetwork. Get a list of available subnetworks list() request.",
-        "operationId": "compute.subnetworks.get",
+        "operationId": "subnetworks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11914,7 +11914,7 @@
       ],
       "post": {
         "description": "Expands the IP CIDR range of the subnetwork to a specified value.",
-        "operationId": "compute.subnetworks.expandIpCidrRange",
+        "operationId": "subnetworks.expandIpCidrRange",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -11973,7 +11973,7 @@
     "/{project}/regions/{region}/targetPools": {
       "get": {
         "description": "Retrieves a list of target pools available to the specified project and region.",
-        "operationId": "compute.targetPools.list",
+        "operationId": "targetPools.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12071,7 +12071,7 @@
       ],
       "post": {
         "description": "Creates a target pool in the specified project and region using the data included in the request.",
-        "operationId": "compute.targetPools.insert",
+        "operationId": "targetPools.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12123,7 +12123,7 @@
     "/{project}/regions/{region}/targetPools/{targetPool}": {
       "delete": {
         "description": "Deletes the specified target pool.",
-        "operationId": "compute.targetPools.delete",
+        "operationId": "targetPools.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12173,7 +12173,7 @@
       },
       "get": {
         "description": "Returns the specified target pool. Get a list of available target pools by making a list() request.",
-        "operationId": "compute.targetPools.get",
+        "operationId": "targetPools.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12276,7 +12276,7 @@
       ],
       "post": {
         "description": "Adds health check URLs to a target pool.",
-        "operationId": "compute.targetPools.addHealthCheck",
+        "operationId": "targetPools.addHealthCheck",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12358,7 +12358,7 @@
       ],
       "post": {
         "description": "Adds an instance to a target pool.",
-        "operationId": "compute.targetPools.addInstance",
+        "operationId": "targetPools.addInstance",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12440,7 +12440,7 @@
       ],
       "post": {
         "description": "Gets the most recent health check results for each IP for the instance that is referenced by the given target pool.",
-        "operationId": "compute.targetPools.getHealth",
+        "operationId": "targetPools.getHealth",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12527,7 +12527,7 @@
       ],
       "post": {
         "description": "Removes health check URL from a target pool.",
-        "operationId": "compute.targetPools.removeHealthCheck",
+        "operationId": "targetPools.removeHealthCheck",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12609,7 +12609,7 @@
       ],
       "post": {
         "description": "Removes instance URL from a target pool.",
-        "operationId": "compute.targetPools.removeInstance",
+        "operationId": "targetPools.removeInstance",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12691,7 +12691,7 @@
       ],
       "post": {
         "description": "Changes a backup target pool's configurations.",
-        "operationId": "compute.targetPools.setBackup",
+        "operationId": "targetPools.setBackup",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12756,7 +12756,7 @@
     "/{project}/regions/{region}/targetVpnGateways": {
       "get": {
         "description": "Retrieves a list of target VPN gateways available to the specified project and region.",
-        "operationId": "compute.targetVpnGateways.list",
+        "operationId": "targetVpnGateways.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12854,7 +12854,7 @@
       ],
       "post": {
         "description": "Creates a target VPN gateway in the specified project and region using the data included in the request.",
-        "operationId": "compute.targetVpnGateways.insert",
+        "operationId": "targetVpnGateways.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12906,7 +12906,7 @@
     "/{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}": {
       "delete": {
         "description": "Deletes the specified target VPN gateway.",
-        "operationId": "compute.targetVpnGateways.delete",
+        "operationId": "targetVpnGateways.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -12956,7 +12956,7 @@
       },
       "get": {
         "description": "Returns the specified target VPN gateway. Get a list of available target VPN gateways by making a list() request.",
-        "operationId": "compute.targetVpnGateways.get",
+        "operationId": "targetVpnGateways.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13036,7 +13036,7 @@
     "/{project}/regions/{region}/vpnTunnels": {
       "get": {
         "description": "Retrieves a list of VpnTunnel resources contained in the specified project and region.",
-        "operationId": "compute.vpnTunnels.list",
+        "operationId": "vpnTunnels.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13134,7 +13134,7 @@
       ],
       "post": {
         "description": "Creates a VpnTunnel resource in the specified project and region using the data included in the request.",
-        "operationId": "compute.vpnTunnels.insert",
+        "operationId": "vpnTunnels.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13186,7 +13186,7 @@
     "/{project}/regions/{region}/vpnTunnels/{vpnTunnel}": {
       "delete": {
         "description": "Deletes the specified VpnTunnel resource.",
-        "operationId": "compute.vpnTunnels.delete",
+        "operationId": "vpnTunnels.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13236,7 +13236,7 @@
       },
       "get": {
         "description": "Returns the specified VpnTunnel resource. Get a list of available VPN tunnels by making a list() request.",
-        "operationId": "compute.vpnTunnels.get",
+        "operationId": "vpnTunnels.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13339,7 +13339,7 @@
       ],
       "post": {
         "description": "Sets metadata common to all instances within the specified project using the data included in the request.",
-        "operationId": "compute.projects.setCommonInstanceMetadata",
+        "operationId": "projects.setCommonInstanceMetadata",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13407,7 +13407,7 @@
       ],
       "post": {
         "description": "Enables the usage export feature and sets the usage export bucket where reports are stored. If you provide an empty request body using this method, the usage export feature will be disabled.",
-        "operationId": "compute.projects.setUsageExportBucket",
+        "operationId": "projects.setUsageExportBucket",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13490,7 +13490,7 @@
       ],
       "post": {
         "description": "Changes the URL map for TargetHttpProxy.",
-        "operationId": "compute.targetHttpProxies.setUrlMap",
+        "operationId": "targetHttpProxies.setUrlMap",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13565,7 +13565,7 @@
       ],
       "post": {
         "description": "Replaces SslCertificates for TargetHttpsProxy.",
-        "operationId": "compute.targetHttpsProxies.setSslCertificates",
+        "operationId": "targetHttpsProxies.setSslCertificates",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13640,7 +13640,7 @@
       ],
       "post": {
         "description": "Changes the URL map for TargetHttpsProxy.",
-        "operationId": "compute.targetHttpsProxies.setUrlMap",
+        "operationId": "targetHttpsProxies.setUrlMap",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13692,7 +13692,7 @@
     "/{project}/zones": {
       "get": {
         "description": "Retrieves the list of Zone resources available to the specified project.",
-        "operationId": "compute.zones.list",
+        "operationId": "zones.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13785,7 +13785,7 @@
     "/{project}/zones/{zone}": {
       "get": {
         "description": "Returns the specified Zone resource. Get a list of available zones by making a list() request.",
-        "operationId": "compute.zones.get",
+        "operationId": "zones.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13858,7 +13858,7 @@
     "/{project}/zones/{zone}/autoscalers": {
       "get": {
         "description": "Retrieves a list of autoscalers contained within the specified zone.",
-        "operationId": "compute.autoscalers.list",
+        "operationId": "autoscalers.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -13956,7 +13956,7 @@
       ],
       "patch": {
         "description": "Updates an autoscaler in the specified project using the data included in the request. This method supports patch semantics.",
-        "operationId": "compute.autoscalers.patch",
+        "operationId": "autoscalers.patch",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14013,7 +14013,7 @@
       },
       "post": {
         "description": "Creates an autoscaler in the specified project using the data included in the request.",
-        "operationId": "compute.autoscalers.insert",
+        "operationId": "autoscalers.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14063,7 +14063,7 @@
       },
       "put": {
         "description": "Updates an autoscaler in the specified project using the data included in the request.",
-        "operationId": "compute.autoscalers.update",
+        "operationId": "autoscalers.update",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14121,7 +14121,7 @@
     "/{project}/zones/{zone}/autoscalers/{autoscaler}": {
       "delete": {
         "description": "Deletes the specified autoscaler.",
-        "operationId": "compute.autoscalers.delete",
+        "operationId": "autoscalers.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14171,7 +14171,7 @@
       },
       "get": {
         "description": "Returns the specified autoscaler resource. Get a list of available autoscalers by making a list() request.",
-        "operationId": "compute.autoscalers.get",
+        "operationId": "autoscalers.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14251,7 +14251,7 @@
     "/{project}/zones/{zone}/diskTypes": {
       "get": {
         "description": "Retrieves a list of disk types available to the specified project.",
-        "operationId": "compute.diskTypes.list",
+        "operationId": "diskTypes.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14351,7 +14351,7 @@
     "/{project}/zones/{zone}/diskTypes/{diskType}": {
       "get": {
         "description": "Returns the specified disk type. Get a list of available disk types by making a list() request.",
-        "operationId": "compute.diskTypes.get",
+        "operationId": "diskTypes.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14431,7 +14431,7 @@
     "/{project}/zones/{zone}/disks": {
       "get": {
         "description": "Retrieves a list of persistent disks contained within the specified zone.",
-        "operationId": "compute.disks.list",
+        "operationId": "disks.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14529,7 +14529,7 @@
       ],
       "post": {
         "description": "Creates a persistent disk in the specified project using the data in the request. You can create a disk with a sourceImage, a sourceSnapshot, or create an empty 500 GB data disk by omitting all properties. You can also create a disk that is larger than the default size by specifying the sizeGb property.",
-        "operationId": "compute.disks.insert",
+        "operationId": "disks.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14587,7 +14587,7 @@
     "/{project}/zones/{zone}/disks/{disk}": {
       "delete": {
         "description": "Deletes the specified persistent disk. Deleting a disk removes its data permanently and is irreversible. However, deleting a disk does not delete any snapshots previously made from the disk. You must separately delete snapshots.",
-        "operationId": "compute.disks.delete",
+        "operationId": "disks.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14637,7 +14637,7 @@
       },
       "get": {
         "description": "Returns a specified persistent disk. Get a list of available persistent disks by making a list() request.",
-        "operationId": "compute.disks.get",
+        "operationId": "disks.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14740,7 +14740,7 @@
       ],
       "post": {
         "description": "Creates a snapshot of a specified persistent disk.",
-        "operationId": "compute.disks.createSnapshot",
+        "operationId": "disks.createSnapshot",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14822,7 +14822,7 @@
       ],
       "post": {
         "description": "Resizes the specified persistent disk.",
-        "operationId": "compute.disks.resize",
+        "operationId": "disks.resize",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14881,7 +14881,7 @@
     "/{project}/zones/{zone}/instanceGroupManagers": {
       "get": {
         "description": "Retrieves a list of managed instance groups that are contained within the specified project and zone.",
-        "operationId": "compute.instanceGroupManagers.list",
+        "operationId": "instanceGroupManagers.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -14979,7 +14979,7 @@
       ],
       "post": {
         "description": "Creates a managed instance group using the information that you specify in the request. After the group is created, it schedules an action to create instances in the group using the specified instance template. This operation is marked as DONE when the group is created even if the instances in the group have not yet been created. You must separately verify the status of the individual instances with the listmanagedinstances method.",
-        "operationId": "compute.instanceGroupManagers.insert",
+        "operationId": "instanceGroupManagers.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15031,7 +15031,7 @@
     "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}": {
       "delete": {
         "description": "Deletes the specified managed instance group and all of the instances in that group. Note that the instance group must not belong to a backend service. Read  Deleting an instance group for more information.",
-        "operationId": "compute.instanceGroupManagers.delete",
+        "operationId": "instanceGroupManagers.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15081,7 +15081,7 @@
       },
       "get": {
         "description": "Returns all of the details about the specified managed instance group. Get a list of available managed instance groups by making a list() request.",
-        "operationId": "compute.instanceGroupManagers.get",
+        "operationId": "instanceGroupManagers.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15184,7 +15184,7 @@
       ],
       "post": {
         "description": "Schedules a group action to remove the specified instances from the managed instance group. Abandoning an instance does not delete the instance, but it does remove the instance from any target pools that are applied by the managed instance group. This method reduces the targetSize of the managed instance group by the number of instances that you abandon. This operation is marked as DONE when the action is scheduled even if the instances have not yet been removed from the group. You must separately verify the status of the abandoning action with the listmanagedinstances method.",
-        "operationId": "compute.instanceGroupManagers.abandonInstances",
+        "operationId": "instanceGroupManagers.abandonInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15266,7 +15266,7 @@
       ],
       "post": {
         "description": "Schedules a group action to delete the specified instances in the managed instance group. The instances are also removed from any target pools of which they were a member. This method reduces the targetSize of the managed instance group by the number of instances that you delete. This operation is marked as DONE when the action is scheduled even if the instances are still being deleted. You must separately verify the status of the deleting action with the listmanagedinstances method.",
-        "operationId": "compute.instanceGroupManagers.deleteInstances",
+        "operationId": "instanceGroupManagers.deleteInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15348,7 +15348,7 @@
       ],
       "post": {
         "description": "Lists all of the instances in the managed instance group. Each instance in the list has a currentAction, which indicates the action that the managed instance group is performing on the instance. For example, if the group is still creating an instance, the currentAction is CREATING. If a previous action failed, the list displays the errors for that failed action.",
-        "operationId": "compute.instanceGroupManagers.listManagedInstances",
+        "operationId": "instanceGroupManagers.listManagedInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15428,7 +15428,7 @@
       ],
       "post": {
         "description": "Schedules a group action to recreate the specified instances in the managed instance group. The instances are deleted and recreated using the current instance template for the managed instance group. This operation is marked as DONE when the action is scheduled even if the instances have not yet been recreated. You must separately verify the status of the recreating action with the listmanagedinstances method.",
-        "operationId": "compute.instanceGroupManagers.recreateInstances",
+        "operationId": "instanceGroupManagers.recreateInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15510,7 +15510,7 @@
       ],
       "post": {
         "description": "Resizes the managed instance group. If you increase the size, the group creates new instances using the current instance template. If you decrease the size, the group deletes instances. The resize operation is marked DONE when the resize actions are scheduled even if the group has not yet added or deleted any instances. You must separately verify the status of the creating or deleting actions with the listmanagedinstances method.",
-        "operationId": "compute.instanceGroupManagers.resize",
+        "operationId": "instanceGroupManagers.resize",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15592,7 +15592,7 @@
       ],
       "post": {
         "description": "Specifies the instance template to use when creating new instances in this group. The templates for existing instances in the group do not change unless you recreate them.",
-        "operationId": "compute.instanceGroupManagers.setInstanceTemplate",
+        "operationId": "instanceGroupManagers.setInstanceTemplate",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15674,7 +15674,7 @@
       ],
       "post": {
         "description": "Modifies the target pools to which all instances in this managed instance group are assigned. The target pools automatically apply to all of the instances in the managed instance group. This operation is marked DONE when you make the request even if the instances have not yet been added to their target pools. The change might take some time to apply to all of the instances in the group depending on the size of the group.",
-        "operationId": "compute.instanceGroupManagers.setTargetPools",
+        "operationId": "instanceGroupManagers.setTargetPools",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15733,7 +15733,7 @@
     "/{project}/zones/{zone}/instanceGroups": {
       "get": {
         "description": "Retrieves the list of instance groups that are located in the specified project and zone.",
-        "operationId": "compute.instanceGroups.list",
+        "operationId": "instanceGroups.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15831,7 +15831,7 @@
       ],
       "post": {
         "description": "Creates an instance group in the specified project using the parameters that are included in the request.",
-        "operationId": "compute.instanceGroups.insert",
+        "operationId": "instanceGroups.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15883,7 +15883,7 @@
     "/{project}/zones/{zone}/instanceGroups/{instanceGroup}": {
       "delete": {
         "description": "Deletes the specified instance group. The instances in the group are not deleted. Note that instance group must not belong to a backend service. Read  Deleting an instance group for more information.",
-        "operationId": "compute.instanceGroups.delete",
+        "operationId": "instanceGroups.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -15933,7 +15933,7 @@
       },
       "get": {
         "description": "Returns the specified instance group. Get a list of available instance groups by making a list() request.",
-        "operationId": "compute.instanceGroups.get",
+        "operationId": "instanceGroups.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16036,7 +16036,7 @@
       ],
       "post": {
         "description": "Adds a list of instances to the specified instance group. All of the instances in the instance group must be in the same network/subnetwork. Read  Adding instances for more information.",
-        "operationId": "compute.instanceGroups.addInstances",
+        "operationId": "instanceGroups.addInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16118,7 +16118,7 @@
       ],
       "post": {
         "description": "Lists the instances in the specified instance group.",
-        "operationId": "compute.instanceGroups.listInstances",
+        "operationId": "instanceGroups.listInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16232,7 +16232,7 @@
       ],
       "post": {
         "description": "Removes one or more instances from the specified instance group, but does not delete those instances.",
-        "operationId": "compute.instanceGroups.removeInstances",
+        "operationId": "instanceGroups.removeInstances",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16314,7 +16314,7 @@
       ],
       "post": {
         "description": "Sets the named ports for the specified instance group.",
-        "operationId": "compute.instanceGroups.setNamedPorts",
+        "operationId": "instanceGroups.setNamedPorts",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16373,7 +16373,7 @@
     "/{project}/zones/{zone}/instances": {
       "get": {
         "description": "Retrieves the list of instances contained within the specified zone.",
-        "operationId": "compute.instances.list",
+        "operationId": "instances.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16471,7 +16471,7 @@
       ],
       "post": {
         "description": "Creates an instance resource in the specified project using the data included in the request.",
-        "operationId": "compute.instances.insert",
+        "operationId": "instances.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16523,7 +16523,7 @@
     "/{project}/zones/{zone}/instances/{instance}": {
       "delete": {
         "description": "Deletes the specified Instance resource. For more information, see Stopping or Deleting an Instance.",
-        "operationId": "compute.instances.delete",
+        "operationId": "instances.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16573,7 +16573,7 @@
       },
       "get": {
         "description": "Returns the specified Instance resource. Get a list of available instances by making a list() request.",
-        "operationId": "compute.instances.get",
+        "operationId": "instances.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16676,7 +16676,7 @@
       ],
       "post": {
         "description": "Adds an access config to an instance's network interface.",
-        "operationId": "compute.instances.addAccessConfig",
+        "operationId": "instances.addAccessConfig",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16765,7 +16765,7 @@
       ],
       "post": {
         "description": "Attaches a Disk resource to an instance.",
-        "operationId": "compute.instances.attachDisk",
+        "operationId": "instances.attachDisk",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16847,7 +16847,7 @@
       ],
       "post": {
         "description": "Deletes an access config from an instance's network interface.",
-        "operationId": "compute.instances.deleteAccessConfig",
+        "operationId": "instances.deleteAccessConfig",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -16936,7 +16936,7 @@
       ],
       "post": {
         "description": "Detaches a disk from an instance.",
-        "operationId": "compute.instances.detachDisk",
+        "operationId": "instances.detachDisk",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17018,7 +17018,7 @@
       ],
       "post": {
         "description": "Performs a hard reset on the instance.",
-        "operationId": "compute.instances.reset",
+        "operationId": "instances.reset",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17070,7 +17070,7 @@
     "/{project}/zones/{zone}/instances/{instance}/serialPort": {
       "get": {
         "description": "Returns the specified instance's serial port output.",
-        "operationId": "compute.instances.getSerialPortOutput",
+        "operationId": "instances.getSerialPortOutput",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17188,7 +17188,7 @@
       ],
       "post": {
         "description": "Sets the auto-delete flag for a disk attached to an instance.",
-        "operationId": "compute.instances.setDiskAutoDelete",
+        "operationId": "instances.setDiskAutoDelete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17277,7 +17277,7 @@
       ],
       "post": {
         "description": "Changes the machine type for a stopped instance to the machine type specified in the request.",
-        "operationId": "compute.instances.setMachineType",
+        "operationId": "instances.setMachineType",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17359,7 +17359,7 @@
       ],
       "post": {
         "description": "Sets metadata for the specified instance to the data included in the request.",
-        "operationId": "compute.instances.setMetadata",
+        "operationId": "instances.setMetadata",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17441,7 +17441,7 @@
       ],
       "post": {
         "description": "Sets an instance's scheduling options.",
-        "operationId": "compute.instances.setScheduling",
+        "operationId": "instances.setScheduling",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17523,7 +17523,7 @@
       ],
       "post": {
         "description": "Sets tags for the specified instance to the data included in the request.",
-        "operationId": "compute.instances.setTags",
+        "operationId": "instances.setTags",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17605,7 +17605,7 @@
       ],
       "post": {
         "description": "Starts an instance that was stopped using the using the instances().stop method. For more information, see Restart an instance.",
-        "operationId": "compute.instances.start",
+        "operationId": "instances.start",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17680,7 +17680,7 @@
       ],
       "post": {
         "description": "Starts an instance that was stopped using the using the instances().stop method. For more information, see Restart an instance.",
-        "operationId": "compute.instances.startWithEncryptionKey",
+        "operationId": "instances.startWithEncryptionKey",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17762,7 +17762,7 @@
       ],
       "post": {
         "description": "Stops a running instance, shutting it down cleanly, and allows you to restart the instance at a later time. Stopped instances do not incur per-minute, virtual machine usage charges while they are stopped, but any resources that the virtual machine is using, such as persistent disks and static IP addresses, will continue to be charged until they are deleted. For more information, see Stopping an instance.",
-        "operationId": "compute.instances.stop",
+        "operationId": "instances.stop",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17814,7 +17814,7 @@
     "/{project}/zones/{zone}/machineTypes": {
       "get": {
         "description": "Retrieves a list of machine types available to the specified project.",
-        "operationId": "compute.machineTypes.list",
+        "operationId": "machineTypes.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17914,7 +17914,7 @@
     "/{project}/zones/{zone}/machineTypes/{machineType}": {
       "get": {
         "description": "Returns the specified machine type. Get a list of available machine types by making a list() request.",
-        "operationId": "compute.machineTypes.get",
+        "operationId": "machineTypes.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -17994,7 +17994,7 @@
     "/{project}/zones/{zone}/operations": {
       "get": {
         "description": "Retrieves a list of Operation resources contained within the specified zone.",
-        "operationId": "compute.zoneOperations.list",
+        "operationId": "zoneOperations.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18094,7 +18094,7 @@
     "/{project}/zones/{zone}/operations/{operation}": {
       "delete": {
         "description": "Deletes the specified zone-specific Operations resource.",
-        "operationId": "compute.zoneOperations.delete",
+        "operationId": "zoneOperations.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18141,7 +18141,7 @@
       },
       "get": {
         "description": "Retrieves the specified zone-specific Operations resource.",
-        "operationId": "compute.zoneOperations.get",
+        "operationId": "zoneOperations.get",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18221,7 +18221,7 @@
     "/{project}/zones/{zone}/targetInstances": {
       "get": {
         "description": "Retrieves a list of TargetInstance resources available to the specified project and zone.",
-        "operationId": "compute.targetInstances.list",
+        "operationId": "targetInstances.list",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18319,7 +18319,7 @@
       ],
       "post": {
         "description": "Creates a TargetInstance resource in the specified project and zone using the data included in the request.",
-        "operationId": "compute.targetInstances.insert",
+        "operationId": "targetInstances.insert",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18371,7 +18371,7 @@
     "/{project}/zones/{zone}/targetInstances/{targetInstance}": {
       "delete": {
         "description": "Deletes the specified TargetInstance resource.",
-        "operationId": "compute.targetInstances.delete",
+        "operationId": "targetInstances.delete",
         "parameters": [
           {
             "description": "Project ID for this request.",
@@ -18421,7 +18421,7 @@
       },
       "get": {
         "description": "Returns the specified TargetInstance resource. Get a list of available target instances by making a list() request.",
-        "operationId": "compute.targetInstances.get",
+        "operationId": "targetInstances.get",
         "parameters": [
           {
             "description": "Project ID for this request.",

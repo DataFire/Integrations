@@ -200,7 +200,7 @@
       ],
       "post": {
         "description": "Returns the Analytics data.",
-        "operationId": "analyticsreporting.reports.batchGet",
+        "operationId": "reports.batchGet",
         "parameters": [
           {
             "in": "body",

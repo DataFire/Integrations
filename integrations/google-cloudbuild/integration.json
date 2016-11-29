@@ -160,7 +160,7 @@
     "/v1/projects/{projectId}/builds": {
       "get": {
         "description": "Lists previously requested builds.\n\nPreviously requested builds may still be in-progress, or may have finished\nsuccessfully or unsuccessfully.",
-        "operationId": "cloudbuild.projects.builds.list",
+        "operationId": "projects.builds.list",
         "parameters": [
           {
             "description": "ID of the project.",
@@ -250,7 +250,7 @@
       ],
       "post": {
         "description": "Starts a build with the specified configuration.\n\nThe long-running Operation returned by this method will include the ID of\nthe build, which can be passed to GetBuild to determine its status (e.g.,\nsuccess or failure).",
-        "operationId": "cloudbuild.projects.builds.create",
+        "operationId": "projects.builds.create",
         "parameters": [
           {
             "description": "ID of the project.",
@@ -290,7 +290,7 @@
     "/v1/projects/{projectId}/builds/{id}": {
       "get": {
         "description": "Returns information about a previously requested build.\n\nThe Build that is returned includes its status (e.g., success or failure,\nor in-progress), and timing information.",
-        "operationId": "cloudbuild.projects.builds.get",
+        "operationId": "projects.builds.get",
         "parameters": [
           {
             "description": "ID of the project.",
@@ -412,7 +412,7 @@
       ],
       "post": {
         "description": "Cancels a requested build in progress.",
-        "operationId": "cloudbuild.projects.builds.cancel",
+        "operationId": "projects.builds.cancel",
         "parameters": [
           {
             "description": "ID of the project.",
@@ -459,7 +459,7 @@
     "/v1/projects/{projectId}/triggers": {
       "get": {
         "description": "Lists existing BuildTrigger.\n\nThis API is experimental.",
-        "operationId": "cloudbuild.projects.triggers.list",
+        "operationId": "projects.triggers.list",
         "parameters": [
           {
             "description": "ID of the project for which to list BuildTriggers.",
@@ -531,7 +531,7 @@
       ],
       "post": {
         "description": "Creates a new BuildTrigger.\n\nThis API is experimental.",
-        "operationId": "cloudbuild.projects.triggers.create",
+        "operationId": "projects.triggers.create",
         "parameters": [
           {
             "description": "ID of the project for which to configure automatic builds.",
@@ -571,7 +571,7 @@
     "/v1/projects/{projectId}/triggers/{triggerId}": {
       "delete": {
         "description": "Deletes an BuildTrigger by its project ID and trigger ID.\n\nThis API is experimental.",
-        "operationId": "cloudbuild.projects.triggers.delete",
+        "operationId": "projects.triggers.delete",
         "parameters": [
           {
             "description": "ID of the project that owns the trigger.",
@@ -609,7 +609,7 @@
       },
       "get": {
         "description": "Gets information about a BuildTrigger.\n\nThis API is experimental.",
-        "operationId": "cloudbuild.projects.triggers.get",
+        "operationId": "projects.triggers.get",
         "parameters": [
           {
             "description": "ID of the project that owns the trigger.",
@@ -688,7 +688,7 @@
       ],
       "patch": {
         "description": "Updates an BuildTrigger by its project ID and trigger ID.\n\nThis API is experimental.",
-        "operationId": "cloudbuild.projects.triggers.patch",
+        "operationId": "projects.triggers.patch",
         "parameters": [
           {
             "description": "ID of the project that owns the trigger.",
@@ -735,7 +735,7 @@
     "/v1/{name}": {
       "get": {
         "description": "Lists operations that match the specified filter in the request. If the\nserver doesn't support this method, it returns `UNIMPLEMENTED`.\n\nNOTE: the `name` binding below allows API services to override the binding\nto use different resource name schemes, such as `users/*/operations`.",
-        "operationId": "cloudbuild.operations.list",
+        "operationId": "operations.list",
         "parameters": [
           {
             "description": "The name of the operation collection.",

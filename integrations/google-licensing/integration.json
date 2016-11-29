@@ -137,7 +137,7 @@
       ],
       "post": {
         "description": "Assign License.",
-        "operationId": "licensing.licenseAssignments.insert",
+        "operationId": "licenseAssignments.insert",
         "parameters": [
           {
             "description": "Name for product",
@@ -184,7 +184,7 @@
     "/{productId}/sku/{skuId}/user/{userId}": {
       "delete": {
         "description": "Revoke License.",
-        "operationId": "licensing.licenseAssignments.delete",
+        "operationId": "licenseAssignments.delete",
         "parameters": [
           {
             "description": "Name for product",
@@ -226,7 +226,7 @@
       },
       "get": {
         "description": "Get license assignment of a particular product and sku for a user",
-        "operationId": "licensing.licenseAssignments.get",
+        "operationId": "licenseAssignments.get",
         "parameters": [
           {
             "description": "Name for product",
@@ -294,7 +294,7 @@
       ],
       "patch": {
         "description": "Assign License. This method supports patch semantics.",
-        "operationId": "licensing.licenseAssignments.patch",
+        "operationId": "licenseAssignments.patch",
         "parameters": [
           {
             "description": "Name for product",
@@ -346,7 +346,7 @@
       },
       "put": {
         "description": "Assign License.",
-        "operationId": "licensing.licenseAssignments.update",
+        "operationId": "licenseAssignments.update",
         "parameters": [
           {
             "description": "Name for product",
@@ -400,7 +400,7 @@
     "/{productId}/sku/{skuId}/users": {
       "get": {
         "description": "List license assignments for given product and sku of the customer.",
-        "operationId": "licensing.licenseAssignments.listForProductAndSku",
+        "operationId": "licenseAssignments.listForProductAndSku",
         "parameters": [
           {
             "description": "Name for product",
@@ -486,7 +486,7 @@
     "/{productId}/users": {
       "get": {
         "description": "List license assignments for given product of the customer.",
-        "operationId": "licensing.licenseAssignments.listForProduct",
+        "operationId": "licenseAssignments.listForProduct",
         "parameters": [
           {
             "description": "Name for product",

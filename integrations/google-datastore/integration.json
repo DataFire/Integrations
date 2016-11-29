@@ -200,7 +200,7 @@
       ],
       "post": {
         "description": "Allocates IDs for the given keys, which is useful for referencing an entity\nbefore it is inserted.",
-        "operationId": "datastore.projects.allocateIds",
+        "operationId": "projects.allocateIds",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",
@@ -286,7 +286,7 @@
       ],
       "post": {
         "description": "Begins a new transaction.",
-        "operationId": "datastore.projects.beginTransaction",
+        "operationId": "projects.beginTransaction",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",
@@ -372,7 +372,7 @@
       ],
       "post": {
         "description": "Commits a transaction, optionally creating, deleting or modifying some\nentities.",
-        "operationId": "datastore.projects.commit",
+        "operationId": "projects.commit",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",
@@ -458,7 +458,7 @@
       ],
       "post": {
         "description": "Looks up entities by key.",
-        "operationId": "datastore.projects.lookup",
+        "operationId": "projects.lookup",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",
@@ -544,7 +544,7 @@
       ],
       "post": {
         "description": "Rolls back a transaction.",
-        "operationId": "datastore.projects.rollback",
+        "operationId": "projects.rollback",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",
@@ -630,7 +630,7 @@
       ],
       "post": {
         "description": "Queries for entities.",
-        "operationId": "datastore.projects.runQuery",
+        "operationId": "projects.runQuery",
         "parameters": [
           {
             "description": "The ID of the project against which to make the request.",

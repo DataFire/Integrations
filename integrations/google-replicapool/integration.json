@@ -123,7 +123,7 @@
     "/{project}/zones/{zone}/instanceGroupManagers": {
       "get": {
         "description": "Retrieves the list of Instance Group Manager resources contained within the specified zone.",
-        "operationId": "replicapool.instanceGroupManagers.list",
+        "operationId": "instanceGroupManagers.list",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -220,7 +220,7 @@
       ],
       "post": {
         "description": "Creates an instance group manager, as well as the instance group and the specified number of instances.",
-        "operationId": "replicapool.instanceGroupManagers.insert",
+        "operationId": "instanceGroupManagers.insert",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -280,7 +280,7 @@
     "/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}": {
       "delete": {
         "description": "Deletes the instance group manager and all instances contained within. If you'd like to delete the manager without deleting the instances, you must first abandon the instances to remove them from the group.",
-        "operationId": "replicapool.instanceGroupManagers.delete",
+        "operationId": "instanceGroupManagers.delete",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -330,7 +330,7 @@
       },
       "get": {
         "description": "Returns the specified Instance Group Manager resource.",
-        "operationId": "replicapool.instanceGroupManagers.get",
+        "operationId": "instanceGroupManagers.get",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -438,7 +438,7 @@
       ],
       "post": {
         "description": "Removes the specified instances from the managed instance group, and from any target pools of which they were members, without deleting the instances.",
-        "operationId": "replicapool.instanceGroupManagers.abandonInstances",
+        "operationId": "instanceGroupManagers.abandonInstances",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -520,7 +520,7 @@
       ],
       "post": {
         "description": "Deletes the specified instances. The instances are deleted, then removed from the instance group and any target pools of which they were a member. The targetSize of the instance group manager is reduced by the number of instances deleted.",
-        "operationId": "replicapool.instanceGroupManagers.deleteInstances",
+        "operationId": "instanceGroupManagers.deleteInstances",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -602,7 +602,7 @@
       ],
       "post": {
         "description": "Recreates the specified instances. The instances are deleted, then recreated using the instance group manager's current instance template.",
-        "operationId": "replicapool.instanceGroupManagers.recreateInstances",
+        "operationId": "instanceGroupManagers.recreateInstances",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -684,7 +684,7 @@
       ],
       "post": {
         "description": "Resizes the managed instance group up or down. If resized up, new instances are created using the current instance template. If resized down, instances are removed in the order outlined in Resizing a managed instance group.",
-        "operationId": "replicapool.instanceGroupManagers.resize",
+        "operationId": "instanceGroupManagers.resize",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -767,7 +767,7 @@
       ],
       "post": {
         "description": "Sets the instance template to use when creating new instances in this group. Existing instances are not affected.",
-        "operationId": "replicapool.instanceGroupManagers.setInstanceTemplate",
+        "operationId": "instanceGroupManagers.setInstanceTemplate",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -849,7 +849,7 @@
       ],
       "post": {
         "description": "Modifies the target pools to which all new instances in this group are assigned. Existing instances in the group are not affected.",
-        "operationId": "replicapool.instanceGroupManagers.setTargetPools",
+        "operationId": "instanceGroupManagers.setTargetPools",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -908,7 +908,7 @@
     "/{project}/zones/{zone}/operations": {
       "get": {
         "description": "Retrieves the list of operation resources contained within the specified zone.",
-        "operationId": "replicapool.zoneOperations.list",
+        "operationId": "zoneOperations.list",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -997,7 +997,7 @@
     "/{project}/zones/{zone}/operations/{operation}": {
       "get": {
         "description": "Retrieves the specified zone-specific operation resource.",
-        "operationId": "replicapool.zoneOperations.get",
+        "operationId": "zoneOperations.get",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",

@@ -123,7 +123,7 @@
     "/{project}/zones/{zone}/operations": {
       "get": {
         "description": "Retrieves the list of Operation resources contained within the specified zone.",
-        "operationId": "replicapoolupdater.zoneOperations.list",
+        "operationId": "zoneOperations.list",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -212,7 +212,7 @@
     "/{project}/zones/{zone}/operations/{operation}": {
       "get": {
         "description": "Retrieves the specified zone-specific operation resource.",
-        "operationId": "replicapoolupdater.zoneOperations.get",
+        "operationId": "zoneOperations.get",
         "parameters": [
           {
             "description": "Name of the project scoping this request.",
@@ -287,7 +287,7 @@
     "/{project}/zones/{zone}/rollingUpdates": {
       "get": {
         "description": "Lists recent updates for a given managed instance group, in reverse chronological order and paginated format.",
-        "operationId": "replicapoolupdater.rollingUpdates.list",
+        "operationId": "rollingUpdates.list",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -384,7 +384,7 @@
       ],
       "post": {
         "description": "Inserts and starts a new update.",
-        "operationId": "replicapoolupdater.rollingUpdates.insert",
+        "operationId": "rollingUpdates.insert",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -436,7 +436,7 @@
     "/{project}/zones/{zone}/rollingUpdates/{rollingUpdate}": {
       "get": {
         "description": "Returns information about an update.",
-        "operationId": "replicapoolupdater.rollingUpdates.get",
+        "operationId": "rollingUpdates.get",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -544,7 +544,7 @@
       ],
       "post": {
         "description": "Cancels an update. The update must be PAUSED before it can be cancelled. This has no effect if the update is already CANCELLED.",
-        "operationId": "replicapoolupdater.rollingUpdates.cancel",
+        "operationId": "rollingUpdates.cancel",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -596,7 +596,7 @@
     "/{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/instanceUpdates": {
       "get": {
         "description": "Lists the current status for each instance within a given update.",
-        "operationId": "replicapoolupdater.rollingUpdates.listInstanceUpdates",
+        "operationId": "rollingUpdates.listInstanceUpdates",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -725,7 +725,7 @@
       ],
       "post": {
         "description": "Pauses the update in state from ROLLING_FORWARD or ROLLING_BACK. Has no effect if invoked when the state of the update is PAUSED.",
-        "operationId": "replicapoolupdater.rollingUpdates.pause",
+        "operationId": "rollingUpdates.pause",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -800,7 +800,7 @@
       ],
       "post": {
         "description": "Continues an update in PAUSED state. Has no effect if invoked when the state of the update is ROLLED_OUT.",
-        "operationId": "replicapoolupdater.rollingUpdates.resume",
+        "operationId": "rollingUpdates.resume",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",
@@ -875,7 +875,7 @@
       ],
       "post": {
         "description": "Rolls back the update in state from ROLLING_FORWARD or PAUSED. Has no effect if invoked when the state of the update is ROLLED_BACK.",
-        "operationId": "replicapoolupdater.rollingUpdates.rollback",
+        "operationId": "rollingUpdates.rollback",
         "parameters": [
           {
             "description": "The Google Developers Console project name.",

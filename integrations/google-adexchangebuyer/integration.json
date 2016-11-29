@@ -147,7 +147,7 @@
     "/accounts": {
       "get": {
         "description": "Retrieves the authenticated user's list of accounts.",
-        "operationId": "adexchangebuyer.accounts.list",
+        "operationId": "accounts.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -194,7 +194,7 @@
     "/accounts/{id}": {
       "get": {
         "description": "Gets one account by ID.",
-        "operationId": "adexchangebuyer.accounts.get",
+        "operationId": "accounts.get",
         "parameters": [
           {
             "description": "The account id",
@@ -248,7 +248,7 @@
       ],
       "patch": {
         "description": "Updates an existing account. This method supports patch semantics.",
-        "operationId": "adexchangebuyer.accounts.patch",
+        "operationId": "accounts.patch",
         "parameters": [
           {
             "description": "The account id",
@@ -292,7 +292,7 @@
       },
       "put": {
         "description": "Updates an existing account.",
-        "operationId": "adexchangebuyer.accounts.update",
+        "operationId": "accounts.update",
         "parameters": [
           {
             "description": "The account id",
@@ -338,7 +338,7 @@
     "/billinginfo": {
       "get": {
         "description": "Retrieves a list of billing information for all accounts of the authenticated user.",
-        "operationId": "adexchangebuyer.billingInfo.list",
+        "operationId": "billingInfo.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -385,7 +385,7 @@
     "/billinginfo/{accountId}": {
       "get": {
         "description": "Returns the billing information for one account specified by account ID.",
-        "operationId": "adexchangebuyer.billingInfo.get",
+        "operationId": "billingInfo.get",
         "parameters": [
           {
             "description": "The account id.",
@@ -441,7 +441,7 @@
     "/billinginfo/{accountId}/{billingId}": {
       "get": {
         "description": "Returns the budget information for the adgroup specified by the accountId and billingId.",
-        "operationId": "adexchangebuyer.budget.get",
+        "operationId": "budget.get",
         "parameters": [
           {
             "description": "The account id to get the budget information for.",
@@ -502,7 +502,7 @@
       ],
       "patch": {
         "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
-        "operationId": "adexchangebuyer.budget.patch",
+        "operationId": "budget.patch",
         "parameters": [
           {
             "description": "The account id associated with the budget being updated.",
@@ -547,7 +547,7 @@
       },
       "put": {
         "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
-        "operationId": "adexchangebuyer.budget.update",
+        "operationId": "budget.update",
         "parameters": [
           {
             "description": "The account id associated with the budget being updated.",
@@ -594,7 +594,7 @@
     "/creatives": {
       "get": {
         "description": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
-        "operationId": "adexchangebuyer.creatives.list",
+        "operationId": "creatives.list",
         "parameters": [
           {
             "collectionFormat": "multi",
@@ -699,7 +699,7 @@
       ],
       "post": {
         "description": "Submit a new creative.",
-        "operationId": "adexchangebuyer.creatives.insert",
+        "operationId": "creatives.insert",
         "parameters": [
           {
             "in": "body",
@@ -732,7 +732,7 @@
     "/creatives/{accountId}/{buyerCreativeId}": {
       "get": {
         "description": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
-        "operationId": "adexchangebuyer.creatives.get",
+        "operationId": "creatives.get",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -818,7 +818,7 @@
       ],
       "post": {
         "description": "Add a deal id association for the creative.",
-        "operationId": "adexchangebuyer.creatives.addDeal",
+        "operationId": "creatives.addDeal",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -862,7 +862,7 @@
     "/creatives/{accountId}/{buyerCreativeId}/listDeals": {
       "get": {
         "description": "Lists the external deal ids associated with the creative.",
-        "operationId": "adexchangebuyer.creatives.listDeals",
+        "operationId": "creatives.listDeals",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -948,7 +948,7 @@
       ],
       "post": {
         "description": "Remove a deal id associated with the creative.",
-        "operationId": "adexchangebuyer.creatives.removeDeal",
+        "operationId": "creatives.removeDeal",
         "parameters": [
           {
             "description": "The id for the account that will serve this creative.",
@@ -992,7 +992,7 @@
     "/performancereport": {
       "get": {
         "description": "Retrieves the authenticated user's list of performance metrics.",
-        "operationId": "adexchangebuyer.performanceReport.list",
+        "operationId": "performanceReport.list",
         "parameters": [
           {
             "description": "The account id to get the reports.",
@@ -1076,7 +1076,7 @@
     "/pretargetingconfigs/{accountId}": {
       "get": {
         "description": "Retrieves a list of the authenticated user's pretargeting configurations.",
-        "operationId": "adexchangebuyer.pretargetingConfig.list",
+        "operationId": "pretargetingConfig.list",
         "parameters": [
           {
             "description": "The account id to get the pretargeting configs for.",
@@ -1130,7 +1130,7 @@
       ],
       "post": {
         "description": "Inserts a new pretargeting configuration.",
-        "operationId": "adexchangebuyer.pretargetingConfig.insert",
+        "operationId": "pretargetingConfig.insert",
         "parameters": [
           {
             "description": "The account id to insert the pretargeting config for.",
@@ -1170,7 +1170,7 @@
     "/pretargetingconfigs/{accountId}/{configId}": {
       "delete": {
         "description": "Deletes an existing pretargeting config.",
-        "operationId": "adexchangebuyer.pretargetingConfig.delete",
+        "operationId": "pretargetingConfig.delete",
         "parameters": [
           {
             "description": "The account id to delete the pretargeting config for.",
@@ -1205,7 +1205,7 @@
       },
       "get": {
         "description": "Gets a specific pretargeting configuration",
-        "operationId": "adexchangebuyer.pretargetingConfig.get",
+        "operationId": "pretargetingConfig.get",
         "parameters": [
           {
             "description": "The account id to get the pretargeting config for.",
@@ -1266,7 +1266,7 @@
       ],
       "patch": {
         "description": "Updates an existing pretargeting config. This method supports patch semantics.",
-        "operationId": "adexchangebuyer.pretargetingConfig.patch",
+        "operationId": "pretargetingConfig.patch",
         "parameters": [
           {
             "description": "The account id to update the pretargeting config for.",
@@ -1311,7 +1311,7 @@
       },
       "put": {
         "description": "Updates an existing pretargeting config.",
-        "operationId": "adexchangebuyer.pretargetingConfig.update",
+        "operationId": "pretargetingConfig.update",
         "parameters": [
           {
             "description": "The account id to update the pretargeting config for.",
@@ -1381,7 +1381,7 @@
       ],
       "post": {
         "description": "Update a given private auction proposal",
-        "operationId": "adexchangebuyer.marketplaceprivateauction.updateproposal",
+        "operationId": "marketplaceprivateauction.updateproposal",
         "parameters": [
           {
             "in": "path",
@@ -1417,7 +1417,7 @@
     "/products/search": {
       "get": {
         "description": "Gets the requested product.",
-        "operationId": "adexchangebuyer.products.search",
+        "operationId": "products.search",
         "parameters": [
           {
             "description": "The pql query used to query for products.",
@@ -1472,7 +1472,7 @@
     "/products/{productId}": {
       "get": {
         "description": "Gets the requested product by id.",
-        "operationId": "adexchangebuyer.products.get",
+        "operationId": "products.get",
         "parameters": [
           {
             "description": "The id for the product to get the head revision for.",
@@ -1551,7 +1551,7 @@
       ],
       "post": {
         "description": "Create the given list of proposals",
-        "operationId": "adexchangebuyer.proposals.insert",
+        "operationId": "proposals.insert",
         "parameters": [
           {
             "in": "body",
@@ -1584,7 +1584,7 @@
     "/proposals/search": {
       "get": {
         "description": "Search for proposals using pql query",
-        "operationId": "adexchangebuyer.proposals.search",
+        "operationId": "proposals.search",
         "parameters": [
           {
             "description": "Query string to retrieve specific proposals.",
@@ -1639,7 +1639,7 @@
     "/proposals/{proposalId}": {
       "get": {
         "description": "Get a proposal given its id",
-        "operationId": "adexchangebuyer.proposals.get",
+        "operationId": "proposals.get",
         "parameters": [
           {
             "description": "Id of the proposal to retrieve.",
@@ -1695,7 +1695,7 @@
     "/proposals/{proposalId}/deals": {
       "get": {
         "description": "List all the deals for a given proposal",
-        "operationId": "adexchangebuyer.marketplacedeals.list",
+        "operationId": "marketplacedeals.list",
         "parameters": [
           {
             "description": "The proposalId to get deals for. To search across all proposals specify order_id = '-' as part of the URL.",
@@ -1780,7 +1780,7 @@
       ],
       "post": {
         "description": "Delete the specified deals from the proposal",
-        "operationId": "adexchangebuyer.marketplacedeals.delete",
+        "operationId": "marketplacedeals.delete",
         "parameters": [
           {
             "description": "The proposalId to delete deals from.",
@@ -1843,7 +1843,7 @@
       ],
       "post": {
         "description": "Add new deals for the specified proposal",
-        "operationId": "adexchangebuyer.marketplacedeals.insert",
+        "operationId": "marketplacedeals.insert",
         "parameters": [
           {
             "description": "proposalId for which deals need to be added.",
@@ -1906,7 +1906,7 @@
       ],
       "post": {
         "description": "Replaces all the deals in the proposal with the passed in deals",
-        "operationId": "adexchangebuyer.marketplacedeals.update",
+        "operationId": "marketplacedeals.update",
         "parameters": [
           {
             "description": "The proposalId to edit deals on.",
@@ -1946,7 +1946,7 @@
     "/proposals/{proposalId}/notes": {
       "get": {
         "description": "Get all the notes associated with a proposal",
-        "operationId": "adexchangebuyer.marketplacenotes.list",
+        "operationId": "marketplacenotes.list",
         "parameters": [
           {
             "description": "The proposalId to get notes for. To search across all proposals specify order_id = '-' as part of the URL.",
@@ -2031,7 +2031,7 @@
       ],
       "post": {
         "description": "Add notes to the proposal",
-        "operationId": "adexchangebuyer.marketplacenotes.insert",
+        "operationId": "marketplacenotes.insert",
         "parameters": [
           {
             "description": "The proposalId to add notes for.",
@@ -2094,7 +2094,7 @@
       ],
       "post": {
         "description": "Update the given proposal to indicate that setup has been completed.",
-        "operationId": "adexchangebuyer.proposals.setupcomplete",
+        "operationId": "proposals.setupcomplete",
         "parameters": [
           {
             "description": "The proposal id for which the setup is complete",
@@ -2147,7 +2147,7 @@
       ],
       "patch": {
         "description": "Update the given proposal. This method supports patch semantics.",
-        "operationId": "adexchangebuyer.proposals.patch",
+        "operationId": "proposals.patch",
         "parameters": [
           {
             "description": "The proposal id to update.",
@@ -2207,7 +2207,7 @@
       },
       "put": {
         "description": "Update the given proposal",
-        "operationId": "adexchangebuyer.proposals.update",
+        "operationId": "proposals.update",
         "parameters": [
           {
             "description": "The proposal id to update.",
@@ -2269,7 +2269,7 @@
     "/publisher/{accountId}/profiles": {
       "get": {
         "description": "Gets the requested publisher profile(s) by publisher accountId.",
-        "operationId": "adexchangebuyer.pubprofiles.list",
+        "operationId": "pubprofiles.list",
         "parameters": [
           {
             "description": "The accountId of the publisher to get profiles for.",

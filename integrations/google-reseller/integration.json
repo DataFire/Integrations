@@ -142,7 +142,7 @@
       ],
       "post": {
         "description": "Creates a customer resource if one does not already exist.",
-        "operationId": "reseller.customers.insert",
+        "operationId": "customers.insert",
         "parameters": [
           {
             "description": "An auth token needed for inserting a customer for which domain already exists. Can be generated at https://admin.google.com/TransferToken. Optional.",
@@ -181,7 +181,7 @@
     "/customers/{customerId}": {
       "get": {
         "description": "Gets a customer resource if one exists and is owned by the reseller.",
-        "operationId": "reseller.customers.get",
+        "operationId": "customers.get",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -240,7 +240,7 @@
       ],
       "patch": {
         "description": "Update a customer resource if one it exists and is owned by the reseller. This method supports patch semantics.",
-        "operationId": "reseller.customers.patch",
+        "operationId": "customers.patch",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -278,7 +278,7 @@
       },
       "put": {
         "description": "Update a customer resource if one it exists and is owned by the reseller.",
-        "operationId": "reseller.customers.update",
+        "operationId": "customers.update",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -341,7 +341,7 @@
       ],
       "post": {
         "description": "Creates/Transfers a subscription for the customer.",
-        "operationId": "reseller.subscriptions.insert",
+        "operationId": "subscriptions.insert",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -387,7 +387,7 @@
     "/customers/{customerId}/subscriptions/{subscriptionId}": {
       "delete": {
         "description": "Cancels/Downgrades a subscription.",
-        "operationId": "reseller.subscriptions.delete",
+        "operationId": "subscriptions.delete",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -435,7 +435,7 @@
       },
       "get": {
         "description": "Gets a subscription of the customer.",
-        "operationId": "reseller.subscriptions.get",
+        "operationId": "subscriptions.get",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -526,7 +526,7 @@
       ],
       "post": {
         "description": "Activates a subscription previously suspended by the reseller",
-        "operationId": "reseller.subscriptions.activate",
+        "operationId": "subscriptions.activate",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -589,7 +589,7 @@
       ],
       "post": {
         "description": "Changes the plan of a subscription",
-        "operationId": "reseller.subscriptions.changePlan",
+        "operationId": "subscriptions.changePlan",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -659,7 +659,7 @@
       ],
       "post": {
         "description": "Changes the renewal settings of a subscription",
-        "operationId": "reseller.subscriptions.changeRenewalSettings",
+        "operationId": "subscriptions.changeRenewalSettings",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -729,7 +729,7 @@
       ],
       "post": {
         "description": "Changes the seats configuration of a subscription",
-        "operationId": "reseller.subscriptions.changeSeats",
+        "operationId": "subscriptions.changeSeats",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -799,7 +799,7 @@
       ],
       "post": {
         "description": "Starts paid service of a trial subscription",
-        "operationId": "reseller.subscriptions.startPaidService",
+        "operationId": "subscriptions.startPaidService",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -862,7 +862,7 @@
       ],
       "post": {
         "description": "Suspends an active subscription",
-        "operationId": "reseller.subscriptions.suspend",
+        "operationId": "subscriptions.suspend",
         "parameters": [
           {
             "description": "Id of the Customer",
@@ -902,7 +902,7 @@
     "/subscriptions": {
       "get": {
         "description": "Lists subscriptions of a reseller, optionally filtered by a customer name prefix.",
-        "operationId": "reseller.subscriptions.list",
+        "operationId": "subscriptions.list",
         "parameters": [
           {
             "description": "An auth token needed if the customer is not a resold customer of this reseller. Can be generated at https://www.google.com/a/cpanel/customer-domain/TransferToken.Optional.",

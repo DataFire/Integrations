@@ -116,7 +116,7 @@
       ],
       "post": {
         "description": "Returns a list of flights.",
-        "operationId": "qpxExpress.trips.search",
+        "operationId": "trips.search",
         "parameters": [
           {
             "in": "body",

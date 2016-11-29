@@ -137,7 +137,7 @@
     "/flags": {
       "get": {
         "description": "List all available database flags for Google Cloud SQL instances.",
-        "operationId": "sql.flags.list",
+        "operationId": "flags.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -189,7 +189,7 @@
     "/projects/{project}/instances": {
       "get": {
         "description": "Lists instances under a given project in the alphabetical order of the instance name.",
-        "operationId": "sql.instances.list",
+        "operationId": "instances.list",
         "parameters": [
           {
             "description": "Project ID of the project for which to list Cloud SQL instances.",
@@ -260,7 +260,7 @@
       ],
       "post": {
         "description": "Creates a new Cloud SQL instance.",
-        "operationId": "sql.instances.insert",
+        "operationId": "instances.insert",
         "parameters": [
           {
             "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
@@ -305,7 +305,7 @@
     "/projects/{project}/instances/{instance}": {
       "delete": {
         "description": "Deletes a Cloud SQL instance.",
-        "operationId": "sql.instances.delete",
+        "operationId": "instances.delete",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance to be deleted.",
@@ -348,7 +348,7 @@
       },
       "get": {
         "description": "Retrieves a resource containing information about a Cloud SQL instance.",
-        "operationId": "sql.instances.get",
+        "operationId": "instances.get",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -414,7 +414,7 @@
       ],
       "patch": {
         "description": "Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.. This method supports patch semantics.",
-        "operationId": "sql.instances.patch",
+        "operationId": "instances.patch",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -464,7 +464,7 @@
       },
       "put": {
         "description": "Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.",
-        "operationId": "sql.instances.update",
+        "operationId": "instances.update",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -516,7 +516,7 @@
     "/projects/{project}/instances/{instance}/backupRuns": {
       "get": {
         "description": "Lists all backup runs associated with a given instance and configuration in the reverse chronological order of the enqueued time.",
-        "operationId": "sql.backupRuns.list",
+        "operationId": "backupRuns.list",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -594,7 +594,7 @@
       ],
       "post": {
         "description": "Creates a new backup run on demand. This method is applicable only to Second Generation instances.",
-        "operationId": "sql.backupRuns.insert",
+        "operationId": "backupRuns.insert",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -646,7 +646,7 @@
     "/projects/{project}/instances/{instance}/backupRuns/{id}": {
       "delete": {
         "description": "Deletes the backup taken by a backup run.",
-        "operationId": "sql.backupRuns.delete",
+        "operationId": "backupRuns.delete",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -696,7 +696,7 @@
       },
       "get": {
         "description": "Retrieves a resource containing information about a backup run.",
-        "operationId": "sql.backupRuns.get",
+        "operationId": "backupRuns.get",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -794,7 +794,7 @@
       ],
       "post": {
         "description": "Creates a Cloud SQL instance as a clone of the source instance. The API is not ready for Second Generation instances yet.",
-        "operationId": "sql.instances.clone",
+        "operationId": "instances.clone",
         "parameters": [
           {
             "description": "Project ID of the source as well as the clone Cloud SQL instance.",
@@ -869,7 +869,7 @@
       ],
       "post": {
         "description": "Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database.",
-        "operationId": "sql.sslCerts.createEphemeral",
+        "operationId": "sslCerts.createEphemeral",
         "parameters": [
           {
             "description": "Project ID of the Cloud SQL project.",
@@ -921,7 +921,7 @@
     "/projects/{project}/instances/{instance}/databases": {
       "get": {
         "description": "Lists databases in the specified Cloud SQL instance.",
-        "operationId": "sql.databases.list",
+        "operationId": "databases.list",
         "parameters": [
           {
             "description": "Project ID of the project for which to list Cloud SQL instances.",
@@ -987,7 +987,7 @@
       ],
       "post": {
         "description": "Inserts a resource containing information about a database inside a Cloud SQL instance.",
-        "operationId": "sql.databases.insert",
+        "operationId": "databases.insert",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1039,7 +1039,7 @@
     "/projects/{project}/instances/{instance}/databases/{database}": {
       "delete": {
         "description": "Deletes a database from a Cloud SQL instance.",
-        "operationId": "sql.databases.delete",
+        "operationId": "databases.delete",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1089,7 +1089,7 @@
       },
       "get": {
         "description": "Retrieves a resource containing information about a database inside a Cloud SQL instance.",
-        "operationId": "sql.databases.get",
+        "operationId": "databases.get",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1162,7 +1162,7 @@
       ],
       "patch": {
         "description": "Updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics.",
-        "operationId": "sql.databases.patch",
+        "operationId": "databases.patch",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1219,7 +1219,7 @@
       },
       "put": {
         "description": "Updates a resource containing information about a database inside a Cloud SQL instance.",
-        "operationId": "sql.databases.update",
+        "operationId": "databases.update",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1301,7 +1301,7 @@
       ],
       "post": {
         "description": "Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a MySQL dump file.",
-        "operationId": "sql.instances.export",
+        "operationId": "instances.export",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance to be exported.",
@@ -1371,7 +1371,7 @@
       ],
       "post": {
         "description": "Failover the instance to its failover replica instance.",
-        "operationId": "sql.instances.failover",
+        "operationId": "instances.failover",
         "parameters": [
           {
             "description": "ID of the project that contains the read replica.",
@@ -1446,7 +1446,7 @@
       ],
       "post": {
         "description": "Imports data into a Cloud SQL instance from a MySQL dump file in Google Cloud Storage.",
-        "operationId": "sql.instances.import",
+        "operationId": "instances.import",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1516,7 +1516,7 @@
       ],
       "post": {
         "description": "Promotes the read replica instance to be a stand-alone Cloud SQL instance.",
-        "operationId": "sql.instances.promoteReplica",
+        "operationId": "instances.promoteReplica",
         "parameters": [
           {
             "description": "ID of the project that contains the read replica.",
@@ -1584,7 +1584,7 @@
       ],
       "post": {
         "description": "Deletes all client certificates and generates a new server SSL certificate for the instance. The changes will not take effect until the instance is restarted. Existing instances without a server certificate will need to call this once to set a server certificate.",
-        "operationId": "sql.instances.resetSslConfig",
+        "operationId": "instances.resetSslConfig",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1652,7 +1652,7 @@
       ],
       "post": {
         "description": "Restarts a Cloud SQL instance.",
-        "operationId": "sql.instances.restart",
+        "operationId": "instances.restart",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance to be restarted.",
@@ -1720,7 +1720,7 @@
       ],
       "post": {
         "description": "Restores a backup of a Cloud SQL instance.",
-        "operationId": "sql.instances.restoreBackup",
+        "operationId": "instances.restoreBackup",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -1772,7 +1772,7 @@
     "/projects/{project}/instances/{instance}/sslCerts": {
       "get": {
         "description": "Lists all of the current SSL certificates for the instance.",
-        "operationId": "sql.sslCerts.list",
+        "operationId": "sslCerts.list",
         "parameters": [
           {
             "description": "Project ID of the project for which to list Cloud SQL instances.",
@@ -1838,7 +1838,7 @@
       ],
       "post": {
         "description": "Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted.",
-        "operationId": "sql.sslCerts.insert",
+        "operationId": "sslCerts.insert",
         "parameters": [
           {
             "description": "Project ID of the project to which the newly created Cloud SQL instances should belong.",
@@ -1890,7 +1890,7 @@
     "/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}": {
       "delete": {
         "description": "Deletes the SSL certificate. The change will not take effect until the instance is restarted.",
-        "operationId": "sql.sslCerts.delete",
+        "operationId": "sslCerts.delete",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance to be deleted.",
@@ -1940,7 +1940,7 @@
       },
       "get": {
         "description": "Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation.",
-        "operationId": "sql.sslCerts.get",
+        "operationId": "sslCerts.get",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2038,7 +2038,7 @@
       ],
       "post": {
         "description": "Starts the replication in the read replica instance.",
-        "operationId": "sql.instances.startReplica",
+        "operationId": "instances.startReplica",
         "parameters": [
           {
             "description": "ID of the project that contains the read replica.",
@@ -2106,7 +2106,7 @@
       ],
       "post": {
         "description": "Stops the replication in the read replica instance.",
-        "operationId": "sql.instances.stopReplica",
+        "operationId": "instances.stopReplica",
         "parameters": [
           {
             "description": "ID of the project that contains the read replica.",
@@ -2151,7 +2151,7 @@
     "/projects/{project}/instances/{instance}/users": {
       "delete": {
         "description": "Deletes a user from a Cloud SQL instance.",
-        "operationId": "sql.users.delete",
+        "operationId": "users.delete",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2208,7 +2208,7 @@
       },
       "get": {
         "description": "Lists users in the specified Cloud SQL instance.",
-        "operationId": "sql.users.list",
+        "operationId": "users.list",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2274,7 +2274,7 @@
       ],
       "post": {
         "description": "Creates a new user in a Cloud SQL instance.",
-        "operationId": "sql.users.insert",
+        "operationId": "users.insert",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2324,7 +2324,7 @@
       },
       "put": {
         "description": "Updates an existing user in a Cloud SQL instance.",
-        "operationId": "sql.users.update",
+        "operationId": "users.update",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2390,7 +2390,7 @@
     "/projects/{project}/operations": {
       "get": {
         "description": "Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time.",
-        "operationId": "sql.operations.list",
+        "operationId": "operations.list",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2470,7 +2470,7 @@
     "/projects/{project}/operations/{operation}": {
       "get": {
         "description": "Retrieves an instance operation that has been performed on an instance.",
-        "operationId": "sql.operations.get",
+        "operationId": "operations.get",
         "parameters": [
           {
             "description": "Project ID of the project that contains the instance.",
@@ -2538,7 +2538,7 @@
     "/projects/{project}/tiers": {
       "get": {
         "description": "Lists all available service tiers for Google Cloud SQL, for example D1, D2. For related information, see Pricing.",
-        "operationId": "sql.tiers.list",
+        "operationId": "tiers.list",
         "parameters": [
           {
             "description": "Project ID of the project for which to list tiers.",

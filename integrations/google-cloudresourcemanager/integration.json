@@ -197,7 +197,7 @@
       ],
       "post": {
         "description": "Searches Organization resources that are visible to the user and satisfy the specified filter. This method returns Organizations in an unspecified order. New Organizations do not necessarily appear at the end of the results.",
-        "operationId": "cloudresourcemanager.organizations.search",
+        "operationId": "organizations.search",
         "parameters": [
           {
             "in": "body",
@@ -235,7 +235,7 @@
     "/v1/projects": {
       "get": {
         "description": "Lists Projects that are visible to the user and satisfy the specified filter. This method returns Projects in an unspecified order. New Projects do not necessarily appear at the end of the list.",
-        "operationId": "cloudresourcemanager.projects.list",
+        "operationId": "projects.list",
         "parameters": [
           {
             "description": "A pagination token returned from a previous call to ListProjects that indicates from where listing should continue. Optional.",
@@ -323,7 +323,7 @@
       ],
       "post": {
         "description": "Request that a new Project be created. The result is an Operation which can be used to track the creation process. It is automatically deleted after a few hours, so there is no need to call DeleteOperation. Our SLO permits Project creation to take up to 30 seconds at the 90th percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile latency. 95th percentile latency is around 11 seconds. We recommend polling at the 5th second with an exponential backoff.",
-        "operationId": "cloudresourcemanager.projects.create",
+        "operationId": "projects.create",
         "parameters": [
           {
             "in": "body",
@@ -356,7 +356,7 @@
     "/v1/projects/{projectId}": {
       "delete": {
         "description": "Marks the Project identified by the specified `project_id` (for example, `my-project-123`) for deletion. This method will only affect the Project if the following criteria are met: + The Project does not have a billing account associated with it. + The Project has a lifecycle state of ACTIVE. This method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED. The deletion starts at an unspecified time, at which point the Project is no longer accessible. Until the deletion completes, you can check the lifecycle state checked by retrieving the Project with GetProject, and the Project remains visible to ListProjects. However, you cannot update the project. After the deletion completes, the Project is not retrievable by the GetProject and ListProjects methods. The caller must have modify permissions for this Project.",
-        "operationId": "cloudresourcemanager.projects.delete",
+        "operationId": "projects.delete",
         "parameters": [
           {
             "description": "The Project ID (for example, `foo-bar-123`). Required.",
@@ -387,7 +387,7 @@
       },
       "get": {
         "description": "Retrieves the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have read permissions for this Project.",
-        "operationId": "cloudresourcemanager.projects.get",
+        "operationId": "projects.get",
         "parameters": [
           {
             "description": "The Project ID (for example, `my-project-123`). Required.",
@@ -464,7 +464,7 @@
       ],
       "put": {
         "description": "Updates the attributes of the Project identified by the specified `project_id` (for example, `my-project-123`). The caller must have modify permissions for this Project.",
-        "operationId": "cloudresourcemanager.projects.update",
+        "operationId": "projects.update",
         "parameters": [
           {
             "description": "The project ID (for example, `my-project-123`). Required.",
@@ -545,7 +545,7 @@
       ],
       "post": {
         "description": "Restores the Project identified by the specified `project_id` (for example, `my-project-123`). You can only use this method for a Project that has a lifecycle state of DELETE_REQUESTED. After deletion starts, the Project cannot be restored. The caller must have modify permissions for this Project.",
-        "operationId": "cloudresourcemanager.projects.undelete",
+        "operationId": "projects.undelete",
         "parameters": [
           {
             "description": "The project ID (for example, `foo-bar-123`). Required.",
@@ -626,7 +626,7 @@
       ],
       "post": {
         "description": "Returns the IAM access control policy for the specified Project. Permission is denied if the policy or the resource does not exist.",
-        "operationId": "cloudresourcemanager.projects.getIamPolicy",
+        "operationId": "projects.getIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -712,7 +712,7 @@
       ],
       "post": {
         "description": "Sets the IAM access control policy for the specified Project. Replaces any existing policy. The following constraints apply when using `setIamPolicy()`: + Project does not support `allUsers` and `allAuthenticatedUsers` as `members` in a `Binding` of a `Policy`. + The owner role can be granted only to `user` and `serviceAccount`. + Service accounts can be made owners of a project directly without any restrictions. However, to be added as an owner, a user must be invited via Cloud Platform console and must accept the invitation. + A user cannot be granted the owner role using `setIamPolicy()`. The user must be granted the owner role using the Cloud Platform Console and must explicitly accept the invitation. + Invitations to grant the owner role cannot be sent using `setIamPolicy()`; they must be sent only using the Cloud Platform Console. + Membership changes that leave the project without any owners that have accepted the Terms of Service (ToS) will be rejected. + There must be at least one owner who has accepted the Terms of Service (ToS) agreement in the policy. Calling `setIamPolicy()` to to remove the last ToS-accepted owner from the policy will fail. This restriction also applies to legacy projects that no longer have owners who have accepted the ToS. Edits to IAM policies will be rejected until the lack of a ToS-accepting owner is rectified. + Calling this method requires enabling the App Engine Admin API. Note: Removing service accounts from policies or changing their roles can render services completely inoperable. It is important to understand how the service account is being used before removing or updating its roles.",
-        "operationId": "cloudresourcemanager.projects.setIamPolicy",
+        "operationId": "projects.setIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being specified. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -793,7 +793,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified Project.",
-        "operationId": "cloudresourcemanager.projects.testIamPermissions",
+        "operationId": "projects.testIamPermissions",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy detail is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -838,7 +838,7 @@
     "/v1/{name}": {
       "get": {
         "description": "Fetches an Organization resource identified by the specified resource name.",
-        "operationId": "cloudresourcemanager.organizations.get",
+        "operationId": "organizations.get",
         "parameters": [
           {
             "description": "The resource name of the Organization to fetch, e.g. \"organizations/1234\".",
@@ -959,7 +959,7 @@
       ],
       "post": {
         "description": "Gets the access control policy for an Organization resource. May be empty if no such policy or resource exists. The `resource` field should be the organization's resource name, e.g. \"organizations/123\".",
-        "operationId": "cloudresourcemanager.organizations.getIamPolicy",
+        "operationId": "organizations.getIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -1046,7 +1046,7 @@
       ],
       "post": {
         "description": "Sets the access control policy on an Organization resource. Replaces any existing policy. The `resource` field should be the organization's resource name, e.g. \"organizations/123\".",
-        "operationId": "cloudresourcemanager.organizations.setIamPolicy",
+        "operationId": "organizations.setIamPolicy",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy is being specified. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",
@@ -1128,7 +1128,7 @@
       ],
       "post": {
         "description": "Returns permissions that a caller has on the specified Organization. The `resource` field should be the organization's resource name, e.g. \"organizations/123\".",
-        "operationId": "cloudresourcemanager.organizations.testIamPermissions",
+        "operationId": "organizations.testIamPermissions",
         "parameters": [
           {
             "description": "REQUIRED: The resource for which the policy detail is being requested. `resource` is usually specified as a path. For example, a Project resource is specified as `projects/{project}`.",

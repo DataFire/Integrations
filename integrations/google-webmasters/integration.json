@@ -128,7 +128,7 @@
     "/sites": {
       "get": {
         "description": "Lists the user's Search Console sites.",
-        "operationId": "webmasters.sites.list",
+        "operationId": "sites.list",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -180,7 +180,7 @@
     "/sites/{siteUrl}": {
       "delete": {
         "description": "Removes a site from the set of the user's Search Console sites.",
-        "operationId": "webmasters.sites.delete",
+        "operationId": "sites.delete",
         "parameters": [
           {
             "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/",
@@ -208,7 +208,7 @@
       },
       "get": {
         "description": "Retrieves information about specific site.",
-        "operationId": "webmasters.sites.get",
+        "operationId": "sites.get",
         "parameters": [
           {
             "description": "The URI of the property as defined in Search Console. Examples: http://www.example.com/ or android-app://com.example/",
@@ -267,7 +267,7 @@
       ],
       "put": {
         "description": "Adds a site to the set of the user's sites in Search Console.",
-        "operationId": "webmasters.sites.add",
+        "operationId": "sites.add",
         "parameters": [
           {
             "description": "The URL of the site to add.",
@@ -320,7 +320,7 @@
       ],
       "post": {
         "description": "Query your data with filters and parameters that you define. Returns zero or more rows grouped by the row keys that you define. You must define a date range of one or more days.\n\nWhen date is one of the group by values, any days without data are omitted from the result list. If you need to know which days have data, issue a broad date range query grouped by date for any metric, and see which day rows are returned.",
-        "operationId": "webmasters.searchanalytics.query",
+        "operationId": "searchanalytics.query",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -365,7 +365,7 @@
     "/sites/{siteUrl}/sitemaps": {
       "get": {
         "description": "Lists the sitemaps-entries submitted for this site, or included in the sitemap index file (if sitemapIndex is specified in the request).",
-        "operationId": "webmasters.sitemaps.list",
+        "operationId": "sitemaps.list",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -432,7 +432,7 @@
     "/sites/{siteUrl}/sitemaps/{feedpath}": {
       "delete": {
         "description": "Deletes a sitemap from this site.",
-        "operationId": "webmasters.sitemaps.delete",
+        "operationId": "sitemaps.delete",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -467,7 +467,7 @@
       },
       "get": {
         "description": "Retrieves information about a specific sitemap.",
-        "operationId": "webmasters.sitemaps.get",
+        "operationId": "sitemaps.get",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -533,7 +533,7 @@
       ],
       "put": {
         "description": "Submits a sitemap for a site.",
-        "operationId": "webmasters.sitemaps.submit",
+        "operationId": "sitemaps.submit",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -570,7 +570,7 @@
     "/sites/{siteUrl}/urlCrawlErrorsCounts/query": {
       "get": {
         "description": "Retrieves a time series of the number of URL crawl errors per error category and platform.",
-        "operationId": "webmasters.urlcrawlerrorscounts.query",
+        "operationId": "urlcrawlerrorscounts.query",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -666,7 +666,7 @@
     "/sites/{siteUrl}/urlCrawlErrorsSamples": {
       "get": {
         "description": "Lists a site's sample URLs for the specified crawl error category and platform.",
-        "operationId": "webmasters.urlcrawlerrorssamples.list",
+        "operationId": "urlcrawlerrorssamples.list",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -757,7 +757,7 @@
     "/sites/{siteUrl}/urlCrawlErrorsSamples/{url}": {
       "delete": {
         "description": "Marks the provided site's sample URL as fixed, and removes it from the samples list.",
-        "operationId": "webmasters.urlcrawlerrorssamples.markAsFixed",
+        "operationId": "urlcrawlerrorssamples.markAsFixed",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",
@@ -822,7 +822,7 @@
       },
       "get": {
         "description": "Retrieves details about crawl errors for a site's sample URL.",
-        "operationId": "webmasters.urlcrawlerrorssamples.get",
+        "operationId": "urlcrawlerrorssamples.get",
         "parameters": [
           {
             "description": "The site's URL, including protocol. For example: http://www.example.com/",

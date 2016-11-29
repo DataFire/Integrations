@@ -94,7 +94,7 @@
     "/v1": {
       "get": {
         "description": "Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results.",
-        "operationId": "search.cse.list",
+        "operationId": "cse.list",
         "parameters": [
           {
             "description": "Query",
