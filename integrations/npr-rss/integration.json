@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "basePath": "/",
   "paths": {
-    "/news/rss.xml": {
+    "/rss/rss.php": {
       "get": {
-        "operationId": "topStories",
-        "description": "BBC News - Home",
+        "operationId": "news",
+        "description": "Assorted stories from NPR",
         "responses": {
           "200": {
             "description": "OK",
@@ -15,55 +15,7 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - Home"
-      }
-    },
-    "/news/world/rss.xml": {
-      "get": {
-        "operationId": "world",
-        "description": "BBC News - World",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Feed"
-            }
-          }
-        },
-        "parameters": [],
-        "summary": "BBC News - World"
-      }
-    },
-    "/news/uk/rss.xml": {
-      "get": {
-        "operationId": "uk",
-        "description": "BBC News - UK",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Feed"
-            }
-          }
-        },
-        "parameters": [],
-        "summary": "BBC News - UK"
-      }
-    },
-    "/news/technology/rss.xml": {
-      "get": {
-        "operationId": "technology",
-        "description": "BBC News - Technology",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/Feed"
-            }
-          }
-        },
-        "parameters": [],
-        "summary": "BBC News - Technology"
+        "summary": "Stories from NPR : NPR"
       }
     }
   },
@@ -119,11 +71,11 @@
   },
   "info": {
     "x-datafire": {
-      "name": "bbc-rss",
+      "name": "npr-rss",
       "type": "rss"
     }
   },
-  "host": "feeds.bbci.co.uk",
+  "host": "www.npr.org",
   "schemes": [
     "http"
   ]

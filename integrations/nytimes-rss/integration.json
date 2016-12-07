@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "basePath": "/",
   "paths": {
-    "/news/rss.xml": {
+    "/services/xml/rss/nyt/HomePage.xml": {
       "get": {
-        "operationId": "topStories",
-        "description": "BBC News - Home",
+        "operationId": "homePage",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK",
@@ -15,13 +15,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - Home"
+        "summary": "NYT > Home Page"
       }
     },
-    "/news/world/rss.xml": {
+    "/services/xml/rss/nyt/World.xml": {
       "get": {
         "operationId": "world",
-        "description": "BBC News - World",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK",
@@ -31,13 +31,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - World"
+        "summary": "NYT > World"
       }
     },
-    "/news/uk/rss.xml": {
+    "/services/xml/rss/nyt/Business.xml": {
       "get": {
-        "operationId": "uk",
-        "description": "BBC News - UK",
+        "operationId": "business",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK",
@@ -47,13 +47,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - UK"
+        "summary": "NYT > Business Day"
       }
     },
-    "/news/technology/rss.xml": {
+    "/services/xml/rss/nyt/Sports.xml": {
       "get": {
-        "operationId": "technology",
-        "description": "BBC News - Technology",
+        "operationId": "sports",
+        "description": "",
         "responses": {
           "200": {
             "description": "OK",
@@ -63,7 +63,23 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - Technology"
+        "summary": "NYT > Sports"
+      }
+    },
+    "/services/xml/rss/nyt/Science.xml": {
+      "get": {
+        "operationId": "science",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Feed"
+            }
+          }
+        },
+        "parameters": [],
+        "summary": "NYT > Science"
       }
     }
   },
@@ -119,11 +135,11 @@
   },
   "info": {
     "x-datafire": {
-      "name": "bbc-rss",
+      "name": "nytimes-rss",
       "type": "rss"
     }
   },
-  "host": "feeds.bbci.co.uk",
+  "host": "rss.nytimes.com",
   "schemes": [
     "http"
   ]

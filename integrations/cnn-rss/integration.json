@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "basePath": "/",
   "paths": {
-    "/news/rss.xml": {
+    "/rss/cnn_topstories.rss": {
       "get": {
         "operationId": "topStories",
-        "description": "BBC News - Home",
+        "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
         "responses": {
           "200": {
             "description": "OK",
@@ -15,13 +15,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - Home"
+        "summary": "CNN.com - RSS Channel - Mobile App Manual"
       }
     },
-    "/news/world/rss.xml": {
+    "/rss/cnn_world.rss": {
       "get": {
         "operationId": "world",
-        "description": "BBC News - World",
+        "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
         "responses": {
           "200": {
             "description": "OK",
@@ -31,13 +31,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - World"
+        "summary": "CNN.com - RSS Channel - World"
       }
     },
-    "/news/uk/rss.xml": {
+    "/rss/cnn_allpolitics.rss": {
       "get": {
-        "operationId": "uk",
-        "description": "BBC News - UK",
+        "operationId": "politics",
+        "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
         "responses": {
           "200": {
             "description": "OK",
@@ -47,13 +47,13 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - UK"
+        "summary": "CNN.com - RSS Channel - Politics"
       }
     },
-    "/news/technology/rss.xml": {
+    "/rss/money_latest.rss": {
       "get": {
-        "operationId": "technology",
-        "description": "BBC News - Technology",
+        "operationId": "business",
+        "description": "CNNMoney.com, the business website of CNN, combines business news and in-depth market analysis with practical advice and answers to personal finance questions.",
         "responses": {
           "200": {
             "description": "OK",
@@ -63,7 +63,7 @@
           }
         },
         "parameters": [],
-        "summary": "BBC News - Technology"
+        "summary": "Latest financial news - CNNMoney.com"
       }
     }
   },
@@ -119,11 +119,11 @@
   },
   "info": {
     "x-datafire": {
-      "name": "bbc-rss",
+      "name": "cnn-rss",
       "type": "rss"
     }
   },
-  "host": "feeds.bbci.co.uk",
+  "host": "rss.cnn.com",
   "schemes": [
     "http"
   ]
