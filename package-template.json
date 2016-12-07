@@ -1,6 +1,7 @@
 {
   "name": "",
   "version": "0.0.1",
+  "main": "integration",
   "description": "An integration for DataFire",
   "repository": {
     "type": "git",
