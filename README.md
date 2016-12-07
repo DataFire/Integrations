@@ -1,10 +1,9 @@
 # DataFire Integrations
 
-This is an integration registry for [DataFire](https://github.com/DataFire/DataFire).
+This is an integration registry for DataFire. See the [DataFire repo](https://github.com/DataFire/DataFire) for full documentation.
 
 Credit to [APIs.guru](http://apis.guru) for supplying many of the OpenAPI specs here.
 
-See the [DataFire repo](https://github.com/DataFire/DataFire) for full documentation.
 
 ## Install DataFire
 ```
