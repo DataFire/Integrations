@@ -4,17 +4,11 @@ This is an integration registry for DataFire. See the [DataFire repo](https://gi
 
 Credit to [APIs.guru](http://apis.guru) for supplying many of the OpenAPI specs here.
 
-
-## Install DataFire
-```
-npm install -g datafire
-```
-
 ## Installing an Integration
 You can use either `npm` or `datafire` - both do the same thing.
 ```
-datafire integrate --save github
 npm install --save @datafire/github
+datafire integrate --save github
 ```
 
 ## Calling an Integration
@@ -46,6 +40,9 @@ datafire integrate github
 
 datafire describe github
 # show details and a list of operations
+
+datafire describe github -o "GET /users"
+# show details for a particular operation
 
 datafire call github -o "GET /users"
 # make a live call to the API
