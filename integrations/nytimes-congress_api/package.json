@@ -1,6 +1,7 @@
 {
   "name": "@datafire/nytimes-congress_api",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "main": "integration",
   "description": "DataFire integration for Congress",
   "repository": {
     "type": "git",

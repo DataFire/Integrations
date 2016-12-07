@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google-prediction",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Prediction",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/googleapis.com/prediction/v1.6/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

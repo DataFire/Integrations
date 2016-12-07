@@ -1,6 +1,6 @@
 {
   "name": "@datafire/glugbot",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Glugbot",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/glugbot.com/1/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

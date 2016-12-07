@@ -1,6 +1,6 @@
 {
   "name": "@datafire/reddit-rss",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for undefined",
   "repository": {
     "type": "git",
@@ -14,5 +14,6 @@
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
     "type": "rss"
-  }
+  },
+  "main": "integration"
 }

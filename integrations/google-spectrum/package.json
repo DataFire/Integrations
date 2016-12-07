@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google-spectrum",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Google Spectrum Database",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/googleapis.com/spectrum/v1explorer/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

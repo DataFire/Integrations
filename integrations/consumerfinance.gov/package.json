@@ -1,6 +1,6 @@
 {
   "name": "@datafire/consumerfinance.gov",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for The Consumer Financial Protection Bureau",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/consumerfinance.gov/1.0/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/rottentomatoes",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Rotten Tomatoes",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/rottentomatoes.com/1.0/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

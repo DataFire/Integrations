@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure-arm-documentdb",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for DocumentDB",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/azure.com/arm-documentdb/2015-04-08/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

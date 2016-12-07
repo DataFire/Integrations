@@ -1,6 +1,6 @@
 {
   "name": "@datafire/18f.gov",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Discovery Market Research",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/18f.gov/0.1/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

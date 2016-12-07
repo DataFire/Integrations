@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nrel-transportation-incentives-laws",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Transportation Laws and Incentives",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/nrel.gov/transportation-incentives-laws/0.1.0/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

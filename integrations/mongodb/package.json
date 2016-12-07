@@ -1,6 +1,7 @@
 {
   "name": "@datafire/mongodb",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "main": "integration",
   "description": "DataFire integration for MongoDB",
   "repository": {
     "type": "git",

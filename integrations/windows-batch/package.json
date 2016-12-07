@@ -1,6 +1,6 @@
 {
   "name": "@datafire/windows-batch",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for BatchService",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/windows.net/batch/2016-07-01.3.1/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@datafire/azure-arm-insights",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for InsightsManagementClient",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/azure.com/arm-insights/2016-03-01/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

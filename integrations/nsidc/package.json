@@ -1,6 +1,6 @@
 {
   "name": "@datafire/nsidc",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for NSIDC Web Service Documentation Index",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/nsidc.org/1.0.0/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

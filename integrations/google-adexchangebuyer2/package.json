@@ -1,6 +1,6 @@
 {
   "name": "@datafire/google-adexchangebuyer2",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Ad Exchange Buyer API II",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/googleapis.com/adexchangebuyer2/v2beta1/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

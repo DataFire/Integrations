@@ -1,6 +1,6 @@
 {
   "name": "@datafire/netlicensing",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Labs64 NetLicensing RESTful API Test Center",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/netlicensing.io/2.x/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }

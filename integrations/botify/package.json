@@ -1,6 +1,6 @@
 {
   "name": "@datafire/botify",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "DataFire integration for Botify",
   "repository": {
     "type": "git",
@@ -15,5 +15,6 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/botify.com/1.0.0/swagger.json",
     "type": "openapi"
-  }
+  },
+  "main": "integration"
 }
