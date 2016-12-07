@@ -251,6 +251,7 @@
     "title": "ClickMeter",
     "description": "Api dashboard for ClickMeter API"
   },
+  "cnn-rss": {},
   "consumerfinance.gov": {
     "title": "The Consumer Financial Protection Bureau",
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API."
@@ -803,6 +804,10 @@
     "title": "Jirafe Events",
     "description": "API endpoins for sending Jirafe events"
   },
+  "kaltura": {
+    "title": "Kaltura",
+    "description": "The Kaltura API"
+  },
   "learnifier": {
     "title": "Learnifier"
   },
@@ -861,6 +866,7 @@
   "netlify": {
     "title": "Netlify's API definition"
   },
+  "npr-rss": {},
   "nrel-building-case-studies": {
     "title": "High Performance Building Database",
     "description": "The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of..."
@@ -909,6 +915,7 @@
     "title": "Movie Reviews",
     "description": "With the Movie Reviews API, you can search New York Times movie reviews by keyword and get lists of NYT Critics' Picks."
   },
+  "nytimes-rss": {},
   "nytimes-semantic_api": {
     "title": "Semantic",
     "description": "The Semantic API complements the Articles API. With the Semantic API, you get access to the long list of people, places,..."
