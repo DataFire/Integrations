@@ -26,8 +26,8 @@ datafire call github -o "GET /users"
 ```js
 let datafire = require('datafire');
 let github = datafire.Integration.new('github');
-github.get('/users', {username: 'karpathy'}}).call(function(err, user) {
-  console.log(user);
+github.get('/users').call(function(err, users) {
+  console.log(users);
 });
 ```
 
