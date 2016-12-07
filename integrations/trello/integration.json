@@ -40,7 +40,7 @@
   },
   "securityDefinitions": {
     "api_key": {
-      "in": "header",
+      "in": "query",
       "name": "key",
       "type": "apiKey"
     },
