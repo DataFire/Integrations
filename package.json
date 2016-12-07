@@ -1,7 +1,7 @@
 {
   "name": "integrations",
   "version": "1.0.0",
-  "description": "This is an integration registry for DataFire.",
+  "description": "An integration registry for DataFire",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
