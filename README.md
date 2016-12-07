@@ -4,6 +4,8 @@ This is an integration registry for [DataFire](https://github.com/DataFire/DataF
 
 Credit to [APIs.guru](http://apis.guru) for supplying many of the OpenAPI specs here.
 
+See the [DataFire repo](https://github.com/DataFire/DataFire) for full documentation.
+
 ## Install DataFire
 ```
 npm install -g datafire
@@ -34,8 +36,6 @@ github.get('/users').call(function(err, users) {
 ## Exploring
 You can see a list of integrations in [list.json](./list.json) or use the DataFire command line tool:
 ```
-npm install -g datafire
-
 datafire list -a
 # show all integrations
 
