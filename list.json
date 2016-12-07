@@ -763,6 +763,10 @@
   "healthcare.gov": {
     "title": "Healthcare"
   },
+  "heroku": {
+    "title": "Heroku",
+    "description": "Manage your Heroku apps, configs, collaborators & resources"
+  },
   "hetras-certification-booking": {
     "title": "hetras Booking API Version 0"
   },
