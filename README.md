@@ -4,6 +4,33 @@ This is an integration registry for [DataFire](https://github.com/DataFire/DataF
 
 Credit to [APIs.guru](http://apis.guru) for supplying many of the OpenAPI specs here.
 
+## Install DataFire
+```
+npm install -g datafire
+```
+
+## Installing an Integration
+You can use either `npm` or `datafire` - both do the same thing.
+```
+datafire integrate --save github
+npm install --save @datafire/github
+```
+
+## Calling an Integration
+You can make calls to an integration on the command line, or in JavaScript.
+```bash
+datafire integrate github
+datafire call github -o "GET /users"
+```
+
+```js
+let datafire = require('datafire');
+let github = datafire.Integration.new('github');
+github.get('/users', {username: 'karpathy'}}).call(function(err, user) {
+  console.log(user);
+});
+```
+
 ## Exploring
 You can see a list of integrations in [list.json](./list.json) or use the DataFire command line tool:
 ```
