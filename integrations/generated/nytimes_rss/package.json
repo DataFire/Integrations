@@ -1,0 +1,29 @@
+{
+  "name": "@datafire/nytimes_rss",
+  "version": "1.0.0",
+  "main": "integration",
+  "description": "DataFire integration for undefined",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": {
+      "homePage": "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+      "world": "http://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+      "business": "http://rss.nytimes.com/services/xml/rss/nyt/Business.xml",
+      "sports": "http://rss.nytimes.com/services/xml/rss/nyt/Sports.xml",
+      "science": "http://rss.nytimes.com/services/xml/rss/nyt/Science.xml"
+    },
+    "type": "rss"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const datafire = require('datafire');
 
 const MAX_DESCRIPTION_LENGTH = 120;
@@ -18,13 +19,20 @@ const truncateDescription = (desc) => {
 }
 
 let list = {};
-fs.readdirSync(__dirname + '/../integrations').forEach(name => {
-  let integration = datafire.Integration.new(name);
-  list[name] = {
-    title: integration.spec.info.title,
-    description: integration.spec.info.description,
-  }
-  list[name].description = truncateDescription(list[name].description);
-})
+function addDirToList(dir) {
+  fs.readdirSync(dir).forEach(name => {
+    let integ = require(path.join(dir, name));
+    if (list[name]) throw new Error("Duplicate name " + name);
+    list[name] = {
+      title: integ.title,
+      description: integ.description,
+    };
+    list[name].description = truncateDescription(list[name].description);
+  })
+}
+
+const BASE_DIR = __dirname + '/../integrations/';
+addDirToList(BASE_DIR + 'generated');
+//addDirToList(BASE_DIR + 'contrib');
 fs.writeFileSync(__dirname + '/../list.json', JSON.stringify(list, null, 2));
 

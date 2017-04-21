@@ -1,0 +1,25 @@
+{
+  "name": "@datafire/npr_rss",
+  "version": "1.0.0",
+  "main": "integration",
+  "description": "DataFire integration for undefined",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": {
+      "news": "http://www.npr.org/rss/rss.php?id=1001"
+    },
+    "type": "rss"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

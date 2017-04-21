@@ -1,0 +1,23 @@
+{
+  "name": "@datafire/graphhopper",
+  "version": "1.0.0",
+  "main": "integration",
+  "description": "DataFire integration for Route Optimization",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/graphhopper.com/1.0/swagger.json",
+    "type": "openapi"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

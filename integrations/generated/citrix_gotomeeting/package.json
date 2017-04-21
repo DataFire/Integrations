@@ -1,0 +1,23 @@
+{
+  "name": "@datafire/citrix_gotomeeting",
+  "version": "1.0.0",
+  "main": "integration",
+  "description": "DataFire integration for GoToMeeting",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/citrixonline.com/gotomeeting/1.0.0/swagger.json",
+    "type": "openapi"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}
