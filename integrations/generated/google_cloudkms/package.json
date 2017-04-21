@@ -1,7 +1,7 @@
 {
   "name": "@datafire/google_cloudkms",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Google Cloud Key Management Service (KMS)",
   "repository": {
     "type": "git",

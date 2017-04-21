@@ -1,7 +1,7 @@
 {
   "name": "@datafire/azure_arm_insights",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for InsightsManagementClient",
   "repository": {
     "type": "git",

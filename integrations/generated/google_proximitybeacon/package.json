@@ -1,7 +1,7 @@
 {
   "name": "@datafire/google_proximitybeacon",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Google Proximity Beacon",
   "repository": {
     "type": "git",

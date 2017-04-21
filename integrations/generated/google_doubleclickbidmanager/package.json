@@ -1,7 +1,7 @@
 {
   "name": "@datafire/google_doubleclickbidmanager",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for DoubleClick Bid Manager",
   "repository": {
     "type": "git",

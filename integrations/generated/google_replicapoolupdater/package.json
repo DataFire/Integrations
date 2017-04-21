@@ -1,7 +1,7 @@
 {
   "name": "@datafire/google_replicapoolupdater",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Google Compute Engine Instance Group Updater",
   "repository": {
     "type": "git",

@@ -1,7 +1,7 @@
 {
   "name": "@datafire/firebrowse",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for FireBrowse Beta API",
   "repository": {
     "type": "git",

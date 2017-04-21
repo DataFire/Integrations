@@ -1,7 +1,7 @@
 {
   "name": "@datafire/cisco",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Cisco PSIRT openVuln",
   "repository": {
     "type": "git",

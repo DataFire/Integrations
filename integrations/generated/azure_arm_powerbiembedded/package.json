@@ -1,7 +1,7 @@
 {
   "name": "@datafire/azure_arm_powerbiembedded",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Power BI Embedded Management Client",
   "repository": {
     "type": "git",

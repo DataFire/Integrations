@@ -1,7 +1,7 @@
 {
   "name": "@datafire/cnab_online_herokuapp",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Cnab Online",
   "repository": {
     "type": "git",

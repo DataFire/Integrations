@@ -1,7 +1,7 @@
 {
   "name": "@datafire/epa_gov_sdw",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act",
   "repository": {
     "type": "git",

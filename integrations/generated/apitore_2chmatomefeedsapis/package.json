@@ -1,7 +1,7 @@
 {
   "name": "@datafire/apitore_2chmatomefeedsapis",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for 2ch matome feeds APIs",
   "repository": {
     "type": "git",

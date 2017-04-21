@@ -1,7 +1,7 @@
 {
   "name": "@datafire/apitore_text2labelbywordvectorapis",
-  "version": "1.0.0",
-  "main": "integration",
+  "version": "2.0.0",
+  "main": "index.js",
   "description": "DataFire integration for Text2Label by word vector APIs",
   "repository": {
     "type": "git",
