@@ -4,7 +4,6 @@ const datafire = require('datafire');
 const DESTINATION = __dirname + '/../integrations/generated';
 
 const TYPES = ['rss', 'openapi', 'raml', 'wadl', 'api_blueprint'];
-const VERSION = '1.0.0';
 
 module.exports = (args, callback=()=>{}) => {
   args.name = args.name.toLowerCase().replace(/\W+/g, '_');
@@ -15,7 +14,6 @@ module.exports = (args, callback=()=>{}) => {
     let pkg = JSON.parse(JSON.stringify(require('../package-template.json')))
     let packageFile = path.join(args.destination, args.name, 'package.json');
     pkg.name = '@datafire/' + args.name;
-    pkg.version = VERSION;
     pkg.description = "DataFire integration for " + spec.info.title || spec.info.host;
     pkg.datafire = pkg.datafire || {};
     pkg.datafire.origin = args[type];

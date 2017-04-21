@@ -33,6 +33,6 @@ function addDirToList(dir) {
 
 const BASE_DIR = __dirname + '/../integrations/';
 addDirToList(BASE_DIR + 'generated');
-//addDirToList(BASE_DIR + 'contrib');
+addDirToList(BASE_DIR + 'manual');
 fs.writeFileSync(__dirname + '/../list.json', JSON.stringify(list, null, 2));
 

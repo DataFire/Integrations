@@ -1,10 +1,8 @@
 {
-  "name": "integrations",
-  "version": "1.0.0",
-  "description": "An integration registry for DataFire",
-  "scripts": {
-    "test": "mocha"
-  },
+  "name": "",
+  "version": "0.0.1",
+  "main": "integration",
+  "description": "An integration for DataFire",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -15,13 +13,8 @@
     "url": "https://github.com/DataFire/integrations/issues"
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {},
   "dependencies": {
-    "async": "^2.1.4",
-    "request": "^2.79.0",
-    "yargs": "^6.4.0"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "datafire": "^2.0.0"
   }
 }
