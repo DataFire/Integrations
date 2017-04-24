@@ -34,12 +34,10 @@
     }
   },
   "consumes": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "produces": [
-    "application/json",
-    "text/json"
+    "application/json"
   ],
   "securityDefinitions": {
     "azure_auth": {
@@ -73,12 +71,381 @@
       "name": "subscriptionId",
       "required": true,
       "type": "string"
+    },
+    "authorizationRuleNameParameter": {
+      "description": "The authorization rule name.",
+      "in": "path",
+      "maxLength": 50,
+      "minLength": 1,
+      "name": "authorizationRuleName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "consumerGroupNameParameter": {
+      "description": "The consumer group name",
+      "in": "path",
+      "maxLength": 50,
+      "minLength": 1,
+      "name": "consumerGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "eventHubNameParameter": {
+      "description": "The Event Hub name",
+      "in": "path",
+      "maxLength": 50,
+      "minLength": 1,
+      "name": "eventHubName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "namespaceNameParameter": {
+      "description": "The Namespace name",
+      "in": "path",
+      "maxLength": 50,
+      "minLength": 6,
+      "name": "namespaceName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "resourceGroupNameParameter": {
+      "description": "Name of the resource group within the azure subscription.",
+      "in": "path",
+      "maxLength": 90,
+      "minLength": 1,
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   },
   "paths": {
+    "/providers/Microsoft.EventHub/operations": {
+      "get": {
+        "description": "Lists all of the available Event Hub REST API operations.",
+        "operationId": "Operations_List",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/OperationListResult"
+            }
+          }
+        },
+        "tags": [
+          "Operations"
+        ],
+        "x-ms-examples": {
+          "EHOperations_List": {
+            "parameters": {
+              "api-version": "2016-07-01"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "display": {
+                        "description": "Checks availability of namespace under given subscription.",
+                        "operation": "Get namespace availability.",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Non Resource Operation"
+                      },
+                      "name": "Microsoft.EventHub/checkNameAvailability/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Registers the subscription for the EventHub resource provider and enables the creation of EventHub resources",
+                        "operation": "Registers the EventHub Resource Provider",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub Resource Provider"
+                      },
+                      "name": "Microsoft.EventHub/register/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Create a Namespace Resource and Update its properties. Tags and status of the Namespace are the properties which can be updated.",
+                        "operation": "Create Or Update Namespace ",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Get the list of Namespace Resource Description",
+                        "operation": "Get Namespace Resource",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Delete Namespace Resource",
+                        "operation": "Delete Namespace",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/Delete"
+                    },
+                    {
+                      "display": {
+                        "description": "Get the list of Namespaces Authorization Rules description.",
+                        "operation": "Get Namespace Authorization Rules",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/authorizationRules/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Create a Namespace level Authorization Rules and update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
+                        "operation": "Create or Update Namespace Authorization Rules",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/authorizationRules/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted. ",
+                        "operation": "Delete Namespace Authorization Rule",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/authorizationRules/delete"
+                    },
+                    {
+                      "display": {
+                        "description": "Get the Connection String to the Namespace",
+                        "operation": "Get Namespace Listkeys",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/authorizationRules/listkeys/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Regenerate the Primary or Secondary key to the Resource",
+                        "operation": "Resource Regeneratekeys",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Create or Update EventHub properties.",
+                        "operation": "Create or Update EventHub",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of EventHub Resource Descriptions",
+                        "operation": "Get EventHub",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Operation to delete EventHub Resource",
+                        "operation": "Delete EventHub",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/Delete"
+                    },
+                    {
+                      "display": {
+                        "description": " Get the list of EventHub Authorization Rules",
+                        "operation": " Get EventHub Authorization Rules",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Create EventHub Authorization Rules and Update its properties. The Authorization Rules Access Rights, the Primary and Secondary Keys can be updated.",
+                        "operation": "Create or Update EventHub Authorization Rule",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Operation to delete EventHub Authorization Rules",
+                        "operation": "Delete EventHub Authorization Rules",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules/delete"
+                    },
+                    {
+                      "display": {
+                        "description": "Get the Connection String to EventHub",
+                        "operation": "List EventHub keys",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules/listkeys/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Regenerate the Primary or Secondary key to the Resource",
+                        "operation": "Resource Regeneratekeys",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "EventHub AuthorizationRules"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventhubs/authorizationRules/regenerateKeys/action"
+                    },
+                    {
+                      "display": {
+                        "description": "Create or Update ConsumerGroup properties.",
+                        "operation": "Create or Update ConsumerGroup",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "ConsumerGroup"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventHubs/consumergroups/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of ConsumerGroup Resource Descriptions",
+                        "operation": "Get ConsumerGroup",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "ConsumerGroup"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventHubs/consumergroups/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Operation to delete ConsumerGroup Resource",
+                        "operation": "Delete ConsumerGroup",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "ConsumerGroup"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/eventHubs/consumergroups/Delete"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of Namespace metrics Resource Descriptions",
+                        "operation": "Get Namespace metrics",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace metrics"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/metricDefinitions/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of Namespace diagnostic settings Resource Descriptions",
+                        "operation": "Get Namespace diagnostic settings",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace diagnostic settings"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/diagnosticSettings/read"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of Namespace diagnostic settings Resource Descriptions",
+                        "operation": "Create or Update Namespace diagnostic settings",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace diagnostic settings"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/diagnosticSettings/write"
+                    },
+                    {
+                      "display": {
+                        "description": "Get list of Namespace logs Resource Descriptions",
+                        "operation": "Get Namespace logs",
+                        "provider": "Microsoft Azure EventHub",
+                        "resource": "Namespace logs"
+                      },
+                      "name": "Microsoft.EventHub/namespaces/logDefinitions/read"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-ms-pageable": {
+          "nextLinkName": "nextLink"
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/CheckNameAvailability": {
+      "post": {
+        "description": "Check the give Namespace name availability.",
+        "operationId": "Namespaces_CheckNameAvailability",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "description": "Parameters to check availability of the given Namespace name",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "check availability returned successfully.",
+            "schema": {
+              "$ref": "#/definitions/CheckNameAvailabilityResult"
+            }
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NamespacesCheckNameAvailability": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "parameters": {
+                "name": "sdk-Namespace8107"
+              },
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "message": " ",
+                  "nameAvailable": true,
+                  "reason": "None"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.EventHub/namespaces": {
       "get": {
-        "description": "Lists all the available namespaces within a subscription, irrespective of the resource groups.",
+        "description": "Lists all the available Namespaces within a subscription, irrespective of the resource groups.",
         "operationId": "Namespaces_ListBySubscription",
         "parameters": [
           {
@@ -99,6 +466,106 @@
         "tags": [
           "Namespaces"
         ],
+        "x-ms-examples": {
+          "NamespacesListBySubscription": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5166",
+                      "location": "Australia East",
+                      "name": "sdk-Namespace-5166",
+                      "properties": {
+                        "createdAt": "2017-02-24T06:45:29.38Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace-5166",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://sdk-Namespace-5166.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-24T06:45:54.807Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/Eventhub-Namespace-onesdk2423",
+                      "location": "West US",
+                      "name": "Eventhub-Namespace-onesdk2423",
+                      "properties": {
+                        "createdAt": "2017-02-08T00:45:03.127Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:eventhub-namespace-onesdk2423",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://Eventhub-Namespace-onesdk2423.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-08T00:45:24.713Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7810",
+                      "location": "South Central US",
+                      "name": "sdk-Namespace7810",
+                      "properties": {
+                        "createdAt": "2017-02-23T05:42:25.597Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace7810",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://sdk-Namespace7810.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-23T05:42:47.16Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace-9769",
+                      "location": "Australia East",
+                      "name": "sdk-Namespace-9769",
+                      "properties": {
+                        "createdAt": "2017-03-07T23:29:55.917Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace-9769",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://sdk-Namespace-9769.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-03-07T23:30:21.6Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -106,15 +573,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces": {
       "get": {
-        "description": "Lists the available namespaces within a resource group.",
+        "description": "Lists the available Namespaces within a resource group.",
         "operationId": "Namespaces_ListByResourceGroup",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -134,6 +597,107 @@
         "tags": [
           "Namespaces"
         ],
+        "x-ms-examples": {
+          "NamespaceListByResourceGroup": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5166",
+                      "location": "Australia East",
+                      "name": "sdk-Namespace-5166",
+                      "properties": {
+                        "createdAt": "2017-02-24T06:45:29.38Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace-5166",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://sdk-Namespace-5166.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-24T06:45:54.807Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/Eventhub-Namespace-onesdk2423",
+                      "location": "West US",
+                      "name": "Eventhub-Namespace-onesdk2423",
+                      "properties": {
+                        "createdAt": "2017-02-08T00:45:03.127Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:eventhub-namespace-onesdk2423",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://Eventhub-Namespace-onesdk2423.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-08T00:45:24.713Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/Eventhub-Namespace-onesdk6253",
+                      "location": "West US",
+                      "name": "Eventhub-Namespace-onesdk6253",
+                      "properties": {
+                        "createdAt": "2017-02-08T01:50:05.17Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:eventhub-namespace-onesdk6253",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://Eventhub-Namespace-onesdk6253.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-02-08T01:50:27.94Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace-4772",
+                      "location": "Australia East",
+                      "name": "sdk-Namespace-4772",
+                      "properties": {
+                        "createdAt": "2017-03-07T23:43:36.89Z",
+                        "enabled": true,
+                        "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace-4772",
+                        "provisioningState": "Succeeded",
+                        "serviceBusEndpoint": "https://sdk-Namespace-4772.servicebus.windows.net:443/",
+                        "status": "Active",
+                        "updatedAt": "2017-03-07T23:44:05.807Z"
+                      },
+                      "sku": {
+                        "capacity": 1,
+                        "name": "Standard",
+                        "tier": "Standard"
+                      },
+                      "tags": {},
+                      "type": "Microsoft.EventHub/namespaces"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -145,18 +709,10 @@
         "operationId": "Namespaces_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The name of the namespace to delete.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -179,6 +735,21 @@
         "tags": [
           "Namespaces"
         ],
+        "x-ms-examples": {
+          "NameSpaceDelete": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "namespaceName": "sdk-Namespace8107",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {},
+              "202": {},
+              "204": {}
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       },
       "get": {
@@ -186,18 +757,10 @@
         "operationId": "Namespaces_Get",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The name of the specified namespace.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -212,29 +775,194 @@
             "schema": {
               "$ref": "#/definitions/NamespaceResource"
             }
+          },
+          "201": {
+            "description": "Namespace update request accepted.",
+            "schema": {
+              "$ref": "#/definitions/NamespaceResource"
+            }
           }
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceGet": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "namespaceName": "sdk-Namespace8107",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace8107",
+                  "location": "South Central US",
+                  "name": "sdk-Namespace8107",
+                  "properties": {
+                    "createdAt": "2017-03-12T19:15:11.25Z",
+                    "enabled": true,
+                    "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace8107",
+                    "provisioningState": "Succeeded",
+                    "serviceBusEndpoint": "https://sdk-Namespace8107.servicebus.windows.net:443/",
+                    "status": "Active",
+                    "updatedAt": "2017-03-12T19:15:30.347Z"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "Standard",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "tag1": "value1",
+                    "tag2": "value2"
+                  },
+                  "type": "Microsoft.EventHub/namespaces"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace8107",
+                  "location": "South Central US",
+                  "name": "sdk-Namespace8107",
+                  "properties": {
+                    "createdAt": "2017-03-12T19:15:11.25Z",
+                    "enabled": true,
+                    "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace8107",
+                    "provisioningState": "Succeeded",
+                    "serviceBusEndpoint": "https://sdk-Namespace8107.servicebus.windows.net:443/",
+                    "status": "Active",
+                    "updatedAt": "2017-03-12T19:15:30.347Z"
+                  },
+                  "sku": {
+                    "capacity": 1,
+                    "name": "Standard",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "tag1": "value1",
+                    "tag2": "value2"
+                  },
+                  "type": "Microsoft.EventHub/namespaces"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "description": "Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent.",
+        "operationId": "Namespaces_Update",
+        "parameters": [
+          {
+            "$ref": "#/parameters/resourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/namespaceNameParameter"
+          },
+          {
+            "description": "Parameters for updating a namespace resource.",
+            "in": "body",
+            "name": "parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NamespaceUpdateParameter"
+            }
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Namespace successfuly updated.",
+            "schema": {
+              "$ref": "#/definitions/NamespaceResource"
+            }
+          },
+          "201": {
+            "description": "Namespace update request accepted.",
+            "schema": {
+              "$ref": "#/definitions/NamespaceResource"
+            }
+          },
+          "202": {
+            "description": "Namespace create or update request accepted."
+          }
+        },
+        "tags": [
+          "Namespaces"
+        ],
+        "x-ms-examples": {
+          "NamespacesUpdate": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "location": "West US",
+              "namespaceName": "sdk-Namespace8107",
+              "parameters": {
+                "tags": {
+                  "tag3": "value3",
+                  "tag4": "value4"
+                }
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "8c246e6a-cbc6-4a87-aff1-d6a886f376ef"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "",
+                  "location": "",
+                  "name": "",
+                  "properties": {
+                    "metricId": "",
+                    "provisioningState": "",
+                    "serviceBusEndpoint": "https://sdk-Namespace4638.servicebus.windows.net:443/",
+                    "updatedAt": "2017-03-12T20:34:10.25Z"
+                  },
+                  "tags": {
+                    "tag3": "value3",
+                    "tag4": "value4"
+                  },
+                  "type": ""
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "",
+                  "location": "",
+                  "name": "",
+                  "properties": {
+                    "metricId": "",
+                    "provisioningState": "",
+                    "serviceBusEndpoint": "https://sdk-Namespace4638.servicebus.windows.net:443/",
+                    "updatedAt": "2017-03-12T20:34:10.25Z"
+                  },
+                  "tags": {
+                    "tag3": "value3",
+                    "tag4": "value4"
+                  },
+                  "type": ""
+                }
+              },
+              "202": {}
+            }
+          }
+        }
       },
       "put": {
         "description": "Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent.",
         "operationId": "Namespaces_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
             "description": "Parameters for creating a namespace resource.",
@@ -272,27 +1000,85 @@
         "tags": [
           "Namespaces"
         ],
+        "x-ms-examples": {
+          "NamespaceCreate": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "namespaceName": "sdk-Namespace8107",
+              "parameters": {
+                "location": "South Central US",
+                "sku": {
+                  "name": "Standard",
+                  "tier": "Standard"
+                },
+                "tags": {
+                  "tag1": "value1",
+                  "tag2": "value2"
+                }
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace8107",
+                  "location": "South Central US",
+                  "name": "sdk-Namespace8107",
+                  "properties": {
+                    "enabled": false,
+                    "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace8107",
+                    "provisioningState": "Unknown"
+                  },
+                  "sku": {
+                    "name": "Standard",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "tag1": "value1",
+                    "tag2": "value2"
+                  },
+                  "type": "Microsoft.EventHub/namespaces"
+                }
+              },
+              "201": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace8107",
+                  "location": "South Central US",
+                  "name": "sdk-Namespace8107",
+                  "properties": {
+                    "enabled": false,
+                    "metricId": "e2f361f0-3b27-4503-a9cc-21cfba380093:sdk-namespace8107",
+                    "provisioningState": "Unknown"
+                  },
+                  "sku": {
+                    "name": "Standard",
+                    "tier": "Standard"
+                  },
+                  "tags": {
+                    "tag1": "value1",
+                    "tag2": "value2"
+                  },
+                  "type": "Microsoft.EventHub/namespaces"
+                }
+              },
+              "202": {}
+            }
+          }
+        },
         "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules": {
       "get": {
-        "description": "Gets a list of authorization rules for a namespace.",
+        "description": "Gets a list of authorization rules for a Namespace.",
         "operationId": "Namespaces_ListAuthorizationRules",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -303,7 +1089,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Namespace authorization rule successfully returned.",
+            "description": "Namespace AuthorizationRule successfully returned.",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
             }
@@ -312,6 +1098,43 @@
         "tags": [
           "Namespaces"
         ],
+        "x-ms-examples": {
+          "ListAuthorizationRules": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "namespaceName": "sdk-Namespace743",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "name": "RootManageSharedAccessKey",
+                      "properties": {
+                        "rights": [
+                          "Listen",
+                          "Manage",
+                          "Send"
+                        ]
+                      }
+                    },
+                    {
+                      "name": "sdk-Authrules4867",
+                      "properties": {
+                        "rights": [
+                          "Listen",
+                          "Send"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -319,29 +1142,17 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}": {
       "delete": {
-        "description": "Deletes an authorization rule for a namespace.",
+        "description": "Deletes an AuthorizationRule for a Namespace.",
         "operationId": "Namespaces_DeleteAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "Authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -352,7 +1163,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Namespace authorization rule successfully deleted."
+            "description": "Namespace AuthorizationRule successfully deleted."
           },
           "204": {
             "description": "No content."
@@ -360,32 +1171,35 @@
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceAutorizationRuleDelete": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules4867",
+              "namespaceName": "sdk-Namespace743",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets an authorization rule for a namespace by rule name.",
+        "description": "Gets an AuthorizationRule for a Namespace by rule name.",
         "operationId": "Namespaces_GetAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "Authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -396,7 +1210,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Namespace authorization rule returned successfully.",
+            "description": "Namespace AuthorizationRule returned successfully.",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
             }
@@ -404,35 +1218,50 @@
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceAutorizationRuleGet": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules4867",
+              "namespaceName": "sdk-Namespace743",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace743/AuthorizationRules/RootManageSharedAccessKey",
+                  "name": "RootManageSharedAccessKey",
+                  "properties": {
+                    "rights": [
+                      "Listen",
+                      "Manage",
+                      "Send"
+                    ]
+                  },
+                  "type": "Microsoft.EventHub/AuthorizationRules"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Creates or updates an authorization rule for a namespace.",
+        "description": "Creates or updates an AuthorizationRule for a Namespace.",
         "operationId": "Namespaces_CreateOrUpdateAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "Namespace authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
-            "description": "The shared access authorization rule.",
+            "description": "The shared access AuthorizationRule.",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -449,7 +1278,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Namespace authorization rule created",
+            "description": "Namespace AuthorizationRule created",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
             }
@@ -457,34 +1286,57 @@
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceAuthorizationRuleCreate": {
+            "parameters": {
+              "api-version": "2016-07-01",
+              "authorizationRuleName": "sdk-Authrules4867",
+              "namespaceName": "sdk-Namespace743",
+              "parameters": {
+                "location": "West US",
+                "properties": {
+                  "rights": [
+                    "Listen",
+                    "Send"
+                  ]
+                }
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace743/AuthorizationRules/sdk-Authrules4867",
+                  "name": "sdk-Authrules4867",
+                  "properties": {
+                    "rights": [
+                      "Listen",
+                      "Send"
+                    ]
+                  },
+                  "type": "Microsoft.EventHub/AuthorizationRules"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/listKeys": {
       "post": {
-        "description": "Gets the primary and secondary connection strings for the namespace.",
+        "description": "Gets the primary and secondary connection strings for the Namespace.",
         "operationId": "Namespaces_ListKeys",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -503,34 +1355,44 @@
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceAuthorizationRuleListKey": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules4867",
+              "namespaceName": "sdk-namespace743",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keyName": "sdk-Authrules4867",
+                  "primaryConnectionString": "Endpoint=sb://sdk-namespace743.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules4867;SharedAccessKey=############################",
+                  "primaryKey": "############################",
+                  "secondaryConnectionString": "Endpoint=sb://sdk-namespace743.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules4867;SharedAccessKey=############################",
+                  "secondaryKey": "############################"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName}/regenerateKeys": {
       "post": {
-        "description": "Regenerates the primary or secondary connection strings for the specified namespace.",
+        "description": "Regenerates the primary or secondary connection strings for the specified Namespace.",
         "operationId": "Namespaces_RegenerateKeys",
         "parameters": [
           {
-            "description": "The name of the resource group in which the namespace lives.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "description": "Parameters required to regenerate the connection string.",
@@ -558,30 +1420,47 @@
         },
         "tags": [
           "Namespaces"
-        ]
+        ],
+        "x-ms-examples": {
+          "NameSpaceAuthorizationRuleRegenrateKey": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules5448",
+              "namespaceName": "sdk-namespace2364",
+              "parameters": {
+                "policykey": "PrimaryKey"
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keyName": "sdk-Authrules5448",
+                  "primaryConnectionString": "Endpoint=sb://sdk-namespace2364.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules5448;SharedAccessKey=############################",
+                  "primaryKey": "############################",
+                  "secondaryConnectionString": "Endpoint=sb://sdk-namespace2364.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules5448;SharedAccessKey=############################",
+                  "secondaryKey": "############################"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs": {
       "get": {
-        "description": "Gets all the Event Hubs in a namespace.",
+        "description": "Gets all the Event Hubs in a Namespace.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt639493.aspx"
         },
         "operationId": "EventHubs_ListAll",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -601,6 +1480,43 @@
         "tags": [
           "EventHubs"
         ],
+        "x-ms-examples": {
+          "EventHubsListAll": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-eventhub4839",
+              "namespaceName": "sdk-Namespace4919",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace4919/eventhubs/sdk-eventhub4839",
+                      "name": "sdk-eventhub4839",
+                      "properties": {
+                        "createdAt": "2017-03-12T07:39:13.31Z",
+                        "messageRetentionInDays": 7,
+                        "partitionCount": 4,
+                        "partitionIds": [
+                          "0",
+                          "1",
+                          "2",
+                          "3"
+                        ],
+                        "status": "Active",
+                        "updatedAt": "2017-03-12T07:39:15.41Z"
+                      },
+                      "type": "Microsoft.EventHub/EventHubs"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -608,32 +1524,20 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}": {
       "delete": {
-        "description": "Deletes an Event Hub from the specified namespace and resource group.",
+        "description": "Deletes an Event Hub from the specified Namespace and resource group.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt639496.aspx"
         },
         "operationId": "EventHubs_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The name of the Event Hub to delete.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -652,7 +1556,22 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubDelete": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-EventHub4839",
+              "namespaceName": "sdk-sdk-Namespace4919",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
       },
       "get": {
         "description": "Gets an Event Hubs description for the specified Event Hub.",
@@ -662,25 +1581,13 @@
         "operationId": "EventHubs_Get",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -699,35 +1606,56 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubGet": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-EventHub6448",
+              "namespaceName": "sdk-Namespace7834",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448",
+                  "name": "sdk-EventHub6448",
+                  "properties": {
+                    "createdAt": "2017-03-12T09:19:03.577Z",
+                    "messageRetentionInDays": 7,
+                    "partitionCount": 4,
+                    "partitionIds": [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "status": "Active",
+                    "updatedAt": "2017-03-12T09:19:05.577Z"
+                  },
+                  "type": "Microsoft.EventHub/EventHubs"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Creates or updates a new Event Hub as a nested resource within a namespace.",
+        "description": "Creates or updates a new Event Hub as a nested resource within a Namespace.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt639497.aspx"
         },
         "operationId": "EventHubs_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
             "description": "Parameters supplied to create an Event Hub resource.",
@@ -755,7 +1683,48 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubCreate": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-EventHub6448",
+              "namespaceName": "sdk-Namespace7834",
+              "parameters": {
+                "location": "West US",
+                "properties": {
+                  "messageRetentionInDays": 7,
+                  "partitionCount": 4,
+                  "status": "Active"
+                }
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448",
+                  "name": "sdk-EventHub6448",
+                  "properties": {
+                    "createdAt": "2017-03-12T20:37:09.28Z",
+                    "messageRetentionInDays": 7,
+                    "partitionCount": 4,
+                    "partitionIds": [
+                      "0",
+                      "1",
+                      "2",
+                      "3"
+                    ],
+                    "status": "Active",
+                    "updatedAt": "2017-03-12T20:37:18.64Z"
+                  },
+                  "type": "Microsoft.EventHub/EventHubs"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules": {
@@ -764,25 +1733,13 @@
         "operationId": "EventHubs_ListAuthorizationRules",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -793,7 +1750,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Event Hub authorization rule returned successfully.",
+            "description": "Event Hub AuthorizationRule returned successfully.",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
             }
@@ -802,6 +1759,34 @@
         "tags": [
           "EventHubs"
         ],
+        "x-ms-examples": {
+          "EventHubAutorizationRuleListAll": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-Namespace2290",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "name": "sdk-Authrules9261",
+                      "properties": {
+                        "rights": [
+                          "Listen",
+                          "Send"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -809,39 +1794,23 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}": {
       "delete": {
-        "description": "Deletes an Event Hubs authorization rule.",
+        "description": "Deletes an Event Hub AuthorizationRule.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt706100.aspx"
         },
         "operationId": "EventHubs_DeleteAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -852,7 +1821,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Event Hub authorization rule successfully deleted."
+            "description": "Event Hub AuthorizationRule successfully deleted."
           },
           "204": {
             "description": "No content."
@@ -860,42 +1829,42 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubAutorizationRuleDelete": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules9261",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-Namespace2290",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
       },
       "get": {
-        "description": "Gets an authorization rule for an Event Hub by rule name.",
+        "description": "Gets an AuthorizationRule for an Event Hub by rule name.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt706097.aspx"
         },
         "operationId": "EventHubs_GetAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -906,7 +1875,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Event Hub authorization rule successfully returned.",
+            "description": "Event Hub AuthorizationRule successfully returned.",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
             }
@@ -914,45 +1883,56 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubAutorizationRuleGet": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules9261",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-Namespace2290",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261",
+                  "name": "sdk-Authrules9261",
+                  "properties": {
+                    "rights": [
+                      "Listen",
+                      "Send"
+                    ]
+                  },
+                  "type": "Microsoft.EventHub/AuthorizationRules"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Creates or updates an authorization rule for the specified Event Hub.",
+        "description": "Creates or updates an AuthorizationRule for the specified Event Hub.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt706096.aspx"
         },
         "operationId": "EventHubs_CreateOrUpdateAuthorizationRule",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The authorization rule name.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
-            "description": "The shared access authorization rule.",
+            "description": "The shared access AuthorizationRule.",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -969,7 +1949,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Event Hubs authorization rule successfully created.",
+            "description": "Event Hub AuthorizationRule successfully created.",
             "schema": {
               "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
             }
@@ -977,7 +1957,42 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubAuthorizationRuleCreate": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules9261",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-Namespace2290",
+              "parameters": {
+                "properties": {
+                  "rights": [
+                    "Listen",
+                    "Send"
+                  ]
+                }
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261",
+                  "name": "sdk-Authrules9261",
+                  "properties": {
+                    "rights": [
+                      "Listen",
+                      "Send"
+                    ]
+                  },
+                  "type": "Microsoft.EventHub/AuthorizationRules"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}/ListKeys": {
@@ -989,32 +2004,16 @@
         "operationId": "EventHubs_ListKeys",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The connection string of the namespace for the specified authorization rule.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1033,7 +2032,30 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubAuthorizationRuleListKey": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules9261",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-namespace2290.",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keyName": "sdk-Authrules9261",
+                  "primaryConnectionString": "Endpoint=sb://sdk-namespace2290.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules9261;SharedAccessKey=############################;EntityPath=sdk-EventHub8887",
+                  "primaryKey": "############################",
+                  "secondaryConnectionString": "Endpoint=sb://sdk-namespace2290.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules9261;SharedAccessKey=############################;EntityPath=sdk-EventHub8887",
+                  "secondaryKey": "############################"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/authorizationRules/{authorizationRuleName}/regenerateKeys": {
@@ -1045,35 +2067,19 @@
         "operationId": "EventHubs_RegenerateKeys",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The connection string of the Event Hub for the specified authorization rule.",
-            "in": "path",
-            "name": "authorizationRuleName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/authorizationRuleNameParameter"
           },
           {
-            "description": "Parameters supplied to regenerate the authorization rule.",
+            "description": "Parameters supplied to regenerate the AuthorizationRule Keys (PrimaryKey/SecondaryKey).",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -1098,37 +2104,51 @@
         },
         "tags": [
           "EventHubs"
-        ]
+        ],
+        "x-ms-examples": {
+          "EventHubAuthorizationRuleRegenrateKey": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "authorizationRuleName": "sdk-Authrules9261",
+              "eventHubName": "sdk-EventHub8887",
+              "namespaceName": "sdk-namespace2290.",
+              "parameters": {
+                "policykey": "PrimaryKey"
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "keyName": "sdk-Authrules9261",
+                  "primaryConnectionString": "Endpoint=sb://sdk-namespace2290.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules9261;SharedAccessKey=############################;EntityPath=sdk-EventHub8887",
+                  "primaryKey": "############################",
+                  "secondaryConnectionString": "Endpoint=sb://sdk-namespace2290.servicebus.windows.net/;SharedAccessKeyName=sdk-Authrules9261;SharedAccessKey=############################;EntityPath=sdk-EventHub8887",
+                  "secondaryKey": "############################"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/consumergroups": {
       "get": {
-        "description": "Gets all the consumer groups in a namespace. An empty feed is returned if no consumer group exists in the namespace.",
+        "description": "Gets all the consumer groups in a Namespace. An empty feed is returned if no consumer group exists in the Namespace.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt639503.aspx"
         },
         "operationId": "ConsumerGroups_ListAll",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1148,6 +2168,43 @@
         "tags": [
           "ConsumerGroups"
         ],
+        "x-ms-examples": {
+          "ConsumerGroupsListAll": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "eventHubName": "sdk-EventHub5290",
+              "namespaceName": "sdk-Namespace736",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "value": [
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/$Default",
+                      "name": "$Default",
+                      "properties": {
+                        "createdAt": "2017-03-12T09:19:03.577Z",
+                        "updatedAt": "2017-03-12T09:19:05.577Z"
+                      },
+                      "type": "Microsoft.EventHub/ConsumerGroups"
+                    },
+                    {
+                      "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-consumergroup115",
+                      "name": "sdk-consumergroup115",
+                      "properties": {
+                        "createdAt": "2017-03-12T09:19:07.577Z",
+                        "updatedAt": "2017-03-12T09:19:09.577Z"
+                      },
+                      "type": "Microsoft.EventHub/ConsumerGroups"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -1162,32 +2219,16 @@
         "operationId": "ConsumerGroups_Delete",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The Cconsumer group name.",
-            "in": "path",
-            "name": "consumerGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/consumerGroupNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1206,7 +2247,23 @@
         },
         "tags": [
           "ConsumerGroups"
-        ]
+        ],
+        "x-ms-examples": {
+          "ConsumerGroupDelete": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "consumerGroupName": "sdk-ConsumerGroup115",
+              "eventHubName": "sdk-EventHub5290",
+              "namespaceName": "sdk-Namespace736",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {},
+              "204": {}
+            }
+          }
+        }
       },
       "get": {
         "description": "Gets a description for the specified consumer group.",
@@ -1216,32 +2273,16 @@
         "operationId": "ConsumerGroups_Get",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The consumer group name.",
-            "in": "path",
-            "name": "consumerGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/consumerGroupNameParameter"
           },
           {
             "$ref": "#/parameters/ApiVersionParameter"
@@ -1260,45 +2301,54 @@
         },
         "tags": [
           "ConsumerGroups"
-        ]
+        ],
+        "x-ms-examples": {
+          "ConsumerGroupGet": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "consumerGroupName": "sdk-ConsumerGroup115",
+              "eventHubName": "sdk-EventHub5290",
+              "namespaceName": "sdk-Namespace736",
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115",
+                  "name": "sdk-ConsumerGroup115",
+                  "properties": {
+                    "createdAt": "2017-03-12T09:19:03.577Z",
+                    "updatedAt": "2017-03-12T09:19:05.577Z"
+                  },
+                  "type": "Microsoft.EventHub/ConsumerGroups"
+                }
+              }
+            }
+          }
+        }
       },
       "put": {
-        "description": "Creates or updates an Event Hubs consumer group as a nested resource within a namespace.",
+        "description": "Creates or updates an Event Hubs consumer group as a nested resource within a Namespace.",
         "externalDocs": {
           "url": "https://msdn.microsoft.com/en-us/library/azure/mt639498.aspx"
         },
         "operationId": "ConsumerGroups_CreateOrUpdate",
         "parameters": [
           {
-            "description": "The name of the resource group.",
-            "in": "path",
-            "name": "resourceGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/resourceGroupNameParameter"
           },
           {
-            "description": "The namespace name.",
-            "in": "path",
-            "name": "namespaceName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/namespaceNameParameter"
           },
           {
-            "description": "The Event Hub name.",
-            "in": "path",
-            "name": "eventHubName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/eventHubNameParameter"
           },
           {
-            "description": "The consumer group name.",
-            "in": "path",
-            "name": "consumerGroupName",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/consumerGroupNameParameter"
           },
           {
-            "description": "Parameters supplied to create a consumer group resource.",
+            "description": "Parameters supplied to create or update a consumer group resource.",
             "in": "body",
             "name": "parameters",
             "required": true,
@@ -1323,11 +2373,69 @@
         },
         "tags": [
           "ConsumerGroups"
-        ]
+        ],
+        "x-ms-examples": {
+          "ConsumerGroupCreate": {
+            "parameters": {
+              "api-version": "2015-08-01",
+              "consumerGroupName": "sdk-ConsumerGroup115",
+              "eventHubName": "sdk-EventHub5290",
+              "namespaceName": "sdk-Namespace736",
+              "parameters": {
+                "location": "West US"
+              },
+              "resourceGroupName": "Default-ServiceBus-WestUS",
+              "subscriptionId": "e2f361f0-3b27-4503-a9cc-21cfba380093"
+            },
+            "responses": {
+              "200": {
+                "body": {
+                  "id": "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115",
+                  "name": "sdk-ConsumerGroup115",
+                  "properties": {
+                    "createdAt": "2017-03-12T21:11:46.308019Z",
+                    "updatedAt": "2017-03-12T21:11:46.308019Z"
+                  },
+                  "type": "Microsoft.EventHub/ConsumerGroups"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "definitions": {
+    "CheckNameAvailabilityParameter": {
+      "description": "Parameter supplied to check Namespace name availability operation ",
+      "properties": {
+        "name": {
+          "description": "Name to check the namespace name availability",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "CheckNameAvailabilityResult": {
+      "description": "The Result of the CheckNameAvailability operation",
+      "properties": {
+        "message": {
+          "description": "The detailed info regarding the reason associated with the Namespace.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "nameAvailable": {
+          "description": "Value indicating Namespace is availability, true if the Namespace is available; otherwise, false.",
+          "type": "boolean"
+        },
+        "reason": {
+          "$ref": "#/definitions/UnavailableReason",
+          "description": "The reason for unavailability of a Namespace."
+        }
+      }
+    },
     "ConsumerGroupCreateOrUpdateParameters": {
       "description": "Parameters supplied to the Create Or Update Consumer Group operation.",
       "properties": {
@@ -1344,7 +2452,7 @@
           "x-ms-client-flatten": true
         },
         "type": {
-          "description": "ARM type of the namespace.",
+          "description": "ARM type of the Namespace.",
           "type": "string"
         }
       },
@@ -1353,7 +2461,7 @@
       ]
     },
     "ConsumerGroupListResult": {
-      "description": "The response to the List Consumer Group operation.",
+      "description": "The result to the List Consumer Group operation.",
       "properties": {
         "nextLink": {
           "description": "Link to the next set of results. Not empty if Value contains incomplete list of Consumer Group",
@@ -1369,7 +2477,7 @@
       }
     },
     "ConsumerGroupProperties": {
-      "description": "Description of a Consumer Group properties.",
+      "description": "Properties supplied to the Create Or Update Consumer Group operation.",
       "properties": {
         "createdAt": {
           "description": "Exact time the message was created.",
@@ -1400,7 +2508,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Description of the consumer group resource.",
+      "description": "Single item in List or Get Consumer group operation",
       "properties": {
         "properties": {
           "$ref": "#/definitions/ConsumerGroupProperties",
@@ -1424,7 +2532,7 @@
           "x-ms-client-flatten": true
         },
         "type": {
-          "description": "ARM type of the namespace.",
+          "description": "ARM type of the Namespace.",
           "type": "string"
         }
       },
@@ -1433,14 +2541,14 @@
       ]
     },
     "EventHubListResult": {
-      "description": "The response of the List Event Hubs operation.",
+      "description": "The result of the List EventHubs operation.",
       "properties": {
         "nextLink": {
-          "description": "Link to the next set of results. Not empty if Value contains incomplete list of Event Hubs.",
+          "description": "Link to the next set of results. Not empty if Value contains incomplete list of EventHubs.",
           "type": "string"
         },
         "value": {
-          "description": "Result of the List Event Hubs operation.",
+          "description": "Result of the List EventHubs operation.",
           "items": {
             "$ref": "#/definitions/EventHubResource"
           },
@@ -1449,7 +2557,7 @@
       }
     },
     "EventHubProperties": {
-      "description": "Description of a EventHub Properties.",
+      "description": "Properties supplied to the Create Or Update Event Hub operation.",
       "properties": {
         "createdAt": {
           "description": "Exact time the Event Hub was created.",
@@ -1508,7 +2616,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Description of the Event Hub resource.",
+      "description": "Single item in List or Get Event Hub operation",
       "properties": {
         "properties": {
           "$ref": "#/definitions/EventHubProperties",
@@ -1559,15 +2667,24 @@
       }
     },
     "NamespaceProperties": {
-      "description": "Properties of the namespace.",
+      "description": "Properties of the Namespace supplied for create or update Namespace operation",
       "properties": {
         "createdAt": {
-          "description": "The time the namespace was created.",
+          "description": "The time the Namespace was created.",
           "format": "date-time",
           "type": "string"
         },
+        "enabled": {
+          "description": "Specifies whether this instance is enabled.",
+          "type": "boolean"
+        },
+        "metricId": {
+          "description": "Identifier for Azure Insights metrics",
+          "readOnly": true,
+          "type": "string"
+        },
         "provisioningState": {
-          "description": "Provisioning state of the namespace.",
+          "description": "Provisioning state of the Namespace.",
           "type": "string"
         },
         "serviceBusEndpoint": {
@@ -1577,8 +2694,31 @@
           },
           "type": "string"
         },
+        "status": {
+          "description": "State of the Namespace.",
+          "enum": [
+            "Unknown",
+            "Creating",
+            "Created",
+            "Activating",
+            "Enabling",
+            "Active",
+            "Disabling",
+            "Disabled",
+            "SoftDeleting",
+            "SoftDeleted",
+            "Removing",
+            "Removed",
+            "Failed"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "NamespaceState"
+          }
+        },
         "updatedAt": {
-          "description": "The time the namespace was updated.",
+          "description": "The time the Namespace was updated.",
           "format": "date-time",
           "type": "string"
         }
@@ -1587,10 +2727,10 @@
     "NamespaceResource": {
       "allOf": [
         {
-          "$ref": "#/definitions/Resource"
+          "$ref": "#/definitions/TrackedResource"
         }
       ],
-      "description": "Description of a namespace resource.",
+      "description": "Single Namespace item in List or Get Operation",
       "properties": {
         "properties": {
           "$ref": "#/definitions/NamespaceProperties",
@@ -1601,10 +2741,75 @@
         }
       }
     },
-    "RegenerateKeysParameters": {
-      "description": "Parameters supplied to the Regenerate Authorization Rule operation.",
+    "NamespaceUpdateParameter": {
+      "description": "Parameters supplied to the Patch/update Namespace operation.",
       "properties": {
-        "Policykey": {
+        "sku": {
+          "$ref": "#/definitions/Sku",
+          "description": "The sku of the created Namespace"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags",
+          "type": "object"
+        }
+      }
+    },
+    "Operation": {
+      "description": "A Event Hub REST API operation",
+      "properties": {
+        "display": {
+          "description": "The object that represents the operation.",
+          "properties": {
+            "operation": {
+              "description": "Operation type: Read, write, delete, etc.",
+              "readOnly": true,
+              "type": "string"
+            },
+            "provider": {
+              "description": "Service provider: Microsoft.EventHub",
+              "readOnly": true,
+              "type": "string"
+            },
+            "resource": {
+              "description": "Resource on which the operation is performed: Invoice, etc.",
+              "readOnly": true,
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "description": "Operation name: {provider}/{resource}/{operation}",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OperationListResult": {
+      "description": "Result of the request to list Event Hub operations. It contains a list of operations and a URL link to get the next set of results.",
+      "properties": {
+        "nextLink": {
+          "description": "URL to get the next set of operation list results if there are any.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "value": {
+          "description": "List of Event Hub operations supported by the Microsoft.EventHub resource provider.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "RegenerateKeysParameters": {
+      "description": "Parameters supplied to the Regenerate Authorization Rule keys operation.",
+      "properties": {
+        "policykey": {
           "description": "Key that needs to be regenerated.",
           "enum": [
             "PrimaryKey",
@@ -1619,15 +2824,11 @@
       }
     },
     "Resource": {
-      "description": "The Resource definition.",
+      "description": "The Resource definition",
       "properties": {
         "id": {
           "description": "Resource Id",
           "readOnly": true,
-          "type": "string"
-        },
-        "location": {
-          "description": "Resource location",
           "type": "string"
         },
         "name": {
@@ -1635,34 +2836,24 @@
           "readOnly": true,
           "type": "string"
         },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Resource tags",
-          "type": "object"
-        },
         "type": {
           "description": "Resource type",
           "readOnly": true,
           "type": "string"
         }
       },
-      "required": [
-        "location"
-      ],
       "x-ms-azure-resource": true
     },
     "ResourceListKeys": {
       "description": "Namespace/EventHub Connection String",
       "properties": {
         "keyName": {
-          "description": "A string that describes the authorization rule.",
+          "description": "A string that describes the AuthorizationRule.",
           "readOnly": true,
           "type": "string"
         },
         "primaryConnectionString": {
-          "description": "Primary connection string of the created namespace authorization rule.",
+          "description": "Primary connection string of the created Namespace AuthorizationRule.",
           "readOnly": true,
           "type": "string"
         },
@@ -1672,7 +2863,7 @@
           "type": "string"
         },
         "secondaryConnectionString": {
-          "description": "Secondary connection string of the created namespace authorization rule.",
+          "description": "Secondary connection string of the created Namespace AuthorizationRule.",
           "readOnly": true,
           "type": "string"
         },
@@ -1691,7 +2882,7 @@
           "type": "string"
         },
         "name": {
-          "description": "Name of the authorization rule.",
+          "description": "Name of the AuthorizationRule.",
           "type": "string"
         },
         "properties": {
@@ -1717,7 +2908,7 @@
       }
     },
     "SharedAccessAuthorizationRuleProperties": {
-      "description": "SharedAccessAuthorizationRule properties.",
+      "description": "Properties supplied to create or update SharedAccessAuthorizationRule",
       "properties": {
         "rights": {
           "description": "The rights associated with the rule.",
@@ -1746,7 +2937,7 @@
           "$ref": "#/definitions/Resource"
         }
       ],
-      "description": "Description of a namespace authorization rule.",
+      "description": "Single item in a List or Get AuthorizationRule operation",
       "properties": {
         "properties": {
           "$ref": "#/definitions/SharedAccessAuthorizationRuleProperties",
@@ -1755,7 +2946,7 @@
       }
     },
     "Sku": {
-      "description": "SKU of the namespace.",
+      "description": "SKU parameters supplied to the create Namespace operation",
       "properties": {
         "capacity": {
           "description": "The Event Hubs throughput units.",
@@ -1792,6 +2983,46 @@
         "tier"
       ],
       "type": "object"
+    },
+    "TrackedResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Definition of Resource",
+      "properties": {
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags",
+          "type": "object"
+        }
+      },
+      "required": [
+        "location"
+      ]
+    },
+    "UnavailableReason": {
+      "description": "Specifies the reason for the unavailability of the service.",
+      "enum": [
+        "None",
+        "InvalidName",
+        "SubscriptionIsDisabled",
+        "NameInUse",
+        "NameInLockdown",
+        "TooManyNamespaceInCurrentSubscription"
+      ],
+      "type": "string",
+      "x-ms-enum": {
+        "modelAsString": false,
+        "name": "UnavailableReason"
+      }
     }
   }
 }

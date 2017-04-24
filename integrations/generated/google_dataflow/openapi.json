@@ -2646,12 +2646,6 @@
             }
           },
           {
-            "description": "Whether or not the job should actually be executed after\nvalidating parameters. Defaults to false. Validation errors do\nnot cause the HTTP request to fail if true.",
-            "in": "query",
-            "name": "dryRun",
-            "type": "boolean"
-          },
-          {
             "description": "Required. A Cloud Storage path to the template from which to create\nthe job.\nMust be valid Cloud Storage URL, beginning with 'gs://'.",
             "in": "query",
             "name": "gcsPath",
@@ -2670,6 +2664,12 @@
             "name": "projectId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "If true, the request is validated but not actually executed.\nDefaults to false.",
+            "in": "query",
+            "name": "validateOnly",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -2952,12 +2952,6 @@
             }
           },
           {
-            "description": "Whether or not the job should actually be executed after\nvalidating parameters. Defaults to false. Validation errors do\nnot cause the HTTP request to fail if true.",
-            "in": "query",
-            "name": "dryRun",
-            "type": "boolean"
-          },
-          {
             "description": "Required. A Cloud Storage path to the template from which to create\nthe job.\nMust be valid Cloud Storage URL, beginning with 'gs://'.",
             "in": "query",
             "name": "gcsPath",
@@ -2975,6 +2969,12 @@
             "name": "projectId",
             "required": true,
             "type": "string"
+          },
+          {
+            "description": "If true, the request is validated but not actually executed.\nDefaults to false.",
+            "in": "query",
+            "name": "validateOnly",
+            "type": "boolean"
           }
         ],
         "responses": {
@@ -3567,6 +3567,13 @@
         "count": {
           "$ref": "#/definitions/SplitInt64",
           "description": "The count of the number of elements present in the distribution."
+        },
+        "logBuckets": {
+          "description": "(Optional) Logarithmic histogram of values.\nEach log may be in no more than one bucket. Order does not matter.",
+          "items": {
+            "$ref": "#/definitions/LogBucket"
+          },
+          "type": "array"
         },
         "max": {
           "$ref": "#/definitions/SplitInt64",
@@ -4304,6 +4311,22 @@
         "nextPageToken": {
           "description": "Set if there may be more results than fit in this response.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LogBucket": {
+      "description": "Bucket of values for Distribution's logarithmic histogram.",
+      "properties": {
+        "count": {
+          "description": "Number of values in this bucket.",
+          "format": "int64",
+          "type": "string"
+        },
+        "log": {
+          "description": "floor(log2(value)); defined to be zero for nonpositive values.\n  log(-1) = 0\n  log(0) = 0\n  log(1) = 0\n  log(2) = 1\n  log(3) = 1\n  log(4) = 2\n  log(5) = 2",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -5410,6 +5433,15 @@
           },
           "description": "Map from user step names to state families.",
           "type": "object"
+        },
+        "windmillServiceEndpoint": {
+          "description": "If present, the worker must use this endpoint to communicate with Windmill\nService dispatchers, otherwise the worker must continue to use whatever\nendpoint it had been using.",
+          "type": "string"
+        },
+        "windmillServicePort": {
+          "description": "If present, the worker must use this port to communicate with Windmill\nService dispatchers. Only applicable when windmill_service_endpoint is\nspecified.",
+          "format": "int64",
+          "type": "string"
         }
       },
       "type": "object"

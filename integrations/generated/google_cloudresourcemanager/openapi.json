@@ -1234,7 +1234,7 @@
       ],
       "post": {
         "description": "Clears a `Policy` from a resource.",
-        "operationId": "folders.clearOrgPolicy",
+        "operationId": "organizations.clearOrgPolicy",
         "parameters": [
           {
             "in": "body",
@@ -1268,7 +1268,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
@@ -1316,7 +1316,7 @@
       ],
       "post": {
         "description": "Gets the effective `Policy` on a resource. This is the result of merging\n`Policies` in the resource hierarchy. The returned `Policy` will not have\nan `etag`set because it is a computed `Policy` across multiple resources.",
-        "operationId": "folders.getEffectiveOrgPolicy",
+        "operationId": "organizations.getEffectiveOrgPolicy",
         "parameters": [
           {
             "in": "body",
@@ -1355,7 +1355,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
@@ -1490,7 +1490,7 @@
       ],
       "post": {
         "description": "Gets a `Policy` on a resource.\n\nIf no `Policy` is set on the resource, a `Policy` is returned with default\nvalues including `POLICY_TYPE_NOT_SET` for the `policy_type oneof`. The\n`etag` value can be used with `SetOrgPolicy()` to create or update a\n`Policy` during read-modify-write.",
-        "operationId": "folders.getOrgPolicy",
+        "operationId": "organizations.getOrgPolicy",
         "parameters": [
           {
             "in": "body",
@@ -1529,7 +1529,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
@@ -1577,7 +1577,7 @@
       ],
       "post": {
         "description": "Lists `Constraints` that could be applied on the specified resource.",
-        "operationId": "folders.listAvailableOrgPolicyConstraints",
+        "operationId": "organizations.listAvailableOrgPolicyConstraints",
         "parameters": [
           {
             "in": "body",
@@ -1616,7 +1616,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
@@ -1664,7 +1664,7 @@
       ],
       "post": {
         "description": "Lists all the `Policies` set for a particular resource.",
-        "operationId": "folders.listOrgPolicies",
+        "operationId": "organizations.listOrgPolicies",
         "parameters": [
           {
             "in": "body",
@@ -1703,7 +1703,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
@@ -1833,7 +1833,7 @@
       ],
       "post": {
         "description": "Updates the specified `Policy` on the resource. Creates a new `Policy` for\nthat `Constraint` on the resource if one does not exist.\n\nNot supplying an `etag` on the request `Policy` results in an unconditional\nwrite of the `Policy`.",
-        "operationId": "folders.setOrgPolicy",
+        "operationId": "organizations.setOrgPolicy",
         "parameters": [
           {
             "in": "body",
@@ -1867,7 +1867,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },

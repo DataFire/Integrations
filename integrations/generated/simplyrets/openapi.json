@@ -45,12 +45,13 @@
             "collectionFormat": "multi",
             "description": "Request listings by a specific property type. This\ndefaults to Residential, and you can only specify one type\nin a single query.\n",
             "enum": [
-              "Residential",
-              "Rental",
-              "Multifamily",
-              "Condominium",
-              "Commercial",
-              "Land"
+              "residential",
+              "rental",
+              "multifamily",
+              "condominium",
+              "commercial",
+              "land",
+              "farm"
             ],
             "in": "query",
             "name": "type",
@@ -320,7 +321,8 @@
               "multifamily",
               "condominium",
               "commercial",
-              "land"
+              "land",
+              "farm"
             ],
             "in": "query",
             "items": {

@@ -9419,6 +9419,27 @@
         }
       ]
     },
+    "author": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/object"
+        },
+        {
+          "additionalProperties": true,
+          "description": "The author of a change in a repository",
+          "properties": {
+            "raw": {
+              "description": "The raw author value from the repository. This may be the only value available if the author does not match a user in Bitbucket.",
+              "type": "string"
+            },
+            "user": {
+              "$ref": "#/definitions/account"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
     "base_commit": {
       "allOf": [
         {
@@ -9429,7 +9450,7 @@
           "description": "The common base type for both repository and snippet commits.",
           "properties": {
             "author": {
-              "$ref": "#/definitions/account"
+              "$ref": "#/definitions/author"
             },
             "date": {
               "format": "date-time",
@@ -12544,6 +12565,11 @@
       "additionalProperties": true,
       "description": "A tag object, representing a tag in a repository.",
       "properties": {
+        "date": {
+          "description": "The date that the tag was created, if available",
+          "format": "date-time",
+          "type": "string"
+        },
         "links": {
           "additionalProperties": false,
           "properties": {
@@ -12580,9 +12606,16 @@
           },
           "type": "object"
         },
+        "message": {
+          "description": "The message associated with the tag, if available.",
+          "type": "string"
+        },
         "name": {
           "description": "The name of the tag.",
           "type": "string"
+        },
+        "tagger": {
+          "$ref": "#/definitions/author"
         },
         "target": {
           "$ref": "#/definitions/commit"
@@ -12803,5 +12836,5 @@
       "title": "Atlassian Connect"
     }
   ],
-  "x-revision": "2e4622429190"
+  "x-revision": "87002ef24cff"
 }

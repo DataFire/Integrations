@@ -1141,7 +1141,7 @@
       "description": "Relevant information for the image from the Internet.",
       "properties": {
         "fullMatchingImages": {
-          "description": "Fully matching images from the Internet.\nThey're definite neardups and most often a copy of the query image with\nmerely a size change.",
+          "description": "Fully matching images from the Internet.\nCan include resized copies of the query image.",
           "items": {
             "$ref": "#/definitions/WebImage"
           },

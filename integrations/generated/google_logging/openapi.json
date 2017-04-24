@@ -459,7 +459,7 @@
     "/v2/{logName}": {
       "delete": {
         "description": "Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted.",
-        "operationId": "folders.logs.delete",
+        "operationId": "organizations.logs.delete",
         "parameters": [
           {
             "description": "Required. The resource name of the log to delete:\n\"projects/[PROJECT_ID]/logs/[LOG_ID]\"\n\"organizations/[ORGANIZATION_ID]/logs/[LOG_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]\"\n\"folders/[FOLDER_ID]/logs/[LOG_ID]\"\n[LOG_ID] must be URL-encoded. For example, \"projects/my-project-id/logs/syslog\", \"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity\". For more information about log names, see LogEntry.",
@@ -491,7 +491,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       },
       "parameters": [
@@ -720,7 +720,7 @@
     "/v2/{parent}/logs": {
       "get": {
         "description": "Lists the logs in projects, organizations, folders, or billing accounts. Only logs that have entries are listed.",
-        "operationId": "folders.logs.list",
+        "operationId": "organizations.logs.list",
         "parameters": [
           {
             "description": "Required. The resource name that owns the logs:\n\"projects/[PROJECT_ID]\"\n\"organizations/[ORGANIZATION_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]\"\n\"folders/[FOLDER_ID]\"\n",
@@ -774,7 +774,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       },
       "parameters": [
@@ -973,7 +973,7 @@
     "/v2/{parent}/sinks": {
       "get": {
         "description": "Lists sinks.",
-        "operationId": "folders.sinks.list",
+        "operationId": "organizations.sinks.list",
         "parameters": [
           {
             "description": "Required. The parent resource whose sinks are to be listed:\n\"projects/[PROJECT_ID]\"\n\"organizations/[ORGANIZATION_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]\"\n\"folders/[FOLDER_ID]\"\n",
@@ -1027,7 +1027,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       },
       "parameters": [
@@ -1073,7 +1073,7 @@
       ],
       "post": {
         "description": "Creates a sink that exports specified log entries to a destination. The export of newly-ingested log entries begins immediately, unless the current time is outside the sink's start and end times or the sink's writer_identity is not permitted to write to the destination. A sink can export log entries only from the resource owning the sink.",
-        "operationId": "folders.sinks.create",
+        "operationId": "organizations.sinks.create",
         "parameters": [
           {
             "description": "Required. The resource in which to create the sink:\n\"projects/[PROJECT_ID]\"\n\"organizations/[ORGANIZATION_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]\"\n\"folders/[FOLDER_ID]\"\nExamples: \"projects/my-logging-project\", \"organizations/123456789\".",
@@ -1118,14 +1118,14 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     },
     "/v2/{sinkName}": {
       "delete": {
         "description": "Deletes a sink. If the sink has a unique writer_identity, then that service account is also deleted.",
-        "operationId": "folders.sinks.delete",
+        "operationId": "organizations.sinks.delete",
         "parameters": [
           {
             "description": "Required. The full resource name of the sink to delete, including the parent resource and the sink identifier:\n\"projects/[PROJECT_ID]/sinks/[SINK_ID]\"\n\"organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]\"\n\"folders/[FOLDER_ID]/sinks/[SINK_ID]\"\nExample: \"projects/my-project-id/sinks/my-sink-id\".",
@@ -1157,12 +1157,12 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       },
       "get": {
         "description": "Gets a sink.",
-        "operationId": "folders.sinks.get",
+        "operationId": "organizations.sinks.get",
         "parameters": [
           {
             "description": "Required. The resource name of the sink:\n\"projects/[PROJECT_ID]/sinks/[SINK_ID]\"\n\"organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]\"\n\"folders/[FOLDER_ID]/sinks/[SINK_ID]\"\nExample: \"projects/my-project-id/sinks/my-sink-id\".",
@@ -1204,7 +1204,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       },
       "parameters": [
@@ -1250,7 +1250,7 @@
       ],
       "put": {
         "description": "Updates a sink. If the named sink doesn't exist, then this method is identical to sinks.create. If the named sink does exist, then this method replaces the following fields in the existing sink with values from the new sink: destination, filter, output_version_format, start_time, and end_time. The updated filter might also have a new writer_identity; see the unique_writer_identity field.",
-        "operationId": "folders.sinks.update",
+        "operationId": "organizations.sinks.update",
         "parameters": [
           {
             "description": "Required. The full resource name of the sink to update, including the parent resource and the sink identifier:\n\"projects/[PROJECT_ID]/sinks/[SINK_ID]\"\n\"organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]\"\n\"billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]\"\n\"folders/[FOLDER_ID]/sinks/[SINK_ID]\"\nExample: \"projects/my-project-id/sinks/my-sink-id\".",
@@ -1295,7 +1295,7 @@
           }
         ],
         "tags": [
-          "folders"
+          "organizations"
         ]
       }
     }

@@ -173,11 +173,11 @@
   "paths": {
     "/v3/{name}": {
       "delete": {
-        "description": "Deletes an existing group.",
-        "operationId": "projects.groups.delete",
+        "description": "Deletes a metric descriptor. Only user-created custom metrics can be deleted.",
+        "operationId": "projects.metricDescriptors.delete",
         "parameters": [
           {
-            "description": "The group to delete. The format is \"projects/{project_id_or_number}/groups/{group_id}\".",
+            "description": "The metric descriptor on which to execute the request. The format is \"projects/{project_id_or_number}/metricDescriptors/{metric_id}\". An example of {metric_id} is: \"custom.googleapis.com/my_test_metric\".",
             "in": "path",
             "name": "name",
             "required": true,
@@ -210,11 +210,11 @@
         ]
       },
       "get": {
-        "description": "Gets a single group.",
-        "operationId": "projects.groups.get",
+        "description": "Gets a single monitored resource descriptor. This method does not require a Stackdriver account.",
+        "operationId": "projects.monitoredResourceDescriptors.get",
         "parameters": [
           {
-            "description": "The group to retrieve. The format is \"projects/{project_id_or_number}/groups/{group_id}\".",
+            "description": "The monitored resource descriptor to get. The format is \"projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}\". The {resource_type} is a predefined type, such as cloudsql_database.",
             "in": "path",
             "name": "name",
             "required": true,
@@ -226,7 +226,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/Group"
+              "$ref": "#/definitions/MonitoredResourceDescriptor"
             }
           }
         },

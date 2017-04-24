@@ -995,6 +995,13 @@
           "description": "Substitutions data for Build resource.",
           "type": "object"
         },
+        "tags": {
+          "description": "Tags for annotation of a Build. These are not docker tags.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "timeout": {
           "description": "Amount of time that this build should be allowed to run, to second\ngranularity. If this amount of time elapses, work on the build will cease\nand the build status will be TIMEOUT.\n\nDefault time is ten minutes.",
           "format": "google-duration",

@@ -3679,6 +3679,20 @@
     "/{prefix}/{api_ver:\\d+}/{application_guid}/{application_ver}/{metrics:.*}": {
       "get": {
         "operationId": "get_blocklist",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "api_ver:\\d+",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "metrics:.*",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "default": {
             "description": "UNDOCUMENTED RESPONSE"
@@ -3702,12 +3716,6 @@
         },
         {
           "in": "path",
-          "name": "api_ver:\\d+",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "in": "path",
           "name": "application_guid",
           "required": true,
           "type": "string"
@@ -3715,12 +3723,6 @@
         {
           "in": "path",
           "name": "application_ver",
-          "required": true,
-          "type": "string"
-        },
-        {
-          "in": "path",
-          "name": "metrics:.*",
           "required": true,
           "type": "string"
         }

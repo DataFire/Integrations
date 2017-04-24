@@ -21,6 +21,7 @@ const truncateDescription = (desc) => {
 let list = {};
 function addDirToList(dir) {
   fs.readdirSync(dir).forEach(name => {
+    console.log('adding', name);
     let integ = require(path.join(dir, name));
     if (list[name]) throw new Error("Duplicate name " + name);
     list[name] = {
