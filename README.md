@@ -53,7 +53,7 @@ New integrations are welcome. They can be automatically added from an OpenAPI sp
 or an RSS feed:
 
 ```
-node scripts/integrate.js --openapi https://example.com/openapi.json
+node scripts/integrate.js --name acme --openapi https://api.acme.com/openapi.json
 # or
-node scripts/integrate.js --rss https://example.com/rss.xml
+node scripts/integrate.js --name acme_rss --rss https://acme.com/rss.xml
 ```
