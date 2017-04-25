@@ -821,7 +821,8 @@
         "summary": "Batch operation for search through journals",
         "tags": [
           "journals"
-        ]
+        ],
+        "operationId": "journals.search.post"
       }
     },
     "/journals/search/{query}": {
@@ -878,7 +879,8 @@
         "summary": "Search through journals",
         "tags": [
           "journals"
-        ]
+        ],
+        "operationId": "journals.search.query.get"
       }
     },
     "/repositories/get": {
@@ -1013,7 +1015,8 @@
         "summary": "Batch operation for searching through repositories",
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.search.post"
       }
     },
     "/repositories/search/{query}": {
@@ -1073,7 +1076,8 @@
         "summary": "Search through all repositories",
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.search.query.get"
       }
     },
     "/search": {
@@ -1122,7 +1126,8 @@
         "summary": "Batch operation for search through all resources",
         "tags": [
           "all"
-        ]
+        ],
+        "operationId": "search.post"
       }
     },
     "/search/{query}": {
@@ -1182,7 +1187,8 @@
         "summary": "Search through all resources",
         "tags": [
           "all"
-        ]
+        ],
+        "operationId": "search.query.get"
       }
     }
   },

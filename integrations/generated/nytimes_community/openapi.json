@@ -55,7 +55,7 @@
     "/user-content/by-date.json": {
       "get": {
         "description": "",
-        "operationId": "GET_user-content-by-date-json",
+        "operationId": "user_content.by_date.json.get",
         "parameters": [
           {
             "in": "query",
@@ -238,7 +238,7 @@
     "/user-content/recent.json": {
       "get": {
         "description": "",
-        "operationId": "GET_user-content-recent-json",
+        "operationId": "user_content.recent.json.get",
         "parameters": [],
         "responses": {
           "200": {
@@ -542,7 +542,7 @@
     "/user-content/url.json": {
       "get": {
         "description": "",
-        "operationId": "GET_user-content-url-json",
+        "operationId": "user_content.url.json.get",
         "parameters": [
           {
             "in": "query",
@@ -799,7 +799,7 @@
     "/user-content/user.json": {
       "get": {
         "description": "",
-        "operationId": "GET_user-content-user-json",
+        "operationId": "user_content.user.json.get",
         "parameters": [
           {
             "in": "query",

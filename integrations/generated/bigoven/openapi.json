@@ -695,7 +695,8 @@
         "summary": "Get a given review by string-style ID. This will return a payload with FeaturedReply, ReplyCount.\r\n            Recommended display is to list top-level reviews with one featured reply underneath. \r\n            Currently, the FeaturedReply is the most recent one for that rating.",
         "tags": [
           "Review"
-        ]
+        ],
+        "operationId": "recipe.review.reviewId.get"
       },
       "put": {
         "consumes": [
@@ -1393,7 +1394,8 @@
         "summary": "Get *my* review for the recipe {recipeId}, where \"me\" is determined by standard authentication headers",
         "tags": [
           "Review"
-        ]
+        ],
+        "operationId": "recipe.recipeId.review.get"
       },
       "post": {
         "consumes": [
@@ -1503,7 +1505,8 @@
         "summary": "Get a given review - DEPRECATED. See recipe/review/{reviewId} for the current usage.\r\n            Beginning in January 2017, BigOven moded from an integer-based ID system to a GUID-style string-based ID system for reviews and replies.\r\n            We are also supporting more of a \"Google Play\" style model for Reviews and Replies. That is, there are top-level Reviews and then\r\n            an unlimited list of replies (which do not carry star ratings) underneath existing reviews. Also, a given user can only have one review \r\n            per recipe. Existing legacy endpoints will continue to work, but we strongly recommend you migrate to using the newer endpoints listed\r\n            which do NOT carry the \"DEPRECATED\" flag.",
         "tags": [
           "Review"
-        ]
+        ],
+        "operationId": "recipe.recipeId.review.reviewId.get"
       },
       "put": {
         "consumes": [

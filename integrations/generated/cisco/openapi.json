@@ -69,7 +69,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.advisory.advisory_id.get"
       }
     },
     "/security/advisories/cvrf/all": {
@@ -87,7 +88,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.all.get"
       }
     },
     "/security/advisories/cvrf/cve/{cve_id}": {
@@ -115,7 +117,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.cve.cve_id.get"
       }
     },
     "/security/advisories/cvrf/latest/{number}": {
@@ -143,7 +146,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.latest.number.get"
       }
     },
     "/security/advisories/cvrf/product": {
@@ -171,7 +175,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.product.get"
       }
     },
     "/security/advisories/cvrf/severity/{severity}": {
@@ -205,7 +210,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.severity.severity.get"
       }
     },
     "/security/advisories/cvrf/severity/{severity}/firstpublished": {
@@ -253,7 +259,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.severity.severity.firstpublished.get"
       }
     },
     "/security/advisories/cvrf/severity/{severity}/lastpublished": {
@@ -301,7 +308,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.severity.severity.lastpublished.get"
       }
     },
     "/security/advisories/cvrf/year/{year}": {
@@ -329,7 +337,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.cvrf.year.year.get"
       }
     },
     "/security/advisories/ios": {
@@ -357,7 +366,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.ios.get"
       }
     },
     "/security/advisories/iosxe": {
@@ -385,7 +395,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.iosxe.get"
       }
     },
     "/security/advisories/oval/advisory/{advisory_id}": {
@@ -413,7 +424,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.advisory.advisory_id.get"
       }
     },
     "/security/advisories/oval/all": {
@@ -431,7 +443,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.all.get"
       }
     },
     "/security/advisories/oval/cve/{cve_id}": {
@@ -459,7 +472,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.cve.cve_id.get"
       }
     },
     "/security/advisories/oval/latest/{number}": {
@@ -487,7 +501,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.latest.number.get"
       }
     },
     "/security/advisories/oval/product": {
@@ -515,7 +530,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.product.get"
       }
     },
     "/security/advisories/oval/severity/{severity}": {
@@ -549,7 +565,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.severity.severity.get"
       }
     },
     "/security/advisories/oval/severity/{severity}/firstpublished": {
@@ -597,7 +614,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.severity.severity.firstpublished.get"
       }
     },
     "/security/advisories/oval/severity/{severity}/lastpublished": {
@@ -645,7 +663,8 @@
               "read:oval"
             ]
           }
-        ]
+        ],
+        "operationId": "security.advisories.oval.severity.severity.lastpublished.get"
       }
     }
   }

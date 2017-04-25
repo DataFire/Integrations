@@ -76,7 +76,7 @@
           "application/x-www-form-urlencoded"
         ],
         "description": "<p>This operation provides a list of categories.</p>",
-        "operationId": "get categories",
+        "operationId": "v1.categories.post",
         "parameters": [],
         "responses": {
           "200": {
@@ -109,7 +109,8 @@
         "summary": "Get details!",
         "tags": [
           "details"
-        ]
+        ],
+        "operationId": "v1.charitybasic.post"
       }
     },
     "/v1/charityfinancial": {
@@ -132,7 +133,8 @@
         "summary": "Get details!",
         "tags": [
           "CharityFinancial"
-        ]
+        ],
+        "operationId": "v1.charityfinancial.post"
       }
     },
     "/v1/charitygeolocation": {
@@ -155,7 +157,8 @@
         "summary": "Get details!",
         "tags": [
           "GeoLocation"
-        ]
+        ],
+        "operationId": "v1.charitygeolocation.post"
       }
     },
     "/v1/charitypremium": {
@@ -178,13 +181,14 @@
         "summary": "Get details!",
         "tags": [
           "CharityPremium"
-        ]
+        ],
+        "operationId": "v1.charitypremium.post"
       }
     },
     "/v1/charitysearch": {
       "post": {
         "description": "<p>This operation provides summary data.</p>",
-        "operationId": "get summary",
+        "operationId": "v1.charitysearch.post",
         "parameters": [
           {
             "description": "Employer Identification Number (EIN)",

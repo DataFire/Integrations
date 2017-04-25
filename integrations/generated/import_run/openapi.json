@@ -139,7 +139,8 @@
         "summary": "Cancel an existing crawl.",
         "tags": [
           "run.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.cancel.post"
       }
     },
     "/extractor/{extractorId}/start": {
@@ -197,7 +198,8 @@
         "summary": "Launch a crawl from an extractor that a user owns.",
         "tags": [
           "run.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.start.post"
       }
     }
   },

@@ -113,7 +113,8 @@
         "summary": "Returns all details of a order",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.get"
       }
     },
     "/order/{orderId}/shipment/cancel": {
@@ -160,7 +161,8 @@
         "summary": "Confirm shipment canceletion (when requested by the customer) or failure to deliver",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.shipment.cancel.post"
       }
     },
     "/order/{orderId}/shipment/delivered": {
@@ -207,7 +209,8 @@
         "summary": "Confirms that a shipment was delivered",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.shipment.delivered.post"
       }
     },
     "/order/{orderId}/shipment/exchange": {
@@ -254,7 +257,8 @@
         "summary": "Confirm item exchange",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.shipment.exchange.post"
       }
     },
     "/order/{orderId}/shipment/return": {
@@ -301,7 +305,8 @@
         "summary": "Confirm order item return and refund",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.shipment.return.post"
       }
     },
     "/order/{orderId}/shipment/sent": {
@@ -348,7 +353,8 @@
         "summary": "Update new order to include shipment information",
         "tags": [
           "order"
-        ]
+        ],
+        "operationId": "order.orderId.shipment.sent.post"
       }
     },
     "/orders": {
@@ -397,7 +403,8 @@
         "summary": "Returns orders details",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.get"
       }
     },
     "/orders/shipments/delivered": {
@@ -453,7 +460,8 @@
         "summary": "Returns list of shipments",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.shipments.delivered.get"
       },
       "post": {
         "description": "Bulk update of order shipments status. This alows to inform multiple shipments status",
@@ -492,7 +500,8 @@
         "summary": "Bulk update of order shipments",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.shipments.delivered.post"
       }
     },
     "/orders/shipments/shipped": {
@@ -554,7 +563,8 @@
         "summary": "Returns a list of shipments shipped",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.shipments.shipped.get"
       },
       "post": {
         "description": "Allows bulk updates of orders shippments.",
@@ -586,7 +596,8 @@
         "summary": "Bulk update of order shipments",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.shipments.shipped.post"
       }
     },
     "/orders/status/approved": {
@@ -635,7 +646,8 @@
         "summary": "Return list of approved orders",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.approved.get"
       }
     },
     "/orders/status/canceled": {
@@ -685,7 +697,8 @@
         "summary": "Returns lists of canceled orders",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.canceled.get"
       }
     },
     "/orders/status/delivered": {
@@ -734,7 +747,8 @@
         "summary": "Returns a list of orders successfully delivered associated with this seller.",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.delivered.get"
       }
     },
     "/orders/status/new": {
@@ -784,7 +798,8 @@
         "summary": "Returns a list of orders flagged as new.",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.new.get"
       }
     },
     "/orders/status/partiallyDelivered": {
@@ -834,7 +849,8 @@
         "summary": "Returns a list of partially deliverd orders",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.partiallyDelivered.get"
       }
     },
     "/orders/status/partiallySent": {
@@ -883,7 +899,8 @@
         "summary": "Returns a list of orders partially fullfiled",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.partiallySent.get"
       }
     },
     "/orders/status/sent": {
@@ -932,7 +949,8 @@
         "summary": "Returns a list with orders fully sent",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.status.sent.get"
       }
     },
     "/product": {
@@ -970,7 +988,8 @@
         "summary": "Create a new product to the marketplace",
         "tags": [
           "product"
-        ]
+        ],
+        "operationId": "product.post"
       }
     },
     "/product/{skuSellerId}": {
@@ -1017,7 +1036,8 @@
         "summary": "Returns details of a single product using the seller `skuSellerId`",
         "tags": [
           "product"
-        ]
+        ],
+        "operationId": "product.skuSellerId.get"
       },
       "put": {
         "description": "Update a single product information such as name, brand, attribute, dimension, etc. Please note that data from your request will be merged with existing data. This allows you to easliy update only certain fields without the need to re-inform the other unchanged fields. For example in order to update just the field `title` simply send just this field with new information, remaining fields will not be changed. In order to erase an item the field must be informed as its default value, for example in order to erase the `videos` field must be sent as videos:[]. The `skuSellerId` field is always mandatory in the path and in the product json Object.",
@@ -1071,7 +1091,8 @@
         "summary": "Update product details",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "product.skuSellerId.put"
       }
     },
     "/product/{skuSellerId}/prices": {
@@ -1116,7 +1137,8 @@
         "summary": "Allows seller to update prices of a single SKU",
         "tags": [
           "product"
-        ]
+        ],
+        "operationId": "product.skuSellerId.prices.put"
       }
     },
     "/product/{skuSellerId}/status": {
@@ -1161,7 +1183,8 @@
         "summary": "Enable/disable a single product in the Marketplace",
         "tags": [
           "product"
-        ]
+        ],
+        "operationId": "product.skuSellerId.status.put"
       }
     },
     "/product/{skuSellerId}/stock": {
@@ -1206,7 +1229,8 @@
         "summary": "Update a single product stock",
         "tags": [
           "product"
-        ]
+        ],
+        "operationId": "product.skuSellerId.stock.put"
       }
     },
     "/products": {
@@ -1260,7 +1284,8 @@
         "summary": "Returns a list of products loaded into BrandLovers Marketplace",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.get"
       },
       "post": {
         "description": "This enpoint to creates new products in the Marketplace using `skuSellerId` as a primary key. This enpoint expects a json document with array of products. The server will load each product as an individual item that can be manipulated using your own `skuSellerId`. All requests to This endpoint are idenpontent with respect of the `skuSellerId`, this means that once a `skuSellerId` is created it cannot be re-created using this tool. In order to update use the PUT method with the correct `skuSellerId`. You can also use the POST /product to create a single product per request",
@@ -1299,7 +1324,8 @@
         "summary": "Allows new products from the seller to be loaded into the marketplace",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.post"
       }
     },
     "/products/prices": {
@@ -1340,7 +1366,8 @@
         "summary": "Allows bulk update of product prices.",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.prices.put"
       }
     },
     "/products/status": {
@@ -1383,7 +1410,8 @@
         "summary": "Returns seller products status in the marketplace",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.status.get"
       },
       "put": {
         "description": "Bulk enable/disable products in the marketplace. This endpoint requires an array of objects with the seller SKU `skuSellerId` and boolean value that defines if the product is enabled or not for sale. This endpoint can be used to set a single product or many products.",
@@ -1422,7 +1450,8 @@
         "summary": "Bulk enable/disable products in the marketplace",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.status.put"
       }
     },
     "/products/status/selling": {
@@ -1471,7 +1500,8 @@
         "summary": "Returns products that are successfully listed for sale.",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.status.selling.get"
       }
     },
     "/products/stocks": {
@@ -1512,7 +1542,8 @@
         "summary": "Bulk product stock update",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.stocks.put"
       }
     },
     "/ticket": {
@@ -1547,7 +1578,8 @@
         "summary": "Creates a new trouble ticket",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "ticket.post"
       }
     },
     "/ticket/{ticketId}/message": {
@@ -1592,7 +1624,8 @@
         "summary": "Add new message to trouble ticket",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "ticket.ticketId.message.post"
       }
     },
     "/ticket/{ticketId}/messages": {
@@ -1648,7 +1681,8 @@
         "summary": "Get trouble ticket messages",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "ticket.ticketId.messages.get"
       }
     },
     "/ticket/{ticketId}/status": {
@@ -1699,7 +1733,8 @@
         "summary": "Update trouble ticket status",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "ticket.ticketId.status.put"
       }
     },
     "/tickets": {
@@ -1754,7 +1789,8 @@
         "summary": "Get customers trouble tickets",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "tickets.get"
       }
     }
   },

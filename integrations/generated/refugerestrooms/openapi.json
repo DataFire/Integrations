@@ -48,7 +48,7 @@
   "paths": {
     "/v1/restrooms.json": {
       "get": {
-        "operationId": "GET--version-restrooms---format-",
+        "operationId": "v1.restrooms.json.get",
         "parameters": [
           {
             "description": "Page offset to fetch.",
@@ -99,7 +99,7 @@
     },
     "/v1/restrooms/by_date.json": {
       "get": {
-        "operationId": "GET--version-restrooms-by_date---format-",
+        "operationId": "v1.restrooms.by_date.json.get",
         "parameters": [
           {
             "description": "Page offset to fetch.",
@@ -178,7 +178,7 @@
     },
     "/v1/restrooms/by_location.json": {
       "get": {
-        "operationId": "GET--version-restrooms-by_location---format-",
+        "operationId": "v1.restrooms.by_location.json.get",
         "parameters": [
           {
             "description": "Page offset to fetch.",
@@ -245,7 +245,7 @@
     },
     "/v1/restrooms/search.json": {
       "get": {
-        "operationId": "GET--version-restrooms-search---format-",
+        "operationId": "v1.restrooms.search.json.get",
         "parameters": [
           {
             "description": "Page offset to fetch.",

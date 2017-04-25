@@ -134,7 +134,8 @@
         "summary": "Top Stories",
         "tags": [
           "Stories"
-        ]
+        ],
+        "operationId": "section.format.get"
       }
     }
   },

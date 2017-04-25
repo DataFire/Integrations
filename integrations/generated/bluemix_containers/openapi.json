@@ -108,7 +108,8 @@
         "summary": "Build a Docker image from a Dockerfile",
         "tags": [
           "Images"
-        ]
+        ],
+        "operationId": "build.post"
       }
     },
     "/containers/create": {
@@ -172,7 +173,8 @@
         "summary": "Create and start a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.create.post"
       }
     },
     "/containers/floating-ips": {
@@ -221,7 +223,8 @@
         "summary": "List available public IP addresses in a space",
         "tags": [
           "Public IP addresses"
-        ]
+        ],
+        "operationId": "containers.floating_ips.get"
       }
     },
     "/containers/floating-ips/request": {
@@ -267,7 +270,8 @@
         "summary": "Request a public IP address for a space",
         "tags": [
           "Public IP addresses"
-        ]
+        ],
+        "operationId": "containers.floating_ips.request.post"
       }
     },
     "/containers/floating-ips/{ip}/release": {
@@ -313,7 +317,8 @@
         "summary": "Release public IP address",
         "tags": [
           "Public IP addresses"
-        ]
+        ],
+        "operationId": "containers.floating_ips.ip.release.post"
       }
     },
     "/containers/groups": {
@@ -355,7 +360,8 @@
         "summary": "List all container groups in a space",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.get"
       },
       "post": {
         "description": "This endpoint creates and starts a new container group in your space. A container group consists of two or more single containers that are all created from the same container image and as a consequence are configured in the same way. Container groups offer different options at no cost to make your app highly available, such as in-built load balancing, auto-recovery of unhealthy container instances, and auto-scaling of container instances based on CPU and memory usage.\n\nTo create a container group with IBM Containers, you must at least define a container group name and the image that the container group is based on. Required attributes:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n- Name: The container group name must start with a letter and then can include uppercase letters, lowercase letters, numbers, periods (.), underscores (_), or hyphens (-). \n- Image: You must include the full path to the image in your private Bluemix registry in the format:`registry.ng.bluemix.net/<namespace>/<image>`.",
@@ -407,7 +413,8 @@
         "summary": "Create and start a container group.",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.post"
       }
     },
     "/containers/groups/{name_or_id}": {
@@ -463,7 +470,8 @@
         "summary": "Stop and delete all container instances in a container group.",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.name_or_id.delete"
       },
       "get": {
         "description": "This endpoint retrieves detailed information about a container group with a given name (corresponding IBM Containers command: `cf ic group inspect GROUP`).",
@@ -510,7 +518,8 @@
         "summary": "Inspect a container group.",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.name_or_id.get"
       },
       "patch": {
         "description": "Update the number of container instances that run in a container group (corresponding IBM Containers command: `cf ic group update <option> <group>`). \n\nNote: You can run only one update at a time.  \n\n The desired number is the number of container instances that you require. It must be within the current limits of Max and Min. To increase the number of desired container instances above the Max value, you must first execute an update on the Max value. Once this update is completed, you can increase the desired number of container instances. ",
@@ -566,7 +575,8 @@
         "summary": "Update a container group.",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.name_or_id.patch"
       }
     },
     "/containers/groups/{name_or_id}/maproute": {
@@ -627,7 +637,8 @@
         "summary": "Map a public route to a container group.",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.name_or_id.maproute.post"
       }
     },
     "/containers/groups/{name_or_id}/unmaproute": {
@@ -688,7 +699,8 @@
         "summary": "Unmap a public route from a container group",
         "tags": [
           "Container Groups"
-        ]
+        ],
+        "operationId": "containers.groups.name_or_id.unmaproute.post"
       }
     },
     "/containers/json": {
@@ -744,7 +756,8 @@
         "summary": "List single containers in a space.",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.json.get"
       }
     },
     "/containers/messages": {
@@ -790,7 +803,8 @@
         "summary": "List messages for the user",
         "tags": [
           "API info"
-        ]
+        ],
+        "operationId": "containers.messages.get"
       }
     },
     "/containers/quota": {
@@ -829,7 +843,8 @@
         "summary": "Retrieve organization and space specific quota",
         "tags": [
           "Quota"
-        ]
+        ],
+        "operationId": "containers.quota.get"
       },
       "put": {
         "description": "This endpoint updates the quota that is allocated to a Bluemix space. \n\n **Note**: Only paid accounts are eligbile to update the space quota. If you are using a free-trial account, upgrade to a paid account first.",
@@ -875,7 +890,8 @@
         "summary": "Update space quota",
         "tags": [
           "Quota"
-        ]
+        ],
+        "operationId": "containers.quota.put"
       }
     },
     "/containers/usage": {
@@ -914,7 +930,8 @@
         "summary": "List container sizes and quota limits",
         "tags": [
           "Quota"
-        ]
+        ],
+        "operationId": "containers.usage.get"
       }
     },
     "/containers/version": {
@@ -934,7 +951,8 @@
         "summary": "List latest API version",
         "tags": [
           "API info"
-        ]
+        ],
+        "operationId": "containers.version.get"
       }
     },
     "/containers/{id}/status": {
@@ -986,7 +1004,8 @@
         "summary": "List the current state of a container.",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.id.status.get"
       }
     },
     "/containers/{name_or_id}": {
@@ -1039,7 +1058,8 @@
         "summary": "Remove a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.delete"
       }
     },
     "/containers/{name_or_id}/floating-ips/{ip}/bind": {
@@ -1098,7 +1118,8 @@
         "summary": "Bind a public IP address to a single container",
         "tags": [
           "Public IP addresses"
-        ]
+        ],
+        "operationId": "containers.name_or_id.floating_ips.ip.bind.post"
       }
     },
     "/containers/{name_or_id}/floating-ips/{ip}/unbind": {
@@ -1154,7 +1175,8 @@
         "summary": "Unbind a public IP address from a container",
         "tags": [
           "Public IP addresses"
-        ]
+        ],
+        "operationId": "containers.name_or_id.floating_ips.ip.unbind.post"
       }
     },
     "/containers/{name_or_id}/json": {
@@ -1203,7 +1225,8 @@
         "summary": "Inspect a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.json.get"
       }
     },
     "/containers/{name_or_id}/pause": {
@@ -1249,7 +1272,8 @@
         "summary": "Pause a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.pause.post"
       }
     },
     "/containers/{name_or_id}/rename": {
@@ -1305,7 +1329,8 @@
         "summary": "Rename a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.rename.post"
       }
     },
     "/containers/{name_or_id}/restart": {
@@ -1361,7 +1386,8 @@
         "summary": "Restart a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.restart.post"
       }
     },
     "/containers/{name_or_id}/start": {
@@ -1410,7 +1436,8 @@
         "summary": "Start a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.start.post"
       }
     },
     "/containers/{name_or_id}/stop": {
@@ -1466,7 +1493,8 @@
         "summary": "Stop a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.stop.post"
       }
     },
     "/containers/{name_or_id}/unpause": {
@@ -1512,7 +1540,8 @@
         "summary": "Unpause a single container",
         "tags": [
           "Single containers"
-        ]
+        ],
+        "operationId": "containers.name_or_id.unpause.post"
       }
     },
     "/images/json": {
@@ -1551,7 +1580,8 @@
         "summary": "List all Docker images that are available in your private Bluemix registry.",
         "tags": [
           "Images"
-        ]
+        ],
+        "operationId": "images.json.get"
       }
     },
     "/images/{id}": {
@@ -1597,7 +1627,8 @@
         "summary": "Remove a Docker image.",
         "tags": [
           "Images"
-        ]
+        ],
+        "operationId": "images.id.delete"
       }
     },
     "/images/{name_or_id}/json": {
@@ -1646,7 +1677,8 @@
         "summary": "Inspect a Docker image in private Bluemix registry",
         "tags": [
           "Images"
-        ]
+        ],
+        "operationId": "images.name_or_id.json.get"
       }
     },
     "/registry/namespaces": {
@@ -1688,7 +1720,8 @@
         "summary": "Retrieve the namespace of an organization.",
         "tags": [
           "Private Docker images registry"
-        ]
+        ],
+        "operationId": "registry.namespaces.get"
       }
     },
     "/registry/namespaces/{namespace}": {
@@ -1737,7 +1770,8 @@
         "summary": "Check the availability of a namespace",
         "tags": [
           "Private Docker images registry"
-        ]
+        ],
+        "operationId": "registry.namespaces.namespace.get"
       },
       "put": {
         "description": "Set up your own Docker images registry in Bluemix by defining a namespace for your organization (corresponding IBM Containers command: `cf ic namespace set <namespace>`). The namespace is used to generate a unique URL to your private Bluemix registry. In your private registry you store all Docker images that you want to share across your organization. To create a container from an image, you must first push the image to your registry. \n\n The namespace cannot be changed after is has been set. Consider the following rules to choose a namespace for your organization: \n\n- Every organization can have one namespace at a time only \n- The namespace must be unique in Bluemix. \n- The namespace can be 4-30 characters long. \n- The namespace must start with at least one letter or number. \n- The namespace can only contain lowercase letters, numbers or underscores (_).",
@@ -1787,7 +1821,8 @@
         "summary": "Set a namespace for your private Bluemix registry.",
         "tags": [
           "Private Docker images registry"
-        ]
+        ],
+        "operationId": "registry.namespaces.namespace.put"
       }
     },
     "/tlskey": {
@@ -1826,7 +1861,8 @@
         "summary": "Retrieve the TLS Certificate",
         "tags": [
           "Authentication"
-        ]
+        ],
+        "operationId": "tlskey.get"
       }
     },
     "/tlskey/refresh": {
@@ -1865,7 +1901,8 @@
         "summary": "Refresh the TLS Certificate",
         "tags": [
           "Authentication"
-        ]
+        ],
+        "operationId": "tlskey.refresh.put"
       }
     },
     "/volumes/create": {
@@ -1924,7 +1961,8 @@
         "summary": "Create a volume in a space",
         "tags": [
           "Volumes"
-        ]
+        ],
+        "operationId": "volumes.create.post"
       }
     },
     "/volumes/fs/create": {
@@ -1975,7 +2013,8 @@
         "summary": "Create a file share in a space",
         "tags": [
           "File shares"
-        ]
+        ],
+        "operationId": "volumes.fs.create.post"
       }
     },
     "/volumes/fs/flavors/json": {
@@ -2017,7 +2056,8 @@
         "summary": "List available file share sizes",
         "tags": [
           "File shares"
-        ]
+        ],
+        "operationId": "volumes.fs.flavors.json.get"
       }
     },
     "/volumes/fs/json": {
@@ -2059,7 +2099,8 @@
         "summary": "List available file shares in a space",
         "tags": [
           "File shares"
-        ]
+        ],
+        "operationId": "volumes.fs.json.get"
       }
     },
     "/volumes/fs/{name}": {
@@ -2108,7 +2149,8 @@
         "summary": "Delete a file share",
         "tags": [
           "File shares"
-        ]
+        ],
+        "operationId": "volumes.fs.name.delete"
       }
     },
     "/volumes/fs/{name}/json": {
@@ -2160,7 +2202,8 @@
         "summary": "Inspect a file share",
         "tags": [
           "File shares"
-        ]
+        ],
+        "operationId": "volumes.fs.name.json.get"
       }
     },
     "/volumes/json": {
@@ -2202,7 +2245,8 @@
         "summary": "List all volumes for a space",
         "tags": [
           "Volumes"
-        ]
+        ],
+        "operationId": "volumes.json.get"
       }
     },
     "/volumes/{name}": {
@@ -2248,7 +2292,8 @@
         "summary": "Delete a volume",
         "tags": [
           "Volumes"
-        ]
+        ],
+        "operationId": "volumes.name.delete"
       },
       "post": {
         "description": "This endpoint provisions an existing volume that was created in one space to another space within the same organization. Single containers and container groups in each space can read and write to the shared volume. The volume remains owned by the original space it was created in, including management and billing. For example, the volume can be deleted from the original space only.",
@@ -2307,7 +2352,8 @@
         "summary": "Share a volume with another space",
         "tags": [
           "Volumes"
-        ]
+        ],
+        "operationId": "volumes.name.post"
       }
     },
     "/volumes/{name}/json": {
@@ -2356,7 +2402,8 @@
         "summary": "Retrieve detailed information about a volume. ",
         "tags": [
           "Volumes"
-        ]
+        ],
+        "operationId": "volumes.name.json.get"
       }
     }
   },

@@ -155,7 +155,8 @@
         "tags": [
           "key",
           "delete"
-        ]
+        ],
+        "operationId": "key.delete"
       },
       "post": {
         "consumes": [
@@ -200,7 +201,8 @@
         "tags": [
           "key",
           "post"
-        ]
+        ],
+        "operationId": "key.post"
       }
     },
     "/key/{PK}": {
@@ -253,7 +255,8 @@
         "tags": [
           "key",
           "delete"
-        ]
+        ],
+        "operationId": "key.PK.delete"
       },
       "get": {
         "description": "Get public details of an Authentiq ID.\n",
@@ -305,7 +308,8 @@
         "tags": [
           "key",
           "get"
-        ]
+        ],
+        "operationId": "key.PK.get"
       },
       "head": {
         "description": "HEAD info on Authentiq ID\n",
@@ -337,7 +341,8 @@
         "tags": [
           "key",
           "head"
-        ]
+        ],
+        "operationId": "key.PK.head"
       },
       "post": {
         "consumes": [
@@ -381,7 +386,8 @@
         "tags": [
           "key",
           "post"
-        ]
+        ],
+        "operationId": "key.PK.post"
       },
       "put": {
         "consumes": [
@@ -431,7 +437,8 @@
         "tags": [
           "key",
           "put"
-        ]
+        ],
+        "operationId": "key.PK.put"
       }
     },
     "/login": {
@@ -481,7 +488,8 @@
         "tags": [
           "login",
           "post"
-        ]
+        ],
+        "operationId": "login.post"
       }
     },
     "/scope": {
@@ -535,7 +543,8 @@
         "tags": [
           "scope",
           "post"
-        ]
+        ],
+        "operationId": "scope.post"
       }
     },
     "/scope/{job}": {
@@ -575,7 +584,8 @@
         "tags": [
           "scope",
           "delete"
-        ]
+        ],
+        "operationId": "scope.job.delete"
       },
       "get": {
         "description": "get the status / current content of a verification job",
@@ -624,7 +634,8 @@
         "tags": [
           "scope",
           "get"
-        ]
+        ],
+        "operationId": "scope.job.get"
       },
       "head": {
         "description": "HEAD to get the status of a verification job",
@@ -656,7 +667,8 @@
         "tags": [
           "scope",
           "head"
-        ]
+        ],
+        "operationId": "scope.job.head"
       },
       "post": {
         "consumes": [
@@ -709,7 +721,8 @@
         "tags": [
           "scope",
           "post"
-        ]
+        ],
+        "operationId": "scope.job.post"
       },
       "put": {
         "consumes": [
@@ -760,7 +773,8 @@
         "tags": [
           "scope",
           "put"
-        ]
+        ],
+        "operationId": "scope.job.put"
       }
     }
   },

@@ -162,7 +162,8 @@
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "contacts.get"
       }
     },
     "/contacts/lists": {
@@ -212,7 +213,8 @@
         ],
         "tags": [
           "lists"
-        ]
+        ],
+        "operationId": "contacts.lists.get"
       },
       "post": {
         "description": "Add a new contact list",
@@ -247,7 +249,8 @@
         ],
         "tags": [
           "lists"
-        ]
+        ],
+        "operationId": "contacts.lists.post"
       }
     },
     "/contacts/lists/{listid}": {
@@ -280,7 +283,8 @@
         ],
         "tags": [
           "lists"
-        ]
+        ],
+        "operationId": "contacts.lists.listid.delete"
       },
       "put": {
         "description": "Update an existing contact list",
@@ -322,7 +326,8 @@
         ],
         "tags": [
           "lists"
-        ]
+        ],
+        "operationId": "contacts.lists.listid.put"
       }
     },
     "/contacts/{contactid}": {
@@ -355,7 +360,8 @@
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "contacts.contactid.delete"
       },
       "put": {
         "description": "Update an existing contact",
@@ -398,7 +404,8 @@
         ],
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "contacts.contactid.put"
       }
     },
     "/subscription/{listid}": {
@@ -443,7 +450,8 @@
         ],
         "tags": [
           "subscription"
-        ]
+        ],
+        "operationId": "subscription.listid.post"
       }
     }
   },

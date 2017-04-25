@@ -230,7 +230,8 @@
             }
           }
         },
-        "summary": "Fetch a list of AttributeAlias"
+        "summary": "Fetch a list of AttributeAlias",
+        "operationId": "attributes.aliases.get"
       },
       "post": {
         "parameters": [
@@ -246,7 +247,8 @@
             }
           }
         },
-        "summary": "Set an AttributeAlias"
+        "summary": "Set an AttributeAlias",
+        "operationId": "attributes.aliases.post"
       }
     },
     "/attributes/aliases/{id}": {
@@ -261,7 +263,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete an AttributeAlias"
+        "summary": "Delete an AttributeAlias",
+        "operationId": "attributes.aliases.id.delete"
       },
       "put": {
         "parameters": [
@@ -280,7 +283,8 @@
             }
           }
         },
-        "summary": "Update an AttributeAlias"
+        "summary": "Update an AttributeAlias",
+        "operationId": "attributes.aliases.id.put"
       }
     },
     "/calendars": {
@@ -305,7 +309,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Calendars"
+        "summary": "Fetch a list of Calendars",
+        "operationId": "calendars.get"
       },
       "post": {
         "parameters": [
@@ -321,7 +326,8 @@
             }
           }
         },
-        "summary": "Create a Calendar"
+        "summary": "Create a Calendar",
+        "operationId": "calendars.post"
       }
     },
     "/calendars/{id}": {
@@ -336,7 +342,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Calendar"
+        "summary": "Delete a Calendar",
+        "operationId": "calendars.id.delete"
       },
       "put": {
         "parameters": [
@@ -355,7 +362,8 @@
             }
           }
         },
-        "summary": "Update a Calendar"
+        "summary": "Update a Calendar",
+        "operationId": "calendars.id.put"
       }
     },
     "/commands": {
@@ -381,7 +389,8 @@
             "description": "Could happen when dispatching to a device that is offline, the user doesn't have permission or an incorrect command _type_ for the device"
           }
         },
-        "summary": "Dispatch commands to device"
+        "summary": "Dispatch commands to device",
+        "operationId": "commands.post"
       }
     },
     "/commandtypes": {
@@ -408,7 +417,8 @@
             "description": "Could happen when trying to fetch from an offline device or the user does not have permission"
           }
         },
-        "summary": "Fetch a list of available Commands for the Device"
+        "summary": "Fetch a list of available Commands for the Device",
+        "operationId": "commandtypes.get"
       }
     },
     "/devices": {
@@ -436,7 +446,8 @@
             "description": "No permission"
           }
         },
-        "summary": "Fetch a list of Devices"
+        "summary": "Fetch a list of Devices",
+        "operationId": "devices.get"
       },
       "post": {
         "parameters": [
@@ -452,7 +463,8 @@
             }
           }
         },
-        "summary": "Create a Device"
+        "summary": "Create a Device",
+        "operationId": "devices.post"
       }
     },
     "/devices/geofences": {
@@ -467,7 +479,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Geofence from a Device"
+        "summary": "Remove a Geofence from a Device",
+        "operationId": "devices.geofences.delete"
       },
       "post": {
         "parameters": [
@@ -483,7 +496,8 @@
             }
           }
         },
-        "summary": "Link a Geofence to a Device"
+        "summary": "Link a Geofence to a Device",
+        "operationId": "devices.geofences.post"
       }
     },
     "/devices/{id}": {
@@ -498,7 +512,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Update a Device"
+        "summary": "Update a Device",
+        "operationId": "devices.id.delete"
       },
       "put": {
         "parameters": [
@@ -517,7 +532,8 @@
             }
           }
         },
-        "summary": "Update a Device"
+        "summary": "Update a Device",
+        "operationId": "devices.id.put"
       }
     },
     "/devices/{id}/distance": {
@@ -540,7 +556,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Update the distance counter of the Device"
+        "summary": "Update the distance counter of the Device",
+        "operationId": "devices.id.distance.put"
       }
     },
     "/events/{id}": {
@@ -557,7 +574,8 @@
               "$ref": "#/definitions/Event"
             }
           }
-        }
+        },
+        "operationId": "events.id.get"
       }
     },
     "/geofences": {
@@ -596,7 +614,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Geofences"
+        "summary": "Fetch a list of Geofences",
+        "operationId": "geofences.get"
       },
       "post": {
         "parameters": [
@@ -612,7 +631,8 @@
             }
           }
         },
-        "summary": "Create a Geofence"
+        "summary": "Create a Geofence",
+        "operationId": "geofences.post"
       }
     },
     "/geofences/{id}": {
@@ -627,7 +647,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Geofence"
+        "summary": "Delete a Geofence",
+        "operationId": "geofences.id.delete"
       },
       "put": {
         "parameters": [
@@ -646,7 +667,8 @@
             }
           }
         },
-        "summary": "Update a Geofence"
+        "summary": "Update a Geofence",
+        "operationId": "geofences.id.put"
       }
     },
     "/groups": {
@@ -671,7 +693,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Groups"
+        "summary": "Fetch a list of Groups",
+        "operationId": "groups.get"
       },
       "post": {
         "parameters": [
@@ -690,7 +713,8 @@
             "description": "No permission"
           }
         },
-        "summary": "Create a Group"
+        "summary": "Create a Group",
+        "operationId": "groups.post"
       }
     },
     "/groups/geofences": {
@@ -705,7 +729,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Geofence from a Group"
+        "summary": "Remove a Geofence from a Group",
+        "operationId": "groups.geofences.delete"
       },
       "post": {
         "parameters": [
@@ -721,7 +746,8 @@
             }
           }
         },
-        "summary": "Link a Geofence to a Group"
+        "summary": "Link a Geofence to a Group",
+        "operationId": "groups.geofences.post"
       }
     },
     "/groups/{id}": {
@@ -736,7 +762,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a Group"
+        "summary": "Delete a Group",
+        "operationId": "groups.id.delete"
       },
       "put": {
         "parameters": [
@@ -755,7 +782,8 @@
             }
           }
         },
-        "summary": "Update a Group"
+        "summary": "Update a Group",
+        "operationId": "groups.id.put"
       }
     },
     "/permissions/calendars": {
@@ -770,7 +798,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Calendar from a User"
+        "summary": "Remove a Calendar from a User",
+        "operationId": "permissions.calendars.delete"
       },
       "post": {
         "parameters": [
@@ -786,7 +815,8 @@
             }
           }
         },
-        "summary": "Link a Calendar to a User"
+        "summary": "Link a Calendar to a User",
+        "operationId": "permissions.calendars.post"
       }
     },
     "/permissions/devices": {
@@ -801,7 +831,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Device from a User"
+        "summary": "Remove a Device from a User",
+        "operationId": "permissions.devices.delete"
       },
       "post": {
         "parameters": [
@@ -820,7 +851,8 @@
             "description": "No permission"
           }
         },
-        "summary": "Link a Device to a User"
+        "summary": "Link a Device to a User",
+        "operationId": "permissions.devices.post"
       }
     },
     "/permissions/geofences": {
@@ -835,7 +867,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Geofence from a User"
+        "summary": "Remove a Geofence from a User",
+        "operationId": "permissions.geofences.delete"
       },
       "post": {
         "parameters": [
@@ -851,7 +884,8 @@
             }
           }
         },
-        "summary": "Link a Geofence to a User"
+        "summary": "Link a Geofence to a User",
+        "operationId": "permissions.geofences.post"
       }
     },
     "/permissions/groups": {
@@ -866,7 +900,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a Group from a User"
+        "summary": "Remove a Group from a User",
+        "operationId": "permissions.groups.delete"
       },
       "post": {
         "parameters": [
@@ -882,7 +917,8 @@
             }
           }
         },
-        "summary": "Link a Group to a User"
+        "summary": "Link a Group to a User",
+        "operationId": "permissions.groups.post"
       }
     },
     "/permissions/users": {
@@ -897,7 +933,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Remove a User from a manager User"
+        "summary": "Remove a User from a manager User",
+        "operationId": "permissions.users.delete"
       },
       "post": {
         "parameters": [
@@ -913,7 +950,8 @@
             }
           }
         },
-        "summary": "Link a User to a manager User"
+        "summary": "Link a User to a manager User",
+        "operationId": "permissions.users.post"
       }
     },
     "/positions": {
@@ -973,7 +1011,8 @@
             }
           }
         },
-        "summary": "Fetches a list of Positions"
+        "summary": "Fetches a list of Positions",
+        "operationId": "positions.get"
       }
     },
     "/reports/events": {
@@ -1021,7 +1060,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Events within the time period for the Devices or Groups"
+        "summary": "Fetch a list of Events within the time period for the Devices or Groups",
+        "operationId": "reports.events.get"
       }
     },
     "/reports/route": {
@@ -1060,7 +1100,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Positions within the time period for the Devices or Groups"
+        "summary": "Fetch a list of Positions within the time period for the Devices or Groups",
+        "operationId": "reports.route.get"
       }
     },
     "/reports/summary": {
@@ -1099,7 +1140,8 @@
             }
           }
         },
-        "summary": "Fetch a list of ReportSummary within the time period for the Devices or Groups"
+        "summary": "Fetch a list of ReportSummary within the time period for the Devices or Groups",
+        "operationId": "reports.summary.get"
       }
     },
     "/reports/trips": {
@@ -1138,7 +1180,8 @@
             }
           }
         },
-        "summary": "Fetch a list of ReportTrips within the time period for the Devices or Groups"
+        "summary": "Fetch a list of ReportTrips within the time period for the Devices or Groups",
+        "operationId": "reports.trips.get"
       }
     },
     "/server": {
@@ -1151,7 +1194,8 @@
             }
           }
         },
-        "summary": "Fetch Server information"
+        "summary": "Fetch Server information",
+        "operationId": "server.get"
       },
       "put": {
         "parameters": [
@@ -1172,7 +1216,8 @@
             }
           }
         },
-        "summary": "Update Server information"
+        "summary": "Update Server information",
+        "operationId": "server.put"
       }
     },
     "/session": {
@@ -1186,7 +1231,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Close the Session"
+        "summary": "Close the Session",
+        "operationId": "session.delete"
       },
       "get": {
         "consumes": [
@@ -1211,7 +1257,8 @@
             "description": "Not Found"
           }
         },
-        "summary": "Fetch Session information"
+        "summary": "Fetch Session information",
+        "operationId": "session.get"
       },
       "post": {
         "consumes": [
@@ -1243,7 +1290,8 @@
             "description": "Unauthorized"
           }
         },
-        "summary": "Create a new Session"
+        "summary": "Create a new Session",
+        "operationId": "session.post"
       }
     },
     "/statistics": {
@@ -1267,7 +1315,8 @@
             }
           }
         },
-        "summary": "Fetch server Statistics"
+        "summary": "Fetch server Statistics",
+        "operationId": "statistics.get"
       }
     },
     "/users": {
@@ -1295,7 +1344,8 @@
             "description": "No Permission"
           }
         },
-        "summary": "Fetch a list of Users"
+        "summary": "Fetch a list of Users",
+        "operationId": "users.get"
       },
       "post": {
         "parameters": [
@@ -1311,7 +1361,8 @@
             }
           }
         },
-        "summary": "Create a User"
+        "summary": "Create a User",
+        "operationId": "users.post"
       }
     },
     "/users/notifications": {
@@ -1339,7 +1390,8 @@
             }
           }
         },
-        "summary": "Fetch a list of Notification types"
+        "summary": "Fetch a list of Notification types",
+        "operationId": "users.notifications.get"
       },
       "post": {
         "parameters": [
@@ -1360,7 +1412,8 @@
             }
           }
         },
-        "summary": "Set or unset a Notification"
+        "summary": "Set or unset a Notification",
+        "operationId": "users.notifications.post"
       }
     },
     "/users/{id}": {
@@ -1375,7 +1428,8 @@
             "description": "No Content"
           }
         },
-        "summary": "Delete a User"
+        "summary": "Delete a User",
+        "operationId": "users.id.delete"
       },
       "put": {
         "parameters": [
@@ -1394,7 +1448,8 @@
             }
           }
         },
-        "summary": "Update a User"
+        "summary": "Update a User",
+        "operationId": "users.id.put"
       }
     }
   },

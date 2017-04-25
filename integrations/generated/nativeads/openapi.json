@@ -64,7 +64,8 @@
         },
         "tags": [
           "auth"
-        ]
+        ],
+        "operationId": "auth.default.login.post"
       }
     },
     "/publisher/reports/daily": {
@@ -129,7 +130,8 @@
         },
         "tags": [
           "reports"
-        ]
+        ],
+        "operationId": "publisher.reports.daily.get"
       }
     },
     "/publisher/reports/website": {
@@ -194,7 +196,8 @@
         },
         "tags": [
           "reports"
-        ]
+        ],
+        "operationId": "publisher.reports.website.get"
       }
     },
     "/publisher/reports/widget": {
@@ -259,7 +262,8 @@
         },
         "tags": [
           "reports"
-        ]
+        ],
+        "operationId": "publisher.reports.widget.get"
       }
     }
   },

@@ -91,7 +91,8 @@
         "summary": "List bundles",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.get"
       },
       "post": {
         "description": "Create a new bundle with the specified name, media url, and optional JSON metadata.<br/><br/><b>name</b> can be any string you wish to associate with the bundle.<br/><br/><b>media_url</b> must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.<br/><br/><b>audio_channel</b> is used to specify audio channels if the media is a stereo file. A value of <i>left</i> or <i>right</i> signifies that only the specified channel will be used. If no value or an empty string is specified for <b>audio_channel</b>, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks, with <b>audio_channel</b> set to <i>left</i> and <i>right</i> in each track respectively. If your stereo file is simply a recording made with a stereo microphone, <b>audio_channel</b> should be set to an empty string (or not be specified.) If you have audio channels as separate media files, after creating the bundle with one <b>media_url</b>, POST another <b>media_url</b> to /bundles/{bundle_id}/tracks.<br/><br/><b>audio_language</b> can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see <a href=\"http://tools.ietf.org/html/rfc5646\" target=\"_blank\">http://tools.ietf.org/html/rfc5646</a>). Supported languages: en-US, en-UK, es, fr.<br/><br/><b>label</b> is a short name for the track.<br/><br/><b>metadata</b> is a single-level JSON object of your own definition, containing key-values that can be searched and filtered on. Metadata can be used to hold text such as names, titles, descriptions and values for segregating bundles, for example by user, topic, folder name etc. The keys (property names) can be up to 64 characters and must contain only alphanumeric characters and underscore (but not start with underscore) and must not be a reserved name. Reserved names are &quot;true&quot;, &quot;false&quot;, and &quot;null&quot;. Values can be strings, numbers, boolean true/false, date-times represented as a string in ISO 8601 format (ex. &quot;2014-02-25T14:23:45.000Z&quot;), or an array of these primitive types. Strings can be up to 2000 characters and strings in arrays can be up to 128 characters each. Nested objects are not allowed. Metadata can contain up to 50 key-value pairs up to a total JSON size of 4000 characters.<br/><br/><b>start_time</b> a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.<br/><br/><b>parts_pending</b> a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.<br/><br/><b>external_id</b> is an optional parameter that can be used to logically link a bundle to an item in an external system. The <b>external_id</b> can be whatever you use to identify items in your own database.<br/><br/><b>notify_url</b> is a webhook. It must be a publicly accessible url (http or https) on your server to which notifications for the bundle will be POSTed. There are three types of notifications: Track Notifications, Insight Notifications and Bundle Notifications. For more information on the content of notifications and when they are sent, see the <a href=\"http://docs.clarify.io/overview/#notifications\" target=\"clarify\">notification docs page</a>.<br/><br/>If a track was created along with the budle, the link relation <b>clarify:track</b> will be included with a link to the new track.",
@@ -197,7 +198,8 @@
         "summary": "Create a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.post"
       }
     },
     "/v1/bundles/{bundle_id}": {
@@ -229,7 +231,8 @@
         "summary": "Delete a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.delete"
       },
       "get": {
         "description": "Get a bundle that has previously been created.",
@@ -269,7 +272,8 @@
         "summary": "Get a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.get"
       },
       "put": {
         "description": "Update a bundle. To update the tracks, media, or metadata of a bundle, use the tracks and metadata endpoints.<br/><br/><b>name</b> can be any string you wish to associate with the bundle.<br/><br/><b>external_id</b> is an optional parameter that can be used to logically link a bundle to an item in an external system. The <b>external_id</b> can be whatever you use to identify items in your own database.<br/><br/><b>notify_url</b> is a webhook. It must be a publicly accessible url (http or https) on your server to which notifications for the bundle will be POSTed. There are three types of notifications: Track Notifications, Insight Notifications and Bundle Notifications. For more information on the content of notifications and when they are sent, see the <a href=\"http://docs.clarify.io/overview/#notifications\" target=\"clarify\">notification docs page</a>.<br/><br/>If <b>version</b> is specified, the bundle will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the bundle will always be updated.",
@@ -336,7 +340,8 @@
         "summary": "Update a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.put"
       }
     },
     "/v1/bundles/{bundle_id}/insights": {
@@ -371,7 +376,8 @@
         "summary": "Get bundle insights",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.insights.get"
       },
       "post": {
         "description": "Request an insight to be run on a bundle. Note that most insights are set to automatically run on all bundles so you commonly won&apos;t need to call this endpoint except to request transcripts. To configure which insights are automatically run for an app, visit the <a href=\"https://developer.clarify.io\" target=\"clarify\">Clarify Developer Portal</a>.<br/><br/> Insights that are not configured to autorun can be requested to run on an individual bundle using this endpoint. The following insights can be requested:<br/><br/><b>transcript_r9</b> - High-accuracy transcript of the speech in audio media.<br/><br/>Transcripts will produced on the mixed audio of all tracks in the bundle and are charged per minute (rounded up for partial minutes), based on the duration of the longest track. If the request has already been made, this method has no effect other than to return the existing insight.<br/><br/>Transcripts will typically take about 48 hours. When the transcript is ready, an InsightNotification webhook will be POSTed to the bundle <b>notify_url</b>.<br/><br/>For more information see <a href=\"http://docs.clarify.io/quickstarts/human-transcripts.html\" title=\"human transcripts\" target=\"clarify\">Human Transcripts Quick Start</a>.<br/><br/><b>captions_r9</b> - High-accuracy captions of the speech in video media.<br/><br/>Captions will be generated on the first track in the bundle. and are charged per minute (rounded up for partial minutes), based on the duration of the media.  See the <a href=\"http://clarify.io/pricing\" title=\"pricing\" target=\"clarify\">pricing page</a>. If the request has already been made, this method has no effect other than to return the existing insight.<br/><br/>Captions will typically take about 72 hours. When the captions are ready, an InsightNotification webhook will be POSTed to the bundle <b>notify_url</b>.<br/><br/>For more information see <a href=\"http://docs.clarify.io/quickstarts/closed-captions.html\" title=\"captions\" target=\"clarify\">Captions Quick Start</a>.<br/><br/><b>spoken_keywords</b> - Spoken words of interest found in audio media. <b>Note:</b> Normally spoken_keywords is set to autorun so you do not need to run it explicitly.<br/><br/><b>spoken_topics</b> - Topics spoken about in the audio media.",
@@ -424,7 +430,8 @@
         "summary": "Request an insight to be run",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.insights.post"
       }
     },
     "/v1/bundles/{bundle_id}/insights/{insight_id}": {
@@ -499,7 +506,8 @@
         "summary": "Delete bundle metadata",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.metadata.delete"
       },
       "get": {
         "description": "Gets the metadata for a bundle.",
@@ -532,7 +540,8 @@
         "summary": "Get bundle metadata",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.metadata.get"
       },
       "put": {
         "description": "Update the metadata for a bundle.<br/><br/>The metadata is a single-level JSON object of your own definition, containing key-values that can be searched and filtered on. Metadata can be used to hold text such as names, titles, descriptions and values for segregating bundles, for example by user, topic, folder name etc. The keys (property names) can be up to 64 characters and must contain only alphanumeric characters and underscore (but not start with underscore) and must not be a reserved name. Reserved names are &quot;true&quot;, &quot;false&quot;, and &quot;null&quot;. Values can be strings, numbers, boolean true/false, date-times represented as a string in ISO 8601 format (ex. &quot;2014-02-25T14:23:45.000Z&quot;), or an array of these primitive types. Strings can be up to 2000 characters and strings in arrays can be up to 128 characters each. Nested objects are not allowed. Metadata can contain up to 50 key-value pairs up to a total JSON size of 4000 characters.<br/><br/>To clear the metadata for a bundle, send <b>data</b>={}.<br/><br/>If <b>version</b> specified, the metadata will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict will be returned. If version not specified, the metadata will always be updated.",
@@ -585,7 +594,8 @@
         "summary": "Update bundle metadata",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.metadata.put"
       }
     },
     "/v1/bundles/{bundle_id}/tracks": {
@@ -617,7 +627,8 @@
         "summary": "Delete bundle tracks",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.delete"
       },
       "get": {
         "description": "Gets the array of tracks for a bundle. This includes the specification of the media and the status of fetching and processing it.<br/><br/>Media for tracks is fetched asynchronously. Until media has been retrieved, a track&apos;s <b>duration</b> and <b>size</b> will both be set to -1.",
@@ -650,7 +661,8 @@
         "summary": "Get bundle tracks",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.get"
       },
       "post": {
         "description": "Add a new track to a bundle. This will insert or append a new track in the tracks array or return an error if the maximum number of tracks (12) has been reached or the track number specifies an invalid index.<br/><br/>Once all media parts have been added to a track it is immutable, meaning it cannot be modified. If you wish to modify a track, simply add a new one and delete the existing one.<br/><br/><b>label</b> is a short name for the track.<br/><br/><b>media_url</b> must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.<br/><br/><b>audio_channel</b> is used to specify audio channels if the media is a stereo file. A value of <i>left</i> or <i>right</i> signifies that only the specified channel will be used. If no value or an empty string is specified for <b>audio_channel</b>, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks with <b>audio_channel</b> to be <i>left</i> and <i>right</i>. If your stereo file is simply a recording made with a stereo microphone, <b>audio_channel</b> should be set to an empty string (or not be specified.)<br/><br/><b>audio_language</b> can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see <a href=\"http://tools.ietf.org/html/rfc5646\" target=\"_blank\">http://tools.ietf.org/html/rfc5646</a>). Supported languages: en-US, en-UK, es, fr.<br/><br/><b>start_time</b> a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.<br/><br/><b>parts_pending</b> a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.<br/><br/><b>track</b> is the index in the tracks array where the new track will be added. Track numbers start at 0. If this parameter is not specified the new track will always be appended to the end of the array. If the track specified is greater than the last index of the array + 1, an error will be returned.<br/><br/>If <b>version</b> specified, the track will only be added if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
@@ -756,7 +768,8 @@
         "summary": "Add a track for a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.post"
       },
       "put": {
         "description": "Update tracks for a bundle.<br/><br/><b>parts_complete</b> a boolean <code>true</code> or <cade>false</code>. If true, any tracks in the PENDING state will be queued for processing and no more media parts may be added to the tracks. Default is false.<br/><br/>If <b>version</b> specified, the track will only be updated if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
@@ -806,7 +819,8 @@
         "summary": "Update a tracks for a bundle",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.put"
       }
     },
     "/v1/bundles/{bundle_id}/tracks/{track_id}": {
@@ -845,7 +859,8 @@
         "summary": "Delete a bundle track",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.track_id.delete"
       },
       "get": {
         "description": "Gets a single track in a bundle. This includes the specification of the media and the status of fetching and processing it.<br/><br/>Media for a track is fetched asynchronously. Until media has been retrieved, a track&apos;s <b>duration</b> and <b>size</b> will both be set to -1.",
@@ -885,7 +900,8 @@
         "summary": "Get bundle track",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.track_id.get"
       },
       "put": {
         "description": "Add media to an existing track of a bundle. This can only be called on a track that currently has no media set or has parts pending.<br/><br/>Once all media parts have been added to a track it is immutable, meaning it cannot be modified. If you wish to modify a track, simply add a new one and delete the existing one.<br/><br/><b>media_url</b> must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.<br/><br/><b>audio_channel</b> is used to specify audio channels if the media is a stereo file. A value of <i>left</i> or <i>right</i> signifies that only the specified channel will be used. If no value or an empty string is specified for <b>audio_channel</b>, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks with <b>audio_channel</b> to be <i>left</i> and <i>right</i>. If your stereo file is simply a recording made with a stereo microphone, <b>audio_channel</b> should be set to an empty string (or not be specified.)<br/><br/><b>audio_language</b> can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see <a href=\"http://tools.ietf.org/html/rfc5646\" target=\"_blank\">http://tools.ietf.org/html/rfc5646</a>). Supported languages: en-US, en-UK, es, fr.<br/><br/><b>start_time</b> a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.<br/><br/><b>parts_pending</b> a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.<br/><br/>If <b>version</b> specified, the track will only be added if the current version matches this parameter value. If the version doesn't match, a 409 Conflict error will be returned. If version not specified, the track will always be updated.",
@@ -983,7 +999,8 @@
         "summary": "Add media to a track",
         "tags": [
           "bundles"
-        ]
+        ],
+        "operationId": "v1.bundles.bundle_id.tracks.track_id.put"
       }
     },
     "/v1/reports/scores": {

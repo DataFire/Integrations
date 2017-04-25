@@ -168,7 +168,8 @@
         "summary": "Get the directions, path, distance and travel time between a series of geographic points",
         "tags": [
           "directions"
-        ]
+        ],
+        "operationId": "directions.outputFormat.get"
       }
     },
     "/distance.{outputFormat}": {
@@ -254,7 +255,8 @@
         "summary": "Get distance and travel time between two geographic points",
         "tags": [
           "distance"
-        ]
+        ],
+        "operationId": "distance.outputFormat.get"
       }
     },
     "/distance/betweenPairs.{outputFormat}": {
@@ -346,7 +348,8 @@
         "summary": "Get distance and travel time between each pair of geographic points",
         "tags": [
           "distance"
-        ]
+        ],
+        "operationId": "distance.betweenPairs.outputFormat.get"
       }
     },
     "/route.{outputFormat}": {
@@ -432,7 +435,8 @@
         "summary": "Get the path, distance and travel time between a series of geographic points",
         "tags": [
           "route"
-        ]
+        ],
+        "operationId": "route.outputFormat.get"
       }
     }
   }

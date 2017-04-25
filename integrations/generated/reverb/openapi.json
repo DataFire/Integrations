@@ -127,7 +127,8 @@
         "summary": "Create an account.",
         "tags": [
           "accounts"
-        ]
+        ],
+        "operationId": "accounts.post"
       }
     },
     "/articles": {
@@ -141,7 +142,8 @@
         "summary": "See all Reverb blog posts",
         "tags": [
           "articles"
-        ]
+        ],
+        "operationId": "articles.get"
       }
     },
     "/articles/featured": {
@@ -155,7 +157,8 @@
         "summary": "See featured Reverb blog posts",
         "tags": [
           "articles"
-        ]
+        ],
+        "operationId": "articles.featured.get"
       }
     },
     "/articles/recently_featured": {
@@ -167,7 +170,8 @@
         },
         "tags": [
           "articles"
-        ]
+        ],
+        "operationId": "articles.recently_featured.get"
       }
     },
     "/articles/{slug}": {
@@ -189,7 +193,8 @@
         "summary": "Display a single article",
         "tags": [
           "articles"
-        ]
+        ],
+        "operationId": "articles.slug.get"
       }
     },
     "/articles/{slug}/related-listings": {
@@ -211,7 +216,8 @@
         "summary": "Find listings related to an article",
         "tags": [
           "articles"
-        ]
+        ],
+        "operationId": "articles.slug.related_listings.get"
       }
     },
     "/auth/forgot_password": {
@@ -243,7 +249,8 @@
         "summary": "Send a password reset email",
         "tags": [
           "auth"
-        ]
+        ],
+        "operationId": "auth.forgot_password.post"
       }
     },
     "/auth/logout": {
@@ -282,7 +289,8 @@
         "summary": "Logout (primarily for mobile clients)",
         "tags": [
           "auth"
-        ]
+        ],
+        "operationId": "auth.logout.put"
       }
     },
     "/autosuggest": {
@@ -296,7 +304,8 @@
         "summary": "Autosuggest terms for searches",
         "tags": [
           "autosuggest"
-        ]
+        ],
+        "operationId": "autosuggest.get"
       }
     },
     "/cart": {
@@ -310,7 +319,8 @@
         "summary": "Get all cart items",
         "tags": [
           "cart"
-        ]
+        ],
+        "operationId": "cart.get"
       }
     },
     "/cart/move_to_watch_list/{cart_item_id}": {
@@ -332,7 +342,8 @@
         "summary": "Remove a cart item and add it to watch list",
         "tags": [
           "cart"
-        ]
+        ],
+        "operationId": "cart.move_to_watch_list.cart_item_id.post"
       }
     },
     "/cart/{id}": {
@@ -354,7 +365,8 @@
         "summary": "Remove a product from the cart",
         "tags": [
           "cart"
-        ]
+        ],
+        "operationId": "cart.id.delete"
       },
       "post": {
         "description": "Add product to the cart",
@@ -374,7 +386,8 @@
         "summary": "Add product to the cart",
         "tags": [
           "cart"
-        ]
+        ],
+        "operationId": "cart.id.post"
       },
       "put": {
         "description": "Update cart item details",
@@ -394,7 +407,8 @@
         "summary": "Update cart item details",
         "tags": [
           "cart"
-        ]
+        ],
+        "operationId": "cart.id.put"
       }
     },
     "/categories": {
@@ -408,7 +422,8 @@
         "summary": "List of supported product categories",
         "tags": [
           "categories"
-        ]
+        ],
+        "operationId": "categories.get"
       }
     },
     "/categories/flat": {
@@ -420,7 +435,8 @@
         },
         "tags": [
           "categories"
-        ]
+        ],
+        "operationId": "categories.flat.get"
       }
     },
     "/categories/{product_type}/{category}": {
@@ -448,7 +464,8 @@
         "summary": "Get subcategory details",
         "tags": [
           "categories"
-        ]
+        ],
+        "operationId": "categories.product_type.category.get"
       }
     },
     "/categories/{uuid}": {
@@ -470,7 +487,8 @@
         "summary": "Get category details",
         "tags": [
           "categories"
-        ]
+        ],
+        "operationId": "categories.uuid.get"
       }
     },
     "/collections": {
@@ -484,7 +502,8 @@
         "summary": "List of curated collections",
         "tags": [
           "collections"
-        ]
+        ],
+        "operationId": "collections.get"
       }
     },
     "/collections/{slug}": {
@@ -506,7 +525,8 @@
         "summary": "Collection details",
         "tags": [
           "collections"
-        ]
+        ],
+        "operationId": "collections.slug.get"
       }
     },
     "/comparison_shopping_pages": {
@@ -520,7 +540,8 @@
         "summary": "Returns a set of comparison shopping pages based on the current params",
         "tags": [
           "comparison_shopping_pages"
-        ]
+        ],
+        "operationId": "comparison_shopping_pages.get"
       }
     },
     "/comparison_shopping_pages/{id}": {
@@ -542,7 +563,8 @@
         "summary": "Show comparison shopping page",
         "tags": [
           "comparison_shopping_pages"
-        ]
+        ],
+        "operationId": "comparison_shopping_pages.id.get"
       }
     },
     "/comparison_shopping_pages/{id}/listings": {
@@ -571,7 +593,8 @@
         "summary": "Return new or used listings for a comparison shopping page",
         "tags": [
           "comparison_shopping_pages"
-        ]
+        ],
+        "operationId": "comparison_shopping_pages.id.listings.get"
       }
     },
     "/conversations/{id}/offer": {
@@ -672,7 +695,8 @@
         "summary": "Make an offer to the other participant in the conversation",
         "tags": [
           "conversations"
-        ]
+        ],
+        "operationId": "conversations.id.offer.post"
       }
     },
     "/countries": {
@@ -686,7 +710,8 @@
         "summary": "Retrieve a list of country codes with corresponding subregions",
         "tags": [
           "countries"
-        ]
+        ],
+        "operationId": "countries.get"
       }
     },
     "/currencies/display": {
@@ -700,7 +725,8 @@
         "summary": "List of supported display currencies for browsing listings",
         "tags": [
           "currencies"
-        ]
+        ],
+        "operationId": "currencies.display.get"
       }
     },
     "/currencies/listing": {
@@ -714,7 +740,8 @@
         "summary": "List of supported listing currencies for shops",
         "tags": [
           "currencies"
-        ]
+        ],
+        "operationId": "currencies.listing.get"
       }
     },
     "/feedback/{feedback_id}": {
@@ -736,7 +763,8 @@
         "summary": "Feedback details",
         "tags": [
           "feedback"
-        ]
+        ],
+        "operationId": "feedback.feedback_id.get"
       }
     },
     "/handpicked/{slug}": {
@@ -758,7 +786,8 @@
         "summary": "Handpicked collection details",
         "tags": [
           "handpicked"
-        ]
+        ],
+        "operationId": "handpicked.slug.get"
       }
     },
     "/listing_conditions": {
@@ -772,7 +801,8 @@
         "summary": "List of supported product conditions",
         "tags": [
           "listing_conditions"
-        ]
+        ],
+        "operationId": "listing_conditions.get"
       }
     },
     "/listings": {
@@ -1014,7 +1044,8 @@
         "summary": "Default search of listings includes only used & handmade. Add a filter to view all listings or use the /listings/all endpoint.",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.get"
       },
       "post": {
         "description": "Create a listing",
@@ -1262,7 +1293,8 @@
         "summary": "Create a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.post"
       }
     },
     "/listings/all": {
@@ -1504,7 +1536,8 @@
         "summary": "All listings including used, handmade, and brand new",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.all.get"
       }
     },
     "/listings/{id}/offer": {
@@ -1558,7 +1591,8 @@
         "summary": "Make an offer to the seller of a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.id.offer.post"
       }
     },
     "/listings/{listing_id}/bump": {
@@ -1587,7 +1621,8 @@
         "summary": "View available bump tiers and stats for a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.bump.get"
       }
     },
     "/listings/{listing_id}/bump/{budget_type}": {
@@ -1622,7 +1657,8 @@
         "summary": "Bump a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.bump.budget_type.post"
       }
     },
     "/listings/{listing_id}/conversations": {
@@ -1667,7 +1703,8 @@
         "summary": "Start a conversation with a seller",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.conversations.post"
       }
     },
     "/listings/{listing_id}/images": {
@@ -1696,7 +1733,8 @@
         "summary": "View the images associated with a particular listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.images.get"
       }
     },
     "/listings/{listing_id}/images/{image_id}": {
@@ -1731,7 +1769,8 @@
         "summary": "Delete an image from a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.images.image_id.delete"
       }
     },
     "/listings/{listing_id}/product_bundle": {
@@ -1760,7 +1799,8 @@
         "summary": "Find a product bundle attached to a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.product_bundle.get"
       }
     },
     "/listings/{listing_id}/sales": {
@@ -1782,7 +1822,8 @@
         "summary": "See all sales that include a listing.",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.listing_id.sales.get"
       }
     },
     "/listings/{slug}": {
@@ -1811,7 +1852,8 @@
         "summary": "Delete a draft listing. Cannot be used on non-drafts.",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.delete"
       },
       "get": {
         "description": "Listing details",
@@ -1831,7 +1873,8 @@
         "summary": "Listing details",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.get"
       },
       "put": {
         "description": "Update a listing",
@@ -2085,7 +2128,8 @@
         "summary": "Update a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.put"
       }
     },
     "/listings/{slug}/edit": {
@@ -2114,7 +2158,8 @@
         "summary": "Edit listing.",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.edit.get"
       }
     },
     "/listings/{slug}/flag": {
@@ -2153,7 +2198,8 @@
         "summary": "Flag a listing for inappropriate content or fraud",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.flag.post"
       }
     },
     "/listings/{slug}/reviews": {
@@ -2175,7 +2221,8 @@
         "summary": "View reviews of a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.reviews.get"
       },
       "post": {
         "description": "Create a review for a listing",
@@ -2202,7 +2249,8 @@
         "summary": "Create a review for a listing",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.reviews.post"
       }
     },
     "/listings/{slug}/similar_listings": {
@@ -2224,7 +2272,8 @@
         "summary": "Listing details",
         "tags": [
           "listings"
-        ]
+        ],
+        "operationId": "listings.slug.similar_listings.get"
       }
     },
     "/my/account": {
@@ -2245,7 +2294,8 @@
         "summary": "Get account details",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.account.get"
       },
       "put": {
         "description": "Update account details",
@@ -2292,7 +2342,8 @@
         "summary": "Update account details",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.account.put"
       }
     },
     "/my/addresses": {
@@ -2313,7 +2364,8 @@
         "summary": "See all addresses in your address book",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.addresses.get"
       },
       "post": {
         "description": "Create a new address in your address book",
@@ -2332,7 +2384,8 @@
         "summary": "Create a new address in your address book",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.addresses.post"
       }
     },
     "/my/addresses/{address_id}": {
@@ -2361,7 +2414,8 @@
         "summary": "Delete an existing address in your address book",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.addresses.address_id.delete"
       },
       "put": {
         "description": "Update an existing address in your address book",
@@ -2388,7 +2442,8 @@
         "summary": "Update an existing address in your address book",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.addresses.address_id.put"
       }
     },
     "/my/conversations": {
@@ -2439,7 +2494,8 @@
         "summary": "Get a list of your conversations",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.conversations.get"
       },
       "post": {
         "description": "Start a conversation",
@@ -2492,7 +2548,8 @@
         "summary": "Start a conversation",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.conversations.post"
       }
     },
     "/my/conversations/{conversation_id}/messages": {
@@ -2537,7 +2594,8 @@
         "summary": "Send a message",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.conversations.conversation_id.messages.post"
       }
     },
     "/my/conversations/{id}": {
@@ -2566,7 +2624,8 @@
         "summary": "Display conversation details with messages in natural time order (oldest to newest)",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.conversations.id.get"
       },
       "put": {
         "description": "Mark a conversation read/unread",
@@ -2607,7 +2666,8 @@
         "summary": "Mark a conversation read/unread",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.conversations.id.put"
       }
     },
     "/my/counts": {
@@ -2628,7 +2688,8 @@
         "summary": "Get your actionable status counts",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.counts.get"
       }
     },
     "/my/feed": {
@@ -2649,7 +2710,8 @@
         "summary": "Get listings from your feed",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.feed.get"
       }
     },
     "/my/feed/grid": {
@@ -2670,7 +2732,8 @@
         "summary": "get your feed",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.feed.grid.get"
       }
     },
     "/my/feedback/received": {
@@ -2691,7 +2754,8 @@
         "summary": "List of received feedback",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.feedback.received.get"
       }
     },
     "/my/feedback/sent": {
@@ -2712,7 +2776,8 @@
         "summary": "List of sent feedback",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.feedback.sent.get"
       }
     },
     "/my/follows": {
@@ -2733,7 +2798,8 @@
         "summary": "See what the user is following",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.get"
       }
     },
     "/my/follows/brands/{slug}": {
@@ -2762,7 +2828,8 @@
         "summary": "Unfollow a brand",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.brands.slug.delete"
       },
       "get": {
         "description": "Follow status for a brand",
@@ -2789,7 +2856,8 @@
         "summary": "Follow status for a brand",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.brands.slug.get"
       },
       "post": {
         "description": "Follow a brand",
@@ -2816,7 +2884,8 @@
         "summary": "Follow a brand",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.brands.slug.post"
       }
     },
     "/my/follows/categories/{category}/{subcategory}": {
@@ -2851,7 +2920,8 @@
         "summary": "Unfollow a subcategory",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.category.subcategory.delete"
       },
       "get": {
         "description": "Follow status for a subcategory",
@@ -2884,7 +2954,8 @@
         "summary": "Follow status for a subcategory",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.category.subcategory.get"
       },
       "post": {
         "description": "Follow a subcategory",
@@ -2917,7 +2988,8 @@
         "summary": "Follow a subcategory",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.category.subcategory.post"
       }
     },
     "/my/follows/categories/{identifier}": {
@@ -2946,7 +3018,8 @@
         "summary": "Unfollow a category",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.identifier.delete"
       },
       "get": {
         "description": "Follow status for a category",
@@ -2973,7 +3046,8 @@
         "summary": "Follow status for a category",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.identifier.get"
       },
       "post": {
         "description": "Follow a category",
@@ -3000,7 +3074,8 @@
         "summary": "Follow a category",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.categories.identifier.post"
       }
     },
     "/my/follows/collections/{slug}": {
@@ -3029,7 +3104,8 @@
         "summary": "Unfollow a collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.collections.slug.delete"
       },
       "get": {
         "description": "Follow status for a collection",
@@ -3056,7 +3132,8 @@
         "summary": "Follow status for a collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.collections.slug.get"
       },
       "post": {
         "description": "Follow a collection",
@@ -3083,7 +3160,8 @@
         "summary": "Follow a collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.collections.slug.post"
       }
     },
     "/my/follows/handpicked/{slug}": {
@@ -3112,7 +3190,8 @@
         "summary": "Unfollow a handpicked collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.handpicked.slug.delete"
       },
       "get": {
         "description": "Follow status for a handpicked collection",
@@ -3139,7 +3218,8 @@
         "summary": "Follow status for a handpicked collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.handpicked.slug.get"
       },
       "post": {
         "description": "Follow a handpicked collection",
@@ -3166,7 +3246,8 @@
         "summary": "Follow a handpicked collection",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.handpicked.slug.post"
       }
     },
     "/my/follows/search": {
@@ -3187,7 +3268,8 @@
         "summary": "Follow status for a search",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.search.get"
       },
       "post": {
         "description": "Follow a search",
@@ -3364,7 +3446,8 @@
         "summary": "Follow a search",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.search.post"
       }
     },
     "/my/follows/shops/{slug}": {
@@ -3393,7 +3476,8 @@
         "summary": "Unfollow a shop",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.shops.slug.delete"
       },
       "get": {
         "description": "Follow status for a shop",
@@ -3420,7 +3504,8 @@
         "summary": "Follow status for a shop",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.shops.slug.get"
       },
       "post": {
         "description": "Follow a shop",
@@ -3447,7 +3532,8 @@
         "summary": "Follow a shop",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.shops.slug.post"
       }
     },
     "/my/follows/{follow_id}": {
@@ -3476,7 +3562,8 @@
         "summary": "Delete a follow",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.follow_id.delete"
       }
     },
     "/my/follows/{follow_id}/alert": {
@@ -3496,7 +3583,8 @@
         },
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.follow_id.alert.delete"
       },
       "post": {
         "parameters": [
@@ -3514,7 +3602,8 @@
         },
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.follows.follow_id.alert.post"
       }
     },
     "/my/listings": {
@@ -3756,7 +3845,8 @@
         "summary": "Retrieve a list of live listings for the seller. To search all listings specify state=all",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.listings.get"
       }
     },
     "/my/listings/drafts": {
@@ -3991,7 +4081,8 @@
         "summary": "Retrieve a list your draft listings",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.listings.drafts.get"
       }
     },
     "/my/listings/negotiations": {
@@ -4028,7 +4119,8 @@
         "summary": "Get a list of active negotiations as a seller",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.listings.negotiations.get"
       }
     },
     "/my/listings/{slug}/state/end": {
@@ -4078,7 +4170,8 @@
         "summary": "End a listing",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.listings.slug.state.end.put"
       }
     },
     "/my/lists": {
@@ -4099,7 +4192,8 @@
         "summary": "Get a list of your lists (wishlist, watch list, etc)",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.lists.get"
       }
     },
     "/my/negotiations/buying": {
@@ -4136,7 +4230,8 @@
         "summary": "Get a list of active negotiations as a buyer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.negotiations.buying.get"
       }
     },
     "/my/negotiations/{id}": {
@@ -4165,7 +4260,8 @@
         "summary": "Get offer details",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.negotiations.id.get"
       }
     },
     "/my/negotiations/{id}/accept": {
@@ -4208,7 +4304,8 @@
         "summary": "Accept an offer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.negotiations.id.accept.post"
       }
     },
     "/my/negotiations/{id}/counter": {
@@ -4309,7 +4406,8 @@
         "summary": "Counter an offer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.negotiations.id.counter.post"
       }
     },
     "/my/negotiations/{id}/decline": {
@@ -4338,7 +4436,8 @@
         "summary": "Decline an offer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.negotiations.id.decline.post"
       }
     },
     "/my/orders/awaiting_feedback": {
@@ -4359,7 +4458,8 @@
         "summary": "List of orders that need feedback",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.awaiting_feedback.get"
       }
     },
     "/my/orders/buying/all": {
@@ -4380,7 +4480,8 @@
         "summary": "Returns all orders, newest first.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.buying.all.get"
       }
     },
     "/my/orders/buying/buying_history/{seller_id}": {
@@ -4409,7 +4510,8 @@
         "summary": "See previous orders from a seller",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.buying.buying_history.seller_id.get"
       }
     },
     "/my/orders/buying/unpaid": {
@@ -4430,7 +4532,8 @@
         "summary": "Returns unpaid orders, newest first.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.buying.unpaid.get"
       }
     },
     "/my/orders/buying/{id}": {
@@ -4459,7 +4562,8 @@
         "summary": "Returns order details for a buyer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.buying.id.get"
       }
     },
     "/my/orders/buying/{id}/mark_received": {
@@ -4488,7 +4592,8 @@
         "summary": "Marks an order as received by the buyer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.buying.id.mark_received.post"
       }
     },
     "/my/orders/selling/all": {
@@ -4553,7 +4658,8 @@
         "summary": "Get all seller orders, newest first.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.all.get"
       }
     },
     "/my/orders/selling/awaiting_shipment": {
@@ -4618,7 +4724,8 @@
         "summary": "Get seller orders awaiting shipment, newest first.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.awaiting_shipment.get"
       }
     },
     "/my/orders/selling/buyer_history/{buyer_id}": {
@@ -4647,7 +4754,8 @@
         "summary": "See previous orders from buyer",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.buyer_history.buyer_id.get"
       }
     },
     "/my/orders/selling/unpaid": {
@@ -4712,7 +4820,8 @@
         "summary": "Get unpaid seller orders, newest first.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.unpaid.get"
       }
     },
     "/my/orders/selling/{id}": {
@@ -4741,7 +4850,8 @@
         "summary": "Returns order details for a seller",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.id.get"
       }
     },
     "/my/orders/selling/{id}/mark_picked_up": {
@@ -4784,7 +4894,8 @@
         "summary": "Marks an order as picked up",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.id.mark_picked_up.post"
       }
     },
     "/my/orders/selling/{id}/ship": {
@@ -4840,7 +4951,8 @@
         "summary": "Marks an order as shipped",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.orders.selling.id.ship.post"
       }
     },
     "/my/payments/selling": {
@@ -4912,7 +5024,8 @@
         "summary": "Get payments",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.payments.selling.get"
       }
     },
     "/my/payments/selling/{id}": {
@@ -4941,7 +5054,8 @@
         "summary": "Get payment",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.payments.selling.id.get"
       }
     },
     "/my/viewed_listings": {
@@ -4962,7 +5076,8 @@
         "summary": "Get a list of your recently viewed listings.",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.viewed_listings.get"
       }
     },
     "/my/wishlist": {
@@ -4983,7 +5098,8 @@
         "summary": "Get a list of wishlisted items",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.wishlist.get"
       }
     },
     "/my/wishlist/{id}": {
@@ -5012,7 +5128,8 @@
         "summary": "Remove a listing from your wishlist",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.wishlist.id.delete"
       },
       "put": {
         "description": "Add a listing to your wishlist",
@@ -5039,7 +5156,8 @@
         "summary": "Add a listing to your wishlist",
         "tags": [
           "my"
-        ]
+        ],
+        "operationId": "my.wishlist.id.put"
       }
     },
     "/orders/{order_id}/feedback/buyer": {
@@ -5061,7 +5179,8 @@
         "summary": "Feedback details for an order's buyer",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.order_id.feedback.buyer.get"
       },
       "post": {
         "description": "Add feedback about an order's buyer",
@@ -5088,7 +5207,8 @@
         "summary": "Add feedback about an order's buyer",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.order_id.feedback.buyer.post"
       }
     },
     "/orders/{order_id}/feedback/seller": {
@@ -5110,7 +5230,8 @@
         "summary": "Feedback details for an order's seller",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.order_id.feedback.seller.get"
       },
       "post": {
         "description": "Add feedback about an order's seller",
@@ -5137,7 +5258,8 @@
         "summary": "Add feedback about an order's seller",
         "tags": [
           "orders"
-        ]
+        ],
+        "operationId": "orders.order_id.feedback.seller.post"
       }
     },
     "/payment_methods": {
@@ -5151,7 +5273,8 @@
         "summary": "Get list of payment methods",
         "tags": [
           "payment_methods"
-        ]
+        ],
+        "operationId": "payment_methods.get"
       }
     },
     "/priceguide": {
@@ -5174,7 +5297,8 @@
         "summary": "Search the Price Guide",
         "tags": [
           "priceguide"
-        ]
+        ],
+        "operationId": "priceguide.get"
       }
     },
     "/priceguide/{id}": {
@@ -5196,7 +5320,8 @@
         "summary": "Retrieve a Price Guide",
         "tags": [
           "priceguide"
-        ]
+        ],
+        "operationId": "priceguide.id.get"
       }
     },
     "/priceguide/{id}/transactions": {
@@ -5225,7 +5350,8 @@
         "summary": "Get a list of paginated transactions for a price guide.",
         "tags": [
           "priceguide"
-        ]
+        ],
+        "operationId": "priceguide.id.transactions.get"
       }
     },
     "/priceguide/{id}/transactions/summary": {
@@ -5261,7 +5387,8 @@
         "summary": "Get a summary of transactions for a given price guide",
         "tags": [
           "priceguide"
-        ]
+        ],
+        "operationId": "priceguide.id.transactions.summary.get"
       }
     },
     "/products/reviews/{id}": {
@@ -5283,7 +5410,8 @@
         "summary": "View a review",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.reviews.id.get"
       },
       "put": {
         "description": "Update a review",
@@ -5332,7 +5460,8 @@
         "summary": "Update a review",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.reviews.id.put"
       }
     },
     "/products/{slug}/reviews": {
@@ -5354,7 +5483,8 @@
         "summary": "View reviews of a product",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.slug.reviews.get"
       },
       "post": {
         "description": "Create a review for a product",
@@ -5381,7 +5511,8 @@
         "summary": "Create a review for a product",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "products.slug.reviews.post"
       }
     },
     "/sales/reverb": {
@@ -5402,7 +5533,8 @@
         "summary": "View upcoming and live Reverb official sales.",
         "tags": [
           "sales"
-        ]
+        ],
+        "operationId": "sales.reverb.get"
       }
     },
     "/sales/seller": {
@@ -5423,7 +5555,8 @@
         "summary": "View your created sales.",
         "tags": [
           "sales"
-        ]
+        ],
+        "operationId": "sales.seller.get"
       }
     },
     "/sales/{sale_id}/listings": {
@@ -5452,7 +5585,8 @@
         "summary": "Remove a listing from a sale",
         "tags": [
           "sales"
-        ]
+        ],
+        "operationId": "sales.sale_id.listings.delete"
       },
       "post": {
         "description": "Add listings to a sale",
@@ -5479,7 +5613,8 @@
         "summary": "Add listings to a sale",
         "tags": [
           "sales"
-        ]
+        ],
+        "operationId": "sales.sale_id.listings.post"
       }
     },
     "/sales/{slug}": {
@@ -5499,7 +5634,8 @@
         },
         "tags": [
           "sales"
-        ]
+        ],
+        "operationId": "sales.slug.get"
       }
     },
     "/shipping/providers": {
@@ -5513,7 +5649,8 @@
         "summary": "List of supported shipping providers",
         "tags": [
           "shipping"
-        ]
+        ],
+        "operationId": "shipping.providers.get"
       }
     },
     "/shipping/regions": {
@@ -5525,7 +5662,8 @@
         },
         "tags": [
           "shipping"
-        ]
+        ],
+        "operationId": "shipping.regions.get"
       }
     },
     "/shop": {
@@ -5546,7 +5684,8 @@
         "summary": "Get your own shop details",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.get"
       },
       "put": {
         "description": "Update your shop profile",
@@ -5637,7 +5776,8 @@
         "summary": "Update your shop profile",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.put"
       }
     },
     "/shop/listing_conditions": {
@@ -5658,7 +5798,8 @@
         "summary": "List of supported product conditions",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.listing_conditions.get"
       }
     },
     "/shop/payment_methods": {
@@ -5679,7 +5820,8 @@
         "summary": "Get accepted payment methods",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.payment_methods.get"
       }
     },
     "/shop/stats": {
@@ -5700,7 +5842,8 @@
         "summary": "Get listings stats",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.stats.get"
       }
     },
     "/shop/stats/activity": {
@@ -5737,7 +5880,8 @@
         "summary": "Get shop activity for a particular time period",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.stats.activity.get"
       }
     },
     "/shop/vacation": {
@@ -5758,7 +5902,8 @@
         "summary": "Disable vacation mode. All listings will be re-enabled.",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.vacation.delete"
       },
       "get": {
         "description": "Returns shop vacation status",
@@ -5777,7 +5922,8 @@
         "summary": "Returns shop vacation status",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.vacation.get"
       },
       "post": {
         "description": "Enable vacation mode. All listings will be unavailable until vacation mode is turned off.",
@@ -5796,7 +5942,8 @@
         "summary": "Enable vacation mode. All listings will be unavailable until vacation mode is turned off.",
         "tags": [
           "shop"
-        ]
+        ],
+        "operationId": "shop.vacation.post"
       }
     },
     "/shops/{slug}": {
@@ -5818,7 +5965,8 @@
         "summary": "Get details on a shop.",
         "tags": [
           "shops"
-        ]
+        ],
+        "operationId": "shops.slug.get"
       }
     },
     "/shops/{slug}/feedback": {
@@ -5840,7 +5988,8 @@
         "summary": "Get seller's feedback",
         "tags": [
           "shops"
-        ]
+        ],
+        "operationId": "shops.slug.feedback.get"
       }
     },
     "/shops/{slug}/feedback/buyer": {
@@ -5862,7 +6011,8 @@
         "summary": "Get seller's feedback as a buyer",
         "tags": [
           "shops"
-        ]
+        ],
+        "operationId": "shops.slug.feedback.buyer.get"
       }
     },
     "/shops/{slug}/feedback/seller": {
@@ -5884,7 +6034,8 @@
         "summary": "Get seller's feedback as a seller",
         "tags": [
           "shops"
-        ]
+        ],
+        "operationId": "shops.slug.feedback.seller.get"
       }
     },
     "/vinyl/listings": {
@@ -5905,7 +6056,8 @@
         },
         "tags": [
           "vinyl"
-        ]
+        ],
+        "operationId": "vinyl.listings.get"
       },
       "post": {
         "responses": {
@@ -5915,7 +6067,8 @@
         },
         "tags": [
           "vinyl"
-        ]
+        ],
+        "operationId": "vinyl.listings.post"
       }
     },
     "/vinyl/listings/{id}": {
@@ -5935,7 +6088,8 @@
         },
         "tags": [
           "vinyl"
-        ]
+        ],
+        "operationId": "vinyl.listings.id.get"
       }
     },
     "/wants": {
@@ -5956,7 +6110,8 @@
         "summary": "A list of wanted items by the user",
         "tags": [
           "wants"
-        ]
+        ],
+        "operationId": "wants.get"
       }
     },
     "/wants/{id}": {
@@ -5985,7 +6140,8 @@
         "summary": "Unmark an item wanted.",
         "tags": [
           "wants"
-        ]
+        ],
+        "operationId": "wants.id.delete"
       },
       "put": {
         "description": "Mark an item wanted. Returns 200 on success or 422 on failure.",
@@ -6012,7 +6168,8 @@
         "summary": "Mark an item wanted. Returns 200 on success or 422 on failure.",
         "tags": [
           "wants"
-        ]
+        ],
+        "operationId": "wants.id.put"
       }
     },
     "/webhooks/registrations": {
@@ -6026,7 +6183,8 @@
         "summary": "Get webhook registrations",
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "webhooks.registrations.get"
       },
       "post": {
         "description": "Register a webhook",
@@ -6071,7 +6229,8 @@
         "summary": "Register a webhook",
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "webhooks.registrations.post"
       }
     },
     "/webhooks/registrations/{id}": {
@@ -6093,7 +6252,8 @@
         "summary": "Remove a webhook",
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "webhooks.registrations.id.delete"
       },
       "get": {
         "description": "Get details of a webhook registration",
@@ -6113,7 +6273,8 @@
         "summary": "Get details of a webhook registration",
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "webhooks.registrations.id.get"
       }
     }
   },

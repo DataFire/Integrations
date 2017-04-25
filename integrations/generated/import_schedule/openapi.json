@@ -121,7 +121,8 @@
         "summary": "Get the list of schedules for all your extractors",
         "tags": [
           "schedule.import.io"
-        ]
+        ],
+        "operationId": "extractor.get"
       },
       "post": {
         "parameters": [
@@ -175,7 +176,8 @@
         "summary": "Schedule and extractor to run at a specific time",
         "tags": [
           "schedule.import.io"
-        ]
+        ],
+        "operationId": "extractor.post"
       }
     },
     "/extractor/{extractorId}/": {
@@ -220,7 +222,8 @@
         "summary": "Delete an existing schedule",
         "tags": [
           "schedule.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.delete"
       },
       "get": {
         "parameters": [
@@ -248,7 +251,8 @@
         "summary": "Get the schedule of a particular extractor",
         "tags": [
           "schedule.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.get"
       }
     }
   },

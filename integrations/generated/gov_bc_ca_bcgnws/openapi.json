@@ -92,7 +92,8 @@
         "summary": "Get all feature categories",
         "tags": [
           "feature taxonomy"
-        ]
+        ],
+        "operationId": "featureCategories.get"
       }
     },
     "/featureClasses": {
@@ -120,7 +121,8 @@
         "summary": "Get all feature classes",
         "tags": [
           "feature taxonomy"
-        ]
+        ],
+        "operationId": "featureClasses.get"
       }
     },
     "/featureTypes": {
@@ -148,7 +150,8 @@
         "summary": "Get all feature types",
         "tags": [
           "feature taxonomy"
-        ]
+        ],
+        "operationId": "featureTypes.get"
       }
     },
     "/features/{featureId}": {
@@ -174,7 +177,8 @@
         "summary": "Get a feature by its featureId",
         "tags": [
           "feature"
-        ]
+        ],
+        "operationId": "features.featureId.get"
       }
     },
     "/nameAuthorities": {
@@ -202,7 +206,8 @@
         "summary": "Get all name authorities",
         "tags": [
           "name authority"
-        ]
+        ],
+        "operationId": "nameAuthorities.get"
       }
     },
     "/names/changes": {
@@ -345,7 +350,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.changes.get"
       }
     },
     "/names/decisions/recent": {
@@ -482,7 +488,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.decisions.recent.get"
       }
     },
     "/names/decisions/year": {
@@ -618,7 +625,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.decisions.year.get"
       }
     },
     "/names/inside": {
@@ -754,7 +762,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.inside.get"
       }
     },
     "/names/near": {
@@ -897,7 +906,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.near.get"
       }
     },
     "/names/notOfficial/search": {
@@ -1046,7 +1056,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.notOfficial.search.get"
       }
     },
     "/names/official/search": {
@@ -1195,7 +1206,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.official.search.get"
       }
     },
     "/names/search": {
@@ -1344,7 +1356,8 @@
         "tags": [
           "search",
           "name"
-        ]
+        ],
+        "operationId": "names.search.get"
       }
     },
     "/names/{nameId}.{outputFormat}": {
@@ -1385,7 +1398,8 @@
         "summary": "Get a name by its nameId",
         "tags": [
           "name"
-        ]
+        ],
+        "operationId": "names.nameId.outputFormat.get"
       }
     }
   }

@@ -180,7 +180,8 @@
         "summary": "Create a new geomark by copying the geometries from one or more existing geomarks from the current server.",
         "tags": [
           "create"
-        ]
+        ],
+        "operationId": "geomarks.copy.post"
       }
     },
     "/geomarks/new": {
@@ -347,7 +348,8 @@
         "summary": "Create a new geomark",
         "tags": [
           "create"
-        ]
+        ],
+        "operationId": "geomarks.new.post"
       }
     },
     "/geomarks/{geomarkId}.{fileFormatExtension}": {
@@ -414,7 +416,8 @@
         "summary": "Get information about a particular geomark",
         "tags": [
           "info"
-        ]
+        ],
+        "operationId": "geomarks.geomarkId.fileFormatExtension.get"
       }
     },
     "/geomarks/{geomarkId}/boundingBox.{fileFormatExtension}": {
@@ -481,7 +484,8 @@
         "summary": "Gets the bounding box of the geomark",
         "tags": [
           "boundingBox"
-        ]
+        ],
+        "operationId": "geomarks.geomarkId.boundingBox.fileFormatExtension.get"
       }
     },
     "/geomarks/{geomarkId}/feature.{fileFormatExtension}": {
@@ -548,7 +552,8 @@
         "summary": "Get the feature and attribution of the geomark",
         "tags": [
           "feature"
-        ]
+        ],
+        "operationId": "geomarks.geomarkId.feature.fileFormatExtension.get"
       }
     },
     "/geomarks/{geomarkId}/parts.{fileFormatExtension}": {
@@ -615,7 +620,8 @@
         "summary": "Get the individual geometries within a multi-part geometry",
         "tags": [
           "parts"
-        ]
+        ],
+        "operationId": "geomarks.geomarkId.parts.fileFormatExtension.get"
       }
     },
     "/geomarks/{geomarkId}/point.{fileFormatExtension}": {
@@ -682,7 +688,8 @@
         "summary": "Gets a single spatial point representative of the geomark.",
         "tags": [
           "point"
-        ]
+        ],
+        "operationId": "geomarks.geomarkId.point.fileFormatExtension.get"
       }
     }
   }

@@ -189,7 +189,8 @@
               "$ref": "#/definitions/Response"
             }
           }
-        }
+        },
+        "operationId": "vversion.format.get"
       }
     }
   },

@@ -1360,7 +1360,8 @@
         "summary": "Download an image",
         "tags": [
           "Downloads"
-        ]
+        ],
+        "operationId": "v3.downloads.images.id.post"
       }
     },
     "/v3/downloads/videos/{id}": {
@@ -1543,7 +1544,8 @@
         "summary": "Download an image",
         "tags": [
           "Downloads"
-        ]
+        ],
+        "operationId": "v3.downloads.id.post"
       }
     },
     "/v3/events": {

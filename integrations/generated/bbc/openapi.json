@@ -2620,7 +2620,7 @@
     "/v1/brands/{pid}/franchises/": {
       "get": {
         "description": "Get raw brand franchises",
-        "operationId": "Get_Raw_brand franchises",
+        "operationId": "v1.brands.pid.franchises.get",
         "parameters": [
           {
             "in": "path",

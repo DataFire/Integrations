@@ -147,7 +147,8 @@
         "summary": "Get recent media from a custom geo-id.",
         "tags": [
           "geographies"
-        ]
+        ],
+        "operationId": "geographies.geo_id.media.recent.get"
       }
     },
     "/locations/search": {
@@ -221,7 +222,8 @@
         "summary": "Search for a location by geographic coordinate.",
         "tags": [
           "locations"
-        ]
+        ],
+        "operationId": "locations.search.get"
       }
     },
     "/locations/{location-id}": {
@@ -257,7 +259,8 @@
         "summary": "Get information about a location.",
         "tags": [
           "locations"
-        ]
+        ],
+        "operationId": "locations.location_id.get"
       }
     },
     "/locations/{location-id}/media/recent": {
@@ -323,7 +326,8 @@
         "summary": "Get a list of recent media objects from a given location.",
         "tags": [
           "locations"
-        ]
+        ],
+        "operationId": "locations.location_id.media.recent.get"
       }
     },
     "/media/popular": {
@@ -351,7 +355,8 @@
         "summary": "Get a list of currently popular media.",
         "tags": [
           "media"
-        ]
+        ],
+        "operationId": "media.popular.get"
       }
     },
     "/media/search": {
@@ -420,7 +425,8 @@
         "summary": "Search for media in a given area.",
         "tags": [
           "media"
-        ]
+        ],
+        "operationId": "media.search.get"
       }
     },
     "/media/shortcode/{shortcode}": {
@@ -457,7 +463,8 @@
         "summary": "Get information about a media object.",
         "tags": [
           "media"
-        ]
+        ],
+        "operationId": "media.shortcode.shortcode.get"
       }
     },
     "/media/{media-id}": {
@@ -494,7 +501,8 @@
         "summary": "Get information about a media object.",
         "tags": [
           "media"
-        ]
+        ],
+        "operationId": "media.media_id.get"
       }
     },
     "/media/{media-id}/comments": {
@@ -531,7 +539,8 @@
         "summary": "Get a list of recent comments on a media object.",
         "tags": [
           "comments"
-        ]
+        ],
+        "operationId": "media.media_id.comments.get"
       },
       "post": {
         "description": "Create a comment on a media object with the following rules:\n\n  * The total length of the comment cannot exceed 300 characters.\n  * The comment cannot contain more than 4 hashtags.\n  * The comment cannot contain more than 1 URL.\n  * The comment cannot consist of all capital letters.\n",
@@ -572,7 +581,8 @@
         "summary": "Create a comment on a media object.",
         "tags": [
           "comments"
-        ]
+        ],
+        "operationId": "media.media_id.comments.post"
       }
     },
     "/media/{media-id}/comments/{comment-id}": {
@@ -615,7 +625,8 @@
         "summary": "Remove a comment.",
         "tags": [
           "comments"
-        ]
+        ],
+        "operationId": "media.media_id.comments.comment_id.delete"
       }
     },
     "/media/{media-id}/likes": {
@@ -651,7 +662,8 @@
         "summary": "Remove a like on this media by the current user.",
         "tags": [
           "likes"
-        ]
+        ],
+        "operationId": "media.media_id.likes.delete"
       },
       "get": {
         "description": "Get a list of users who have liked this media.",
@@ -686,7 +698,8 @@
         "summary": "Get a list of users who have liked this media.",
         "tags": [
           "likes"
-        ]
+        ],
+        "operationId": "media.media_id.likes.get"
       },
       "post": {
         "description": "Set a like on this media by the currently authenticated user.",
@@ -720,7 +733,8 @@
         "summary": "Set a like on this media by the current user.",
         "tags": [
           "likes"
-        ]
+        ],
+        "operationId": "media.media_id.likes.post"
       }
     },
     "/tags/search": {
@@ -756,7 +770,8 @@
         "summary": "Search for tags by name.",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.search.get"
       }
     },
     "/tags/{tag-name}": {
@@ -792,7 +807,8 @@
         "summary": "Get information about a tag object.",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.tag_name.get"
       }
     },
     "/tags/{tag-name}/media/recent": {
@@ -849,7 +865,8 @@
         "summary": "Get a list of recently tagged media.",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.tag_name.media.recent.get"
       }
     },
     "/users/search": {
@@ -892,7 +909,8 @@
         "summary": "Search for a user by name.",
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.search.get"
       }
     },
     "/users/self/feed": {
@@ -943,7 +961,8 @@
         "summary": "See the authenticated user's feed.",
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.self.feed.get"
       }
     },
     "/users/self/media/liked": {
@@ -986,7 +1005,8 @@
         "summary": "See the list of media liked by the authenticated user.",
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.self.media.liked.get"
       }
     },
     "/users/self/requested-by": {
@@ -1013,7 +1033,8 @@
         "summary": "List the users who have requested this user's permission to follow.",
         "tags": [
           "relationships"
-        ]
+        ],
+        "operationId": "users.self.requested_by.get"
       }
     },
     "/users/{user-id}": {
@@ -1053,7 +1074,8 @@
         "summary": "Get basic information about a user.",
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.user_id.get"
       }
     },
     "/users/{user-id}/followed-by": {
@@ -1089,7 +1111,8 @@
         "summary": "Get the list of users this user is followed by.",
         "tags": [
           "relationships"
-        ]
+        ],
+        "operationId": "users.user_id.followed_by.get"
       }
     },
     "/users/{user-id}/follows": {
@@ -1125,7 +1148,8 @@
         "summary": "Get the list of users this user follows.",
         "tags": [
           "relationships"
-        ]
+        ],
+        "operationId": "users.user_id.follows.get"
       }
     },
     "/users/{user-id}/media/recent": {
@@ -1199,7 +1223,8 @@
         "summary": "Get the most recent media published by a user.",
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.user_id.media.recent.get"
       }
     },
     "/users/{user-id}/relationship": {
@@ -1235,7 +1260,8 @@
         "summary": "Get information about a relationship to another user.",
         "tags": [
           "relationships"
-        ]
+        ],
+        "operationId": "users.user_id.relationship.get"
       },
       "post": {
         "description": "Modify the relationship between the current user and the target user.",
@@ -1284,7 +1310,8 @@
         "summary": "Modify the relationship between the current user and the target user.",
         "tags": [
           "relationships"
-        ]
+        ],
+        "operationId": "users.user_id.relationship.post"
       }
     }
   },

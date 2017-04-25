@@ -311,7 +311,8 @@
         "summary": "Returns a SchoolDigger district ranking list",
         "tags": [
           "Rankings"
-        ]
+        ],
+        "operationId": "v1.rankings.districts.st.get"
       }
     },
     "/v1/rankings/schools/{st}": {
@@ -387,7 +388,8 @@
         "summary": "Returns a SchoolDigger school ranking list",
         "tags": [
           "Rankings"
-        ]
+        ],
+        "operationId": "v1.rankings.schools.st.get"
       }
     },
     "/v1/schools": {

@@ -87,7 +87,8 @@
         "summary": "Describes the documents and directories available within a specific 'aspect' (content group) of the BCLaws library",
         "tags": [
           "content"
-        ]
+        ],
+        "operationId": "content.aspectId.get"
       }
     },
     "/content/{aspectId}/{civixDocumentId}": {
@@ -129,7 +130,8 @@
         "summary": "Lists the metadata available for the specified index or directory from the BCLaws legislative respository",
         "tags": [
           "content"
-        ]
+        ],
+        "operationId": "content.aspectId.civixDocumentId.get"
       }
     },
     "/document/id/{aspectId}/{civixIndexId}/{civixDocumentId}": {
@@ -180,7 +182,8 @@
         "summary": "Retrieves a specific document from the BCLaws legislative repository (HTML format)",
         "tags": [
           "document"
-        ]
+        ],
+        "operationId": "document.id.aspectId.civixIndexId.civixDocumentId.get"
       }
     },
     "/document/id/{aspectId}/{civixIndexId}/{civixDocumentId}/search/{searchString}": {
@@ -239,7 +242,8 @@
         "summary": "Retrieves a specific document from the BCLaws legislative repository with search text highlighted (HTML format)",
         "tags": [
           "document"
-        ]
+        ],
+        "operationId": "document.id.aspectId.civixIndexId.civixDocumentId.search.searchString.get"
       }
     },
     "/document/id/{aspectId}/{civixIndexId}/{civixDocumentId}/xml": {
@@ -290,7 +294,8 @@
         "summary": "Retrieves a specific document from the BCLaws legislative repository (XML format)",
         "tags": [
           "document"
-        ]
+        ],
+        "operationId": "document.id.aspectId.civixIndexId.civixDocumentId.xml.get"
       }
     },
     "/document/id/{aspectId}/{civixIndexId}/{civixDocumentId}/xml/search/{searchString}": {
@@ -349,7 +354,8 @@
         "summary": "Retrieves a specific document from the BCLaws legislative repository with search text highlighted (XML format)",
         "tags": [
           "document"
-        ]
+        ],
+        "operationId": "document.id.aspectId.civixIndexId.civixDocumentId.xml.search.searchString.get"
       }
     },
     "/search/{aspectId}/fullsearch": {
@@ -423,7 +429,8 @@
         "summary": "A listing of metadata available for the specified aspect and search term from the BCLaws legislative repository",
         "tags": [
           "search"
-        ]
+        ],
+        "operationId": "search.aspectId.fullsearch.get"
       }
     }
   }

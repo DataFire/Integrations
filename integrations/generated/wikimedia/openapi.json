@@ -130,7 +130,8 @@
             "title": "Mathoid - check test formula"
           }
         ],
-        "x-monitor": true
+        "x-monitor": true,
+        "operationId": "media.math.check.type.post"
       }
     },
     "/media/math/formula/{hash}": {
@@ -170,7 +171,8 @@
         "tags": [
           "Math"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "media.math.formula.hash.get"
       }
     },
     "/media/math/render/{format}/{hash}": {
@@ -224,7 +226,8 @@
         "tags": [
           "Math"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "media.math.render.format.hash.get"
       }
     },
     "/metrics/legacy/": {
@@ -251,7 +254,8 @@
         "tags": [
           "Legacy metrics"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.legacy.get"
       }
     },
     "/metrics/legacy/pagecounts/aggregate/{project}/{access-site}/{granularity}/{start}/{end}": {
@@ -324,7 +328,8 @@
         "tags": [
           "Pagecounts data (legacy)"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.legacy.pagecounts.aggregate.project.access_site.granularity.start.end.get"
       }
     },
     "/metrics/pageviews/": {
@@ -351,7 +356,8 @@
         "tags": [
           "Pageviews data"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.pageviews.get"
       }
     },
     "/metrics/pageviews/aggregate/{project}/{access}/{agent}/{granularity}/{start}/{end}": {
@@ -472,7 +478,8 @@
             "title": "Get aggregate page views"
           }
         ],
-        "x-monitor": true
+        "x-monitor": true,
+        "operationId": "metrics.pageviews.aggregate.project.access.agent.granularity.start.end.get"
       }
     },
     "/metrics/pageviews/per-article/{project}/{access}/{agent}/{article}/{granularity}/{start}/{end}": {
@@ -566,7 +573,8 @@
         "tags": [
           "Pageviews data"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.pageviews.per_article.project.access.agent.article.granularity.start.end.get"
       }
     },
     "/metrics/pageviews/top/{project}/{access}/{year}/{month}/{day}": {
@@ -636,7 +644,8 @@
         "tags": [
           "Pageviews data"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.pageviews.top.project.access.year.month.day.get"
       }
     },
     "/metrics/unique-devices/{project}/{access-site}/{granularity}/{start}/{end}": {
@@ -709,7 +718,8 @@
         "tags": [
           "Unique devices data"
         ],
-        "x-monitor": false
+        "x-monitor": false,
+        "operationId": "metrics.unique_devices.project.access_site.granularity.start.end.get"
       }
     }
   },

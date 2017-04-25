@@ -90,7 +90,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "critics.resource_type.json.get"
       }
     },
     "/reviews/search.json": {
@@ -171,7 +172,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "reviews.search.json.get"
       }
     },
     "/reviews/{resource-type}.json": {
@@ -234,7 +236,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "reviews.resource_type.json.get"
       }
     }
   },

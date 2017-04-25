@@ -1715,7 +1715,8 @@
         },
         "tags": [
           "quoteCartManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.post"
       },
       "put": {
         "description": "Save quote",
@@ -1816,7 +1817,8 @@
         },
         "tags": [
           "quoteBillingAddressManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.billing_address.get"
       },
       "post": {
         "description": "Assigns a specified billing address to a specified cart.",
@@ -1869,7 +1871,8 @@
         },
         "tags": [
           "quoteBillingAddressManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.billing_address.post"
       }
     },
     "/V1/carts/mine/checkGiftCard/{giftCardCode}": {
@@ -2003,7 +2006,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.coupons.delete"
       },
       "get": {
         "description": "Returns information for a coupon in a specified cart.",
@@ -2036,7 +2040,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.coupons.get"
       }
     },
     "/V1/carts/mine/coupons/{couponCode}": {
@@ -2079,7 +2084,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.coupons.couponCode.put"
       }
     },
     "/V1/carts/mine/estimate-shipping-methods": {
@@ -2128,7 +2134,8 @@
         },
         "tags": [
           "quoteShipmentEstimationV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.estimate_shipping_methods.post"
       }
     },
     "/V1/carts/mine/estimate-shipping-methods-by-address-id": {
@@ -2178,7 +2185,8 @@
         },
         "tags": [
           "quoteShippingMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.estimate_shipping_methods_by_address_id.post"
       }
     },
     "/V1/carts/mine/gift-message": {
@@ -2206,7 +2214,8 @@
         },
         "tags": [
           "giftMessageCartRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.gift_message.get"
       },
       "post": {
         "description": "Set the gift message for an entire order.",
@@ -2255,7 +2264,8 @@
         },
         "tags": [
           "giftMessageCartRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.gift_message.post"
       }
     },
     "/V1/carts/mine/gift-message/{itemId}": {
@@ -2298,7 +2308,8 @@
         },
         "tags": [
           "giftMessageItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.gift_message.itemId.get"
       },
       "post": {
         "description": "Set the gift message for a specified item in a specified shopping cart.",
@@ -2354,7 +2365,8 @@
         },
         "tags": [
           "giftMessageItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.gift_message.itemId.post"
       }
     },
     "/V1/carts/mine/giftCards": {
@@ -2436,7 +2448,8 @@
         },
         "tags": [
           "giftCardAccountGiftCardAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.giftCards.giftCardCode.delete"
       }
     },
     "/V1/carts/mine/items": {
@@ -2474,7 +2487,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.items.get"
       },
       "post": {
         "description": "Add/update the specified cart item.",
@@ -2523,7 +2537,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.items.post"
       }
     },
     "/V1/carts/mine/items/{itemId}": {
@@ -2566,7 +2581,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.items.itemId.delete"
       },
       "put": {
         "description": "Add/update the specified cart item.",
@@ -2621,7 +2637,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.items.itemId.put"
       }
     },
     "/V1/carts/mine/order": {
@@ -2670,7 +2687,8 @@
         },
         "tags": [
           "quoteCartManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.order.put"
       }
     },
     "/V1/carts/mine/payment-information": {
@@ -2791,7 +2809,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.payment_methods.get"
       }
     },
     "/V1/carts/mine/selected-payment-method": {
@@ -2825,7 +2844,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.selected_payment_method.get"
       },
       "put": {
         "description": "Adds a specified payment method to a specified shopping cart.",
@@ -2875,7 +2895,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.selected_payment_method.put"
       }
     },
     "/V1/carts/mine/set-payment-information": {
@@ -2976,7 +2997,8 @@
         },
         "tags": [
           "checkoutShippingInformationManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.shipping_information.post"
       }
     },
     "/V1/carts/mine/shipping-methods": {
@@ -3014,7 +3036,8 @@
         },
         "tags": [
           "quoteShippingMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.shipping_methods.get"
       }
     },
     "/V1/carts/mine/totals": {
@@ -3048,7 +3071,8 @@
         },
         "tags": [
           "quoteCartTotalRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.totals.get"
       }
     },
     "/V1/carts/mine/totals-information": {
@@ -3093,7 +3117,8 @@
         },
         "tags": [
           "checkoutTotalsInformationManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.mine.totals_information.post"
       }
     },
     "/V1/carts/search": {
@@ -3308,7 +3333,8 @@
         },
         "tags": [
           "quoteBillingAddressManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.billing_address.get"
       },
       "post": {
         "description": "Assigns a specified billing address to a specified cart.",
@@ -3368,7 +3394,8 @@
         },
         "tags": [
           "quoteBillingAddressManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.billing_address.post"
       }
     },
     "/V1/carts/{cartId}/coupons": {
@@ -3411,7 +3438,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.coupons.delete"
       },
       "get": {
         "description": "Returns information for a coupon in a specified cart.",
@@ -3453,7 +3481,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.coupons.get"
       }
     },
     "/V1/carts/{cartId}/coupons/{couponCode}": {
@@ -3503,7 +3532,8 @@
         },
         "tags": [
           "quoteCouponManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.coupons.couponCode.put"
       }
     },
     "/V1/carts/{cartId}/estimate-shipping-methods": {
@@ -3558,7 +3588,8 @@
         },
         "tags": [
           "quoteShipmentEstimationV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.estimate_shipping_methods.post"
       }
     },
     "/V1/carts/{cartId}/estimate-shipping-methods-by-address-id": {
@@ -3615,7 +3646,8 @@
         },
         "tags": [
           "quoteShippingMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.estimate_shipping_methods_by_address_id.post"
       }
     },
     "/V1/carts/{cartId}/gift-message": {
@@ -3652,7 +3684,8 @@
         },
         "tags": [
           "giftMessageCartRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.gift_message.get"
       },
       "post": {
         "description": "Set the gift message for an entire order.",
@@ -3708,7 +3741,8 @@
         },
         "tags": [
           "giftMessageCartRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.gift_message.post"
       }
     },
     "/V1/carts/{cartId}/gift-message/{itemId}": {
@@ -3758,7 +3792,8 @@
         },
         "tags": [
           "giftMessageItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.gift_message.itemId.get"
       },
       "post": {
         "description": "Set the gift message for a specified item in a specified shopping cart.",
@@ -3821,7 +3856,8 @@
         },
         "tags": [
           "giftMessageItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.gift_message.itemId.post"
       }
     },
     "/V1/carts/{cartId}/giftCards": {
@@ -3915,7 +3951,8 @@
         },
         "tags": [
           "giftCardAccountGiftCardAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.giftCards.giftCardCode.delete"
       }
     },
     "/V1/carts/{cartId}/items": {
@@ -3962,7 +3999,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.items.get"
       }
     },
     "/V1/carts/{cartId}/items/{itemId}": {
@@ -4012,7 +4050,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.items.itemId.delete"
       },
       "put": {
         "description": "Add/update the specified cart item.",
@@ -4073,7 +4112,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.items.itemId.put"
       }
     },
     "/V1/carts/{cartId}/order": {
@@ -4129,7 +4169,8 @@
         },
         "tags": [
           "quoteCartManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.order.put"
       }
     },
     "/V1/carts/{cartId}/payment-methods": {
@@ -4176,7 +4217,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.payment_methods.get"
       }
     },
     "/V1/carts/{cartId}/selected-payment-method": {
@@ -4219,7 +4261,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.selected_payment_method.get"
       },
       "put": {
         "description": "Adds a specified payment method to a specified shopping cart.",
@@ -4276,7 +4319,8 @@
         },
         "tags": [
           "quotePaymentMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.selected_payment_method.put"
       }
     },
     "/V1/carts/{cartId}/shipping-information": {
@@ -4327,7 +4371,8 @@
         },
         "tags": [
           "checkoutShippingInformationManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.shipping_information.post"
       }
     },
     "/V1/carts/{cartId}/shipping-methods": {
@@ -4374,7 +4419,8 @@
         },
         "tags": [
           "quoteShippingMethodManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.shipping_methods.get"
       }
     },
     "/V1/carts/{cartId}/totals": {
@@ -4417,7 +4463,8 @@
         },
         "tags": [
           "quoteCartTotalRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.totals.get"
       }
     },
     "/V1/carts/{cartId}/totals-information": {
@@ -4468,7 +4515,8 @@
         },
         "tags": [
           "checkoutTotalsInformationManagementV1"
-        ]
+        ],
+        "operationId": "V1.carts.cartId.totals_information.post"
       }
     },
     "/V1/carts/{quoteId}/giftCards": {
@@ -4562,7 +4610,8 @@
         },
         "tags": [
           "quoteCartItemRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.carts.quoteId.items.post"
       }
     },
     "/V1/categories": {
@@ -7227,7 +7276,8 @@
         },
         "tags": [
           "customerGroupManagementV1"
-        ]
+        ],
+        "operationId": "V1.customerGroups.default.get"
       }
     },
     "/V1/customerGroups/default/{storeId}": {
@@ -7275,7 +7325,8 @@
         },
         "tags": [
           "customerGroupManagementV1"
-        ]
+        ],
+        "operationId": "V1.customerGroups.default.storeId.get"
       }
     },
     "/V1/customerGroups/search": {
@@ -7807,7 +7858,8 @@
         },
         "tags": [
           "customerCustomerRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.customers.me.get"
       },
       "put": {
         "description": "Create or update a customer.",
@@ -7865,7 +7917,8 @@
         },
         "tags": [
           "customerCustomerRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.customers.me.put"
       }
     },
     "/V1/customers/me/activate": {
@@ -7957,7 +8010,8 @@
         },
         "tags": [
           "customerAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.customers.me.billingAddress.get"
       }
     },
     "/V1/customers/me/password": {
@@ -8054,7 +8108,8 @@
         },
         "tags": [
           "customerAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.customers.me.shippingAddress.get"
       }
     },
     "/V1/customers/password": {
@@ -8335,7 +8390,8 @@
         },
         "tags": [
           "customerCustomerRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.customers.customerId.get"
       }
     },
     "/V1/customers/{customerId}/billingAddress": {
@@ -8383,7 +8439,8 @@
         },
         "tags": [
           "customerAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.customers.customerId.billingAddress.get"
       }
     },
     "/V1/customers/{customerId}/carts": {
@@ -8427,7 +8484,8 @@
         },
         "tags": [
           "quoteCartManagementV1"
-        ]
+        ],
+        "operationId": "V1.customers.customerId.carts.post"
       }
     },
     "/V1/customers/{customerId}/confirm": {
@@ -8617,7 +8675,8 @@
         },
         "tags": [
           "customerAccountManagementV1"
-        ]
+        ],
+        "operationId": "V1.customers.customerId.shippingAddress.get"
       }
     },
     "/V1/customers/{email}/activate": {
@@ -8741,7 +8800,8 @@
         },
         "tags": [
           "customerCustomerRepositoryV1"
-        ]
+        ],
+        "operationId": "V1.customers.id.put"
       }
     },
     "/V1/directory/countries": {

@@ -377,7 +377,8 @@
         "tags": [
           "sites",
           "intersections"
-        ]
+        ],
+        "operationId": "addresses.outputFormat.get"
       }
     },
     "/intersections/near.{outputFormat}": {
@@ -472,7 +473,8 @@
         "summary": "Find intersections near to a geographic point",
         "tags": [
           "intersections"
-        ]
+        ],
+        "operationId": "intersections.near.outputFormat.get"
       }
     },
     "/intersections/nearest.{outputFormat}": {
@@ -559,7 +561,8 @@
         "summary": "Find nearest intersection to a geographic point",
         "tags": [
           "intersections"
-        ]
+        ],
+        "operationId": "intersections.nearest.outputFormat.get"
       }
     },
     "/intersections/within.{outputFormat}": {
@@ -647,7 +650,8 @@
         "summary": "Find intersections in a geographic area",
         "tags": [
           "intersections"
-        ]
+        ],
+        "operationId": "intersections.within.outputFormat.get"
       }
     },
     "/intersections/{intersectionID}.{outputFormat}": {
@@ -711,7 +715,8 @@
         "summary": "Get an intersection by its unique ID",
         "tags": [
           "intersections"
-        ]
+        ],
+        "operationId": "intersections.intersectionID.outputFormat.get"
       }
     },
     "/occupants/addresses.{outputFormat}": {
@@ -1022,7 +1027,8 @@
         "summary": "Geocode an address and identify site occupants",
         "tags": [
           "occupants"
-        ]
+        ],
+        "operationId": "occupants.addresses.outputFormat.get"
       }
     },
     "/occupants/near.{outputFormat}": {
@@ -1139,7 +1145,8 @@
         "summary": "Find occupants of sites near to a geographic point",
         "tags": [
           "occupants"
-        ]
+        ],
+        "operationId": "occupants.near.outputFormat.get"
       }
     },
     "/occupants/nearest.{outputFormat}": {
@@ -1241,7 +1248,8 @@
         "summary": "Find occupants of the site nearest to a geographic point",
         "tags": [
           "occupants"
-        ]
+        ],
+        "operationId": "occupants.nearest.outputFormat.get"
       }
     },
     "/occupants/within.{outputFormat}": {
@@ -1344,7 +1352,8 @@
         "summary": "Find occupants of sites in a geographic area",
         "tags": [
           "occupants"
-        ]
+        ],
+        "operationId": "occupants.within.outputFormat.get"
       }
     },
     "/occupants/{occupantID}.{outputFormat}": {
@@ -1432,7 +1441,8 @@
         "summary": "Get an occupant (of a site) by its unique ID",
         "tags": [
           "occupants"
-        ]
+        ],
+        "operationId": "occupants.occupantID.outputFormat.get"
       }
     },
     "/sites/near.{outputFormat}": {
@@ -1542,7 +1552,8 @@
         "summary": "Find sites near to a geographic point",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.near.outputFormat.get"
       }
     },
     "/sites/nearest.{outputFormat}": {
@@ -1644,7 +1655,8 @@
         "summary": "Find the site nearest to a geographic point",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.nearest.outputFormat.get"
       }
     },
     "/sites/within.{outputFormat}": {
@@ -1747,7 +1759,8 @@
         "summary": "Find sites in a geographic area",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.within.outputFormat.get"
       }
     },
     "/sites/{siteID}.{outputFormat}": {
@@ -1835,7 +1848,8 @@
         "summary": "Get a site by its unique ID",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.siteID.outputFormat.get"
       }
     }
   }

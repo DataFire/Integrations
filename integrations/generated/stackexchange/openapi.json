@@ -116,7 +116,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "access_tokens.accessTokens.get"
       }
     },
     "/access-tokens/{accessTokens}/invalidate": {
@@ -190,7 +191,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "access_tokens.accessTokens.invalidate.get"
       }
     },
     "/answers": {
@@ -307,7 +309,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "answers.get"
       }
     },
     "/answers/{ids}": {
@@ -431,7 +434,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "answers.ids.get"
       }
     },
     "/answers/{ids}/comments": {
@@ -554,7 +558,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "answers.ids.comments.get"
       }
     },
     "/apps/{accessTokens}/de-authenticate": {
@@ -628,7 +633,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "apps.accessTokens.de_authenticate.get"
       }
     },
     "/badges": {
@@ -750,7 +756,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.get"
       }
     },
     "/badges/name": {
@@ -871,7 +878,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.name.get"
       }
     },
     "/badges/recipients": {
@@ -957,7 +965,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.recipients.get"
       }
     },
     "/badges/tags": {
@@ -1078,7 +1087,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.tags.get"
       }
     },
     "/badges/{ids}": {
@@ -1202,7 +1212,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.ids.get"
       }
     },
     "/badges/{ids}/recipients": {
@@ -1295,7 +1306,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "badges.ids.recipients.get"
       }
     },
     "/comments": {
@@ -1411,7 +1423,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "comments.get"
       }
     },
     "/comments/{ids}": {
@@ -1534,7 +1547,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "comments.ids.get"
       }
     },
     "/comments/{id}/delete": {
@@ -1606,7 +1620,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "comments.id.delete.post"
       }
     },
     "/comments/{id}/edit": {
@@ -1686,7 +1701,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "comments.id.edit.post"
       }
     },
     "/errors": {
@@ -1753,7 +1769,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "errors.get"
       }
     },
     "/errors/{id}": {
@@ -1804,7 +1821,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "errors.id.get"
       }
     },
     "/events": {
@@ -1884,7 +1902,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "events.get"
       }
     },
     "/filters/create": {
@@ -1951,7 +1970,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "filters.create.get"
       }
     },
     "/filters/{filters}": {
@@ -2003,7 +2023,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "filters.filters.get"
       }
     },
     "/inbox": {
@@ -2070,7 +2091,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "inbox.get"
       }
     },
     "/inbox/unread": {
@@ -2143,7 +2165,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "inbox.unread.get"
       }
     },
     "/info": {
@@ -2195,7 +2218,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "info.get"
       }
     },
     "/me": {
@@ -2313,7 +2337,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.get"
       }
     },
     "/me/answers": {
@@ -2430,7 +2455,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.answers.get"
       }
     },
     "/me/associated": {
@@ -2497,7 +2523,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.associated.get"
       }
     },
     "/me/badges": {
@@ -2614,7 +2641,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.badges.get"
       }
     },
     "/me/comments": {
@@ -2730,7 +2758,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.comments.get"
       }
     },
     "/me/comments/{toId}": {
@@ -2852,7 +2881,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.comments.toId.get"
       }
     },
     "/me/favorites": {
@@ -2970,7 +3000,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.favorites.get"
       }
     },
     "/me/inbox": {
@@ -3044,7 +3075,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.inbox.get"
       }
     },
     "/me/inbox/unread": {
@@ -3124,7 +3156,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.inbox.unread.get"
       }
     },
     "/me/mentioned": {
@@ -3240,7 +3273,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.mentioned.get"
       }
     },
     "/me/merges": {
@@ -3307,7 +3341,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.merges.get"
       }
     },
     "/me/notifications": {
@@ -3381,7 +3416,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.notifications.get"
       }
     },
     "/me/notifications/unread": {
@@ -3455,7 +3491,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.notifications.unread.get"
       }
     },
     "/me/privileges": {
@@ -3529,7 +3566,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.privileges.get"
       }
     },
     "/me/questions": {
@@ -3646,7 +3684,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.questions.get"
       }
     },
     "/me/questions/featured": {
@@ -3763,7 +3802,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.questions.featured.get"
       }
     },
     "/me/questions/no-answers": {
@@ -3880,7 +3920,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.questions.no_answers.get"
       }
     },
     "/me/questions/unaccepted": {
@@ -3997,7 +4038,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.questions.unaccepted.get"
       }
     },
     "/me/questions/unanswered": {
@@ -4114,7 +4156,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.questions.unanswered.get"
       }
     },
     "/me/reputation": {
@@ -4178,7 +4221,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.reputation.get"
       }
     },
     "/me/reputation-history": {
@@ -4252,7 +4296,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.reputation_history.get"
       }
     },
     "/me/reputation-history/full": {
@@ -4326,7 +4371,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.reputation_history.full.get"
       }
     },
     "/me/suggested-edits": {
@@ -4443,7 +4489,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.suggested_edits.get"
       }
     },
     "/me/tags": {
@@ -4560,7 +4607,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.tags.get"
       }
     },
     "/me/tags/{tags}/top-answers": {
@@ -4684,7 +4732,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.tags.tags.top_answers.get"
       }
     },
     "/me/tags/{tags}/top-questions": {
@@ -4812,7 +4861,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.tags.tags.top_questions.get"
       }
     },
     "/me/timeline": {
@@ -4898,7 +4948,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.timeline.get"
       }
     },
     "/me/top-answer-tags": {
@@ -4972,7 +5023,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.top_answer_tags.get"
       }
     },
     "/me/top-question-tags": {
@@ -5046,7 +5098,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.top_question_tags.get"
       }
     },
     "/me/write-permissions": {
@@ -5120,7 +5173,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "me.write_permissions.get"
       }
     },
     "/notifications": {
@@ -5187,7 +5241,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "notifications.get"
       }
     },
     "/notifications/unread": {
@@ -5254,7 +5309,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "notifications.unread.get"
       }
     },
     "/posts": {
@@ -5371,7 +5427,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.get"
       }
     },
     "/posts/{ids}": {
@@ -5495,7 +5552,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.ids.get"
       }
     },
     "/posts/{ids}/comments": {
@@ -5618,7 +5676,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.ids.comments.get"
       }
     },
     "/posts/{ids}/revisions": {
@@ -5711,7 +5770,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.ids.revisions.get"
       }
     },
     "/posts/{ids}/suggested-edits": {
@@ -5835,7 +5895,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.ids.suggested_edits.get"
       }
     },
     "/posts/{id}/comments/add": {
@@ -5915,7 +5976,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "posts.id.comments.add.post"
       }
     },
     "/privileges": {
@@ -5989,7 +6051,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "privileges.get"
       }
     },
     "/questions": {
@@ -6116,7 +6179,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.get"
       }
     },
     "/questions/featured": {
@@ -6239,7 +6303,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.featured.get"
       }
     },
     "/questions/no-answers": {
@@ -6362,7 +6427,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.no_answers.get"
       }
     },
     "/questions/unanswered": {
@@ -6485,7 +6551,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.unanswered.get"
       }
     },
     "/questions/{ids}": {
@@ -6609,7 +6676,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.get"
       }
     },
     "/questions/{ids}/answers": {
@@ -6733,7 +6801,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.answers.get"
       }
     },
     "/questions/{ids}/comments": {
@@ -6856,7 +6925,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.comments.get"
       }
     },
     "/questions/{ids}/linked": {
@@ -6981,7 +7051,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.linked.get"
       }
     },
     "/questions/{ids}/related": {
@@ -7106,7 +7177,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.related.get"
       }
     },
     "/questions/{ids}/timeline": {
@@ -7199,7 +7271,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "questions.ids.timeline.get"
       }
     },
     "/revisions/{ids}": {
@@ -7292,7 +7365,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "revisions.ids.get"
       }
     },
     "/search": {
@@ -7427,7 +7501,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "search.get"
       }
     },
     "/search/advanced": {
@@ -7637,7 +7712,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "search.advanced.get"
       }
     },
     "/similar": {
@@ -7772,7 +7848,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "similar.get"
       }
     },
     "/sites": {
@@ -7839,7 +7916,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "sites.get"
       }
     },
     "/suggested-edits": {
@@ -7956,7 +8034,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "suggested_edits.get"
       }
     },
     "/suggested-edits/{ids}": {
@@ -8080,7 +8159,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "suggested_edits.ids.get"
       }
     },
     "/tags": {
@@ -8202,7 +8282,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.get"
       }
     },
     "/tags/moderator-only": {
@@ -8324,7 +8405,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.moderator_only.get"
       }
     },
     "/tags/required": {
@@ -8446,7 +8528,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.required.get"
       }
     },
     "/tags/synonyms": {
@@ -8563,7 +8646,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.synonyms.get"
       }
     },
     "/tags/{tags}/faq": {
@@ -8644,7 +8728,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tags.faq.get"
       }
     },
     "/tags/{tags}/info": {
@@ -8768,7 +8853,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tags.info.get"
       }
     },
     "/tags/{tags}/related": {
@@ -8849,7 +8935,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tags.related.get"
       }
     },
     "/tags/{tags}/synonyms": {
@@ -8973,7 +9060,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tags.synonyms.get"
       }
     },
     "/tags/{tags}/wikis": {
@@ -9054,7 +9142,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tags.wikis.get"
       }
     },
     "/tags/{tag}/top-answerers/{period}": {
@@ -9144,7 +9233,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tag.top_answerers.period.get"
       }
     },
     "/tags/{tag}/top-askers/{period}": {
@@ -9234,7 +9324,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "tags.tag.top_askers.period.get"
       }
     },
     "/users": {
@@ -9357,7 +9448,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.get"
       }
     },
     "/users/moderators": {
@@ -9475,7 +9567,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.moderators.get"
       }
     },
     "/users/moderators/elected": {
@@ -9593,7 +9686,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.moderators.elected.get"
       }
     },
     "/users/{ids}": {
@@ -9718,7 +9812,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.get"
       }
     },
     "/users/{ids}/answers": {
@@ -9842,7 +9937,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.answers.get"
       }
     },
     "/users/{ids}/associated": {
@@ -9916,7 +10012,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.associated.get"
       }
     },
     "/users/{ids}/badges": {
@@ -10041,7 +10138,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.badges.get"
       }
     },
     "/users/{ids}/comments": {
@@ -10164,7 +10262,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.comments.get"
       }
     },
     "/users/{ids}/comments/{toid}": {
@@ -10293,7 +10392,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.comments.toid.get"
       }
     },
     "/users/{ids}/favorites": {
@@ -10418,7 +10518,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.favorites.get"
       }
     },
     "/users/{ids}/mentioned": {
@@ -10541,7 +10642,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.mentioned.get"
       }
     },
     "/users/{ids}/merges": {
@@ -10615,7 +10717,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.merges.get"
       }
     },
     "/users/{ids}/questions": {
@@ -10739,7 +10842,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.questions.get"
       }
     },
     "/users/{ids}/questions/featured": {
@@ -10863,7 +10967,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.questions.featured.get"
       }
     },
     "/users/{ids}/questions/no-answers": {
@@ -10987,7 +11092,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.questions.no_answers.get"
       }
     },
     "/users/{ids}/questions/unaccepted": {
@@ -11111,7 +11217,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.questions.unaccepted.get"
       }
     },
     "/users/{ids}/questions/unanswered": {
@@ -11235,7 +11342,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.questions.unanswered.get"
       }
     },
     "/users/{ids}/reputation": {
@@ -11328,7 +11436,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.reputation.get"
       }
     },
     "/users/{ids}/reputation-history": {
@@ -11409,7 +11518,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.reputation_history.get"
       }
     },
     "/users/{ids}/suggested-edits": {
@@ -11533,7 +11643,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.suggested_edits.get"
       }
     },
     "/users/{ids}/tags": {
@@ -11657,7 +11768,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.tags.get"
       }
     },
     "/users/{ids}/timeline": {
@@ -11750,7 +11862,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.ids.timeline.get"
       }
     },
     "/users/{id}/inbox": {
@@ -11830,7 +11943,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.inbox.get"
       }
     },
     "/users/{id}/inbox/unread": {
@@ -11916,7 +12030,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.inbox.unread.get"
       }
     },
     "/users/{id}/notifications": {
@@ -11996,7 +12111,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.notifications.get"
       }
     },
     "/users/{id}/notifications/unread": {
@@ -12076,7 +12192,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.notifications.unread.get"
       }
     },
     "/users/{id}/privileges": {
@@ -12156,7 +12273,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.privileges.get"
       }
     },
     "/users/{id}/reputation-history/full": {
@@ -12236,7 +12354,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.reputation_history.full.get"
       }
     },
     "/users/{id}/tags/{tags}/top-answers": {
@@ -12366,7 +12485,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.tags.tags.top_answers.get"
       }
     },
     "/users/{id}/tags/{tags}/top-questions": {
@@ -12496,7 +12616,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.tags.tags.top_questions.get"
       }
     },
     "/users/{id}/top-answer-tags": {
@@ -12576,7 +12697,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.top_answer_tags.get"
       }
     },
     "/users/{id}/top-question-tags": {
@@ -12656,7 +12778,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.top_question_tags.get"
       }
     },
     "/users/{id}/write-permissions": {
@@ -12736,7 +12859,8 @@
           "503": {
             "description": "temporarily_unavailable Ã¢â‚¬â€œ 503 Some or all of the API is unavailable. Applications should backoff on requests to the method invoked.\n"
           }
-        }
+        },
+        "operationId": "users.id.write_permissions.get"
       }
     }
   },

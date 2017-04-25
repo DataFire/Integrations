@@ -65,7 +65,8 @@
         "summary": "Update account",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.patch"
       }
     },
     "/attachments/{id}": {
@@ -91,7 +92,8 @@
         "summary": "Delete attachment",
         "tags": [
           "Attachments"
-        ]
+        ],
+        "operationId": "attachments.id.delete"
       }
     },
     "/authentication": {
@@ -119,7 +121,8 @@
         "summary": "Sign in user",
         "tags": [
           "Authentication"
-        ]
+        ],
+        "operationId": "authentication.post"
       }
     },
     "/collaborator_invitations": {
@@ -139,7 +142,8 @@
         "summary": "List your collaborator invitations",
         "tags": [
           "CollaboratorInvitations"
-        ]
+        ],
+        "operationId": "collaborator_invitations.get"
       },
       "post": {
         "description": "Invite user to collaborate on map.",
@@ -164,7 +168,8 @@
         "summary": "Invite user to collaborate on map",
         "tags": [
           "CollaboratorInvitations"
-        ]
+        ],
+        "operationId": "collaborator_invitations.post"
       }
     },
     "/collaborator_invitations/{id}": {
@@ -190,7 +195,8 @@
         "summary": "Delete collaborator invitation",
         "tags": [
           "CollaboratorInvitations"
-        ]
+        ],
+        "operationId": "collaborator_invitations.id.delete"
       },
       "get": {
         "description": "Show collaborator invitation",
@@ -214,7 +220,8 @@
         "summary": "Show collaborator invitation",
         "tags": [
           "CollaboratorInvitations"
-        ]
+        ],
+        "operationId": "collaborator_invitations.id.get"
       },
       "patch": {
         "description": "Accept collaborator invitation.",
@@ -238,7 +245,8 @@
         "summary": "Accept collaborator invitation.",
         "tags": [
           "CollaboratorInvitations"
-        ]
+        ],
+        "operationId": "collaborator_invitations.id.patch"
       }
     },
     "/comments/{id}": {
@@ -264,7 +272,8 @@
         "summary": "Delete comment",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "comments.id.delete"
       },
       "patch": {
         "description": "Update comment. Wrap comment parameters in [comment].",
@@ -297,7 +306,8 @@
         "summary": "Update comment",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "comments.id.patch"
       }
     },
     "/events": {
@@ -340,7 +350,8 @@
         "summary": "List your own events",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "events.get"
       }
     },
     "/events/{id}": {
@@ -366,7 +377,8 @@
         "summary": "Delete event",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "events.id.delete"
       },
       "get": {
         "description": "Get basic information about an event",
@@ -390,7 +402,8 @@
         "summary": "Get event",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "events.id.get"
       },
       "patch": {
         "description": "Update event. Wrap event parameters in [event].",
@@ -423,7 +436,8 @@
         "summary": "Update event",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "events.id.patch"
       }
     },
     "/maps": {
@@ -443,7 +457,8 @@
         "summary": "List your own maps",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "maps.get"
       },
       "post": {
         "description": "Create map. Wrap map parameters in [map]. To add a map header picture pass a base64 encoded string to [map][picture].",
@@ -469,7 +484,8 @@
         "summary": "Create map",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "maps.post"
       }
     },
     "/maps/search": {
@@ -512,7 +528,8 @@
         "summary": "Search maps",
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "maps.search.get"
       }
     },
     "/maps/{id}": {
@@ -538,7 +555,8 @@
         "summary": "Delete map",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "maps.id.delete"
       },
       "get": {
         "description": "Get basic information about a map",
@@ -562,7 +580,8 @@
         "summary": "Get map",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "maps.id.get"
       },
       "patch": {
         "description": "Update map. Wrap map parameters in [map]. To update the map header picture pass a base64 encoded string to [map][picture].",
@@ -595,7 +614,8 @@
         "summary": "Update map",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "maps.id.patch"
       }
     },
     "/maps/{id}/attachments": {
@@ -624,7 +644,8 @@
         "summary": "List attachments for a given map",
         "tags": [
           "Attachments"
-        ]
+        ],
+        "operationId": "maps.id.attachments.get"
       },
       "post": {
         "description": "Upload map attachment. Wrap attachment parameters in [attachment]",
@@ -657,7 +678,8 @@
         "summary": "Upload map attachment",
         "tags": [
           "Attachments"
-        ]
+        ],
+        "operationId": "maps.id.attachments.post"
       }
     },
     "/maps/{id}/collaborators/": {
@@ -686,7 +708,8 @@
         "summary": "List collaborators of a map",
         "tags": [
           "Collaborators"
-        ]
+        ],
+        "operationId": "maps.id.collaborators.get"
       }
     },
     "/maps/{id}/collaborators/{user_id}": {
@@ -719,7 +742,8 @@
         "summary": "Delete collaboration",
         "tags": [
           "Collaborators"
-        ]
+        ],
+        "operationId": "maps.id.collaborators.user_id.delete"
       },
       "patch": {
         "description": "Update collaborator. Wrap collaborator parameters in [collaborator]",
@@ -759,7 +783,8 @@
         "summary": "Update collaborator",
         "tags": [
           "Collaborators"
-        ]
+        ],
+        "operationId": "maps.id.collaborators.user_id.patch"
       }
     },
     "/maps/{id}/comments": {
@@ -788,7 +813,8 @@
         "summary": "List comments for a given map",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "maps.id.comments.get"
       },
       "post": {
         "description": "Create map comment. Wrap comment parameters in [comment].",
@@ -821,7 +847,8 @@
         "summary": "Create map comment",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "maps.id.comments.post"
       }
     },
     "/maps/{id}/respots": {
@@ -850,7 +877,8 @@
         "summary": "List respots of a map",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "maps.id.respots.get"
       }
     },
     "/maps/{id}/spots": {
@@ -893,7 +921,8 @@
         "summary": "List spots for a given map",
         "tags": [
           "Spots"
-        ]
+        ],
+        "operationId": "maps.id.spots.get"
       },
       "post": {
         "description": "Create spot. Wrap parameters in [spot]. To add a spot picture pass a base64 encoded string to [spot][picture].",
@@ -926,7 +955,8 @@
         "summary": "Create spot",
         "tags": [
           "Spots"
-        ]
+        ],
+        "operationId": "maps.id.spots.post"
       }
     },
     "/maps/{id}/subscriptions": {
@@ -952,7 +982,8 @@
         "summary": "Unsubscribe from map",
         "tags": [
           "Subscriptions"
-        ]
+        ],
+        "operationId": "maps.id.subscriptions.delete"
       },
       "get": {
         "description": "List subscriptions for a given map.",
@@ -979,7 +1010,8 @@
         "summary": "List subscriptions for a given map",
         "tags": [
           "Subscriptions"
-        ]
+        ],
+        "operationId": "maps.id.subscriptions.get"
       }
     },
     "/maps/{map_id}/spots/{id}": {
@@ -1012,7 +1044,8 @@
         "summary": "Get spot",
         "tags": [
           "Spots"
-        ]
+        ],
+        "operationId": "maps.map_id.spots.id.get"
       }
     },
     "/maps/{map_id}/spots/{spot_id}/respot": {
@@ -1045,7 +1078,8 @@
         "summary": "Delete respot from map by spot id",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "maps.map_id.spots.spot_id.respot.delete"
       }
     },
     "/respot_maps": {
@@ -1065,7 +1099,8 @@
         "summary": "List maps that user can respot to",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "respot_maps.get"
       }
     },
     "/respots/{id}": {
@@ -1091,7 +1126,8 @@
         "summary": "Delete respot",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "respots.id.delete"
       },
       "get": {
         "description": "Get basic information about a respot",
@@ -1115,7 +1151,8 @@
         "summary": "Get respot",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "respots.id.get"
       }
     },
     "/spots/search": {
@@ -1158,7 +1195,8 @@
         "summary": "Search spots",
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "spots.search.get"
       }
     },
     "/spots/{id}": {
@@ -1184,7 +1222,8 @@
         "summary": "Delete spot",
         "tags": [
           "Spots"
-        ]
+        ],
+        "operationId": "spots.id.delete"
       },
       "patch": {
         "description": "Update spot. Wrap parameters in [spot]. To update the spot picture pass a base64 encoded string to [spot][picture].",
@@ -1217,7 +1256,8 @@
         "summary": "Update spot",
         "tags": [
           "Spots"
-        ]
+        ],
+        "operationId": "spots.id.patch"
       }
     },
     "/spots/{id}/attachments": {
@@ -1246,7 +1286,8 @@
         "summary": "List attachments for a given spot",
         "tags": [
           "Attachments"
-        ]
+        ],
+        "operationId": "spots.id.attachments.get"
       },
       "post": {
         "description": "Upload spot attachment. Wrap attachment parameters in [attachment]",
@@ -1279,7 +1320,8 @@
         "summary": "Upload spot attachment",
         "tags": [
           "Attachments"
-        ]
+        ],
+        "operationId": "spots.id.attachments.post"
       }
     },
     "/spots/{id}/comments": {
@@ -1308,7 +1350,8 @@
         "summary": "List comments for a given spot",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "spots.id.comments.get"
       },
       "post": {
         "description": "Create spot comment. Wrap comment parameters in [comment].",
@@ -1341,7 +1384,8 @@
         "summary": "Create spot comment",
         "tags": [
           "Comments"
-        ]
+        ],
+        "operationId": "spots.id.comments.post"
       }
     },
     "/spots/{id}/events": {
@@ -1391,7 +1435,8 @@
         "summary": "List events for a given spot",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "spots.id.events.get"
       },
       "post": {
         "description": "Create event. Wrap map parameters in [event].",
@@ -1424,7 +1469,8 @@
         "summary": "Create event",
         "tags": [
           "Events"
-        ]
+        ],
+        "operationId": "spots.id.events.post"
       }
     },
     "/spots/{id}/respots": {
@@ -1460,7 +1506,8 @@
         "summary": "Respot a spot onto a map",
         "tags": [
           "Respots"
-        ]
+        ],
+        "operationId": "spots.id.respots.post"
       }
     },
     "/subscriptions": {
@@ -1494,7 +1541,8 @@
         "summary": "List subscriptions. Pass no parameters to get own subscriptions",
         "tags": [
           "Subscriptions"
-        ]
+        ],
+        "operationId": "subscriptions.get"
       },
       "post": {
         "description": "Create map subscription.",
@@ -1521,7 +1569,8 @@
         "summary": "Create map subscription",
         "tags": [
           "Subscriptions"
-        ]
+        ],
+        "operationId": "subscriptions.post"
       }
     },
     "/trends/latest": {
@@ -1541,7 +1590,8 @@
         "summary": "List latest maps",
         "tags": [
           "Trends"
-        ]
+        ],
+        "operationId": "trends.latest.get"
       }
     },
     "/trends/recommended": {
@@ -1561,7 +1611,8 @@
         "summary": "List recommended maps",
         "tags": [
           "Trends"
-        ]
+        ],
+        "operationId": "trends.recommended.get"
       }
     },
     "/users/search": {
@@ -1586,7 +1637,8 @@
         "summary": "Search users",
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "users.search.get"
       }
     },
     "/users/{id}": {
@@ -1612,7 +1664,8 @@
         "summary": "Get user profile",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.id.get"
       }
     },
     "/users/{user_id}/maps": {
@@ -1641,7 +1694,8 @@
         "summary": "List maps for a given user",
         "tags": [
           "Maps"
-        ]
+        ],
+        "operationId": "users.user_id.maps.get"
       }
     }
   },

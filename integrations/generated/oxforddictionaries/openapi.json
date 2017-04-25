@@ -320,7 +320,8 @@
         "summary": "Lists available domains in a given monolingual language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "domains.source_language.get"
       }
     },
     "/domains/{source_language}/{target_language}": {
@@ -358,7 +359,8 @@
         "summary": "Lists available domains in a given bilingual language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "domains.source_language.target_language.get"
       }
     },
     "/entries/{source_language}/{word_id}/sentences": {
@@ -400,7 +402,8 @@
         "summary": "Retrieve corpus sentences for a given word.",
         "tags": [
           "The Sentence Dictionary"
-        ]
+        ],
+        "operationId": "entries.source_language.word_id.sentences.get"
       }
     },
     "/entries/{source_lang}/{word_id}": {
@@ -442,7 +445,8 @@
         "summary": "Retrieve dictionary entries for a given word.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.get"
       }
     },
     "/entries/{source_lang}/{word_id}/antonyms": {
@@ -484,7 +488,8 @@
         "summary": "Retrieve antonyms for a given word.",
         "tags": [
           "Thesaurus"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.antonyms.get"
       }
     },
     "/entries/{source_lang}/{word_id}/definitions": {
@@ -522,7 +527,8 @@
         "summary": "Retrieve only definitions in entry search.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.definitions.get"
       }
     },
     "/entries/{source_lang}/{word_id}/examples": {
@@ -560,7 +566,8 @@
         "summary": "Retrieve only example sentences in entry search.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.examples.get"
       }
     },
     "/entries/{source_lang}/{word_id}/pronunciations": {
@@ -598,7 +605,8 @@
         "summary": "Retrieve only pronunciations in entry search.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.pronunciations.get"
       }
     },
     "/entries/{source_lang}/{word_id}/regions={region}": {
@@ -658,7 +666,8 @@
         "summary": "Specify GB or US dictionary for English entry search.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.regions_region.get"
       }
     },
     "/entries/{source_lang}/{word_id}/synonyms": {
@@ -700,7 +709,8 @@
         "summary": "Retrieve synonyms for a given word.",
         "tags": [
           "Thesaurus"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.synonyms.get"
       }
     },
     "/entries/{source_lang}/{word_id}/synonyms;antonyms": {
@@ -742,7 +752,8 @@
         "summary": "Retrieve synonyms and antonyms for a given word.",
         "tags": [
           "Thesaurus"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.synonyms_antonyms.get"
       }
     },
     "/entries/{source_lang}/{word_id}/translations={target_lang}": {
@@ -791,7 +802,8 @@
         "summary": "Find translation for a given word.",
         "tags": [
           "Translation"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.translations_target_lang.get"
       }
     },
     "/entries/{source_lang}/{word_id}/{filters}": {
@@ -832,7 +844,8 @@
         "summary": "Apply filters to entry search.",
         "tags": [
           "Dictionary entries"
-        ]
+        ],
+        "operationId": "entries.source_lang.word_id.filters.get"
       }
     },
     "/filters": {
@@ -861,7 +874,8 @@
         "summary": "Lists available filters.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "filters.get"
       }
     },
     "/filters/{endpoint}": {
@@ -905,7 +919,8 @@
         "summary": "Lists available filters for specific endpoint.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "filters.endpoint.get"
       }
     },
     "/grammaticalFeatures/{source_language}": {
@@ -937,7 +952,8 @@
         "summary": "Lists available grammatical features in a given language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "grammaticalFeatures.source_language.get"
       }
     },
     "/inflections/{source_lang}/{word_id}": {
@@ -977,7 +993,8 @@
         "summary": "Retrieve lemmas for a given inflected wordform.",
         "tags": [
           "Lemmatron"
-        ]
+        ],
+        "operationId": "inflections.source_lang.word_id.get"
       }
     },
     "/inflections/{source_lang}/{word_id}/{filters}": {
@@ -1020,7 +1037,8 @@
         "summary": "Apply filters to Lemmatron response",
         "tags": [
           "Lemmatron"
-        ]
+        ],
+        "operationId": "inflections.source_lang.word_id.filters.get"
       }
     },
     "/languages": {
@@ -1058,7 +1076,8 @@
         "summary": "Lists available monolingual and bilingual language datasets in the API.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "languages.get"
       }
     },
     "/lexicalcategories/{language}": {
@@ -1093,7 +1112,8 @@
         "summary": "Lists available lexical categories in a given language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "lexicalcategories.language.get"
       }
     },
     "/regions/{source_language}": {
@@ -1125,7 +1145,8 @@
         "summary": "Lists available regions in a given monolingual language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "regions.source_language.get"
       }
     },
     "/registers/{source_language}": {
@@ -1160,7 +1181,8 @@
         "summary": "Lists available registers in a given monolingual language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "registers.source_language.get"
       }
     },
     "/registers/{source_language}/{target_language}": {
@@ -1201,7 +1223,8 @@
         "summary": "Lists available registers in a given bilingual language dataset.",
         "tags": [
           "Utility"
-        ]
+        ],
+        "operationId": "registers.source_language.target_language.get"
       }
     },
     "/search/{source_lang}": {
@@ -1280,7 +1303,8 @@
         "summary": "Find results for search query.",
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "search.source_lang.get"
       }
     },
     "/search/{source_lang}/translations={target_lang}": {
@@ -1362,7 +1386,8 @@
         "summary": "Find translation results for search query.",
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "search.source_lang.translations_target_lang.get"
       }
     },
     "/wordlist/{source_lang}/{filters_advanced}": {
@@ -1470,7 +1495,8 @@
         "summary": "Retrieve list of words for category with advanced options.",
         "tags": [
           "Wordlist"
-        ]
+        ],
+        "operationId": "wordlist.source_lang.filters_advanced.get"
       }
     },
     "/wordlist/{source_lang}/{filters_basic}": {
@@ -1530,7 +1556,8 @@
         "summary": "Retrieve list of words for category.",
         "tags": [
           "Wordlist"
-        ]
+        ],
+        "operationId": "wordlist.source_lang.filters_basic.get"
       }
     }
   },

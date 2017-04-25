@@ -59,7 +59,7 @@
     "/": {
       "get": {
         "description": "Find a movie, series or episode from the OMDb by title, IMDb-id or by free-text search",
-        "operationId": "Get_OMDb Search",
+        "operationId": ".get",
         "parameters": [
           {
             "description": "Movie title to search for. One of t, i or s is required.",

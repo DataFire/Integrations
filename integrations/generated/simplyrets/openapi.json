@@ -204,7 +204,8 @@
             "basicAuth": []
           }
         ],
-        "summary": "The SimplyRETS OpenHouses API"
+        "summary": "The SimplyRETS OpenHouses API",
+        "operationId": "openhouses.get"
       }
     },
     "/openhouses/{openHouseKey}": {
@@ -275,7 +276,8 @@
             "basicAuth": []
           }
         ],
-        "summary": "Single OpenHouse Endpoint"
+        "summary": "Single OpenHouse Endpoint",
+        "operationId": "openhouses.openHouseKey.get"
       }
     },
     "/properties": {
@@ -614,7 +616,8 @@
             "basicAuth": []
           }
         ],
-        "summary": "The SimplyRETS Listings API"
+        "summary": "The SimplyRETS Listings API",
+        "operationId": "properties.get"
       }
     },
     "/properties/{mlsId}": {
@@ -694,7 +697,8 @@
             "basicAuth": []
           }
         ],
-        "summary": "Single Listing Endpoint"
+        "summary": "Single Listing Endpoint",
+        "operationId": "properties.mlsId.get"
       }
     }
   },

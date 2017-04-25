@@ -50,7 +50,7 @@
   "paths": {
     "/api/v1/domains.json": {
       "get": {
-        "operationId": "GET-api--version-domains---format-",
+        "operationId": "api.v1.domains.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -62,7 +62,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-api--version-domains---format-",
+        "operationId": "api.v1.domains.json.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -76,7 +76,7 @@
     },
     "/api/v1/domains/{domain_name}.json": {
       "delete": {
-        "operationId": "DELETE-api--version-domains--domain_name---format-",
+        "operationId": "api.v1.domains.domain_name.json.delete",
         "parameters": [
           {
             "in": "path",
@@ -96,7 +96,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-api--version-domains--domain_name---format-",
+        "operationId": "api.v1.domains.domain_name.json.get",
         "parameters": [
           {
             "in": "path",
@@ -116,7 +116,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-api--version-domains--domain_name---format-",
+        "operationId": "api.v1.domains.domain_name.json.put",
         "parameters": [
           {
             "in": "path",
@@ -138,7 +138,7 @@
     },
     "/api/v1/domains/{domain_name}/aliases.json": {
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-aliases---format-",
+        "operationId": "api.v1.domains.domain_name.aliases.json.get",
         "parameters": [
           {
             "in": "path",
@@ -158,7 +158,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-api--version-domains--domain_name-aliases---format-",
+        "operationId": "api.v1.domains.domain_name.aliases.json.post",
         "parameters": [
           {
             "in": "path",
@@ -180,7 +180,7 @@
     },
     "/api/v1/domains/{domain_name}/aliases/{alias_name}.json": {
       "delete": {
-        "operationId": "DELETE-api--version-domains--domain_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.aliases.alias_name.json.delete",
         "parameters": [
           {
             "in": "path",
@@ -206,7 +206,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.aliases.alias_name.json.get",
         "parameters": [
           {
             "in": "path",
@@ -232,7 +232,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-api--version-domains--domain_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.aliases.alias_name.json.put",
         "parameters": [
           {
             "in": "path",
@@ -260,7 +260,7 @@
     },
     "/api/v1/domains/{domain_name}/users.json": {
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-users---format-",
+        "operationId": "api.v1.domains.domain_name.users.json.get",
         "parameters": [
           {
             "in": "path",
@@ -280,7 +280,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-api--version-domains--domain_name-users---format-",
+        "operationId": "api.v1.domains.domain_name.users.json.post",
         "parameters": [
           {
             "in": "path",
@@ -302,7 +302,7 @@
     },
     "/api/v1/domains/{domain_name}/users/{user_name}.json": {
       "delete": {
-        "operationId": "DELETE-api--version-domains--domain_name-users--user_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.json.delete",
         "parameters": [
           {
             "in": "path",
@@ -328,7 +328,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-users--user_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.json.get",
         "parameters": [
           {
             "in": "path",
@@ -354,7 +354,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-api--version-domains--domain_name-users--user_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.json.put",
         "parameters": [
           {
             "in": "path",
@@ -382,7 +382,7 @@
     },
     "/api/v1/domains/{domain_name}/users/{user_name}/aliases.json": {
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-users--user_name-aliases---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.aliases.json.get",
         "parameters": [
           {
             "in": "path",
@@ -408,7 +408,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-api--version-domains--domain_name-users--user_name-aliases---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.aliases.json.post",
         "parameters": [
           {
             "in": "path",
@@ -436,7 +436,7 @@
     },
     "/api/v1/domains/{domain_name}/users/{user_name}/aliases/{alias_name}.json": {
       "delete": {
-        "operationId": "DELETE-api--version-domains--domain_name-users--user_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete",
         "parameters": [
           {
             "in": "path",
@@ -468,7 +468,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-api--version-domains--domain_name-users--user_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get",
         "parameters": [
           {
             "in": "path",
@@ -500,7 +500,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-api--version-domains--domain_name-users--user_name-aliases--alias_name---format-",
+        "operationId": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put",
         "parameters": [
           {
             "in": "path",
@@ -534,7 +534,7 @@
     },
     "/api/v1/summary.json": {
       "get": {
-        "operationId": "GET-api--version-summary---format-",
+        "operationId": "api.v1.summary.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -548,7 +548,7 @@
     },
     "/api/v1/swagger_doc.json": {
       "get": {
-        "operationId": "GET-api-v1-swagger_doc---format-",
+        "operationId": "api.v1.swagger_doc.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -562,7 +562,7 @@
     },
     "/api/v1/swagger_doc/{name}.json": {
       "get": {
-        "operationId": "GET-api-v1-swagger_doc--name---format-",
+        "operationId": "api.v1.swagger_doc.name.json.get",
         "parameters": [
           {
             "description": "Resource name of mounted API",
@@ -585,7 +585,7 @@
     },
     "/api/v1/transports.json": {
       "get": {
-        "operationId": "GET-api--version-transports---format-",
+        "operationId": "api.v1.transports.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -597,7 +597,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-api--version-transports---format-",
+        "operationId": "api.v1.transports.json.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -611,7 +611,7 @@
     },
     "/api/v1/transports/{transport_name}.json": {
       "delete": {
-        "operationId": "DELETE-api--version-transports--transport_name---format-",
+        "operationId": "api.v1.transports.transport_name.json.delete",
         "parameters": [
           {
             "in": "path",
@@ -631,7 +631,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-api--version-transports--transport_name---format-",
+        "operationId": "api.v1.transports.transport_name.json.get",
         "parameters": [
           {
             "in": "path",
@@ -651,7 +651,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-api--version-transports--transport_name---format-",
+        "operationId": "api.v1.transports.transport_name.json.put",
         "parameters": [
           {
             "in": "path",

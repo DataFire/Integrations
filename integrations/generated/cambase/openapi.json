@@ -47,7 +47,7 @@
   "paths": {
     "/api/v1/models.json": {
       "get": {
-        "operationId": "Api::V1::Models#index",
+        "operationId": "api.v1.models.json.get",
         "parameters": [
           {
             "description": "Page number",
@@ -84,7 +84,7 @@
         ]
       },
       "post": {
-        "operationId": "Api::V1::Models#create",
+        "operationId": "api.v1.models.json.post",
         "parameters": [
           {
             "description": "Vendor ID",
@@ -232,7 +232,7 @@
     },
     "/api/v1/models/search.json": {
       "get": {
-        "operationId": "Api::V1::Models#search",
+        "operationId": "api.v1.models.search.json.get",
         "parameters": [
           {
             "description": "Page number",
@@ -355,7 +355,7 @@
     },
     "/api/v1/models/{id}.json": {
       "get": {
-        "operationId": "Api::V1::Models#show",
+        "operationId": "api.v1.models.id.json.get",
         "parameters": [
           {
             "description": "Model ID",
@@ -537,7 +537,8 @@
         "summary": "Updates an existing Model",
         "tags": [
           "models"
-        ]
+        ],
+        "operationId": "api.v1.models.id.json.patch"
       },
       "put": {
         "parameters": [
@@ -692,12 +693,13 @@
         "summary": "Updates an existing Model",
         "tags": [
           "models"
-        ]
+        ],
+        "operationId": "api.v1.models.id.json.put"
       }
     },
     "/api/v1/recorders.json": {
       "get": {
-        "operationId": "Api::V1::Recorders#index",
+        "operationId": "api.v1.recorders.json.get",
         "parameters": [
           {
             "description": "Page number",
@@ -734,7 +736,7 @@
         ]
       },
       "post": {
-        "operationId": "Api::V1::Recorders#create",
+        "operationId": "api.v1.recorders.json.post",
         "parameters": [
           {
             "description": "Vendor ID",
@@ -980,7 +982,7 @@
     },
     "/api/v1/recorders/search.json": {
       "get": {
-        "operationId": "Api::V1::Recorders#search",
+        "operationId": "api.v1.recorders.search.json.get",
         "parameters": [
           {
             "description": "Page number",
@@ -1138,7 +1140,7 @@
     },
     "/api/v1/recorders/{id}.json": {
       "get": {
-        "operationId": "Api::V1::Recorders#show",
+        "operationId": "api.v1.recorders.id.json.get",
         "parameters": [
           {
             "description": "Recorder ID",
@@ -1418,7 +1420,8 @@
         "summary": "Updates an existing Recorder",
         "tags": [
           "recorders"
-        ]
+        ],
+        "operationId": "api.v1.recorders.id.json.patch"
       },
       "put": {
         "parameters": [
@@ -1671,12 +1674,13 @@
         "summary": "Updates an existing Recorder",
         "tags": [
           "recorders"
-        ]
+        ],
+        "operationId": "api.v1.recorders.id.json.put"
       }
     },
     "/api/v1/vendors.json": {
       "get": {
-        "operationId": "Api::V1::Vendors#index",
+        "operationId": "api.v1.vendors.json.get",
         "parameters": [
           {
             "description": "Page number",
@@ -1713,7 +1717,7 @@
         ]
       },
       "post": {
-        "operationId": "Api::V1::Vendors#create",
+        "operationId": "api.v1.vendors.json.post",
         "parameters": [
           {
             "description": "Name",
@@ -1763,7 +1767,7 @@
     },
     "/api/v1/vendors/{id}.json": {
       "get": {
-        "operationId": "Api::V1::Vendors#show",
+        "operationId": "api.v1.vendors.id.json.get",
         "parameters": [
           {
             "description": "Vendor ID",
@@ -1854,7 +1858,8 @@
         "summary": "Updates an existing Vendor",
         "tags": [
           "vendors"
-        ]
+        ],
+        "operationId": "api.v1.vendors.id.json.patch"
       },
       "put": {
         "parameters": [
@@ -1911,7 +1916,8 @@
         "summary": "Updates an existing Vendor",
         "tags": [
           "vendors"
-        ]
+        ],
+        "operationId": "api.v1.vendors.id.json.put"
       }
     }
   }

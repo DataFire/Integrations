@@ -96,7 +96,7 @@
   "paths": {
     "/v2/addresses/{address}.json": {
       "get": {
-        "operationId": "GET--version-addresses--address---format-",
+        "operationId": "v2.addresses.address.json.get",
         "parameters": [
           {
             "in": "path",
@@ -118,7 +118,7 @@
     },
     "/v2/crowdsales/{key}.json": {
       "get": {
-        "operationId": "GET--version-crowdsales--key---format-",
+        "operationId": "v2.crowdsales.key.json.get",
         "parameters": [
           {
             "description": "Crowdsale plan key",
@@ -141,7 +141,7 @@
     },
     "/v2/deposit.json": {
       "get": {
-        "operationId": "GET--version-deposit---format-",
+        "operationId": "v2.deposit.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -184,7 +184,7 @@
     },
     "/v2/deposit_address.json": {
       "get": {
-        "operationId": "GET--version-deposit_address---format-",
+        "operationId": "v2.deposit_address.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -228,7 +228,7 @@
     },
     "/v2/deposits.json": {
       "get": {
-        "operationId": "GET--version-deposits---format-",
+        "operationId": "v2.deposits.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -285,7 +285,7 @@
     },
     "/v2/depth.json": {
       "get": {
-        "operationId": "GET--version-depth---format-",
+        "operationId": "v2.depth.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -315,7 +315,7 @@
     },
     "/v2/k.json": {
       "get": {
-        "operationId": "GET--version-k---format-",
+        "operationId": "v2.k.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -359,7 +359,7 @@
     },
     "/v2/k_with_pending_trades.json": {
       "get": {
-        "operationId": "GET--version-k_with_pending_trades---format-",
+        "operationId": "v2.k_with_pending_trades.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -410,7 +410,7 @@
     },
     "/v2/markets.json": {
       "get": {
-        "operationId": "GET--version-markets---format-",
+        "operationId": "v2.markets.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -424,7 +424,7 @@
     },
     "/v2/members/me.json": {
       "get": {
-        "operationId": "GET--version-members-me---format-",
+        "operationId": "v2.members.me.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -461,7 +461,7 @@
     },
     "/v2/order.json": {
       "get": {
-        "operationId": "GET--version-order---format-",
+        "operationId": "v2.order.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -505,7 +505,7 @@
     },
     "/v2/order/delete.json": {
       "post": {
-        "operationId": "POST--version-order-delete---format-",
+        "operationId": "v2.order.delete.json.post",
         "parameters": [
           {
             "description": "Access key.",
@@ -549,7 +549,7 @@
     },
     "/v2/order_book.json": {
       "get": {
-        "operationId": "GET--version-order_book---format-",
+        "operationId": "v2.order_book.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -586,7 +586,7 @@
     },
     "/v2/orders.json": {
       "get": {
-        "operationId": "GET--version-orders---format-",
+        "operationId": "v2.orders.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -656,7 +656,7 @@
         ]
       },
       "post": {
-        "operationId": "POST--version-orders---format-",
+        "operationId": "v2.orders.json.post",
         "parameters": [
           {
             "description": "Access key.",
@@ -727,7 +727,7 @@
     },
     "/v2/orders/clear.json": {
       "post": {
-        "operationId": "POST--version-orders-clear---format-",
+        "operationId": "v2.orders.clear.json.post",
         "parameters": [
           {
             "description": "Access key.",
@@ -771,7 +771,7 @@
     },
     "/v2/orders/multi.json": {
       "post": {
-        "operationId": "POST--version-orders-multi---format-",
+        "operationId": "v2.orders.multi.json.post",
         "parameters": [
           {
             "description": "Access key.",
@@ -851,7 +851,7 @@
     },
     "/v2/tickers.json": {
       "get": {
-        "operationId": "GET--version-tickers---format-",
+        "operationId": "v2.tickers.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -865,7 +865,7 @@
     },
     "/v2/tickers/{market}.json": {
       "get": {
-        "operationId": "GET--version-tickers--market---format-",
+        "operationId": "v2.tickers.market.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -888,7 +888,7 @@
     },
     "/v2/timestamp.json": {
       "get": {
-        "operationId": "GET--version-timestamp---format-",
+        "operationId": "v2.timestamp.json.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -902,7 +902,7 @@
     },
     "/v2/trades.json": {
       "get": {
-        "operationId": "GET--version-trades---format-",
+        "operationId": "v2.trades.json.get",
         "parameters": [
           {
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.",
@@ -960,7 +960,7 @@
     },
     "/v2/trades/my.json": {
       "get": {
-        "operationId": "GET--version-trades-my---format-",
+        "operationId": "v2.trades.my.json.get",
         "parameters": [
           {
             "description": "Access key.",
@@ -1039,7 +1039,7 @@
     },
     "/v2/withdraw.json": {
       "post": {
-        "operationId": "POST--version-withdraw---format-",
+        "operationId": "v2.withdraw.json.post",
         "parameters": [
           {
             "description": "Access key.",

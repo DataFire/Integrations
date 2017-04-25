@@ -130,7 +130,8 @@
         "summary": "Get the latest crawl run results as a csv",
         "tags": [
           "data.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.csv.latest.get"
       }
     },
     "/extractor/{extractorId}/json/latest": {
@@ -178,7 +179,8 @@
         "summary": "Get the latest crawl run results as json",
         "tags": [
           "data.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.json.latest.get"
       }
     }
   },

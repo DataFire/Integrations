@@ -56,7 +56,8 @@
               "$ref": "#/definitions/exports_satus"
             }
           }
-        }
+        },
+        "operationId": "exports.activity.json.post"
       }
     },
     "/exports/info.json": {
@@ -79,7 +80,8 @@
               "$ref": "#/definitions/exports_info-response"
             }
           }
-        }
+        },
+        "operationId": "exports.info.json.post"
       }
     },
     "/exports/list.json": {
@@ -102,7 +104,8 @@
               "$ref": "#/definitions/exports_list-response"
             }
           }
-        }
+        },
+        "operationId": "exports.list.json.post"
       }
     },
     "/exports/rejects.json": {
@@ -125,7 +128,8 @@
               "$ref": "#/definitions/exports_satus"
             }
           }
-        }
+        },
+        "operationId": "exports.rejects.json.post"
       }
     },
     "/exports/whitelist.json": {
@@ -148,7 +152,8 @@
               "$ref": "#/definitions/exports_satus"
             }
           }
-        }
+        },
+        "operationId": "exports.whitelist.json.post"
       }
     },
     "/inbound/add-domain.json": {
@@ -171,7 +176,8 @@
               "$ref": "#/definitions/inbound_info"
             }
           }
-        }
+        },
+        "operationId": "inbound.add_domain.json.post"
       }
     },
     "/inbound/add-route.json": {
@@ -194,7 +200,8 @@
               "$ref": "#/definitions/route"
             }
           }
-        }
+        },
+        "operationId": "inbound.add_route.json.post"
       }
     },
     "/inbound/check-domain.json": {
@@ -217,7 +224,8 @@
               "$ref": "#/definitions/inbound_info"
             }
           }
-        }
+        },
+        "operationId": "inbound.check_domain.json.post"
       }
     },
     "/inbound/delete-domain.json": {
@@ -240,7 +248,8 @@
               "$ref": "#/definitions/inbound_info"
             }
           }
-        }
+        },
+        "operationId": "inbound.delete_domain.json.post"
       }
     },
     "/inbound/delete-route.json": {
@@ -263,7 +272,8 @@
               "$ref": "#/definitions/route"
             }
           }
-        }
+        },
+        "operationId": "inbound.delete_route.json.post"
       }
     },
     "/inbound/domains.json": {
@@ -286,7 +296,8 @@
               "$ref": "#/definitions/inbound_domains-response"
             }
           }
-        }
+        },
+        "operationId": "inbound.domains.json.post"
       }
     },
     "/inbound/routes.json": {
@@ -309,7 +320,8 @@
               "$ref": "#/definitions/inbound_routes-response"
             }
           }
-        }
+        },
+        "operationId": "inbound.routes.json.post"
       }
     },
     "/inbound/send-raw.json": {
@@ -332,7 +344,8 @@
               "$ref": "#/definitions/inbound_send-raw-response"
             }
           }
-        }
+        },
+        "operationId": "inbound.send_raw.json.post"
       }
     },
     "/inbound/update-route.json": {
@@ -355,7 +368,8 @@
               "$ref": "#/definitions/route"
             }
           }
-        }
+        },
+        "operationId": "inbound.update_route.json.post"
       }
     },
     "/ips/cancel-warmup.json": {
@@ -378,7 +392,8 @@
               "$ref": "#/definitions/ip_info"
             }
           }
-        }
+        },
+        "operationId": "ips.cancel_warmup.json.post"
       }
     },
     "/ips/check-custom-dns.json": {
@@ -401,7 +416,8 @@
               "$ref": "#/definitions/ips_check-custom-dns-response"
             }
           }
-        }
+        },
+        "operationId": "ips.check_custom_dns.json.post"
       }
     },
     "/ips/create-pool.json": {
@@ -424,7 +440,8 @@
               "$ref": "#/definitions/ips_pool"
             }
           }
-        }
+        },
+        "operationId": "ips.create_pool.json.post"
       }
     },
     "/ips/delete-pool.json": {
@@ -447,7 +464,8 @@
               "$ref": "#/definitions/ips_delete-pool-response"
             }
           }
-        }
+        },
+        "operationId": "ips.delete_pool.json.post"
       }
     },
     "/ips/delete.json": {
@@ -470,7 +488,8 @@
               "$ref": "#/definitions/ips_delete-response"
             }
           }
-        }
+        },
+        "operationId": "ips.delete.json.post"
       }
     },
     "/ips/info.json": {
@@ -493,7 +512,8 @@
               "$ref": "#/definitions/ip_info"
             }
           }
-        }
+        },
+        "operationId": "ips.info.json.post"
       }
     },
     "/ips/list-pools.json": {
@@ -516,7 +536,8 @@
               "$ref": "#/definitions/ips_list-pools-response"
             }
           }
-        }
+        },
+        "operationId": "ips.list_pools.json.post"
       }
     },
     "/ips/list.json": {
@@ -539,7 +560,8 @@
               "$ref": "#/definitions/ips_list-response"
             }
           }
-        }
+        },
+        "operationId": "ips.list.json.post"
       }
     },
     "/ips/pool-info.json": {
@@ -562,7 +584,8 @@
               "$ref": "#/definitions/ips_pool"
             }
           }
-        }
+        },
+        "operationId": "ips.pool_info.json.post"
       }
     },
     "/ips/provision.json": {
@@ -585,7 +608,8 @@
               "$ref": "#/definitions/ips_provision-response"
             }
           }
-        }
+        },
+        "operationId": "ips.provision.json.post"
       }
     },
     "/ips/set-custom-dns.json": {
@@ -608,7 +632,8 @@
               "$ref": "#/definitions/ip_info"
             }
           }
-        }
+        },
+        "operationId": "ips.set_custom_dns.json.post"
       }
     },
     "/ips/set-pool.json": {
@@ -631,7 +656,8 @@
               "$ref": "#/definitions/ip_info"
             }
           }
-        }
+        },
+        "operationId": "ips.set_pool.json.post"
       }
     },
     "/ips/start-warmup.json": {
@@ -654,7 +680,8 @@
               "$ref": "#/definitions/ip_info"
             }
           }
-        }
+        },
+        "operationId": "ips.start_warmup.json.post"
       }
     },
     "/messages/cancel-scheduled.json": {
@@ -677,7 +704,8 @@
               "$ref": "#/definitions/schedulingchange_info"
             }
           }
-        }
+        },
+        "operationId": "messages.cancel_scheduled.json.post"
       }
     },
     "/messages/content.json": {
@@ -700,7 +728,8 @@
               "$ref": "#/definitions/messages_content-response"
             }
           }
-        }
+        },
+        "operationId": "messages.content.json.post"
       }
     },
     "/messages/info.json": {
@@ -723,7 +752,8 @@
               "$ref": "#/definitions/messages_info-response"
             }
           }
-        }
+        },
+        "operationId": "messages.info.json.post"
       }
     },
     "/messages/list-scheduled.json": {
@@ -746,7 +776,8 @@
               "$ref": "#/definitions/messages_list-scheduled-response"
             }
           }
-        }
+        },
+        "operationId": "messages.list_scheduled.json.post"
       }
     },
     "/messages/parse.json": {
@@ -769,7 +800,8 @@
               "$ref": "#/definitions/messages_parse-response"
             }
           }
-        }
+        },
+        "operationId": "messages.parse.json.post"
       }
     },
     "/messages/reschedule.json": {
@@ -792,7 +824,8 @@
               "$ref": "#/definitions/schedulingchange_info"
             }
           }
-        }
+        },
+        "operationId": "messages.reschedule.json.post"
       }
     },
     "/messages/search-time-series.json": {
@@ -815,7 +848,8 @@
               "$ref": "#/definitions/timeseries"
             }
           }
-        }
+        },
+        "operationId": "messages.search_time_series.json.post"
       }
     },
     "/messages/search.json": {
@@ -838,7 +872,8 @@
               "$ref": "#/definitions/messages_search-response"
             }
           }
-        }
+        },
+        "operationId": "messages.search.json.post"
       }
     },
     "/messages/send-raw.json": {
@@ -861,7 +896,8 @@
               "$ref": "#/definitions/message_send-status"
             }
           }
-        }
+        },
+        "operationId": "messages.send_raw.json.post"
       }
     },
     "/messages/send-template.json": {
@@ -884,7 +920,8 @@
               "$ref": "#/definitions/message_send-status"
             }
           }
-        }
+        },
+        "operationId": "messages.send_template.json.post"
       }
     },
     "/messages/send.json": {
@@ -907,7 +944,8 @@
               "$ref": "#/definitions/message_send-status"
             }
           }
-        }
+        },
+        "operationId": "messages.send.json.post"
       }
     },
     "/metadata/add.json": {
@@ -930,7 +968,8 @@
               "$ref": "#/definitions/metadata_info"
             }
           }
-        }
+        },
+        "operationId": "metadata.add.json.post"
       }
     },
     "/metadata/delete.json": {
@@ -953,7 +992,8 @@
               "$ref": "#/definitions/metadata_info"
             }
           }
-        }
+        },
+        "operationId": "metadata.delete.json.post"
       }
     },
     "/metadata/list.json": {
@@ -976,7 +1016,8 @@
               "$ref": "#/definitions/metadata_list-response"
             }
           }
-        }
+        },
+        "operationId": "metadata.list.json.post"
       }
     },
     "/metadata/update.json": {
@@ -999,7 +1040,8 @@
               "$ref": "#/definitions/metadata_info"
             }
           }
-        }
+        },
+        "operationId": "metadata.update.json.post"
       }
     },
     "/rejects/add.json": {
@@ -1022,7 +1064,8 @@
               "$ref": "#/definitions/rejects_add-response"
             }
           }
-        }
+        },
+        "operationId": "rejects.add.json.post"
       }
     },
     "/rejects/delete.json": {
@@ -1045,7 +1088,8 @@
               "$ref": "#/definitions/rejects_delete-response"
             }
           }
-        }
+        },
+        "operationId": "rejects.delete.json.post"
       }
     },
     "/rejects/list.json": {
@@ -1068,7 +1112,8 @@
               "$ref": "#/definitions/rejects_list-response"
             }
           }
-        }
+        },
+        "operationId": "rejects.list.json.post"
       }
     },
     "/senders/add-domain.json": {
@@ -1091,7 +1136,8 @@
               "$ref": "#/definitions/sender_domain_info"
             }
           }
-        }
+        },
+        "operationId": "senders.add_domain.json.post"
       }
     },
     "/senders/check-domain.json": {
@@ -1114,7 +1160,8 @@
               "$ref": "#/definitions/sender_domain_info"
             }
           }
-        }
+        },
+        "operationId": "senders.check_domain.json.post"
       }
     },
     "/senders/domains.json": {
@@ -1137,7 +1184,8 @@
               "$ref": "#/definitions/senders_domains-response"
             }
           }
-        }
+        },
+        "operationId": "senders.domains.json.post"
       }
     },
     "/senders/info.json": {
@@ -1160,7 +1208,8 @@
               "$ref": "#/definitions/senders_info-response"
             }
           }
-        }
+        },
+        "operationId": "senders.info.json.post"
       }
     },
     "/senders/list.json": {
@@ -1183,7 +1232,8 @@
               "$ref": "#/definitions/senders"
             }
           }
-        }
+        },
+        "operationId": "senders.list.json.post"
       }
     },
     "/senders/time-series.json": {
@@ -1206,7 +1256,8 @@
               "$ref": "#/definitions/time-series"
             }
           }
-        }
+        },
+        "operationId": "senders.time_series.json.post"
       }
     },
     "/senders/verify-domain.json": {
@@ -1229,7 +1280,8 @@
               "$ref": "#/definitions/senders_verify-domain-response"
             }
           }
-        }
+        },
+        "operationId": "senders.verify_domain.json.post"
       }
     },
     "/subaccounts/add.json": {
@@ -1252,7 +1304,8 @@
               "$ref": "#/definitions/subaccount_info2"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.add.json.post"
       }
     },
     "/subaccounts/delete.json": {
@@ -1275,7 +1328,8 @@
               "$ref": "#/definitions/subaccount_info2"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.delete.json.post"
       }
     },
     "/subaccounts/info.json": {
@@ -1298,7 +1352,8 @@
               "$ref": "#/definitions/subaccounts_info-response"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.info.json.post"
       }
     },
     "/subaccounts/list.json": {
@@ -1321,7 +1376,8 @@
               "$ref": "#/definitions/subaccounts_list-response"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.list.json.post"
       }
     },
     "/subaccounts/pause.json": {
@@ -1344,7 +1400,8 @@
               "$ref": "#/definitions/subaccount_info2"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.pause.json.post"
       }
     },
     "/subaccounts/resume.json": {
@@ -1367,7 +1424,8 @@
               "$ref": "#/definitions/subaccount_info2"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.resume.json.post"
       }
     },
     "/subaccounts/update.json": {
@@ -1390,7 +1448,8 @@
               "$ref": "#/definitions/subaccount_info2"
             }
           }
-        }
+        },
+        "operationId": "subaccounts.update.json.post"
       }
     },
     "/tags/all-time-series.json": {
@@ -1413,7 +1472,8 @@
               "$ref": "#/definitions/timeseries"
             }
           }
-        }
+        },
+        "operationId": "tags.all_time_series.json.post"
       }
     },
     "/tags/delete.json": {
@@ -1436,7 +1496,8 @@
               "$ref": "#/definitions/tags_delete-response"
             }
           }
-        }
+        },
+        "operationId": "tags.delete.json.post"
       }
     },
     "/tags/info.json": {
@@ -1459,7 +1520,8 @@
               "$ref": "#/definitions/tags_info-response"
             }
           }
-        }
+        },
+        "operationId": "tags.info.json.post"
       }
     },
     "/tags/list.json": {
@@ -1482,7 +1544,8 @@
               "$ref": "#/definitions/tags_list-response"
             }
           }
-        }
+        },
+        "operationId": "tags.list.json.post"
       }
     },
     "/tags/time-series.json": {
@@ -1505,7 +1568,8 @@
               "$ref": "#/definitions/timeseries"
             }
           }
-        }
+        },
+        "operationId": "tags.time_series.json.post"
       }
     },
     "/templates/add.json": {
@@ -1528,7 +1592,8 @@
               "$ref": "#/definitions/template_detailed"
             }
           }
-        }
+        },
+        "operationId": "templates.add.json.post"
       }
     },
     "/templates/delete.json": {
@@ -1551,7 +1616,8 @@
               "$ref": "#/definitions/template_detailed"
             }
           }
-        }
+        },
+        "operationId": "templates.delete.json.post"
       }
     },
     "/templates/info.json": {
@@ -1574,7 +1640,8 @@
               "$ref": "#/definitions/template_detailed"
             }
           }
-        }
+        },
+        "operationId": "templates.info.json.post"
       }
     },
     "/templates/list.json": {
@@ -1597,7 +1664,8 @@
               "$ref": "#/definitions/templates_list-response"
             }
           }
-        }
+        },
+        "operationId": "templates.list.json.post"
       }
     },
     "/templates/publish.json": {
@@ -1620,7 +1688,8 @@
               "$ref": "#/definitions/template_detailed"
             }
           }
-        }
+        },
+        "operationId": "templates.publish.json.post"
       }
     },
     "/templates/render.json": {
@@ -1643,7 +1712,8 @@
               "$ref": "#/definitions/templates_render-response"
             }
           }
-        }
+        },
+        "operationId": "templates.render.json.post"
       }
     },
     "/templates/time-series.json": {
@@ -1666,7 +1736,8 @@
               "$ref": "#/definitions/time-series"
             }
           }
-        }
+        },
+        "operationId": "templates.time_series.json.post"
       }
     },
     "/templates/update.json": {
@@ -1689,7 +1760,8 @@
               "$ref": "#/definitions/template_detailed"
             }
           }
-        }
+        },
+        "operationId": "templates.update.json.post"
       }
     },
     "/urls/add-tracking-domain.json": {
@@ -1712,7 +1784,8 @@
               "$ref": "#/definitions/tracking-domain-status"
             }
           }
-        }
+        },
+        "operationId": "urls.add_tracking_domain.json.post"
       }
     },
     "/urls/check-tracking-domain.json": {
@@ -1735,7 +1808,8 @@
               "$ref": "#/definitions/tracking-domain-status"
             }
           }
-        }
+        },
+        "operationId": "urls.check_tracking_domain.json.post"
       }
     },
     "/urls/list.json": {
@@ -1758,7 +1832,8 @@
               "$ref": "#/definitions/url_infos"
             }
           }
-        }
+        },
+        "operationId": "urls.list.json.post"
       }
     },
     "/urls/search.json": {
@@ -1781,7 +1856,8 @@
               "$ref": "#/definitions/url_infos"
             }
           }
-        }
+        },
+        "operationId": "urls.search.json.post"
       }
     },
     "/urls/time-series.json": {
@@ -1804,7 +1880,8 @@
               "$ref": "#/definitions/urls_time-series-response"
             }
           }
-        }
+        },
+        "operationId": "urls.time_series.json.post"
       }
     },
     "/urls/tracking-domains.json": {
@@ -1827,7 +1904,8 @@
               "$ref": "#/definitions/urls_tracking-domains-response"
             }
           }
-        }
+        },
+        "operationId": "urls.tracking_domains.json.post"
       }
     },
     "/users/info.json": {
@@ -1850,7 +1928,8 @@
               "$ref": "#/definitions/users_info-response"
             }
           }
-        }
+        },
+        "operationId": "users.info.json.post"
       }
     },
     "/users/ping.json": {
@@ -1870,7 +1949,8 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "users.ping.json.post"
       }
     },
     "/users/ping2.json": {
@@ -1893,7 +1973,8 @@
               "$ref": "#/definitions/users_ping2-response"
             }
           }
-        }
+        },
+        "operationId": "users.ping2.json.post"
       }
     },
     "/users/senders.json": {
@@ -1916,7 +1997,8 @@
               "$ref": "#/definitions/senders"
             }
           }
-        }
+        },
+        "operationId": "users.senders.json.post"
       }
     },
     "/webhooks/add.json": {
@@ -1939,7 +2021,8 @@
               "$ref": "#/definitions/webhook"
             }
           }
-        }
+        },
+        "operationId": "webhooks.add.json.post"
       }
     },
     "/webhooks/delete.json": {
@@ -1962,7 +2045,8 @@
               "$ref": "#/definitions/webhook"
             }
           }
-        }
+        },
+        "operationId": "webhooks.delete.json.post"
       }
     },
     "/webhooks/info.json": {
@@ -1985,7 +2069,8 @@
               "$ref": "#/definitions/webhook"
             }
           }
-        }
+        },
+        "operationId": "webhooks.info.json.post"
       }
     },
     "/webhooks/list.json": {
@@ -2008,7 +2093,8 @@
               "$ref": "#/definitions/webhooks_list-response"
             }
           }
-        }
+        },
+        "operationId": "webhooks.list.json.post"
       }
     },
     "/webhooks/update.json": {
@@ -2031,7 +2117,8 @@
               "$ref": "#/definitions/webhook"
             }
           }
-        }
+        },
+        "operationId": "webhooks.update.json.post"
       }
     },
     "/whitelists/add.json": {
@@ -2054,7 +2141,8 @@
               "$ref": "#/definitions/whitelists_add-response"
             }
           }
-        }
+        },
+        "operationId": "whitelists.add.json.post"
       }
     },
     "/whitelists/delete.json": {
@@ -2077,7 +2165,8 @@
               "$ref": "#/definitions/whitelists_delete-response"
             }
           }
-        }
+        },
+        "operationId": "whitelists.delete.json.post"
       }
     },
     "/whitelists/list.json": {
@@ -2100,7 +2189,8 @@
               "$ref": "#/definitions/whitelists_list-response"
             }
           }
-        }
+        },
+        "operationId": "whitelists.list.json.post"
       }
     }
   },

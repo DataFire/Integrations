@@ -40,25 +40,13 @@
     }
   },
   "paths": {
-    "/Accounts/{AccountSid}/Applications/{ApplicationSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Applications/{ApplicationSid}.json": {
       "delete": {
         "description": "Delete this application.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -88,7 +76,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Applications.ApplicationSid.json.delete"
       },
       "get": {
         "description": "Get application instance resource.",
@@ -96,18 +85,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -149,7 +126,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Applications.ApplicationSid.json.get"
       },
       "post": {
         "consumes": [
@@ -160,18 +138,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -213,10 +179,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Applications.ApplicationSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Applications{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Applications.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -226,18 +193,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -273,7 +228,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Applications.json.get"
       },
       "post": {
         "consumes": [
@@ -284,18 +240,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -331,28 +275,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Applications.json.post"
       }
     },
-    "/Accounts/{AccountSid}/AuthorizedConnectApps/{ConnectAppSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AuthorizedConnectApps/{ConnectAppSid}.json": {
       "get": {
         "description": "Get the properties of the authorized application.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -394,28 +327,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AuthorizedConnectApps.ConnectAppSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/AuthorizedConnectApps{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AuthorizedConnectApps.json": {
       "get": {
         "description": "Returns a list of Connect App resource representations, each representing a\nConnect App you've authorized to access your account. The list includes\npaging information.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -451,10 +373,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AuthorizedConnectApps.json.get"
       }
     },
-    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/Local{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/Local.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -473,18 +396,6 @@
             "maxLength": 2,
             "minLength": 2,
             "name": "IsoCountryCode",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -520,10 +431,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Local.json.get"
       }
     },
-    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/Mobile{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/Mobile.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -542,18 +454,6 @@
             "maxLength": 2,
             "minLength": 2,
             "name": "IsoCountryCode",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -589,10 +489,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.Mobile.json.get"
       }
     },
-    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/TollFree{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AvailablePhoneNumbers/{IsoCountryCode}/TollFree.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -611,18 +512,6 @@
             "maxLength": 2,
             "minLength": 2,
             "name": "IsoCountryCode",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -658,28 +547,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AvailablePhoneNumbers.IsoCountryCode.TollFree.json.get"
       }
     },
-    "/Accounts/{AccountSid}/AvailablePhoneNumbers{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/AvailablePhoneNumbers.json": {
       "get": {
         "description": "Returns a list of all AvailablePhoneNumber subresources for your account by ISO Country. For full information about our phone number support, see our Phone Number CSV (http://www.twilio.com/resources/rates/international-phone-number-rates.csv).",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -715,10 +593,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.AvailablePhoneNumbers.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Calls/{CallSid}/Notifications{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Calls/{CallSid}/Notifications.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -734,18 +613,6 @@
           {
             "in": "path",
             "name": "CallSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -781,10 +648,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.CallSid.Notifications.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Calls/{CallSid}/Recordings{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Calls/{CallSid}/Recordings.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -800,18 +668,6 @@
           {
             "in": "path",
             "name": "CallSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -847,28 +703,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.CallSid.Recordings.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Calls/{CallSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Calls/{CallSid}.json": {
       "get": {
         "description": "Returns the single Call resource identified by {CallSid}.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -910,7 +755,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.CallSid.json.get"
       },
       "post": {
         "consumes": [
@@ -921,18 +767,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -974,10 +808,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.CallSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Calls{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Calls.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -987,18 +822,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -1034,7 +857,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.json.get"
       },
       "post": {
         "consumes": [
@@ -1045,18 +869,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -1092,10 +904,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Calls.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json": {
       "delete": {
         "description": "Kick this participant from the conference.",
         "parameters": [
@@ -1108,18 +921,6 @@
           {
             "in": "path",
             "name": "ConferenceSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1149,7 +950,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.delete"
       },
       "get": {
         "description": "Returns a representation of this participant.",
@@ -1163,18 +965,6 @@
           {
             "in": "path",
             "name": "ConferenceSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1216,7 +1006,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.get"
       },
       "post": {
         "consumes": [
@@ -1233,18 +1024,6 @@
           {
             "in": "path",
             "name": "ConferenceSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1286,10 +1065,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -1305,18 +1085,6 @@
           {
             "in": "path",
             "name": "ConferenceSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -1352,28 +1120,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Conferences/{ConferenceSid}.json": {
       "get": {
         "description": "Returns a representation of the conference identified by {ConferenceSid}.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1415,10 +1172,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.ConferenceSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Conferences{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Conferences.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -1428,18 +1186,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -1475,28 +1221,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Conferences.json.get"
       }
     },
-    "/Accounts/{AccountSid}/ConnectApps/{ConnectAppSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/ConnectApps/{ConnectAppSid}.json": {
       "get": {
         "description": "Get the properties of a Connect App.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1538,7 +1273,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.ConnectApps.ConnectAppSid.json.get"
       },
       "post": {
         "consumes": [
@@ -1549,18 +1285,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1602,28 +1326,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.ConnectApps.ConnectAppSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/ConnectApps{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/ConnectApps.json": {
       "get": {
         "description": "Returns a list of Connect App resource representations, each representing\na Connect App in your account. The list includes paging information.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -1659,10 +1372,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.ConnectApps.json.get"
       }
     },
-    "/Accounts/{AccountSid}/IncomingPhoneNumbers/Local{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/IncomingPhoneNumbers/Local.json": {
       "get": {
         "description": "Returns a list of local <IncomingPhoneNumber> elements, each representing a local (not toll-free) phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out toll-free numbers.",
         "parameters": [
@@ -1671,19 +1385,14 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.Local.json.get"
       },
       "post": {
         "consumes": [
@@ -1696,12 +1405,6 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1711,10 +1414,11 @@
           "400": {
             "description": "If Twilio can't find a phone number to match your request, you will receive an HTTP 400 with Twilio error code 21452."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.Local.json.post"
       }
     },
-    "/Accounts/{AccountSid}/IncomingPhoneNumbers/Mobile{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/IncomingPhoneNumbers/Mobile.json": {
       "get": {
         "description": "Returns a list of local <IncomingPhoneNumber> elements, each representing a mobile phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out local and toll free numbers.",
         "parameters": [
@@ -1723,19 +1427,14 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.get"
       },
       "post": {
         "consumes": [
@@ -1748,12 +1447,6 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1763,10 +1456,11 @@
           "400": {
             "description": "If Twilio can't find a phone number to match your request, you will receive an HTTP 400 with Twilio error code 21452."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.post"
       }
     },
-    "/Accounts/{AccountSid}/IncomingPhoneNumbers/TollFree{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/IncomingPhoneNumbers/TollFree.json": {
       "get": {
         "description": "Returns a list of local <IncomingPhoneNumber> elements, each representing a toll-free phone number given to your account, under an <IncomingPhoneNumbers> list element that includes paging information. Works exactly the same as the IncomingPhoneNumber resource, but filters out all numbers that aren't toll-free.",
         "parameters": [
@@ -1775,19 +1469,14 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.get"
       },
       "post": {
         "consumes": [
@@ -1800,12 +1489,6 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -1815,28 +1498,17 @@
           "400": {
             "description": "If Twilio can't find a phone number to match your request, you will receive an HTTP 400 with Twilio error code 21452."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.post"
       }
     },
-    "/Accounts/{AccountSid}/IncomingPhoneNumbers/{IncomingPhoneNumberSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/IncomingPhoneNumbers/{IncomingPhoneNumberSid}.json": {
       "delete": {
         "description": "Release this phone number from your account. Twilio will no longer answer\ncalls to this number, and you will stop being billed the monthly phone\nnumber fee. The phone number will eventually be recycled and potentially\ngiven to another customer, so use with care. If you make a mistake, contac\nus. We may be able to give you the number back.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1866,7 +1538,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.delete"
       },
       "get": {
         "description": "Get info about incoming call's phone number.",
@@ -1874,18 +1547,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -1927,7 +1588,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.get"
       },
       "post": {
         "consumes": [
@@ -1942,18 +1604,6 @@
             "type": "string"
           },
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "path",
             "name": "IncomingPhoneNumberSid",
             "required": true,
@@ -1991,7 +1641,8 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.post"
       },
       "put": {
         "consumes": [
@@ -2006,18 +1657,6 @@
             "type": "string"
           },
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "path",
             "name": "IncomingPhoneNumberSid",
             "required": true,
@@ -2055,10 +1694,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.put"
       }
     },
-    "/Accounts/{AccountSid}/IncomingPhoneNumbers{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/IncomingPhoneNumbers.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -2068,18 +1708,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2115,7 +1743,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.json.get"
       },
       "post": {
         "consumes": [
@@ -2126,18 +1755,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2173,10 +1790,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.IncomingPhoneNumbers.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Messages/{MessageSid}/Media/{MediaSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Messages/{MessageSid}/Media/{MediaSid}.json": {
       "get": {
         "description": "Without an extension, the media is returned using the mime-type provided when the media was generated.",
         "parameters": [
@@ -2189,18 +1807,6 @@
           {
             "in": "path",
             "name": "MessageSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2242,10 +1848,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Messages.MessageSid.Media.MediaSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Messages/{MessageSid}/Media{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Messages/{MessageSid}/Media.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -2261,18 +1868,6 @@
           {
             "in": "path",
             "name": "MessageSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2308,28 +1903,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Messages.MessageSid.Media.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Messages/{MessageSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Messages/{MessageSid}.json": {
       "get": {
         "description": "Returns a single message specified by the provided {MessageSid}.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2371,10 +1955,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Messages.MessageSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Messages{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Messages.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -2384,18 +1969,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2431,7 +2004,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Messages.json.get"
       },
       "post": {
         "consumes": [
@@ -2442,18 +2016,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2520,28 +2082,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Messages.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Notifications/{NotificationSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Notifications/{NotificationSid}.json": {
       "delete": {
         "description": "Deletes the notification identified by {NotificationSid} from an account's log.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2571,7 +2122,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Notifications.NotificationSid.json.delete"
       },
       "get": {
         "description": "Get a notification entry.",
@@ -2579,18 +2131,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2632,10 +2172,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Notifications.NotificationSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Notifications{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Notifications.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -2645,18 +2186,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2692,28 +2221,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Notifications.json.get"
       }
     },
-    "/Accounts/{AccountSid}/OutgoingCallerIds/{OutgoingCallerIdSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/OutgoingCallerIds/{OutgoingCallerIdSid}.json": {
       "delete": {
         "description": "Deletes the caller ID from the account. Returns an HTTP 204 response if\nsuccessful, with no body.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2743,7 +2261,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.delete"
       },
       "get": {
         "description": "Get the set of an account's verified phone numbers.",
@@ -2751,18 +2270,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2804,7 +2311,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.get"
       },
       "post": {
         "consumes": [
@@ -2815,18 +2323,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2868,7 +2364,8 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.post"
       },
       "put": {
         "consumes": [
@@ -2879,18 +2376,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -2926,10 +2411,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.put"
       }
     },
-    "/Accounts/{AccountSid}/OutgoingCallerIds{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/OutgoingCallerIds.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -2939,18 +2425,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -2986,7 +2460,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.json.get"
       },
       "post": {
         "consumes": [
@@ -2997,18 +2472,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3044,10 +2507,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.OutgoingCallerIds.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members/Front{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members/Front.json": {
       "get": {
         "description": "Get a front member.",
         "parameters": [
@@ -3060,18 +2524,6 @@
           {
             "in": "path",
             "name": "QueueSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3107,7 +2559,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.Members.Front.json.get"
       },
       "post": {
         "consumes": [
@@ -3124,18 +2577,6 @@
           {
             "in": "path",
             "name": "QueueSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3171,10 +2612,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.Members.Front.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members/{CallSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members/{CallSid}.json": {
       "get": {
         "description": "Get a specific member.",
         "parameters": [
@@ -3187,18 +2629,6 @@
           {
             "in": "path",
             "name": "QueueSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3240,7 +2670,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.get"
       },
       "post": {
         "consumes": [
@@ -3261,18 +2692,6 @@
             "type": "string"
           },
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "path",
             "name": "CallSid",
             "required": true,
@@ -3310,10 +2729,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.Members.CallSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Queues/{QueueSid}/Members.json": {
       "get": {
         "description": "Returns the list of members in the queue identified by {QueueSid}.",
         "parameters": [
@@ -3326,18 +2746,6 @@
           {
             "in": "path",
             "name": "QueueSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3373,28 +2781,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.Members.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Queues/{QueueSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Queues/{QueueSid}.json": {
       "delete": {
         "description": "The DELETE method allows you to remove a Queue. Only empty queues are\ndeletable.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3424,7 +2821,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.json.delete"
       },
       "get": {
         "description": "Get resource's individual Queue instance.\n",
@@ -3432,18 +2830,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3485,7 +2871,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.json.get"
       },
       "post": {
         "consumes": [
@@ -3496,18 +2883,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3549,28 +2924,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.QueueSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Queues{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Queues.json": {
       "get": {
         "description": "Returns a list of queues within an account. The list includes paging\ninformation.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3606,7 +2970,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.json.get"
       },
       "post": {
         "consumes": [
@@ -3617,18 +2982,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3664,28 +3017,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Queues.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Recordings/{RecordingSid}/Transcriptions{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Recordings/{RecordingSid}/Transcriptions.json": {
       "get": {
         "description": "Returns a set of Transcription resource representations that includes paging\ninformation.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3727,29 +3069,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Recordings.RecordingSid.Transcriptions.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Recordings/{RecordingSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Recordings/{RecordingSid}.json": {
       "delete": {
         "description": "Deletes a recording  from your account.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": ".wav",
-            "description": "",
-            "enum": [
-              ".xml",
-              ".wav",
-              ".mp3"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3779,7 +3109,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Recordings.RecordingSid.json.delete"
       },
       "get": {
         "description": "Returns one of several representations:\nWithout an extension, or with a \".wav\", a binary WAV audio file is returned\nwith mime-type \"audio/x-wav\".\nAppending \".mp3\" to the URI returns a binary MP3 audio file with mime-type\ntype \"audio/mpeg\".\nAppending \".xml\" to the URI returns a XML representation.\n",
@@ -3787,19 +3118,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": ".wav",
-            "description": "",
-            "enum": [
-              ".xml",
-              ".wav",
-              ".mp3"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3840,10 +3158,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Recordings.RecordingSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Recordings{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Recordings.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -3853,18 +3172,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -3900,10 +3207,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Recordings.json.get"
       }
     },
-    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}/Credentials/{CredentialSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}/Credentials/{CredentialSid}.json": {
       "delete": {
         "description": "Remove a Credential from a CredentialList.",
         "parameters": [
@@ -3916,18 +3224,6 @@
           {
             "in": "path",
             "name": "CLSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -3957,7 +3253,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.delete"
       },
       "get": {
         "description": "Get a specific Credential in a list. Though a password is stored for each username in your list, the password is not returned to protect your password. If you cannot remember your password, you will need to POST to this resource to update it.",
@@ -3971,18 +3268,6 @@
           {
             "in": "path",
             "name": "CLSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4024,7 +3309,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.get"
       },
       "post": {
         "consumes": [
@@ -4041,18 +3327,6 @@
           {
             "in": "path",
             "name": "CLSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4094,10 +3368,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}/Credentials{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}/Credentials.json": {
       "get": {
         "description": "Get the list of Credentials in a CredentialList. The passwords for the Credentials are intentionally not returned so as to protect them.",
         "parameters": [
@@ -4110,18 +3385,6 @@
           {
             "in": "path",
             "name": "CLSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4157,7 +3420,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.get"
       },
       "post": {
         "consumes": [
@@ -4174,18 +3438,6 @@
           {
             "in": "path",
             "name": "CLSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4221,28 +3473,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/CredentialLists/{CLSid}.json": {
       "delete": {
         "description": "Delete a CredentialList from your account. It can only be deleted if no domains are mapped to it. If you attempt to delete one that is mapped to a domain, you will receive an error.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4272,7 +3513,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.json.delete"
       },
       "get": {
         "description": "Get a credential list instance resource",
@@ -4280,18 +3522,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4333,7 +3563,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.json.get"
       },
       "post": {
         "consumes": [
@@ -4344,18 +3575,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4397,28 +3616,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.CLSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/CredentialLists{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/CredentialLists.json": {
       "get": {
         "description": "Gets a list of Credential Lists for an account",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4454,7 +3662,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.json.get"
       },
       "post": {
         "consumes": [
@@ -4465,18 +3674,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4512,10 +3709,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.CredentialLists.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/CredentialListMappings/{CLSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/CredentialListMappings/{CLSid}.json": {
       "delete": {
         "description": "Remove a CredentialListMapping from a domain",
         "parameters": [
@@ -4528,18 +3726,6 @@
           {
             "in": "path",
             "name": "SipDomainSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4569,10 +3755,11 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.CLSid.json.delete"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/CredentialListMappings{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/CredentialListMappings.json": {
       "get": {
         "description": "Get the user lists mapped to this domain.",
         "parameters": [
@@ -4585,18 +3772,6 @@
           {
             "in": "path",
             "name": "SipDomainSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4632,7 +3807,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.get"
       },
       "post": {
         "consumes": [
@@ -4649,18 +3825,6 @@
           {
             "in": "path",
             "name": "SipDomainSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -4696,10 +3860,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/IpAccessControlListMappings/{ALSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/IpAccessControlListMappings/{ALSid}.json": {
       "delete": {
         "description": "Remove a mapping from this domain.",
         "parameters": [
@@ -4712,18 +3877,6 @@
           {
             "in": "path",
             "name": "SipDomainSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4753,7 +3906,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.delete"
       },
       "get": {
         "description": "Return a specific IpAccessControlListMapping instance by Sid.",
@@ -4767,18 +3921,6 @@
           {
             "in": "path",
             "name": "SipDomainSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4820,10 +3962,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/IpAccessControlListMappings{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}/IpAccessControlListMappings.json": {
       "get": {
         "description": "Return the IpAccessControlListMappings that are associated to this domain.",
         "parameters": [
@@ -4838,19 +3981,14 @@
             "name": "SipDomainSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.json.get"
       },
       "post": {
         "consumes": [
@@ -4869,12 +4007,6 @@
             "name": "SipDomainSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "produces": [
@@ -4884,28 +4016,17 @@
           "201": {
             "description": "Created"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains/{SipDomainSid}.json": {
       "delete": {
         "description": "Delete a domain. If you have created subdomains of a domain, you will not be able to delete the domain until you first delete all subdomains of it.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4935,7 +4056,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.json.delete"
       },
       "get": {
         "description": "Return a specific instance by Sid.",
@@ -4943,18 +4065,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -4996,7 +4106,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.json.get"
       },
       "post": {
         "description": "Update the attributes of a domain.",
@@ -5004,18 +4115,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5057,28 +4156,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.SipDomainSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/Domains{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/Domains.json": {
       "get": {
         "description": "Returns a paged list of the domains for an account.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5114,7 +4202,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.json.get"
       },
       "post": {
         "consumes": [
@@ -5125,18 +4214,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5172,10 +4249,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.Domains.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses/{IpAddressSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses/{IpAddressSid}.json": {
       "delete": {
         "description": "Deletes an IP address entry from the list.",
         "parameters": [
@@ -5188,18 +4266,6 @@
           {
             "in": "path",
             "name": "IpAccessControlListSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5229,7 +4295,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.delete"
       },
       "get": {
         "description": "Return a single IP Address resource.",
@@ -5243,18 +4310,6 @@
           {
             "in": "path",
             "name": "IpAccessControlListSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5296,7 +4351,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.get"
       },
       "post": {
         "consumes": [
@@ -5313,18 +4369,6 @@
           {
             "in": "path",
             "name": "IpAccessControlListSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5366,10 +4410,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses.json": {
       "get": {
         "description": "List the IP Addresses contained in this list.",
         "parameters": [
@@ -5382,18 +4427,6 @@
           {
             "in": "path",
             "name": "IpAccessControlListSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5429,7 +4462,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.json.get"
       },
       "post": {
         "consumes": [
@@ -5446,18 +4480,6 @@
           {
             "in": "path",
             "name": "IpAccessControlListSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5493,28 +4515,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}.json": {
       "delete": {
         "description": "Delete an IpAccessControlList from your account. It can only be deleted if no domains are mapped to it. If you attempt to delete one that is mapped to a domain, you will receive an error.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5544,7 +4555,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.delete"
       },
       "get": {
         "description": "Return a specific IpAccessControlList resource.",
@@ -5552,18 +4564,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5605,7 +4605,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.get"
       },
       "post": {
         "consumes": [
@@ -5620,18 +4621,6 @@
             "type": "string"
           },
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "in": "path",
             "name": "IpAccessControlListSid",
             "required": true,
@@ -5669,10 +4658,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SIP/IpAccessControlLists{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SIP/IpAccessControlLists.json": {
       "get": {
         "description": "Return a paged list of all IpAccessControlLists under this account.",
         "parameters": [
@@ -5681,19 +4671,14 @@
             "name": "AccountSid",
             "required": true,
             "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.json.get"
       },
       "post": {
         "consumes": [
@@ -5704,12 +4689,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5724,28 +4703,17 @@
               "$ref": "#/definitions/ipAccessControlListMapping"
             }
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SIP.IpAccessControlLists.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SMS/ShortCodes/{ShortCodeSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SMS/ShortCodes/{ShortCodeSid}.json": {
       "get": {
         "description": "Get a single message.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5787,7 +4755,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.get"
       },
       "post": {
         "consumes": [
@@ -5798,18 +4767,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5851,10 +4808,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SMS.ShortCodes.ShortCodeSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/SMS/ShortCodes{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/SMS/ShortCodes.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -5864,18 +4822,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -5911,31 +4857,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.SMS.ShortCodes.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Transcriptions/{TranscriptionSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Transcriptions/{TranscriptionSid}.json": {
       "delete": {
         "description": "Deletes a transcription from your account.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": ".xml",
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html",
-              ".txt",
-              ".xml"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -5965,7 +4897,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Transcriptions.TranscriptionSid.json.delete"
       },
       "get": {
         "description": "Returns a single Transcription resource representation identified by the\ngiven {TranscriptionSid}. By default Twilio will respond with the XML metadata for the Transcription. If you append \".txt\" to the end of the Transcription resource's URI Twilio will just return you the transcription tex.\n",
@@ -5973,21 +4906,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "default": ".xml",
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html",
-              ".txt",
-              ".xml"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -6030,28 +4948,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Transcriptions.TranscriptionSid.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Transcriptions{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Transcriptions.json": {
       "get": {
         "description": "Returns a set of Transcription resource representations that includes paging\ninformation.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -6087,28 +4994,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Transcriptions.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Usage/Records/{Subresource}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Usage/Records/{Subresource}.json": {
       "get": {
         "description": "Returns UsageRecords for all usage categories for a specified period.\n",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -6161,10 +5057,11 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Records.Subresource.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Usage/Records{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Usage/Records.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -6174,18 +5071,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -6221,28 +5106,17 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Records.json.get"
       }
     },
-    "/Accounts/{AccountSid}/Usage/Triggers/{UsageTriggerSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Usage/Triggers/{UsageTriggerSid}.json": {
       "delete": {
         "description": "Delete this UsageTrigger.",
         "parameters": [
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -6272,7 +5146,8 @@
           "500": {
             "description": "We couldn't delete the resource. Please try again."
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.delete"
       },
       "get": {
         "description": "Returns a repesentation of the UsageTrigger.",
@@ -6280,18 +5155,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -6333,7 +5196,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.get"
       },
       "post": {
         "consumes": [
@@ -6344,18 +5208,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -6397,10 +5249,11 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.post"
       }
     },
-    "/Accounts/{AccountSid}/Usage/Triggers{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}/Usage/Triggers.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -6410,18 +5263,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -6457,7 +5298,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Triggers.json.get"
       },
       "post": {
         "consumes": [
@@ -6468,18 +5310,6 @@
           {
             "in": "path",
             "name": "AccountSid",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -6515,25 +5345,14 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.Usage.Triggers.json.post"
       }
     },
-    "/Accounts/{AccountSid}{mediaTypeExtension}": {
+    "/Accounts/{AccountSid}.json": {
       "get": {
         "description": "Returns a representation of an account.",
         "parameters": [
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "A 34 character string that uniquely identifies this account.",
             "in": "path",
@@ -6575,7 +5394,8 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.json.get"
       },
       "post": {
         "consumes": [
@@ -6584,18 +5404,6 @@
         "description": "Allows you to modify the properties of an account.",
         "parameters": [
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "A 34 character string that uniquely identifies this account.",
             "in": "path",
             "maxLength": 34,
@@ -6636,7 +5444,8 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.json.post"
       },
       "put": {
         "consumes": [
@@ -6645,18 +5454,6 @@
         "description": "Allows you to modify the properties of an account.",
         "parameters": [
           {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "A 34 character string that uniquely identifies this account.",
             "in": "path",
             "maxLength": 34,
@@ -6697,29 +5494,17 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.AccountSid.json.put"
       }
     },
-    "/Accounts{mediaTypeExtension}": {
+    "/Accounts.json": {
       "get": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
         "description": "Retrieve a list of the Account resources belonging to the account used to make the\nAPI request. This list will include that Account as well.\n",
-        "parameters": [
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "produces": [
           "application/xml"
         ],
@@ -6751,27 +5536,15 @@
           "503": {
             "description": "We are temporarily unable to return the representation. Please wait for\na bit and try again.\n"
           }
-        }
+        },
+        "operationId": "Accounts.json.get"
       },
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
         "description": "Create a new Account instance resource as a subaccount of the one used to make the request. See\nCreating Subaccounts for more information.\n",
-        "parameters": [
-          {
-            "description": "By default, Twilio's REST API returns XML. You may obtain CSV, JSON or HTML by appending \".csv\", \".json\", or \".html\".\n",
-            "enum": [
-              ".json",
-              ".csv",
-              ".html"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "produces": [
           "application/xml"
         ],
@@ -6803,7 +5576,8 @@
           "500": {
             "description": "We couldn't return the representation due to an internal server error.\n"
           }
-        }
+        },
+        "operationId": "Accounts.json.post"
       }
     }
   },

@@ -130,7 +130,8 @@
         "summary": "Get a feed of the runs performed on an extractor",
         "tags": [
           "rss.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.runs.get"
       }
     }
   },

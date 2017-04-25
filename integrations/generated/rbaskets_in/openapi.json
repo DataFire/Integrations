@@ -107,7 +107,8 @@
         "summary": "Get baskets",
         "tags": [
           "baskets"
-        ]
+        ],
+        "operationId": "baskets.get"
       }
     },
     "/baskets/{name}": {
@@ -141,7 +142,8 @@
         "summary": "Delete basket",
         "tags": [
           "baskets"
-        ]
+        ],
+        "operationId": "baskets.name.delete"
       },
       "get": {
         "description": "Retrieves configuration settings of this basket.",
@@ -176,7 +178,8 @@
         "summary": "Get basket settings",
         "tags": [
           "baskets"
-        ]
+        ],
+        "operationId": "baskets.name.get"
       },
       "post": {
         "description": "Creates a new basket with this name.",
@@ -221,7 +224,8 @@
         "summary": "Create new basket",
         "tags": [
           "baskets"
-        ]
+        ],
+        "operationId": "baskets.name.post"
       },
       "put": {
         "description": "Updates configuration settings of this basket.\n\nSpecial configuration parameters for request forwarding:\n  * `insecure_tls` controls certificate verification when forwarding requests. Setting this parameter to `true`\n  allows to forward collected HTTP requests via HTTPS protocol even if the forward end-point is configured with\n  self-signed TLS/SSL certificate. **Warning:** enabling this feature has known security implications.\n  * `expand_path` changes the logic of constructing taget URL when forwarding requests. If this parameter is\n  set to `true` the forward URL path will be expanded when original HTTP request contains compound path. For\n  example, a basket with name **server1** is configured to forward all requests to `http://server1.intranet:8001/myservice`\n  and it has received an HTTP request like `GET http://baskets.example.com/server1/component/123/events?status=OK`\n  then depending on `expand_path` settings the request will be forwarded to:\n    * `true` => `GET http://server1.intranet:8001/myservice/component/123/events?status=OK`\n    * `false` => `GET http://server1.intranet:8001/myservice?status=OK`\n",
@@ -268,7 +272,8 @@
         "summary": "Update basket settings",
         "tags": [
           "baskets"
-        ]
+        ],
+        "operationId": "baskets.name.put"
       }
     },
     "/baskets/{name}/requests": {
@@ -302,7 +307,8 @@
         "summary": "Delete all requests",
         "tags": [
           "requests"
-        ]
+        ],
+        "operationId": "baskets.name.requests.delete"
       },
       "get": {
         "description": "Fetches collection of requests collected by this basket.",
@@ -374,7 +380,8 @@
         "summary": "Get collected requests",
         "tags": [
           "requests"
-        ]
+        ],
+        "operationId": "baskets.name.requests.get"
       }
     },
     "/baskets/{name}/responses/{method}": {
@@ -429,7 +436,8 @@
         "summary": "Get response settings",
         "tags": [
           "responses"
-        ]
+        ],
+        "operationId": "baskets.name.responses.method.get"
       },
       "put": {
         "description": "Allows to configure HTTP response of this basket. The service will reply with configured response to any HTTP\nrequest sent to the basket with appropriate HTTP method.\n\nIf nothing is configured, the default response is HTTP 200 - OK with empty content.\n",
@@ -494,7 +502,8 @@
         "summary": "Update response settings",
         "tags": [
           "responses"
-        ]
+        ],
+        "operationId": "baskets.name.responses.method.put"
       }
     }
   },

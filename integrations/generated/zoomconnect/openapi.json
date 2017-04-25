@@ -229,7 +229,8 @@
         "summary": "create",
         "tags": [
           "account"
-        ]
+        ],
+        "operationId": "api.rest.v1.account.user.put"
       }
     },
     "/api/rest/v1/account/user/{userId}": {
@@ -314,7 +315,8 @@
         "summary": "update",
         "tags": [
           "account"
-        ]
+        ],
+        "operationId": "api.rest.v1.account.user.userId.post"
       }
     },
     "/api/rest/v1/contacts/all": {
@@ -341,7 +343,8 @@
         "summary": "all",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.all.get"
       }
     },
     "/api/rest/v1/contacts/create": {
@@ -385,7 +388,8 @@
         "summary": "create",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.create.post"
       }
     },
     "/api/rest/v1/contacts/{contactId}": {
@@ -418,7 +422,8 @@
         "summary": "delete",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.delete"
       },
       "get": {
         "deprecated": false,
@@ -452,7 +457,8 @@
         "summary": "get",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.get"
       },
       "post": {
         "deprecated": false,
@@ -498,7 +504,8 @@
         "summary": "update",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.post"
       }
     },
     "/api/rest/v1/contacts/{contactId}/addFromGroup/{groupId}": {
@@ -538,7 +545,8 @@
         "summary": "removeFromGroup",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.addFromGroup.groupId.get"
       },
       "post": {
         "deprecated": false,
@@ -579,7 +587,8 @@
         "summary": "removeFromGroup",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.addFromGroup.groupId.post"
       }
     },
     "/api/rest/v1/contacts/{contactId}/addToGroup/{groupId}": {
@@ -619,7 +628,8 @@
         "summary": "addToGroup",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.addToGroup.groupId.get"
       },
       "post": {
         "deprecated": false,
@@ -660,7 +670,8 @@
         "summary": "addToGroup",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "api.rest.v1.contacts.contactId.addToGroup.groupId.post"
       }
     },
     "/api/rest/v1/context/lookup": {
@@ -698,7 +709,8 @@
         "summary": "lookup",
         "tags": [
           "context"
-        ]
+        ],
+        "operationId": "api.rest.v1.context.lookup.get"
       },
       "post": {
         "deprecated": false,
@@ -737,7 +749,8 @@
         "summary": "lookup",
         "tags": [
           "context"
-        ]
+        ],
+        "operationId": "api.rest.v1.context.lookup.post"
       }
     },
     "/api/rest/v1/groups/all": {
@@ -764,7 +777,8 @@
         "summary": "all",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.all.get"
       }
     },
     "/api/rest/v1/groups/create": {
@@ -808,7 +822,8 @@
         "summary": "create",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.create.post"
       }
     },
     "/api/rest/v1/groups/{groupId}": {
@@ -841,7 +856,8 @@
         "summary": "delete",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.delete"
       },
       "get": {
         "deprecated": false,
@@ -875,7 +891,8 @@
         "summary": "get",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.get"
       },
       "post": {
         "deprecated": false,
@@ -921,7 +938,8 @@
         "summary": "update",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.post"
       }
     },
     "/api/rest/v1/groups/{groupId}/addContact/{contactId}": {
@@ -961,7 +979,8 @@
         "summary": "addContact",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.addContact.contactId.get"
       },
       "post": {
         "deprecated": false,
@@ -1002,7 +1021,8 @@
         "summary": "addContact",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.addContact.contactId.post"
       }
     },
     "/api/rest/v1/groups/{groupId}/removeContact/{contactId}": {
@@ -1042,7 +1062,8 @@
         "summary": "removeContact",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.removeContact.contactId.get"
       },
       "post": {
         "deprecated": false,
@@ -1083,7 +1104,8 @@
         "summary": "removeContact",
         "tags": [
           "groups"
-        ]
+        ],
+        "operationId": "api.rest.v1.groups.groupId.removeContact.contactId.post"
       }
     },
     "/api/rest/v1/messages/all": {
@@ -1239,7 +1261,8 @@
         "summary": "all",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.all.get"
       }
     },
     "/api/rest/v1/messages/{messageId}": {
@@ -1272,7 +1295,8 @@
         "summary": "delete",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.delete"
       },
       "get": {
         "deprecated": false,
@@ -1306,7 +1330,8 @@
         "summary": "get",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.get"
       }
     },
     "/api/rest/v1/messages/{messageId}/markRead": {
@@ -1345,7 +1370,8 @@
         "summary": "markRead",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.markRead.post"
       },
       "put": {
         "deprecated": false,
@@ -1382,7 +1408,8 @@
         "summary": "markRead",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.markRead.put"
       }
     },
     "/api/rest/v1/messages/{messageId}/markUnread": {
@@ -1421,7 +1448,8 @@
         "summary": "markUnread",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.markUnread.post"
       },
       "put": {
         "deprecated": false,
@@ -1458,7 +1486,8 @@
         "summary": "markUnread",
         "tags": [
           "messages"
-        ]
+        ],
+        "operationId": "api.rest.v1.messages.messageId.markUnread.put"
       }
     },
     "/api/rest/v1/sms/send": {
@@ -1485,7 +1514,8 @@
         "summary": "send",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send.get"
       },
       "post": {
         "deprecated": false,
@@ -1530,7 +1560,8 @@
         "summary": "send",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send.post"
       }
     },
     "/api/rest/v1/sms/send-bulk": {
@@ -1557,7 +1588,8 @@
         "summary": "send-bulk",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_bulk.get"
       },
       "post": {
         "deprecated": false,
@@ -1596,7 +1628,8 @@
         "summary": "send-bulk",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_bulk.post"
       }
     },
     "/api/rest/v1/sms/send-url-parameters": {
@@ -1661,7 +1694,8 @@
         "summary": "send-url-parameters",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_url_parameters.get"
       },
       "post": {
         "deprecated": false,
@@ -1727,7 +1761,8 @@
         "summary": "send-url-parameters",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_url_parameters.post"
       }
     },
     "/api/rest/v1/sms/send-url/{token}": {
@@ -1799,7 +1834,8 @@
         "summary": "send-url",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_url.token.get"
       },
       "post": {
         "deprecated": false,
@@ -1872,7 +1908,8 @@
         "summary": "send-url",
         "tags": [
           "sms"
-        ]
+        ],
+        "operationId": "api.rest.v1.sms.send_url.token.post"
       }
     },
     "/api/rest/v1/templates/all": {
@@ -1899,7 +1936,8 @@
         "summary": "all",
         "tags": [
           "templates"
-        ]
+        ],
+        "operationId": "api.rest.v1.templates.all.get"
       }
     },
     "/api/rest/v1/templates/{templateId}": {
@@ -1933,7 +1971,8 @@
         "summary": "delete",
         "tags": [
           "templates"
-        ]
+        ],
+        "operationId": "api.rest.v1.templates.templateId.delete"
       },
       "get": {
         "deprecated": false,
@@ -1968,7 +2007,8 @@
         "summary": "get",
         "tags": [
           "templates"
-        ]
+        ],
+        "operationId": "api.rest.v1.templates.templateId.get"
       }
     }
   },

@@ -985,7 +985,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Download Data Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_download.get"
       }
     },
     "/rcra_rest_services.get_facilities": {
@@ -1280,7 +1281,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Facility Search Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_facilities.get"
       }
     },
     "/rcra_rest_services.get_facility_info": {
@@ -1567,7 +1569,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Facility Enhanced Search Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_facility_info.get"
       }
     },
     "/rcra_rest_services.get_geojson": {
@@ -1611,7 +1614,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) GeoJSON Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_geojson.get"
       }
     },
     "/rcra_rest_services.get_info_clusters": {
@@ -1643,7 +1647,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Info Clusters Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_info_clusters.get"
       }
     },
     "/rcra_rest_services.get_map": {
@@ -1707,7 +1712,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Map Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_map.get"
       }
     },
     "/rcra_rest_services.get_qid": {
@@ -1765,7 +1771,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Paginated Results Service",
         "tags": [
           "Resource Conservation and Recovery Act"
-        ]
+        ],
+        "operationId": "rcra_rest_services.get_qid.get"
       }
     },
     "/rcra_rest_services.metadata": {
@@ -1808,7 +1815,8 @@
         "summary": "Resource Conservation and Recovery Act (RCRA) Metadata Service",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "operationId": "rcra_rest_services.metadata.get"
       }
     }
   },

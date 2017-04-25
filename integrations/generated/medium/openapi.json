@@ -96,7 +96,8 @@
         "summary": "User details",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "me.get"
       }
     },
     "/publications/{publicationId}/contributors": {
@@ -136,7 +137,8 @@
         "tags": [
           "Publications",
           "Users"
-        ]
+        ],
+        "operationId": "publications.publicationId.contributors.get"
       }
     },
     "/publications/{publicationId}/posts": {
@@ -194,7 +196,8 @@
         "tags": [
           "Posts",
           "Publications"
-        ]
+        ],
+        "operationId": "publications.publicationId.posts.post"
       }
     },
     "/users/{authorId}/posts": {
@@ -252,7 +255,8 @@
         "tags": [
           "Users",
           "Posts"
-        ]
+        ],
+        "operationId": "users.authorId.posts.post"
       }
     },
     "/users/{userId}/publications": {
@@ -294,7 +298,8 @@
         "summary": "User's publications",
         "tags": [
           "Publications"
-        ]
+        ],
+        "operationId": "users.userId.publications.get"
       }
     }
   },

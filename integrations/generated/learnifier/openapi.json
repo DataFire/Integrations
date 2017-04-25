@@ -59,7 +59,8 @@
         "summary": "Lists all global course design templates",
         "tags": [
           "Course Designs"
-        ]
+        ],
+        "operationId": "coursedesigns.get"
       }
     },
     "/extorgunit": {
@@ -95,7 +96,8 @@
         "summary": "Get Organization Unit with External Id",
         "tags": [
           "Organization Units"
-        ]
+        ],
+        "operationId": "extorgunit.get"
       }
     },
     "/extparticipation": {
@@ -131,7 +133,8 @@
         "summary": "Gets a participation by external id",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "extparticipation.get"
       }
     },
     "/extproject": {
@@ -164,7 +167,8 @@
         "summary": "Gets Organization Unit by external id",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "extproject.get"
       }
     },
     "/extuser": {
@@ -200,7 +204,8 @@
         "summary": "Gets a user by external id",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "extuser.get"
       }
     },
     "/globalusergroups": {
@@ -227,7 +232,8 @@
         "summary": "List Global User Groups.",
         "tags": [
           "Global User Groups"
-        ]
+        ],
+        "operationId": "globalusergroups.get"
       }
     },
     "/globalusergroups/{groupid}/members": {
@@ -263,7 +269,8 @@
         "summary": "List of all users in group.",
         "tags": [
           "Global User Groups"
-        ]
+        ],
+        "operationId": "globalusergroups.groupid.members.get"
       }
     },
     "/orgunits": {
@@ -286,7 +293,8 @@
         "summary": "Organization Units",
         "tags": [
           "Organization Units"
-        ]
+        ],
+        "operationId": "orgunits.get"
       },
       "post": {
         "description": "Adds an Organization Unit",
@@ -320,7 +328,8 @@
         "summary": "Adds an Organization Unit",
         "tags": [
           "Organization Units"
-        ]
+        ],
+        "operationId": "orgunits.post"
       }
     },
     "/orgunits/{orgid}": {
@@ -355,7 +364,8 @@
         "summary": "Get Organization Unit",
         "tags": [
           "Organization Units"
-        ]
+        ],
+        "operationId": "orgunits.orgid.get"
       },
       "patch": {
         "description": "Adds an Organization Unit",
@@ -392,7 +402,8 @@
         "summary": "Updates an Organization Unit",
         "tags": [
           "Organization Units"
-        ]
+        ],
+        "operationId": "orgunits.orgid.patch"
       }
     },
     "/orgunits/{orgid}/projects": {
@@ -427,7 +438,8 @@
         "summary": "Organization Unit Projects",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.get"
       },
       "post": {
         "description": "Creates a new project\n",
@@ -472,7 +484,8 @@
         "summary": "Create project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.post"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}": {
@@ -517,7 +530,8 @@
         "summary": "Deletes the project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.delete"
       },
       "get": {
         "description": "Returns project information\n",
@@ -554,7 +568,8 @@
         "summary": "Project information",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.get"
       },
       "patch": {
         "description": "Updates information about a project. Values are only updated if the fields are specified in the input\n",
@@ -606,7 +621,8 @@
         "summary": "Update project information",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.patch"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}/participants": {
@@ -648,7 +664,8 @@
         "summary": "Project participants",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.participants.get"
       },
       "post": {
         "description": "Add a user to the project. Participant information is created for the user. In the body object, only one of either email or userid must be specified. The participant needs to be activated before it the user can access it.\n",
@@ -707,7 +724,8 @@
         "summary": "Add participant",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.participants.post"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}/participants/${participantId}": {
@@ -756,7 +774,8 @@
         "summary": "Deletes a participant",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.participants._participantId.delete"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}/participants/${participantId}/activate": {
@@ -811,7 +830,8 @@
         "summary": "Activate participant",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.participants._participantId.activate.post"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}/participants/${participantId}/loginlink": {
@@ -863,7 +883,8 @@
         "summary": "Participant login link",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.participants._participantId.loginlink.post"
       }
     },
     "/orgunits/{orgid}/projects/{projectid}/teammembers": {
@@ -905,7 +926,8 @@
         "summary": "Project team members",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "orgunits.orgid.projects.projectid.teammembers.get"
       }
     },
     "/orgunits/{orgid}/usergroups": {
@@ -941,7 +963,8 @@
         "summary": "List User Groups.",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.get"
       },
       "post": {
         "description": "Create a User Group.\n",
@@ -983,7 +1006,8 @@
         "summary": "Create a User Group.",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.post"
       }
     },
     "/orgunits/{orgid}/usergroups/{groupid}": {
@@ -1024,7 +1048,8 @@
         "summary": "Get user group",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.groupid.get"
       }
     },
     "/orgunits/{orgid}/usergroups/{groupid}/members": {
@@ -1068,7 +1093,8 @@
         "summary": "List of all users in group.",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.groupid.members.get"
       },
       "post": {
         "description": "Adds a user to user group.\n",
@@ -1115,7 +1141,8 @@
         "summary": "Add user group member.",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.groupid.members.post"
       }
     },
     "/orgunits/{orgid}/usergroups/{groupid}/members/{uuid}": {
@@ -1161,7 +1188,8 @@
         "summary": "Remove user group member.",
         "tags": [
           "User Groups"
-        ]
+        ],
+        "operationId": "orgunits.orgid.usergroups.groupid.members.uuid.delete"
       }
     },
     "/users": {
@@ -1225,7 +1253,8 @@
         "summary": "Lists all users",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.get"
       },
       "post": {
         "description": "Adds a user. No two users can have the same email address. Email is saved WITH case but compared regardless of case. Email can be changed for a user assuming it doesn't cause a conflict.",
@@ -1262,7 +1291,8 @@
         "summary": "Adds a user",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.post"
       }
     },
     "/users/{userid}": {
@@ -1294,7 +1324,8 @@
         "summary": "User information",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.userid.get"
       },
       "patch": {
         "description": "Updates a user. All values that have a key defined in the input will be set. So if a value should not be updated omit it totally from the input, otherwise it will be unset.",
@@ -1333,7 +1364,8 @@
         "summary": "Updates user information",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.userid.patch"
       }
     },
     "/users/{userid}/pic?key={APIKEY}": {
@@ -1371,7 +1403,8 @@
         "summary": "User profile picture",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.userid.pic_key_APIKEY.get"
       }
     },
     "/users/{userid}/projectParticipations": {
@@ -1404,7 +1437,8 @@
         "summary": "Returns information about the projects the user is a participant in.",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.userid.projectParticipations.get"
       }
     }
   },

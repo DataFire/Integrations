@@ -51,20 +51,10 @@
     }
   },
   "paths": {
-    "/info/configuration{mediaTypeExtension}": {
+    "/info/configuration.json": {
       "get": {
         "description": "Returns an object with the current configuration that Buffer is using, including supported services, their icons and the varying limits of character and schedules.",
-        "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -90,22 +80,14 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "info.configuration.json.get"
       }
     },
-    "/links/shares{mediaTypeExtension}": {
+    "/links/shares.json": {
       "get": {
         "description": "Returns an object with a the numbers of shares a link has had using Buffer.",
         "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "URL-encoded URL of the page for which the number of shares is requested.",
             "in": "query",
@@ -139,10 +121,11 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "links.shares.json.get"
       }
     },
-    "/profiles/{id}/schedules/update{mediaTypeExtension}": {
+    "/profiles/{id}/schedules/update.json": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -152,15 +135,6 @@
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -190,25 +164,17 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "profiles.id.schedules.update.json.post"
       }
     },
-    "/profiles/{id}/schedules{mediaTypeExtension}": {
+    "/profiles/{id}/schedules.json": {
       "get": {
         "description": "Returns details of the posting schedules associated with a social media profile.",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -238,25 +204,17 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "profiles.id.schedules.json.get"
       }
     },
-    "/profiles/{id}/updates/pending{mediaTypeExtension}": {
+    "/profiles/{id}/updates/pending.json": {
       "get": {
         "description": "\"Returns an array of updates that are currently in the buffer for an individual social media profile.\n",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -311,10 +269,11 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "profiles.id.updates.pending.json.get"
       }
     },
-    "/profiles/{id}/updates/reorder{mediaTypeExtension}": {
+    "/profiles/{id}/updates/reorder.json": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -326,15 +285,6 @@
             "name": "id",
             "required": true,
             "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -362,25 +312,17 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "profiles.id.updates.reorder.json.post"
       }
     },
-    "/profiles/{id}/updates/sent{mediaTypeExtension}": {
+    "/profiles/{id}/updates/sent.json": {
       "get": {
         "description": "Returns an array of updates that have been sent from the buffer for an individual social media profile.\n",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -435,10 +377,11 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "profiles.id.updates.sent.json.get"
       }
     },
-    "/profiles/{id}/updates/shuffle{mediaTypeExtension}": {
+    "/profiles/{id}/updates/shuffle.json": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -448,15 +391,6 @@
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -486,22 +420,14 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "profiles.id.updates.shuffle.json.post"
       }
     },
-    "/profiles/{id}{mediaTypeExtension}": {
+    "/profiles/{id}.json": {
       "get": {
         "description": "Returns details of the single specified social media profile.",
         "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "path",
             "name": "id",
@@ -534,23 +460,14 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "profiles.id.json.get"
       }
     },
-    "/profiles{mediaTypeExtension}": {
+    "/profiles.json": {
       "get": {
         "description": "Returns an array of social media profiles connected to a users account.",
-        "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -576,26 +493,17 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "profiles.json.get"
       }
     },
-    "/updates/create{mediaTypeExtension}": {
+    "/updates/create.json": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
         "description": "Create one or more new status updates.\n",
-        "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -621,25 +529,17 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "updates.create.json.post"
       }
     },
-    "/updates/{id}/destroy{mediaTypeExtension}": {
+    "/updates/{id}/destroy.json": {
       "post": {
         "description": "Permanently delete an existing status update.",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -669,25 +569,17 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "updates.id.destroy.json.post"
       }
     },
-    "/updates/{id}/interactions{mediaTypeExtension}": {
+    "/updates/{id}/interactions.json": {
       "get": {
         "description": "Returns the detailed information on individual interactions with the social media update such as favorites, retweets and likes.\n",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           },
@@ -736,25 +628,17 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "updates.id.interactions.json.get"
       }
     },
-    "/updates/{id}/move_to_top{mediaTypeExtension}": {
+    "/updates/{id}/move_to_top.json": {
       "post": {
         "description": "Move an existing status update to the top of the queue and recalculate times for all updates in the queue. Returns the update with its new posting time.",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -784,25 +668,17 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "updates.id.move_to_top.json.post"
       }
     },
-    "/updates/{id}/share{mediaTypeExtension}": {
+    "/updates/{id}/share.json": {
       "post": {
         "description": "Immediately shares a single pending update and recalculates times for updates remaining in the queue.",
         "parameters": [
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -832,10 +708,11 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "updates.id.share.json.post"
       }
     },
-    "/updates/{id}/update{mediaTypeExtension}": {
+    "/updates/{id}/update.json": {
       "post": {
         "consumes": [
           "application/x-www-form-urlencoded"
@@ -845,15 +722,6 @@
           {
             "in": "path",
             "name": "id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
             "required": true,
             "type": "string"
           }
@@ -883,22 +751,14 @@
           "500": {
             "description": "An unknown error occurred."
           }
-        }
+        },
+        "operationId": "updates.id.update.json.post"
       }
     },
-    "/updates/{id}{mediaTypeExtension}": {
+    "/updates/{id}.json": {
       "get": {
         "description": "Returns a single social media update.",
         "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          },
           {
             "in": "path",
             "name": "id",
@@ -931,23 +791,14 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "updates.id.json.get"
       }
     },
-    "/user{mediaTypeExtension}": {
+    "/user.json": {
       "get": {
         "description": "Returns a single user.",
-        "parameters": [
-          {
-            "enum": [
-              ".json"
-            ],
-            "in": "path",
-            "name": "mediaTypeExtension",
-            "required": true,
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -973,7 +824,8 @@
           "500": {
             "description": "An unknown error occurred.\n"
           }
-        }
+        },
+        "operationId": "user.json.get"
       }
     }
   },

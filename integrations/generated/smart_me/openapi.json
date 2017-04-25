@@ -172,7 +172,8 @@
         "summary": "Gets all Custom Devices",
         "tags": [
           "CustomDevice"
-        ]
+        ],
+        "operationId": "api.CustomDevice.get"
       },
       "post": {
         "consumes": [
@@ -250,7 +251,8 @@
         "summary": "Gets a Custom Device by it's ID",
         "tags": [
           "CustomDevice"
-        ]
+        ],
+        "operationId": "api.CustomDevice.id.get"
       }
     },
     "/api/DeviceBySerial": {
@@ -314,7 +316,8 @@
         "summary": "Gets all Devices",
         "tags": [
           "Devices"
-        ]
+        ],
+        "operationId": "api.Devices.get"
       },
       "post": {
         "consumes": [
@@ -392,7 +395,8 @@
         "summary": "Gets a Device by it's ID",
         "tags": [
           "Devices"
-        ]
+        ],
+        "operationId": "api.Devices.id.get"
       },
       "put": {
         "consumes": [],

@@ -139,7 +139,8 @@
         "summary": "Get the activity stream of an organization",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_activity_list.get"
       }
     },
     "/action/organization_activity_list_html": {
@@ -162,7 +163,8 @@
         "summary": "Get the activity stream of an organization, HTML format",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_activity_list_html.get"
       }
     },
     "/action/organization_autocomplete": {
@@ -192,7 +194,8 @@
         "summary": "Get names of organizations that match a query string",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_autocomplete.get"
       }
     },
     "/action/organization_follower_count": {
@@ -215,7 +218,8 @@
         "summary": "Get number of followers of an organization",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_follower_count.get"
       }
     },
     "/action/organization_follower_list": {
@@ -238,7 +242,8 @@
         "summary": "Get users following an organization",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_follower_list.get"
       }
     },
     "/action/organization_list": {
@@ -268,7 +273,8 @@
         "summary": "Get names of all organizations",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_list.get"
       }
     },
     "/action/organization_list_for_user": {
@@ -291,7 +297,8 @@
         "summary": "Get organizations that a user has a given permission for",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_list_for_user.get"
       }
     },
     "/action/organization_revision_list": {
@@ -314,7 +321,8 @@
         "summary": "Get organization revisions",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_revision_list.get"
       }
     },
     "/action/organization_show": {
@@ -344,7 +352,8 @@
         "summary": "Get details of a specific organization",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.organization_show.get"
       }
     },
     "/action/package_activity_list": {
@@ -381,7 +390,8 @@
         "summary": "Get the activity stream of a package (dataset)",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_activity_list.get"
       }
     },
     "/action/package_activity_list_html": {
@@ -418,7 +428,8 @@
         "summary": "Get the activity stream of a package (dataset), HTML format",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_activity_list_html.get"
       }
     },
     "/action/package_autocomplete": {
@@ -448,7 +459,8 @@
         "summary": "Find packages (datasets) matching a query",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_autocomplete.get"
       }
     },
     "/action/package_list": {
@@ -478,7 +490,8 @@
         "summary": "Get a list of all packages (datasets)",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_list.get"
       }
     },
     "/action/package_relationships_list": {
@@ -514,7 +527,8 @@
         "summary": "Get package (dataset) relationships",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_relationships_list.get"
       }
     },
     "/action/package_revision_list": {
@@ -537,7 +551,8 @@
         "summary": "Get list of revisions for a package (dataset)",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_revision_list.get"
       }
     },
     "/action/package_search": {
@@ -560,7 +575,8 @@
         "summary": "Find packages (datasets) matching query terms",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_search.get"
       }
     },
     "/action/package_show": {
@@ -583,7 +599,8 @@
         "summary": "Get metadata about one specific package (dataset)",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.package_show.get"
       }
     },
     "/action/related_list": {
@@ -629,7 +646,8 @@
         "summary": "Gets items related to a package (dataset)",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.related_list.get"
       }
     },
     "/action/resource_search": {
@@ -678,7 +696,8 @@
         "summary": "Find resources",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.resource_search.get"
       }
     },
     "/action/resource_show": {
@@ -708,7 +727,8 @@
         "summary": "Get metadata for a specific resource",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.resource_show.get"
       }
     },
     "/action/status_show": {
@@ -722,7 +742,8 @@
         "summary": "Get the site status",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.status_show.get"
       }
     },
     "/action/tag_list": {
@@ -752,7 +773,8 @@
         "summary": "Get a list of tags",
         "tags": [
           "action"
-        ]
+        ],
+        "operationId": "action.tag_list.get"
       }
     }
   }

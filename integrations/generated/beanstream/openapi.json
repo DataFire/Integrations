@@ -99,7 +99,8 @@
         "summary": "Make Payment",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "payments.post"
       }
     },
     "/payments/{transId}": {
@@ -162,7 +163,8 @@
         "summary": "Get payment",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "payments.transId.get"
       }
     },
     "/payments/{transId}/completions": {
@@ -232,7 +234,8 @@
         "summary": "Complete pre-auth",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "payments.transId.completions.post"
       }
     },
     "/payments/{transId}/returns": {
@@ -303,7 +306,8 @@
         "summary": "Return payment",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "payments.transId.returns.post"
       }
     },
     "/payments/{transId}/void": {
@@ -374,7 +378,8 @@
         "summary": "Void Transaction",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "payments.transId.void.post"
       }
     },
     "/profiles": {
@@ -437,7 +442,8 @@
         "summary": "Create Profile",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.post"
       }
     },
     "/profiles/{profileId}": {
@@ -499,7 +505,8 @@
         "summary": "Delete profile",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.delete"
       },
       "get": {
         "description": "Get a Payment Profile using the profile ID, also known as the Customer Code.",
@@ -559,7 +566,8 @@
         "summary": "Get profile",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.get"
       },
       "put": {
         "description": "Create a new Payment Profile using either a card or a Legato token. You must supply one of them.",
@@ -627,7 +635,8 @@
         "summary": "Update Profile",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.put"
       }
     },
     "/profiles/{profileId}/cards": {
@@ -689,7 +698,8 @@
         "summary": "Get cards",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.cards.get"
       },
       "post": {
         "description": "Add a card to the profile. Note that there is a default limit of 1 card per profile. You can change this in your Profiles settings in the back office.",
@@ -758,7 +768,8 @@
         "summary": "Add card",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.cards.post"
       }
     },
     "/profiles/{profileId}/cards/{cardId}": {
@@ -828,7 +839,8 @@
         "summary": "Delete card",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.cards.cardId.delete"
       },
       "put": {
         "description": "Update the details of a card on the profile.",
@@ -905,7 +917,8 @@
         "summary": "Update card",
         "tags": [
           "Profiles"
-        ]
+        ],
+        "operationId": "profiles.profileId.cards.cardId.put"
       }
     },
     "/reports": {
@@ -967,7 +980,8 @@
         "summary": "Search Query",
         "tags": [
           "Reporting"
-        ]
+        ],
+        "operationId": "reports.post"
       }
     },
     "/scripts/tokenization/tokens": {
@@ -993,7 +1007,8 @@
         "summary": "Tokenize credit card",
         "tags": [
           "Tokenization"
-        ]
+        ],
+        "operationId": "scripts.tokenization.tokens.post"
       }
     }
   },

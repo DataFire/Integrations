@@ -553,7 +553,8 @@
         "summary": "Safe Drinking Water Act (SDWA) Download Data Service",
         "tags": [
           "Safe Drinking Water"
-        ]
+        ],
+        "operationId": "sdw_rest_services.get_download.get"
       }
     },
     "/sdw_rest_services.get_qid": {
@@ -608,7 +609,8 @@
         "summary": "Safe Drinking Water Act (SDWA) Paginated Results Service",
         "tags": [
           "Safe Drinking Water"
-        ]
+        ],
+        "operationId": "sdw_rest_services.get_qid.get"
       }
     },
     "/sdw_rest_services.get_systems": {
@@ -783,7 +785,8 @@
         "summary": "Safe Drinking Water Act (SDWA) Systems Search Service",
         "tags": [
           "Safe Drinking Water"
-        ]
+        ],
+        "operationId": "sdw_rest_services.get_systems.get"
       }
     },
     "/sdw_rest_services.metadata": {
@@ -826,7 +829,8 @@
         "summary": "Safe Drinking Water Act (SDWA) Metadata Service",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "operationId": "sdw_rest_services.metadata.get"
       }
     }
   },

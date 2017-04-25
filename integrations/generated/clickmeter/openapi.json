@@ -75,7 +75,8 @@
         "summary": "Retrieve current account data",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.get"
       },
       "post": {
         "consumes": [
@@ -119,7 +120,8 @@
         "summary": "Update current account data",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.post"
       }
     },
     "/account/domainwhitelist": {
@@ -165,7 +167,8 @@
         "summary": "Retrieve list of a domains allowed to redirect in DDU mode",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.domainwhitelist.get"
       },
       "post": {
         "consumes": [
@@ -210,7 +213,8 @@
         "summary": "Create an domain entry",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.domainwhitelist.post"
       }
     },
     "/account/domainwhitelist/{whitelistId}": {
@@ -249,7 +253,8 @@
         "summary": "Delete an domain entry",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.domainwhitelist.whitelistId.delete"
       }
     },
     "/account/guests": {
@@ -320,7 +325,8 @@
         "summary": "Retrieve list of a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.get"
       },
       "post": {
         "consumes": [
@@ -365,7 +371,8 @@
         "summary": "Create a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.post"
       }
     },
     "/account/guests/count": {
@@ -404,7 +411,8 @@
         "summary": "Retrieve count of guests",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.count.get"
       }
     },
     "/account/guests/{guestId}": {
@@ -444,7 +452,8 @@
         "summary": "Delete a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.delete"
       },
       "get": {
         "consumes": [],
@@ -482,7 +491,8 @@
         "summary": "Retrieve a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.get"
       },
       "post": {
         "consumes": [
@@ -535,7 +545,8 @@
         "summary": "Update a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.post"
       }
     },
     "/account/guests/{guestId}/permissions": {
@@ -619,7 +630,8 @@
         "summary": "Retrieve permissions for a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.permissions.get"
       }
     },
     "/account/guests/{guestId}/permissions/count": {
@@ -689,7 +701,8 @@
         "summary": "Retrieve count of the permissions for a guest",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.permissions.count.get"
       }
     },
     "/account/guests/{guestId}/{type}/permissions/patch": {
@@ -755,7 +768,8 @@
         "summary": "Change the permission on a shared object",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.type.permissions.patch.post"
       },
       "put": {
         "consumes": [
@@ -819,7 +833,8 @@
         "summary": "Change the permission on a shared object",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.guests.guestId.type.permissions.patch.put"
       }
     },
     "/account/ipblacklist": {
@@ -865,7 +880,8 @@
         "summary": "Retrieve list of a ip to exclude from event tracking",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.ipblacklist.get"
       },
       "post": {
         "consumes": [
@@ -910,7 +926,8 @@
         "summary": "Create an ip blacklist entry",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.ipblacklist.post"
       }
     },
     "/account/ipblacklist/{blacklistId}": {
@@ -949,7 +966,8 @@
         "summary": "Delete an ip blacklist entry",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.ipblacklist.blacklistId.delete"
       }
     },
     "/account/plan": {
@@ -979,7 +997,8 @@
         "summary": "Retrieve current account plan",
         "tags": [
           "Account"
-        ]
+        ],
+        "operationId": "account.plan.get"
       }
     },
     "/aggregated": {
@@ -1061,7 +1080,8 @@
         "summary": "Retrieve statistics about this customer for a timeframe",
         "tags": [
           "Aggregated"
-        ]
+        ],
+        "operationId": "aggregated.get"
       }
     },
     "/aggregated/list": {
@@ -1140,7 +1160,8 @@
         "summary": "Retrieve statistics about this customer for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "Aggregated"
-        ]
+        ],
+        "operationId": "aggregated.list.get"
       }
     },
     "/aggregated/summary/conversions": {
@@ -1260,7 +1281,8 @@
         "summary": "Retrieve statistics about a subset of conversions for a timeframe with conversions data",
         "tags": [
           "Aggregated"
-        ]
+        ],
+        "operationId": "aggregated.summary.conversions.get"
       }
     },
     "/aggregated/summary/datapoints": {
@@ -1415,7 +1437,8 @@
         "summary": "Retrieve statistics about a subset of datapoints for a timeframe with datapoints data",
         "tags": [
           "Aggregated"
-        ]
+        ],
+        "operationId": "aggregated.summary.datapoints.get"
       }
     },
     "/aggregated/summary/groups": {
@@ -1549,7 +1572,8 @@
         "summary": "Retrieve statistics about a subset of groups for a timeframe with groups data",
         "tags": [
           "Aggregated"
-        ]
+        ],
+        "operationId": "aggregated.summary.groups.get"
       }
     },
     "/clickstream": {
@@ -1626,7 +1650,8 @@
         "summary": "Retrieve the latest list of events of this account. Limited to last 100.",
         "tags": [
           "ClickStream"
-        ]
+        ],
+        "operationId": "clickstream.get"
       }
     },
     "/conversions": {
@@ -1704,7 +1729,8 @@
         "summary": "Retrieve a list of conversions",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.get"
       },
       "post": {
         "consumes": [
@@ -1752,7 +1778,8 @@
         "summary": "Create a conversion",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.post"
       }
     },
     "/conversions/aggregated/list": {
@@ -1842,7 +1869,8 @@
         "summary": "Retrieve statistics about this customer for a timeframe related to a subset of conversions grouped by some temporal entity (day/week/month)",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.aggregated.list.get"
       }
     },
     "/conversions/count": {
@@ -1906,7 +1934,8 @@
         "summary": "Retrieve a count of conversions",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.count.get"
       }
     },
     "/conversions/{conversionId}": {
@@ -1949,7 +1978,8 @@
         "summary": "Delete conversion specified by id",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.delete"
       },
       "get": {
         "consumes": [],
@@ -1990,7 +2020,8 @@
         "summary": "Retrieve conversion specified by id",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.get"
       },
       "post": {
         "consumes": [
@@ -2046,7 +2077,8 @@
         "summary": "Update conversion specified by id",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.post"
       }
     },
     "/conversions/{conversionId}/aggregated": {
@@ -2143,7 +2175,8 @@
         "summary": "Retrieve statistics about this conversion for a timeframe",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.aggregated.get"
       }
     },
     "/conversions/{conversionId}/aggregated/list": {
@@ -2230,7 +2263,8 @@
         "summary": "Retrieve statistics about this conversion for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.aggregated.list.get"
       }
     },
     "/conversions/{conversionId}/datapoints": {
@@ -2336,7 +2370,8 @@
         "summary": "Retrieve a list of datapoints connected to this conversion",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.datapoints.get"
       }
     },
     "/conversions/{conversionId}/datapoints/batch/patch": {
@@ -2392,7 +2427,8 @@
         "summary": "Modify the association between a conversion and multiple datapoints",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.datapoints.batch.patch.put"
       }
     },
     "/conversions/{conversionId}/datapoints/count": {
@@ -2474,7 +2510,8 @@
         "summary": "Retrieve a count of datapoints connected to this conversion",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.datapoints.count.get"
       }
     },
     "/conversions/{conversionId}/datapoints/patch": {
@@ -2532,7 +2569,8 @@
         "summary": "Modify the association between a conversion and a datapoint",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.datapoints.patch.put"
       }
     },
     "/conversions/{conversionId}/hits": {
@@ -2631,7 +2669,8 @@
         "summary": "Retrieve the list of events related to this conversion.",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.hits.get"
       }
     },
     "/conversions/{conversionId}/notes": {
@@ -2692,7 +2731,8 @@
         "summary": "Fast patch the \"notes\" field of a conversion",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.notes.put"
       }
     },
     "/conversions/{conversionId}/reports": {
@@ -2800,7 +2840,8 @@
         "summary": "Retrieve a top report connected to this conversion",
         "tags": [
           "Conversions"
-        ]
+        ],
+        "operationId": "conversions.conversionId.reports.get"
       }
     },
     "/datapoints": {
@@ -2928,7 +2969,8 @@
         "summary": "List of all the datapoints associated to the user",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.get"
       },
       "post": {
         "consumes": [
@@ -2974,7 +3016,8 @@
         "summary": "Create a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.post"
       }
     },
     "/datapoints/aggregated": {
@@ -3087,7 +3130,8 @@
         "summary": "Retrieve statistics about this customer for a timeframe by groups",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.aggregated.get"
       }
     },
     "/datapoints/aggregated/list": {
@@ -3204,7 +3248,8 @@
         "summary": "Retrieve statistics about all datapoints of this customer for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.aggregated.list.get"
       }
     },
     "/datapoints/batch": {
@@ -3250,7 +3295,8 @@
         "summary": "Delete multiple datapoints",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.batch.delete"
       },
       "post": {
         "consumes": [
@@ -3294,7 +3340,8 @@
         "summary": "Update multiple datapoints",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.batch.post"
       },
       "put": {
         "consumes": [
@@ -3338,7 +3385,8 @@
         "summary": "Create multiple datapoints",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.batch.put"
       }
     },
     "/datapoints/count": {
@@ -3432,7 +3480,8 @@
         "summary": "Count the datapoints associated to the user",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.count.get"
       }
     },
     "/datapoints/{id}": {
@@ -3475,7 +3524,8 @@
         "summary": "Delete a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.delete"
       },
       "get": {
         "consumes": [],
@@ -3514,7 +3564,8 @@
         "summary": "Get a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.get"
       },
       "post": {
         "consumes": [
@@ -3568,7 +3619,8 @@
         "summary": "Update a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.post"
       }
     },
     "/datapoints/{id}/aggregated": {
@@ -3651,7 +3703,8 @@
         "summary": "Retrieve statistics about this datapoint for a timeframe",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.aggregated.get"
       }
     },
     "/datapoints/{id}/aggregated/list": {
@@ -3738,7 +3791,8 @@
         "summary": "Retrieve statistics about this datapoint for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.aggregated.list.get"
       }
     },
     "/datapoints/{id}/favourite": {
@@ -3784,7 +3838,8 @@
         "summary": "Fast switch the \"favourite\" field of a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.favourite.put"
       }
     },
     "/datapoints/{id}/hits": {
@@ -3883,7 +3938,8 @@
         "summary": "Retrieve the list of events related to this datapoint.",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.hits.get"
       }
     },
     "/datapoints/{id}/notes": {
@@ -3944,7 +4000,8 @@
         "summary": "Fast patch the \"notes\" field of a datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.notes.put"
       }
     },
     "/datapoints/{id}/reports": {
@@ -4042,7 +4099,8 @@
         "summary": "Retrieve a top report connected to this datapoint",
         "tags": [
           "DataPoints"
-        ]
+        ],
+        "operationId": "datapoints.id.reports.get"
       }
     },
     "/domains": {
@@ -4109,7 +4167,8 @@
         "summary": "Retrieve a list of domains",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.get"
       },
       "post": {
         "consumes": [
@@ -4154,7 +4213,8 @@
         "summary": "Create a domain",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.post"
       }
     },
     "/domains/count": {
@@ -4207,7 +4267,8 @@
         "summary": "Retrieve count of domains",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.count.get"
       }
     },
     "/domains/{id}": {
@@ -4247,7 +4308,8 @@
         "summary": "Delete a domain",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.id.delete"
       },
       "get": {
         "consumes": [],
@@ -4285,7 +4347,8 @@
         "summary": "Get a domain",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.id.get"
       },
       "post": {
         "consumes": [
@@ -4338,7 +4401,8 @@
         "summary": "Update a domain",
         "tags": [
           "Domains"
-        ]
+        ],
+        "operationId": "domains.id.post"
       }
     },
     "/groups": {
@@ -4435,7 +4499,8 @@
         "summary": "List of all the groups associated to the user.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.get"
       },
       "post": {
         "consumes": [
@@ -4481,7 +4546,8 @@
         "summary": "Create a group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.post"
       }
     },
     "/groups/aggregated": {
@@ -4581,7 +4647,8 @@
         "summary": "Retrieve statistics about this customer for a timeframe by groups",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.aggregated.get"
       }
     },
     "/groups/aggregated/list": {
@@ -4681,7 +4748,8 @@
         "summary": "Retrieve statistics about all groups of this customer for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.aggregated.list.get"
       }
     },
     "/groups/count": {
@@ -4762,7 +4830,8 @@
         "summary": "Count the groups associated to the user.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.count.get"
       }
     },
     "/groups/{id}": {
@@ -4805,7 +4874,8 @@
         "summary": "Delete group specified by id",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.delete"
       },
       "get": {
         "consumes": [],
@@ -4844,7 +4914,8 @@
         "summary": "Get a group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.get"
       },
       "post": {
         "consumes": [
@@ -4898,7 +4969,8 @@
         "summary": "Update a group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.post"
       }
     },
     "/groups/{id}/aggregated": {
@@ -4981,7 +5053,8 @@
         "summary": "Retrieve statistics about this group for a timeframe",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.aggregated.get"
       }
     },
     "/groups/{id}/aggregated/list": {
@@ -5068,7 +5141,8 @@
         "summary": "Retrieve statistics about this group for a timeframe grouped by some temporal entity (day/week/month)",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.aggregated.list.get"
       }
     },
     "/groups/{id}/aggregated/summary": {
@@ -5223,7 +5297,8 @@
         "summary": "Retrieve statistics about a subset of datapoints for a timeframe with datapoints data",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.aggregated.summary.get"
       }
     },
     "/groups/{id}/datapoints": {
@@ -5359,7 +5434,8 @@
         "summary": "List of all the datapoints associated to the user in this group.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.datapoints.get"
       },
       "post": {
         "consumes": [
@@ -5413,7 +5489,8 @@
         "summary": "Create a datapoint in this group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.datapoints.post"
       }
     },
     "/groups/{id}/datapoints/count": {
@@ -5515,7 +5592,8 @@
         "summary": "Count the datapoints associated to the user in this group.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.datapoints.count.get"
       }
     },
     "/groups/{id}/favourite": {
@@ -5561,7 +5639,8 @@
         "summary": "Fast switch the \"favourite\" field of a group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.favourite.put"
       }
     },
     "/groups/{id}/hits": {
@@ -5660,7 +5739,8 @@
         "summary": "Retrieve the list of events related to this group.",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.hits.get"
       }
     },
     "/groups/{id}/notes": {
@@ -5721,7 +5801,8 @@
         "summary": "Fast patch the \"notes\" field of a group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.notes.put"
       }
     },
     "/groups/{id}/reports": {
@@ -5830,7 +5911,8 @@
         "summary": "Retrieve a top report connected to this group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.id.reports.get"
       }
     },
     "/hits": {
@@ -5921,7 +6003,8 @@
         "summary": "Retrieve the list of events related to this account.",
         "tags": [
           "Hits"
-        ]
+        ],
+        "operationId": "hits.get"
       }
     },
     "/me": {
@@ -5951,7 +6034,8 @@
         "summary": "Retrieve current account data",
         "tags": [
           "Me"
-        ]
+        ],
+        "operationId": "me.get"
       }
     },
     "/me/plan": {
@@ -5981,7 +6065,8 @@
         "summary": "Retrieve current account plan",
         "tags": [
           "Me"
-        ]
+        ],
+        "operationId": "me.plan.get"
       }
     },
     "/reports": {
@@ -6102,7 +6187,8 @@
         "summary": "Retrieve a top report",
         "tags": [
           "Reports"
-        ]
+        ],
+        "operationId": "reports.get"
       }
     },
     "/retargeting": {
@@ -6153,7 +6239,8 @@
         "summary": "List of all the retargeting scripts associated to the user",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.get"
       },
       "post": {
         "consumes": [
@@ -6201,7 +6288,8 @@
         "summary": "Creates a retargeting script",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.post"
       }
     },
     "/retargeting/count": {
@@ -6231,7 +6319,8 @@
         "summary": "Retrieve count of retargeting scripts",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.count.get"
       }
     },
     "/retargeting/{id}": {
@@ -6274,7 +6363,8 @@
         "summary": "Deletes a retargeting script (and remove associations)",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.id.delete"
       },
       "get": {
         "consumes": [],
@@ -6315,7 +6405,8 @@
         "summary": "Get a retargeting script object",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.id.get"
       },
       "post": {
         "consumes": [
@@ -6371,7 +6462,8 @@
         "summary": "Updates a retargeting script",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.id.post"
       }
     },
     "/retargeting/{id}/datapoints": {
@@ -6496,7 +6588,8 @@
         "summary": "List of all the datapoints associated to the retargeting script.",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.id.datapoints.get"
       }
     },
     "/retargeting/{id}/datapoints/count": {
@@ -6587,7 +6680,8 @@
         "summary": "Count the datapoints associated to the retargeting script.",
         "tags": [
           "Retargeting"
-        ]
+        ],
+        "operationId": "retargeting.id.datapoints.count.get"
       }
     },
     "/tags": {
@@ -6672,7 +6766,8 @@
         "summary": "List of all the groups associated to the user filtered by this tag.",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.get"
       },
       "post": {
         "consumes": [
@@ -6718,7 +6813,8 @@
         "summary": "Create a tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.post"
       }
     },
     "/tags/count": {
@@ -6785,7 +6881,8 @@
         "summary": "List of all the groups associated to the user filtered by this tag.",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.count.get"
       }
     },
     "/tags/{tagId}": {
@@ -6823,7 +6920,8 @@
         "summary": "Delete a tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.delete"
       },
       "get": {
         "consumes": [],
@@ -6859,7 +6957,8 @@
         "summary": "Retrieve a tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.get"
       }
     },
     "/tags/{tagId}/datapoints": {
@@ -6899,7 +6998,8 @@
         "summary": "Delete the association of this tag with all datapoints",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.datapoints.delete"
       },
       "get": {
         "consumes": [],
@@ -7001,7 +7101,8 @@
         "summary": "List of all the datapoints associated to the user filtered by this tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.datapoints.get"
       }
     },
     "/tags/{tagId}/datapoints/count": {
@@ -7089,7 +7190,8 @@
         "summary": "Count the datapoints associated to the user filtered by this tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.datapoints.count.get"
       }
     },
     "/tags/{tagId}/datapoints/patch": {
@@ -7147,7 +7249,8 @@
         "summary": "Associate/Deassociate a tag with a datapoint",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.datapoints.patch.put"
       }
     },
     "/tags/{tagId}/groups": {
@@ -7187,7 +7290,8 @@
         "summary": "Delete the association of this tag with all groups",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.groups.delete"
       },
       "get": {
         "consumes": [],
@@ -7276,7 +7380,8 @@
         "summary": "List of all the groups associated to the user filtered by this tag.",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.groups.get"
       }
     },
     "/tags/{tagId}/groups/count": {
@@ -7351,7 +7456,8 @@
         "summary": "Count the groups associated to the user filtered by this tag",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.groups.count.get"
       }
     },
     "/tags/{tagId}/groups/patch": {
@@ -7409,7 +7515,8 @@
         "summary": "Associate/Deassociate a tag with a group",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.groups.patch.put"
       }
     },
     "/tags/{tagId}/name": {
@@ -7464,7 +7571,8 @@
         "summary": "Fast patch a tag name",
         "tags": [
           "Tags"
-        ]
+        ],
+        "operationId": "tags.tagId.name.put"
       }
     }
   },

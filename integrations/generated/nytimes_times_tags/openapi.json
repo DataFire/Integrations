@@ -100,7 +100,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "timestags.json.get"
       }
     }
   }

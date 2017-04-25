@@ -408,7 +408,8 @@
         "summary": "Retrieve a list of ThreeDSecure entries",
         "tags": [
           "3D Secure"
-        ]
+        ],
+        "operationId": "3dsecure.get"
       },
       "post": {
         "description": "Create a ThreeDSecure entry\n",
@@ -454,7 +455,8 @@
         "summary": "Create a ThreeDSecure entry",
         "tags": [
           "3D Secure"
-        ]
+        ],
+        "operationId": "3dsecure.post"
       }
     },
     "/3dsecure/{id}": {
@@ -491,7 +493,8 @@
         "summary": "Retrieve a ThreeDSecure entry",
         "tags": [
           "3D Secure"
-        ]
+        ],
+        "operationId": "3dsecure.id.get"
       },
       "parameters": [
         {
@@ -550,7 +553,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->users()->activate('token');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "activation.token.post"
       }
     },
     "/api-keys": {
@@ -613,7 +617,8 @@
             "lang": "PHP",
             "source": "$apiKeys = $client->apiKeys()->search([\n    'filter' => 'description:Test',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "api_keys.get"
       },
       "post": {
         "description": "Create an api key\n",
@@ -668,7 +673,8 @@
             "lang": "PHP",
             "source": "$apiKeyForm = new Rebilly\\Entities\\ApiKey();\n$apiKeyForm->setDescription('Test');\n$apiKeyForm->setDatetimeFormat($apiKeyForm::DATETIME_FORMAT_MYSQL);\n\ntry {\n    $apiKey = $client->apiKeys()->create($apiKeyForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "api_keys.post"
       }
     },
     "/api-keys/{id}": {
@@ -712,7 +718,8 @@
             "lang": "PHP",
             "source": "$client->apiKeys()->delete('apiKeyID');\n"
           }
-        ]
+        ],
+        "operationId": "api_keys.id.delete"
       },
       "get": {
         "description": "Retrieve api key with specified identifier string\n",
@@ -753,7 +760,8 @@
             "lang": "PHP",
             "source": "$apiKeys = $client->apiKeys()->load('apiKeyID');\n"
           }
-        ]
+        ],
+        "operationId": "api_keys.id.get"
       },
       "parameters": [
         {
@@ -834,7 +842,8 @@
             "lang": "PHP",
             "source": "$apiKeyForm = new Rebilly\\Entities\\ApiKey();\n$apiKeyForm->setDescription('TestPut');\n$apiKeyForm->setDatetimeFormat($apiKeyForm::DATETIME_FORMAT_MYSQL);\n\ntry {\n    $apiKey = $client->apiKeys()->update('apiKeyID', $apiKeyForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "api_keys.id.put"
       }
     },
     "/attachments": {
@@ -935,7 +944,8 @@
             "lang": "PHP",
             "source": "$attachments = $client->attachments()->search([\n    'filter' => 'relatedType:customer',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "attachments.get"
       },
       "post": {
         "description": "Create an Attachment\n",
@@ -987,7 +997,8 @@
             "lang": "PHP",
             "source": "$attachmentForm = new Rebilly\\Entities\\Attachment();\n$attachmentForm->setFileId('fileId');\n$attachmentForm->setRelatedType($attachmentForm::TYPE_CUSTOMER);\n$attachmentForm->setRelatedId('customerId');\n\ntry {\n    $attachment = $client->attachments()->create($attachmentForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "attachments.post"
       }
     },
     "/attachments/{id}": {
@@ -1027,7 +1038,8 @@
             "lang": "PHP",
             "source": "$client->attachments()->delete('attachmentId');\n"
           }
-        ]
+        ],
+        "operationId": "attachments.id.delete"
       },
       "get": {
         "description": "Retrieve a Attachment with specified identifier string\n",
@@ -1068,7 +1080,8 @@
             "lang": "PHP",
             "source": "$attachment = $client->attachments()->load('attachmentId');\n"
           }
-        ]
+        ],
+        "operationId": "attachments.id.get"
       },
       "parameters": [
         {
@@ -1151,7 +1164,8 @@
             "lang": "PHP",
             "source": "$attachmentForm = new Rebilly\\Entities\\Attachment();\n$attachmentForm->setFileId('fileId');\n$attachmentForm->setRelatedType($attachmentForm::TYPE_CUSTOMER);\n$attachmentForm->setRelatedId('customerId');\n\ntry {\n    $attachment = $client->attachments()->update('attachmentId', $attachmentForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "attachments.id.put"
       }
     },
     "/authentication-options": {
@@ -1194,7 +1208,8 @@
             "lang": "PHP",
             "source": "$authenticationOptions = $client->authenticationOptions()->load();\n"
           }
-        ]
+        ],
+        "operationId": "authentication_options.get"
       },
       "put": {
         "description": "Change options\n",
@@ -1249,7 +1264,8 @@
             "lang": "PHP",
             "source": "$authenticationOptionsForm = new Rebilly\\Entities\\AuthenticationOptions();\n// Regular expression below matches any password with 6+ length that contains alphabet symbols and/or numbers.\n$authenticationOptionsForm->setPasswordPattern('/^[a-zA-Z0-9]{6,}$/');\n\ntry {\n    $authenticationOptions = $client->authenticationOptions()->update($authenticationOptionsForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "authentication_options.put"
       }
     },
     "/authentication-tokens": {
@@ -1312,7 +1328,8 @@
             "lang": "PHP",
             "source": "$authenticationTokens = $client->authenticationTokens()->search([\n    'filter' => 'customerId:testCustomer',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "authentication_tokens.get"
       },
       "post": {
         "description": "Login a user (customer)\n",
@@ -1367,7 +1384,8 @@
             "lang": "PHP",
             "source": "$authenticationForm = new Rebilly\\Entities\\AuthenticationToken();\n$authenticationForm->setUsername('username');\n$authenticationForm->setPassword('test123');\n\ntry {\n    $authenticationToken = $client->authenticationTokens()->login($authenticationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "authentication_tokens.post"
       }
     },
     "/authentication-tokens/{token}": {
@@ -1407,7 +1425,8 @@
             "lang": "PHP",
             "source": "$client->authenticationTokens()->logout('token');\n"
           }
-        ]
+        ],
+        "operationId": "authentication_tokens.token.delete"
       },
       "get": {
         "description": "Verify an authentication token\n",
@@ -1448,7 +1467,8 @@
             "lang": "PHP",
             "source": "$isVerified = $client->authenticationTokens()->verify('token');\n"
           }
-        ]
+        ],
+        "operationId": "authentication_tokens.token.get"
       },
       "parameters": [
         {
@@ -1520,7 +1540,8 @@
             "lang": "PHP",
             "source": "$bankAccounts = $client->bankAccounts()->search([\n    'filter' => 'customerId:testId',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "bank_accounts.get"
       },
       "post": {
         "description": "Create a Bank Account\n",
@@ -1575,7 +1596,8 @@
             "lang": "PHP",
             "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setContactId('contactId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n\ntry {\n    $bankAccount = $client->bankAccounts()->create($bankAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "bank_accounts.post"
       }
     },
     "/bank-accounts/{id}": {
@@ -1618,7 +1640,8 @@
             "lang": "PHP",
             "source": "$bankAccount = $client->bankAccounts()->load('bankAccountId');\n"
           }
-        ]
+        ],
+        "operationId": "bank_accounts.id.get"
       },
       "parameters": [
         {
@@ -1701,7 +1724,8 @@
             "lang": "PHP",
             "source": "$bankAccountForm = new Rebilly\\Entities\\BankAccount();\n$bankAccountForm->setCustomerId('customerId');\n$bankAccountForm->setContactId('contactId');\n$bankAccountForm->setRoutingNumber('0123456');\n$bankAccountForm->setAccountNumber('0123456');\n$bankAccountForm->setAccountType('checking');\n\ntry {\n    $bankAccount = $client->customers()->update('bankAccountId', $bankAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "bank_accounts.id.put"
       }
     },
     "/bank-accounts/{id}/deactivation": {
@@ -1752,7 +1776,8 @@
             "lang": "PHP",
             "source": "$bankAccount = $client->bankAccounts()->deactivate('bankAccountId');\n"
           }
-        ]
+        ],
+        "operationId": "bank_accounts.id.deactivation.post"
       }
     },
     "/blacklists": {
@@ -1815,7 +1840,8 @@
             "lang": "PHP",
             "source": "$blacklists = $client->blacklists()->search([\n    'filter' => 'value:testValue',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "blacklists.get"
       },
       "post": {
         "description": "Create a blacklist\n",
@@ -1867,7 +1893,8 @@
             "lang": "PHP",
             "source": "$blacklistForm = new Rebilly\\Entities\\Blacklist();\n$blacklistForm->setType($blacklistForm::TYPE_EMAIL);\n$blacklistForm->setValue('test@test.com');\n$blacklistForm->setExpiredTime('2025-01-01 05:00:00');\n\ntry {\n    $blacklist = $client->blacklists()->create($blacklistForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "blacklists.post"
       }
     },
     "/blacklists/{id}": {
@@ -1907,7 +1934,8 @@
             "lang": "PHP",
             "source": "$client->blacklists()->delete('blacklistId');\n"
           }
-        ]
+        ],
+        "operationId": "blacklists.id.delete"
       },
       "get": {
         "description": "Retrieve a blacklist with specified identifier string\n",
@@ -1948,7 +1976,8 @@
             "lang": "PHP",
             "source": "$blacklist = $client->blacklists()->load('blacklistId');\n"
           }
-        ]
+        ],
+        "operationId": "blacklists.id.get"
       },
       "parameters": [
         {
@@ -2011,7 +2040,8 @@
             "lang": "PHP",
             "source": "$blacklistForm = new Rebilly\\Entities\\Blacklist();\n$blacklistForm->setType($blacklistForm::TYPE_EMAIL);\n$blacklistForm->setValue('test@test.com');\n$blacklistForm->setExpiredTime('2025-01-01 05:00:00');\n\ntry {\n    $blacklist = $client->blacklists()->update('blacklistId', $blacklistForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "blacklists.id.put"
       }
     },
     "/checkout-pages": {
@@ -2074,7 +2104,8 @@
             "lang": "PHP",
             "source": "$checkoutPages = $client->checkoutPages()->search([\n    'filter' => 'name:testCheckoutPage',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "checkout_pages.get"
       },
       "post": {
         "description": "Create a Checkout Page\n",
@@ -2129,7 +2160,8 @@
             "lang": "PHP",
             "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUriPath('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->create($checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "checkout_pages.post"
       }
     },
     "/checkout-pages/{id}": {
@@ -2172,7 +2204,8 @@
             "lang": "PHP",
             "source": "$client->checkoutPages()->delete('checkoutPageId');\n"
           }
-        ]
+        ],
+        "operationId": "checkout_pages.id.delete"
       },
       "get": {
         "description": "Retrieve a Checkout Page with specified identifier string\n",
@@ -2199,7 +2232,8 @@
             "lang": "PHP",
             "source": "$checkoutPage = $client->checkoutPages()->load('checkoutPageId');\n"
           }
-        ]
+        ],
+        "operationId": "checkout_pages.id.get"
       },
       "parameters": [
         {
@@ -2282,7 +2316,8 @@
             "lang": "PHP",
             "source": "$checkoutPageForm = new Rebilly\\Entities\\CheckoutPage();\n$checkoutPageForm->setPlanId('planId');\n$checkoutPageForm->setWebsiteId('websiteId');\n$checkoutPageForm->setName('TestCheckoutPage');\n$checkoutPageForm->setUriPath('test-checkout-page');\n\ntry {\n    $checkoutPage = $client->checkoutPages()->update('checkoutPageId', $checkoutPageForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "checkout_pages.id.put"
       }
     },
     "/contacts": {
@@ -2345,7 +2380,8 @@
             "lang": "PHP",
             "source": "$contacts = $client->contacts()->search([\n    'filter' => 'firstName:John',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "contacts.get"
       },
       "post": {
         "description": "Create a contact\n",
@@ -2397,7 +2433,8 @@
             "lang": "PHP",
             "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n\ntry {\n    $contact = $client->contacts()->create($contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "contacts.post"
       }
     },
     "/contacts/{id}": {
@@ -2440,7 +2477,8 @@
             "lang": "PHP",
             "source": "$contact = $client->contacts()->load('contactId');\n"
           }
-        ]
+        ],
+        "operationId": "contacts.id.get"
       },
       "parameters": [
         {
@@ -2503,7 +2541,8 @@
             "lang": "PHP",
             "source": "$contactForm = new Rebilly\\Entities\\Contact();\n$contactForm->setFirstName('Sherlock');\n$contactForm->setLastName('Holmes');\n$contactForm->setOrganization('TestOrganization');\n\ntry {\n    $contact = $client->contacts()->update('contactId', $contactForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "contacts.id.put"
       }
     },
     "/coupons": {
@@ -2578,7 +2617,8 @@
             "lang": "PHP",
             "source": "$coupons = $client->coupons()->search([\n    'filter' => 'status:issued',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "coupons.get"
       },
       "post": {
         "description": "Create a coupon\n",
@@ -2633,7 +2673,8 @@
             "lang": "PHP",
             "source": "$couponForm = new Rebilly\\Entities\\Coupons\\Coupon();\n\n$discountArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Discount::TYPE_FIXED,\n    'currency' => 'USD',\n    'amount' => 1.99,\n];\n\n$discountForm = new Rebilly\\Entities\\Coupons\\Discount($discountArray);\n$couponForm->setDiscount($discountForm);\n\n$restrictionArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Restriction::TYPE_DISCOUNTS_PER_REDEMPTION,\n    'quantity' => 2,\n];\n\n$restrictionForm = new Rebilly\\Entities\\Coupons\\Restriction([\n    $restrictionArray,\n]);\n\n$couponForm->setRestrictions($restrictionForm);\n\ntry {\n    $coupon = $client->coupons()->create($couponForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "coupons.post"
       }
     },
     "/coupons-redemptions": {
@@ -2707,7 +2748,8 @@
             "lang": "PHP",
             "source": "$couponRedemptions = $client->couponsRedemptions()->search([\n    'filter' => 'customerId:testCustomer',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "coupons_redemptions.get"
       },
       "post": {
         "description": "Redeem a coupon\n",
@@ -2762,7 +2804,8 @@
             "lang": "PHP",
             "source": "$redemptionForm = new Rebilly\\Entities\\Coupons\\Redemption();\n$redemptionForm->setCustomerId('customerId');\n$redemptionForm->setRedemptionCode('redemptionCode');\n\n$restrictionArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Restriction::TYPE_DISCOUNTS_PER_REDEMPTION,\n    'quantity' => 2,\n];\n\n$restrictionForm = new Rebilly\\Entities\\Coupons\\Restriction([\n    $restrictionArray,\n]);\n\n$redemptionForm->setAdditionalRestrictions($restrictionForm);\n\ntry {\n    $couponRedemption = $client->couponsRedemptions()->redeem($redemptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "coupons_redemptions.post"
       }
     },
     "/coupons-redemptions/{id}": {
@@ -2790,7 +2833,8 @@
             "lang": "PHP",
             "source": "$couponRedemption = $client->couponsRedemptions()->load('redemptionCode');\n"
           }
-        ]
+        ],
+        "operationId": "coupons_redemptions.id.get"
       },
       "parameters": [
         {
@@ -2825,7 +2869,8 @@
             "lang": "PHP",
             "source": "$client->couponsRedemptions()->cancel('id');\n"
           }
-        ]
+        ],
+        "operationId": "coupons_redemptions.id.cancel.post"
       }
     },
     "/coupons/{redemptionCode}": {
@@ -2868,7 +2913,8 @@
             "lang": "PHP",
             "source": "$coupon = $client->coupons()->load('redemptionCode');\n"
           }
-        ]
+        ],
+        "operationId": "coupons.redemptionCode.get"
       },
       "parameters": [
         {
@@ -2958,7 +3004,8 @@
             "lang": "PHP",
             "source": "$couponForm = new Rebilly\\Entities\\Coupons\\Coupon();\n\n$discountArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Discount::TYPE_FIXED,\n    'currency' => 'USD',\n    'amount' => 1.99,\n];\n\n$discountForm = new Rebilly\\Entities\\Coupons\\Discount($discountArray);\n$couponForm->setDiscount($discountForm);\n\n$restrictionArray = [\n    'type' => Rebilly\\Entities\\Coupons\\Restriction::TYPE_DISCOUNTS_PER_REDEMPTION,\n    'quantity' => 2,\n];\n\n$restrictionForm = new Rebilly\\Entities\\Coupons\\Restriction([\n    $restrictionArray,\n]);\n\n$couponForm->setRestrictions($restrictionForm);\n\ntry {\n    $coupon = $client->coupons()->create($couponForm, 'redemptionCode');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "coupons.redemptionCode.put"
       }
     },
     "/credential-hashes/emails": {
@@ -3009,7 +3056,8 @@
         "summary": "Create an email credential",
         "tags": [
           "Credential Hashes"
-        ]
+        ],
+        "operationId": "credential_hashes.emails.post"
       }
     },
     "/credential-hashes/emails/{hash}": {
@@ -3046,7 +3094,8 @@
         "summary": "Retrieve an email credential",
         "tags": [
           "Credential Hashes"
-        ]
+        ],
+        "operationId": "credential_hashes.emails.hash.get"
       },
       "parameters": [
         {
@@ -3102,7 +3151,8 @@
         "summary": "Create a webhook credential",
         "tags": [
           "Credential Hashes"
-        ]
+        ],
+        "operationId": "credential_hashes.webhooks.post"
       }
     },
     "/credential-hashes/webhooks/{hash}": {
@@ -3139,7 +3189,8 @@
         "summary": "Retrieve a webhook credential",
         "tags": [
           "Credential Hashes"
-        ]
+        ],
+        "operationId": "credential_hashes.webhooks.hash.get"
       },
       "parameters": [
         {
@@ -3207,7 +3258,8 @@
             "lang": "PHP",
             "source": "$customerCredentials = $client->customerCredentials()->search([\n    'filter' => 'customerId:testCustomer',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "credentials.get"
       },
       "post": {
         "description": "Create a credential\n",
@@ -3262,7 +3314,8 @@
             "lang": "PHP",
             "source": "$customerCredentialForm = new Rebilly\\Entities\\CustomerCredential();\n$customerCredentialForm->setCustomerId('customerId');\n$customerCredentialForm->setUsername('test');\n$customerCredentialForm->setPassword('1234');\n\ntry {\n    $customerCredential = $client->customerCredentials()->create($customerCredentialForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "credentials.post"
       }
     },
     "/credentials/{id}": {
@@ -3302,7 +3355,8 @@
             "lang": "PHP",
             "source": "$client->customerCredentials()->delete('credentialId');\n"
           }
-        ]
+        ],
+        "operationId": "credentials.id.delete"
       },
       "get": {
         "description": "Retrieve a credential with specified identifier string\n",
@@ -3343,7 +3397,8 @@
             "lang": "PHP",
             "source": "$customerCredential = $client->customerCredentials()->load('credentialId');\n"
           }
-        ]
+        ],
+        "operationId": "credentials.id.get"
       },
       "parameters": [
         {
@@ -3426,7 +3481,8 @@
             "lang": "PHP",
             "source": "$customerCredentialForm = new Rebilly\\Entities\\CustomerCredential();\n$customerCredentialForm->setCustomerId('customerId');\n$customerCredentialForm->setUsername('test');\n$customerCredentialForm->setPassword('1234');\n\ntry {\n    $customerCredential = $client->customerCredentials()->update('credentialId', $customerCredentialForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "credentials.id.put"
       }
     },
     "/custom-events": {
@@ -3483,7 +3539,8 @@
         "summary": "Retrieve a list of custom events",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "custom_events.get"
       },
       "post": {
         "description": "Create a custom event\n",
@@ -3529,7 +3586,8 @@
         "summary": "Create a custom event",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "custom_events.post"
       }
     },
     "/custom-events/{id}": {
@@ -3567,7 +3625,8 @@
         "summary": "Delete a custom event",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "custom_events.id.delete"
       },
       "get": {
         "description": "Retrieve a custom event with predefined identifier string\n",
@@ -3602,7 +3661,8 @@
         "summary": "Retrieve a custom event",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "custom_events.id.get"
       },
       "parameters": [
         {
@@ -3657,7 +3717,8 @@
         "summary": "Create a custom event with predefined ID",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "custom_events.id.put"
       }
     },
     "/custom-events/{id}/rules": {
@@ -3694,7 +3755,8 @@
         "tags": [
           "Custom Events",
           "Rules"
-        ]
+        ],
+        "operationId": "custom_events.id.rules.get"
       },
       "parameters": [
         {
@@ -3751,7 +3813,8 @@
         "tags": [
           "Custom Events",
           "Rules"
-        ]
+        ],
+        "operationId": "custom_events.id.rules.put"
       }
     },
     "/custom-events/{id}/rules/history": {
@@ -3827,7 +3890,8 @@
         "tags": [
           "Custom Events",
           "Rules"
-        ]
+        ],
+        "operationId": "custom_events.id.rules.history.get"
       },
       "parameters": [
         {
@@ -3878,7 +3942,8 @@
         "tags": [
           "Custom Events",
           "Rules"
-        ]
+        ],
+        "operationId": "custom_events.id.rules.history.version.get"
       },
       "parameters": [
         {
@@ -3932,7 +3997,8 @@
         "tags": [
           "Custom Events",
           "Rules"
-        ]
+        ],
+        "operationId": "custom_events.id.rules.versions.version.get"
       },
       "parameters": [
         {
@@ -3984,7 +4050,8 @@
             "lang": "PHP",
             "source": "$customFields = $client->customFields()->search([\n    'filter' => 'type:boolean',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "custom_fields.resource.get"
       },
       "parameters": [
         {
@@ -4048,7 +4115,8 @@
             "lang": "PHP",
             "source": "$client->customFields()->delete('customers', 'testFieldName');\n"
           }
-        ]
+        ],
+        "operationId": "custom_fields.resource.name.delete"
       },
       "get": {
         "description": "Retrieve a schema of the given Custom Field for the given resource type\n",
@@ -4089,7 +4157,8 @@
             "lang": "PHP",
             "source": "$customField = $client->customFields()->load('customers', 'customerId');\n"
           }
-        ]
+        ],
+        "operationId": "custom_fields.resource.name.get"
       },
       "parameters": [
         {
@@ -4195,7 +4264,8 @@
             "lang": "PHP",
             "source": "$customFieldForm = new Rebilly\\Entities\\CustomField();\n$customFieldForm->setType($customFieldForm::TYPE_BOOLEAN);\n\ntry {\n    $customField = $client->customFields()->update('customers', 'testFieldName', $customFieldForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "custom_fields.resource.name.put"
       }
     },
     "/customers": {
@@ -4305,7 +4375,8 @@
             "lang": "PHP",
             "source": "$customers = $client->customers()->search([\n    'filter' => 'firstName:John',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "customers.get"
       },
       "post": {
         "description": "Create a customer\n",
@@ -4357,7 +4428,8 @@
             "lang": "PHP",
             "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setFirstName('Sherlock');\n$customerForm->setLastName('Holmes');\n$customerForm->setEmail('sherlock.holmes@gmail.com');\n\ntry {\n    $customer = $client->customers()->create($customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "customers.post"
       }
     },
     "/customers/{id}": {
@@ -4400,7 +4472,8 @@
             "lang": "PHP",
             "source": "$customers = $client->customers()->load('myCustomerId');\n"
           }
-        ]
+        ],
+        "operationId": "customers.id.get"
       },
       "parameters": [
         {
@@ -4477,7 +4550,8 @@
             "lang": "PHP",
             "source": "$customerForm = new Rebilly\\Entities\\Customer();\n$customerForm->setFirstName('Sherlock');\n$customerForm->setLastName('Holmes');\n$customerForm->setEmail('sherlock.holmes@gmail.com');\n\ntry {\n    $customer = $client->customers()->update('myCustomerId', $customerForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "customers.id.put"
       }
     },
     "/customers/{id}/lead-source": {
@@ -4520,7 +4594,8 @@
             "lang": "PHP",
             "source": "$customer = $client->customers()->deleteLeadSource('myCustomerId');\n"
           }
-        ]
+        ],
+        "operationId": "customers.id.lead_source.delete"
       },
       "get": {
         "description": "Retrieve a Lead Source of given customer\n",
@@ -4561,7 +4636,8 @@
             "lang": "PHP",
             "source": "$customer = $client->customers()->load('myCustomerId');\n$leadSource = $customer->getLeadSource();\n"
           }
-        ]
+        ],
+        "operationId": "customers.id.lead_source.get"
       },
       "parameters": [
         {
@@ -4641,7 +4717,8 @@
             "lang": "PHP",
             "source": "$leadSourceForm = new Rebilly\\Entities\\LeadSource();\n$leadSourceForm->setSource('TestSource');\n$leadSourceForm->setCampaign('TestCampaign');\n\ntry {\n    $customer = $client->customers()->updateLeadSource('myCustomerId', $leadSourceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "customers.id.lead_source.put"
       }
     },
     "/disputes": {
@@ -4704,7 +4781,8 @@
             "lang": "PHP",
             "source": "$disputes = $client->disputes()->search([\n    'filter' => 'transactionId:testId',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "disputes.get"
       },
       "post": {
         "description": "Create a dispute\n",
@@ -4759,7 +4837,8 @@
             "lang": "PHP",
             "source": "$disputeForm = new Rebilly\\Entities\\Dispute();\n$disputeForm->setTransactionId('transactionId');\n$disputeForm->setCurrency('USD');\n$disputeForm->setAmount(10);\n$disputeForm->setReasonCode(1000);\n$disputeForm->setType($disputeForm::TYPE_1CB);\n$disputeForm->setStatus($disputeForm::STATUS_RESPONSE_NEEDED);\n$disputeForm->setPostedTime('2025-01-01 05:00:00');\n\ntry {\n    $dispute = $client->disputes()->create($disputeForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "disputes.post"
       }
     },
     "/disputes/{id}": {
@@ -4802,7 +4881,8 @@
             "lang": "PHP",
             "source": "$dispute = $client->disputes()->load('disputeId');\n"
           }
-        ]
+        ],
+        "operationId": "disputes.id.get"
       },
       "parameters": [
         {
@@ -4882,7 +4962,8 @@
             "lang": "PHP",
             "source": "$disputeForm = new Rebilly\\Entities\\Dispute();\n$disputeForm->setTransactionId('transactionId');\n$disputeForm->setCurrency('USD');\n$disputeForm->setAmount(10);\n$disputeForm->setReasonCode(1000);\n$disputeForm->setType($disputeForm::TYPE_1CB);\n$disputeForm->setStatus($disputeForm::STATUS_RESPONSE_NEEDED);\n$disputeForm->setPostedTime('2025-01-01 05:00:00');\n\ntry {\n    $dispute = $client->disputes()->update('disputeId', $dispute);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "disputes.id.put"
       }
     },
     "/events": {
@@ -4931,7 +5012,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.get"
       }
     },
     "/events/{eventType}": {
@@ -4968,7 +5050,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.get"
       },
       "parameters": [
         {
@@ -5010,7 +5093,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.rules.get"
       },
       "parameters": [
         {
@@ -5067,7 +5151,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.rules.put"
       }
     },
     "/events/{eventType}/rules/history": {
@@ -5143,7 +5228,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.rules.history.get"
       },
       "parameters": [
         {
@@ -5194,7 +5280,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.rules.history.version.get"
       },
       "parameters": [
         {
@@ -5248,7 +5335,8 @@
         "tags": [
           "Events",
           "Rules"
-        ]
+        ],
+        "operationId": "events.eventType.rules.versions.version.get"
       },
       "parameters": [
         {
@@ -5359,7 +5447,8 @@
             "lang": "PHP",
             "source": "$files = $client->files()->search([\n    'filter' => 'name:TestFile',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "files.get"
       },
       "post": {
         "description": "Create a file\n",
@@ -5417,7 +5506,8 @@
             "lang": "PHP",
             "source": "$fileForm = new Rebilly\\Entities\\File();\n$fileForm->setUrl('http://test.com/somefile.jpg');\n\ntry {\n    $file = $client->files()->create($fileForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "files.post"
       }
     },
     "/files/{id}": {
@@ -5457,7 +5547,8 @@
             "lang": "PHP",
             "source": "$client->files()->delete('fileId');\n"
           }
-        ]
+        ],
+        "operationId": "files.id.delete"
       },
       "get": {
         "description": "Retrieve a File with specified identifier string\n",
@@ -5498,7 +5589,8 @@
             "lang": "PHP",
             "source": "$file = $client->files()->load('fileId');\n"
           }
-        ]
+        ],
+        "operationId": "files.id.get"
       },
       "parameters": [
         {
@@ -5561,7 +5653,8 @@
             "lang": "PHP",
             "source": "$fileForm = new Rebilly\\Entities\\File();\n$fileForm->setDescription('This is a test file');\n\ntry {\n    $file = $client->files()->update('fileId', $fileForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "files.id.put"
       }
     },
     "/files/{id}/download": {
@@ -5595,7 +5688,8 @@
         "summary": "Retrieve a file",
         "tags": [
           "Files"
-        ]
+        ],
+        "operationId": "files.id.download.get"
       },
       "parameters": [
         {
@@ -5637,7 +5731,8 @@
         "summary": "Used for converting images server-side",
         "tags": [
           "Files"
-        ]
+        ],
+        "operationId": "files.id.downloadextension.get"
       },
       "parameters": [
         {
@@ -5704,7 +5799,8 @@
             "lang": "PHP",
             "source": "$forgotPasswordForm = new Rebilly\\Entities\\Email();\n$forgotPasswordForm->setEmail('johndoe@test.com');\n\ntry {\n    $client->users()->forgotPassword($forgotPasswordForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "forgot_password.post"
       }
     },
     "/gateway-accounts": {
@@ -5767,7 +5863,8 @@
             "lang": "PHP",
             "source": "$gatewayAccounts = $client->$gatewayAccounts()->search([\n    'filter' => 'currency:USD',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "gateway_accounts.get"
       },
       "post": {
         "description": "Create a Gateway Account\n",
@@ -5822,7 +5919,8 @@
             "lang": "PHP",
             "source": "$gatewayAccountForm = new Rebilly\\Entities\\GatewayAccount();\n\n$gatewayAccountForm->setGatewayName('A1Gateway');\n$gatewayAccountForm->setAcquirerName('Bank of Rebilly');\n$gatewayAccountForm->setOrganizationId('organizationId');\n$gatewayAccountForm->setMerchantCategoryCode(5734);\n$gatewayAccountForm->setWebsites([\n    'websiteId1',\n    'websiteId2',\n]);\n$gatewayAccountForm->setPaymentCardSchemes([\n    Rebilly\\Entities\\PaymentCardScheme::SCHEME_VISA,\n    Rebilly\\Entities\\PaymentCardScheme::SCHEME_MASTERCARD,\n]);\n$gatewayAccountForm->setMethod(Rebilly\\Entities\\PaymentMethod::METHOD_CASH);\n\n$gatewayConfig = [\n    'accountId' => 'test',\n    'password' => '123',\n];\n\n$gatewayAccountForm->setGatewayConfig($gatewayConfig);\n\ntry {\n    $gatewayAccount = $client->gatewayAccounts()->create($gatewayAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "gateway_accounts.post"
       }
     },
     "/gateway-accounts/{id}": {
@@ -5865,7 +5963,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->gatewayAccounts()->delete('gatewayAccountId');\n} catch (ServerException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "gateway_accounts.id.delete"
       },
       "get": {
         "description": "Retrieve a Gateway Account with specified identifier string\n",
@@ -5906,7 +6005,8 @@
             "lang": "PHP",
             "source": "$gatewayAccount = $client->gatewayAccounts()->load('gatewayAccountId');\n"
           }
-        ]
+        ],
+        "operationId": "gateway_accounts.id.get"
       },
       "parameters": [
         {
@@ -5963,7 +6063,8 @@
         "summary": "Update a Gateway Account with predefined ID",
         "tags": [
           "Gateway Accounts"
-        ]
+        ],
+        "operationId": "gateway_accounts.id.patch"
       },
       "put": {
         "description": "Create or update a GatewayAccount with predefined identifier string\n",
@@ -6041,7 +6142,8 @@
             "lang": "PHP",
             "source": "$gatewayAccountForm = new Rebilly\\Entities\\GatewayAccount();\n\n$gatewayAccountForm->setGatewayName('A1Gateway');\n$gatewayAccountForm->setAcquirerName('Bank of Rebilly');\n$gatewayAccountForm->setOrganizationId('organizationId');\n$gatewayAccountForm->setMerchantCategoryCode(5734);\n$gatewayAccountForm->setWebsites([\n    'websiteId1',\n    'websiteId2',\n]);\n$gatewayAccountForm->setPaymentCardSchemes([\n    Rebilly\\Entities\\PaymentCardScheme::SCHEME_VISA,\n    Rebilly\\Entities\\PaymentCardScheme::SCHEME_MASTERCARD,\n]);\n$gatewayAccountForm->setMethod(Rebilly\\Entities\\PaymentMethod::METHOD_CASH);\n\n$gatewayConfig = [\n    'accountId' => 'test',\n    'password' => '123',\n];\n\n$gatewayAccountForm->setGatewayConfig($gatewayConfig);\n\ntry {\n    $gatewayAccount = $client->gatewayAccounts()->update('gatewayAccountId', $gatewayAccountForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "gateway_accounts.id.put"
       }
     },
     "/invoices": {
@@ -6119,7 +6221,8 @@
             "lang": "PHP",
             "source": "$invoices = $client->invoices()->search([\n    'filter' => 'customerId:testCustomerId',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "invoices.get"
       },
       "post": {
         "description": "Create an invoice\n",
@@ -6174,7 +6277,8 @@
             "lang": "PHP",
             "source": "$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n\ntry {\n    $invoice = $client->invoices()->create($invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "invoices.post"
       }
     },
     "/invoices/{id}": {
@@ -6234,7 +6338,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->load('invoiceId');\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.get"
       },
       "parameters": [
         {
@@ -6317,7 +6422,8 @@
             "lang": "PHP",
             "source": "$invoiceForm = new Rebilly\\Entities\\Invoice();\n$invoiceForm->setCustomerId('customerId');\n$invoiceForm->setWebsiteId('websiteId');\n$invoiceForm->setCurrency('USD');\n\ntry {\n    $invoice = $client->invoices()->update('invoiceId', $invoiceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.put"
       }
     },
     "/invoices/{id}/abandon": {
@@ -6365,7 +6471,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->abandon('invoiceId');\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.abandon.post"
       }
     },
     "/invoices/{id}/issue": {
@@ -6424,7 +6531,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->issue('invoiceId', '2025-01-01 05:00:00');\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.issue.post"
       }
     },
     "/invoices/{id}/items": {
@@ -6478,7 +6586,8 @@
             "lang": "PHP",
             "source": "$invoiceItems = $client->invoiceItems()->search('invoiceId', [\n    'filter' => 'quantity:5',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.items.get"
       },
       "parameters": [
         {
@@ -6538,7 +6647,8 @@
             "lang": "PHP",
             "source": "$invoiceItemForm = new Rebilly\\Entities\\InvoiceItem();\n$invoiceItemForm->setType($invoiceItemForm::TYPE_DEBIT);\n$invoiceItemForm->setUnitPrice(0.99);\n$invoiceItemForm->setQuantity(5);\n\ntry {\n    $invoiceItem = $client->invoiceItems()->create('invoiceId', $invoiceItemForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.items.post"
       }
     },
     "/invoices/{id}/lead-source": {
@@ -6581,7 +6691,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->deleteLeadSource('invoiceId');\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.lead_source.delete"
       },
       "get": {
         "description": "Retrieve a Lead Source of given invoice\n",
@@ -6622,7 +6733,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->load('invoiceId');\n$leadSource = $invoice->getLeadSource();\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.lead_source.get"
       },
       "parameters": [
         {
@@ -6702,7 +6814,8 @@
             "lang": "PHP",
             "source": "$leadSourceForm = new Rebilly\\Entities\\LeadSource();\n$leadSourceForm->setSource('TestSource');\n$leadSourceForm->setCampaign('TestCampaign');\n\ntry {\n    $invoice = $client->invoices()->updateLeadSource('invoiceId', $leadSourceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.lead_source.put"
       }
     },
     "/invoices/{id}/void": {
@@ -6750,7 +6863,8 @@
             "lang": "PHP",
             "source": "$invoice = $client->invoices()->void('invoiceId');\n"
           }
-        ]
+        ],
+        "operationId": "invoices.id.void.post"
       }
     },
     "/layouts": {
@@ -6813,7 +6927,8 @@
             "lang": "PHP",
             "source": "$layouts = $client->layouts()->search([\n    'filter' => 'name:TestLayout',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "layouts.get"
       },
       "post": {
         "description": "Create a layout\n",
@@ -6865,7 +6980,8 @@
             "lang": "PHP",
             "source": "$layoutForm = new Rebilly\\Entities\\Layout();\n$layoutItemForm = new Rebilly\\Entities\\LayoutItem();\n\n$layoutItemForm->setPlanId('planId');\n$layoutItemForm->setStarred(false);\n\n$layoutForm->setName('TestLayout');\n$layoutForm->setLayoutItems([\n    $layoutItemForm,\n]);\n\ntry {\n    $layout = $client->layouts()->create($layoutForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "layouts.post"
       }
     },
     "/layouts/{id}": {
@@ -6905,7 +7021,8 @@
             "lang": "PHP",
             "source": "$client->layouts()->delete('layoutId');\n"
           }
-        ]
+        ],
+        "operationId": "layouts.id.delete"
       },
       "get": {
         "description": "Retrieve a layout with specified identifier string\n",
@@ -6946,7 +7063,8 @@
             "lang": "PHP",
             "source": "$layout = $client->layouts()->load('layoutId');\n"
           }
-        ]
+        ],
+        "operationId": "layouts.id.get"
       },
       "parameters": [
         {
@@ -7026,7 +7144,8 @@
             "lang": "PHP",
             "source": "$layoutForm = new Rebilly\\Entities\\Layout();\n$layoutItemForm = new Rebilly\\Entities\\LayoutItem();\n\n$layoutItemForm->setPlanId('planId');\n$layoutItemForm->setStarred(false);\n\n$layoutForm->setName('TestLayout');\n$layoutForm->setLayoutItems([\n    $layoutItemForm,\n]);\n\ntry {\n    $layout = $client->layouts()->update('layoutId', $layoutForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "layouts.id.put"
       }
     },
     "/lists": {
@@ -7092,7 +7211,8 @@
         "summary": "Retrieve a collection of Lists (latest version of each List)",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.get"
       },
       "post": {
         "description": "Create a List\n",
@@ -7141,7 +7261,8 @@
         "summary": "Create a List",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.post"
       }
     },
     "/lists/{id}": {
@@ -7178,7 +7299,8 @@
         "summary": "Delete a list",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.id.delete"
       },
       "get": {
         "description": "Retrieve latest version of List with specified identifier string\n",
@@ -7213,7 +7335,8 @@
         "summary": "Retrieve list's latest version",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.id.get"
       },
       "parameters": [
         {
@@ -7287,7 +7410,8 @@
         "summary": "Create or update a list with predefined ID",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.id.put"
       }
     },
     "/lists/{id}/{version}": {
@@ -7309,7 +7433,8 @@
         "summary": "Retrieve List's exact version",
         "tags": [
           "Lists"
-        ]
+        ],
+        "operationId": "lists.id.version.get"
       },
       "parameters": [
         {
@@ -7385,7 +7510,8 @@
             "lang": "PHP",
             "source": "$notes = $client->notes()->search([\n    'filter' => 'relatedType:customer',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "notes.get"
       },
       "post": {
         "description": "Create a note\n",
@@ -7440,7 +7566,8 @@
             "lang": "PHP",
             "source": "$noteForm = new Rebilly\\Entities\\Note();\n$noteForm->setRelatedId('customerId');\n$noteForm->setRelatedType(Rebilly\\Entities\\ResourceType::TYPE_CUSTOMER);\n$noteForm->setContent('Test Note');\n\ntry {\n    $note = $client->notes()->create($noteForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "notes.post"
       }
     },
     "/notes/{id}": {
@@ -7483,7 +7610,8 @@
             "lang": "PHP",
             "source": "$note = $client->notes()->load('noteId');\n"
           }
-        ]
+        ],
+        "operationId": "notes.id.get"
       },
       "parameters": [
         {
@@ -7566,7 +7694,8 @@
             "lang": "PHP",
             "source": "$noteForm = new Rebilly\\Entities\\Note();\n$noteForm->setRelatedId('customerId');\n$noteForm->setRelatedType(Rebilly\\Entities\\ResourceType::TYPE_CUSTOMER);\n$noteForm->setContent('Test Note');\n\ntry {\n    $note = $client->notes()->update('noteId', $noteForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "notes.id.put"
       }
     },
     "/organizations": {
@@ -7629,7 +7758,8 @@
             "lang": "PHP",
             "source": "$organizations = $client->organizations()->search([\n    'filter' => 'city:Test',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "organizations.get"
       },
       "post": {
         "description": "Create a organization\n",
@@ -7681,7 +7811,8 @@
             "lang": "PHP",
             "source": "$organizationForm = new Rebilly\\Entities\\Organization();\n$organizationForm->setName('Test Organization');\n$organizationForm->setCountry('US');\n\ntry {\n    $organization = $client->organizations()->create($organizationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "organizations.post"
       }
     },
     "/organizations/{id}": {
@@ -7721,7 +7852,8 @@
         "summary": "Delete a organization",
         "tags": [
           "Organizations"
-        ]
+        ],
+        "operationId": "organizations.id.delete"
       },
       "get": {
         "description": "Retrieve a organization with specified identifier string\n",
@@ -7762,7 +7894,8 @@
             "lang": "PHP",
             "source": "$organization = $client->organizations()->load('organizationId');\n"
           }
-        ]
+        ],
+        "operationId": "organizations.id.get"
       },
       "parameters": [
         {
@@ -7839,7 +7972,8 @@
             "lang": "PHP",
             "source": "$organizationForm = new Rebilly\\Entities\\Organization();\n$organizationForm->setName('Test Organization');\n$organizationForm->setCountry('US');\n\ntry {\n    $organization = $client->organizations()->update('organizationId', $organizationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "organizations.id.put"
       }
     },
     "/password-tokens": {
@@ -7902,7 +8036,8 @@
             "lang": "PHP",
             "source": "$resetPasswordTokens = $client->resetPasswordTokens()->search([\n    'filter' => 'token:string',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "password_tokens.get"
       },
       "post": {
         "description": "Create a Reset Password Token\n",
@@ -7957,7 +8092,8 @@
             "lang": "PHP",
             "source": "$resetPasswordTokenForm = new Rebilly\\Entities\\ResetPasswordToken();\n$resetPasswordTokenForm->setUserName('test');\n$resetPasswordTokenForm->setPassword('1234');\n\ntry {\n    $$resetPasswordToken = $client->resetPasswordTokens()->create($resetPasswordTokenForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "password_tokens.post"
       }
     },
     "/password-tokens/{id}": {
@@ -8000,7 +8136,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->websites()->delete('websiteId');\n} catch (ServerException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "password_tokens.id.delete"
       },
       "get": {
         "description": "Retrieve a Reset Password Token with specified identifier string\n",
@@ -8041,7 +8178,8 @@
             "lang": "PHP",
             "source": "$resetPasswordToken = $client->resetPasswordTokens()->load('tokenId');\n"
           }
-        ]
+        ],
+        "operationId": "password_tokens.id.get"
       },
       "parameters": [
         {
@@ -8109,7 +8247,8 @@
             "lang": "PHP",
             "source": "$paymentCards = $client->paymentCards()->search([\n    'filter' => 'status:active',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.get"
       },
       "post": {
         "description": "Create a Payment Card\n",
@@ -8164,7 +8303,8 @@
             "lang": "PHP",
             "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingContactId('contactId');\n\ntry {\n    $paymentCard = $client->paymentCards()->create($paymentCardForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.post"
       }
     },
     "/payment-cards-migrations": {
@@ -8227,7 +8367,8 @@
             "lang": "PHP",
             "source": "$paymentCardMigrations = $client->paymentCardMigrations()->search([\n    'filter' => 'status:active',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards_migrations.get"
       }
     },
     "/payment-cards-migrations/migrate": {
@@ -8270,7 +8411,8 @@
             "lang": "PHP",
             "source": "$paymentCardMigrationForm = new Rebilly\\Entities\\PaymentCardMigrationsRequest();\n$paymentCardMigrationForm->setFromGatewayAccountId('gatewayAccountId');\n$paymentCardMigrationForm->setToGatewayAccountId('newGatewayAccountId');\n\n$paymentCardIds = [\n    'testPaymentCardId',\n    'testPaymentCardId2',\n];\n\n$paymentCardMigrationForm->setPaymentCardIds($paymentCardIds)\n\ntry {\n    $paymentCardMigrationResponse = $client->paymentCardMigrations()->migrate($paymentCardMigrationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards_migrations.migrate.post"
       }
     },
     "/payment-cards/{id}": {
@@ -8313,7 +8455,8 @@
             "lang": "PHP",
             "source": "$paymentCard = $client->paymentCards()->load('paymentCardId');\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.id.get"
       },
       "parameters": [
         {
@@ -8375,7 +8518,8 @@
             "lang": "PHP",
             "source": "$paymentCardForm = new Rebilly\\Entities\\PaymentCard();\n$paymentCardForm->setCustomerId('customerId');\n$paymentCardForm->setPan('4111111111111111');\n$paymentCardForm->setExpYear(2025);\n$paymentCardForm->setExpMonth(8);\n$paymentCardForm->setBillingContactId('contactId');\n\ntry {\n    $paymentCard = $client->paymentCards()->update('paymentCardId', $paymentCardForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.id.put"
       }
     },
     "/payment-cards/{id}/authorization": {
@@ -8460,7 +8604,8 @@
             "lang": "PHP",
             "source": "$paymentCardAuthorizationForm = new Rebilly\\Entities\\PaymentCardAuthorization();\n$paymentCardAuthorizationForm->setWebsiteId('websiteId');\n$paymentCardAuthorizationForm->setCurrency('USD');\n$paymentCardAuthorizationForm->setGatewayAccountId('gatewayAccountId');\n\ntry {\n    $paymentCard = $client->paymentCards()->authorize('paymentCardId', $paymentCardAuthorizationForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.id.authorization.post"
       }
     },
     "/payment-cards/{id}/deactivation": {
@@ -8511,7 +8656,8 @@
             "lang": "PHP",
             "source": "$client->paymentCards()->deactivate('paymentCardId');\n"
           }
-        ]
+        ],
+        "operationId": "payment_cards.id.deactivation.post"
       }
     },
     "/payments": {
@@ -8592,7 +8738,8 @@
             "lang": "PHP",
             "source": "$payments = $client->payments()->search([\n    'filter' => 'currency:USD',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "payments.get"
       },
       "post": {
         "description": "Create a payment\n",
@@ -8645,7 +8792,8 @@
             "lang": "PHP",
             "source": "$paymentForm = new Rebilly\\Entities\\Payment();\n\n$paymentForm->setWebsiteId('websiteId');\n$paymentForm->setCustomerId('customerId');\n$paymentForm->setCurrency('USD');\n$paymentForm->setAmount(1.99);\n\n$data = [\n    'method' => Rebilly\\Entities\\PaymentMethod::METHOD_CASH,\n];\n\n$paymentInstrumentForm = new Rebilly\\Entities\\PaymentMethodInstrument($data);\n\n$paymentForm->setPaymentInstrument($paymentInstrumentForm);\n\ntry {\n    $payment = $client->payments()->create($paymentForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payments.post"
       }
     },
     "/payments/{id}": {
@@ -8688,7 +8836,8 @@
             "lang": "PHP",
             "source": "$payment = $client->payments()->load('paymentId');\n"
           }
-        ]
+        ],
+        "operationId": "payments.id.get"
       },
       "parameters": [
         {
@@ -8771,7 +8920,8 @@
             "lang": "PHP",
             "source": "$paymentForm = new Rebilly\\Entities\\Payment();\n\n$paymentForm->setWebsiteId('websiteId');\n$paymentForm->setCustomerId('customerId');\n$paymentForm->setCurrency('USD');\n$paymentForm->setAmount(1.99);\n\n$data = [\n    'method' => Rebilly\\Entities\\PaymentMethod::METHOD_CASH,\n];\n\n$paymentInstrumentForm = new Rebilly\\Entities\\PaymentMethodInstrument($data);\n\n$paymentForm->setPaymentInstrument($paymentInstrumentForm);\n\ntry {\n    $payment = $client->payments()->update('paymentId', $paymentForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "payments.id.put"
       }
     },
     "/plans": {
@@ -8834,7 +8984,8 @@
             "lang": "PHP",
             "source": "$plans = $client->plans()->search([\n    'filter' => 'name:TestPlan',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "plans.get"
       },
       "post": {
         "description": "Create a plan\n",
@@ -8875,7 +9026,8 @@
             "lang": "PHP",
             "source": "$planForm = new Rebilly\\Entities\\Plan();\n$planForm->setName('TestPlan');\n$planForm->setCurrency('USD');\n$planForm->setTrialAmount(1);\n$planForm->setTrialPeriodUnit('day');\n$planForm->setTrialPeriodLength(1);\n\ntry {\n    $plan = $client->plans()->create($planForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "plans.post"
       }
     },
     "/plans/{id}": {
@@ -8915,7 +9067,8 @@
             "lang": "PHP",
             "source": "$client->plans()->delete('planId');\n"
           }
-        ]
+        ],
+        "operationId": "plans.id.delete"
       },
       "get": {
         "description": "Retrieve a plan with specified identifier string\n",
@@ -8956,7 +9109,8 @@
             "lang": "PHP",
             "source": "$plan = $client->plans()->load('planId');\n"
           }
-        ]
+        ],
+        "operationId": "plans.id.get"
       },
       "parameters": [
         {
@@ -9039,7 +9193,8 @@
             "lang": "PHP",
             "source": "$planForm = new Rebilly\\Entities\\Plan();\n$planForm->setName('TestPlan');\n$planForm->setCurrency('USD');\n$planForm->setTrialAmount(1);\n$planForm->setTrialPeriodUnit('day');\n$planForm->setTrialPeriodLength(1);\n\ntry {\n    $plan = $client->plans()->update('planId', $planForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "plans.id.put"
       }
     },
     "/previews/rule-actions/send-email": {
@@ -9095,7 +9250,8 @@
         "summary": "Send a test email",
         "tags": [
           "Rules"
-        ]
+        ],
+        "operationId": "previews.rule_actions.send_email.post"
       }
     },
     "/previews/rule-actions/trigger-webhook": {
@@ -9151,7 +9307,8 @@
         "summary": "Trigger a test webhook",
         "tags": [
           "Rules"
-        ]
+        ],
+        "operationId": "previews.rule_actions.trigger_webhook.post"
       }
     },
     "/previews/webhooks": {
@@ -9199,7 +9356,8 @@
         "summary": "Trigger a test webhook",
         "tags": [
           "Webhooks"
-        ]
+        ],
+        "operationId": "previews.webhooks.post"
       }
     },
     "/products": {
@@ -9256,7 +9414,8 @@
         "summary": "Retrieve a list of products",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.get"
       },
       "post": {
         "description": "Create a Product\n",
@@ -9302,7 +9461,8 @@
         "summary": "Create a Product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.post"
       }
     },
     "/products/{id}": {
@@ -9336,7 +9496,8 @@
         "summary": "Delete a product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.id.delete"
       },
       "get": {
         "description": "Retrieve a product with specified identifier string\n",
@@ -9371,7 +9532,8 @@
         "summary": "Retrieve a product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.id.get"
       },
       "parameters": [
         {
@@ -9442,7 +9604,8 @@
         "summary": "Create a product with predefined ID",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.id.put"
       }
     },
     "/profile": {
@@ -9479,7 +9642,8 @@
         "summary": "Retrieve user's profile",
         "tags": [
           "Profile"
-        ]
+        ],
+        "operationId": "profile.get"
       },
       "put": {
         "description": "Update user's profile\n",
@@ -9529,7 +9693,8 @@
         "summary": "Update user's profile",
         "tags": [
           "Profile"
-        ]
+        ],
+        "operationId": "profile.put"
       }
     },
     "/queue/custom-events": {
@@ -9586,7 +9751,8 @@
         "summary": "Retrieve a list of scheduled custom events",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "queue.custom_events.get"
       }
     },
     "/queue/custom-events/{id}": {
@@ -9620,7 +9786,8 @@
         "summary": "Delete a scheduled custom event",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "queue.custom_events.id.delete"
       },
       "get": {
         "description": "Retrieve a scheduled custom event with predefined identifier string\n",
@@ -9675,7 +9842,8 @@
         "summary": "Retrieve a scheduled custom event",
         "tags": [
           "Custom Events"
-        ]
+        ],
+        "operationId": "queue.custom_events.id.get"
       },
       "parameters": [
         {
@@ -9743,7 +9911,8 @@
             "lang": "PHP",
             "source": "$payments = $client->payments()->searchInQueue([\n    'filter' => 'currency:USD',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "queue.payments.get"
       }
     },
     "/queue/payments/{id}": {
@@ -9806,7 +9975,8 @@
             "lang": "PHP",
             "source": "$payment = $client->payments()->loadFromQueue('paymentId');\n"
           }
-        ]
+        ],
+        "operationId": "queue.payments.id.get"
       },
       "parameters": [
         {
@@ -9862,7 +10032,8 @@
         "summary": "Update pending payment",
         "tags": [
           "Payments"
-        ]
+        ],
+        "operationId": "queue.payments.id.put"
       }
     },
     "/queue/payments/{id}/cancel": {
@@ -9910,7 +10081,8 @@
             "lang": "PHP",
             "source": "try {\n    $payment = $client->payments()->cancel('paymentId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "queue.payments.id.cancel.post"
       }
     },
     "/sessions": {
@@ -9973,7 +10145,8 @@
             "lang": "PHP",
             "source": "$sessions = $client->sessions()->search([\n    'filter' => 'userId:testUserId',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "sessions.get"
       },
       "post": {
         "description": "Create a session\n",
@@ -10028,7 +10201,8 @@
             "lang": "PHP",
             "source": "$sessionForm = new Rebilly\\Entities\\Session();\n\n$permissions = [\n    // Example permission to use GET and POST methods only for certain Customers\n    [\n        'resourceName' => Rebilly\\Entities\\ResourceType::TYPE_CUSTOMERS,\n        'methods' => [\n            $sessionForm::METHOD_GET,\n            $sessionForm::METHOD_POST,\n        ],\n        'resourceIds' => [\n            'testCustomerId',\n            'testCustomerId2',\n        ],\n    ],\n    // Example permission to use all methods for Websites resource\n    [\n        'resourceName' => Rebilly\\Entities\\ResourceType::TYPE_WEBSITES,\n        'methods' => [\n            $sessionForm::METHOD_GET,\n            $sessionForm::METHOD_POST,\n            $sessionForm::METHOD_PUT,\n            $sessionForm::METHOD_HEAD,\n            $sessionForm::METHOD_DELETE,\n        ],\n    ],\n    // Example permission to use all methods for all resources\n    [],\n];\n\n$sessionForm->setPermissions($permissions);\n\ntry {\n    $session = $client->sessions()->create($sessionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "sessions.post"
       }
     },
     "/sessions/{id}": {
@@ -10071,7 +10245,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->sessions()->delete('sessionId');\n} catch (ServerException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "sessions.id.delete"
       },
       "get": {
         "description": "Retrieve a Session with specified identifier string\n",
@@ -10112,7 +10287,8 @@
             "lang": "PHP",
             "source": "$session = $client->sessions()->load('sessionId');\n"
           }
-        ]
+        ],
+        "operationId": "sessions.id.get"
       },
       "parameters": [
         {
@@ -10195,7 +10371,8 @@
             "lang": "PHP",
             "source": "$sessionForm = new Rebilly\\Entities\\Session();\n\n$permissions = [\n    [\n        'resourceName' => Rebilly\\Entities\\ResourceType::TYPE_CUSTOMERS,\n        'methods' => [\n            $sessionForm::METHOD_GET,\n            $sessionForm::METHOD_POST,\n        ],\n        'resourceIds' => [\n            'testCustomerId',\n            'testCustomerId2',\n        ],\n    ],\n    [\n        'resourceName' => Rebilly\\Entities\\ResourceType::TYPE_WEBSITES,\n        'methods' => [\n            $sessionForm::METHOD_GET,\n            $sessionForm::METHOD_POST,\n        ],\n        'resourceIds' => [\n            'testWebsiteId',\n            'testWebsiteId2',\n        ],\n    ],\n];\n\n$sessionForm->setPermissions($permissions);\n\ntry {\n    $session = $client->sessions()->update('sessionId', $sessionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "sessions.id.put"
       }
     },
     "/shipping-zones": {
@@ -10252,7 +10429,8 @@
         "summary": "Retrieve a list of shipping zones",
         "tags": [
           "Shipping Zones"
-        ]
+        ],
+        "operationId": "shipping_zones.get"
       },
       "post": {
         "description": "Create a Shipping Zone\n",
@@ -10298,7 +10476,8 @@
         "summary": "Create a Shipping Zone",
         "tags": [
           "Shipping Zones"
-        ]
+        ],
+        "operationId": "shipping_zones.post"
       }
     },
     "/shipping-zones/{id}": {
@@ -10332,7 +10511,8 @@
         "summary": "Delete a shipping zone",
         "tags": [
           "Shipping Zones"
-        ]
+        ],
+        "operationId": "shipping_zones.id.delete"
       },
       "get": {
         "description": "Retrieve a shipping zone with specified identifier string\n",
@@ -10367,7 +10547,8 @@
         "summary": "Retrieve a shipping zone",
         "tags": [
           "Shipping Zones"
-        ]
+        ],
+        "operationId": "shipping_zones.id.get"
       },
       "parameters": [
         {
@@ -10438,7 +10619,8 @@
         "summary": "Create a shipping zone with predefined ID",
         "tags": [
           "Shipping Zones"
-        ]
+        ],
+        "operationId": "shipping_zones.id.put"
       }
     },
     "/signin": {
@@ -10497,7 +10679,8 @@
             "lang": "PHP",
             "source": "$loginForm = new Rebilly\\Entities\\Login();\n$loginForm->setEmail('test@test.com');\n$loginForm->setPassword('1234');\n\ntry {\n    $user = $client->users()->signin($loginForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "signin.post"
       }
     },
     "/signup": {
@@ -10551,7 +10734,8 @@
             "lang": "PHP",
             "source": "$signupForm = new Rebilly\\Entities\\Signup();\n$signupForm->setFirstName('John');\n$signupForm->setLastName('Doe');\n$signupForm->setEmail('johndoe@test.com');\n$signupForm->setBusinessPhone('+123456789');\n$signupForm->setPassword('1234');\n\ntry {\n    $client->users()->signup($signupForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "signup.post"
       }
     },
     "/status": {
@@ -10583,7 +10767,8 @@
         "summary": "Retrieve API current status",
         "tags": [
           "Status"
-        ]
+        ],
+        "operationId": "status.get"
       }
     },
     "/subscriptions": {
@@ -10661,7 +10846,8 @@
             "lang": "PHP",
             "source": "$subscriptions = $client->subscriptions()->search([\n    'filter' => 'customerId:testCustomerId',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.get"
       },
       "post": {
         "description": "Create a subscription\n",
@@ -10716,7 +10902,8 @@
             "lang": "PHP",
             "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n\ntry {\n    $subscription = $client->subscriptions()->create($subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.post"
       }
     },
     "/subscriptions/{id}": {
@@ -10759,7 +10946,8 @@
             "lang": "PHP",
             "source": "$subscription = $client->subscriptions()->load('subscriptionId');\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.get"
       },
       "parameters": [
         {
@@ -10842,7 +11030,8 @@
             "lang": "PHP",
             "source": "$subscriptionForm = new Rebilly\\Entities\\Subscription();\n$subscriptionForm->setCustomerId('customerId');\n$subscriptionForm->setWebsiteId('websiteId');\n$subscriptionForm->setPlanId('planId');\n\ntry {\n    $subscription = $client->subscriptions()->update('subscriptionId', $subscriptionForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.put"
       }
     },
     "/subscriptions/{id}/cancel": {
@@ -10904,7 +11093,8 @@
             "lang": "PHP",
             "source": "$subscriptionCancelForm = new Rebilly\\Entities\\SubscriptionCancel();\n$subscriptionCancelForm->setPolicy($subscriptionCancelForm::NOW);\n\ntry {\n    $subscription = $client->subscriptions()->cancel('subscriptionId', $subscriptionCancelForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.cancel.post"
       }
     },
     "/subscriptions/{id}/lead-source": {
@@ -10947,7 +11137,8 @@
             "lang": "PHP",
             "source": "$subscription = $client->subscriptions()->deleteLeadSource('subscriptionId');\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.lead_source.delete"
       },
       "get": {
         "description": "Retrieve a Lead Source of given subscription\n",
@@ -10988,7 +11179,8 @@
             "lang": "PHP",
             "source": "$subscription = $client->subscriptions()->load('subscriptionId');\n$leadSource = $subscription->getLeadSource();\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.lead_source.get"
       },
       "parameters": [
         {
@@ -11068,7 +11260,8 @@
             "lang": "PHP",
             "source": "$leadSourceForm = new Rebilly\\Entities\\LeadSource();\n$leadSourceForm->setSource('TestSource');\n$leadSourceForm->setCampaign('TestCampaign');\n\ntry {\n    $subscription = $client->subscriptions()->updateLeadSource('subscriptionId', $leadSourceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.lead_source.put"
       }
     },
     "/subscriptions/{id}/switch": {
@@ -11130,7 +11323,8 @@
             "lang": "PHP",
             "source": "$subscriptionSwitchForm = new Rebilly\\Entities\\SubscriptionSwitch();\n$subscriptionSwitchForm->setPlanId('newPlanId');\n$subscriptionSwitchForm->setPolicy($subscriptionSwitchForm::NOW);\n\ntry {\n    $subscription = $client->subscriptions()->switchTo('subscriptionId', $subscriptionSwitchForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "subscriptions.id.switch.post"
       }
     },
     "/tax-categories": {
@@ -11179,7 +11373,8 @@
         "summary": "Retrieve a list of tax categories",
         "tags": [
           "Taxes"
-        ]
+        ],
+        "operationId": "tax_categories.get"
       }
     },
     "/tokens": {
@@ -11242,7 +11437,8 @@
             "lang": "PHP",
             "source": "$paymentCardTokens = $client->paymentCardTokens()->search([\n    'filter' => 'token:string',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "tokens.get"
       },
       "post": {
         "description": "Create a token\n",
@@ -11302,7 +11498,8 @@
             "lang": "PHP",
             "source": "$paymentCardTokenForm = new Rebilly\\Entities\\PaymentCardToken();\n$paymentCardTokenForm->setFirstName('John');\n$paymentCardTokenForm->setLastName('Doe');\n$paymentCardTokenForm->setMethod(Rebilly\\Entities\\PaymentMethod::METHOD_PAYMENT_CARD);\n\n$paymentInstrumentForm = new Entities\\PaymentInstruments\\PaymentCardPaymentInstrument();\n$paymentInstrumentForm->setPan('4111111111111111');\n$paymentInstrumentForm->setExpYear(2025);\n$paymentInstrumentForm->setExpMonth(8);\n$paymentInstrumentForm->setCvv(123);\n\n$paymentCardTokenForm->setPaymentInstrument($paymentInstrumentForm);\n\ntry {\n    $paymentCardToken = $client->paymentCardTokens()->create($paymentCardTokenForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "tokens.post"
       }
     },
     "/tokens/{token}": {
@@ -11350,7 +11547,8 @@
             "lang": "PHP",
             "source": "$paymentCardToken = $client->paymentCardTokens()->load('tokenId');\n"
           }
-        ]
+        ],
+        "operationId": "tokens.token.get"
       },
       "parameters": [
         {
@@ -11425,7 +11623,8 @@
             "lang": "PHP",
             "source": "try {\n    $paymentCardToken = $client->paymentCardTokens()->expire('tokenId');\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "tokens.token.expiration.post"
       }
     },
     "/tracking/api": {
@@ -11498,7 +11697,8 @@
             "lang": "PHP",
             "source": "$apiTrackingLog = $client->apiTracking()->search([\n    'filter' => 'status:200',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "tracking.api.get"
       }
     },
     "/tracking/api/{id}": {
@@ -11540,7 +11740,8 @@
             "lang": "PHP",
             "source": "$apiTrackingLog = $client->apiTracking()->load('apiLogId');\n"
           }
-        ]
+        ],
+        "operationId": "tracking.api.id.get"
       },
       "parameters": [
         {
@@ -11601,7 +11802,8 @@
         "summary": "Retrieve Lists changes history",
         "tags": [
           "Tracking"
-        ]
+        ],
+        "operationId": "tracking.lists.get"
       }
     },
     "/tracking/subscriptions": {
@@ -11657,7 +11859,8 @@
         "summary": "Retrieve a list of tracking subscription logs",
         "tags": [
           "Tracking"
-        ]
+        ],
+        "operationId": "tracking.subscriptions.get"
       }
     },
     "/tracking/subscriptions/{id}": {
@@ -11679,7 +11882,8 @@
         "summary": "Retrieve a tracking subscription log with specified identifier string",
         "tags": [
           "Tracking"
-        ]
+        ],
+        "operationId": "tracking.subscriptions.id.get"
       },
       "parameters": [
         {
@@ -11740,7 +11944,8 @@
         "summary": "Retrieve a list of tracking webhook notifications",
         "tags": [
           "Tracking"
-        ]
+        ],
+        "operationId": "tracking.website_webhooks.get"
       }
     },
     "/tracking/website-webhooks/{id}": {
@@ -11762,7 +11967,8 @@
         "summary": "Retrieve a tracking webhook notification with specified identifier string",
         "tags": [
           "Tracking"
-        ]
+        ],
+        "operationId": "tracking.website_webhooks.id.get"
       },
       "parameters": [
         {
@@ -11851,7 +12057,8 @@
             "lang": "PHP",
             "source": "$transactions = $client->transactions()->search([\n    'filter' => 'result:approved',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "transactions.get"
       }
     },
     "/transactions/{id}": {
@@ -11894,7 +12101,8 @@
             "lang": "PHP",
             "source": "$transaction = $client->transactions()->load('transactionId');\n"
           }
-        ]
+        ],
+        "operationId": "transactions.id.get"
       },
       "parameters": [
         {
@@ -11922,7 +12130,8 @@
         "summary": "Retrieve a Transaction Gateway Logs",
         "tags": [
           "Transactions"
-        ]
+        ],
+        "operationId": "transactions.id.gateway_logs.get"
       },
       "parameters": [
         {
@@ -11970,7 +12179,8 @@
             "lang": "PHP",
             "source": "$payment = $client->transactions()->deleteLeadSource('transactionId');\n"
           }
-        ]
+        ],
+        "operationId": "transactions.id.lead_source.delete"
       },
       "get": {
         "description": "Retrieve a Lead Source of given transaction\n",
@@ -12011,7 +12221,8 @@
             "lang": "PHP",
             "source": "$transaction = $client->transactions()->load('transactionId');\n$leadSource = $transaction->getLeadSource();\n"
           }
-        ]
+        ],
+        "operationId": "transactions.id.lead_source.get"
       },
       "parameters": [
         {
@@ -12091,7 +12302,8 @@
             "lang": "PHP",
             "source": "$leadSourceForm = new Rebilly\\Entities\\LeadSource();\n$leadSourceForm->setSource('TestSource');\n$leadSourceForm->setCampaign('TestCampaign');\n\ntry {\n    $transaction = $client->transactions()->updateLeadSource('transactionId', $leadSourceForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "transactions.id.lead_source.put"
       }
     },
     "/transactions/{id}/refund": {
@@ -12150,7 +12362,8 @@
             "lang": "PHP",
             "source": "$transaction = $client->transactions()->refund('transactionId', 1.99);\n"
           }
-        ]
+        ],
+        "operationId": "transactions.id.refund.post"
       }
     },
     "/users": {
@@ -12213,7 +12426,8 @@
             "lang": "PHP",
             "source": "$users = $client->users()->search([\n    'filter' => 'firstName:John',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "users.get"
       },
       "post": {
         "description": "Create an user\n",
@@ -12268,7 +12482,8 @@
             "lang": "PHP",
             "source": "$userForm = new Rebilly\\Entities\\User();\n$userForm->setFirstName('John');\n$userForm->setLastName('Doe');\n$userForm->setEmail('johndoe@test.com');\n\ntry {\n    $user = $client->users()->create($userForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "users.post"
       }
     },
     "/users/reset-password/{token}": {
@@ -12331,7 +12546,8 @@
             "lang": "PHP",
             "source": "$resetPasswordForm = new Rebilly\\Entities\\ResetPassword();\n$resetPasswordForm->setNewPassword('1234');\n\ntry {\n    $user = $client->users()->resetPassword('userId', 'token', $resetPasswordForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "users.reset_password.token.post"
       }
     },
     "/users/{id}": {
@@ -12375,7 +12591,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->users()->delete('userId');\n} catch (ServerException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "users.id.delete"
       },
       "get": {
         "description": "Retrieve user with specified identifier string\n",
@@ -12416,7 +12633,8 @@
             "lang": "PHP",
             "source": "$user = $client->users()->load('userId');\n"
           }
-        ]
+        ],
+        "operationId": "users.id.get"
       },
       "parameters": [
         {
@@ -12497,7 +12715,8 @@
             "lang": "PHP",
             "source": "$userForm = new Rebilly\\Entities\\User();\n$userForm->setFirstName('John');\n$userForm->setLastName('Doe');\n$userForm->setEmail('johndoe@test.com');\n\ntry {\n    $user = $client->users()->update('userId', $userForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "users.id.put"
       }
     },
     "/users/{id}/password": {
@@ -12560,7 +12779,8 @@
             "lang": "PHP",
             "source": "$updatePasswordForm = new Rebilly\\Entities\\UpdatePassword();\n$updatePasswordForm->setCurrentPassword('1234');\n$updatePasswordForm->setNewPassword('5678');\n\ntry {\n    $user = $client->users()->updatePassword('userId', $updatePasswordForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "users.id.password.post"
       }
     },
     "/users/{id}/totp-reset": {
@@ -12605,7 +12825,8 @@
             "lang": "PHP",
             "source": "$user = $client->users()->resetTotp('userId');\n"
           }
-        ]
+        ],
+        "operationId": "users.id.totp_reset.post"
       }
     },
     "/webhooks": {
@@ -12662,7 +12883,8 @@
         "summary": "Retrieve a list of webhooks",
         "tags": [
           "Webhooks"
-        ]
+        ],
+        "operationId": "webhooks.get"
       },
       "post": {
         "description": "Create a webhook\n",
@@ -12711,7 +12933,8 @@
         "summary": "Create a webhook",
         "tags": [
           "Webhooks"
-        ]
+        ],
+        "operationId": "webhooks.post"
       }
     },
     "/webhooks/{id}": {
@@ -12748,7 +12971,8 @@
         "summary": "Retrieve a webhook",
         "tags": [
           "Webhooks"
-        ]
+        ],
+        "operationId": "webhooks.id.get"
       },
       "parameters": [
         {
@@ -12822,7 +13046,8 @@
         "summary": "Create or update a webhook with predefined ID",
         "tags": [
           "Webhooks"
-        ]
+        ],
+        "operationId": "webhooks.id.put"
       }
     },
     "/websites": {
@@ -12900,7 +13125,8 @@
             "lang": "PHP",
             "source": "$websites = $client->websites()->search([\n    'filter' => 'name:TestWebsite',\n]);\n"
           }
-        ]
+        ],
+        "operationId": "websites.get"
       },
       "post": {
         "description": "Create a website\n",
@@ -12955,7 +13181,8 @@
             "lang": "PHP",
             "source": "$websiteForm = new Rebilly\\Entities\\Website();\n$websiteForm->setName('TestWebsite');\n$websiteForm->setUrl('http://testwebsite.com');\n$websiteForm->setServicePhone('+0123456789');\n$websiteForm->setServiceEmail('test@testwebsite.com');\n\ntry {\n    $website = $client->websites()->create($websiteForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "websites.post"
       }
     },
     "/websites/{id}": {
@@ -12998,7 +13225,8 @@
             "lang": "PHP",
             "source": "try {\n    $client->websites()->delete('websiteId');\n} catch (ServerException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.delete"
       },
       "get": {
         "description": "Retrieve a website with specified identifier string\n",
@@ -13039,7 +13267,8 @@
             "lang": "PHP",
             "source": "$website = $client->websites()->load('websiteId');\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.get"
       },
       "parameters": [
         {
@@ -13122,7 +13351,8 @@
             "lang": "PHP",
             "source": "$websiteForm = new Rebilly\\Entities\\Website();\n$websiteForm->setName('TestWebsite');\n$websiteForm->setUrl('http://testwebsite.com');\n$websiteForm->setServicePhone('+0123456789');\n$websiteForm->setServiceEmail('test@testwebsite.com');\n\ntry {\n    $website = $client->websites()->update('websiteId', $websiteForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.put"
       }
     },
     "/websites/{id}/webhook": {
@@ -13162,7 +13392,8 @@
             "lang": "PHP",
             "source": "$client->websiteWebhook()->delete('websiteId');\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.webhook.delete"
       },
       "get": {
         "description": "Retrieve a webhook for website with specified identifier string\n",
@@ -13189,7 +13420,8 @@
             "lang": "PHP",
             "source": "$websiteWebhook = $client->websiteWebhook()->load('websiteId');\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.webhook.get"
       },
       "parameters": [
         {
@@ -13238,7 +13470,8 @@
             "lang": "PHP",
             "source": "$websiteWebhookForm = new Rebilly\\Entities\\WebsiteWebhook();\n$websiteWebhookForm->setWebHookUrl('http://testwebsite.com/webhook');\n$websiteWebhookForm->setWebHookUsername('test');\n$websiteWebhookForm->setWebHookPassword('1234');\n\ntry {\n    $website = $client->websiteWebhook()->update('websiteId', $websiteWebhookForm);\n} catch (UnprocessableEntityException $e) {\n    echo $e->getMessage();\n}\n"
           }
-        ]
+        ],
+        "operationId": "websites.id.webhook.put"
       }
     }
   },

@@ -181,7 +181,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.delete"
       },
       "parameters": [],
       "put": {
@@ -208,7 +209,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.put"
       }
     },
     "/addon/linkers": {
@@ -236,7 +238,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.get"
       },
       "parameters": []
     },
@@ -265,7 +268,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.get"
       },
       "parameters": [
         {
@@ -301,7 +305,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.delete"
       },
       "get": {
         "description": "",
@@ -327,7 +332,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.get"
       },
       "parameters": [
         {
@@ -361,7 +367,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.post"
       },
       "put": {
         "description": "",
@@ -387,7 +394,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.put"
       }
     },
     "/addon/linkers/{linker_key}/values/": {
@@ -415,7 +423,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.delete"
       },
       "get": {
         "description": "",
@@ -441,7 +450,8 @@
         ],
         "tags": [
           "addon"
-        ]
+        ],
+        "operationId": "addon.linkers.linker_key.values.get"
       },
       "parameters": [
         {
@@ -477,7 +487,8 @@
         ],
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "hook_events.get"
       },
       "parameters": []
     },
@@ -525,7 +536,8 @@
         ],
         "tags": [
           "webhooks"
-        ]
+        ],
+        "operationId": "hook_events.subject_type.get"
       },
       "parameters": [
         {
@@ -571,7 +583,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.get"
       },
       "parameters": []
     },
@@ -629,7 +642,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.get"
       },
       "parameters": [
         {
@@ -691,7 +705,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.delete"
       },
       "get": {
         "description": "Returns the object describing this repository.",
@@ -746,7 +761,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.get"
       },
       "parameters": [
         {
@@ -824,7 +840,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.post"
       },
       "put": {
         "description": "Since this endpoint can be used to both update and to create a\nrepository, the request body depends on the intent.\n\n### Creation\n\nSee the POST documentation for the repository endpoint for an example\nof the request body.\n\n### Update\n\nNote: Changing the `name` of the repository will cause the location to\nbe changed. This is because the URL of the repo is derived from the\nname (a process called slugification). In such a scenario, it is\npossible for the request to fail if the newly created slug conflicts\nwith an existing repository's slug. But if there is no conflict,\nthe new location will be returned in the `Location` header of the\nresponse.",
@@ -906,7 +923,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.put"
       }
     },
     "/repositories/{username}/{repo_slug}/branch-restrictions": {
@@ -954,7 +972,8 @@
         ],
         "tags": [
           "branchrestrictions"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.branch_restrictions.get"
       },
       "parameters": [
         {
@@ -1024,7 +1043,8 @@
         ],
         "tags": [
           "branchrestrictions"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.branch_restrictions.post"
       }
     },
     "/repositories/{username}/{repo_slug}/branch-restrictions/{id}": {
@@ -1077,7 +1097,8 @@
         ],
         "tags": [
           "branchrestrictions"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.branch_restrictions.id.delete"
       },
       "get": {
         "description": "Returns a specific branch restriction rule.",
@@ -1131,7 +1152,8 @@
         ],
         "tags": [
           "branchrestrictions"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.branch_restrictions.id.get"
       },
       "parameters": [
         {
@@ -1214,7 +1236,8 @@
         ],
         "tags": [
           "branchrestrictions"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.branch_restrictions.id.put"
       }
     },
     "/repositories/{username}/{repo_slug}/commit/{node}/approve": {
@@ -1255,7 +1278,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.approve.delete"
       },
       "parameters": [
         {
@@ -1317,7 +1341,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.approve.post"
       }
     },
     "/repositories/{username}/{repo_slug}/commit/{node}/statuses": {
@@ -1365,7 +1390,8 @@
         "tags": [
           "repositories",
           "commitstatuses"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.statuses.get"
       },
       "parameters": [
         {
@@ -1453,7 +1479,8 @@
         "tags": [
           "repositories",
           "commitstatuses"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.statuses.build.post"
       }
     },
     "/repositories/{username}/{repo_slug}/commit/{node}/statuses/build/{key}": {
@@ -1508,7 +1535,8 @@
         "tags": [
           "repositories",
           "commitstatuses"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.statuses.build.key.get"
       },
       "parameters": [
         {
@@ -1596,7 +1624,8 @@
         "tags": [
           "repositories",
           "commitstatuses"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.node.statuses.build.key.put"
       }
     },
     "/repositories/{username}/{repo_slug}/commit/{revision}": {
@@ -1640,7 +1669,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.revision.get"
       },
       "parameters": [
         {
@@ -1690,7 +1720,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.sha.comments.get"
       },
       "parameters": [
         {
@@ -1740,7 +1771,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commit.sha.comments.comment_id.get"
       },
       "parameters": [
         {
@@ -1796,7 +1828,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commits.get"
       },
       "parameters": [
         {
@@ -1838,7 +1871,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commits.post"
       }
     },
     "/repositories/{username}/{repo_slug}/commits/{revision}": {
@@ -1868,7 +1902,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commits.revision.get"
       },
       "parameters": [
         {
@@ -1916,7 +1951,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.commits.revision.post"
       }
     },
     "/repositories/{username}/{repo_slug}/components": {
@@ -1952,7 +1988,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.components.get"
       },
       "parameters": [
         {
@@ -2010,7 +2047,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.components.component_id.get"
       },
       "parameters": [
         {
@@ -2057,7 +2095,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.default_reviewers.get"
       },
       "parameters": [
         {
@@ -2101,7 +2140,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.default_reviewers.target_username.delete"
       },
       "get": {
         "description": "Returns the specified reviewer.\n\nThis can be used to test whether a user is among the repository's\ndefault reviewers list. A 404 indicates that that specified user is not\na default reviewer.",
@@ -2129,7 +2169,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.default_reviewers.target_username.get"
       },
       "parameters": [
         {
@@ -2177,7 +2218,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.default_reviewers.target_username.put"
       }
     },
     "/repositories/{username}/{repo_slug}/diff/{spec}": {
@@ -2225,7 +2267,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.diff.spec.get"
       },
       "parameters": [
         {
@@ -2275,7 +2318,8 @@
         ],
         "tags": [
           "downloads"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.downloads.get"
       },
       "parameters": [
         {
@@ -2317,7 +2361,8 @@
         ],
         "tags": [
           "downloads"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.downloads.post"
       }
     },
     "/repositories/{username}/{repo_slug}/downloads/{filename}": {
@@ -2347,7 +2392,8 @@
         ],
         "tags": [
           "downloads"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.downloads.filename.delete"
       },
       "get": {
         "description": "Return a redirect to the contents of a download artifact.\n\nThis endpoint returns the actual file contents and not the artifact's\nmetadata.\n\n    $ curl -s -L https://api.bitbucket.org/2.0/repositories/evzijst/git-tests/downloads/hello.txt\n    Hello World",
@@ -2375,7 +2421,8 @@
         ],
         "tags": [
           "downloads"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.downloads.filename.get"
       },
       "parameters": [
         {
@@ -2425,7 +2472,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.forks.get"
       },
       "parameters": [
         {
@@ -2482,7 +2530,8 @@
         "tags": [
           "repositories",
           "webhooks"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.hooks.get"
       },
       "parameters": [
         {
@@ -2543,7 +2592,8 @@
         "tags": [
           "repositories",
           "webhooks"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.hooks.post"
       }
     },
     "/repositories/{username}/{repo_slug}/hooks/{uid}": {
@@ -2591,7 +2641,8 @@
         "tags": [
           "repositories",
           "webhooks"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.hooks.uid.delete"
       },
       "get": {
         "description": "Returns the webhook with the specified id installed on the specified\nrepository.",
@@ -2634,7 +2685,8 @@
         "tags": [
           "repositories",
           "webhooks"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.hooks.uid.get"
       },
       "parameters": [
         {
@@ -2703,7 +2755,8 @@
         "tags": [
           "repositories",
           "webhooks"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.hooks.uid.put"
       }
     },
     "/repositories/{username}/{repo_slug}/issues": {
@@ -2739,7 +2792,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.get"
       },
       "parameters": [
         {
@@ -2815,7 +2869,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.post"
       }
     },
     "/repositories/{username}/{repo_slug}/issues/{issue_id}": {
@@ -2857,7 +2912,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.delete"
       },
       "get": {
         "description": "Returns the specified issue.",
@@ -2897,7 +2953,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.get"
       },
       "parameters": [
         {
@@ -2964,7 +3021,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.attachments.get"
       },
       "parameters": [
         {
@@ -3035,7 +3093,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.attachments.post"
       }
     },
     "/repositories/{username}/{repo_slug}/issues/{issue_id}/attachments/{path}": {
@@ -3071,7 +3130,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.attachments.path.delete"
       },
       "get": {
         "description": "Returns the contents of the specified file attachment.\n\nNote that this endpoint does not return a JSON response, but instead\nreturns a redirect pointing to the actual file that in turn will return\nthe raw contents.\n\nThe redirect URL contains a one-time token that has a limited lifetime.\nAs a result, the link should not be persisted, stored, or shared.",
@@ -3110,7 +3170,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.attachments.path.get"
       },
       "parameters": [
         {
@@ -3166,7 +3227,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.comments.get"
       },
       "parameters": [
         {
@@ -3216,7 +3278,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.comments.comment_id.get"
       },
       "parameters": [
         {
@@ -3281,7 +3344,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.vote.delete"
       },
       "get": {
         "description": "Check whether the authenticated user has voted for this issue.\nA 204 status code indicates that the user has voted, while a 404\nimplies they haven't.",
@@ -3330,7 +3394,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.vote.get"
       },
       "parameters": [
         {
@@ -3399,7 +3464,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.vote.put"
       }
     },
     "/repositories/{username}/{repo_slug}/issues/{issue_id}/watch": {
@@ -3450,7 +3516,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.watch.delete"
       },
       "get": {
         "description": "Indicated whether or not the authenticated user is watching this\nissue.",
@@ -3499,7 +3566,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.watch.get"
       },
       "parameters": [
         {
@@ -3568,7 +3636,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.issues.issue_id.watch.put"
       }
     },
     "/repositories/{username}/{repo_slug}/milestones": {
@@ -3604,7 +3673,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.milestones.get"
       },
       "parameters": [
         {
@@ -3662,7 +3732,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.milestones.milestone_id.get"
       },
       "parameters": [
         {
@@ -3715,7 +3786,8 @@
         ],
         "tags": [
           "commits"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.patch.spec.get"
       },
       "parameters": [
         {
@@ -4799,7 +4871,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.get"
       },
       "parameters": [
         {
@@ -4883,7 +4956,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.post"
       }
     },
     "/repositories/{username}/{repo_slug}/pullrequests/activity": {
@@ -4934,7 +5008,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.activity.get"
       },
       "parameters": [
         {
@@ -5009,7 +5084,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.get"
       },
       "parameters": [
         {
@@ -5106,7 +5182,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.put"
       }
     },
     "/repositories/{username}/{repo_slug}/pullrequests/{pull_request_id}/activity": {
@@ -5164,7 +5241,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.activity.get"
       },
       "parameters": [
         {
@@ -5214,7 +5292,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete"
       },
       "parameters": [
         {
@@ -5262,7 +5341,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.approve.post"
       }
     },
     "/repositories/{username}/{repo_slug}/pullrequests/{pull_request_id}/comments": {
@@ -5292,7 +5372,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.comments.get"
       },
       "parameters": [
         {
@@ -5342,7 +5423,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.comments.comment_id.get"
       },
       "parameters": [
         {
@@ -5398,7 +5480,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.commits.get"
       },
       "parameters": [
         {
@@ -5468,7 +5551,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.decline.post"
       }
     },
     "/repositories/{username}/{repo_slug}/pullrequests/{pull_request_id}/diff": {
@@ -5498,7 +5582,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.diff.get"
       },
       "parameters": [
         {
@@ -5577,7 +5662,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.merge.post"
       }
     },
     "/repositories/{username}/{repo_slug}/pullrequests/{pull_request_id}/patch": {
@@ -5607,7 +5693,8 @@
         ],
         "tags": [
           "pullrequests"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.patch.get"
       },
       "parameters": [
         {
@@ -5676,7 +5763,8 @@
           "repositories",
           "pullrequests",
           "commitstatuses"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.pullrequests.pull_request_id.statuses.get"
       },
       "parameters": [
         {
@@ -5726,7 +5814,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.get"
       },
       "parameters": [
         {
@@ -5770,7 +5859,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.branches.get"
       },
       "parameters": [
         {
@@ -5814,7 +5904,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.branches.name.get"
       },
       "parameters": [
         {
@@ -5864,7 +5955,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.tags.get"
       },
       "parameters": [
         {
@@ -5923,7 +6015,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.tags.post"
       }
     },
     "/repositories/{username}/{repo_slug}/refs/tags/{name}": {
@@ -5953,7 +6046,8 @@
         ],
         "tags": [
           "refs"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.refs.tags.name.get"
       },
       "parameters": [
         {
@@ -6009,7 +6103,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.versions.get"
       },
       "parameters": [
         {
@@ -6067,7 +6162,8 @@
         ],
         "tags": [
           "issue_tracker"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.versions.version_id.get"
       },
       "parameters": [
         {
@@ -6117,7 +6213,8 @@
         ],
         "tags": [
           "repositories"
-        ]
+        ],
+        "operationId": "repositories.username.repo_slug.watchers.get"
       },
       "parameters": [
         {
@@ -6180,7 +6277,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.get"
       },
       "parameters": [],
       "post": {
@@ -6231,7 +6329,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.post"
       }
     },
     "/snippets/{username}": {
@@ -6287,7 +6386,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.get"
       },
       "parameters": [
         {
@@ -6351,7 +6451,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.post"
       }
     },
     "/snippets/{username}/{encoded_id}": {
@@ -6404,7 +6505,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.delete"
       },
       "get": {
         "description": "Retrieves a single snippet.\n\nSnippets support multiple content types:\n\n* application/json\n* multipart/related\n* multipart/form-data\n\n\napplication/json\n----------------\n\nThe default content type of the response is `application/json`.\nSince JSON is always `utf-8`, it cannot reliably contain file contents\nfor files that are not text. Therefore, JSON snippet documents only\ncontain the filename and links to the file contents.\n\nThis means that in order to retrieve all parts of a snippet, N+1\nrequests need to be made (where N is the number of files in the\nsnippet).\n\n\nmultipart/related\n-----------------\n\nTo retrieve an entire snippet in a single response, use the\n`Accept: multipart/related` HTTP request header.\n\n    $ curl -H \"Accept: multipart/related\" https://api.bitbucket.org/2.0/snippets/evzijst/1\n\nResponse:\n\n    HTTP/1.1 200 OK\n    Content-Length: 2214\n    Content-Type: multipart/related; start=\"snippet\"; boundary=\"===============1438169132528273974==\"\n    MIME-Version: 1.0\n\n    --===============1438169132528273974==\n    Content-Type: application/json; charset=\"utf-8\"\n    MIME-Version: 1.0\n    Content-ID: snippet\n\n    {\n      \"links\": {\n        \"self\": {\n          \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj\"\n        },\n        \"html\": {\n          \"href\": \"https://bitbucket.org/snippets/evzijst/kypj\"\n        },\n        \"comments\": {\n          \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj/comments\"\n        },\n        \"watchers\": {\n          \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj/watchers\"\n        },\n        \"commits\": {\n          \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj/commits\"\n        }\n      },\n      \"id\": kypj,\n      \"title\": \"My snippet\",\n      \"created_on\": \"2014-12-29T22:22:04.790331+00:00\",\n      \"updated_on\": \"2014-12-29T22:22:04.790331+00:00\",\n      \"is_private\": false,\n      \"files\": {\n        \"foo.txt\": {\n          \"links\": {\n            \"self\": {\n              \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj/files/367ab19/foo.txt\"\n            },\n            \"html\": {\n              \"href\": \"https://bitbucket.org/snippets/evzijst/kypj#file-foo.txt\"\n            }\n          }\n        },\n        \"image.png\": {\n          \"links\": {\n            \"self\": {\n              \"href\": \"https://api.bitbucket.org/2.0/snippets/evzijst/kypj/files/367ab19/image.png\"\n            },\n            \"html\": {\n              \"href\": \"https://bitbucket.org/snippets/evzijst/kypj#file-image.png\"\n            }\n          }\n        }\n      ],\n      \"owner\": {\n        \"username\": \"evzijst\",\n        \"display_name\": \"Erik van Zijst\",\n        \"uuid\": \"{d301aafa-d676-4ee0-88be-962be7417567}\",\n        \"links\": {\n          \"self\": {\n            \"href\": \"https://api.bitbucket.org/2.0/users/evzijst\"\n          },\n          \"html\": {\n            \"href\": \"https://bitbucket.org/evzijst\"\n          },\n          \"avatar\": {\n            \"href\": \"https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Jul/31/erik-avatar-725122544-0_avatar.png\"\n          }\n        }\n      },\n      \"creator\": {\n        \"username\": \"evzijst\",\n        \"display_name\": \"Erik van Zijst\",\n        \"uuid\": \"{d301aafa-d676-4ee0-88be-962be7417567}\",\n        \"links\": {\n          \"self\": {\n            \"href\": \"https://api.bitbucket.org/2.0/users/evzijst\"\n          },\n          \"html\": {\n            \"href\": \"https://bitbucket.org/evzijst\"\n          },\n          \"avatar\": {\n            \"href\": \"https://bitbucket-staging-assetroot.s3.amazonaws.com/c/photos/2013/Jul/31/erik-avatar-725122544-0_avatar.png\"\n          }\n        }\n      }\n    }\n\n    --===============1438169132528273974==\n    Content-Type: text/plain; charset=\"us-ascii\"\n    MIME-Version: 1.0\n    Content-Transfer-Encoding: 7bit\n    Content-ID: \"foo.txt\"\n    Content-Disposition: attachment; filename=\"foo.txt\"\n\n    foo\n\n    --===============1438169132528273974==\n    Content-Type: image/png\n    MIME-Version: 1.0\n    Content-Transfer-Encoding: base64\n    Content-ID: \"image.png\"\n    Content-Disposition: attachment; filename=\"image.png\"\n\n    iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAABD0lEQVR4Ae3VMUoDQRTG8ccUaW2m\n    TKONFxArJYJamCvkCnZTaa+VnQdJSBFl2SMsLFrEWNjZBZs0JgiL/+KrhhVmJRbCLPx4O+/DT2TB\n    cbblJxf+UWFVVRNsEGAtgvJxnLm2H+A5RQ93uIl+3632PZyl/skjfOn9Gvdwmlcw5aPUwimG+NT5\n    EnNN036IaZePUuIcK533NVfal7/5yjWeot2z9ta1cAczHEf7I+3J0ws9Cgx0fsOFpmlfwKcWPuBQ\n    73Oc4FHzBaZ8llq4q1mr5B2mOUCt815qYR8eB1hG2VJ7j35q4RofaH7IG+Xrf/PfJhfmwtfFYoIN\n    AqxFUD6OMxcvkO+UfKfkOyXfKdsv/AYCHMLVkHAFWgAAAABJRU5ErkJggg==\n    --===============1438169132528273974==--\n\nmultipart/form-data\n-------------------\n\nAs with creating new snippets, `multipart/form-data` can be used as an\nalternative to `multipart/related`. However, the inherently flat\nstructure of form-data means that only basic, root-level properties\ncan be returned, while nested elements like `links` are omitted:\n\n    $ curl -H \"Accept: multipart/form-data\" https://api.bitbucket.org/2.0/snippets/evzijst/kypj\n\nResponse:\n\n    HTTP/1.1 200 OK\n    Content-Length: 951\n    Content-Type: multipart/form-data; boundary=----------------------------63a4b224c59f\n\n    ------------------------------63a4b224c59f\n    Content-Disposition: form-data; name=\"title\"\n    Content-Type: text/plain; charset=\"utf-8\"\n\n    My snippet\n    ------------------------------63a4b224c59f--\n    Content-Disposition: attachment; name=\"file\"; filename=\"foo.txt\"\n    Content-Type: text/plain\n\n    foo\n\n    ------------------------------63a4b224c59f\n    Content-Disposition: attachment; name=\"file\"; filename=\"image.png\"\n    Content-Transfer-Encoding: base64\n    Content-Type: application/octet-stream\n\n    iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAABD0lEQVR4Ae3VMUoDQRTG8ccUaW2m\n    TKONFxArJYJamCvkCnZTaa+VnQdJSBFl2SMsLFrEWNjZBZs0JgiL/+KrhhVmJRbCLPx4O+/DT2TB\n    cbblJxf+UWFVVRNsEGAtgvJxnLm2H+A5RQ93uIl+3632PZyl/skjfOn9Gvdwmlcw5aPUwimG+NT5\n    EnNN036IaZePUuIcK533NVfal7/5yjWeot2z9ta1cAczHEf7I+3J0ws9Cgx0fsOFpmlfwKcWPuBQ\n    73Oc4FHzBaZ8llq4q1mr5B2mOUCt815qYR8eB1hG2VJ7j35q4RofaH7IG+Xrf/PfJhfmwtfFYoIN\n    AqxFUD6OMxcvkO+UfKfkOyXfKdsv/AYCHMLVkHAFWgAAAABJRU5ErkJggg==\n    ------------------------------5957323a6b76--",
@@ -6463,7 +6565,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.get"
       },
       "parameters": [
         {
@@ -6541,7 +6644,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.put"
       }
     },
     "/snippets/{username}/{encoded_id}/comments": {
@@ -6583,7 +6687,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.comments.get"
       },
       "parameters": [
         {
@@ -6653,7 +6758,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.comments.post"
       }
     },
     "/snippets/{username}/{encoded_id}/comments/{comment_id}": {
@@ -6692,7 +6798,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.comments.comment_id.delete"
       },
       "get": {
         "description": "Returns the specific snippet comment.",
@@ -6732,7 +6839,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.comments.comment_id.get"
       },
       "parameters": [
         {
@@ -6789,7 +6897,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.comments.comment_id.put"
       }
     },
     "/snippets/{username}/{encoded_id}/commits": {
@@ -6831,7 +6940,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.commits.get"
       },
       "parameters": [
         {
@@ -6887,7 +6997,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.commits.revision.get"
       },
       "parameters": [
         {
@@ -6957,7 +7068,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.watch.delete"
       },
       "get": {
         "description": "Used to check if the current user is watching a specific snippet.\n\nReturns 204 (No Content) if the user is watching the snippet and 404 if\nnot.\n\nHitting this endpoint anonymously always returns a 404.",
@@ -6999,7 +7111,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.watch.get"
       },
       "parameters": [
         {
@@ -7061,7 +7174,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.watch.put"
       }
     },
     "/snippets/{username}/{encoded_id}/watchers": {
@@ -7106,7 +7220,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.watchers.get"
       },
       "parameters": [
         {
@@ -7179,7 +7294,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.node_id.delete"
       },
       "get": {
         "description": "Identical to `GET /snippets/encoded_id`, except that this endpoint\ncan be used to retrieve the contents of the snippet as it was at an\nolder revision, while `/snippets/encoded_id` always returns the\nsnippet's current revision.\n\nNote that only the snippet's file contents are versioned, not its\nmeta data properties like the title.\n\nOther than that, the two endpoints are identical in behavior.",
@@ -7245,7 +7361,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.node_id.get"
       },
       "parameters": [
         {
@@ -7342,7 +7459,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.node_id.put"
       }
     },
     "/snippets/{username}/{encoded_id}/{node_id}/files/{path}": {
@@ -7391,7 +7509,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.node_id.files.path.get"
       },
       "parameters": [
         {
@@ -7477,7 +7596,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.revision.diff.get"
       },
       "parameters": [
         {
@@ -7551,7 +7671,8 @@
         ],
         "tags": [
           "snippets"
-        ]
+        ],
+        "operationId": "snippets.username.encoded_id.revision.patch.get"
       },
       "parameters": [
         {
@@ -7620,7 +7741,8 @@
         ],
         "tags": [
           "teams"
-        ]
+        ],
+        "operationId": "teams.get"
       },
       "parameters": []
     },
@@ -7663,7 +7785,8 @@
         ],
         "tags": [
           "projects"
-        ]
+        ],
+        "operationId": "teams.owner.projects.get"
       },
       "parameters": [
         {
@@ -7727,7 +7850,8 @@
         ],
         "tags": [
           "projects"
-        ]
+        ],
+        "operationId": "teams.owner.projects.post"
       }
     },
     "/teams/{owner}/projects/{project_key}": {
@@ -7766,7 +7890,8 @@
         ],
         "tags": [
           "projects"
-        ]
+        ],
+        "operationId": "teams.owner.projects.project_key.delete"
       },
       "get": {
         "description": "",
@@ -7806,7 +7931,8 @@
         ],
         "tags": [
           "projects"
-        ]
+        ],
+        "operationId": "teams.owner.projects.project_key.get"
       },
       "parameters": [
         {
@@ -7889,7 +8015,8 @@
         ],
         "tags": [
           "projects"
-        ]
+        ],
+        "operationId": "teams.owner.projects.project_key.put"
       }
     },
     "/teams/{username}": {
@@ -7931,7 +8058,8 @@
         ],
         "tags": [
           "teams"
-        ]
+        ],
+        "operationId": "teams.username.get"
       },
       "parameters": [
         {
@@ -7981,7 +8109,8 @@
         ],
         "tags": [
           "teams"
-        ]
+        ],
+        "operationId": "teams.username.followers.get"
       },
       "parameters": [
         {
@@ -8033,7 +8162,8 @@
         ],
         "tags": [
           "teams"
-        ]
+        ],
+        "operationId": "teams.username.following.get"
       },
       "parameters": [
         {
@@ -8084,7 +8214,8 @@
         "tags": [
           "teams",
           "webhooks"
-        ]
+        ],
+        "operationId": "teams.username.hooks.get"
       },
       "parameters": [
         {
@@ -8139,7 +8270,8 @@
         "tags": [
           "teams",
           "webhooks"
-        ]
+        ],
+        "operationId": "teams.username.hooks.post"
       }
     },
     "/teams/{username}/hooks/{uid}": {
@@ -8187,7 +8319,8 @@
         "tags": [
           "teams",
           "webhooks"
-        ]
+        ],
+        "operationId": "teams.username.hooks.uid.delete"
       },
       "get": {
         "description": "Returns the webhook with the specified id installed on the given\nteam account.",
@@ -8230,7 +8363,8 @@
         "tags": [
           "teams",
           "webhooks"
-        ]
+        ],
+        "operationId": "teams.username.hooks.uid.get"
       },
       "parameters": [
         {
@@ -8293,7 +8427,8 @@
         "tags": [
           "teams",
           "webhooks"
-        ]
+        ],
+        "operationId": "teams.username.hooks.uid.put"
       }
     },
     "/teams/{username}/members": {
@@ -8329,7 +8464,8 @@
         ],
         "tags": [
           "teams"
-        ]
+        ],
+        "operationId": "teams.username.members.get"
       },
       "parameters": [
         {
@@ -8564,7 +8700,8 @@
         "tags": [
           "users",
           "teams"
-        ]
+        ],
+        "operationId": "teams.username.repositories.get"
       },
       "parameters": [
         {
@@ -8608,7 +8745,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "user.get"
       },
       "parameters": []
     },
@@ -8639,7 +8777,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "user.emails.get"
       },
       "parameters": []
     },
@@ -8670,7 +8809,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "user.emails.email.get"
       },
       "parameters": [
         {
@@ -8720,7 +8860,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.username.get"
       },
       "parameters": [
         {
@@ -8770,7 +8911,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.username.followers.get"
       },
       "parameters": [
         {
@@ -8822,7 +8964,8 @@
         ],
         "tags": [
           "users"
-        ]
+        ],
+        "operationId": "users.username.following.get"
       },
       "parameters": [
         {
@@ -8873,7 +9016,8 @@
         "tags": [
           "users",
           "webhooks"
-        ]
+        ],
+        "operationId": "users.username.hooks.get"
       },
       "parameters": [
         {
@@ -8928,7 +9072,8 @@
         "tags": [
           "users",
           "webhooks"
-        ]
+        ],
+        "operationId": "users.username.hooks.post"
       }
     },
     "/users/{username}/hooks/{uid}": {
@@ -8976,7 +9121,8 @@
         "tags": [
           "users",
           "webhooks"
-        ]
+        ],
+        "operationId": "users.username.hooks.uid.delete"
       },
       "get": {
         "description": "Returns the webhook with the specified id installed on the given\nuser account.",
@@ -9019,7 +9165,8 @@
         "tags": [
           "users",
           "webhooks"
-        ]
+        ],
+        "operationId": "users.username.hooks.uid.get"
       },
       "parameters": [
         {
@@ -9082,7 +9229,8 @@
         "tags": [
           "users",
           "webhooks"
-        ]
+        ],
+        "operationId": "users.username.hooks.uid.put"
       }
     },
     "/users/{username}/pipelines_config/variables/": {
@@ -9309,7 +9457,8 @@
         "tags": [
           "users",
           "teams"
-        ]
+        ],
+        "operationId": "users.username.repositories.get"
       },
       "parameters": [
         {

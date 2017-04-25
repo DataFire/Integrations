@@ -1205,7 +1205,8 @@
         "summary": "Clean Air Act Download Data Service",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_download.get"
       }
     },
     "/air_rest_services.get_facilities": {
@@ -1575,7 +1576,8 @@
         "summary": "Clean Air Act Facility Search",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_facilities.get"
       }
     },
     "/air_rest_services.get_facility_info": {
@@ -1937,7 +1939,8 @@
         "summary": "Clean Air Act Facility Enhanced Search",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_facility_info.get"
       }
     },
     "/air_rest_services.get_geojson": {
@@ -1981,7 +1984,8 @@
         "summary": "Clean Air Act GeoJSON Service",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_geojson.get"
       }
     },
     "/air_rest_services.get_info_clusters": {
@@ -2013,7 +2017,8 @@
         "summary": "Clean Air Act Info Clusters Service",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_info_clusters.get"
       }
     },
     "/air_rest_services.get_map": {
@@ -2077,7 +2082,8 @@
         "summary": "Clean Air Act Map Service",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_map.get"
       }
     },
     "/air_rest_services.get_qid": {
@@ -2135,7 +2141,8 @@
         "summary": "Clean Air Act Search by Query ID",
         "tags": [
           "Facilities"
-        ]
+        ],
+        "operationId": "air_rest_services.get_qid.get"
       }
     },
     "/air_rest_services.metadata": {
@@ -2178,7 +2185,8 @@
         "summary": "Clean Air Act Metadata Service",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "operationId": "air_rest_services.metadata.get"
       }
     }
   },

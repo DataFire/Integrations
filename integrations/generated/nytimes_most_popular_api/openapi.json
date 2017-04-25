@@ -139,7 +139,7 @@
     "/mostemailed/{section}/{time-period}.json": {
       "get": {
         "description": "",
-        "operationId": "GET_mostemailed-section-time-period-json",
+        "operationId": "mostemailed.section.time_period.json.get",
         "parameters": [],
         "produces": [
           "application/json",
@@ -232,7 +232,7 @@
     "/mostshared/{section}/{time-period}.json": {
       "get": {
         "description": "",
-        "operationId": "GET_mostshared-section-time-period-json",
+        "operationId": "mostshared.section.time_period.json.get",
         "parameters": [],
         "responses": {
           "200": {
@@ -359,7 +359,7 @@
     "/mostviewed/{section}/{time-period}.json": {
       "get": {
         "description": "",
-        "operationId": "GET_mostviewed-section-time-period-json",
+        "operationId": "mostviewed.section.time_period.json.get",
         "parameters": [],
         "responses": {
           "200": {

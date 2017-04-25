@@ -3864,7 +3864,7 @@
           "application/json"
         ],
         "description": "Trigger a GitLab project build",
-        "operationId": "postV3ProjectsId(refRef)triggerBuilds",
+        "operationId": "v3.projects.id._ref.ref._trigger.builds.post",
         "parameters": [
           {
             "description": "The ID of a project",

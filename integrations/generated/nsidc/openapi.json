@@ -157,7 +157,7 @@
     "/OpenSearch": {
       "get": {
         "description": "This endpoint uses parameters from the OpenSearch 1.1 specification, as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions.",
-        "operationId": "open search",
+        "operationId": "OpenSearch.get",
         "parameters": [
           {
             "description": "URL-encoded keyword or keywords desired by the client; OpenSearch 1.1",
@@ -267,7 +267,7 @@
     },
     "/OpenSearchDescription": {
       "get": {
-        "operationId": "opensearch description",
+        "operationId": "OpenSearchDescription.get",
         "produces": [
           "application/opensearchdescription+xml"
         ],

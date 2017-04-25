@@ -62,7 +62,7 @@
   "paths": {
     "/layers": {
       "get": {
-        "operationId": "GET-layers---format-",
+        "operationId": "layers.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -74,7 +74,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-layers---format-",
+        "operationId": "layers.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -88,7 +88,7 @@
     },
     "/layers/{layer}": {
       "delete": {
-        "operationId": "DELETE-layers--layer---format-",
+        "operationId": "layers.layer.delete",
         "parameters": [
           {
             "in": "path",
@@ -108,7 +108,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-layers--layer---format-",
+        "operationId": "layers.layer.get",
         "parameters": [
           {
             "in": "path",
@@ -128,7 +128,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-layers--layer---format-",
+        "operationId": "layers.layer.patch",
         "parameters": [
           {
             "in": "path",
@@ -150,7 +150,7 @@
     },
     "/layers/{layer}/context": {
       "get": {
-        "operationId": "GET-layers--layer-context---format-",
+        "operationId": "layers.layer.context.get",
         "parameters": [
           {
             "in": "path",
@@ -170,7 +170,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-layers--layer-context---format-",
+        "operationId": "layers.layer.context.put",
         "parameters": [
           {
             "in": "path",
@@ -192,7 +192,7 @@
     },
     "/layers/{layer}/fields": {
       "get": {
-        "operationId": "GET-layers--layer-fields---format-",
+        "operationId": "layers.layer.fields.get",
         "parameters": [
           {
             "in": "path",
@@ -212,7 +212,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-layers--layer-fields---format-",
+        "operationId": "layers.layer.fields.post",
         "parameters": [
           {
             "in": "path",
@@ -234,7 +234,7 @@
     },
     "/layers/{layer}/fields/{field}": {
       "delete": {
-        "operationId": "DELETE-layers--layer-fields--field---format-",
+        "operationId": "layers.layer.fields.field.delete",
         "parameters": [
           {
             "in": "path",
@@ -260,7 +260,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-layers--layer-fields--field---format-",
+        "operationId": "layers.layer.fields.field.get",
         "parameters": [
           {
             "in": "path",
@@ -286,7 +286,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-layers--layer-fields--field---format-",
+        "operationId": "layers.layer.fields.field.patch",
         "parameters": [
           {
             "in": "path",
@@ -312,7 +312,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-layers--layer-fields--field---format-",
+        "operationId": "layers.layer.fields.field.put",
         "parameters": [
           {
             "in": "path",
@@ -340,7 +340,7 @@
     },
     "/layers/{layer}/objects": {
       "delete": {
-        "operationId": "DELETE-layers--layer-objects---format-",
+        "operationId": "layers.layer.objects.delete",
         "parameters": [
           {
             "in": "path",
@@ -360,7 +360,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-layers--layer-objects---format-",
+        "operationId": "layers.layer.objects.get",
         "parameters": [
           {
             "in": "path",
@@ -380,7 +380,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-layers--layer-objects---format-",
+        "operationId": "layers.layer.objects.patch",
         "parameters": [
           {
             "in": "path",
@@ -400,7 +400,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-layers--layer-objects---format-",
+        "operationId": "layers.layer.objects.post",
         "parameters": [
           {
             "in": "path",
@@ -422,7 +422,7 @@
     },
     "/layers/{layer}/objects/{cdk_id}": {
       "get": {
-        "operationId": "GET-layers--layer-objects--cdk_id---format-",
+        "operationId": "layers.layer.objects.cdk_id.get",
         "parameters": [
           {
             "in": "path",
@@ -450,7 +450,7 @@
     },
     "/layers/{layer}/owners": {
       "get": {
-        "operationId": "GET-layers--layer-owners---format-",
+        "operationId": "layers.layer.owners.get",
         "parameters": [
           {
             "in": "path",
@@ -472,7 +472,7 @@
     },
     "/ngsi10/contextEntities/{entity}": {
       "get": {
-        "operationId": "GET-ngsi10-contextEntities--entity---format-",
+        "operationId": "ngsi10.contextEntities.entity.get",
         "parameters": [
           {
             "in": "path",
@@ -494,7 +494,7 @@
     },
     "/ngsi10/contextEntities/{entity}/attributes": {
       "put": {
-        "operationId": "PUT-ngsi10-contextEntities--entity-attributes---format-",
+        "operationId": "ngsi10.contextEntities.entity.attributes.put",
         "parameters": [
           {
             "in": "path",
@@ -516,7 +516,7 @@
     },
     "/ngsi10/contextEntities/{entity}/attributes/{attribute}": {
       "get": {
-        "operationId": "GET-ngsi10-contextEntities--entity-attributes--attribute---format-",
+        "operationId": "ngsi10.contextEntities.entity.attributes.attribute.get",
         "parameters": [
           {
             "in": "path",
@@ -544,7 +544,7 @@
     },
     "/ngsi10/contextEntityTypes/{cetype}": {
       "get": {
-        "operationId": "GET-ngsi10-contextEntityTypes--cetype---format-",
+        "operationId": "ngsi10.contextEntityTypes.cetype.get",
         "parameters": [
           {
             "in": "path",
@@ -566,7 +566,7 @@
     },
     "/ngsi10/contextEntityTypes/{cetype}/attributes/{attribute}": {
       "get": {
-        "operationId": "GET-ngsi10-contextEntityTypes--cetype-attributes--attribute---format-",
+        "operationId": "ngsi10.contextEntityTypes.cetype.attributes.attribute.get",
         "parameters": [
           {
             "in": "path",
@@ -594,7 +594,7 @@
     },
     "/ngsi10/queryContext": {
       "post": {
-        "operationId": "POST-ngsi10-queryContext---format-",
+        "operationId": "ngsi10.queryContext.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -608,7 +608,7 @@
     },
     "/ngsi10/subscribeContext": {
       "post": {
-        "operationId": "POST-ngsi10-subscribeContext---format-",
+        "operationId": "ngsi10.subscribeContext.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -622,7 +622,7 @@
     },
     "/ngsi10/unsubscribeContext": {
       "post": {
-        "operationId": "POST-ngsi10-unsubscribeContext---format-",
+        "operationId": "ngsi10.unsubscribeContext.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -636,7 +636,7 @@
     },
     "/ngsi10/updateContext": {
       "post": {
-        "operationId": "POST-ngsi10-updateContext---format-",
+        "operationId": "ngsi10.updateContext.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -650,7 +650,7 @@
     },
     "/ngsi10/updateContextSubscription": {
       "post": {
-        "operationId": "POST-ngsi10-updateContextSubscription---format-",
+        "operationId": "ngsi10.updateContextSubscription.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -664,7 +664,7 @@
     },
     "/objects": {
       "get": {
-        "operationId": "GET-objects---format-",
+        "operationId": "objects.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -678,7 +678,7 @@
     },
     "/objects/{cdk_id}": {
       "delete": {
-        "operationId": "DELETE-objects--cdk_id---format-",
+        "operationId": "objects.cdk_id.delete",
         "parameters": [
           {
             "in": "path",
@@ -698,7 +698,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-objects--cdk_id---format-",
+        "operationId": "objects.cdk_id.get",
         "parameters": [
           {
             "in": "path",
@@ -718,7 +718,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-objects--cdk_id---format-",
+        "operationId": "objects.cdk_id.patch",
         "parameters": [
           {
             "in": "path",
@@ -740,7 +740,7 @@
     },
     "/objects/{cdk_id}/layers": {
       "get": {
-        "operationId": "GET-objects--cdk_id-layers---format-",
+        "operationId": "objects.cdk_id.layers.get",
         "parameters": [
           {
             "in": "path",
@@ -762,7 +762,7 @@
     },
     "/objects/{cdk_id}/layers/{layer}": {
       "delete": {
-        "operationId": "DELETE-objects--cdk_id-layers--layer---format-",
+        "operationId": "objects.cdk_id.layers.layer.delete",
         "parameters": [
           {
             "in": "path",
@@ -788,7 +788,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-objects--cdk_id-layers--layer---format-",
+        "operationId": "objects.cdk_id.layers.layer.get",
         "parameters": [
           {
             "in": "path",
@@ -814,7 +814,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-objects--cdk_id-layers--layer---format-",
+        "operationId": "objects.cdk_id.layers.layer.patch",
         "parameters": [
           {
             "in": "path",
@@ -840,7 +840,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-objects--cdk_id-layers--layer---format-",
+        "operationId": "objects.cdk_id.layers.layer.post",
         "parameters": [
           {
             "in": "path",
@@ -866,7 +866,7 @@
         ]
       },
       "put": {
-        "operationId": "PUT-objects--cdk_id-layers--layer---format-",
+        "operationId": "objects.cdk_id.layers.layer.put",
         "parameters": [
           {
             "in": "path",
@@ -894,7 +894,7 @@
     },
     "/owners": {
       "get": {
-        "operationId": "GET-owners---format-",
+        "operationId": "owners.get",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -906,7 +906,7 @@
         ]
       },
       "post": {
-        "operationId": "POST-owners---format-",
+        "operationId": "owners.post",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -920,7 +920,7 @@
     },
     "/owners/{owner}": {
       "delete": {
-        "operationId": "DELETE-owners--owner---format-",
+        "operationId": "owners.owner.delete",
         "parameters": [
           {
             "in": "path",
@@ -940,7 +940,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-owners--owner---format-",
+        "operationId": "owners.owner.get",
         "parameters": [
           {
             "in": "path",
@@ -960,7 +960,7 @@
         ]
       },
       "patch": {
-        "operationId": "PATCH-owners--owner---format-",
+        "operationId": "owners.owner.patch",
         "parameters": [
           {
             "in": "path",
@@ -982,7 +982,7 @@
     },
     "/owners/{owner}/layers": {
       "get": {
-        "operationId": "GET-owners--owner-layers---format-",
+        "operationId": "owners.owner.layers.get",
         "parameters": [
           {
             "in": "path",
@@ -1004,7 +1004,7 @@
     },
     "/session": {
       "delete": {
-        "operationId": "DELETE-session---format-",
+        "operationId": "session.delete",
         "responses": {
           "200": {
             "description": "No response was specified"
@@ -1016,7 +1016,7 @@
         ]
       },
       "get": {
-        "operationId": "GET-session---format-",
+        "operationId": "session.get",
         "parameters": [
           {
             "description": "Login name.",

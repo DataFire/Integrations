@@ -86,7 +86,8 @@
         "summary": "View all contacts under your account",
         "tags": [
           "contacts"
-        ]
+        ],
+        "operationId": "contacts.get"
       }
     },
     "/dns/{domain}": {
@@ -114,7 +115,8 @@
         "summary": "View all your records for a given domain",
         "tags": [
           "dns"
-        ]
+        ],
+        "operationId": "dns.domain.get"
       }
     },
     "/dns/{domain}/add": {
@@ -177,7 +179,8 @@
         "summary": "Add dns record for given domain",
         "tags": [
           "dns"
-        ]
+        ],
+        "operationId": "dns.domain.add.post"
       }
     },
     "/dns/{domain}/delete": {
@@ -212,7 +215,8 @@
         "summary": "Delete dns record for a given domain",
         "tags": [
           "dns"
-        ]
+        ],
+        "operationId": "dns.domain.delete.post"
       }
     },
     "/dns/{domain}/update": {
@@ -282,7 +286,8 @@
         "summary": "Update dns record for a given domain",
         "tags": [
           "dns"
-        ]
+        ],
+        "operationId": "dns.domain.update.post"
       }
     },
     "/domains": {
@@ -301,7 +306,8 @@
         "summary": "View all your domains managed by SolarVPS Distributed DNS",
         "tags": [
           "domains"
-        ]
+        ],
+        "operationId": "domains.get"
       }
     },
     "/domains/add": {
@@ -329,7 +335,8 @@
         "summary": "Add domain to be managed by SolarVPS Distributed DNS",
         "tags": [
           "domains"
-        ]
+        ],
+        "operationId": "domains.add.post"
       }
     },
     "/domains/delete": {
@@ -357,7 +364,8 @@
         "summary": "Delete domain from SolarVPS Distributed DNS",
         "tags": [
           "domains"
-        ]
+        ],
+        "operationId": "domains.delete.post"
       }
     },
     "/key/generate": {
@@ -392,7 +400,8 @@
         "summary": "Generate API Key",
         "tags": [
           "key"
-        ]
+        ],
+        "operationId": "key.generate.get"
       }
     },
     "/key/get": {
@@ -427,7 +436,8 @@
         "summary": "Get API Key",
         "tags": [
           "key"
-        ]
+        ],
+        "operationId": "key.get.get"
       }
     },
     "/pods": {
@@ -446,7 +456,8 @@
         "summary": "View all your pods",
         "tags": [
           "pods"
-        ]
+        ],
+        "operationId": "pods.get"
       }
     },
     "/pods/{podId}": {
@@ -474,7 +485,8 @@
         "summary": "View information on a specific pod",
         "tags": [
           "pods"
-        ]
+        ],
+        "operationId": "pods.podId.get"
       }
     },
     "/pods/{podId}/ping": {
@@ -502,7 +514,8 @@
         "summary": "Ping your specified pod",
         "tags": [
           "pods"
-        ]
+        ],
+        "operationId": "pods.podId.ping.get"
       }
     },
     "/pods/{podId}/{action}": {
@@ -537,7 +550,8 @@
         "summary": "Perform action on a specific pod",
         "tags": [
           "pods"
-        ]
+        ],
+        "operationId": "pods.podId.action.get"
       }
     },
     "/solarray": {
@@ -556,7 +570,8 @@
         "summary": "View all your monitors",
         "tags": [
           "solarray"
-        ]
+        ],
+        "operationId": "solarray.get"
       }
     },
     "/solarray/critical": {
@@ -575,7 +590,8 @@
         "summary": "View all your critical notifications",
         "tags": [
           "solarray"
-        ]
+        ],
+        "operationId": "solarray.critical.get"
       }
     },
     "/tickets": {
@@ -594,7 +610,8 @@
         "summary": "View all your tickets",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "tickets.get"
       }
     },
     "/tickets/{department}/add": {
@@ -636,7 +653,8 @@
         "summary": "Open ticket with desired department",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "tickets.department.add.post"
       }
     },
     "/tickets/{ticketId}": {
@@ -664,7 +682,8 @@
         "summary": "View details on a specific ticket",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "tickets.ticketId.get"
       }
     },
     "/tickets/{ticketid}/update": {
@@ -698,7 +717,8 @@
         "summary": "Post a reply to a ticket",
         "tags": [
           "tickets"
-        ]
+        ],
+        "operationId": "tickets.ticketid.update.post"
       }
     }
   }

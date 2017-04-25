@@ -134,7 +134,8 @@
         "summary": "Query by extractor endpoint, adhoc runs only.",
         "tags": [
           "extraction.import.io"
-        ]
+        ],
+        "operationId": "extractor.extractorId.get"
       }
     }
   },

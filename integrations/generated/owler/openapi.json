@@ -197,7 +197,8 @@
         "summary": "Get Competitor information by Id",
         "tags": [
           "CompetitorAPI"
-        ]
+        ],
+        "operationId": "v1.company.competitor.id.companyId.get"
       }
     },
     "/v1/company/competitor/url/{website}": {
@@ -250,7 +251,8 @@
         "summary": "Get Competitor information by URL",
         "tags": [
           "CompetitorAPI"
-        ]
+        ],
+        "operationId": "v1.company.competitor.url.website.get"
       }
     },
     "/v1/company/competitorpremium/id/{companyId}": {
@@ -310,7 +312,8 @@
         "summary": "Get Competitor information by Id",
         "tags": [
           "CompetitorPremiumAPI"
-        ]
+        ],
+        "operationId": "v1.company.competitorpremium.id.companyId.get"
       }
     },
     "/v1/company/competitorpremium/url/{website}": {
@@ -370,7 +373,8 @@
         "summary": "Get Competitor information by Url",
         "tags": [
           "CompetitorPremiumAPI"
-        ]
+        ],
+        "operationId": "v1.company.competitorpremium.url.website.get"
       }
     },
     "/v1/company/id/{companyId}": {
@@ -423,7 +427,8 @@
         "summary": "Get Company by Id",
         "tags": [
           "CompanyAPI"
-        ]
+        ],
+        "operationId": "v1.company.id.companyId.get"
       }
     },
     "/v1/company/search": {
@@ -550,7 +555,8 @@
         "summary": "Get Company by URL",
         "tags": [
           "CompanyAPI"
-        ]
+        ],
+        "operationId": "v1.company.url.website.get"
       }
     },
     "/v1/companypremium/id/{companyId}": {
@@ -603,7 +609,8 @@
         "summary": "Get Complete Company Info by Id",
         "tags": [
           "CompanyPremiumAPI"
-        ]
+        ],
+        "operationId": "v1.companypremium.id.companyId.get"
       }
     },
     "/v1/companypremium/url/{website}": {
@@ -656,7 +663,8 @@
         "summary": "Get Basic Company Info by Url",
         "tags": [
           "CompanyPremiumAPI"
-        ]
+        ],
+        "operationId": "v1.companypremium.url.website.get"
       }
     },
     "/v1/feed": {

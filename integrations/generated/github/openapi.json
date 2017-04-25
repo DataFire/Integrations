@@ -126,7 +126,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "emojis.get"
       }
     },
     "/events": {
@@ -181,7 +182,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "events.get"
       }
     },
     "/feeds": {
@@ -236,7 +238,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "feeds.get"
       }
     },
     "/gists": {
@@ -297,7 +300,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.get"
       },
       "post": {
         "description": "Create a gist.",
@@ -353,7 +357,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.post"
       }
     },
     "/gists/public": {
@@ -409,7 +414,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.public.get"
       }
     },
     "/gists/starred": {
@@ -465,7 +471,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.starred.get"
       }
     },
     "/gists/{id}": {
@@ -519,7 +526,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.delete"
       },
       "get": {
         "description": "Get a single gist.",
@@ -574,7 +582,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.get"
       },
       "patch": {
         "description": "Edit a gist.",
@@ -637,7 +646,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.patch"
       }
     },
     "/gists/{id}/comments": {
@@ -699,7 +709,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.comments.get"
       },
       "post": {
         "description": "Create a commen",
@@ -762,7 +773,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.comments.post"
       }
     },
     "/gists/{id}/comments/{commentId}": {
@@ -823,7 +835,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.comments.commentId.delete"
       },
       "get": {
         "description": "Get a single comment.",
@@ -885,7 +898,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.comments.commentId.get"
       },
       "patch": {
         "description": "Edit a comment.",
@@ -955,7 +969,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.comments.commentId.patch"
       }
     },
     "/gists/{id}/forks": {
@@ -1012,7 +1027,8 @@
           "404": {
             "description": "Not exists."
           }
-        }
+        },
+        "operationId": "gists.id.forks.post"
       }
     },
     "/gists/{id}/star": {
@@ -1066,7 +1082,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.star.delete"
       },
       "get": {
         "description": "Check if a gist is starred.",
@@ -1121,7 +1138,8 @@
           "404": {
             "description": "Not exists."
           }
-        }
+        },
+        "operationId": "gists.id.star.get"
       },
       "put": {
         "description": "Star a gist.",
@@ -1173,7 +1191,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gists.id.star.put"
       }
     },
     "/gitignore/templates": {
@@ -1228,7 +1247,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gitignore.templates.get"
       }
     },
     "/gitignore/templates/{language}": {
@@ -1284,7 +1304,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "gitignore.templates.language.get"
       }
     },
     "/issues": {
@@ -1401,7 +1422,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "issues.get"
       }
     },
     "/legacy/issues/search/{owner}/{repository}/{state}/{keyword}": {
@@ -1481,7 +1503,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "legacy.issues.search.owner.repository.state.keyword.get"
       }
     },
     "/legacy/repos/search/{keyword}": {
@@ -1572,7 +1595,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "legacy.repos.search.keyword.get"
       }
     },
     "/legacy/user/email/{email}": {
@@ -1629,7 +1653,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "legacy.user.email.email.get"
       }
     },
     "/legacy/user/search/{keyword}": {
@@ -1714,7 +1739,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "legacy.user.search.keyword.get"
       }
     },
     "/markdown": {
@@ -1772,7 +1798,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "markdown.post"
       }
     },
     "/markdown/raw": {
@@ -1825,7 +1852,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "markdown.raw.post"
       }
     },
     "/meta": {
@@ -1875,7 +1903,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "meta.get"
       }
     },
     "/networks/{owner}/{repo}/events": {
@@ -1944,7 +1973,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "networks.owner.repo.events.get"
       }
     },
     "/notifications": {
@@ -2017,7 +2047,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.get"
       },
       "put": {
         "description": "Mark as read.\nMarking a notification as \"read\" removes it from the default view on GitHub.com.\n",
@@ -2070,7 +2101,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.put"
       }
     },
     "/notifications/threads/{id}": {
@@ -2127,7 +2159,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.threads.id.get"
       },
       "patch": {
         "description": "Mark a thread as read",
@@ -2179,7 +2212,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.threads.id.patch"
       }
     },
     "/notifications/threads/{id}/subscription": {
@@ -2233,7 +2267,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.threads.id.subscription.delete"
       },
       "get": {
         "description": "Get a Thread Subscription.",
@@ -2288,7 +2323,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.threads.id.subscription.get"
       },
       "put": {
         "description": "Set a Thread Subscription.\nThis lets you subscribe to a thread, or ignore it. Subscribing to a thread\nis unnecessary if the user is already subscribed to the repository. Ignoring\na thread will mute all future notifications (until you comment or get @mentioned).\n",
@@ -2351,7 +2387,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "notifications.threads.id.subscription.put"
       }
     },
     "/orgs/{org}": {
@@ -2408,7 +2445,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.get"
       },
       "patch": {
         "description": "Edit an Organization.",
@@ -2471,7 +2509,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.patch"
       }
     },
     "/orgs/{org}/events": {
@@ -2533,7 +2572,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.events.get"
       }
     },
     "/orgs/{org}/issues": {
@@ -2657,7 +2697,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.issues.get"
       }
     },
     "/orgs/{org}/members": {
@@ -2722,7 +2763,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.members.get"
       }
     },
     "/orgs/{org}/members/{username}": {
@@ -2783,7 +2825,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.members.username.delete"
       },
       "get": {
         "description": "Check if a user is, publicly or privately, a member of the organization.",
@@ -2848,7 +2891,8 @@
           "404": {
             "description": "Not Found.\na. Response if requester is an organization member and user is not a member\nb. Response if requester is not an organization member and is inquiring about themselves\n"
           }
-        }
+        },
+        "operationId": "orgs.org.members.username.get"
       }
     },
     "/orgs/{org}/public_members": {
@@ -2910,7 +2954,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.public_members.get"
       }
     },
     "/orgs/{org}/public_members/{username}": {
@@ -2971,7 +3016,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.public_members.username.delete"
       },
       "get": {
         "description": "Check public membership.",
@@ -3033,7 +3079,8 @@
           "404": {
             "description": "User is not a public member."
           }
-        }
+        },
+        "operationId": "orgs.org.public_members.username.get"
       },
       "put": {
         "description": "Publicize a user's membership.",
@@ -3092,7 +3139,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.public_members.username.put"
       }
     },
     "/orgs/{org}/repos": {
@@ -3168,7 +3216,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.repos.get"
       },
       "post": {
         "description": "Create a new repository for the authenticated user. OAuth users must supply\nrepo scope.\n",
@@ -3231,7 +3280,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.repos.post"
       }
     },
     "/orgs/{org}/teams": {
@@ -3293,7 +3343,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.teams.get"
       },
       "post": {
         "description": "Create team.\nIn order to create a team, the authenticated user must be an owner of organization.\n",
@@ -3356,7 +3407,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "orgs.org.teams.post"
       }
     },
     "/rate_limit": {
@@ -3406,7 +3458,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "rate_limit.get"
       }
     },
     "/repos/{owner}/{repo}": {
@@ -3467,7 +3520,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.delete"
       },
       "get": {
         "description": "Get repository.",
@@ -3529,7 +3583,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.get"
       },
       "patch": {
         "description": "Edit repository.",
@@ -3599,7 +3654,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.patch"
       }
     },
     "/repos/{owner}/{repo}/assignees": {
@@ -3668,7 +3724,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.assignees.get"
       }
     },
     "/repos/{owner}/{repo}/assignees/{assignee}": {
@@ -3739,7 +3796,8 @@
           "404": {
             "description": "User isn't an assignee."
           }
-        }
+        },
+        "operationId": "repos.owner.repo.assignees.assignee.get"
       }
     },
     "/repos/{owner}/{repo}/branches": {
@@ -3808,7 +3866,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.branches.get"
       }
     },
     "/repos/{owner}/{repo}/branches/{branch}": {
@@ -3879,7 +3938,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.branches.branch.get"
       }
     },
     "/repos/{owner}/{repo}/collaborators": {
@@ -3948,7 +4008,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.collaborators.get"
       }
     },
     "/repos/{owner}/{repo}/collaborators/{user}": {
@@ -4016,7 +4077,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.collaborators.user.delete"
       },
       "get": {
         "description": "Check if user is a collaborator",
@@ -4085,7 +4147,8 @@
           "404": {
             "description": "User is not a collaborator."
           }
-        }
+        },
+        "operationId": "repos.owner.repo.collaborators.user.get"
       },
       "put": {
         "description": "Add collaborator.",
@@ -4151,7 +4214,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.collaborators.user.put"
       }
     },
     "/repos/{owner}/{repo}/comments": {
@@ -4220,7 +4284,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.comments.get"
       }
     },
     "/repos/{owner}/{repo}/comments/{commentId}": {
@@ -4288,7 +4353,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.comments.commentId.delete"
       },
       "get": {
         "description": "Get a single commit comment.",
@@ -4357,7 +4423,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.comments.commentId.get"
       },
       "patch": {
         "description": "Update a commit comment.",
@@ -4434,7 +4501,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.comments.commentId.patch"
       }
     },
     "/repos/{owner}/{repo}/commits": {
@@ -4533,7 +4601,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.commits.get"
       }
     },
     "/repos/{owner}/{repo}/commits/{ref}/status": {
@@ -4608,7 +4677,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.commits.ref.status.get"
       }
     },
     "/repos/{owner}/{repo}/commits/{shaCode}": {
@@ -4679,7 +4749,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.commits.shaCode.get"
       }
     },
     "/repos/{owner}/{repo}/commits/{shaCode}/comments": {
@@ -4755,7 +4826,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.commits.shaCode.comments.get"
       },
       "post": {
         "description": "Create a commit comment.",
@@ -4832,7 +4904,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.commits.shaCode.comments.post"
       }
     },
     "/repos/{owner}/{repo}/compare/{baseId}...{headId}": {
@@ -4908,7 +4981,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.compare.baseId...headId.get"
       }
     },
     "/repos/{owner}/{repo}/contents/{path}": {
@@ -4986,7 +5060,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.contents.path.delete"
       },
       "get": {
         "description": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"\n",
@@ -5066,7 +5141,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.contents.path.get"
       },
       "put": {
         "description": "Create a file.",
@@ -5142,7 +5218,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.contents.path.put"
       }
     },
     "/repos/{owner}/{repo}/contributors": {
@@ -5218,7 +5295,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.contributors.get"
       }
     },
     "/repos/{owner}/{repo}/deployments": {
@@ -5287,7 +5365,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.deployments.get"
       },
       "post": {
         "description": "Users with push access can create a deployment for a given ref",
@@ -5357,7 +5436,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.deployments.post"
       }
     },
     "/repos/{owner}/{repo}/deployments/{id}/statuses": {
@@ -5433,7 +5513,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.deployments.id.statuses.get"
       },
       "post": {
         "description": "Create a Deployment Status\nUsers with push access can create deployment statuses for a given deployment:\n",
@@ -5507,7 +5588,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.deployments.id.statuses.post"
       }
     },
     "/repos/{owner}/{repo}/downloads": {
@@ -5576,7 +5658,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.downloads.get"
       }
     },
     "/repos/{owner}/{repo}/downloads/{downloadId}": {
@@ -5644,7 +5727,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.downloads.downloadId.delete"
       },
       "get": {
         "description": "Deprecated. Get a single download.",
@@ -5713,7 +5797,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.downloads.downloadId.get"
       }
     },
     "/repos/{owner}/{repo}/events": {
@@ -5782,7 +5867,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.events.get"
       }
     },
     "/repos/{owner}/{repo}/forks": {
@@ -5862,7 +5948,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.forks.get"
       },
       "post": {
         "description": "Create a fork.\nForking a Repository happens asynchronously. Therefore, you may have to wai\na short period before accessing the git objects. If this takes longer than 5\nminutes, be sure to contact Support.\n",
@@ -5932,7 +6019,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.forks.post"
       }
     },
     "/repos/{owner}/{repo}/git/blobs": {
@@ -6004,7 +6092,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.blobs.post"
       }
     },
     "/repos/{owner}/{repo}/git/blobs/{shaCode}": {
@@ -6075,7 +6164,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.blobs.shaCode.get"
       }
     },
     "/repos/{owner}/{repo}/git/commits": {
@@ -6147,7 +6237,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.commits.post"
       }
     },
     "/repos/{owner}/{repo}/git/commits/{shaCode}": {
@@ -6218,7 +6309,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.commits.shaCode.get"
       }
     },
     "/repos/{owner}/{repo}/git/refs": {
@@ -6287,7 +6379,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.refs.get"
       },
       "post": {
         "description": "Create a Reference",
@@ -6357,7 +6450,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.refs.post"
       }
     },
     "/repos/{owner}/{repo}/git/refs/{ref}": {
@@ -6424,7 +6518,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.refs.ref.delete"
       },
       "get": {
         "description": "Get a Reference",
@@ -6492,7 +6587,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.refs.ref.get"
       },
       "patch": {
         "description": "Update a Reference",
@@ -6568,7 +6664,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.refs.ref.patch"
       }
     },
     "/repos/{owner}/{repo}/git/tags": {
@@ -6640,7 +6737,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.tags.post"
       }
     },
     "/repos/{owner}/{repo}/git/tags/{shaCode}": {
@@ -6710,7 +6808,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.tags.shaCode.get"
       }
     },
     "/repos/{owner}/{repo}/git/trees": {
@@ -6782,7 +6881,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.trees.post"
       }
     },
     "/repos/{owner}/{repo}/git/trees/{shaCode}": {
@@ -6859,7 +6959,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.git.trees.shaCode.get"
       }
     },
     "/repos/{owner}/{repo}/hooks": {
@@ -6928,7 +7029,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.get"
       },
       "post": {
         "description": "Create a hook.",
@@ -6998,7 +7100,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.post"
       }
     },
     "/repos/{owner}/{repo}/hooks/{hookId}": {
@@ -7066,7 +7169,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.hookId.delete"
       },
       "get": {
         "description": "Get single hook.",
@@ -7135,7 +7239,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.hookId.get"
       },
       "patch": {
         "description": "Edit a hook.",
@@ -7212,7 +7317,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.hookId.patch"
       }
     },
     "/repos/{owner}/{repo}/hooks/{hookId}/tests": {
@@ -7280,7 +7386,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.hooks.hookId.tests.post"
       }
     },
     "/repos/{owner}/{repo}/issues": {
@@ -7411,7 +7518,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.get"
       },
       "post": {
         "description": "Create an issue.\nAny user with pull access to a repository can create an issue.\n",
@@ -7481,7 +7589,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.post"
       }
     },
     "/repos/{owner}/{repo}/issues/comments": {
@@ -7572,7 +7681,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.comments.get"
       }
     },
     "/repos/{owner}/{repo}/issues/comments/{commentId}": {
@@ -7640,7 +7750,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.comments.commentId.delete"
       },
       "get": {
         "description": "Get a single comment.",
@@ -7709,7 +7820,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.comments.commentId.get"
       },
       "patch": {
         "description": "Edit a comment.",
@@ -7786,7 +7898,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.comments.commentId.patch"
       }
     },
     "/repos/{owner}/{repo}/issues/events": {
@@ -7855,7 +7968,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.events.get"
       }
     },
     "/repos/{owner}/{repo}/issues/events/{eventId}": {
@@ -7926,7 +8040,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.events.eventId.get"
       }
     },
     "/repos/{owner}/{repo}/issues/{number}": {
@@ -7997,7 +8112,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.get"
       },
       "patch": {
         "description": "Edit an issue.\nIssue owners and users with push access can edit an issue.\n",
@@ -8074,7 +8190,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.patch"
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/comments": {
@@ -8150,7 +8267,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.comments.get"
       },
       "post": {
         "description": "Create a comment.",
@@ -8227,7 +8345,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.comments.post"
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/events": {
@@ -8303,7 +8422,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.events.get"
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/labels": {
@@ -8371,7 +8491,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.labels.delete"
       },
       "get": {
         "description": "List labels on an issue.",
@@ -8445,7 +8566,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.labels.get"
       },
       "post": {
         "description": "Add labels to an issue.",
@@ -8522,7 +8644,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.labels.post"
       },
       "put": {
         "description": "Replace all labels for an issue.\nSending an empty array ([]) will remove all Labels from the Issue.\n",
@@ -8599,7 +8722,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.labels.put"
       }
     },
     "/repos/{owner}/{repo}/issues/{number}/labels/{name}": {
@@ -8674,7 +8798,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.issues.number.labels.name.delete"
       }
     },
     "/repos/{owner}/{repo}/keys": {
@@ -8743,7 +8868,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.keys.get"
       },
       "post": {
         "description": "Create a key.",
@@ -8813,7 +8939,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.keys.post"
       }
     },
     "/repos/{owner}/{repo}/keys/{keyId}": {
@@ -8881,7 +9008,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.keys.keyId.delete"
       },
       "get": {
         "description": "Get a key",
@@ -8950,7 +9078,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.keys.keyId.get"
       }
     },
     "/repos/{owner}/{repo}/labels": {
@@ -9019,7 +9148,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.labels.get"
       },
       "post": {
         "description": "Create a label.",
@@ -9089,7 +9219,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.labels.post"
       }
     },
     "/repos/{owner}/{repo}/labels/{name}": {
@@ -9157,7 +9288,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.labels.name.delete"
       },
       "get": {
         "description": "Get a single label.",
@@ -9226,7 +9358,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.labels.name.get"
       },
       "patch": {
         "description": "Update a label.",
@@ -9303,7 +9436,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.labels.name.patch"
       }
     },
     "/repos/{owner}/{repo}/languages": {
@@ -9372,7 +9506,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.languages.get"
       }
     },
     "/repos/{owner}/{repo}/merges": {
@@ -9459,7 +9594,8 @@
               "$ref": "#/definitions/mergesConflict"
             }
           }
-        }
+        },
+        "operationId": "repos.owner.repo.merges.post"
       }
     },
     "/repos/{owner}/{repo}/milestones": {
@@ -9556,7 +9692,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.get"
       },
       "post": {
         "description": "Create a milestone.",
@@ -9626,7 +9763,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.post"
       }
     },
     "/repos/{owner}/{repo}/milestones/{number}": {
@@ -9694,7 +9832,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.number.delete"
       },
       "get": {
         "description": "Get a single milestone.",
@@ -9763,7 +9902,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.number.get"
       },
       "patch": {
         "description": "Update a milestone.",
@@ -9840,7 +9980,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.number.patch"
       }
     },
     "/repos/{owner}/{repo}/milestones/{number}/labels": {
@@ -9916,7 +10057,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.milestones.number.labels.get"
       }
     },
     "/repos/{owner}/{repo}/notifications": {
@@ -10003,7 +10145,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.notifications.get"
       },
       "put": {
         "description": "Mark notifications as read in a repository.\nMarking all notifications in a repository as \"read\" removes them from the\ndefault view on GitHub.com.\n",
@@ -10070,7 +10213,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.notifications.put"
       }
     },
     "/repos/{owner}/{repo}/pulls": {
@@ -10162,7 +10306,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.get"
       },
       "post": {
         "description": "Create a pull request.",
@@ -10232,7 +10377,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.post"
       }
     },
     "/repos/{owner}/{repo}/pulls/comments": {
@@ -10323,7 +10469,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.comments.get"
       }
     },
     "/repos/{owner}/{repo}/pulls/comments/{commentId}": {
@@ -10391,7 +10538,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.comments.commentId.delete"
       },
       "get": {
         "description": "Get a single comment.",
@@ -10460,7 +10608,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.comments.commentId.get"
       },
       "patch": {
         "description": "Edit a comment.",
@@ -10537,7 +10686,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.comments.commentId.patch"
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}": {
@@ -10608,7 +10758,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.get"
       },
       "patch": {
         "description": "Update a pull request.",
@@ -10685,7 +10836,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.patch"
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/comments": {
@@ -10761,7 +10913,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.comments.get"
       },
       "post": {
         "description": "Create a comment.\n  #TODO Alternative input ( http://developer.github.com/v3/pulls/comments/ )\n  description: |\n    Alternative Input.\n    Instead of passing commit_id, path, and position you can reply to an\n    existing Pull Request Comment like this:\n\n        body\n           Required string\n        in_reply_to\n           Required number - Comment id to reply to.\n",
@@ -10838,7 +10991,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.comments.post"
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/commits": {
@@ -10914,7 +11068,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.commits.get"
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/files": {
@@ -10990,7 +11145,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.files.get"
       }
     },
     "/repos/{owner}/{repo}/pulls/{number}/merge": {
@@ -11061,7 +11217,8 @@
           "404": {
             "description": "Pull request has not been merged."
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.merge.get"
       },
       "put": {
         "description": "Merge a pull request (Merge Button's)",
@@ -11144,7 +11301,8 @@
               "$ref": "#/definitions/merge"
             }
           }
-        }
+        },
+        "operationId": "repos.owner.repo.pulls.number.merge.put"
       }
     },
     "/repos/{owner}/{repo}/readme": {
@@ -11214,7 +11372,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.readme.get"
       }
     },
     "/repos/{owner}/{repo}/releases": {
@@ -11283,7 +11442,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.get"
       },
       "post": {
         "description": "Create a release\nUsers with push access to the repository can create a release.\n",
@@ -11353,7 +11513,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.post"
       }
     },
     "/repos/{owner}/{repo}/releases/assets/{id}": {
@@ -11420,7 +11581,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.assets.id.delete"
       },
       "get": {
         "description": "Get a single release asset",
@@ -11488,7 +11650,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.assets.id.get"
       },
       "patch": {
         "description": "Edit a release asset\nUsers with push access to the repository can edit a release asset.\n",
@@ -11564,7 +11727,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.assets.id.patch"
       }
     },
     "/repos/{owner}/{repo}/releases/{id}": {
@@ -11631,7 +11795,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.id.delete"
       },
       "get": {
         "description": "Get a single release",
@@ -11699,7 +11864,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.id.get"
       },
       "patch": {
         "description": "Users with push access to the repository can edit a release",
@@ -11775,7 +11941,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.id.patch"
       }
     },
     "/repos/{owner}/{repo}/releases/{id}/assets": {
@@ -11850,7 +12017,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.releases.id.assets.get"
       }
     },
     "/repos/{owner}/{repo}/stargazers": {
@@ -11919,7 +12087,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stargazers.get"
       }
     },
     "/repos/{owner}/{repo}/stats/code_frequency": {
@@ -11983,7 +12152,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stats.code_frequency.get"
       }
     },
     "/repos/{owner}/{repo}/stats/commit_activity": {
@@ -12047,7 +12217,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stats.commit_activity.get"
       }
     },
     "/repos/{owner}/{repo}/stats/contributors": {
@@ -12116,7 +12287,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stats.contributors.get"
       }
     },
     "/repos/{owner}/{repo}/stats/participation": {
@@ -12180,7 +12352,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stats.participation.get"
       }
     },
     "/repos/{owner}/{repo}/stats/punch_card": {
@@ -12244,7 +12417,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.stats.punch_card.get"
       }
     },
     "/repos/{owner}/{repo}/statuses/{ref}": {
@@ -12315,7 +12489,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.statuses.ref.get"
       },
       "post": {
         "description": "Create a Status.",
@@ -12392,7 +12567,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.statuses.ref.post"
       }
     },
     "/repos/{owner}/{repo}/subscribers": {
@@ -12461,7 +12637,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.subscribers.get"
       }
     },
     "/repos/{owner}/{repo}/subscription": {
@@ -12522,7 +12699,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.subscription.delete"
       },
       "get": {
         "description": "Get a Repository Subscription.",
@@ -12584,7 +12762,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.subscription.get"
       },
       "put": {
         "description": "Set a Repository Subscription",
@@ -12654,7 +12833,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.subscription.put"
       }
     },
     "/repos/{owner}/{repo}/tags": {
@@ -12723,7 +12903,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.tags.get"
       }
     },
     "/repos/{owner}/{repo}/teams": {
@@ -12792,7 +12973,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.teams.get"
       }
     },
     "/repos/{owner}/{repo}/watchers": {
@@ -12861,7 +13043,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.watchers.get"
       }
     },
     "/repos/{owner}/{repo}/{archive_format}/{path}": {
@@ -12939,7 +13122,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repos.owner.repo.archive_format.path.get"
       }
     },
     "/repositories": {
@@ -13000,7 +13184,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "repositories.get"
       }
     },
     "/search/code": {
@@ -13077,7 +13262,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "search.code.get"
       }
     },
     "/search/issues": {
@@ -13161,7 +13347,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "search.issues.get"
       }
     },
     "/search/repositories": {
@@ -13245,7 +13432,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "search.repositories.get"
       }
     },
     "/search/users": {
@@ -13329,7 +13517,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "search.users.get"
       }
     },
     "/teams/{teamId}": {
@@ -13383,7 +13572,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.delete"
       },
       "get": {
         "description": "Get team.",
@@ -13438,7 +13628,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.get"
       },
       "patch": {
         "description": "Edit team.\nIn order to edit a team, the authenticated user must be an owner of the org\nthat the team is associated with.\n",
@@ -13501,7 +13692,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.patch"
       }
     },
     "/teams/{teamId}/members": {
@@ -13563,7 +13755,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.members.get"
       }
     },
     "/teams/{teamId}/members/{username}": {
@@ -13624,7 +13817,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.members.username.delete"
       },
       "get": {
         "description": "The \"Get team member\" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Get team membership API instead. It allows you to get both active and pending memberships.\n\nGet team member.\nIn order to get if a user is a member of a team, the authenticated user mus\nbe a member of the team.\n",
@@ -13686,7 +13880,8 @@
           "404": {
             "description": "User is not a member."
           }
-        }
+        },
+        "operationId": "teams.teamId.members.username.get"
       },
       "put": {
         "description": "The API (described below) is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Add team membership API instead. It allows you to invite new organization members to your teams.\n\nAdd team member.\nIn order to add a user to a team, the authenticated user must have 'admin'\npermissions to the team or be an owner of the org that the team is associated\nwith.\n",
@@ -13751,7 +13946,8 @@
               "$ref": "#/definitions/organizationAsTeamMember"
             }
           }
-        }
+        },
+        "operationId": "teams.teamId.members.username.put"
       }
     },
     "/teams/{teamId}/memberships/{username}": {
@@ -13812,7 +14008,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.memberships.username.delete"
       },
       "get": {
         "description": "Get team membership.\nIn order to get a user's membership with a team, the authenticated user must be a member of the team or an owner of the team's organization.\n",
@@ -13877,7 +14074,8 @@
           "404": {
             "description": "User has no membership with team"
           }
-        }
+        },
+        "operationId": "teams.teamId.memberships.username.get"
       },
       "put": {
         "description": "Add team membership.\nIn order to add a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with.\n\nIf the user is already a part of the team's organization (meaning they're on at least one other team in the organization), this endpoint will add the user to the team.\n\nIf the user is completely unaffiliated with the team's organization (meaning they're on none of the organization's teams), this endpoint will send an invitation to the user via email. This newly-created membership will be in the 'pending' state until the user accepts the invitation, at which point the membership will transition to the 'active' state and the user will be added as a member of the team.\n",
@@ -13945,7 +14143,8 @@
               "$ref": "#/definitions/organizationAsTeamMember"
             }
           }
-        }
+        },
+        "operationId": "teams.teamId.memberships.username.put"
       }
     },
     "/teams/{teamId}/repos": {
@@ -14007,7 +14206,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.repos.get"
       }
     },
     "/teams/{teamId}/repos/{org}/{repo}": {
@@ -14072,7 +14272,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.repos.org.repo.put"
       }
     },
     "/teams/{teamId}/repos/{owner}/{repo}": {
@@ -14140,7 +14341,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.repos.owner.repo.delete"
       },
       "get": {
         "description": "Check if a team manages a repository",
@@ -14203,7 +14405,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "teams.teamId.repos.owner.repo.get"
       }
     },
     "/user": {
@@ -14253,7 +14456,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.get"
       },
       "patch": {
         "description": "Update the authenticated user.",
@@ -14309,7 +14513,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.patch"
       }
     },
     "/user/emails": {
@@ -14364,7 +14569,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.emails.delete"
       },
       "get": {
         "description": "List email addresses for a user.\nIn the final version of the API, this method will return an array of hashes\nwith extended information for each email address indicating if the address\nhas been verified and if it's primary email address for GitHub.\nUntil API v3 is finalized, use the application/vnd.github.v3 media type to\nget other response format.\n",
@@ -14420,7 +14626,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.emails.get"
       },
       "post": {
         "description": "Add email address(es).\nYou can post a single email address or an array of addresses.\n",
@@ -14470,7 +14677,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.emails.post"
       }
     },
     "/user/followers": {
@@ -14525,7 +14733,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.followers.get"
       }
     },
     "/user/following": {
@@ -14575,7 +14784,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.following.get"
       }
     },
     "/user/following/{username}": {
@@ -14629,7 +14839,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.following.username.delete"
       },
       "get": {
         "description": "Check if you are following a user.",
@@ -14684,7 +14895,8 @@
           "404": {
             "description": "Response if you are not following this user."
           }
-        }
+        },
+        "operationId": "user.following.username.get"
       },
       "put": {
         "description": "Follow a user.\nFollowing a user requires the user to be logged in and authenticated with\nbasic auth or OAuth with the user:follow scope.\n",
@@ -14736,7 +14948,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.following.username.put"
       }
     },
     "/user/issues": {
@@ -14853,7 +15066,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.issues.get"
       }
     },
     "/user/keys": {
@@ -14908,7 +15122,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.keys.get"
       },
       "post": {
         "description": "Create a public key.",
@@ -14964,7 +15179,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.keys.post"
       }
     },
     "/user/keys/{keyId}": {
@@ -15018,7 +15234,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.keys.keyId.delete"
       },
       "get": {
         "description": "Get a single public key.",
@@ -15073,7 +15290,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.keys.keyId.get"
       }
     },
     "/user/orgs": {
@@ -15128,7 +15346,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.orgs.get"
       }
     },
     "/user/repos": {
@@ -15197,7 +15416,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.repos.get"
       },
       "post": {
         "description": "Create a new repository for the authenticated user. OAuth users must supply\nrepo scope.\n",
@@ -15253,7 +15473,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.repos.post"
       }
     },
     "/user/starred": {
@@ -15320,7 +15541,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.starred.get"
       }
     },
     "/user/starred/{owner}/{repo}": {
@@ -15381,7 +15603,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.starred.owner.repo.delete"
       },
       "get": {
         "description": "Check if you are starring a repository.",
@@ -15443,7 +15666,8 @@
           "404": {
             "description": "This repository is not starred by you."
           }
-        }
+        },
+        "operationId": "user.starred.owner.repo.get"
       },
       "put": {
         "description": "Star a repository.",
@@ -15502,7 +15726,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.starred.owner.repo.put"
       }
     },
     "/user/subscriptions": {
@@ -15557,7 +15782,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.subscriptions.get"
       }
     },
     "/user/subscriptions/{owner}/{repo}": {
@@ -15618,7 +15844,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.subscriptions.owner.repo.delete"
       },
       "get": {
         "description": "Check if you are watching a repository.",
@@ -15680,7 +15907,8 @@
           "404": {
             "description": "Repository is not watched by you."
           }
-        }
+        },
+        "operationId": "user.subscriptions.owner.repo.get"
       },
       "put": {
         "description": "Watch a repository.",
@@ -15739,7 +15967,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.subscriptions.owner.repo.put"
       }
     },
     "/user/teams": {
@@ -15794,7 +16023,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "user.teams.get"
       }
     },
     "/users": {
@@ -15855,7 +16085,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.get"
       }
     },
     "/users/{username}": {
@@ -15912,7 +16143,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.get"
       }
     },
     "/users/{username}/events": {
@@ -15968,7 +16200,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.events.get"
       }
     },
     "/users/{username}/events/orgs/{org}": {
@@ -16025,7 +16258,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.events.orgs.org.get"
       }
     },
     "/users/{username}/followers": {
@@ -16087,7 +16321,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.followers.get"
       }
     },
     "/users/{username}/following/{targetUser}": {
@@ -16151,7 +16386,8 @@
           "404": {
             "description": "Response if user does not follow target user."
           }
-        }
+        },
+        "operationId": "users.username.following.targetUser.get"
       }
     },
     "/users/{username}/gists": {
@@ -16219,7 +16455,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.gists.get"
       }
     },
     "/users/{username}/keys": {
@@ -16281,7 +16518,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.keys.get"
       }
     },
     "/users/{username}/orgs": {
@@ -16343,7 +16581,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.orgs.get"
       }
     },
     "/users/{username}/received_events": {
@@ -16399,7 +16638,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.received_events.get"
       }
     },
     "/users/{username}/received_events/public": {
@@ -16450,7 +16690,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.received_events.public.get"
       }
     },
     "/users/{username}/repos": {
@@ -16526,7 +16767,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.repos.get"
       }
     },
     "/users/{username}/starred": {
@@ -16577,7 +16819,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.starred.get"
       }
     },
     "/users/{username}/subscriptions": {
@@ -16633,7 +16876,8 @@
           "403": {
             "description": "API rate limit exceeded. See http://developer.github.com/v3/#rate-limiting\nfor details.\n"
           }
-        }
+        },
+        "operationId": "users.username.subscriptions.get"
       }
     }
   },

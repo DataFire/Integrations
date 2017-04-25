@@ -268,7 +268,8 @@
         ],
         "tags": [
           "Episodes"
-        ]
+        ],
+        "operationId": "episodes.id.get"
       }
     },
     "/languages": {
@@ -295,7 +296,8 @@
         ],
         "tags": [
           "Languages"
-        ]
+        ],
+        "operationId": "languages.get"
       }
     },
     "/languages/{id}": {
@@ -333,7 +335,8 @@
         ],
         "tags": [
           "Languages"
-        ]
+        ],
+        "operationId": "languages.id.get"
       }
     },
     "/login": {
@@ -366,7 +369,8 @@
         },
         "tags": [
           "Authentication"
-        ]
+        ],
+        "operationId": "login.post"
       }
     },
     "/refresh_token": {
@@ -393,7 +397,8 @@
         ],
         "tags": [
           "Authentication"
-        ]
+        ],
+        "operationId": "refresh_token.get"
       }
     },
     "/search/series": {
@@ -440,7 +445,8 @@
         ],
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "search.series.get"
       }
     },
     "/search/series/params": {
@@ -467,7 +473,8 @@
         ],
         "tags": [
           "Search"
-        ]
+        ],
+        "operationId": "search.series.params.get"
       }
     },
     "/series/{id}": {
@@ -508,7 +515,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.get"
       },
       "head": {
         "description": "Returns header information only about the given series ID.",
@@ -544,7 +552,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.head"
       }
     },
     "/series/{id}/actors": {
@@ -582,7 +591,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.actors.get"
       }
     },
     "/series/{id}/episodes": {
@@ -623,7 +633,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.episodes.get"
       }
     },
     "/series/{id}/episodes/query": {
@@ -685,7 +696,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.episodes.query.get"
       }
     },
     "/series/{id}/episodes/query/params": {
@@ -723,7 +735,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.episodes.query.params.get"
       }
     },
     "/series/{id}/episodes/summary": {
@@ -761,7 +774,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.episodes.summary.get"
       }
     },
     "/series/{id}/filter": {
@@ -805,7 +819,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.filter.get"
       }
     },
     "/series/{id}/filter/params": {
@@ -846,7 +861,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.filter.params.get"
       }
     },
     "/series/{id}/images": {
@@ -887,7 +903,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.images.get"
       }
     },
     "/series/{id}/images/query": {
@@ -937,7 +954,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.images.query.get"
       }
     },
     "/series/{id}/images/query/params": {
@@ -978,7 +996,8 @@
         ],
         "tags": [
           "Series"
-        ]
+        ],
+        "operationId": "series.id.images.query.params.get"
       }
     },
     "/updated/query": {
@@ -1022,7 +1041,8 @@
         ],
         "tags": [
           "Updates"
-        ]
+        ],
+        "operationId": "updated.query.get"
       }
     },
     "/updated/query/params": {
@@ -1055,7 +1075,8 @@
         ],
         "tags": [
           "Updates"
-        ]
+        ],
+        "operationId": "updated.query.params.get"
       }
     },
     "/user": {
@@ -1088,7 +1109,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.get"
       }
     },
     "/user/favorites": {
@@ -1121,7 +1143,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.favorites.get"
       }
     },
     "/user/favorites/{id}": {
@@ -1165,7 +1188,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.favorites.id.delete"
       },
       "put": {
         "description": "Adds the supplied series ID to the user’s favorite’s list and returns the updated list.",
@@ -1207,7 +1231,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.favorites.id.put"
       }
     },
     "/user/ratings": {
@@ -1240,7 +1265,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.ratings.get"
       }
     },
     "/user/ratings/query": {
@@ -1278,7 +1304,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.ratings.query.get"
       }
     },
     "/user/ratings/query/params": {
@@ -1311,7 +1338,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.ratings.query.params.get"
       }
     },
     "/user/ratings/{itemType}/{itemId}": {
@@ -1352,7 +1380,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.ratings.itemType.itemId.delete"
       }
     },
     "/user/ratings/{itemType}/{itemId}/{itemRating}": {
@@ -1396,7 +1425,8 @@
         ],
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "user.ratings.itemType.itemId.itemRating.put"
       }
     }
   },

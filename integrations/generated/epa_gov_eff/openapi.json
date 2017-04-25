@@ -148,7 +148,8 @@
         "summary": "Effluent Charts Download Service",
         "tags": [
           "Effluent Charts"
-        ]
+        ],
+        "operationId": "eff_rest_services.download_effluent_chart.get"
       }
     },
     "/eff_rest_services.get_effluent_chart": {
@@ -197,7 +198,8 @@
         "summary": "Detailed Effluent Chart Service",
         "tags": [
           "Effluent Charts"
-        ]
+        ],
+        "operationId": "eff_rest_services.get_effluent_chart.get"
       }
     },
     "/eff_rest_services.get_summary_chart": {
@@ -240,7 +242,8 @@
         "summary": "Summary Effluent Chart Service",
         "tags": [
           "Effluent Charts"
-        ]
+        ],
+        "operationId": "eff_rest_services.get_summary_chart.get"
       }
     },
     "/rest_lookups.cwa_parameters": {
@@ -280,7 +283,8 @@
         "summary": "ECHO CWA Parameter Lookup Service",
         "tags": [
           "Lookups"
-        ]
+        ],
+        "operationId": "rest_lookups.cwa_parameters.get"
       }
     }
   },

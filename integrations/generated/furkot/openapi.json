@@ -84,7 +84,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "trip.get"
       }
     },
     "/trip/{trip_id}/stop": {
@@ -109,7 +110,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "trip.trip_id.stop.get"
       }
     }
   },

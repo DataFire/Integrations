@@ -119,7 +119,8 @@
         "summary": "Get details for multiple GoToAssist Seeit sessions",
         "tags": [
           "Sessions"
-        ]
+        ],
+        "operationId": "sessions.get"
       },
       "post": {
         "description": "This endpoint allows you to create a GoToAssist Seeit session. The session logically exists but is not started until you open the returned startUrl in a suitable browser.",
@@ -145,7 +146,8 @@
         "summary": "Create a GoToAssist Seeit session",
         "tags": [
           "Sessions"
-        ]
+        ],
+        "operationId": "sessions.post"
       }
     },
     "/sessions/{uuid}": {
@@ -187,7 +189,8 @@
         "summary": "Get details for a single GoToAssist Seeit session",
         "tags": [
           "Sessions"
-        ]
+        ],
+        "operationId": "sessions.uuid.get"
       }
     }
   },

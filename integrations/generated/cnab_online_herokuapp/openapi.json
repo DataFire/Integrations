@@ -72,7 +72,8 @@
         "summary": "Faz o upload de um arquivo",
         "tags": [
           "file"
-        ]
+        ],
+        "operationId": "file.post"
       }
     },
     "/file/{fileId}": {
@@ -108,7 +109,8 @@
         "summary": "Retorna as informações básicas de um arquivo previamente processado",
         "tags": [
           "file"
-        ]
+        ],
+        "operationId": "file.fileId.get"
       }
     },
     "/file/{fileId}/lines": {
@@ -147,7 +149,8 @@
         "summary": "Retorna todas as linhas e seus respectivos campos (de forma não processada, apenas indicando os campos reconhecidos)",
         "tags": [
           "file"
-        ]
+        ],
+        "operationId": "file.fileId.lines.get"
       }
     },
     "/file/{fileId}/occurrences": {
@@ -186,7 +189,8 @@
         "summary": "Retorna as informações de baixa de boletos e outros tipos de ocorrências",
         "tags": [
           "file"
-        ]
+        ],
+        "operationId": "file.fileId.occurrences.get"
       }
     }
   },

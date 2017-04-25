@@ -716,7 +716,8 @@
         "summary": "Get a list of logs",
         "tags": [
           "logs"
-        ]
+        ],
+        "operationId": "logs.get"
       }
     },
     "/logs/export": {
@@ -1039,7 +1040,8 @@
         "summary": "Returns a PDF report for a specific site",
         "tags": [
           "reports"
-        ]
+        ],
+        "operationId": "reports.sites.id.get"
       }
     },
     "/reports/tags/{id}": {
@@ -1126,7 +1128,8 @@
         "summary": "Find sites by ID",
         "tags": [
           "reports"
-        ]
+        ],
+        "operationId": "reports.tags.id.get"
       }
     },
     "/sites": {
@@ -1345,7 +1348,8 @@
         "summary": "Get the list of fields",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.metadata.get"
       }
     },
     "/sites/{id}": {
@@ -1384,7 +1388,8 @@
         "summary": "Delete a specific Site",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.id.delete"
       },
       "get": {
         "description": "Return a site based on ID",
@@ -1478,7 +1483,8 @@
         "summary": "Update a site",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.id.put"
       }
     },
     "/sites/{id}/audits": {
@@ -1859,7 +1865,8 @@
         "summary": "Get extensions for a site",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.id.extensions.get"
       },
       "post": {
         "operationId": "installExtension",
@@ -2012,7 +2019,8 @@
         "summary": "Return logs for a specific website",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.id.logs.get"
       },
       "post": {
         "description": "Create a custom log for a specific website",
@@ -2276,7 +2284,8 @@
         "summary": "Return tags for a specific website",
         "tags": [
           "sites"
-        ]
+        ],
+        "operationId": "sites.id.tags.get"
       },
       "post": {
         "description": "Add tags for a specific website",
@@ -2774,7 +2783,8 @@
         "summary": "Get a list of tags",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.get"
       },
       "post": {
         "description": "Create a tag",
@@ -2840,7 +2850,8 @@
         "summary": "Get the list of fields",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.metadata.get"
       }
     },
     "/tags/{id}": {
@@ -2879,7 +2890,8 @@
         "summary": "Delete a specific tag",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "tags.id.delete"
       },
       "get": {
         "description": "Returns a tag based on ID",

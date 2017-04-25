@@ -151,7 +151,8 @@
               "$ref": "#/definitions/User"
             }
           }
-        }
+        },
+        "operationId": "me.get"
       }
     },
     "/project/{username}/{project}": {
@@ -175,7 +176,8 @@
               "$ref": "#/definitions/Builds"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.get"
       },
       "parameters": [
         {
@@ -220,7 +222,8 @@
               "$ref": "#/definitions/BuildSummary"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.post"
       }
     },
     "/project/{username}/{project}/build-cache": {
@@ -238,7 +241,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_cache.delete"
       },
       "parameters": [
         {
@@ -259,7 +263,8 @@
               "$ref": "#/definitions/Keys"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.checkout_key.get"
       },
       "parameters": [
         {
@@ -289,7 +294,8 @@
           "200": {
             "$ref": "#/responses/key"
           }
-        }
+        },
+        "operationId": "project.username.project.checkout_key.post"
       }
     },
     "/project/{username}/{project}/checkout-key/{fingerprint}": {
@@ -310,7 +316,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.checkout_key.fingerprint.delete"
       },
       "get": {
         "description": "Get a checkout key.\n",
@@ -318,7 +325,8 @@
           "200": {
             "$ref": "#/responses/key"
           }
-        }
+        },
+        "operationId": "project.username.project.checkout_key.fingerprint.get"
       },
       "parameters": [
         {
@@ -339,7 +347,8 @@
           "200": {
             "$ref": "#/responses/envvars"
           }
-        }
+        },
+        "operationId": "project.username.project.envvar.get"
       },
       "parameters": [
         {
@@ -355,7 +364,8 @@
           "200": {
             "$ref": "#/responses/envvar"
           }
-        }
+        },
+        "operationId": "project.username.project.envvar.post"
       }
     },
     "/project/{username}/{project}/envvar/{name}": {
@@ -376,7 +386,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.envvar.name.delete"
       },
       "get": {
         "description": "Gets the hidden value of environment variable :name\n",
@@ -384,7 +395,8 @@
           "200": {
             "$ref": "#/responses/envvar"
           }
-        }
+        },
+        "operationId": "project.username.project.envvar.name.get"
       },
       "parameters": [
         {
@@ -456,7 +468,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.ssh_key.post"
       }
     },
     "/project/{username}/{project}/tree/{branch}": {
@@ -509,7 +522,8 @@
               "$ref": "#/definitions/Build"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.tree.branch.post"
       }
     },
     "/project/{username}/{project}/{build_num}": {
@@ -522,7 +536,8 @@
               "$ref": "#/definitions/BuildDetail"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_num.get"
       },
       "parameters": [
         {
@@ -546,7 +561,8 @@
               "$ref": "#/definitions/Artifacts"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_num.artifacts.get"
       },
       "parameters": [
         {
@@ -581,7 +597,8 @@
               "$ref": "#/definitions/Build"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_num.cancel.post"
       }
     },
     "/project/{username}/{project}/{build_num}/retry": {
@@ -605,7 +622,8 @@
               "$ref": "#/definitions/Build"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_num.retry.post"
       }
     },
     "/project/{username}/{project}/{build_num}/tests": {
@@ -618,7 +636,8 @@
               "$ref": "#/definitions/Tests"
             }
           }
-        }
+        },
+        "operationId": "project.username.project.build_num.tests.get"
       },
       "parameters": [
         {
@@ -642,7 +661,8 @@
               "$ref": "#/definitions/Projects"
             }
           }
-        }
+        },
+        "operationId": "projects.get"
       }
     },
     "/recent-builds": {
@@ -663,7 +683,8 @@
               "$ref": "#/definitions/Builds"
             }
           }
-        }
+        },
+        "operationId": "recent_builds.get"
       }
     },
     "/user/heroku-key": {
@@ -681,7 +702,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "user.heroku_key.post"
       }
     }
   },

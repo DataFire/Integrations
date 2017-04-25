@@ -78,7 +78,8 @@
         "summary": "Lists the geographical areas (e.g. districts) that can be used to filter events.",
         "tags": [
           "resources"
-        ]
+        ],
+        "operationId": "areas.get"
       }
     },
     "/events": {
@@ -188,7 +189,8 @@
         "summary": "Lists road events",
         "tags": [
           "resources"
-        ]
+        ],
+        "operationId": "events.get"
       }
     },
     "/jurisdiction": {
@@ -215,7 +217,8 @@
         "summary": "Lists the jurisdictions publishing data through this Open511 API implementation",
         "tags": [
           "resources"
-        ]
+        ],
+        "operationId": "jurisdiction.get"
       }
     },
     "/jurisdictiongeography": {
@@ -242,7 +245,8 @@
         "summary": "Provides the geographical boundaries for all the jurisdictions.",
         "tags": [
           "resources"
-        ]
+        ],
+        "operationId": "jurisdictiongeography.get"
       }
     }
   }

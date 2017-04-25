@@ -114,7 +114,8 @@
         "summary": "Get list of cities supported in Apacta",
         "tags": [
           "Cities"
-        ]
+        ],
+        "operationId": "cities.get"
       }
     },
     "/cities/{city_id}": {
@@ -161,7 +162,8 @@
         "summary": "Get details about one city",
         "tags": [
           "Cities"
-        ]
+        ],
+        "operationId": "cities.city_id.get"
       }
     },
     "/clocking_records": {
@@ -209,7 +211,8 @@
         "summary": "Get a list of clocking records",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.get"
       },
       "post": {
         "parameters": [
@@ -280,7 +283,8 @@
         "summary": "Create clocking record for authenticated user",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.post"
       }
     },
     "/clocking_records/checkout": {
@@ -316,7 +320,8 @@
         "summary": "Checkout active clocking record for authenticated user",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.checkout.post"
       }
     },
     "/clocking_records/{clocking_record_id}": {
@@ -359,7 +364,8 @@
         "summary": "Delete a clocking record",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.clocking_record_id.delete"
       },
       "get": {
         "parameters": [
@@ -404,7 +410,8 @@
         "summary": "Details of 1 clocking_record",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.clocking_record_id.get"
       },
       "put": {
         "parameters": [
@@ -445,7 +452,8 @@
         "summary": "Edit a clocking record",
         "tags": [
           "ClockingRecords"
-        ]
+        ],
+        "operationId": "clocking_records.clocking_record_id.put"
       }
     },
     "/contact_types": {
@@ -484,7 +492,8 @@
         "summary": "Get list of contact types supported in Apacta",
         "tags": [
           "ContactTypes"
-        ]
+        ],
+        "operationId": "contact_types.get"
       }
     },
     "/contact_types/{contact_type_id}": {
@@ -531,7 +540,8 @@
         "summary": "Get details about one contact type",
         "tags": [
           "ContactTypes"
-        ]
+        ],
+        "operationId": "contact_types.contact_type_id.get"
       }
     },
     "/contacts": {
@@ -610,7 +620,8 @@
         "summary": "Get a list of contacts",
         "tags": [
           "Contacts"
-        ]
+        ],
+        "operationId": "contacts.get"
       },
       "post": {
         "parameters": [
@@ -714,7 +725,8 @@
         "summary": "Add a new contact",
         "tags": [
           "Contacts"
-        ]
+        ],
+        "operationId": "contacts.post"
       }
     },
     "/contacts/{contact_id}": {
@@ -757,7 +769,8 @@
         "summary": "Delete a contact",
         "tags": [
           "Contacts"
-        ]
+        ],
+        "operationId": "contacts.contact_id.delete"
       },
       "get": {
         "parameters": [
@@ -802,7 +815,8 @@
         "summary": "Details of 1 contact",
         "tags": [
           "Contacts"
-        ]
+        ],
+        "operationId": "contacts.contact_id.get"
       },
       "put": {
         "parameters": [
@@ -843,7 +857,8 @@
         "summary": "Edit a contact",
         "tags": [
           "Contacts"
-        ]
+        ],
+        "operationId": "contacts.contact_id.put"
       }
     },
     "/currencies": {
@@ -882,7 +897,8 @@
         "summary": "Get list of currencies supported in Apacta",
         "tags": [
           "Currencies"
-        ]
+        ],
+        "operationId": "currencies.get"
       }
     },
     "/currencies/{currency_id}": {
@@ -929,7 +945,8 @@
         "summary": "Get details about one currency",
         "tags": [
           "Currencies"
-        ]
+        ],
+        "operationId": "currencies.currency_id.get"
       }
     },
     "/employee_hours": {
@@ -1009,7 +1026,8 @@
         "summary": "Used to retrieve details about the logged in user's hours",
         "tags": [
           "EmployeeHours"
-        ]
+        ],
+        "operationId": "employee_hours.get"
       }
     },
     "/expense_files": {
@@ -1062,7 +1080,8 @@
         "summary": "Show list of expense files",
         "tags": [
           "ExpenseFiles"
-        ]
+        ],
+        "operationId": "expense_files.get"
       },
       "post": {
         "consumes": [
@@ -1122,7 +1141,8 @@
         "summary": "Add file to expense",
         "tags": [
           "ExpenseFiles"
-        ]
+        ],
+        "operationId": "expense_files.post"
       }
     },
     "/expense_files/{expense_file_id}": {
@@ -1166,7 +1186,8 @@
         "summary": "Delete file",
         "tags": [
           "ExpenseFiles"
-        ]
+        ],
+        "operationId": "expense_files.expense_file_id.delete"
       },
       "get": {
         "parameters": [
@@ -1214,7 +1235,8 @@
         "summary": "Show file",
         "tags": [
           "ExpenseFiles"
-        ]
+        ],
+        "operationId": "expense_files.expense_file_id.get"
       },
       "put": {
         "parameters": [
@@ -1254,7 +1276,8 @@
         "summary": "Edit file",
         "tags": [
           "ExpenseFiles"
-        ]
+        ],
+        "operationId": "expense_files.expense_file_id.put"
       }
     },
     "/expense_lines": {
@@ -1313,7 +1336,8 @@
         "summary": "Show list of expense lines",
         "tags": [
           "ExpenseLines"
-        ]
+        ],
+        "operationId": "expense_lines.get"
       },
       "post": {
         "parameters": [
@@ -1391,7 +1415,8 @@
         "summary": "Add line to expense",
         "tags": [
           "ExpenseLines"
-        ]
+        ],
+        "operationId": "expense_lines.post"
       }
     },
     "/expense_lines/{expense_line_id}": {
@@ -1432,7 +1457,8 @@
         "summary": "Delete expense line",
         "tags": [
           "ExpenseLines"
-        ]
+        ],
+        "operationId": "expense_lines.expense_line_id.delete"
       },
       "get": {
         "parameters": [
@@ -1477,7 +1503,8 @@
         "summary": "Show expense line",
         "tags": [
           "ExpenseLines"
-        ]
+        ],
+        "operationId": "expense_lines.expense_line_id.get"
       },
       "put": {
         "parameters": [
@@ -1516,7 +1543,8 @@
         "summary": "Edit expense line",
         "tags": [
           "ExpenseLines"
-        ]
+        ],
+        "operationId": "expense_lines.expense_line_id.put"
       }
     },
     "/expenses": {
@@ -1595,7 +1623,8 @@
         "summary": "Show list of expenses",
         "tags": [
           "Expenses"
-        ]
+        ],
+        "operationId": "expenses.get"
       },
       "post": {
         "parameters": [
@@ -1681,7 +1710,8 @@
         "summary": "Add line to expense",
         "tags": [
           "Expenses"
-        ]
+        ],
+        "operationId": "expenses.post"
       }
     },
     "/expenses/{expense_id}": {
@@ -1722,7 +1752,8 @@
         "summary": "Delete expense",
         "tags": [
           "Expenses"
-        ]
+        ],
+        "operationId": "expenses.expense_id.delete"
       },
       "get": {
         "parameters": [
@@ -1767,7 +1798,8 @@
         "summary": "Show expense",
         "tags": [
           "Expenses"
-        ]
+        ],
+        "operationId": "expenses.expense_id.get"
       },
       "put": {
         "parameters": [
@@ -1806,7 +1838,8 @@
         "summary": "Edit expense",
         "tags": [
           "Expenses"
-        ]
+        ],
+        "operationId": "expenses.expense_id.put"
       }
     },
     "/form_field_types": {
@@ -1860,7 +1893,8 @@
         "summary": "Get list of form field types",
         "tags": [
           "FormFieldTypes"
-        ]
+        ],
+        "operationId": "form_field_types.get"
       }
     },
     "/form_field_types/{form_field_type_id}": {
@@ -1906,7 +1940,8 @@
         "summary": "Get details about single `FormField`",
         "tags": [
           "FormFieldTypes"
-        ]
+        ],
+        "operationId": "form_field_types.form_field_type_id.get"
       }
     },
     "/form_fields": {
@@ -1990,7 +2025,8 @@
         "summary": "Add a new field to a `Form`",
         "tags": [
           "FormFields"
-        ]
+        ],
+        "operationId": "form_fields.post"
       }
     },
     "/form_fields/{form_field_id}": {
@@ -2037,7 +2073,8 @@
         "summary": "Get details about single `FormField`",
         "tags": [
           "FormFields"
-        ]
+        ],
+        "operationId": "form_fields.form_field_id.get"
       }
     },
     "/form_templates": {
@@ -2102,7 +2139,8 @@
         "summary": "Get array of form_templates for your company",
         "tags": [
           "FormTemplates"
-        ]
+        ],
+        "operationId": "form_templates.get"
       }
     },
     "/form_templates/{form_template_id}": {
@@ -2148,7 +2186,8 @@
         "summary": "View one form template",
         "tags": [
           "FormTemplates"
-        ]
+        ],
+        "operationId": "form_templates.form_template_id.get"
       }
     },
     "/forms": {
@@ -2232,7 +2271,8 @@
         "summary": "Retrieve array of forms",
         "tags": [
           "Forms"
-        ]
+        ],
+        "operationId": "forms.get"
       },
       "post": {
         "description": "Used to add a form into the system",
@@ -2299,7 +2339,8 @@
         "summary": "Add new form",
         "tags": [
           "Forms"
-        ]
+        ],
+        "operationId": "forms.post"
       }
     },
     "/forms/{form_id}": {
@@ -2329,7 +2370,8 @@
         "summary": "Delete a form",
         "tags": [
           "Forms"
-        ]
+        ],
+        "operationId": "forms.form_id.delete"
       },
       "get": {
         "parameters": [
@@ -2367,7 +2409,8 @@
         "summary": "View form",
         "tags": [
           "Forms"
-        ]
+        ],
+        "operationId": "forms.form_id.get"
       },
       "put": {
         "parameters": [
@@ -2394,7 +2437,8 @@
         "summary": "Edit a form",
         "tags": [
           "Forms"
-        ]
+        ],
+        "operationId": "forms.form_id.put"
       }
     },
     "/invoice_lines": {
@@ -2462,7 +2506,8 @@
         "summary": "View list of invoice lines",
         "tags": [
           "InvoiceLines"
-        ]
+        ],
+        "operationId": "invoice_lines.get"
       },
       "post": {
         "parameters": [
@@ -2552,7 +2597,8 @@
         "summary": "Add invoice",
         "tags": [
           "InvoiceLines"
-        ]
+        ],
+        "operationId": "invoice_lines.post"
       }
     },
     "/invoice_lines/{invoice_line_id}": {
@@ -2596,7 +2642,8 @@
         "summary": "Delete invoice line",
         "tags": [
           "InvoiceLines"
-        ]
+        ],
+        "operationId": "invoice_lines.invoice_line_id.delete"
       },
       "get": {
         "parameters": [
@@ -2635,7 +2682,8 @@
         "summary": "View invoice line",
         "tags": [
           "InvoiceLines"
-        ]
+        ],
+        "operationId": "invoice_lines.invoice_line_id.get"
       },
       "put": {
         "parameters": [
@@ -2677,7 +2725,8 @@
         "summary": "Edit invoice line",
         "tags": [
           "InvoiceLines"
-        ]
+        ],
+        "operationId": "invoice_lines.invoice_line_id.put"
       }
     },
     "/invoices": {
@@ -2788,7 +2837,8 @@
         "summary": "View list of invoices",
         "tags": [
           "Invoices"
-        ]
+        ],
+        "operationId": "invoices.get"
       },
       "post": {
         "parameters": [
@@ -2910,7 +2960,8 @@
         "summary": "Add invoice",
         "tags": [
           "Invoices"
-        ]
+        ],
+        "operationId": "invoices.post"
       }
     },
     "/invoices/{invoice_id}": {
@@ -2953,7 +3004,8 @@
         "summary": "Delete invoice",
         "tags": [
           "Invoices"
-        ]
+        ],
+        "operationId": "invoices.invoice_id.delete"
       },
       "get": {
         "parameters": [
@@ -2991,7 +3043,8 @@
         "summary": "View invoice",
         "tags": [
           "Invoices"
-        ]
+        ],
+        "operationId": "invoices.invoice_id.get"
       },
       "put": {
         "parameters": [
@@ -3032,7 +3085,8 @@
         "summary": "Edit invoice",
         "tags": [
           "Invoices"
-        ]
+        ],
+        "operationId": "invoices.invoice_id.put"
       }
     },
     "/materials": {
@@ -3101,7 +3155,8 @@
         "summary": "View list of all materials",
         "tags": [
           "Materials"
-        ]
+        ],
+        "operationId": "materials.get"
       }
     },
     "/materials/{material_id}": {
@@ -3144,7 +3199,8 @@
         "summary": "Delete material",
         "tags": [
           "Materials"
-        ]
+        ],
+        "operationId": "materials.material_id.delete"
       },
       "get": {
         "parameters": [
@@ -3182,7 +3238,8 @@
         "summary": "View material",
         "tags": [
           "Materials"
-        ]
+        ],
+        "operationId": "materials.material_id.get"
       },
       "put": {
         "parameters": [
@@ -3223,7 +3280,8 @@
         "summary": "Edit material",
         "tags": [
           "Materials"
-        ]
+        ],
+        "operationId": "materials.material_id.put"
       }
     },
     "/materials/{material_id}/rentals/": {
@@ -3270,7 +3328,8 @@
         "summary": "Show list of rentals for specific material",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.get"
       },
       "post": {
         "parameters": [
@@ -3358,7 +3417,8 @@
         "summary": "Add material rental",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.post"
       }
     },
     "/materials/{material_id}/rentals/checkout/": {
@@ -3432,7 +3492,8 @@
         "summary": "Checkout material rental",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.checkout.post"
       }
     },
     "/materials/{material_id}/rentals/{material_rental_id}/": {
@@ -3482,7 +3543,8 @@
         "summary": "Delete material rental",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.material_rental_id.delete"
       },
       "get": {
         "parameters": [
@@ -3532,7 +3594,8 @@
         "summary": "Show rental foor materi",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.material_rental_id.get"
       },
       "post": {
         "parameters": [
@@ -3626,7 +3689,8 @@
         "summary": "Add material",
         "tags": [
           "Materials"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.material_rental_id.post"
       },
       "put": {
         "description": "Edit material rental",
@@ -3674,7 +3738,8 @@
         "summary": "Edit material rental",
         "tags": [
           "MaterialRentals"
-        ]
+        ],
+        "operationId": "materials.material_id.rentals.material_rental_id.put"
       }
     },
     "/ping": {
@@ -3704,7 +3769,8 @@
         "summary": "Check if API is up and API key works",
         "tags": [
           "Ping"
-        ]
+        ],
+        "operationId": "ping.get"
       }
     },
     "/products": {
@@ -3763,7 +3829,8 @@
         "summary": "List products",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.get"
       },
       "post": {
         "parameters": [
@@ -3848,7 +3915,8 @@
         "summary": "Add new product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.post"
       }
     },
     "/products/{product_id}": {
@@ -3891,7 +3959,8 @@
         "summary": "Delete a product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.product_id.delete"
       },
       "get": {
         "parameters": [
@@ -3929,7 +3998,8 @@
         "summary": "View single product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.product_id.get"
       },
       "put": {
         "parameters": [
@@ -3970,7 +4040,8 @@
         "summary": "Edit a product",
         "tags": [
           "Products"
-        ]
+        ],
+        "operationId": "products.product_id.put"
       }
     },
     "/project_statuses": {
@@ -4008,7 +4079,8 @@
         "summary": "Get list of project statuses",
         "tags": [
           "ProjectStatuses"
-        ]
+        ],
+        "operationId": "project_statuses.get"
       }
     },
     "/project_statuses/{project_status_id}": {
@@ -4055,7 +4127,8 @@
         "summary": "Get details about one contact type",
         "tags": [
           "ProjectStatuses"
-        ]
+        ],
+        "operationId": "project_statuses.project_status_id.get"
       }
     },
     "/projects": {
@@ -4126,7 +4199,8 @@
         "summary": "View list of projects",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.get"
       },
       "post": {
         "parameters": [
@@ -4215,7 +4289,8 @@
         "summary": "Add a project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.post"
       }
     },
     "/projects/{project_id}": {
@@ -4258,7 +4333,8 @@
         "summary": "Delete a project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.delete"
       },
       "get": {
         "parameters": [
@@ -4296,7 +4372,8 @@
         "summary": "View specific project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.get"
       },
       "put": {
         "parameters": [
@@ -4337,7 +4414,8 @@
         "summary": "Edit a project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.put"
       }
     },
     "/projects/{project_id}/files": {
@@ -4385,7 +4463,8 @@
         "summary": "Show list of files uploaded to project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.files.get"
       }
     },
     "/projects/{project_id}/files/{file_id}/": {
@@ -4435,7 +4514,8 @@
         "summary": "Delete file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.files.file_id.delete"
       },
       "get": {
         "description": "Show file uploaded to a project from wall post or form",
@@ -4487,7 +4567,8 @@
         "summary": "Show file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.files.file_id.get"
       },
       "put": {
         "description": "Edit file uploaded to a project from wall post or form",
@@ -4535,7 +4616,8 @@
         "summary": "Edit file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.files.file_id.put"
       }
     },
     "/projects/{project_id}/project_files": {
@@ -4583,7 +4665,8 @@
         "summary": "Show list of project files uploaded to project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.project_files.get"
       },
       "post": {
         "consumes": [
@@ -4643,7 +4726,8 @@
         "summary": "Add project file to projects",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.project_files.post"
       }
     },
     "/projects/{project_id}/project_files/{project_file_id}/": {
@@ -4692,7 +4776,8 @@
         "summary": "Delete project file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.project_files.project_file_id.delete"
       },
       "get": {
         "parameters": [
@@ -4743,7 +4828,8 @@
         "summary": "Show project file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.project_files.project_file_id.get"
       },
       "put": {
         "parameters": [
@@ -4790,7 +4876,8 @@
         "summary": "Edit project file",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.project_files.project_file_id.put"
       }
     },
     "/projects/{project_id}/users/": {
@@ -4836,7 +4923,8 @@
         "summary": "Show list of users added to project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.users.get"
       },
       "post": {
         "parameters": [
@@ -4903,7 +4991,8 @@
         "summary": "Add user to project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.users.post"
       }
     },
     "/projects/{project_id}/users/{user_id}": {
@@ -4952,7 +5041,8 @@
         "summary": "Delete user from project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.users.user_id.delete"
       },
       "get": {
         "parameters": [
@@ -4996,7 +5086,8 @@
         "summary": "View specific user assigned to project",
         "tags": [
           "Projects"
-        ]
+        ],
+        "operationId": "projects.project_id.users.user_id.get"
       }
     },
     "/stock_locations": {
@@ -5042,7 +5133,8 @@
         "summary": "List stock_locations",
         "tags": [
           "StockLocations"
-        ]
+        ],
+        "operationId": "stock_locations.get"
       },
       "post": {
         "parameters": [
@@ -5103,7 +5195,8 @@
         "summary": "Add new stock_locations",
         "tags": [
           "StockLocations"
-        ]
+        ],
+        "operationId": "stock_locations.post"
       }
     },
     "/stock_locations/{location_id}": {
@@ -5146,7 +5239,8 @@
         "summary": "Delete location",
         "tags": [
           "StockLocations"
-        ]
+        ],
+        "operationId": "stock_locations.location_id.delete"
       },
       "get": {
         "parameters": [
@@ -5184,7 +5278,8 @@
         "summary": "View single location",
         "tags": [
           "StockLocations"
-        ]
+        ],
+        "operationId": "stock_locations.location_id.get"
       },
       "put": {
         "parameters": [
@@ -5225,7 +5320,8 @@
         "summary": "Edit location",
         "tags": [
           "StockLocations"
-        ]
+        ],
+        "operationId": "stock_locations.location_id.put"
       }
     },
     "/time_entries": {
@@ -5310,7 +5406,8 @@
         "summary": "List time entries",
         "tags": [
           "TimeEntries"
-        ]
+        ],
+        "operationId": "time_entries.get"
       },
       "post": {
         "parameters": [
@@ -5400,7 +5497,8 @@
         "summary": "Add new time entry",
         "tags": [
           "TimeEntries"
-        ]
+        ],
+        "operationId": "time_entries.post"
       }
     },
     "/time_entries/{time_entry_id}": {
@@ -5444,7 +5542,8 @@
         "summary": "Delete time entry",
         "tags": [
           "TimeEntries"
-        ]
+        ],
+        "operationId": "time_entries.time_entry_id.delete"
       },
       "get": {
         "parameters": [
@@ -5483,7 +5582,8 @@
         "summary": "View time entry",
         "tags": [
           "TimeEntries"
-        ]
+        ],
+        "operationId": "time_entries.time_entry_id.get"
       },
       "put": {
         "parameters": [
@@ -5525,7 +5625,8 @@
         "summary": "Edit time entry",
         "tags": [
           "TimeEntries"
-        ]
+        ],
+        "operationId": "time_entries.time_entry_id.put"
       }
     },
     "/time_entry_intervals": {
@@ -5563,7 +5664,8 @@
         "summary": "List possible time entry intervals",
         "tags": [
           "TimeEntryIntervals"
-        ]
+        ],
+        "operationId": "time_entry_intervals.get"
       }
     },
     "/time_entry_intervals/{time_entry_interval_id}": {
@@ -5604,7 +5706,8 @@
         "summary": "View time entry interval",
         "tags": [
           "TimeEntryIntervals"
-        ]
+        ],
+        "operationId": "time_entry_intervals.time_entry_interval_id.get"
       }
     },
     "/time_entry_types": {
@@ -5642,7 +5745,8 @@
         "summary": "List time entries types",
         "tags": [
           "TimeEntryTypes"
-        ]
+        ],
+        "operationId": "time_entry_types.get"
       },
       "post": {
         "parameters": [
@@ -5717,7 +5821,8 @@
         "summary": "Add new time entry type",
         "tags": [
           "TimeEntryTypes"
-        ]
+        ],
+        "operationId": "time_entry_types.post"
       }
     },
     "/time_entry_types/{time_entry_type_id}": {
@@ -5761,7 +5866,8 @@
         "summary": "Delete time entry type",
         "tags": [
           "TimeEntryTypes"
-        ]
+        ],
+        "operationId": "time_entry_types.time_entry_type_id.delete"
       },
       "get": {
         "parameters": [
@@ -5800,7 +5906,8 @@
         "summary": "View time entry type",
         "tags": [
           "TimeEntryTypes"
-        ]
+        ],
+        "operationId": "time_entry_types.time_entry_type_id.get"
       },
       "put": {
         "parameters": [
@@ -5842,7 +5949,8 @@
         "summary": "Edit time entry type",
         "tags": [
           "TimeEntryTypes"
-        ]
+        ],
+        "operationId": "time_entry_types.time_entry_type_id.put"
       }
     },
     "/time_entry_unit_types": {
@@ -5880,7 +5988,8 @@
         "summary": "List possible time entry unit types",
         "tags": [
           "TimeEntryUnitTypes"
-        ]
+        ],
+        "operationId": "time_entry_unit_types.get"
       }
     },
     "/time_entry_unit_types/{time_entry_unit_type_id}": {
@@ -5921,7 +6030,8 @@
         "summary": "View time entry unit type",
         "tags": [
           "TimeEntryUnitTypes"
-        ]
+        ],
+        "operationId": "time_entry_unit_types.time_entry_unit_type_id.get"
       }
     },
     "/time_entry_value_types": {
@@ -5959,7 +6069,8 @@
         "summary": "List possible time entry value types",
         "tags": [
           "TimeEntryValueTypes"
-        ]
+        ],
+        "operationId": "time_entry_value_types.get"
       }
     },
     "/time_entry_value_types/{time_entry_value_type_id}": {
@@ -6000,7 +6111,8 @@
         "summary": "View time entry value type",
         "tags": [
           "TimeEntryValueTypes"
-        ]
+        ],
+        "operationId": "time_entry_value_types.time_entry_value_type_id.get"
       }
     },
     "/users": {
@@ -6066,7 +6178,8 @@
         "summary": "Get list of users in company",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.get"
       },
       "post": {
         "parameters": [
@@ -6191,7 +6304,8 @@
         "summary": "Add user to company",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.post"
       }
     },
     "/users/{user_id}": {
@@ -6234,7 +6348,8 @@
         "summary": "Delete user",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.user_id.delete"
       },
       "get": {
         "parameters": [
@@ -6272,7 +6387,8 @@
         "summary": "View user",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.user_id.get"
       },
       "put": {
         "parameters": [
@@ -6313,7 +6429,8 @@
         "summary": "Edit user",
         "tags": [
           "Users"
-        ]
+        ],
+        "operationId": "users.user_id.put"
       }
     },
     "/wall_comments": {
@@ -6380,7 +6497,8 @@
         "summary": "Add wall comment",
         "tags": [
           "WallComments"
-        ]
+        ],
+        "operationId": "wall_comments.post"
       }
     },
     "/wall_comments/{wall_comment_id}": {
@@ -6420,7 +6538,8 @@
         "summary": "View wall comment",
         "tags": [
           "WallComments"
-        ]
+        ],
+        "operationId": "wall_comments.wall_comment_id.get"
       }
     },
     "/wall_posts": {
@@ -6479,7 +6598,8 @@
         "summary": "View list of wall posts",
         "tags": [
           "WallPosts"
-        ]
+        ],
+        "operationId": "wall_posts.get"
       },
       "post": {
         "parameters": [
@@ -6544,7 +6664,8 @@
         "summary": "Add a wall post",
         "tags": [
           "WallPosts"
-        ]
+        ],
+        "operationId": "wall_posts.post"
       }
     },
     "/wall_posts/{wall_post_id}": {
@@ -6584,7 +6705,8 @@
         "summary": "View wall post",
         "tags": [
           "WallPosts"
-        ]
+        ],
+        "operationId": "wall_posts.wall_post_id.get"
       }
     },
     "/wall_posts/{wall_post_id}/wall_comments": {
@@ -6636,7 +6758,8 @@
         "summary": "See wall comments to a wall post",
         "tags": [
           "WallPosts"
-        ]
+        ],
+        "operationId": "wall_posts.wall_post_id.wall_comments.get"
       }
     }
   },

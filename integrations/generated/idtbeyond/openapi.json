@@ -67,7 +67,8 @@
         "summary": "Account balance",
         "tags": [
           "account"
-        ]
+        ],
+        "operationId": "iatu.balance.get"
       }
     },
     "/iatu/charges/reports/all": {
@@ -115,7 +116,8 @@
         "summary": "List of account charges in JSON",
         "tags": [
           "charges"
-        ]
+        ],
+        "operationId": "iatu.charges.reports.all.get"
       }
     },
     "/iatu/charges/reports/all.csv": {
@@ -166,7 +168,8 @@
         "summary": "List of account charges in CSV",
         "tags": [
           "charges"
-        ]
+        ],
+        "operationId": "iatu.charges.reports.all.csv.get"
       }
     },
     "/iatu/number-validator": {
@@ -214,7 +217,8 @@
         "summary": "Mobile number validation",
         "tags": [
           "utilities"
-        ]
+        ],
+        "operationId": "iatu.number_validator.get"
       }
     },
     "/iatu/products/promotions": {
@@ -246,7 +250,8 @@
         "summary": "Current promotions",
         "tags": [
           "utilities"
-        ]
+        ],
+        "operationId": "iatu.products.promotions.get"
       }
     },
     "/iatu/products/reports/all": {
@@ -278,7 +283,8 @@
         "summary": "Get a list of products in JSON format",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "iatu.products.reports.all.get"
       }
     },
     "/iatu/products/reports/all.csv": {
@@ -313,7 +319,8 @@
         "summary": "Get a list of products in CSV format",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "iatu.products.reports.all.csv.get"
       }
     },
     "/iatu/products/reports/local-value": {
@@ -377,7 +384,8 @@
         "summary": "Get the estimated Local Value of a product",
         "tags": [
           "products"
-        ]
+        ],
+        "operationId": "iatu.products.reports.local_value.get"
       }
     },
     "/iatu/topups": {
@@ -433,7 +441,8 @@
         "summary": "Topup a mobile phone",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.post"
       }
     },
     "/iatu/topups/reports": {
@@ -474,7 +483,8 @@
         "summary": "Search topups transactions",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.reports.post"
       }
     },
     "/iatu/topups/reports/all": {
@@ -522,7 +532,8 @@
         "summary": "List of account topups in JSON",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.reports.all.get"
       }
     },
     "/iatu/topups/reports/all.csv": {
@@ -573,7 +584,8 @@
         "summary": "List of account topups in CSV",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.reports.all.csv.get"
       }
     },
     "/iatu/topups/reports/totals": {
@@ -621,7 +633,8 @@
         "summary": "Summary of account topups in JSON",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.reports.totals.get"
       }
     },
     "/iatu/topups/reverse": {
@@ -662,7 +675,8 @@
         "summary": "Reversal of a Topup",
         "tags": [
           "topups"
-        ]
+        ],
+        "operationId": "iatu.topups.reverse.post"
       }
     },
     "/status": {
@@ -694,7 +708,8 @@
         "summary": "Status check",
         "tags": [
           "utilities"
-        ]
+        ],
+        "operationId": "status.get"
       }
     }
   },

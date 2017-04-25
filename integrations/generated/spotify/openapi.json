@@ -110,7 +110,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "albums.get"
       }
     },
     "/albums/{id}": {
@@ -139,7 +140,8 @@
               "$ref": "#/definitions/album"
             }
           }
-        }
+        },
+        "operationId": "albums.id.get"
       }
     },
     "/albums/{id}/tracks": {
@@ -186,7 +188,8 @@
               "$ref": "#/definitions/track-simple-page"
             }
           }
-        }
+        },
+        "operationId": "albums.id.tracks.get"
       }
     },
     "/artists": {
@@ -216,7 +219,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "artists.get"
       }
     },
     "/artists/{id}": {
@@ -238,7 +242,8 @@
               "$ref": "#/definitions/artist"
             }
           }
-        }
+        },
+        "operationId": "artists.id.get"
       }
     },
     "/artists/{id}/albums": {
@@ -292,7 +297,8 @@
               "$ref": "#/definitions/album-simple-page"
             }
           }
-        }
+        },
+        "operationId": "artists.id.albums.get"
       }
     },
     "/artists/{id}/related-artists": {
@@ -322,7 +328,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "artists.id.related_artists.get"
       }
     },
     "/artists/{id}/top-tracks": {
@@ -359,7 +366,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "artists.id.top_tracks.get"
       }
     },
     "/browse/categories": {
@@ -415,7 +423,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "browse.categories.get"
       }
     },
     "/browse/categories/{category_id}": {
@@ -460,7 +469,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "browse.categories.category_id.get"
       }
     },
     "/browse/categories/{category_id}/playlists": {
@@ -521,7 +531,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "browse.categories.category_id.playlists.get"
       }
     },
     "/browse/featured-playlists": {
@@ -584,7 +595,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "browse.featured_playlists.get"
       }
     },
     "/browse/new-releases": {
@@ -633,7 +645,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "browse.new_releases.get"
       }
     },
     "/me": {
@@ -646,7 +659,8 @@
               "$ref": "#/definitions/current-user-profile"
             }
           }
-        }
+        },
+        "operationId": "me.get"
       }
     },
     "/me/following": {
@@ -676,7 +690,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "operationId": "me.following.delete"
       },
       "get": {
         "description": "[Get User's Followed Artists](https://developer.spotify.com/web-api/get-followed-artists/)\n",
@@ -716,7 +731,8 @@
               "$ref": "#/definitions/user-followed"
             }
           }
-        }
+        },
+        "operationId": "me.following.get"
       },
       "put": {
         "description": "[Follow Artists or Users](https://developer.spotify.com/web-api/follow-artists-users/)\n",
@@ -744,7 +760,8 @@
           "204": {
             "description": "No Content"
           }
-        }
+        },
+        "operationId": "me.following.put"
       }
     },
     "/me/following/contains": {
@@ -781,7 +798,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "me.following.contains.get"
       }
     },
     "/me/tracks": {
@@ -812,7 +830,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "me.tracks.delete"
       },
       "get": {
         "description": "[Get Current User's Saved Tracks](https://developer.spotify.com/web-api/get-users-saved-tracks/)\n",
@@ -859,7 +878,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "me.tracks.get"
       },
       "put": {
         "description": "[Save Tracks for Current User](https://developer.spotify.com/web-api/save-tracks-user/)\n",
@@ -888,7 +908,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "me.tracks.put"
       }
     },
     "/me/tracks/contains": {
@@ -914,7 +935,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "me.tracks.contains.get"
       }
     },
     "/search": {
@@ -967,7 +989,8 @@
               "$ref": "#/definitions/search"
             }
           }
-        }
+        },
+        "operationId": "search.get"
       }
     },
     "/tracks": {
@@ -1004,7 +1027,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "tracks.get"
       }
     },
     "/tracks/{id}": {
@@ -1032,7 +1056,8 @@
               "$ref": "#/definitions/track"
             }
           }
-        }
+        },
+        "operationId": "tracks.id.get"
       }
     },
     "/users/{user_id}": {
@@ -1054,7 +1079,8 @@
               "$ref": "#/definitions/user-profile"
             }
           }
-        }
+        },
+        "operationId": "users.user_id.get"
       }
     },
     "/users/{user_id}/playlists": {
@@ -1103,7 +1129,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.get"
       },
       "post": {
         "description": "[Create a Playlist](https://developer.spotify.com/web-api/create-playlist/)\n",
@@ -1151,7 +1178,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.post"
       }
     },
     "/users/{user_id}/playlists/{playlist_id}": {
@@ -1202,7 +1230,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.get"
       },
       "put": {
         "description": "[Change a Playlist's Details](https://developer.spotify.com/web-api/change-playlist-details/)\n",
@@ -1254,7 +1283,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.put"
       }
     },
     "/users/{user_id}/playlists/{playlist_id}/followers": {
@@ -1283,7 +1313,8 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.followers.delete"
       },
       "put": {
         "description": "[Follow a Playlist](https://developer.spotify.com/web-api/follow-playlist/)\n",
@@ -1323,7 +1354,8 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.followers.put"
       }
     },
     "/users/{user_id}/playlists/{playlist_id}/followers/contains": {
@@ -1363,7 +1395,8 @@
               "type": "array"
             }
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.followers.contains.get"
       }
     },
     "/users/{user_id}/playlists/{playlist_id}/tracks": {
@@ -1418,7 +1451,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.tracks.delete"
       },
       "get": {
         "description": "[Get a Playlist's Tracks](https://developer.spotify.com/web-api/get-playlists-tracks/)\n",
@@ -1485,7 +1519,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.tracks.get"
       },
       "post": {
         "description": "[Add Tracks to a Playlist](https://developer.spotify.com/web-api/add-tracks-to-playlist/)\n",
@@ -1535,7 +1570,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.tracks.post"
       },
       "put": {
         "description": "[Reorder or replace a Playlist's Tracks](https://developer.spotify.com/web-api/reorder-playlists-tracks/)\n",
@@ -1588,7 +1624,8 @@
           "429": {
             "description": "API rate limit exceeded. See http://developer.spotify.com/web-api/user-guide/#rate-limiting for details.\n"
           }
-        }
+        },
+        "operationId": "users.user_id.playlists.playlist_id.tracks.put"
       }
     }
   },

@@ -119,7 +119,8 @@
         "summary": "Get groups",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.get"
       }
     },
     "/groups/{groupKey}/attendees": {
@@ -164,7 +165,8 @@
         "summary": "Get attendees by group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.attendees.get"
       }
     },
     "/groups/{groupKey}/historicalMeetings": {
@@ -217,7 +219,8 @@
         "summary": "Get historical meetings by group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.historicalMeetings.get"
       }
     },
     "/groups/{groupKey}/meetings": {
@@ -272,7 +275,8 @@
         "summary": "DEPRECATED: Get historical meetings by group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.meetings.get"
       }
     },
     "/groups/{groupKey}/organizers": {
@@ -306,7 +310,8 @@
         "summary": "Get organizers by group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.organizers.get"
       },
       "post": {
         "description": "Creates a new organizer and sends an email to the email address defined in request. This API call is only available to users with the admin role. You may also pass 'G2W' or 'G2T' or 'OPENVOICE' as productType variables, creating organizers for those products. A G2W or G2T organizer will also have access to G2M.",
@@ -350,7 +355,8 @@
         "summary": "Create organizer in group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.organizers.post"
       }
     },
     "/groups/{groupKey}/upcomingMeetings": {
@@ -387,7 +393,8 @@
         "summary": "Get upcoming meetings by group",
         "tags": [
           "Groups"
-        ]
+        ],
+        "operationId": "groups.groupKey.upcomingMeetings.get"
       }
     },
     "/historicalMeetings": {
@@ -434,7 +441,8 @@
         "summary": "Get historical meetings",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "historicalMeetings.get"
       }
     },
     "/meetings": {
@@ -483,7 +491,8 @@
         "summary": "DEPRECATED: Get historical meetings",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.get"
       },
       "post": {
         "description": "Create a new meeting based on the parameters specified.",
@@ -518,7 +527,8 @@
         "summary": "Create meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.post"
       }
     },
     "/meetings/{meetingId}": {
@@ -546,7 +556,8 @@
         "summary": "Delete meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.meetingId.delete"
       },
       "get": {
         "description": "Returns the meeting details for the specified meeting.",
@@ -575,7 +586,8 @@
         "summary": "Get meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.meetingId.get"
       },
       "put": {
         "description": "Updates an existing meeting specified by meetingId.",
@@ -610,7 +622,8 @@
         "summary": "Update meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.meetingId.put"
       }
     },
     "/meetings/{meetingId}/attendees": {
@@ -646,7 +659,8 @@
         "summary": "Get attendees by meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.meetingId.attendees.get"
       }
     },
     "/meetings/{meetingId}/start": {
@@ -671,7 +685,8 @@
         "summary": "Start meeting",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "meetings.meetingId.start.get"
       }
     },
     "/organizers": {
@@ -700,7 +715,8 @@
         "summary": "Delete organizer by email",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.delete"
       },
       "get": {
         "description": "Gets the individual organizer specified by the organizer's email address. If an email address is not specified, all organizers are returned. This API call is only available to users with the admin role.",
@@ -733,7 +749,8 @@
         "summary": "Get organizer by email / Get all organizers",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.get"
       },
       "post": {
         "description": "Creates a new organizer and sends an email to the email address defined in the request. This API call is only available to users with the admin role. You may also pass 'G2W' or 'G2T' or 'OPENVOICE' as productType variables, creating organizers for those products. A G2W or G2T organizer will also have access to G2M.",
@@ -774,7 +791,8 @@
         "summary": "Create organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.post"
       }
     },
     "/organizers/{organizerKey}": {
@@ -802,7 +820,8 @@
         "summary": "Delete organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.delete"
       },
       "get": {
         "description": "Returns the individual organizer specified by the key. This API call is only available to users with the admin role. Non-admin users can only make this call for their own organizerKey.",
@@ -834,7 +853,8 @@
         "summary": "Get organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.get"
       },
       "put": {
         "description": "Updates the products of the specified organizer. To add a product (G2M, G2W, G2T, OPENVOICE) for the organizer, the call must be sent once for each product you want to add. To remove all products for the organizer, set status to 'suspended'. The call is limited to users with the admin role.",
@@ -872,7 +892,8 @@
         "summary": "Update organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.put"
       }
     },
     "/organizers/{organizerKey}/attendees": {
@@ -922,7 +943,8 @@
         "summary": "Get attendees by organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.attendees.get"
       }
     },
     "/organizers/{organizerKey}/historicalMeetings": {
@@ -975,7 +997,8 @@
         "summary": "Get historical meetings by organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.historicalMeetings.get"
       }
     },
     "/organizers/{organizerKey}/meetings": {
@@ -1036,7 +1059,8 @@
         "summary": "DEPRECATED: Get meetings by organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.meetings.get"
       }
     },
     "/organizers/{organizerKey}/upcomingMeetings": {
@@ -1070,7 +1094,8 @@
         "summary": "Get upcoming meetings by organizer",
         "tags": [
           "Organizers"
-        ]
+        ],
+        "operationId": "organizers.organizerKey.upcomingMeetings.get"
       }
     },
     "/upcomingMeetings": {
@@ -1098,7 +1123,8 @@
         "summary": "Get upcoming meetings",
         "tags": [
           "Meetings"
-        ]
+        ],
+        "operationId": "upcomingMeetings.get"
       }
     }
   },

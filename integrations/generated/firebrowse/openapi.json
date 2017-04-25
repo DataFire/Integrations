@@ -1460,7 +1460,7 @@
     "/Analyses/mRNASeq/Quartiles": {
       "get": {
         "description": "For a given gene compute quartiles and extrema, suitable e.g. for drawing a boxplot (Tukey 1977).  Results may be filtered by cohort, sample type, patient barcode  or characterization protocol, and are returned sorted by cohort.  Note that samples for which no expression value was recorded (e.g. <a href=\"http://firebrowse.org/api/v1/Samples/mRNASeq?&gene=egfr&cohort=SKCM&tcga_participant_barcode=TCGA-GN-A262\">the melanoma sample TCGA-GN-262</a>) are removed prior to calculation.",
-        "operationId": "mRNASeq/Quartiles",
+        "operationId": "Analyses.mRNASeq.Quartiles.get",
         "parameters": [
           {
             "default": "json",

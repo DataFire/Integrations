@@ -61,7 +61,8 @@
         "summary": "Check if Zappiti Service app status on the player",
         "tags": [
           "Zappiti Service"
-        ]
+        ],
+        "operationId": "CheckZappitiService.post"
       }
     },
     "/InstallZappitiService": {
@@ -88,7 +89,8 @@
         "summary": "Open a popup that allow the user to install Zappiti Service, if not already installed",
         "tags": [
           "Zappiti Service"
-        ]
+        ],
+        "operationId": "InstallZappitiService.post"
       }
     },
     "/IsAlive": {
@@ -114,7 +116,8 @@
         "summary": "Get server status",
         "tags": [
           "Other"
-        ]
+        ],
+        "operationId": "IsAlive.post"
       }
     },
     "/LastMedia": {
@@ -140,7 +143,8 @@
         "summary": "Get informations about last media playback",
         "tags": [
           "Playback"
-        ]
+        ],
+        "operationId": "LastMedia.post"
       }
     },
     "/StartVideo": {
@@ -167,7 +171,8 @@
         "summary": "Start the playback",
         "tags": [
           "Playback"
-        ]
+        ],
+        "operationId": "StartVideo.post"
       }
     },
     "/StartZappitiService": {
@@ -194,7 +199,8 @@
         "summary": "Start Zappiti Service if not started yet",
         "tags": [
           "Zappiti Service"
-        ]
+        ],
+        "operationId": "StartZappitiService.post"
       }
     }
   },

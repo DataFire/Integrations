@@ -211,7 +211,7 @@
     "/atoz/{letter}/programmes": {
       "get": {
         "description": "Get the Programmes whose title begins with the given initial character.",
-        "operationId": "Get_Programmes AtoZ search_",
+        "operationId": "atoz.letter.programmes.get",
         "parameters": [
           {
             "description": "Letter to search by, a to z or the string '0-9'",
@@ -292,7 +292,7 @@
     "/categories/{category}": {
       "get": {
         "description": "Get sub-categories",
-        "operationId": "Get_Sub-categories_",
+        "operationId": "categories.category.get",
         "parameters": [
           {
             "$ref": "#/parameters/category"
@@ -319,7 +319,7 @@
     "/categories/{category}/episodes": {
       "get": {
         "description": "Get the list of all the episodes for a given category in TV & iPlayer.",
-        "operationId": "Get_Episodes by category_",
+        "operationId": "categories.category.episodes.get",
         "parameters": [
           {
             "$ref": "#/parameters/category"
@@ -369,7 +369,7 @@
     "/categories/{category}/highlights": {
       "get": {
         "description": "Get the editorial highlights of a given category in TV & iPlayer.",
-        "operationId": "Get_Highlights by category_",
+        "operationId": "categories.category.highlights.get",
         "parameters": [
           {
             "$ref": "#/parameters/category"
@@ -405,7 +405,7 @@
     "/categories/{category}/programmes": {
       "get": {
         "description": "Get the list of all the Programmes (TLEOs) for a given category in TV & iPlayer.",
-        "operationId": "Get_Programmes by category_",
+        "operationId": "categories.category.programmes.get",
         "parameters": [
           {
             "$ref": "#/parameters/category"
@@ -475,7 +475,7 @@
     "/channels/{channel}/broadcasts": {
       "get": {
         "description": "Get broadcasts by channel",
-        "operationId": "Get_Broadcasts by channel_",
+        "operationId": "channels.channel.broadcasts.get",
         "parameters": [
           {
             "$ref": "#/parameters/channel"
@@ -521,7 +521,7 @@
     "/channels/{channel}/highlights": {
       "get": {
         "description": "Get the editorial highlights of a given channel in TV & iPlayer.",
-        "operationId": "Get_Highlights by channel_",
+        "operationId": "channels.channel.highlights.get",
         "parameters": [
           {
             "$ref": "#/parameters/channel"
@@ -564,7 +564,7 @@
     "/channels/{channel}/programmes": {
       "get": {
         "description": "Get programmes by channel",
-        "operationId": "Get_Programmes by channel_",
+        "operationId": "channels.channel.programmes.get",
         "parameters": [
           {
             "$ref": "#/parameters/channel"
@@ -603,7 +603,7 @@
     "/channels/{channel}/schedule/{date}": {
       "get": {
         "description": "Get schedule by channel",
-        "operationId": "Get_Schedule by channel_",
+        "operationId": "channels.channel.schedule.date.get",
         "parameters": [
           {
             "$ref": "#/parameters/channel"
@@ -673,7 +673,7 @@
     "/episodes/{pid}": {
       "get": {
         "description": "Get the episode for a given episode identifier.",
-        "operationId": "Get_Programme by PID_",
+        "operationId": "episodes.pid.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -766,7 +766,7 @@
     "/episodes/{pid}/prerolls": {
       "get": {
         "description": "Get Trailers (pre-rolls)",
-        "operationId": "Get_Trailers (pre-rolls)_",
+        "operationId": "episodes.pid.prerolls.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -796,7 +796,7 @@
     "/episodes/{pid}/recommendations": {
       "get": {
         "description": "Get programme recommendations",
-        "operationId": "Get_Programme recommendations_",
+        "operationId": "episodes.pid.recommendations.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -832,7 +832,7 @@
     "/groups/popular/episodes": {
       "get": {
         "description": "Get programmes popular",
-        "operationId": "Get_Programmes popular_",
+        "operationId": "groups.popular.episodes.get",
         "parameters": [
           {
             "$ref": "#/parameters/rights"
@@ -877,7 +877,7 @@
     "/groups/{pid}/episodes": {
       "get": {
         "description": "Get episodes by group, brand or series",
-        "operationId": "Get_Episodes by group_",
+        "operationId": "groups.pid.episodes.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -925,7 +925,7 @@
     "/home/highlights": {
       "get": {
         "description": "Get programme highlights",
-        "operationId": "Get_Programme highlights_",
+        "operationId": "home.highlights.get",
         "parameters": [
           {
             "$ref": "#/parameters/lang"
@@ -958,7 +958,7 @@
     "/programmes/{pid}": {
       "get": {
         "description": "Get the programme for a given programme identifier.",
-        "operationId": "Get_Programmes by parent PID_",
+        "operationId": "programmes.pid.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -991,7 +991,7 @@
     "/programmes/{pid}/episodes": {
       "get": {
         "description": "Get the child episodes belonging to a given programme identifier.",
-        "operationId": "Get_Episodes by parent PID_",
+        "operationId": "programmes.pid.episodes.get",
         "parameters": [
           {
             "$ref": "#/parameters/pid"
@@ -1101,7 +1101,7 @@
     "/search-suggest": {
       "get": {
         "description": "Search-suggest",
-        "operationId": "Search-suggest_",
+        "operationId": "search_suggest.get",
         "parameters": [
           {
             "$ref": "#/parameters/q"
@@ -1154,7 +1154,7 @@
     "/user/purchases": {
       "get": {
         "description": "Get user store purchases",
-        "operationId": "Get_User store purchases_",
+        "operationId": "user.purchases.get",
         "parameters": [
           {
             "$ref": "#/parameters/identity_cookie"
@@ -1182,7 +1182,7 @@
     "/user/recommendations": {
       "get": {
         "description": "Get user store recommendations",
-        "operationId": "Get_User store recommendations_",
+        "operationId": "user.recommendations.get",
         "parameters": [
           {
             "$ref": "#/parameters/identity_cookie"
@@ -1206,7 +1206,7 @@
     "/user/watching": {
       "get": {
         "description": "Get user watching",
-        "operationId": "Get_User watching_",
+        "operationId": "user.watching.get",
         "parameters": [
           {
             "$ref": "#/parameters/identity_cookie"

@@ -335,7 +335,8 @@
         "summary": "Get MediaItems for Campaign",
         "tags": [
           "campaigns"
-        ]
+        ],
+        "operationId": "resources.campaigns.id.syndicate.json.get"
       }
     },
     "/resources/languages.json": {
@@ -1778,7 +1779,8 @@
         "summary": "Get MediaItems for Source",
         "tags": [
           "sources"
-        ]
+        ],
+        "operationId": "resources.sources.id.syndicate.json.get"
       }
     },
     "/resources/tags.json": {
@@ -2151,7 +2153,8 @@
         "summary": "Get MediaItems for Tag",
         "tags": [
           "tags"
-        ]
+        ],
+        "operationId": "resources.tags.id.syndicate.json.get"
       }
     },
     "/resources/userMediaLists/{id}.json": {

@@ -55,7 +55,7 @@
     "/lists.{format}": {
       "get": {
         "description": "",
-        "operationId": "GET_lists-format",
+        "operationId": "lists.format.get",
         "parameters": [
           {
             "description": "The name of the Times best-seller list. To get valid values, use a list names request.\n\nBe sure to replace spaces with hyphens (e.g., e-book-fiction or hardcover-fiction, not E-Book Fiction or Hardcover Fiction). (The parameter is not case sensitive.)",
@@ -330,7 +330,7 @@
     "/lists/best-sellers/history.json": {
       "get": {
         "description": "",
-        "operationId": "GET_lists-best-sellers-history-json",
+        "operationId": "lists.best_sellers.history.json.get",
         "parameters": [
           {
             "description": "The target age group for the best seller.",
@@ -560,7 +560,7 @@
     "/lists/names.{format}": {
       "get": {
         "description": "",
-        "operationId": "GET_lists-names-format",
+        "operationId": "lists.names.format.get",
         "parameters": [
           {
             "in": "query",
@@ -653,7 +653,7 @@
     "/lists/overview.{format}": {
       "get": {
         "description": "",
-        "operationId": "GET_lists-overview-format",
+        "operationId": "lists.overview.format.get",
         "parameters": [
           {
             "description": "The best-seller list publication date. YYYY-MM-DD\n\nYou do not have to specify the exact date the list was published. The service will search forward (into the future) for the closest publication date to the date you specify. For example, a request for lists/overview/2013-05-22 will retrieve the list that was published on 05-26.\n\nIf you do not include a published_date, the current week's best-sellers lists will be returned.",
@@ -827,7 +827,7 @@
     "/lists/{date}/{list}.json": {
       "get": {
         "description": "",
-        "operationId": "GET_lists-date-list-json",
+        "operationId": "lists.date.list.json.get",
         "parameters": [
           {
             "description": "International Standard Book Number, 10 or 13 digits",
@@ -1101,7 +1101,7 @@
     "/reviews.{format}": {
       "get": {
         "description": "",
-        "operationId": "GET_reviews-format",
+        "operationId": "reviews.format.get",
         "parameters": [
           {
             "description": "Searching by ISBN is the recommended method. You can enter 10- or 13-digit ISBNs.",

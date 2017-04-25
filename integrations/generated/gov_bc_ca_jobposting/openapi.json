@@ -71,7 +71,8 @@
         "summary": "Job Types",
         "tags": [
           "Job Feed"
-        ]
+        ],
+        "operationId": "jobTypes.get"
       }
     },
     "/jobs": {
@@ -139,7 +140,8 @@
         "summary": "Job Feed",
         "tags": [
           "Job Feed"
-        ]
+        ],
+        "operationId": "jobs.post"
       }
     },
     "/majorProjects": {
@@ -165,7 +167,8 @@
         "summary": "Major Projects",
         "tags": [
           "Job Feed"
-        ]
+        ],
+        "operationId": "majorProjects.get"
       }
     },
     "/regions": {
@@ -191,7 +194,8 @@
         "summary": "Regions",
         "tags": [
           "Job Feed"
-        ]
+        ],
+        "operationId": "regions.get"
       }
     }
   },

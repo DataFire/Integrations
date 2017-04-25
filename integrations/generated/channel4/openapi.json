@@ -337,7 +337,7 @@
     "/atoz/{start_letter}/page-{pageno}.atom": {
       "get": {
         "description": "Lists Channel 4 programmes whose names begin with the associated letter.\n\n  http://api.channel4.com/pmlsd/atoz/start_letter/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/atoz/a.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "A_to_Z_Letter_Feed(2)",
+        "operationId": "atoz.start_letter.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -391,7 +391,7 @@
     "/brands/4od/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes available on 4oD.  By default, the programmes \n  are listed by title in alphabetical order (case unsensitive).\n\n  http://api.channel4.com/pmlsd/brands/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Title_All_Brands_Feed(2)",
+        "operationId": "brands.4od.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -442,7 +442,7 @@
     "/brands/4od/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes available on 4oD by popularity considering \n  the data gathered within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Popular_All_Brands_Feed(2)",
+        "operationId": "brands.4od.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -493,7 +493,7 @@
     "/brands/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes by popularity considering the data gathered \n  within the last 7 days.\n\n  http://api.channel4.com/pmlsd/brands/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/brands/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Popular_Brands_Feed(2)",
+        "operationId": "brands.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -598,7 +598,7 @@
     "/categories/{category}/4od/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_TX_Date(4)",
+        "operationId": "categories.category.4od.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -655,7 +655,7 @@
     "/categories/{category}/4od/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(5)",
+        "operationId": "categories.category.4od.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -712,7 +712,7 @@
     "/categories/{category}/4od/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_Title(4)",
+        "operationId": "categories.category.4od.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -742,7 +742,7 @@
     "/categories/{category}/channel/{channel}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_TX_Date(2)",
+        "operationId": "categories.category.channel.channel.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -772,7 +772,7 @@
     "/categories/{category}/channel/{channel}/4od.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_TX_Date(2)",
+        "operationId": "categories.category.channel.channel.4od.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -802,7 +802,7 @@
     "/categories/{category}/channel/{channel}/4od/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_TX_Date(5)",
+        "operationId": "categories.category.channel.channel.4od.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -835,7 +835,7 @@
     "/categories/{category}/channel/{channel}/4od/popular.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(3)",
+        "operationId": "categories.category.channel.channel.4od.popular.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -865,7 +865,7 @@
     "/categories/{category}/channel/{channel}/4od/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(7)",
+        "operationId": "categories.category.channel.channel.4od.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -898,7 +898,7 @@
     "/categories/{category}/channel/{channel}/4od/title.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_Title(2)",
+        "operationId": "categories.category.channel.channel.4od.title.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -928,7 +928,7 @@
     "/categories/{category}/channel/{channel}/4od/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_Title(5)",
+        "operationId": "categories.category.channel.channel.4od.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -961,7 +961,7 @@
     "/categories/{category}/channel/{channel}/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_TX_Date(5)",
+        "operationId": "categories.category.channel.channel.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -994,7 +994,7 @@
     "/categories/{category}/channel/{channel}/title.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_Title(2)",
+        "operationId": "categories.category.channel.channel.title.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1024,7 +1024,7 @@
     "/categories/{category}/channel/{channel}/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/channel/[channel]/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_Title(5)",
+        "operationId": "categories.category.channel.channel.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1057,7 +1057,7 @@
     "/categories/{category}/derived/ad.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_TX_Date(3)",
+        "operationId": "categories.category.derived.ad.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1084,7 +1084,7 @@
     "/categories/{category}/derived/ad/4od.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_TX_Date(3)",
+        "operationId": "categories.category.derived.ad.4od.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1111,7 +1111,7 @@
     "/categories/{category}/derived/ad/4od/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag).By default, the programmes are listed in order of Transmission (TX) \n  Date, with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals/4oD.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_TX_Date(6)",
+        "operationId": "categories.category.derived.ad.4od.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1141,7 +1141,7 @@
     "/categories/{category}/derived/ad/4od/popular.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(4)",
+        "operationId": "categories.category.derived.ad.4od.popular.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1168,7 +1168,7 @@
     "/categories/{category}/derived/ad/4od/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(8)",
+        "operationId": "categories.category.derived.ad.4od.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1198,7 +1198,7 @@
     "/categories/{category}/derived/ad/4od/title.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_Title(3)",
+        "operationId": "categories.category.derived.ad.4od.title.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1225,7 +1225,7 @@
     "/categories/{category}/derived/ad/4od/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD programmes associated with the specified category \n  (tag), alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/4od/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/religion-and-belief/4oD/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "4oD_Programmes_by_Title(6)",
+        "operationId": "categories.category.derived.ad.4od.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1255,7 +1255,7 @@
     "/categories/{category}/derived/ad/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_TX_Date(6)",
+        "operationId": "categories.category.derived.ad.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1285,7 +1285,7 @@
     "/categories/{category}/derived/ad/title.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_Title(3)",
+        "operationId": "categories.category.derived.ad.title.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1312,7 +1312,7 @@
     "/categories/{category}/derived/ad/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/derived/ad/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_Title(6)",
+        "operationId": "categories.category.derived.ad.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1342,7 +1342,7 @@
     "/categories/{category}/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag).  \n  By default, the programmes are listed in order of Transmission (TX) Date, \n  with the most-recently-transmitted programmes listed first.\n\n  http://api.channel4.com/pmlsd/categories/category/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/animals.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_TX_Date(4)",
+        "operationId": "categories.category.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1372,7 +1372,7 @@
     "/categories/{category}/popular.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(2)",
+        "operationId": "categories.category.popular.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1399,7 +1399,7 @@
     "/categories/{category}/popular/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4oD most popular brands for the given category within the \n  last 7 days, in order of popularity.\n\n  http://api.channel4.com/pmlsd/categories/category/popular/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/comedy/4od/popular.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Most_Popular_Brands_Feed(6)",
+        "operationId": "categories.category.popular.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1456,7 +1456,7 @@
     "/categories/{category}/title/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes associated with the specified category (tag), \n  alphanumerically in order of Title.\n\n  http://api.channel4.com/pmlsd/categories/category/title/page-{pageno}.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/categories/history/title.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "All_Programmes_by_Title(4)",
+        "operationId": "categories.category.title.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1486,7 +1486,7 @@
     "/collections/{collection_name}.atom": {
       "get": {
         "description": "Collections are editorially controlled groups of brands, series, episodes or \n  other collections used for promotion and discovery of content. A SIMPLE \n  collection can contain an assortment of Brands, Series, Episodes or Freeform \n  items. A GROUP collection contains other collections.\n\n  http://api.channel4.com/pmlsd/collections/collection_name.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Collections_Feed(2)",
+        "operationId": "collections.collection_name.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1540,7 +1540,7 @@
     "/collections/{collection_name}/flattened.atom": {
       "get": {
         "description": "The Flattened Collections Feed is only applicable for GROUP collections and \n  its purpose is mainly return 3 items (BRAND, SERIES or EPSIODE) of each of \n  the simple collections assigned to the GROUP.\n\n  http://api.channel4.com/pmlsd/collections/collection_name/flattened.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/collections/4od-home-promo/flattened/4od.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Flattened_Collection_Feed(2)",
+        "operationId": "collections.collection_name.flattened.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1618,7 +1618,7 @@
     "/coming-soon/{category}.atom": {
       "get": {
         "description": "Coming Soon feed display a list of episodes coming soon to linear TV so that \n  I can promote new Channel 4 content.\n\n  http://api.channel4.com/pmlsd/coming-soon/[category].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/coming-soon.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Coming_Soon_feed(2)",
+        "operationId": "coming_soon.category.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1707,7 +1707,7 @@
     "/search/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/page-{pageno}.atom?q=search-term&apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Search_Feed(3)",
+        "operationId": "search.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1737,7 +1737,7 @@
     "/search/{q}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/search-term.atom?apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Search_Feed(2)",
+        "operationId": "search.q.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1764,7 +1764,7 @@
     "/search/{q}/page-{pageno}.atom": {
       "get": {
         "description": "Lists all Channel 4 programmes where title (brand name) matching the search \n  term. Matches are made from the beginning of individual words in the title.\n\n  http://api.channel4.com/pmlsd/search/search-term/page-{pageno}.atom?apikey=xxx\n\n  http://api.channel4.com/pmlsd/search.atom?q=the+it+crowd&apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Search_Feed(4)",
+        "operationId": "search.q.page_pageno.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -1827,7 +1827,7 @@
     "/tv-listings/daily/{yyyy}/{mm}/{dd}/{channel}.atom": {
       "get": {
         "description": "EPG Information of daily broadcast content aired per channels, according to \n  broadcast date\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/[yyyy]/[mm]/[dd]/[channel].atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/tv-listings/daily/2010/11/28.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "TV_Listings_Feed(2)",
+        "operationId": "tv_listings.daily.yyyy.mm.dd.channel.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -2109,7 +2109,7 @@
     "/{brand-web-safe-title}/videos/series-{series_number}.atom": {
       "get": {
         "description": "A feed containing metadata about all the short-form (clip) videos. The clips \n  feed can be accessed at different levels: the content is then filtered \n  depending on the level, but the structure is identical.When accessed: from \n  the top, the feed contains all the clips for the brand;  at series level, \n  the feed contains only clips from the series; and  at episode level, the \n  feed contains only clips for the episode (and is very unlikely to require \n  pagination). The entries for the Clips Landing Feed contain references to \n  each short-form asset.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/series-series_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/peep-show/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Clips_Landing_Feed_Brand_Series_and_Episode_Levels(2)",
+        "operationId": "brand_web_safe_title.videos.series_series_number.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"
@@ -2139,7 +2139,7 @@
     "/{brand-web-safe-title}/videos/series-{series_number}/episode-{episode_number}.atom": {
       "get": {
         "description": "A feed containing metadata about all the short-form (clip) videos. The clips \n  feed can be accessed at different levels: the content is then filtered \n  depending on the level, but the structure is identical.When accessed: from \n  the top, the feed contains all the clips for the brand;  at series level, \n  the feed contains only clips from the series; and  at episode level, the \n  feed contains only clips for the episode (and is very unlikely to require \n  pagination). The entries for the Clips Landing Feed contain references to \n  each short-form asset.\n\n  http://api.channel4.com/pmlsd/brand-web-safe-title/videos/series-series_number/episode-episode_number.atom?apikey=xxxxxxxxxxxxxxxxxxxxxx\n\n  http://api.channel4.com/pmlsd/peep-show/videos.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx",
-        "operationId": "Clips_Landing_Feed_Brand_Series_and_Episode_Levels(3)",
+        "operationId": "brand_web_safe_title.videos.series_series_number.episode_episode_number.atom.get",
         "parameters": [
           {
             "$ref": "#/parameters/platform"

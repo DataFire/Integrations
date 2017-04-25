@@ -843,7 +843,8 @@
         "summary": "Combined ECHO Download Data Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_download.get"
       }
     },
     "/echo_rest_services.get_facilities": {
@@ -1100,7 +1101,8 @@
         "summary": "Combined ECHO Facility Search Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_facilities.get"
       }
     },
     "/echo_rest_services.get_facility_info": {
@@ -1343,7 +1345,8 @@
         "summary": "Combined ECHO Facility Enhanced Search Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_facility_info.get"
       }
     },
     "/echo_rest_services.get_geojson": {
@@ -1391,7 +1394,8 @@
         "summary": "Combined ECHO GeoJSON Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_geojson.get"
       }
     },
     "/echo_rest_services.get_info_clusters": {
@@ -1423,7 +1427,8 @@
         "summary": "Combined ECHO Info Clusters Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_info_clusters.get"
       }
     },
     "/echo_rest_services.get_map": {
@@ -1487,7 +1492,8 @@
         "summary": "Combined ECHO Map Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_map.get"
       }
     },
     "/echo_rest_services.get_qid": {
@@ -1549,7 +1555,8 @@
         "summary": "Combined ECHO Paginated Results Service",
         "tags": [
           "Facility Info"
-        ]
+        ],
+        "operationId": "echo_rest_services.get_qid.get"
       }
     },
     "/echo_rest_services.metadata": {
@@ -1592,7 +1599,8 @@
         "summary": "Combined ECHO Metadata Service",
         "tags": [
           "Metadata"
-        ]
+        ],
+        "operationId": "echo_rest_services.metadata.get"
       }
     }
   },

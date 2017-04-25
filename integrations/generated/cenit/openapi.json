@@ -124,7 +124,8 @@
         "summary": "Returns a list of connections",
         "tags": [
           "Connection"
-        ]
+        ],
+        "operationId": "setup.connection.get"
       },
       "post": {
         "description": "Creates or updates the specified connection by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
@@ -139,7 +140,8 @@
         "summary": "Create or update a connection",
         "tags": [
           "Connection"
-        ]
+        ],
+        "operationId": "setup.connection.post"
       }
     },
     "/setup/connection/{id}": {
@@ -165,7 +167,8 @@
         "summary": "Delete a connection",
         "tags": [
           "Connection"
-        ]
+        ],
+        "operationId": "setup.connection.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing connection. You need only supply the unique connection identifier that was returned upon connection creation.",
@@ -192,7 +195,8 @@
         "summary": "Retrieve an existing connection",
         "tags": [
           "Connection"
-        ]
+        ],
+        "operationId": "setup.connection.id.get"
       }
     },
     "/setup/connection_role": {
@@ -212,7 +216,8 @@
         "summary": "Returns a list of connection roles",
         "tags": [
           "Connection Role"
-        ]
+        ],
+        "operationId": "setup.connection_role.get"
       },
       "post": {
         "description": "Creates or updates the specified connection role by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
@@ -227,7 +232,8 @@
         "summary": "Create or update a connection role",
         "tags": [
           "Connection Role"
-        ]
+        ],
+        "operationId": "setup.connection_role.post"
       }
     },
     "/setup/connection_role/{id}": {
@@ -253,7 +259,8 @@
         "summary": "Delete a connection role.",
         "tags": [
           "Connection Role"
-        ]
+        ],
+        "operationId": "setup.connection_role.id.delete"
       },
       "get": {
         "description": "Returns a connection role",
@@ -280,7 +287,8 @@
         "summary": "Return a connection role",
         "tags": [
           "Connection Role"
-        ]
+        ],
+        "operationId": "setup.connection_role.id.get"
       }
     },
     "/setup/data_type/": {
@@ -300,7 +308,8 @@
         "summary": "Returns a list of data types",
         "tags": [
           "Data Type"
-        ]
+        ],
+        "operationId": "setup.data_type.get"
       },
       "post": {
         "description": "Creates or updates the specified data type by setting the values of the parameters passed. Any parameters not provided will be left unchanged.",
@@ -315,7 +324,8 @@
         "summary": "Create or update a data type",
         "tags": [
           "Data Type"
-        ]
+        ],
+        "operationId": "setup.data_type.post"
       }
     },
     "/setup/data_type/{id}": {
@@ -341,7 +351,8 @@
         "summary": "Delete a data type",
         "tags": [
           "Data Type"
-        ]
+        ],
+        "operationId": "setup.data_type.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing data type. You need only supply the unique data  type identifier that was returned upon DataType creation.",
@@ -368,7 +379,8 @@
         "summary": "Retrieve a data type",
         "tags": [
           "Data Type"
-        ]
+        ],
+        "operationId": "setup.data_type.id.get"
       }
     },
     "/setup/flow/": {
@@ -388,7 +400,8 @@
         "summary": "Returns a list of flows",
         "tags": [
           "Flow"
-        ]
+        ],
+        "operationId": "setup.flow.get"
       },
       "post": {
         "description": "Creates or updates the specified flow. Any parameters not provided will be left unchanged.",
@@ -403,7 +416,8 @@
         "summary": "Create or update a flow",
         "tags": [
           "Flow"
-        ]
+        ],
+        "operationId": "setup.flow.post"
       }
     },
     "/setup/flow/{id}": {
@@ -429,7 +443,8 @@
         "summary": "Delete a flow.",
         "tags": [
           "Flow"
-        ]
+        ],
+        "operationId": "setup.flow.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing flow. You need only supply the unique flow identifier that was returned upon flow creation.",
@@ -456,7 +471,8 @@
         "summary": "Retrieve an existing flow",
         "tags": [
           "Flow"
-        ]
+        ],
+        "operationId": "setup.flow.id.get"
       }
     },
     "/setup/namespace/": {
@@ -476,7 +492,8 @@
         "summary": "Returns a list of namespaces",
         "tags": [
           "Namespace"
-        ]
+        ],
+        "operationId": "setup.namespace.get"
       },
       "post": {
         "description": "Creates or updates the specified namespace. Any parameters not provided will be left unchanged.",
@@ -491,7 +508,8 @@
         "summary": "Create or update a namespace",
         "tags": [
           "Namespace"
-        ]
+        ],
+        "operationId": "setup.namespace.post"
       }
     },
     "/setup/namespace/{id}": {
@@ -517,7 +535,8 @@
         "summary": "Delete a namespace",
         "tags": [
           "Namespace"
-        ]
+        ],
+        "operationId": "setup.namespace.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing namespace. You need only supply the unique webhook namespace that was returned upon namespace creation.",
@@ -544,7 +563,8 @@
         "summary": "Retrieve an existing namespace",
         "tags": [
           "Namespace"
-        ]
+        ],
+        "operationId": "setup.namespace.id.get"
       }
     },
     "/setup/observer/": {
@@ -564,7 +584,8 @@
         "summary": "Returns a list of events",
         "tags": [
           "Data Event"
-        ]
+        ],
+        "operationId": "setup.observer.get"
       },
       "post": {
         "description": "Creates or updates the specified event observer. Any parameters not provided will be left unchanged.",
@@ -579,7 +600,8 @@
         "summary": "Create or update an event",
         "tags": [
           "Data Event"
-        ]
+        ],
+        "operationId": "setup.observer.post"
       }
     },
     "/setup/observer/{id}": {
@@ -605,7 +627,8 @@
         "summary": "Delete an event",
         "tags": [
           "Data Event"
-        ]
+        ],
+        "operationId": "setup.observer.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing event. You need only supply the unique event identifier that was returned upon event creation.",
@@ -632,7 +655,8 @@
         "summary": "Retrieve an existing event",
         "tags": [
           "Data Event"
-        ]
+        ],
+        "operationId": "setup.observer.id.get"
       }
     },
     "/setup/scheduler/": {
@@ -652,7 +676,8 @@
         "summary": "Returns a list of schedulers",
         "tags": [
           "Scheduler"
-        ]
+        ],
+        "operationId": "setup.scheduler.get"
       },
       "post": {
         "description": "Creates or updates the specified scheduler. Any parameters not provided will be left unchanged.",
@@ -667,7 +692,8 @@
         "summary": "Create or update an scheduler",
         "tags": [
           "Scheduler"
-        ]
+        ],
+        "operationId": "setup.scheduler.post"
       }
     },
     "/setup/scheduler/{id}": {
@@ -693,7 +719,8 @@
         "summary": "Delete an schedule",
         "tags": [
           "Scheduler"
-        ]
+        ],
+        "operationId": "setup.scheduler.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing scheduler. You need only supply the unique scheduler identifier that was returned upon scheduler creation.",
@@ -720,7 +747,8 @@
         "summary": "Retrieve an existing schedule",
         "tags": [
           "Scheduler"
-        ]
+        ],
+        "operationId": "setup.scheduler.id.get"
       }
     },
     "/setup/schema/": {
@@ -740,7 +768,8 @@
         "summary": "Returns a list of schemas",
         "tags": [
           "Schema"
-        ]
+        ],
+        "operationId": "setup.schema.get"
       },
       "post": {
         "description": "Creates or updates the specified schema. Any parameters not provided will be left unchanged.",
@@ -755,7 +784,8 @@
         "summary": "Create or update an schema",
         "tags": [
           "Schema"
-        ]
+        ],
+        "operationId": "setup.schema.post"
       }
     },
     "/setup/schema/{id}": {
@@ -781,7 +811,8 @@
         "summary": "Delete an schema.",
         "tags": [
           "Schema"
-        ]
+        ],
+        "operationId": "setup.schema.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing schema. You need only supply the unique schema identifier that was returned upon schema creation.",
@@ -808,7 +839,8 @@
         "summary": "Retrieve an existing schema",
         "tags": [
           "Schema"
-        ]
+        ],
+        "operationId": "setup.schema.id.get"
       }
     },
     "/setup/translator/": {
@@ -828,7 +860,8 @@
         "summary": "Returns a list of translators",
         "tags": [
           "Translator"
-        ]
+        ],
+        "operationId": "setup.translator.get"
       },
       "post": {
         "description": "Creates or updates the specified translator. Any parameters not provided will be left unchanged.",
@@ -843,7 +876,8 @@
         "summary": "Create or update a translator",
         "tags": [
           "Translator"
-        ]
+        ],
+        "operationId": "setup.translator.post"
       }
     },
     "/setup/translator/{id}": {
@@ -869,7 +903,8 @@
         "summary": "Delete a translator",
         "tags": [
           "Translator"
-        ]
+        ],
+        "operationId": "setup.translator.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing translator. You need only supply the unique translator identifier that was returned upon translator creation.",
@@ -896,7 +931,8 @@
         "summary": "Retrieve an existing translator",
         "tags": [
           "Translator"
-        ]
+        ],
+        "operationId": "setup.translator.id.get"
       }
     },
     "/setup/webhook/": {
@@ -916,7 +952,8 @@
         "summary": "Returns a list of webhooks",
         "tags": [
           "Webhook"
-        ]
+        ],
+        "operationId": "setup.webhook.get"
       },
       "post": {
         "description": "Creates or updates the specified webhook. Any parameters not provided will be left unchanged.",
@@ -931,7 +968,8 @@
         "summary": "Create or update a webhook",
         "tags": [
           "Webhook"
-        ]
+        ],
+        "operationId": "setup.webhook.post"
       }
     },
     "/setup/webhook/{id}": {
@@ -957,7 +995,8 @@
         "summary": "Delete a webhook",
         "tags": [
           "Webhook"
-        ]
+        ],
+        "operationId": "setup.webhook.id.delete"
       },
       "get": {
         "description": "Retrieves the details of an existing webhook. You need only supply the unique webhook identifier that was returned upon webhook creation.",
@@ -984,7 +1023,8 @@
         "summary": "Retrieve an existing webhook",
         "tags": [
           "Webhook"
-        ]
+        ],
+        "operationId": "setup.webhook.id.get"
       }
     }
   },

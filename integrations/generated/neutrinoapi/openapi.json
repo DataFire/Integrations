@@ -69,7 +69,7 @@
     "/bad-word-filter": {
       "post": {
         "description": "Detect bad words, swear words and profanity in a given text",
-        "operationId": "Bad Word Filter",
+        "operationId": "bad_word_filter.post",
         "parameters": [
           {
             "enum": [
@@ -136,7 +136,7 @@
     "/bin-lookup": {
       "post": {
         "description": "Perform a BIN (Bank Identification Number) or IIN (Issuer Identification Number) lookup. See: https://www.neutrinoapi.com/api/bin-lookup/",
-        "operationId": "BIN Lookup",
+        "operationId": "bin_lookup.post",
         "parameters": [
           {
             "enum": [
@@ -203,7 +203,7 @@
     "/code-highlight": {
       "post": {
         "description": "Code highlight will take raw source code and convert into nicely formatted HTML with syntax and keyword highlighting",
-        "operationId": "Code Highlight",
+        "operationId": "code_highlight.post",
         "parameters": [
           {
             "description": "The source content. This can be either a URL to load from or an actual content string",
@@ -344,7 +344,7 @@
     "/email-validate": {
       "post": {
         "description": "Parse, validate and clean an email address",
-        "operationId": "Email Validate",
+        "operationId": "email_validate.post",
         "parameters": [
           {
             "enum": [
@@ -412,7 +412,7 @@
     "/geocode-address": {
       "post": {
         "description": "Geocode an address, partial address or the name of a location",
-        "operationId": "Geocode Address",
+        "operationId": "geocode_address.post",
         "parameters": [
           {
             "enum": [
@@ -495,7 +495,7 @@
     "/geocode-reverse": {
       "post": {
         "description": "Convert a geographic coordinate (latitude and longitude) into a real world address or location.",
-        "operationId": "Geocode Reverse",
+        "operationId": "geocode_reverse.post",
         "parameters": [
           {
             "enum": [
@@ -572,7 +572,7 @@
     "/hlr-lookup": {
       "post": {
         "description": "Connect to the global mobile cellular network and retrieve the status of a mobile device",
-        "operationId": "HLR Lookup",
+        "operationId": "hlr_lookup.post",
         "parameters": [
           {
             "enum": [
@@ -639,7 +639,7 @@
     "/host-reputation": {
       "post": {
         "description": "Check the reputation of an IP address or domain against a comprehensive list of blacklists and blocklists (DNSBLs)",
-        "operationId": "Host Reputation",
+        "operationId": "host_reputation.post",
         "parameters": [
           {
             "enum": [
@@ -699,7 +699,7 @@
     "/html-clean": {
       "post": {
         "description": "Clean and sanitize untrusted HTML",
-        "operationId": "HTML Clean",
+        "operationId": "html_clean.post",
         "parameters": [
           {
             "description": "The HTML content. This can be either a URL to load HTML from or an actual HTML content string",
@@ -758,7 +758,7 @@
     "/html-extract-tags": {
       "post": {
         "description": "Extract specific HTML tag contents or attributes from complex HTML or XHTML content",
-        "operationId": "HTML Extract",
+        "operationId": "html_extract_tags.post",
         "parameters": [
           {
             "enum": [
@@ -839,7 +839,7 @@
     "/html5-render": {
       "post": {
         "description": "Render HTML and HTML5 content to PDF, JPG or PNG",
-        "operationId": "HTML5 Render",
+        "operationId": "html5_render.post",
         "parameters": [
           {
             "description": "",
@@ -1042,7 +1042,7 @@
     "/image-resize": {
       "post": {
         "description": "Resize an image and output as either JPEG or PNG. See: https://www.neutrinoapi.com/api/image-resize/",
-        "operationId": "Image Resize",
+        "operationId": "image_resize.post",
         "parameters": [
           {
             "description": "The URL to the source image",
@@ -1118,7 +1118,7 @@
     "/image-watermark": {
       "post": {
         "description": "Watermark one image with another image. See: https://www.neutrinoapi.com/api/image-watermark/",
-        "operationId": "Image Watermark",
+        "operationId": "image_watermark.post",
         "parameters": [
           {
             "description": "The URL to the source image",
@@ -1218,7 +1218,7 @@
     "/ip-blocklist": {
       "post": {
         "description": "The IP Blocklist API will detect potentially malicious or dangerous IP addresses",
-        "operationId": "IP Blocklist",
+        "operationId": "ip_blocklist.post",
         "parameters": [
           {
             "enum": [
@@ -1278,7 +1278,7 @@
     "/ip-info": {
       "post": {
         "description": "Get location information about an IP address and do reverse DNS (PTR) lookups.",
-        "operationId": "IP Info",
+        "operationId": "ip_info.post",
         "parameters": [
           {
             "enum": [
@@ -1346,7 +1346,7 @@
     "/ip-probe": {
       "post": {
         "description": "Analyze and extract provider information for an IP address",
-        "operationId": "IP Probe",
+        "operationId": "ip_probe.post",
         "parameters": [
           {
             "description": "",
@@ -1407,7 +1407,7 @@
     "/phone-playback": {
       "post": {
         "description": "Make an automated call to any valid phone number and playback an audio message",
-        "operationId": "Phone Playback",
+        "operationId": "phone_playback.post",
         "parameters": [
           {
             "enum": [
@@ -1474,7 +1474,7 @@
     "/phone-validate": {
       "post": {
         "description": "Parse, validate and get location information about a phone number",
-        "operationId": "Phone Validate",
+        "operationId": "phone_validate.post",
         "parameters": [
           {
             "enum": [
@@ -1548,7 +1548,7 @@
     "/phone-verify": {
       "post": {
         "description": "Make an automated call to any valid phone number and playback a unique security code",
-        "operationId": "Phone Verify",
+        "operationId": "phone_verify.post",
         "parameters": [
           {
             "enum": [
@@ -1649,7 +1649,7 @@
     "/qr-code": {
       "post": {
         "description": "Generate a QR code as a PNG image. See: https://www.neutrinoapi.com/api/qr-code/",
-        "operationId": "QR Code",
+        "operationId": "qr_code.post",
         "parameters": [
           {
             "description": "The content to encode into the QR code (e.g. a URL or a phone number)",
@@ -1735,7 +1735,7 @@
     "/sms-verify": {
       "post": {
         "description": "Send a unique security code to any mobile device via SMS",
-        "operationId": "SMS Verify",
+        "operationId": "sms_verify.post",
         "parameters": [
           {
             "enum": [
@@ -1827,7 +1827,7 @@
     "/url-info": {
       "post": {
         "description": "Parse, analyze and retrieve content from the supplied URL",
-        "operationId": "URL Info",
+        "operationId": "url_info.post",
         "parameters": [
           {
             "enum": [
@@ -1894,7 +1894,7 @@
     "/user-agent-info": {
       "post": {
         "description": "Parse, validate and get detailed user-agent information from a user agent string",
-        "operationId": "User Agent Info",
+        "operationId": "user_agent_info.post",
         "parameters": [
           {
             "enum": [
@@ -1954,7 +1954,7 @@
     "/verify-security-code": {
       "post": {
         "description": "Check if a security code from one of the verify APIs is valid",
-        "operationId": "Verify Security Code",
+        "operationId": "verify_security_code.post",
         "parameters": [
           {
             "enum": [

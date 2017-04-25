@@ -129,7 +129,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "name.concept_type.specific_concept.json.get"
       }
     },
     "/search.json": {
@@ -194,7 +195,8 @@
               "type": "object"
             }
           }
-        }
+        },
+        "operationId": "search.json.get"
       }
     }
   },
