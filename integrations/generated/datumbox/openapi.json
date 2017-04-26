@@ -59,13 +59,6 @@
         "operationId": "AdultContentDetection",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -91,13 +84,6 @@
         "operationId": "CommercialDetection",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -122,13 +108,6 @@
         "description": "The Document Similarity function estimates the degree of similarity between two documents. It can be used to detect duplicate webpages or detect plagiarism.",
         "operationId": "DocumentSimilarity",
         "parameters": [
-          {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The first text. It should not contain HTML tags.",
             "in": "formData",
@@ -162,13 +141,6 @@
         "operationId": "EducationalDetection",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -194,13 +166,6 @@
         "operationId": "GenderDetection",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -225,13 +190,6 @@
         "description": "The Keyword Extraction function enables you to extract from an arbitrary document all the keywords and word-combinations along with their occurrences in the text.",
         "operationId": "KeywordExtraction",
         "parameters": [
-          {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The number of keyword combinations (n-grams) that you wish to extract.",
             "in": "formData",
@@ -267,13 +225,6 @@
         "operationId": "LanguageDetection",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -298,13 +249,6 @@
         "description": "The Readability Assessment function determines the degree of readability of a document based on its terms and idioms. The texts are classified as basic, intermediate and advanced depending their difficulty.",
         "operationId": "ReadabilityAssessment",
         "parameters": [
-          {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
@@ -331,13 +275,6 @@
         "operationId": "SentimentAnalysis",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -362,13 +299,6 @@
         "description": "The Spam Detection function labels documents as spam or nospam by taking into account their context. It can be used to filter out spam emails and comments.",
         "operationId": "SpamDetection",
         "parameters": [
-          {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
@@ -395,13 +325,6 @@
         "operationId": "SubjectivityAnalysis",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -426,13 +349,6 @@
         "description": "The Text Extraction function enables you to extract the important information from a given webpage. Extracting the clear text of the documents is an important step before any other analysis.",
         "operationId": "TextExtraction",
         "parameters": [
-          {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
           {
             "description": "The HTML source of the webpage.",
             "in": "formData",
@@ -459,13 +375,6 @@
         "operationId": "TopicClassification",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text that you want to analyze. It should not contain HTML tags.",
             "in": "formData",
             "name": "text",
@@ -491,13 +400,6 @@
         "operationId": "TwitterSentimentAnalysis",
         "parameters": [
           {
-            "description": "Your API Key",
-            "in": "formData",
-            "name": "api_key",
-            "required": true,
-            "type": "string"
-          },
-          {
             "description": "The text of the tweet that we evaluate.",
             "in": "formData",
             "name": "text",
@@ -515,6 +417,14 @@
           "Document-Classification"
         ]
       }
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "description": "Your API Key",
+      "in": "formData",
+      "name": "api_key",
+      "type": "apiKey"
     }
   }
 }
