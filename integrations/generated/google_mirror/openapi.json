@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Interacts with Glass users via the timeline.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Google Mirror",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -44,12 +49,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/glass.location": "View your location",
         "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/glass.location": "View your location",
+        "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -220,6 +236,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -274,6 +293,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -303,6 +325,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -334,6 +359,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -396,6 +424,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -434,6 +465,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -458,10 +492,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -519,10 +559,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -580,6 +626,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -626,6 +675,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -681,6 +733,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -710,6 +765,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -771,6 +829,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -844,10 +905,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1250,10 +1317,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1285,10 +1358,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1321,10 +1400,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1387,10 +1472,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1777,10 +1868,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.location"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.location"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -1814,6 +1911,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -2216,6 +2316,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
         ],
@@ -2252,6 +2355,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }
@@ -2290,6 +2396,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/glass.timeline"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/glass.timeline"
             ]
           }

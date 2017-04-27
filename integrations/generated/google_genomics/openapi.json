@@ -49,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
@@ -58,6 +58,20 @@
         "https://www.googleapis.com/auth/genomics": "View and manage Genomics data",
         "https://www.googleapis.com/auth/genomics.readonly": "View Genomics data"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
+        "https://www.googleapis.com/auth/genomics": "View and manage Genomics data",
+        "https://www.googleapis.com/auth/genomics.readonly": "View Genomics data"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -269,10 +283,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -348,15 +368,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -391,10 +420,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -427,15 +462,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -522,10 +566,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -601,10 +651,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -680,10 +736,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -759,15 +821,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -802,10 +873,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -838,15 +915,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -933,10 +1019,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1012,10 +1104,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1091,15 +1189,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1134,10 +1241,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1170,15 +1283,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1265,10 +1387,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1314,15 +1442,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1396,10 +1533,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1434,10 +1577,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1470,15 +1619,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1565,10 +1723,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1651,10 +1815,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1730,15 +1900,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1773,10 +1952,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1809,15 +1994,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -1904,10 +2098,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -1978,15 +2178,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2110,15 +2319,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -2194,15 +2412,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -2278,15 +2505,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2362,15 +2598,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2405,15 +2650,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2513,15 +2767,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2638,15 +2901,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2681,15 +2953,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2806,10 +3087,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -2885,15 +3172,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -2928,10 +3224,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -2964,15 +3266,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -3059,10 +3370,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3138,15 +3455,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3222,10 +3548,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3301,10 +3633,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3380,15 +3718,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -3423,10 +3770,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3459,15 +3812,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/genomics"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics.readonly"
             ]
           }
@@ -3554,10 +3916,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3640,15 +4008,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/bigquery"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/bigquery"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3684,10 +4061,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3812,10 +4195,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3899,10 +4288,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -3986,10 +4381,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }
@@ -4073,10 +4474,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/genomics"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/genomics"
             ]
           }

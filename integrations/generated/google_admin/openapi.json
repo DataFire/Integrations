@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Admin Reports",
     "version": "reports_v1",
     "x-apiClientRegistration": {
@@ -47,12 +52,23 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
         "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
+        "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -213,6 +229,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
         ],
@@ -356,6 +375,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
         ],
@@ -409,6 +431,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             ]
           }
         ],
@@ -459,6 +484,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.reports.usage.readonly"
             ]
           }
@@ -553,6 +581,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/admin.reports.usage.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/admin.reports.usage.readonly"
             ]
           }

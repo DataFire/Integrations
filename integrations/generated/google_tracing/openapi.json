@@ -49,13 +49,25 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/trace.append": "Write Trace data for a project or application",
         "https://www.googleapis.com/auth/trace.readonly": "Read Trace data for a project or application"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/trace.append": "Write Trace data for a project or application",
+        "https://www.googleapis.com/auth/trace.readonly": "Read Trace data for a project or application"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -243,10 +255,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/trace.append"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/trace.append"
             ]
           }
@@ -330,10 +348,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/trace.append"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/trace.append"
             ]
           }
@@ -405,10 +429,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/trace.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/trace.readonly"
             ]
           }
@@ -491,10 +521,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/trace.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/trace.readonly"
             ]
           }
@@ -551,15 +587,12 @@
       "description": "Text annotation with a set of attributes. A maximum of 32 annotations are\nallowed per Span.",
       "properties": {
         "attributes": {
-          "additionalProperties": {
-            "$ref": "#/definitions/AttributeValue"
-          },
-          "description": "A set of attributes on the annotation. A maximum of 4 attributes are\nallowed per Annotation. The maximum key length is 128 bytes. The\nvalue can be a string (up to 256 bytes), integer, or boolean\n(true/false).",
-          "type": "object"
+          "$ref": "#/definitions/Attributes",
+          "description": "A set of attributes on the annotation. A maximum of 4 attributes are\nallowed per Annotation."
         },
         "description": {
-          "description": "A user-supplied message describing the event. The maximum length for\nthe description is 256 characters.",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "A user-supplied message describing the event. The maximum length for\nthe description is 256 bytes."
         }
       },
       "type": "object"
@@ -577,8 +610,26 @@
           "type": "string"
         },
         "stringValue": {
-          "description": "A string value.",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "A string value (up to 256 bytes)."
+        }
+      },
+      "type": "object"
+    },
+    "Attributes": {
+      "description": "Attributes of a span with a key:value format.",
+      "properties": {
+        "attributeMap": {
+          "additionalProperties": {
+            "$ref": "#/definitions/AttributeValue"
+          },
+          "description": "The maximum key length is 128 bytes (attributes are dropped if the\nkey size is larger than the maximum allowed). The value can be a string\n(up to 256 bytes), integer, or boolean (true/false). Some common pair\nexamples:\n\n    \"/instance_id\": \"my-instance\"\n    \"/zone\": \"us-central1-a\"\n    \"/grpc/peer_address\": \"ip:port\" (dns, etc.)\n    \"/grpc/deadline\": \"Duration\"\n    \"/http/user_agent\"\n    \"/http/request_bytes\": 300\n    \"/http/response_bytes\": 1200\n    \"/http/url\": google.com/apis\n    \"abc.com/myattribute\": true",
+          "type": "object"
+        },
+        "droppedAttributesCount": {
+          "description": "The number of dropped attributes after the maximum size was enforced. If\n0 then no attributes were dropped.",
+          "format": "int32",
+          "type": "integer"
         }
       },
       "type": "object"
@@ -624,6 +675,24 @@
       },
       "type": "object"
     },
+    "Links": {
+      "description": "A collection of links, which are references from this span to a span\nin the same or different trace.",
+      "properties": {
+        "droppedLinksCount": {
+          "description": "The number of dropped links after the maximum size was enforced. If\n0 then no links were dropped.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "link": {
+          "description": "A collection of links.",
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "ListSpansResponse": {
       "description": "The response message for the `ListSpans` method.",
       "properties": {
@@ -662,12 +731,12 @@
       "description": "Binary module.",
       "properties": {
         "buildId": {
-          "description": "Build_id is a unique identifier for the module, usually a hash of its\ncontents (up to 128 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "Build_id is a unique identifier for the module, usually a hash of its\ncontents (up to 128 characters)."
         },
         "module": {
-          "description": "E.g. main binary, kernel modules, and dynamic libraries\nsuch as libc.so, sharedlib.so (up to 256 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "E.g. main binary, kernel modules, and dynamic libraries\nsuch as libc.so, sharedlib.so (up to 256 characters)."
         }
       },
       "type": "object"
@@ -706,15 +775,12 @@
       "description": "A span represents a single operation within a trace. Spans can be nested\nto form a trace tree. Often, a trace contains a root span that\ndescribes the end-to-end latency and, optionally, one or more subspans for\nits sub-operations. (A trace could alternatively contain multiple root spans,\nor none at all.) Spans do not need to be contiguous. There may be gaps\nand/or overlaps between spans in a trace.",
       "properties": {
         "attributes": {
-          "additionalProperties": {
-            "$ref": "#/definitions/AttributeValue"
-          },
-          "description": "Attributes of a span with a key:value format. A maximum of 16 custom\nattributes are allowed per Span. The maximum key length is 128 bytes. The\nvalue can be a string (up to 256 bytes), integer, or boolean (true/false).\n\nSome common pair examples:\n\n    \"/instance_id\": \"my-instance\"\n    \"/zone\": \"us-central1-a\"\n    \"/grpc/peer_address\": \"ip:port\" (dns, etc.)\n    \"/grpc/deadline\": \"Duration\"\n    \"/http/user_agent\"\n    \"/http/request_bytes\": 300\n    \"/http/response_bytes\": 1200\n    \"/http/url\": google.com/apis\n    \"abc.com/myattribute\": true",
-          "type": "object"
+          "$ref": "#/definitions/Attributes",
+          "description": "A set of attributes on the span. A maximum of 32 attributes are allowed per\nSpan."
         },
         "displayName": {
-          "description": "Description of the operation in the span. It is sanitized and displayed in\nthe Stackdriver Trace tool in the\n{% dynamic print site_values.console_name %}.\nThe display_name may be a method name or some other per-call site\nname. For the same executable and the same call point, a best practice is\nto use a consistent operation name, which makes it easier to correlate\ncross-trace spans.",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "Description of the operation in the span. It is sanitized and displayed in\nthe Stackdriver Trace tool in the\n{% dynamic print site_values.console_name %}.\nThe display_name may be a method name or some other per-call site\nname. For the same executable and the same call point, a best practice is\nto use a consistent operation name, which makes it easier to correlate\ncross-trace spans.\nThe maximum length for the display_name is 128 bytes."
         },
         "endTime": {
           "description": "End time of the span.\nOn the client side, this is the local machine clock time at which the span\nexecution was ended; on the server\nside, this is the time at which the server application handler stopped\nrunning.",
@@ -722,11 +788,8 @@
           "type": "string"
         },
         "links": {
-          "description": "A collection of links, which are references from this span to a span\nin the same or different trace.",
-          "items": {
-            "$ref": "#/definitions/Link"
-          },
-          "type": "array"
+          "$ref": "#/definitions/Links",
+          "description": "A maximum of 128 links are allowed per Span."
         },
         "name": {
           "description": "The resource name of Span in the format\n`projects/PROJECT_ID/traces/TRACE_ID/spans/SPAN_ID`.\n`TRACE_ID` is a unique identifier for a trace within a project and is a\nbase16-encoded, case-insensitive string and is required to be 32 char long.\n`SPAN_ID` is a unique identifier for a span within a trace. It is a\nbase 16-encoded, case-insensitive string of a 8-bytes array and is required\nto be 16 char long.",
@@ -754,11 +817,8 @@
           "description": "An optional final status for this span."
         },
         "timeEvents": {
-          "description": "A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation\non the span, consisting of either user-supplied key:value pairs, or\ndetails of an RPC message sent/received on the network.",
-          "items": {
-            "$ref": "#/definitions/TimeEvent"
-          },
-          "type": "array"
+          "$ref": "#/definitions/TimeEvents",
+          "description": "A maximum of 32 annotations and 128 network events are allowed per Span."
         }
       },
       "type": "object"
@@ -772,12 +832,12 @@
           "type": "string"
         },
         "fileName": {
-          "description": "The filename of the file containing this frame (up to 256 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "The filename of the file containing this frame (up to 256 characters)."
         },
         "functionName": {
-          "description": "The fully-qualified name that uniquely identifies this function or\nmethod (up to 1024 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "The fully-qualified name that uniquely identifies this function or\nmethod (up to 1024 characters)."
         },
         "lineNumber": {
           "description": "Line number of the frame.",
@@ -789,12 +849,30 @@
           "description": "Binary module the code is loaded from."
         },
         "originalFunctionName": {
-          "description": "Used when the function name is\n[mangled](http://www.avabodh.com/cxxin/namemangling.html). May be\nfully-qualified (up to 1024 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "Used when the function name is\n[mangled](http://www.avabodh.com/cxxin/namemangling.html). May be\nfully-qualified (up to 1024 characters)."
         },
         "sourceVersion": {
-          "description": "The version of the deployed source code (up to 128 characters).",
-          "type": "string"
+          "$ref": "#/definitions/TruncatableString",
+          "description": "The version of the deployed source code (up to 128 characters)."
+        }
+      },
+      "type": "object"
+    },
+    "StackFrames": {
+      "description": "Represents collection of StackFrames that can be truncated.",
+      "properties": {
+        "droppedFramesCount": {
+          "description": "The number of dropped stack frames after the maximum size was enforced.\nIf 0 then no frames were dropped.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "frame": {
+          "description": "Stack frames in this stack trace.",
+          "items": {
+            "$ref": "#/definitions/StackFrame"
+          },
+          "type": "array"
         }
       },
       "type": "object"
@@ -802,12 +880,9 @@
     "StackTrace": {
       "description": "StackTrace collected in a trace.",
       "properties": {
-        "stackFrame": {
-          "description": "Stack frames in this stack trace. A maximum of 128 frames are allowed.",
-          "items": {
-            "$ref": "#/definitions/StackFrame"
-          },
-          "type": "array"
+        "stackFrames": {
+          "$ref": "#/definitions/StackFrames",
+          "description": "Stack frames in this stack trace. A maximum of 128 frames are allowed."
         },
         "stackTraceHashId": {
           "description": "The hash ID is used to conserve network bandwidth for duplicate\nstack traces within a single trace.\n\nOften multiple spans will have identical stack traces.\nThe first occurance of a stack trace should contain both the\n`stackFrame` content and a value in `stackTraceHashId`.\n\nSubsequent spans within the same request can refer\nto that stack trace by only setting `stackTraceHashId`.",
@@ -861,11 +936,49 @@
       },
       "type": "object"
     },
+    "TimeEvents": {
+      "description": "A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation\non the span, consisting of either user-supplied key:value pairs, or\ndetails of an RPC message sent/received on the network.",
+      "properties": {
+        "droppedAnnotationsCount": {
+          "description": "The number of dropped annotations after the maximum size was enforced. If\n0 then no annotations were dropped.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "droppedNetworkEventsCount": {
+          "description": "The number of dropped network events after the maximum size was enforced.\nIf 0 then no annotations were dropped.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeEvent": {
+          "description": "A collection of `TimeEvent`s.",
+          "items": {
+            "$ref": "#/definitions/TimeEvent"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Trace": {
       "description": "A trace describes how long it takes for an application to perform some\noperations. It consists of a set of spans, each representing\nan operation and including time information and operation details.",
       "properties": {
         "name": {
           "description": "The resource name of Trace in the format\n`projects/PROJECT_ID/traces/TRACE_ID`. `TRACE_ID` is a unique identifier\nfor a trace within a project and is a base16-encoded, case-insensitive\nstring and is required to be 32 char long.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TruncatableString": {
+      "description": "Represents a string value that might be truncated.",
+      "properties": {
+        "truncatedCharacterCount": {
+          "description": "The number of characters truncated from the original string value. If 0 it\nmeans that the string value was not truncated.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "value": {
+          "description": "The truncated string value. E.g. for a string attribute this may have up to\n256 bytes.",
           "type": "string"
         }
       },

@@ -49,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -57,6 +57,19 @@
         "https://www.googleapis.com/auth/monitoring.read": "View monitoring data for all of your Google Cloud and third-party projects",
         "https://www.googleapis.com/auth/monitoring.write": "Publish metric data to your Google Cloud projects"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/monitoring": "View and write monitoring data for all of your Google and third-party Cloud and API projects",
+        "https://www.googleapis.com/auth/monitoring.read": "View monitoring data for all of your Google Cloud and third-party projects",
+        "https://www.googleapis.com/auth/monitoring.write": "Publish metric data to your Google Cloud projects"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -173,11 +186,11 @@
   "paths": {
     "/v3/{name}": {
       "delete": {
-        "description": "Deletes a metric descriptor. Only user-created custom metrics can be deleted.",
-        "operationId": "projects.metricDescriptors.delete",
+        "description": "Deletes an existing group.",
+        "operationId": "projects.groups.delete",
         "parameters": [
           {
-            "description": "The metric descriptor on which to execute the request. The format is \"projects/{project_id_or_number}/metricDescriptors/{metric_id}\". An example of {metric_id} is: \"custom.googleapis.com/my_test_metric\".",
+            "description": "The group to delete. The format is \"projects/{project_id_or_number}/groups/{group_id}\".",
             "in": "path",
             "name": "name",
             "required": true,
@@ -197,10 +210,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           }
@@ -210,11 +229,11 @@
         ]
       },
       "get": {
-        "description": "Gets a single monitored resource descriptor. This method does not require a Stackdriver account.",
-        "operationId": "projects.monitoredResourceDescriptors.get",
+        "description": "Gets a single group.",
+        "operationId": "projects.groups.get",
         "parameters": [
           {
-            "description": "The monitored resource descriptor to get. The format is \"projects/{project_id_or_number}/monitoredResourceDescriptors/{resource_type}\". The {resource_type} is a predefined type, such as cloudsql_database.",
+            "description": "The group to retrieve. The format is \"projects/{project_id_or_number}/groups/{group_id}\".",
             "in": "path",
             "name": "name",
             "required": true,
@@ -226,7 +245,7 @@
           "200": {
             "description": "Successful response",
             "schema": {
-              "$ref": "#/definitions/MonitoredResourceDescriptor"
+              "$ref": "#/definitions/Group"
             }
           }
         },
@@ -234,20 +253,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }
@@ -335,10 +366,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           }
@@ -422,15 +459,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }
@@ -496,15 +542,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.read"
             ]
           }
@@ -592,10 +647,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           }
@@ -661,15 +722,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.read"
             ]
           }
@@ -764,20 +834,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }
@@ -859,15 +941,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }
@@ -921,20 +1012,32 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring.read"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }
@@ -1181,15 +1284,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.read"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.read"
             ]
           }
@@ -1271,15 +1383,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/monitoring"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/monitoring"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/monitoring.write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/monitoring.write"
             ]
           }

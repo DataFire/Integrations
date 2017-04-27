@@ -1136,6 +1136,10 @@
     "title": "Native Ads Publisher",
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI."
   },
+  "nba": {
+    "title": "NBA Stats",
+    "description": "The destination for current and historic NBA statistics."
+  },
   "neowsapp": {
     "title": "NeoWs - (Near Earth Object Web Service)",
     "description": "A web service for near earth objects. All the data is from the  NASA JPL Asteroid team. "

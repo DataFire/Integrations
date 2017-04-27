@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Provides a historical view of activity.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "G Suite Activity",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -44,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
@@ -53,6 +58,20 @@
         "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
         "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
+        "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
+        "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -192,25 +211,40 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/activity"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/activity"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/drive"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/drive"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.metadata"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.metadata"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/drive.metadata.readonly"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/drive.metadata.readonly"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/drive.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/drive.readonly"
             ]
           }

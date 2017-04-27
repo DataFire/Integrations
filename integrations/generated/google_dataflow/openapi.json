@@ -49,13 +49,25 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
         "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
         "https://www.googleapis.com/auth/userinfo.email": "View your email address"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -242,15 +254,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -327,15 +348,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -440,15 +470,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -508,15 +547,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -610,15 +658,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -708,15 +765,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -806,15 +872,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -900,15 +975,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1003,15 +1087,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1142,15 +1235,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1240,15 +1342,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1338,15 +1449,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1424,15 +1544,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1538,15 +1667,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1607,15 +1745,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1710,15 +1857,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1815,15 +1971,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -1920,15 +2085,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2015,15 +2189,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2119,15 +2302,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2265,15 +2457,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2370,15 +2571,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2468,15 +2678,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2533,15 +2752,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2684,15 +2912,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2775,15 +3012,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2839,15 +3085,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -2989,15 +3244,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/userinfo.email"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/userinfo.email"
             ]
           }
@@ -4396,11 +4660,14 @@
           "description": "True if this metric is reported as the total cumulative aggregate\nvalue accumulated since the worker started working on this WorkItem.\nBy default this is false, indicating that this metric is reported\nas a delta that is not associated with any WorkItem.",
           "type": "boolean"
         },
+        "distribution": {
+          "description": "A struct value describing properties of a distribution of numeric values."
+        },
         "internal": {
           "description": "Worker-computed aggregate value for internal use by the Dataflow\nservice."
         },
         "kind": {
-          "description": "Metric aggregation kind.  The possible metric aggregation kinds are\n\"Sum\", \"Max\", \"Min\", \"Mean\", \"Set\", \"And\", and \"Or\".\nThe specified aggregation kind is case-insensitive.\n\nIf omitted, this is not an aggregated value but instead\na single metric sample value.",
+          "description": "Metric aggregation kind.  The possible metric aggregation kinds are\n\"Sum\", \"Max\", \"Min\", \"Mean\", \"Set\", \"And\", \"Or\", and \"Distribution\".\nThe specified aggregation kind is case-insensitive.\n\nIf omitted, this is not an aggregated value but instead\na single metric sample value.",
           "type": "string"
         },
         "meanCount": {

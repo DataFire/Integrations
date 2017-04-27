@@ -49,11 +49,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/androidenterprise": "Manage corporate Android devices"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/androidenterprise": "Manage corporate Android devices"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -186,6 +196,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -247,6 +260,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -298,6 +314,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -359,6 +378,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -423,6 +445,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -482,6 +507,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -537,6 +565,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -566,6 +597,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -597,6 +631,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -684,6 +721,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -747,6 +787,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -779,6 +822,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -843,6 +889,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -905,6 +954,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -992,6 +1044,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1061,6 +1116,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1129,6 +1187,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1220,6 +1281,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1289,6 +1353,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1328,6 +1395,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1412,6 +1482,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1468,6 +1541,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1510,6 +1586,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1566,6 +1645,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1628,6 +1710,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1664,6 +1749,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1720,6 +1808,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1782,6 +1873,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1814,6 +1908,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1876,6 +1973,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -1912,6 +2012,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -1950,6 +2053,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2019,6 +2125,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2064,6 +2173,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2103,6 +2215,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2172,6 +2287,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2215,6 +2333,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2260,6 +2381,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2336,6 +2460,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2387,6 +2514,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2441,6 +2571,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2480,6 +2613,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2542,6 +2678,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2578,6 +2717,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2616,6 +2758,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2685,6 +2830,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2729,6 +2877,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2793,6 +2944,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2832,6 +2986,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -2901,6 +3058,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -2940,6 +3100,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3011,6 +3174,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3080,6 +3246,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3155,6 +3324,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3206,6 +3378,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3289,6 +3464,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3348,6 +3526,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3394,6 +3575,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3469,6 +3653,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3520,6 +3707,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3603,6 +3793,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3662,6 +3855,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3708,6 +3904,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3784,6 +3983,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3823,6 +4025,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -3891,6 +4096,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -3935,6 +4143,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -4017,6 +4228,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4075,6 +4289,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4114,6 +4331,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -4182,6 +4402,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4226,6 +4449,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -4302,6 +4528,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4354,6 +4583,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4390,6 +4622,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
@@ -4452,6 +4687,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/androidenterprise"
             ]
           }
         ],
@@ -4490,6 +4728,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/androidenterprise"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/androidenterprise"
             ]
           }

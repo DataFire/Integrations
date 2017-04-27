@@ -11,6 +11,11 @@
       "url": "https://google.com"
     },
     "description": "Searches for books and manages your Google Books library.",
+    "license": {
+      "name": "Creative Commons Attribution 3.0",
+      "url": "http://creativecommons.org/licenses/by/3.0/"
+    },
+    "termsOfService": "https://developers.google.com/terms/",
     "title": "Books",
     "version": "v1",
     "x-apiClientRegistration": {
@@ -44,11 +49,21 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/books": "Manage your books"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/books": "Manage your books"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -214,6 +229,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -266,6 +284,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -323,6 +344,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -355,6 +379,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -402,6 +429,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -505,6 +535,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -598,6 +631,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -710,6 +746,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -765,6 +804,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -858,6 +900,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -936,6 +981,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1003,6 +1051,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1038,6 +1089,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1106,6 +1160,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1137,6 +1194,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1199,6 +1259,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1300,6 +1363,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1358,6 +1424,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1431,6 +1500,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1506,6 +1578,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1588,6 +1663,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1655,6 +1733,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1778,6 +1859,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -1822,6 +1906,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1877,6 +1964,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -1965,6 +2055,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2035,6 +2128,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2152,6 +2248,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2240,6 +2339,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2302,6 +2404,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2361,6 +2466,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2430,6 +2538,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2491,6 +2602,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2560,6 +2674,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2649,6 +2766,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -2818,6 +2938,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -2935,6 +3058,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3005,6 +3131,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3108,6 +3237,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3185,6 +3317,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3281,6 +3416,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3369,6 +3507,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3514,6 +3655,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3595,6 +3739,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }
@@ -3733,6 +3880,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3847,6 +3997,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -3929,6 +4082,9 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/books"
             ]
           }
         ],
@@ -4003,6 +4159,9 @@
         "security": [
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/books"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/books"
             ]
           }

@@ -49,7 +49,7 @@
   "securityDefinitions": {
     "Oauth2": {
       "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
-      "description": "Oauth 2.0 authentication",
+      "description": "Oauth 2.0 implicit authentication",
       "flow": "implicit",
       "scopes": {
         "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
@@ -59,6 +59,21 @@
         "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
         "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
       },
+      "type": "oauth2"
+    },
+    "Oauth2c": {
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "description": "Oauth 2.0 accessCode authentication",
+      "flow": "accessCode",
+      "scopes": {
+        "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+        "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
+        "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+        "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+        "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
+      },
+      "tokenUrl": "https://accounts.google.com/o/oauth2/token",
       "type": "oauth2"
     },
     "offline": {
@@ -286,15 +301,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -378,15 +402,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -470,15 +503,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -562,15 +604,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -654,15 +705,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -746,15 +806,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -838,15 +907,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -930,15 +1008,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1022,15 +1109,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1114,15 +1210,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1206,15 +1311,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1298,15 +1412,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1390,15 +1513,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1482,15 +1614,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1574,15 +1715,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1666,15 +1816,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1758,15 +1917,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1850,15 +2018,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -1942,15 +2119,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2013,10 +2199,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2058,10 +2250,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2101,15 +2299,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2193,15 +2400,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2264,10 +2480,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2309,10 +2531,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2352,15 +2580,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2430,15 +2667,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2485,10 +2731,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2549,15 +2801,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2620,10 +2881,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2665,10 +2932,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2708,15 +2981,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2786,15 +3068,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2841,10 +3132,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -2915,15 +3212,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -2984,15 +3290,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3055,10 +3370,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3100,10 +3421,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3143,15 +3470,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3221,10 +3557,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3271,10 +3613,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3286,7 +3634,7 @@
     },
     "/{project}/global/forwardingRules": {
       "get": {
-        "description": "Retrieves a list of ForwardingRule resources available to the specified project.",
+        "description": "Retrieves a list of GlobalForwardingRule resources available to the specified project.",
         "operationId": "globalForwardingRules.list",
         "parameters": [
           {
@@ -3335,15 +3683,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3376,7 +3733,7 @@
         }
       ],
       "post": {
-        "description": "Creates a ForwardingRule resource in the specified project and region using the data included in the request.",
+        "description": "Creates a GlobalForwardingRule resource in the specified project using the data included in the request.",
         "operationId": "globalForwardingRules.insert",
         "parameters": [
           {
@@ -3406,10 +3763,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3421,7 +3784,7 @@
     },
     "/{project}/global/forwardingRules/{forwardingRule}": {
       "delete": {
-        "description": "Deletes the specified ForwardingRule resource.",
+        "description": "Deletes the specified GlobalForwardingRule resource.",
         "operationId": "globalForwardingRules.delete",
         "parameters": [
           {
@@ -3451,10 +3814,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3464,7 +3833,7 @@
         ]
       },
       "get": {
-        "description": "Returns the specified ForwardingRule resource. Get a list of available forwarding rules by making a list() request.",
+        "description": "Returns the specified GlobalForwardingRule resource. Get a list of available forwarding rules by making a list() request.",
         "operationId": "globalForwardingRules.get",
         "parameters": [
           {
@@ -3494,15 +3863,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3560,7 +3938,7 @@
         }
       ],
       "post": {
-        "description": "Changes target URL for forwarding rule. The new target should be of the same type as the old target.",
+        "description": "Changes target URL for the GlobalForwardingRule resource. The new target should be of the same type as the old target.",
         "operationId": "globalForwardingRules.setTarget",
         "parameters": [
           {
@@ -3597,10 +3975,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3661,15 +4045,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3732,10 +4125,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3777,10 +4176,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -3820,15 +4225,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3898,15 +4312,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -3953,10 +4376,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4017,15 +4446,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4088,10 +4526,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4133,10 +4577,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4176,15 +4626,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4254,15 +4713,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4309,10 +4777,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4373,15 +4847,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4444,10 +4927,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4489,10 +4978,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4532,15 +5027,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4610,15 +5114,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4665,10 +5178,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4729,15 +5248,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4800,25 +5328,40 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.full_control"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_only"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           }
@@ -4860,15 +5403,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -4933,10 +5485,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -4976,15 +5534,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5079,10 +5646,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5143,15 +5716,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5214,10 +5796,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5259,10 +5847,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5302,15 +5896,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5375,15 +5978,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5467,15 +6079,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5538,10 +6159,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5583,10 +6210,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5626,15 +6259,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5722,10 +6364,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5786,15 +6434,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5856,10 +6513,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -5899,15 +6562,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -5991,15 +6663,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6062,10 +6743,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6107,10 +6794,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6150,15 +6843,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6242,15 +6944,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6315,10 +7026,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6358,15 +7075,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6450,15 +7176,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6521,10 +7256,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6566,10 +7307,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6609,15 +7356,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6701,15 +7457,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6772,10 +7537,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6817,10 +7588,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -6860,15 +7637,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -6952,15 +7738,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7023,10 +7818,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7068,10 +7869,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7111,15 +7918,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7203,15 +8019,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7274,10 +8099,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7319,10 +8150,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7362,15 +8199,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7465,10 +8311,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7540,10 +8392,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7615,10 +8473,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7679,15 +8543,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7750,10 +8623,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7795,10 +8674,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -7838,15 +8723,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7916,15 +8810,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -7971,10 +8874,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8046,10 +8955,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8121,10 +9036,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8189,10 +9110,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8257,10 +9184,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8321,15 +9254,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8394,15 +9336,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8493,15 +9444,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8571,10 +9531,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8623,10 +9589,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8673,15 +9645,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8772,15 +9753,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8856,15 +9846,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -8911,10 +9910,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -8967,10 +9972,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9019,10 +10030,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9069,15 +10086,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9168,15 +10194,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9246,10 +10281,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9298,10 +10339,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9348,15 +10395,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9433,15 +10489,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9495,10 +10560,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9576,15 +10647,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9652,15 +10732,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9730,10 +10819,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9782,10 +10877,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -9832,15 +10933,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -9942,10 +11052,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10013,15 +11129,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -10091,10 +11216,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10143,10 +11274,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10193,15 +11330,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -10303,10 +11449,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10385,10 +11537,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10482,15 +11640,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -10569,10 +11736,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10652,10 +11825,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10734,10 +11913,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10816,10 +12001,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -10887,15 +12078,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -10967,15 +12167,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11103,15 +12312,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11190,10 +12408,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -11261,15 +12485,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11338,10 +12571,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -11388,15 +12627,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11487,15 +12735,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11565,10 +12822,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -11617,10 +12880,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -11667,15 +12936,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11752,15 +13030,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11814,10 +13101,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -11866,15 +13159,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -11976,15 +13278,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -12052,15 +13363,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -12130,10 +13450,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12182,10 +13508,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12232,15 +13564,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -12342,10 +13683,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12424,10 +13771,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12495,15 +13848,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -12573,10 +13935,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12625,10 +13993,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12675,15 +14049,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -12785,10 +14168,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12867,10 +14256,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -12949,15 +14344,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -13036,10 +14440,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13118,10 +14528,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13206,10 +14622,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13277,15 +14699,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -13355,10 +14786,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13407,10 +14844,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13457,15 +14900,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -13556,15 +15008,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -13634,10 +15095,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13686,10 +15153,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13736,15 +15209,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -13832,10 +15314,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -13900,25 +15388,40 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.full_control"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.full_control"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/devstorage.read_only"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/devstorage.read_only"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/devstorage.read_write"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/devstorage.read_write"
             ]
           }
@@ -13990,10 +15493,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14065,10 +15574,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14140,10 +15655,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14204,15 +15725,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14277,15 +15807,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14376,15 +15915,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14460,15 +16008,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14515,10 +16072,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14571,10 +16134,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14623,10 +16192,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -14673,15 +16248,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14772,15 +16356,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14852,15 +16445,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -14951,15 +16553,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -15035,10 +16646,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15087,10 +16704,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15137,15 +16760,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -15252,10 +16884,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15334,10 +16972,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15405,15 +17049,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -15483,10 +17136,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15535,10 +17194,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15585,15 +17250,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -15695,10 +17369,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15777,10 +17457,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -15874,15 +17560,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -15961,10 +17656,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16043,10 +17744,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16125,10 +17832,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16207,10 +17920,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16278,15 +17997,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -16356,10 +18084,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16408,10 +18142,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16458,15 +18198,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -16568,10 +18317,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16676,15 +18431,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -16763,10 +18527,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16845,10 +18615,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -16916,15 +18692,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -16994,10 +18779,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17046,10 +18837,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17096,15 +18893,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -17213,10 +19019,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17295,10 +19107,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17384,10 +19202,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17466,10 +19290,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17541,10 +19371,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17608,15 +19444,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -17725,10 +19570,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17807,10 +19658,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17889,10 +19746,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -17971,10 +19834,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18053,10 +19922,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18135,10 +20010,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18210,10 +20091,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18292,10 +20179,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18367,10 +20260,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18438,15 +20337,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -18518,15 +20426,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -18617,15 +20534,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -18694,10 +20620,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18744,15 +20676,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -18843,15 +20784,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -18921,10 +20871,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -18973,10 +20929,16 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute"
             ]
           }
@@ -19023,15 +20985,24 @@
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/cloud-platform"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/cloud-platform"
             ]
           },
           {
             "Oauth2": [
               "https://www.googleapis.com/auth/compute"
+            ],
+            "Oauth2c": [
+              "https://www.googleapis.com/auth/compute"
             ]
           },
           {
             "Oauth2": [
+              "https://www.googleapis.com/auth/compute.readonly"
+            ],
+            "Oauth2c": [
               "https://www.googleapis.com/auth/compute.readonly"
             ]
           }
@@ -20660,7 +22631,7 @@
       "type": "object"
     },
     "ForwardingRule": {
-      "description": "A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, portRange] tuple.",
+      "description": "A ForwardingRule resource. A ForwardingRule resource specifies which pool of target virtual machines to forward a packet to if it matches the given [IPAddress, IPProtocol, ports] tuple.",
       "properties": {
         "IPAddress": {
           "description": "The IP address that this forwarding rule is serving on behalf of.\n\nFor global forwarding rules, the address must be a global IP. For regional forwarding rules, the address must live in the same region as the forwarding rule. By default, this field is empty and an ephemeral IP from the same scope (global or regional) will be assigned.\n\nWhen the load balancing scheme is INTERNAL, this can only be an RFC 1918 IP address belonging to the network/subnetwork configured for the forwarding rule. A reserved address cannot be used. If the field is empty, the IP address will be automatically allocated from the internal IP range of the subnetwork or network configured for this forwarding rule. Only IPv4 is supported.",
@@ -20719,11 +22690,11 @@
           "type": "string"
         },
         "portRange": {
-          "description": "Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed to ports in the specified range will be forwarded to target. Forwarding rules with the same [IPAddress, IPProtocol] pair must have disjoint port ranges.\n\nThis field is not used for internal load balancing.",
+          "description": "This field is used for external load balancing and VPN.\n\nApplicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed to ports in the specified range will be forwarded to target. Forwarding rules with the same [IPAddress, IPProtocol] pair must have disjoint port ranges.\n\nSome types of forwarding target have constraints on the acceptable ports:  \n- TargetHttpProxy: 80, 8080 \n- TargetHttpsProxy: 443 \n- TargetSslProxy: 443 \n- TargetVpnGateway: 500, 4500\n-",
           "type": "string"
         },
         "ports": {
-          "description": "This field is not used for external load balancing.\n\nWhen the load balancing scheme is INTERNAL, a single port or a comma separated list of ports can be configured. Only packets addressed to these ports will be forwarded to the backends configured with this forwarding rule.\n\nYou may specify a maximum of up to 5 ports.",
+          "description": "This field is only used for internal load balancing.\n\nWhen the load balancing scheme is INTERNAL, a single port or a comma separated list of ports can be configured. Only packets addressed to these ports will be forwarded to the backends configured with this forwarding rule.\n\nYou may specify a maximum of up to 5 ports.",
           "items": {
             "type": "string"
           },
@@ -21894,7 +23865,7 @@
     "InstanceGroupManagersAbandonInstancesRequest": {
       "properties": {
         "instances": {
-          "description": "The URL for one or more instances to abandon from the managed instance group.",
+          "description": "The URLs of one or more instances to abandon. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].",
           "items": {
             "type": "string"
           },
@@ -21906,7 +23877,7 @@
     "InstanceGroupManagersDeleteInstancesRequest": {
       "properties": {
         "instances": {
-          "description": "The list of instances to delete from this managed instance group. Specify one or more instance URLs.",
+          "description": "The URLs of one or more instances to delete. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].",
           "items": {
             "type": "string"
           },
@@ -21930,7 +23901,7 @@
     "InstanceGroupManagersRecreateInstancesRequest": {
       "properties": {
         "instances": {
-          "description": "The URL for one or more instances to recreate.",
+          "description": "The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].",
           "items": {
             "type": "string"
           },
@@ -23592,7 +25563,7 @@
     "RegionInstanceGroupManagersRecreateRequest": {
       "properties": {
         "instances": {
-          "description": "The URL for one or more instances to recreate.",
+          "description": "The URLs of one or more instances to recreate. This can be a full URL or a partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].",
           "items": {
             "type": "string"
           },
@@ -24070,6 +26041,13 @@
       "properties": {
         "bestRoutes": {
           "description": "Best routes for this router's network.",
+          "items": {
+            "$ref": "#/definitions/Route"
+          },
+          "type": "array"
+        },
+        "bestRoutesForRouter": {
+          "description": "Best routes learned by this router.",
           "items": {
             "$ref": "#/definitions/Route"
           },
