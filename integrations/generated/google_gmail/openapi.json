@@ -273,7 +273,7 @@
       ],
       "post": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Creates a new draft with the DRAFT label.",
         "operationId": "users.drafts.create",
@@ -359,7 +359,7 @@
       ],
       "post": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Sends the specified, existing draft to the recipients in the To, Cc, and Bcc headers.",
         "operationId": "users.drafts.send",
@@ -579,7 +579,7 @@
       ],
       "put": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Replaces a draft's content.",
         "operationId": "users.drafts.update",
@@ -1326,7 +1326,7 @@
       ],
       "post": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Directly inserts a message into only this user's mailbox similar to IMAP APPEND, bypassing most scanning and classification. Does not send a message.",
         "operationId": "users.messages.insert",
@@ -1566,7 +1566,7 @@
       ],
       "post": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Imports a message into only this user's mailbox, with standard email delivery scanning and classification similar to receiving via SMTP. Does not send a message.",
         "operationId": "users.messages.import",
@@ -1684,7 +1684,7 @@
       ],
       "post": {
         "consumes": [
-          "message/rfc822"
+          "application/json"
         ],
         "description": "Sends the specified message to the recipients in the To, Cc, and Bcc headers.",
         "operationId": "users.messages.send",

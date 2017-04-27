@@ -9,6 +9,7 @@ const fixOperationIds = (spec) => {
       let op = spec.paths[path][method];
       if (op.operationId && op.operationId.indexOf('.') !== -1) {
         op.operationId = op.operationId.substring(op.operationId.indexOf('.') + 1);
+        if (op.consumes && op.consumes[0] === 'message/rfc822') op.consumes = ['application/json'];
       }
     }
   }
