@@ -1,8 +1,8 @@
 {
-  "name": "",
-  "version": "0.0.1",
-  "main": "integration",
-  "description": "An integration for DataFire",
+  "name": "@datafire/http",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "HTTP integration for DataFire",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
