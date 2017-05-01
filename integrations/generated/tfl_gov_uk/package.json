@@ -1,8 +1,8 @@
 {
-  "name": "@datafire/npr_rss",
+  "name": "@datafire/tfl_gov_uk",
   "version": "2.0.0",
   "main": "index.js",
-  "description": "DataFire integration for npr_rss",
+  "description": "DataFire integration for Transport for London Unified",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
@@ -14,10 +14,8 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {
-    "origin": {
-      "news": "http://www.npr.org/rss/rss.php?id=1001"
-    },
-    "type": "rss"
+    "origin": "https://api.apis.guru/v2/specs/tfl.gov.uk/v1/swagger.json",
+    "type": "openapi"
   },
   "dependencies": {
     "datafire": "^2.0.0"

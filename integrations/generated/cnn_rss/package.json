@@ -2,7 +2,7 @@
   "name": "@datafire/cnn_rss",
   "version": "2.0.0",
   "main": "index.js",
-  "description": "DataFire integration for undefined",
+  "description": "DataFire integration for cnn_rss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
