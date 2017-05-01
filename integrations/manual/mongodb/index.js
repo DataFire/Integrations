@@ -22,6 +22,7 @@ const OUTPUT_SCHEMA = {type: 'object'};
 
 let mongoHandler = (input, context, run) => {
   return new Promise((resolve, reject) => {
+    // TODO: allow persistent connections to be passed in via context.accounts
     let Client = context.accounts.mongodb.mock ? mongomock.MongoClient : mongo.MongoClient;
     Client.connect(context.accounts.mongodb.url, (err, db) => {
       if (err) return reject(err);
