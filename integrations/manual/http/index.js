@@ -21,7 +21,7 @@ reqSchemaProps.method = {
   enum: METHODS,
 }
 
-http.actions.request = new datafire.Action({
+http.addAction('request', new datafire.Action({
   title: 'request',
   description: 'Make an HTTP request',
 
@@ -50,17 +50,17 @@ http.actions.request = new datafire.Action({
       });
     });
   }
-})
+}))
 
 METHODS.forEach(method => {
-  http.actions[method] = new datafire.Action({
+  http.addAction(method, new datafire.Action({
     inputSchema: {
       type: 'object',
       properties: schemaProps,
     },
     handler: (input, ctx) => {
       input.method = method;
-      return http.actions.request.run(input);
+      return http.actions.request(input);
     }
-  })
+  }))
 });

@@ -56,7 +56,7 @@ describe('HTTP integration', () => {
     server.close();
   })
   it('should make a request', () => {
-    return http.actions.get.run({url: 'http://localhost:3333/foo'})
+    return http.actions.get({url: 'http://localhost:3333/foo'})
         .then(body => {
           expect(body.body).to.equal('"foo"');
           expect(body.statusCode).to.equal(200);
@@ -81,7 +81,7 @@ describe('HTTP integration', () => {
     let req = Object.assign({
       url: 'http://localhost:3333/echo',
     }, input);
-    return http.actions.post.run(req)
+    return http.actions.post(req)
         .then(resp => {
           expect(resp.statusCode).to.equal(200);
           let body = JSON.parse(resp.body);
@@ -103,7 +103,7 @@ describe('HTTP integration', () => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(body),
     }
-    return http.actions.patch.run(req)
+    return http.actions.patch(req)
         .then(resp => {
           expect(resp.statusCode).to.equal(200);
           expect(JSON.parse(resp.body)).to.deep.equal(body);
