@@ -26,6 +26,7 @@ let mongoHandler = (input, context, run) => {
       run(collection, (err, data) => {
         if (closeOnFinish) db.close();
         if (err) return reject(err);
+        if (!data) return resolve(data);
 
         let result = data;
         if (data.toJSON) result = data.toJSON();

@@ -95,4 +95,16 @@ describe('MongoDB Integration', () => {
       expect(data.length).to.equal(0);
     })
   })
+
+  it('should return null for missing findOne', () => {
+    return mongo.findOne({
+      collection: "Pet",
+      query: {
+        name: "Trogdor",
+      },
+    }, context)
+    .then(pet => {
+      expect(pet).to.equal(null);
+    })
+  })
 })
