@@ -1,6 +1,5 @@
 let datafire = require('datafire');
 let mongo = require('mongodb');
-let mongomock = require('mongo-mock');
 
 let mongodb = module.exports = new datafire.Integration({
   title: "MongoDB",
@@ -21,13 +20,11 @@ const FIND_INPUTS =  [{
 const OUTPUT_SCHEMA = {type: 'object'};
 
 let mongoHandler = (input, context, run) => {
-  return new Promise((resolve, reject) => {
-    // TODO: allow persistent connections to be passed in via context.accounts
-    let Client = context.accounts.mongodb.mock ? mongomock.MongoClient : mongo.MongoClient;
-    Client.connect(context.accounts.mongodb.url, (err, db) => {
-      if (err) return reject(err);
-      function finish(err, data) {
-        db.close();
+  function getCollectionAndRun(db, closeOnFinish) {
+    let collection = db.collection(input.collection);
+    return new Promise((resolve, reject) => {
+      run(collection, (err, data) => {
+        if (closeOnFinish) db.close();
         if (err) return reject(err);
 
         let result = data;
@@ -35,9 +32,18 @@ let mongoHandler = (input, context, run) => {
         else if (data.toArray) result = data.toArray();
         else if (data.result) result = data.result;
         resolve(result);
-      }
-      let collection = db.collection(input.collection);
-      run(collection, finish);
+      })
+    });
+  }
+
+  if (context.accounts.mongodb.database) {
+    return getCollectionAndRun(context.accounts.mongodb.database, false);
+  }
+
+  return new Promise((resolve, reject) => {
+    mongo.MongoClient.connect(context.accounts.mongodb.url, (err, db) => {
+      if (err) return reject(err);
+      getCollectionAndRun(db, true).then(resolve, reject);
     })
   })
 }

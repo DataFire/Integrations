@@ -16,7 +16,6 @@
   "datafire": {},
   "dependencies": {
     "datafire": "^2.0.0",
-    "mongodb": "^2.2.26",
-    "mongo-mock": "^2.4.0"
+    "mongodb": "^2.2.26"
   }
 }

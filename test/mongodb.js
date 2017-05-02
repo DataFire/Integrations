@@ -7,13 +7,19 @@ let mongo = require('../integrations/manual/mongodb').actions;
 let context = new datafire.Context({
   accounts: {
     mongodb: {
-      url: 'mongodb://localhost:27017/myproject',
-      mock: true,
     }
   }
 });
 
 describe('MongoDB Integration', () => {
+  before(done => {
+    mongomock.MongoClient.connect('mongodb://localhost:27017/myproject', (err, db) => {
+      if (err) return done(err);
+      context.accounts.mongodb.database = db;
+      done();
+    })
+  })
+
   it('should insert', () => {
     let pets = [{
       name: 'Lucy',
