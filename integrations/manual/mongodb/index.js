@@ -2,8 +2,17 @@ let datafire = require('datafire');
 let mongo = require('mongodb');
 
 let mongodb = module.exports = new datafire.Integration({
+  id: "mongodb",
   title: "MongoDB",
   description: "Interact with MongoDB",
+  security: {
+    mongodb: {
+      fields: {
+        database: "A database connection returned from MongoClient.connect()",
+        url: "A mongodb URL",
+      }
+    }
+  }
 });
 
 const FIND_INPUTS =  [{
@@ -28,12 +37,19 @@ let mongoHandler = (input, context, run) => {
         if (err) return reject(err);
         if (!data) return resolve(data);
 
-        let result = data;
-        if (data.toJSON) result = data.toJSON();
-        else if (data.toArray) result = data.toArray();
-        else if (data.result) result = data.result;
-        resolve(result);
+        if (data.toArray) {
+          data.toArray((err, arr) => {
+            if (err) reject(err);
+            else resolve(arr);
+          })
+        } else if (data.result) {
+          resolve(data.result)
+        } else {
+          resolve(data);
+        }
       })
+    }).then(result => {
+      return JSON.parse(JSON.stringify(result));
     });
   }
 

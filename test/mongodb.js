@@ -49,6 +49,8 @@ describe('MongoDB Integration', () => {
       expect(data.length).to.equal(2);
       expect(data[0].name).to.equal('Lucy');
       expect(data[1].name).to.equal('Blaney');
+      expect(data[0]._id).to.be.a('string');
+      expect(data[1]._id).to.be.a('string');
     })
   });
 
@@ -57,6 +59,7 @@ describe('MongoDB Integration', () => {
       collection: 'Pet',
       query: {name: 'Grumpy'},
     }, context).then(data => {
+      expect(data._id).to.be.a('string');
       expect(data.name).to.equal('Grumpy');
       expect(data.type).to.equal('cat');
     })
