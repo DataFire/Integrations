@@ -1,0 +1,481 @@
+{
+  "title": "Infermedica",
+  "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
+  "definitions": {
+    "Choice": {
+      "properties": {
+        "id": {
+          "enum": [
+            "present",
+            "absent",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ],
+      "type": "object"
+    },
+    "Condition": {
+      "properties": {
+        "acuteness": {
+          "enum": [
+            "chronic",
+            "chronic_with_exacerbations",
+            "acute_potentially_chronic",
+            "acute"
+          ],
+          "type": "string"
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prevalence": {
+          "enum": [
+            "very_rare",
+            "rare",
+            "moderate",
+            "common"
+          ],
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "mild",
+            "moderate",
+            "severe"
+          ],
+          "type": "string"
+        },
+        "sex_filter": {
+          "enum": [
+            "female",
+            "male",
+            "both"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "categories",
+        "id",
+        "name",
+        "sex_filter"
+      ],
+      "type": "object"
+    },
+    "ConditionProbability": {
+      "properties": {
+        "id": {
+          "description": "condition id",
+          "type": "string"
+        },
+        "name": {
+          "description": "condition name",
+          "type": "string"
+        },
+        "probability": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "probability"
+      ],
+      "type": "object"
+    },
+    "DatabaseInfo": {
+      "properties": {
+        "conditions_count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "observations_count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "updated_at": {
+          "description": "time of last database update in ISO 8601 format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "conditions_count",
+        "observations_count",
+        "updated_at"
+      ],
+      "type": "object"
+    },
+    "DiagnosisRequest": {
+      "properties": {
+        "age": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "evaluated_at": {
+          "description": "time when diagnosis was evaluated in ISO 8601 format",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/definitions/Evidence"
+          },
+          "type": "array"
+        },
+        "extras": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "pursued": {
+          "description": "list of ids of pursued conditions",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "sex": {
+          "enum": [
+            "female",
+            "male"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "age",
+        "sex"
+      ],
+      "type": "object"
+    },
+    "DiagnosisResponse": {
+      "properties": {
+        "conditions": {
+          "items": {
+            "$ref": "#/definitions/ConditionProbability"
+          },
+          "type": "array"
+        },
+        "extras": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "question": {
+          "$ref": "#/definitions/Question"
+        }
+      },
+      "type": "object"
+    },
+    "Evidence": {
+      "properties": {
+        "choice_id": {
+          "enum": [
+            "present",
+            "absent",
+            "unknown"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "description": "id of observation, risk factor or condition",
+          "type": "string"
+        },
+        "observed_at": {
+          "description": "time when evidence was observed in ISO 8601 format",
+          "type": "string"
+        }
+      },
+      "required": [
+        "choice_id",
+        "id"
+      ],
+      "type": "object"
+    },
+    "Observation": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "children": {
+          "description": "ids of child observations grouped by their relation with this observation",
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent_id": {
+          "description": "id of parent observation",
+          "type": "string"
+        },
+        "parent_relation_type": {
+          "description": "type of relation with parent observation",
+          "enum": [
+            "base",
+            "duration",
+            "severity",
+            "character",
+            "exacerbating_factor",
+            "diminishing_factor",
+            "location",
+            "radiation"
+          ],
+          "type": "string"
+        },
+        "sex_filter": {
+          "enum": [
+            "female",
+            "male",
+            "both"
+          ],
+          "type": "string"
+        },
+        "valid_for": {
+          "description": "number of days that this observation remains valid",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "sex_filter"
+      ],
+      "type": "object"
+    },
+    "Question": {
+      "properties": {
+        "items": {
+          "description": "one or more observations to evaluate",
+          "items": {
+            "$ref": "#/definitions/QuestionItem"
+          },
+          "type": "array"
+        },
+        "text": {
+          "description": "question text",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "single",
+            "group_single",
+            "group_multiple"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "items",
+        "text"
+      ],
+      "type": "object"
+    },
+    "QuestionItem": {
+      "properties": {
+        "choices": {
+          "description": "list of available answer choices",
+          "items": {
+            "$ref": "#/definitions/Choice"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "observation id",
+          "type": "string"
+        },
+        "name": {
+          "description": "name or alias of observation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "choices",
+        "id",
+        "name"
+      ],
+      "type": "object"
+    },
+    "RiskFactor": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getAllConditions",
+      "title": "getAllConditions",
+      "description": "Returns a list of all available conditions.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Condition"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getCondition",
+      "title": "getCondition",
+      "description": "Returns details of a single condition specified by id parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "condition id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Condition"
+      }
+    },
+    {
+      "id": "computeDiagnosis",
+      "title": "computeDiagnosis",
+      "description": "Computes possible diagnoses and relevant observations based on provided patient information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DiagnosisRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DiagnosisResponse"
+      }
+    },
+    {
+      "id": "getDatabaseInfo",
+      "title": "getDatabaseInfo",
+      "description": "Returns information about data used by diagnostic engine.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/DatabaseInfo"
+      }
+    },
+    {
+      "id": "getMatchingObservation",
+      "title": "getMatchingObservation",
+      "description": "Returns details of a single observation if matched by the given phrase.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "phrase": {
+            "type": "string",
+            "description": "phrase to match"
+          },
+          "sex": {
+            "type": "string",
+            "description": "sex filter",
+            "enum": [
+              "female",
+              "male"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Observation"
+      }
+    },
+    {
+      "id": "getAllObservations",
+      "title": "getAllObservations",
+      "description": "Returns a list of all available observations.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Observation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getObservation",
+      "title": "getObservation",
+      "description": "Returns details of a single observation specified by id parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "observation id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Observation"
+      }
+    },
+    {
+      "id": "getAllRiskFactors",
+      "title": "getAllRiskFactors",
+      "description": "Returns a list of all available risk factors.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RiskFactor"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "getRiskFactor",
+      "title": "getRiskFactor",
+      "description": "Returns details of a single risk factor specified by id parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "risk factor id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RiskFactor"
+      }
+    }
+  ]
+}

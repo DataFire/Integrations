@@ -1,0 +1,382 @@
+{
+  "title": "Word2Vec APIs",
+  "description": "Word2Vec.<BR />[Endpoint] https://api.apitore.com/api/8",
+  "definitions": {
+    "AnalogyResponseEntity": {
+      "properties": {
+        "analogies": {
+          "description": "Analogies",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "negatives": {
+          "description": "Input negatives",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "positives": {
+          "description": "Input positives",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "negatives",
+        "num",
+        "positives",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    },
+    "DistanceEntity": {
+      "properties": {
+        "distance": {
+          "description": "cosine distance",
+          "format": "double",
+          "type": "number"
+        },
+        "word": {
+          "description": "word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "distance",
+        "word"
+      ],
+      "type": "object"
+    },
+    "DistanceResponseEntity": {
+      "properties": {
+        "distances": {
+          "description": "Distances",
+          "items": {
+            "$ref": "#/definitions/DistanceEntity"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "input": {
+          "description": "Input word",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "input",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    },
+    "SimilarityResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "similarity": {
+          "description": "Similarity",
+          "format": "double",
+          "type": "number"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "word1": {
+          "description": "Input word1",
+          "type": "string"
+        },
+        "word2": {
+          "description": "Input word2",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "startTime",
+        "word1",
+        "word2"
+      ],
+      "type": "object"
+    },
+    "VectorDistanceResponseEntity": {
+      "properties": {
+        "distances": {
+          "description": "Distances",
+          "items": {
+            "$ref": "#/definitions/DistanceEntity"
+          },
+          "type": "array"
+        },
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "input": {
+          "description": "Input vector",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Input num",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "input",
+        "log",
+        "num",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    },
+    "WordVectorResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "vector": {
+          "description": "Vector",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "word": {
+          "description": "Input word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "startTime",
+        "word"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "analogyUsingGET",
+      "title": "analogyUsingGET",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.AnalogyResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "positives": {
+            "type": "string",
+            "description": "positive1 positive2 ...[space separated strings]"
+          },
+          "negatives": {
+            "type": "string",
+            "description": "negative1 negative2 ...[space separated strings]"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AnalogyResponseEntity"
+      }
+    },
+    {
+      "id": "distanceUsingGET_1",
+      "title": "distanceUsingGET_1",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "word"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DistanceResponseEntity"
+      }
+    },
+    {
+      "id": "similarityUsingGET",
+      "title": "similarityUsingGET",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.SimilarityResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word1": {
+            "type": "string",
+            "description": "word1"
+          },
+          "word2": {
+            "type": "string",
+            "description": "word2"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SimilarityResponseEntity"
+      }
+    },
+    {
+      "id": "vec_distanceUsingGET",
+      "title": "vec_distanceUsingGET",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "vector": {
+            "type": "array",
+            "description": "vector [length 200]"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "num [max 10, default 1]"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VectorDistanceResponseEntity"
+      }
+    },
+    {
+      "id": "wordvectorUsingGET_1",
+      "title": "wordvectorUsingGET_1",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.WordVectorResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "word"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordVectorResponseEntity"
+      }
+    }
+  ]
+}

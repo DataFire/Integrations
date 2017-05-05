@@ -1,0 +1,1745 @@
+{
+  "title": "PatientView",
+  "description": "The recommended REST API endpoints to be used when integrating with PatientView",
+  "definitions": {
+    "ApiKey": {
+      "properties": {
+        "expired": {
+          "type": "boolean"
+        },
+        "expiryDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        }
+      }
+    },
+    "BaseGroup": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "groupType": {
+          "$ref": "#/definitions/Lookup"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastImportDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentCodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "visibleToJoin": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Category": {
+      "properties": {
+        "friendlyDescription": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "icd10Description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "number": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Code": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "codeCategories": {
+          "items": {
+            "$ref": "#/definitions/CodeCategory"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "codeType": {
+          "$ref": "#/definitions/Lookup"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "displayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "externalStandards": {
+          "items": {
+            "$ref": "#/definitions/CodeExternalStandard"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fullDescription": {
+          "type": "string"
+        },
+        "hideFromPatients": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "patientFriendlyName": {
+          "type": "string"
+        },
+        "removedExternally": {
+          "type": "boolean"
+        },
+        "sourceType": {
+          "enum": [
+            "PATIENTVIEW",
+            "NHS_CHOICES"
+          ],
+          "type": "string"
+        },
+        "standardType": {
+          "$ref": "#/definitions/Lookup"
+        }
+      }
+    },
+    "CodeCategory": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/Category"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "CodeExternalStandard": {
+      "properties": {
+        "codeString": {
+          "type": "string"
+        },
+        "externalStandard": {
+          "$ref": "#/definitions/ExternalStandard"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "ContactPoint": {
+      "properties": {
+        "contactPointType": {
+          "$ref": "#/definitions/ContactPointType"
+        },
+        "content": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "ContactPointType": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lookupType": {
+          "$ref": "#/definitions/LookupType"
+        },
+        "value": {
+          "enum": [
+            "UNIT_WEB_ADDRESS",
+            "TRUST_WEB_ADDRESS",
+            "PV_ADMIN_NAME",
+            "PV_ADMIN_PHONE",
+            "PV_ADMIN_EMAIL",
+            "UNIT_ENQUIRIES_PHONE",
+            "UNIT_ENQUIRIES_EMAIL",
+            "APPOINTMENT_PHONE",
+            "APPOINTMENT_EMAIL",
+            "OUT_OF_HOURS_INFO"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Credentials": {
+      "properties": {
+        "apiKey": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "Entry«long,Map«string,List«FhirObservation»»»": {
+      "properties": {
+        "key": {
+          "items": {
+            "$ref": "#/definitions/Entry«string,List«FhirObservation»»"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Entry«string,List«FhirObservation»»": {
+      "properties": {
+        "key": {
+          "items": {
+            "$ref": "#/definitions/FhirObservation"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ExternalStandard": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Feature": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirAllergy": {
+      "properties": {
+        "confidenceLevel": {
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "infoSource": {
+          "type": "string"
+        },
+        "reaction": {
+          "type": "string"
+        },
+        "recordedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "substance": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirCondition": {
+      "properties": {
+        "asserter": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "fullDescription": {
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirContact": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "system": {
+          "type": "string"
+        },
+        "use": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirEncounter": {
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "encounterType": {
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/definitions/FhirObservation"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "procedures": {
+          "items": {
+            "$ref": "#/definitions/FhirProcedure"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirIdentifier": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirObservation": {
+      "properties": {
+        "applies": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "bodySite": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "comparator": {
+          "type": "string"
+        },
+        "diagram": {
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "temporaryUuid": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirObservationPage": {
+      "properties": {
+        "data": {
+          "items": {
+            "$ref": "#/definitions/Entry«long,Map«string,List«FhirObservation»»»"
+          },
+          "type": "array"
+        },
+        "totalElements": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "totalPages": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "FhirPatient": {
+      "properties": {
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "address3": {
+          "type": "string"
+        },
+        "address4": {
+          "type": "string"
+        },
+        "contacts": {
+          "items": {
+            "$ref": "#/definitions/FhirContact"
+          },
+          "type": "array"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "dateOfBirthNoTime": {
+          "type": "string"
+        },
+        "forename": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "groupCode": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "identifiers": {
+          "items": {
+            "$ref": "#/definitions/FhirIdentifier"
+          },
+          "type": "array"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "practitioners": {
+          "items": {
+            "$ref": "#/definitions/FhirPractitioner"
+          },
+          "type": "array"
+        },
+        "surname": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirPractitioner": {
+      "properties": {
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "address3": {
+          "type": "string"
+        },
+        "address4": {
+          "type": "string"
+        },
+        "allowInviteGp": {
+          "type": "boolean"
+        },
+        "contacts": {
+          "items": {
+            "$ref": "#/definitions/FhirContact"
+          },
+          "type": "array"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "groupCode": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "inviteDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "FhirProcedure": {
+      "properties": {
+        "bodySite": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "Group": {
+      "properties": {
+        "address1": {
+          "type": "string"
+        },
+        "address2": {
+          "type": "string"
+        },
+        "address3": {
+          "type": "string"
+        },
+        "childGroups": {
+          "items": {
+            "$ref": "#/definitions/Group"
+          },
+          "type": "array"
+        },
+        "code": {
+          "type": "string"
+        },
+        "contactPoints": {
+          "items": {
+            "$ref": "#/definitions/ContactPoint"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "fhirResourceId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "groupFeatures": {
+          "items": {
+            "$ref": "#/definitions/GroupFeature"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "groupType": {
+          "$ref": "#/definitions/Lookup"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastImportDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "links": {
+          "items": {
+            "$ref": "#/definitions/Link"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "locations": {
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "name": {
+          "type": "string"
+        },
+        "parentGroups": {
+          "items": {
+            "$ref": "#/definitions/Group"
+          },
+          "type": "array"
+        },
+        "postcode": {
+          "type": "string"
+        },
+        "sftpUser": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "visible": {
+          "type": "boolean"
+        },
+        "visibleToJoin": {
+          "type": "boolean"
+        }
+      }
+    },
+    "GroupFeature": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/Feature"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "GroupRole": {
+      "properties": {
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        }
+      }
+    },
+    "Link": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "displayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "linkType": {
+          "$ref": "#/definitions/Lookup"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Location": {
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "label": {
+          "type": "string"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "web": {
+          "type": "string"
+        }
+      }
+    },
+    "Lookup": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "descriptionFriendly": {
+          "type": "string"
+        },
+        "displayOrder": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lookupType": {
+          "$ref": "#/definitions/LookupType"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "LookupType": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "GROUP",
+            "MENU",
+            "ROLE",
+            "CODE_STANDARD",
+            "CODE_TYPE",
+            "FEATURE_TYPE",
+            "RELATIONSHIP_TYPE",
+            "IDENTIFIER",
+            "CONTACT_POINT_TYPE",
+            "STATISTIC_TYPE",
+            "NEWS_TYPE",
+            "GENDER",
+            "IBD_CROHNSLOCATION",
+            "IBD_CROHNSPROXIMALTERMINALILEUM",
+            "IBD_CROHNSPERIANAL",
+            "IBD_CROHNSBEHAVIOUR",
+            "IBD_UCEXTENT",
+            "IBD_EGIMCOMPLICATION",
+            "IBD_SURGERYMAINPROCEDURE",
+            "IBD_SMOKINGSTATUS",
+            "IBD_FAMILYHISTORY",
+            "LINK_TYPE"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "ObservationHeading": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "decimalPlaces": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "defaultPanel": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "defaultPanelOrder": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "heading": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "infoLink": {
+          "type": "string"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "maxGraph": {
+          "format": "double",
+          "type": "number"
+        },
+        "minGraph": {
+          "format": "double",
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "normalRange": {
+          "type": "string"
+        },
+        "observationHeadingGroups": {
+          "items": {
+            "$ref": "#/definitions/ObservationHeadingGroup"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "units": {
+          "type": "string"
+        }
+      }
+    },
+    "ObservationHeadingGroup": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "panel": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "panelOrder": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "Patient": {
+      "properties": {
+        "diagnosisCodes": {
+          "items": {
+            "$ref": "#/definitions/Code"
+          },
+          "type": "array"
+        },
+        "fhirAllergies": {
+          "items": {
+            "$ref": "#/definitions/FhirAllergy"
+          },
+          "type": "array"
+        },
+        "fhirConditions": {
+          "items": {
+            "$ref": "#/definitions/FhirCondition"
+          },
+          "type": "array"
+        },
+        "fhirEncounters": {
+          "items": {
+            "$ref": "#/definitions/FhirEncounter"
+          },
+          "type": "array"
+        },
+        "fhirObservations": {
+          "items": {
+            "$ref": "#/definitions/FhirObservation"
+          },
+          "type": "array"
+        },
+        "fhirPatient": {
+          "$ref": "#/definitions/FhirPatient"
+        },
+        "fhirPractitioners": {
+          "items": {
+            "$ref": "#/definitions/FhirPractitioner"
+          },
+          "type": "array"
+        },
+        "group": {
+          "$ref": "#/definitions/Group"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "PatientManagement": {
+      "properties": {
+        "condition": {
+          "$ref": "#/definitions/FhirCondition"
+        },
+        "encounters": {
+          "items": {
+            "$ref": "#/definitions/FhirEncounter"
+          },
+          "type": "array"
+        },
+        "groupCode": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "observations": {
+          "items": {
+            "$ref": "#/definitions/FhirObservation"
+          },
+          "type": "array"
+        },
+        "patient": {
+          "$ref": "#/definitions/FhirPatient"
+        },
+        "practitioners": {
+          "items": {
+            "$ref": "#/definitions/FhirPractitioner"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Role": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "name": {
+          "enum": [
+            "PATIENT",
+            "UNIT_ADMIN",
+            "STAFF_ADMIN",
+            "DISEASE_GROUP_ADMIN",
+            "SPECIALTY_ADMIN",
+            "GLOBAL_ADMIN",
+            "GP_ADMIN",
+            "MEMBER",
+            "PUBLIC",
+            "UNIT_ADMIN_API",
+            "IMPORTER"
+          ],
+          "type": "string"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Route": {
+      "properties": {
+        "controller": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "displayOrder": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lookup": {
+          "$ref": "#/definitions/Lookup"
+        },
+        "templateUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UUID": {},
+    "User": {
+      "properties": {
+        "apiKey": {
+          "$ref": "#/definitions/ApiKey"
+        },
+        "canSwitchUser": {
+          "type": "boolean"
+        },
+        "changePassword": {
+          "type": "boolean"
+        },
+        "contactNumber": {
+          "type": "string"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "currentLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "currentLoginIpAddress": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "dummy": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string"
+        },
+        "emailVerified": {
+          "type": "boolean"
+        },
+        "forename": {
+          "type": "string"
+        },
+        "groupRoles": {
+          "items": {
+            "$ref": "#/definitions/GroupRole"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "hideSecretWordNotification": {
+          "type": "boolean"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "identifiers": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "lastLogin": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lastLoginIpAddress": {
+          "type": "string"
+        },
+        "latestDataReceivedBy": {
+          "$ref": "#/definitions/BaseGroup"
+        },
+        "latestDataReceivedDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "locked": {
+          "type": "boolean"
+        },
+        "picture": {
+          "type": "string"
+        },
+        "roleDescription": {
+          "type": "string"
+        },
+        "secretWordIsSet": {
+          "type": "boolean"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "userFeatures": {
+          "items": {
+            "$ref": "#/definitions/UserFeature"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "UserFeature": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/Feature"
+        },
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "optInDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "optInHidden": {
+          "type": "boolean"
+        },
+        "optInStatus": {
+          "type": "boolean"
+        },
+        "optOutHidden": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserToken": {
+      "properties": {
+        "auditActions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "checkSecretWord": {
+          "type": "boolean"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "expiration": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "externalStandards": {
+          "items": {
+            "$ref": "#/definitions/ExternalStandard"
+          },
+          "type": "array"
+        },
+        "groupFeatures": {
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "groupMessagingEnabled": {
+          "type": "boolean"
+        },
+        "mustSetSecretWord": {
+          "type": "boolean"
+        },
+        "patientFeatures": {
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "patientMessagingFeatureTypes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "patientRoles": {
+          "items": {
+            "$ref": "#/definitions/Role"
+          },
+          "type": "array"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/definitions/Route"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "secretWordChoices": {
+          "type": "object"
+        },
+        "secretWordIndexes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "secretWordToken": {
+          "type": "string"
+        },
+        "securityRoles": {
+          "items": {
+            "$ref": "#/definitions/Role"
+          },
+          "type": "array"
+        },
+        "shouldEnterCondition": {
+          "type": "boolean"
+        },
+        "staffFeatures": {
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "staffRoles": {
+          "items": {
+            "$ref": "#/definitions/Role"
+          },
+          "type": "array"
+        },
+        "token": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "userFeatures": {
+          "items": {
+            "$ref": "#/definitions/Feature"
+          },
+          "type": "array"
+        },
+        "userGroups": {
+          "items": {
+            "$ref": "#/definitions/BaseGroup"
+          },
+          "type": "array"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "logIn",
+      "title": "logIn",
+      "description": "Authenticate using username and password, returns token, which must be added to X-Auth-Token in header of all future requests",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Credentials"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserToken"
+      }
+    },
+    {
+      "id": "logOut",
+      "title": "logOut",
+      "description": "Log Out",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getBasicUserInformation",
+      "title": "getBasicUserInformation",
+      "description": "Once logged in and have a token, get basic user information including group role membership",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "getBasicPatientDetails",
+      "title": "getBasicPatientDetails",
+      "description": "Given a User ID, get basic patient information for a user from clinical data stored in FHIR",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Patient"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "getPatientManagementDiagnoses",
+      "title": "getPatientManagementDiagnoses",
+      "description": "getPatientManagementDiagnoses",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Code"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "getPatientManagementLookupTypes",
+      "title": "getPatientManagementLookupTypes",
+      "description": "getPatientManagementLookupTypes",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/LookupType"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "validatePatientManagement",
+      "title": "validatePatientManagement",
+      "description": "validatePatientManagement",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PatientManagement"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPatientManagement",
+      "title": "getPatientManagement",
+      "description": "getPatientManagement",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "groupId"
+          },
+          "identifierId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "identifierId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PatientManagement"
+      }
+    },
+    {
+      "id": "savePatientManagement",
+      "title": "savePatientManagement",
+      "description": "savePatientManagement",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "groupId"
+          },
+          "identifierId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "identifierId"
+          },
+          "body": {
+            "$ref": "#/definitions/PatientManagement"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "savePatientManagementSurgeries",
+      "title": "savePatientManagementSurgeries",
+      "description": "savePatientManagementSurgeries",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "groupId"
+          },
+          "identifierId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "identifierId"
+          },
+          "body": {
+            "$ref": "#/definitions/PatientManagement"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getAvailableObservationHeadings",
+      "title": "getAvailableObservationHeadings",
+      "description": "Given a User ID retrieve a list of available observation types for that user (where they have observation data).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ObservationHeading"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "getObservationsByCodes",
+      "title": "getObservationsByCodes",
+      "description": "Given a User ID and search parameters, retrieve a page of observations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "code": {
+            "type": "array",
+            "description": "code",
+            "uniqueItems": false
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "limit"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "offset"
+          },
+          "orderDirection": {
+            "type": "string",
+            "description": "orderDirection"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FhirObservationPage"
+      }
+    },
+    {
+      "id": "getObservationsByCode",
+      "title": "getObservationsByCode",
+      "description": "Given a User ID and observation code, retrieve all observations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "code": {
+            "type": "string",
+            "description": "code"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/FhirObservation"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "getPatientEnteredObservationsByCode",
+      "title": "getPatientEnteredObservationsByCode",
+      "description": "Given a User ID and observation code, retrieve patient entered observations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          },
+          "code": {
+            "type": "string",
+            "description": "code"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/FhirObservation"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    },
+    {
+      "id": "getPatientEnteredObservationHeadings",
+      "title": "getPatientEnteredObservationHeadings",
+      "description": "Given a User ID retrieve a list of available observation types for that user (where they have patient entered observation data).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "userId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ObservationHeading"
+        },
+        "type": "array",
+        "uniqueItems": false
+      }
+    }
+  ]
+}

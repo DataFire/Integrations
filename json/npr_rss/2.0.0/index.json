@@ -1,0 +1,15 @@
+{
+  "title": "www.npr.org",
+  "description": "",
+  "actions": [
+    {
+      "id": "news",
+      "title": "news",
+      "description": "Assorted stories from NPR",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ]
+}

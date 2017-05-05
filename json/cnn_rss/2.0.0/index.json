@@ -1,0 +1,42 @@
+{
+  "title": "rss.cnn.com",
+  "description": "",
+  "actions": [
+    {
+      "id": "topStories",
+      "title": "topStories",
+      "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "world",
+      "title": "world",
+      "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "politics",
+      "title": "politics",
+      "description": "CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "business",
+      "title": "business",
+      "description": "CNNMoney.com, the business website of CNN, combines business news and in-depth market analysis with practical advice and answers to personal finance questions.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1821 @@
+{
+  "title": "uebermaps API endpoints",
+  "description": "Enable people to store spots on public and private maps",
+  "definitions": {
+    "Attachment": {
+      "properties": {
+        "attachable_id": {
+          "example": 7543829,
+          "type": "integer"
+        },
+        "attachable_type": {
+          "example": "Spot",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "example": "This photo was taken in front of the restaurant",
+          "type": "string"
+        },
+        "file_url": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "id": {
+          "example": 34939432,
+          "type": "integer"
+        },
+        "map_id": {
+          "example": 985732,
+          "type": "integer"
+        },
+        "sizes": {
+          "example": {
+            "large": {
+              "h": 860,
+              "w": 1024
+            }
+          },
+          "type": "object"
+        },
+        "spot": {
+          "$ref": "#/definitions/Spot"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "Collaborator": {
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "group": {
+          "enum": [
+            "admin",
+            "editor"
+          ],
+          "example": "editor",
+          "type": "string"
+        },
+        "id": {
+          "example": 4829504,
+          "type": "integer"
+        },
+        "is_admin": {
+          "example": false,
+          "type": "boolean"
+        },
+        "map": {
+          "$ref": "#/definitions/Map"
+        },
+        "map_id": {
+          "example": 324894,
+          "type": "integer"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "user_id": {
+          "example": 649302,
+          "type": "integer"
+        }
+      }
+    },
+    "CollaboratorEditable": {
+      "properties": {
+        "group": {
+          "enum": [
+            "admin",
+            "editor"
+          ],
+          "example": "editor",
+          "type": "string"
+        }
+      }
+    },
+    "CollaboratorInvitation": {
+      "properties": {
+        "accepted": {
+          "example": true,
+          "type": "boolean"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "email": {
+          "example": "a@b.com",
+          "type": "string"
+        },
+        "id": {
+          "example": 8696493,
+          "type": "integer"
+        },
+        "invited_by_user": {
+          "$ref": "#/definitions/User"
+        },
+        "invited_by_user_id": {
+          "example": 5258321,
+          "type": "integer"
+        },
+        "is_admin": {
+          "example": false,
+          "type": "boolean"
+        },
+        "map": {
+          "$ref": "#/definitions/Map"
+        },
+        "sent": {
+          "example": true,
+          "type": "boolean"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "CollaboratorInvitationCreate": {
+      "properties": {
+        "emails": {
+          "example": "a@b.com, c@d.com, e@f.com",
+          "type": "string"
+        },
+        "map_id": {
+          "example": 34925783,
+          "type": "integer"
+        },
+        "user_ids": {
+          "example": "5839459, 389423, 89494, 686950",
+          "type": "string"
+        }
+      }
+    },
+    "Comment": {
+      "properties": {
+        "body": {
+          "example": "Nice photo",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "example": 29628358,
+          "type": "integer"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "CommentEditable": {
+      "properties": {
+        "body": {
+          "example": "Nice photo",
+          "type": "string"
+        }
+      }
+    },
+    "Event": {
+      "properties": {
+        "counts": {
+          "$ref": "#/definitions/EventCounts"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "example": "Very special event",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "example": 482959,
+          "type": "integer"
+        },
+        "lat": {
+          "example": 53.293493,
+          "type": "number"
+        },
+        "lon": {
+          "example": 12.394328,
+          "type": "number"
+        },
+        "owner_id": {
+          "example": 82389429,
+          "type": "integer"
+        },
+        "picture_url": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "spot": {
+          "$ref": "#/definitions/Spot"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Berlin",
+          "type": "string"
+        },
+        "title": {
+          "example": "20th anniversary event",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "EventCounts": {
+      "properties": {
+        "attachments": {
+          "example": 27,
+          "type": "integer"
+        },
+        "comments": {
+          "example": 284,
+          "type": "integer"
+        }
+      }
+    },
+    "EventEditable": {
+      "properties": {
+        "description": {
+          "example": "Very special event",
+          "type": "string"
+        },
+        "ends_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "lat": {
+          "example": 53.293493,
+          "type": "number"
+        },
+        "lon": {
+          "example": 12.394328,
+          "type": "number"
+        },
+        "picture": {
+          "example": "<BASE_64_ENCODED_STRING>",
+          "type": "string"
+        },
+        "starts_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Berlin",
+          "type": "string"
+        },
+        "title": {
+          "example": "20th anniversary event",
+          "type": "string"
+        },
+        "user_id": {
+          "example": 703943,
+          "type": "integer"
+        }
+      }
+    },
+    "Map": {
+      "properties": {
+        "counts": {
+          "$ref": "#/definitions/MapCounts"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "example": "A collection of restaurants, cafes, clubs and random spots that I recommend in Berlin",
+          "type": "string"
+        },
+        "id": {
+          "example": 18234843,
+          "type": "integer"
+        },
+        "map_settings": {
+          "$ref": "#/definitions/MapSettings"
+        },
+        "owner_id": {
+          "example": 9829358,
+          "type": "integer"
+        },
+        "picture_url": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "title": {
+          "example": "My favourite places in Berlin",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "link",
+            "private"
+          ],
+          "example": "public",
+          "type": "string"
+        }
+      }
+    },
+    "MapCounts": {
+      "properties": {
+        "attachments": {
+          "example": 31,
+          "type": "integer"
+        },
+        "comments": {
+          "example": 234,
+          "type": "integer"
+        },
+        "impressions": {
+          "example": 234332,
+          "type": "integer"
+        },
+        "respots": {
+          "example": 24,
+          "type": "integer"
+        },
+        "spots": {
+          "example": 67,
+          "type": "integer"
+        },
+        "subscriptions": {
+          "example": 3892,
+          "type": "integer"
+        }
+      }
+    },
+    "MapEditable": {
+      "properties": {
+        "description": {
+          "example": "A collection of restaurants, cafes, clubs and random spots that I recommend in Berlin",
+          "type": "string"
+        },
+        "map_settings": {
+          "$ref": "#/definitions/MapSettings"
+        },
+        "picture": {
+          "example": "<BASE_64_ENCODED_STRING>",
+          "type": "string"
+        },
+        "title": {
+          "example": "My favourite places in Berlin",
+          "type": "string"
+        },
+        "visibility": {
+          "enum": [
+            "public",
+            "link",
+            "private"
+          ],
+          "example": "public",
+          "type": "string"
+        }
+      }
+    },
+    "MapSettings": {
+      "properties": {
+        "editor_access": {
+          "example": "can_none.map,can_create.spots,can_create.events,can_create.comments,can_create.attachments,can_create.collaborators",
+          "type": "string"
+        },
+        "respotting_to_this_map": {
+          "example": true,
+          "type": "boolean"
+        },
+        "visitor_access": {
+          "example": "can_none.map,can_none.spots,can_none.events,can_create.comments,can_create.attachments,can_none.collaborators",
+          "type": "string"
+        }
+      }
+    },
+    "Respot": {
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "example": 589032,
+          "type": "integer"
+        },
+        "map": {
+          "$ref": "#/definitions/Map"
+        },
+        "map_id": {
+          "example": 8393450,
+          "type": "integer"
+        },
+        "spot": {
+          "$ref": "#/definitions/Spot"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "Spot": {
+      "properties": {
+        "counts": {
+          "$ref": "#/definitions/SpotCounts"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "example": "Landed here by accident but look how wonderful this place is in the photos attached",
+          "type": "string"
+        },
+        "id": {
+          "example": 5932234,
+          "type": "integer"
+        },
+        "lat": {
+          "example": 53.112385,
+          "type": "number"
+        },
+        "lon": {
+          "example": 10.58349,
+          "type": "number"
+        },
+        "map_id": {
+          "example": 394805,
+          "type": "integer"
+        },
+        "picture_url": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "status": {
+          "example": "approved",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Berlin",
+          "type": "string"
+        },
+        "title": {
+          "example": "Beautiful place out in the country",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "SpotCounts": {
+      "properties": {
+        "attachments": {
+          "example": 4,
+          "type": "integer"
+        },
+        "comments": {
+          "example": 24,
+          "type": "integer"
+        },
+        "respot": {
+          "example": 34,
+          "type": "integer"
+        }
+      }
+    },
+    "SpotEditable": {
+      "properties": {
+        "description": {
+          "example": "Landed here by accident but look how wonderful this place is in the photos attached",
+          "type": "string"
+        },
+        "lat": {
+          "example": 53.112385,
+          "type": "number"
+        },
+        "lon": {
+          "example": 10.58349,
+          "type": "number"
+        },
+        "picture": {
+          "example": "<BASE_64_ENCODED_STRING>",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Berlin",
+          "type": "string"
+        },
+        "title": {
+          "example": "Beautiful place out in the country",
+          "type": "string"
+        }
+      }
+    },
+    "SpotWithMap": {
+      "properties": {
+        "map": {
+          "$ref": "#/definitions/Map"
+        },
+        "spot": {
+          "$ref": "#/definitions/Spot"
+        }
+      }
+    },
+    "Subscription": {
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "example": 23950552,
+          "type": "integer"
+        },
+        "map": {
+          "$ref": "#/definitions/Map"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        },
+        "user_id": {
+          "example": 852002,
+          "type": "integer"
+        }
+      }
+    },
+    "User": {
+      "properties": {
+        "about": {
+          "example": "The comedian",
+          "type": "string"
+        },
+        "counts": {
+          "properties": {
+            "maps": {
+              "example": 24,
+              "type": "integer"
+            }
+          }
+        },
+        "header_picture": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "id": {
+          "example": 5829035,
+          "type": "integer"
+        },
+        "location": {
+          "example": "Little Rock, Arkansas",
+          "type": "string"
+        },
+        "name": {
+          "example": "Bill Hicks",
+          "type": "string"
+        },
+        "picture_url": {
+          "example": "https://...",
+          "type": "string"
+        },
+        "screen_name": {
+          "example": "billhicks",
+          "type": "string"
+        },
+        "url": {
+          "example": "http://www.billhicks.com",
+          "type": "string"
+        }
+      }
+    },
+    "UserAuthentication": {
+      "properties": {
+        "email": {
+          "example": "a@b.com",
+          "type": "string"
+        },
+        "password": {
+          "example": "••••••••",
+          "type": "string"
+        }
+      }
+    },
+    "UserEditable": {
+      "properties": {
+        "about": {
+          "example": "The comedian",
+          "type": "string"
+        },
+        "header": {
+          "example": "<BASE_64_ENCODED_STRING>",
+          "type": "string"
+        },
+        "language": {
+          "example": "en",
+          "type": "string"
+        },
+        "location": {
+          "example": "Little Rock, Arkansas",
+          "type": "string"
+        },
+        "name": {
+          "example": "Bill Hicks",
+          "type": "string"
+        },
+        "picture": {
+          "example": "<BASE_64_ENCODED_STRING>",
+          "type": "string"
+        },
+        "screen_name": {
+          "example": "billhicks",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Pacific Time (US & Canada)",
+          "type": "string"
+        },
+        "url": {
+          "example": "http://www.billhicks.com",
+          "type": "string"
+        }
+      }
+    },
+    "UserFullProfile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/User"
+        }
+      ],
+      "properties": {
+        "auth_token": {
+          "example": "6g8as82h3kj23h2",
+          "type": "string"
+        },
+        "language": {
+          "example": "en",
+          "type": "string"
+        },
+        "time_zone": {
+          "example": "Pacific Time (US & Canada)",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "account.patch",
+      "title": "account.patch",
+      "description": "Update account. Wrap map parameters in [user].",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user": {
+            "$ref": "#/definitions/UserEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "attachments.id.delete",
+      "title": "attachments.id.delete",
+      "description": "Delete attachment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Attachment id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Attachment"
+      }
+    },
+    {
+      "id": "authentication.post",
+      "title": "authentication.post",
+      "description": "Sign in user. Wrap authentication parameters in [user].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/definitions/UserAuthentication"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserFullProfile"
+      }
+    },
+    {
+      "id": "collaborator_invitations.get",
+      "title": "collaborator_invitations.get",
+      "description": "List your collaborator invitations.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/CollaboratorInvitation"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "collaborator_invitations.post",
+      "title": "collaborator_invitations.post",
+      "description": "Invite user to collaborate on map.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CollaboratorInvitationCreate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollaboratorInvitation"
+      }
+    },
+    {
+      "id": "collaborator_invitations.id.delete",
+      "title": "collaborator_invitations.id.delete",
+      "description": "Delete collaborator invitation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Collaborator invitation id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollaboratorInvitation"
+      }
+    },
+    {
+      "id": "collaborator_invitations.id.get",
+      "title": "collaborator_invitations.id.get",
+      "description": "Show collaborator invitation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Collaborator invitation id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollaboratorInvitation"
+      }
+    },
+    {
+      "id": "collaborator_invitations.id.patch",
+      "title": "collaborator_invitations.id.patch",
+      "description": "Accept collaborator invitation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Collaborator invitation id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CollaboratorInvitation"
+      }
+    },
+    {
+      "id": "comments.id.delete",
+      "title": "comments.id.delete",
+      "description": "Delete comment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Comment id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      }
+    },
+    {
+      "id": "comments.id.patch",
+      "title": "comments.id.patch",
+      "description": "Update comment. Wrap comment parameters in [comment].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Comment id"
+          },
+          "comment": {
+            "$ref": "#/definitions/CommentEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      }
+    },
+    {
+      "id": "events.get",
+      "title": "events.get",
+      "description": "List your own events.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "timeframe_start": {
+            "type": "string",
+            "description": "Begin of time range of event (ISO 8601 date format)."
+          },
+          "timeframe_end": {
+            "type": "string",
+            "description": "End of time range of event (ISO 8601 date format)."
+          },
+          "bounds": {
+            "type": "string",
+            "description": "To refine your event index request to contain only events within                                                             a geographical box pass the followng bounds parameters.                                                             F. e. to get events within 'Hamburg, St. Pauli':                                                             bounds[sw_lat]=53.54831449741324                                                             bounds[sw_lon]=9.943227767944336                                                             bounds[ne_lat]=53.5571103674878                                                             bounds[ne_lon]=9.9776029586792"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Event"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "events.id.delete",
+      "title": "events.id.delete",
+      "description": "Delete event.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Event id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Event"
+      }
+    },
+    {
+      "id": "events.id.get",
+      "title": "events.id.get",
+      "description": "Get basic information about an event",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of event"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Event"
+      }
+    },
+    {
+      "id": "events.id.patch",
+      "title": "events.id.patch",
+      "description": "Update event. Wrap event parameters in [event].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Event id"
+          },
+          "event": {
+            "$ref": "#/definitions/EventEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.get",
+      "title": "maps.get",
+      "description": "List your own maps.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.post",
+      "title": "maps.post",
+      "description": "Create map. Wrap map parameters in [map]. To add a map header picture pass a base64 encoded string to [map][picture].",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "map": {
+            "$ref": "#/definitions/MapEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.search.get",
+      "title": "maps.search.get",
+      "description": "Search maps",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Query"
+          },
+          "d": {
+            "type": "integer",
+            "description": "Distance. Diameter of search radius in meter (default: 2000 meter)"
+          },
+          "lat": {
+            "type": "number",
+            "description": "Latitude for search radius (default distance: 2000 meter)"
+          },
+          "lon": {
+            "type": "number",
+            "description": "Longitude for search radius (default distance: 2000 meter)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.id.delete",
+      "title": "maps.id.delete",
+      "description": "Delete map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.id.get",
+      "title": "maps.id.get",
+      "description": "Get basic information about a map",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of map"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.id.patch",
+      "title": "maps.id.patch",
+      "description": "Update map. Wrap map parameters in [map]. To update the map header picture pass a base64 encoded string to [map][picture].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          },
+          "map": {
+            "$ref": "#/definitions/MapEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Map"
+      }
+    },
+    {
+      "id": "maps.id.attachments.get",
+      "title": "maps.id.attachments.get",
+      "description": "List attachments for a given map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Map id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Attachment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.id.attachments.post",
+      "title": "maps.id.attachments.post",
+      "description": "Upload map attachment. Wrap attachment parameters in [attachment]",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Map id"
+          },
+          "image": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Attachment"
+      }
+    },
+    {
+      "id": "maps.id.collaborators.get",
+      "title": "maps.id.collaborators.get",
+      "description": "List collaborators of a map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Map id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Collaborator"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.id.collaborators.user_id.delete",
+      "title": "maps.id.collaborators.user_id.delete",
+      "description": "Delete collaboration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          },
+          "user_id": {
+            "type": "integer",
+            "description": "user id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaborator"
+      }
+    },
+    {
+      "id": "maps.id.collaborators.user_id.patch",
+      "title": "maps.id.collaborators.user_id.patch",
+      "description": "Update collaborator. Wrap collaborator parameters in [collaborator]",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          },
+          "user_id": {
+            "type": "integer",
+            "description": "user id"
+          },
+          "collaborator": {
+            "$ref": "#/definitions/CollaboratorEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Collaborator"
+      }
+    },
+    {
+      "id": "maps.id.comments.get",
+      "title": "maps.id.comments.get",
+      "description": "List comments for a given map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of map"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Comment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.id.comments.post",
+      "title": "maps.id.comments.post",
+      "description": "Create map comment. Wrap comment parameters in [comment].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          },
+          "comment": {
+            "$ref": "#/definitions/CommentEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      }
+    },
+    {
+      "id": "maps.id.respots.get",
+      "title": "maps.id.respots.get",
+      "description": "List respots of a map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Map Id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Respot"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.id.spots.get",
+      "title": "maps.id.spots.get",
+      "description": "List spots for a given map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of map"
+          },
+          "order": {
+            "type": "string",
+            "description": "Order of spots",
+            "enum": [
+              "created_at_asc",
+              "created_at_desc",
+              "updated_at_asc",
+              "updated_at_desc",
+              "title_asc",
+              "title_desc"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Spot"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.id.spots.post",
+      "title": "maps.id.spots.post",
+      "description": "Create spot. Wrap parameters in [spot]. To add a spot picture pass a base64 encoded string to [spot][picture].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of map"
+          },
+          "spot": {
+            "$ref": "#/definitions/SpotEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Spot"
+      }
+    },
+    {
+      "id": "maps.id.subscriptions.delete",
+      "title": "maps.id.subscriptions.delete",
+      "description": "Unsubscribe from map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "map id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Subscription"
+      }
+    },
+    {
+      "id": "maps.id.subscriptions.get",
+      "title": "maps.id.subscriptions.get",
+      "description": "List subscriptions for a given map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of map"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Subscription"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "maps.map_id.spots.id.get",
+      "title": "maps.map_id.spots.id.get",
+      "description": "Get basic information about a spot",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of spot"
+          },
+          "map_id": {
+            "type": "integer",
+            "description": "Id of map"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Spot"
+      }
+    },
+    {
+      "id": "maps.map_id.spots.spot_id.respot.delete",
+      "title": "maps.map_id.spots.spot_id.respot.delete",
+      "description": "Delete respot from map by spot id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "map_id": {
+            "type": "integer",
+            "description": "Map Id"
+          },
+          "spot_id": {
+            "type": "integer",
+            "description": "Spot Id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Respot"
+      }
+    },
+    {
+      "id": "respot_maps.get",
+      "title": "respot_maps.get",
+      "description": "List maps that user can respot to.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "respots.id.delete",
+      "title": "respots.id.delete",
+      "description": "Delete respot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Respot Id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Respot"
+      }
+    },
+    {
+      "id": "respots.id.get",
+      "title": "respots.id.get",
+      "description": "Get basic information about a respot",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of respot"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Respot"
+      }
+    },
+    {
+      "id": "spots.search.get",
+      "title": "spots.search.get",
+      "description": "Search spots",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Query"
+          },
+          "d": {
+            "type": "integer",
+            "description": "Distance. Diameter of search radius in meter (default: 2000 meter)"
+          },
+          "lat": {
+            "type": "number",
+            "description": "Latitude for search radius (2 km)"
+          },
+          "lon": {
+            "type": "number",
+            "description": "Longitude for search radius (2 km)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Spot"
+      }
+    },
+    {
+      "id": "spots.id.delete",
+      "title": "spots.id.delete",
+      "description": "Delete spot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "spot id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Spot"
+      }
+    },
+    {
+      "id": "spots.id.patch",
+      "title": "spots.id.patch",
+      "description": "Update spot. Wrap parameters in [spot]. To update the spot picture pass a base64 encoded string to [spot][picture].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "spot id"
+          },
+          "spot": {
+            "$ref": "#/definitions/SpotEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Spot"
+      }
+    },
+    {
+      "id": "spots.id.attachments.get",
+      "title": "spots.id.attachments.get",
+      "description": "List attachments for a given spot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Spot id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Attachment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "spots.id.attachments.post",
+      "title": "spots.id.attachments.post",
+      "description": "Upload spot attachment. Wrap attachment parameters in [attachment]",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Spot id"
+          },
+          "image": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Attachment"
+      }
+    },
+    {
+      "id": "spots.id.comments.get",
+      "title": "spots.id.comments.get",
+      "description": "List comments for a given spot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of spot"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Comment"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "spots.id.comments.post",
+      "title": "spots.id.comments.post",
+      "description": "Create spot comment. Wrap comment parameters in [comment].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "spot id"
+          },
+          "comment": {
+            "$ref": "#/definitions/CommentEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Comment"
+      }
+    },
+    {
+      "id": "spots.id.events.get",
+      "title": "spots.id.events.get",
+      "description": "List maps for a given spot.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of spot"
+          },
+          "timeframe_start": {
+            "type": "string",
+            "description": "Begin of time range of event (ISO 8601 date format)."
+          },
+          "timeframe_end": {
+            "type": "string",
+            "description": "End of time range of event (ISO 8601 date format)."
+          },
+          "bounds": {
+            "type": "string",
+            "description": "To refine your event index request to contain only events within                                                             a geographical box pass the followng bounds parameters.                                                             F. e. to get events within 'Hamburg, St. Pauli':                                                             bounds[sw_lat]=53.54831449741324                                                             bounds[sw_lon]=9.943227767944336                                                             bounds[ne_lat]=53.5571103674878                                                             bounds[ne_lon]=9.9776029586792"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Event"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "spots.id.events.post",
+      "title": "spots.id.events.post",
+      "description": "Create event. Wrap map parameters in [event].",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Spot id"
+          },
+          "event": {
+            "$ref": "#/definitions/EventEditable"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Event"
+      }
+    },
+    {
+      "id": "spots.id.respots.post",
+      "title": "spots.id.respots.post",
+      "description": "Respot a spot onto a map.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Spot Id"
+          },
+          "map_id": {
+            "format": "integer",
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Respot"
+      }
+    },
+    {
+      "id": "subscriptions.get",
+      "title": "subscriptions.get",
+      "description": "List subscriptions.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "description": "Id of user"
+          },
+          "map_id": {
+            "type": "integer",
+            "description": "Id of map"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Subscription"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "subscriptions.post",
+      "title": "subscriptions.post",
+      "description": "Create map subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "map_id": {
+            "format": "integer",
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Subscription"
+      }
+    },
+    {
+      "id": "trends.latest.get",
+      "title": "trends.latest.get",
+      "description": "List latest maps.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "trends.recommended.get",
+      "title": "trends.recommended.get",
+      "description": "List recommended maps.",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "users.search.get",
+      "title": "users.search.get",
+      "description": "Search users",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Query"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "users.id.get",
+      "title": "users.id.get",
+      "description": "Get profile a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Id of user"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    {
+      "id": "users.user_id.maps.get",
+      "title": "users.user_id.maps.get",
+      "description": "List maps for a given user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "description": "Id of user"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Map"
+        },
+        "type": "array"
+      }
+    }
+  ]
+}

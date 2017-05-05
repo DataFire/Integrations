@@ -1,0 +1,2270 @@
+{
+  "title": "Slack",
+  "description": "A messaging app for teams",
+  "definitions": {
+    "channalsInfo": {
+      "properties": {
+        "channel": {
+          "properties": {
+            "created": {
+              "type": "number"
+            },
+            "creator": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "is_archived": {
+              "type": "boolean"
+            },
+            "is_channel": {
+              "type": "boolean"
+            },
+            "is_general": {
+              "type": "boolean"
+            },
+            "is_member": {
+              "type": "boolean"
+            },
+            "last_read": {
+              "type": "string"
+            },
+            "latest": {
+              "properties": {
+                "attachments": {
+                  "items": {
+                    "properties": {
+                      "fallback": {
+                        "type": "string"
+                      },
+                      "from_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "number"
+                      },
+                      "image_bytes": {
+                        "type": "number"
+                      },
+                      "image_height": {
+                        "type": "number"
+                      },
+                      "image_url": {
+                        "type": "string"
+                      },
+                      "image_width": {
+                        "type": "number"
+                      },
+                      "service_name": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "title_link": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "members": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "purpose": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "topic": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "unread_count": {
+              "type": "number"
+            },
+            "unread_count_display": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "channels": {
+      "properties": {
+        "channels": {
+          "items": {
+            "properties": {
+              "created": {
+                "type": "integer"
+              },
+              "creator": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_archived": {
+                "type": "boolean"
+              },
+              "is_member": {
+                "type": "boolean"
+              },
+              "members": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              },
+              "num_members": {
+                "type": "number"
+              },
+              "purpose": {
+                "properties": {
+                  "creator": {
+                    "type": "string"
+                  },
+                  "last_set": {
+                    "type": "integer"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "topic": {
+                "properties": {
+                  "creator": {
+                    "type": "string"
+                  },
+                  "last_set": {
+                    "type": "integer"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "channelsHistory": {
+      "properties": {
+        "has_more": {
+          "type": "boolean"
+        },
+        "latest": {
+          "type": "string"
+        },
+        "messages": {
+          "items": [
+            {
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "properties": {
+                "is_starred": {
+                  "type": "boolean"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "properties": {
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "wibblr": {
+                  "type": "boolean"
+                }
+              },
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "channelsInvite": {
+      "properties": {
+        "channel": {
+          "properties": {
+            "created": {
+              "type": "number"
+            },
+            "creator": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "is_archived": {
+              "type": "boolean"
+            },
+            "is_channel": {
+              "type": "boolean"
+            },
+            "is_general": {
+              "type": "boolean"
+            },
+            "is_member": {
+              "type": "boolean"
+            },
+            "last_read": {
+              "type": "string"
+            },
+            "latest": {
+              "properties": {
+                "subtype": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "members": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "purpose": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "topic": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "unread_count": {
+              "type": "number"
+            },
+            "unread_count_display": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "chatOk": {
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "ts": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "chatUpdate": {
+      "properties": {
+        "channel": {
+          "type": "string"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "emojiList": {
+      "properties": {
+        "emoji": {
+          "properties": {
+            "bowtie": {
+              "type": "string"
+            },
+            "shipit": {
+              "type": "string"
+            },
+            "squirrel": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "fileObj": {
+      "properties": {
+        "file": {
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "files": {
+      "properties": {
+        "files": {
+          "items": {
+            "properties": {
+              "channels": {
+                "items": {},
+                "type": "array"
+              },
+              "comments_count": {
+                "type": "number"
+              },
+              "created": {
+                "type": "number"
+              },
+              "editable": {
+                "type": "boolean"
+              },
+              "external_type": {
+                "type": "string"
+              },
+              "filetype": {
+                "type": "string"
+              },
+              "groups": {
+                "items": {},
+                "type": "array"
+              },
+              "id": {
+                "type": "string"
+              },
+              "ims": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "initial_comment": {
+                "properties": {
+                  "comment": {
+                    "type": "string"
+                  },
+                  "created": {
+                    "type": "number"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "timestamp": {
+                    "type": "number"
+                  },
+                  "user": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "is_external": {
+                "type": "boolean"
+              },
+              "is_public": {
+                "type": "boolean"
+              },
+              "mimetype": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "permalink": {
+                "type": "string"
+              },
+              "permalink_public": {
+                "type": "string"
+              },
+              "pretty_type": {
+                "type": "string"
+              },
+              "public_url_shared": {
+                "type": "boolean"
+              },
+              "size": {
+                "type": "number"
+              },
+              "timestamp": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "url_download": {
+                "type": "string"
+              },
+              "url_private": {
+                "type": "string"
+              },
+              "url_private_download": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paging": {
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "page": {
+              "type": "number"
+            },
+            "pages": {
+              "type": "number"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "groups": {
+      "properties": {
+        "groups": {
+          "items": {
+            "properties": {
+              "created": {
+                "type": "number"
+              },
+              "creator": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_archived": {
+                "type": "boolean"
+              },
+              "is_group": {
+                "type": "boolean"
+              },
+              "members": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "name": {
+                "type": "string"
+              },
+              "purpose": {
+                "properties": {
+                  "creator": {
+                    "type": "string"
+                  },
+                  "last_set": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "topic": {
+                "properties": {
+                  "creator": {
+                    "type": "string"
+                  },
+                  "last_set": {
+                    "type": "number"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ims": {
+      "properties": {
+        "ims": {
+          "items": {
+            "properties": {
+              "created": {
+                "type": "number"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_user_deleted": {
+                "type": "boolean"
+              },
+              "user": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ok": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "purpose": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "purpose": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "searchAll": {
+      "properties": {
+        "channel": {
+          "properties": {
+            "created": {
+              "type": "number"
+            },
+            "creator": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "is_archived": {
+              "type": "boolean"
+            },
+            "is_channel": {
+              "type": "boolean"
+            },
+            "is_general": {
+              "type": "boolean"
+            },
+            "is_member": {
+              "type": "boolean"
+            },
+            "last_read": {
+              "type": "string"
+            },
+            "latest": {
+              "properties": {
+                "attachments": {
+                  "items": {
+                    "properties": {
+                      "fallback": {
+                        "type": "string"
+                      },
+                      "from_url": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": "number"
+                      },
+                      "image_bytes": {
+                        "type": "number"
+                      },
+                      "image_height": {
+                        "type": "number"
+                      },
+                      "image_url": {
+                        "type": "string"
+                      },
+                      "image_width": {
+                        "type": "number"
+                      },
+                      "service_name": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "title_link": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "ts": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "members": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "name": {
+              "type": "string"
+            },
+            "purpose": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "topic": {
+              "properties": {
+                "creator": {
+                  "type": "string"
+                },
+                "last_set": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "unread_count": {
+              "type": "number"
+            },
+            "unread_count_display": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "searchFiles": {
+      "properties": {
+        "files": {
+          "properties": {
+            "matches": {
+              "items": {
+                "properties": {
+                  "channels": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "comments_count": {
+                    "type": "number"
+                  },
+                  "created": {
+                    "type": "number"
+                  },
+                  "edit_link": {
+                    "type": "string"
+                  },
+                  "editable": {
+                    "type": "boolean"
+                  },
+                  "external_type": {
+                    "type": "string"
+                  },
+                  "filetype": {
+                    "type": "string"
+                  },
+                  "groups": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "ims": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "initial_comment": {
+                    "properties": {
+                      "comment": {
+                        "type": "string"
+                      },
+                      "created": {
+                        "type": "number"
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "timestamp": {
+                        "type": "number"
+                      },
+                      "user": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "is_external": {
+                    "type": "boolean"
+                  },
+                  "is_public": {
+                    "type": "boolean"
+                  },
+                  "lines": {
+                    "type": "number"
+                  },
+                  "lines_more": {
+                    "type": "number"
+                  },
+                  "mimetype": {
+                    "type": "string"
+                  },
+                  "mode": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "permalink": {
+                    "type": "string"
+                  },
+                  "permalink_public": {
+                    "type": "string"
+                  },
+                  "pretty_type": {
+                    "type": "string"
+                  },
+                  "preview": {
+                    "type": "string"
+                  },
+                  "preview_highlight": {
+                    "type": "string"
+                  },
+                  "public_url_shared": {
+                    "type": "boolean"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "timestamp": {
+                    "type": "number"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "url_download": {
+                    "type": "string"
+                  },
+                  "url_private": {
+                    "type": "string"
+                  },
+                  "url_private_download": {
+                    "type": "string"
+                  },
+                  "user": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "pagination": {
+              "properties": {
+                "first": {
+                  "type": "number"
+                },
+                "last": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "page_count": {
+                  "type": "number"
+                },
+                "per_page": {
+                  "type": "number"
+                },
+                "total_count": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "paging": {
+              "properties": {
+                "count": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "pages": {
+                  "type": "number"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "searchMessages": {
+      "properties": {
+        "messages": {
+          "properties": {
+            "matches": {
+              "items": [
+                {
+                  "properties": {
+                    "channel": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "next": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "next_2": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "permalink": {
+                      "type": "string"
+                    },
+                    "previous": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "previous_2": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "ts": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                {
+                  "properties": {
+                    "channel": {
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "permalink": {
+                      "type": "string"
+                    },
+                    "previous": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "previous_2": {
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "ts": {
+                          "type": "string"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "user": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "ts": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "user": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              ],
+              "type": "array"
+            },
+            "pagination": {
+              "properties": {
+                "first": {
+                  "type": "number"
+                },
+                "last": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "page_count": {
+                  "type": "number"
+                },
+                "per_page": {
+                  "type": "number"
+                },
+                "total_count": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "paging": {
+              "properties": {
+                "count": {
+                  "type": "number"
+                },
+                "page": {
+                  "type": "number"
+                },
+                "pages": {
+                  "type": "number"
+                },
+                "total": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "starList": {
+      "properties": {
+        "items": {
+          "items": [
+            {
+              "properties": {
+                "channel": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "properties": {
+                "file": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "properties": {
+                "comment": {
+                  "type": "string"
+                },
+                "file": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            {
+              "properties": {
+                "channel": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "paging": {
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "page": {
+              "type": "number"
+            },
+            "pages": {
+              "type": "number"
+            },
+            "total": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "topic": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "user": {
+      "properties": {
+        "ok": {
+          "type": "boolean"
+        },
+        "team": {
+          "type": "string"
+        },
+        "team_id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "usersList": {
+      "properties": {
+        "members": {
+          "items": {
+            "properties": {
+              "color": {
+                "type": "string"
+              },
+              "deleted": {
+                "type": "boolean"
+              },
+              "has_files": {
+                "type": "boolean"
+              },
+              "id": {
+                "type": "string"
+              },
+              "is_admin": {
+                "type": "boolean"
+              },
+              "is_owner": {
+                "type": "boolean"
+              },
+              "name": {
+                "type": "string"
+              },
+              "profile": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "type": "string"
+                  },
+                  "image_192": {
+                    "type": "string"
+                  },
+                  "image_24": {
+                    "type": "string"
+                  },
+                  "image_32": {
+                    "type": "string"
+                  },
+                  "image_48": {
+                    "type": "string"
+                  },
+                  "image_72": {
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "real_name": {
+                    "type": "string"
+                  },
+                  "skype": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ok": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "authTest",
+      "title": "authTest",
+      "description": "Checks authentication and tells you who you are.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Authentication token"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/user"
+      }
+    },
+    {
+      "id": "channelsHistory",
+      "title": "channelsHistory",
+      "description": "Fetches history of messages and events from a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "latest": {
+            "type": "string",
+            "description": "Timestamp of the oldest recent seen message."
+          },
+          "oldest": {
+            "type": "string",
+            "description": "Timestamp of the latest previously seen message."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of messages to return, between 1 and 1000."
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "is_limited": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channelsHistory"
+      }
+    },
+    {
+      "id": "channelsInfo",
+      "title": "channelsInfo",
+      "description": "Gets information about a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/searchAll"
+      }
+    },
+    {
+      "id": "channelsInvite",
+      "title": "channelsInvite",
+      "description": "Invites a user to a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "user": {
+            "type": "string",
+            "description": "User to invite to channel."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channelsInvite"
+      }
+    },
+    {
+      "id": "channelsJoin",
+      "title": "channelsJoin",
+      "description": "Joins a channel, creating it if needed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of channel to join"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channelsInvite"
+      }
+    },
+    {
+      "id": "channelsLeave",
+      "title": "channelsLeave",
+      "description": "Leaves a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ok"
+      }
+    },
+    {
+      "id": "channelsList",
+      "title": "channelsList",
+      "description": "Lists all channels in a Slack team.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "exclude_archived": {
+            "type": "string",
+            "description": "Don't return archived channels."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channels"
+      }
+    },
+    {
+      "id": "channelsMark",
+      "title": "channelsMark",
+      "description": "Sets the read cursor in a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "ts": {
+            "type": "string",
+            "description": "Timestamp of the most recently seen message."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ok"
+      }
+    },
+    {
+      "id": "channelsSetPurpose",
+      "title": "channelsSetPurpose",
+      "description": "Sets the purpose for a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "purpose": {
+            "type": "string",
+            "description": "The new purpose"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/purpose"
+      }
+    },
+    {
+      "id": "channelsSetTopic",
+      "title": "channelsSetTopic",
+      "description": "Sets the topic for a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "topic": {
+            "type": "string",
+            "description": "The new topic"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/topic"
+      }
+    },
+    {
+      "id": "chatDelete",
+      "title": "chatDelete",
+      "description": "Deletes a message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "ts": {
+            "type": "string",
+            "description": "Timestamp of the most recently seen message."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/chatOk"
+      }
+    },
+    {
+      "id": "chatPostMessage",
+      "title": "chatPostMessage",
+      "description": "Sends a message to a channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "text": {
+            "type": "string",
+            "description": "Text of the message to send. See below for an explanation of formatting."
+          },
+          "username": {
+            "type": "string",
+            "description": "Name of bot."
+          },
+          "parse": {
+            "type": "string",
+            "description": "Change how messages are treated. See below."
+          },
+          "link_names": {
+            "type": "string",
+            "description": "Find and link channel names and usernames."
+          },
+          "unfurl_links": {
+            "type": "string",
+            "description": "Pass 1 to enable unfurling of primarily text-based content."
+          },
+          "icon_url": {
+            "type": "string",
+            "description": "URL to an image to use as the icon for this message"
+          },
+          "icon_emoji": {
+            "type": "string",
+            "description": "emoji to use as the icon for this message. Overrides icon_url."
+          },
+          "attachments": {
+            "type": "string",
+            "description": "Structured message attachments."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/chatOk"
+      }
+    },
+    {
+      "id": "chatUpdate",
+      "title": "chatUpdate",
+      "description": "Updates a message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "text": {
+            "type": "string",
+            "description": "Text of the message to send. See below for an explanation of formatting."
+          },
+          "ts": {
+            "type": "string",
+            "description": "Timestamp of the most recently seen message."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/chatUpdate"
+      }
+    },
+    {
+      "id": "emojiList",
+      "title": "emojiList",
+      "description": "Lists custom emoji for a team.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/emojiList"
+      }
+    },
+    {
+      "id": "filesInfo",
+      "title": "filesInfo",
+      "description": "Gets information about a team file.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "File to fetch info for"
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of items to return per page."
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number of results to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/fileObj"
+      }
+    },
+    {
+      "id": "filesList",
+      "title": "filesList",
+      "description": "Lists and filters team files.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "File to fetch info for"
+          },
+          "user": {
+            "type": "string",
+            "description": "Filter files created by a single user."
+          },
+          "ts_from": {
+            "type": "string",
+            "description": "Filter files created after this timestamp (inclusive)."
+          },
+          "ts_to": {
+            "type": "string",
+            "description": "Filter files created before this timestamp (inclusive)."
+          },
+          "types": {
+            "type": "string",
+            "description": "You can pass multiple values in the types argument, like types=posts,snippets.The default value is all, which does not filter the list.",
+            "enum": [
+              "pdfs",
+              "zips",
+              "posts",
+              "images",
+              "snippets",
+              "gdocs",
+              "all"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/files"
+      }
+    },
+    {
+      "id": "filesUpload",
+      "title": "filesUpload",
+      "description": "Uploads or creates a file.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "File contents via multipart/form-data."
+          },
+          "content": {
+            "type": "string",
+            "description": "File contents via a POST var."
+          },
+          "filetype": {
+            "type": "string",
+            "description": "Slack-internal file type identifier."
+          },
+          "filename": {
+            "type": "string",
+            "description": "Filename of file."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of file."
+          },
+          "initial_comment": {
+            "type": "string",
+            "description": "Initial comment to add to file."
+          },
+          "channels": {
+            "type": "string",
+            "description": "Comma separated list of channels to share the file into."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/fileObj"
+      }
+    },
+    {
+      "id": "groupsHistory",
+      "title": "groupsHistory",
+      "description": "Fetches history of messages and events from a private group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Group to fetch history for."
+          },
+          "latest": {
+            "type": "string",
+            "description": "Timestamp of the oldest recent seen message."
+          },
+          "oldest": {
+            "type": "string",
+            "description": "Timestamp of the latest previously seen message."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of messages to return, between 1 and 1000."
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "is_limited": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channelsHistory"
+      }
+    },
+    {
+      "id": "groupsList",
+      "title": "groupsList",
+      "description": "Lists private groups that the calling user has access to.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "exclude_archived": {
+            "type": "string",
+            "description": "Don't return archived channels."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/groups"
+      }
+    },
+    {
+      "id": "groupsMark",
+      "title": "groupsMark",
+      "description": "Sets the read cursor in a private group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Group to fetch history for."
+          },
+          "ts": {
+            "type": "string",
+            "description": "Timestamp of the most recently seen message."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ok"
+      }
+    },
+    {
+      "id": "groupsSetPurpose",
+      "title": "groupsSetPurpose",
+      "description": "Sets the purpose for a private group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Group to fetch history for."
+          },
+          "purpose": {
+            "type": "string",
+            "description": "The new purpose"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/purpose"
+      }
+    },
+    {
+      "id": "groupsSetTopic",
+      "title": "groupsSetTopic",
+      "description": "Sets the topic for a private group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "topic": {
+            "type": "string",
+            "description": "The new topic"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/topic"
+      }
+    },
+    {
+      "id": "imHistory",
+      "title": "imHistory",
+      "description": "Fetches history of messages and events from direct message channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Direct message channel to fetch history for."
+          },
+          "latest": {
+            "type": "string",
+            "description": "Timestamp of the oldest recent seen message."
+          },
+          "oldest": {
+            "type": "string",
+            "description": "Timestamp of the latest previously seen message."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of messages to return, between 1 and 1000."
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "is_limited": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/channelsHistory"
+      }
+    },
+    {
+      "id": "imList",
+      "title": "imList",
+      "description": "Lists direct message channels for the calling user.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ims"
+      }
+    },
+    {
+      "id": "imMark",
+      "title": "imMark",
+      "description": "Sets the read cursor in a direct message channel.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string",
+            "description": "Channel to fetch history for."
+          },
+          "ts": {
+            "type": "string",
+            "description": "Timestamp of the most recently seen message."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ok"
+      }
+    },
+    {
+      "id": "searchAll",
+      "title": "searchAll",
+      "description": "Searches for messages and files matching a query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query. May contains booleans, etc."
+          },
+          "sort": {
+            "type": "string",
+            "description": "Return matches sorted by either score or timestamp.",
+            "enum": [
+              "timestamp",
+              "score"
+            ]
+          },
+          "sort_dir": {
+            "type": "string",
+            "description": "Change sort direction to ascending (asc) or descending (desc).",
+            "enum": [
+              "desc",
+              "asc"
+            ]
+          },
+          "highlight": {
+            "type": "string",
+            "description": "Pass a value of 1 to enable query highlight markers ."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of items to return per page."
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number of results to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/searchAll"
+      }
+    },
+    {
+      "id": "searchFiles",
+      "title": "searchFiles",
+      "description": "Searches for files matching a query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query. May contains booleans, etc."
+          },
+          "sort": {
+            "type": "string",
+            "description": "Return matches sorted by either score or timestamp.",
+            "enum": [
+              "timestamp",
+              "score"
+            ]
+          },
+          "sort_dir": {
+            "type": "string",
+            "description": "Change sort direction to ascending (asc) or descending (desc).",
+            "enum": [
+              "desc",
+              "asc"
+            ]
+          },
+          "highlight": {
+            "type": "string",
+            "description": "Pass a value of 1 to enable query highlight markers ."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of items to return per page."
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number of results to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/searchFiles"
+      }
+    },
+    {
+      "id": "searchMessages",
+      "title": "searchMessages",
+      "description": "Searches for messages matching a query.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query. May contains booleans, etc."
+          },
+          "sort": {
+            "type": "string",
+            "description": "Return matches sorted by either score or timestamp.",
+            "enum": [
+              "timestamp",
+              "score"
+            ]
+          },
+          "sort_dir": {
+            "type": "string",
+            "description": "Change sort direction to ascending (asc) or descending (desc).",
+            "enum": [
+              "desc",
+              "asc"
+            ]
+          },
+          "highlight": {
+            "type": "string",
+            "description": "Pass a value of 1 to enable query highlight markers ."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of items to return per page."
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number of results to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/searchMessages"
+      }
+    },
+    {
+      "id": "starsList",
+      "title": "starsList",
+      "description": "Lists stars for a user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "Show stars by this user. Defaults to the authed user."
+          },
+          "count": {
+            "type": "number",
+            "description": "Number of items to return per page."
+          },
+          "page": {
+            "type": "number",
+            "description": "Page number of results to return."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/starList"
+      }
+    },
+    {
+      "id": "usersList",
+      "title": "usersList",
+      "description": "Lists all users in a Slack team.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/usersList"
+      }
+    }
+  ]
+}

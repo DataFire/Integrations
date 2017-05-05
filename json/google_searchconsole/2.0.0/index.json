@@ -1,0 +1,214 @@
+{
+  "title": "Google Search Console URL Testing Tools",
+  "description": "Provides tools for running validation tests against single URLs",
+  "definitions": {
+    "BlockedResource": {
+      "description": "Blocked resource.",
+      "properties": {
+        "url": {
+          "description": "URL of the blocked resource.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Image": {
+      "description": "Describe image data.",
+      "properties": {
+        "data": {
+          "description": "Image data in format determined by the mime type. Currently, the format\nwill always be \"image/png\", but this might change in the future.",
+          "format": "byte",
+          "type": "string"
+        },
+        "mimeType": {
+          "description": "The mime-type of the image data.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MobileFriendlyIssue": {
+      "description": "Mobile-friendly issue.",
+      "properties": {
+        "rule": {
+          "description": "Rule violated.",
+          "enum": [
+            "MOBILE_FRIENDLY_RULE_UNSPECIFIED",
+            "USES_INCOMPATIBLE_PLUGINS",
+            "CONFIGURE_VIEWPORT",
+            "FIXED_WIDTH_VIEWPORT",
+            "SIZE_CONTENT_TO_VIEWPORT",
+            "USE_LEGIBLE_FONT_SIZES",
+            "TAP_TARGETS_TOO_CLOSE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceIssue": {
+      "description": "Information about a resource with issue.",
+      "properties": {
+        "blockedResource": {
+          "$ref": "#/definitions/BlockedResource",
+          "description": "Describes a blocked resource issue."
+        }
+      },
+      "type": "object"
+    },
+    "RunMobileFriendlyTestRequest": {
+      "description": "Mobile-friendly test request.",
+      "properties": {
+        "requestScreenshot": {
+          "description": "Whether or not screenshot is requested. Default is false.",
+          "type": "boolean"
+        },
+        "url": {
+          "description": "URL for inspection.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RunMobileFriendlyTestResponse": {
+      "description": "Mobile-friendly test response, including mobile-friendly issues and resource\nissues.",
+      "properties": {
+        "mobileFriendliness": {
+          "description": "Test verdict, whether the page is mobile friendly or not.",
+          "enum": [
+            "MOBILE_FRIENDLY_TEST_RESULT_UNSPECIFIED",
+            "MOBILE_FRIENDLY",
+            "NOT_MOBILE_FRIENDLY"
+          ],
+          "type": "string"
+        },
+        "mobileFriendlyIssues": {
+          "description": "List of mobile-usability issues.",
+          "items": {
+            "$ref": "#/definitions/MobileFriendlyIssue"
+          },
+          "type": "array"
+        },
+        "resourceIssues": {
+          "description": "Information about embedded resources issues.",
+          "items": {
+            "$ref": "#/definitions/ResourceIssue"
+          },
+          "type": "array"
+        },
+        "screenshot": {
+          "$ref": "#/definitions/Image",
+          "description": "Screenshot of the requested URL."
+        },
+        "testStatus": {
+          "$ref": "#/definitions/TestStatus",
+          "description": "Final state of the test, can be either complete or an error."
+        }
+      },
+      "type": "object"
+    },
+    "TestStatus": {
+      "description": "Final state of the test, including error details if necessary.",
+      "properties": {
+        "details": {
+          "description": "Error details if applicable.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Status of the test.",
+          "enum": [
+            "TEST_STATUS_UNSPECIFIED",
+            "COMPLETE",
+            "INTERNAL_ERROR",
+            "PAGE_UNREACHABLE"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "urlTestingTools.mobileFriendlyTest.run",
+      "title": "urlTestingTools.mobileFriendlyTest.run",
+      "description": "Runs Mobile-Friendly Test for a given URL.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RunMobileFriendlyTestRequest"
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RunMobileFriendlyTestResponse"
+      }
+    }
+  ]
+}

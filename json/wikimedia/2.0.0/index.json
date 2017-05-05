@@ -1,0 +1,619 @@
+{
+  "title": "Wikimedia",
+  "description": "This API provides cacheable and straightforward access to Wikimedia content and data, in machine-readable formats. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).\nSee https://www.mediawiki.org/wiki/REST_API for background and details.\n### High-volume access\n  - Limit your clients to no more than 200 requests/s to this API.\n  - Set a unique `User-Agent` or `Api-User-Agent` header that\n    allows us to contact you quickly. Email addresses or URLs\n    of contact pages work well.\n\nBy using this API, you agree to Wikimedia's  [Terms of Use](https://wikimediafoundation.org/wiki/Terms_of_Use) and [Privacy Policy](https://wikimediafoundation.org/wiki/Privacy_policy), and you irrevocably agree to release modifications or additions made through this API under the  [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)  License and the [GFDL](https://www.gnu.org/copyleft/fdl.html).\n",
+  "definitions": {
+    "listing": {
+      "description": "The result format for listings",
+      "properties": {
+        "items": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "items"
+      ]
+    },
+    "originalimage": {
+      "properties": {
+        "height": {
+          "description": "Original image height",
+          "type": "integer"
+        },
+        "source": {
+          "description": "Original image URI",
+          "type": "string"
+        },
+        "width": {
+          "description": "Original image width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source",
+        "width",
+        "height"
+      ],
+      "type": "object"
+    },
+    "pagecounts-project": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access-site": {
+                "type": "string"
+              },
+              "count": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "pageview-article": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access": {
+                "type": "string"
+              },
+              "agent": {
+                "type": "string"
+              },
+              "article": {
+                "type": "string"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "views": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "pageview-project": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access": {
+                "type": "string"
+              },
+              "agent": {
+                "type": "string"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              },
+              "views": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "pageview-tops": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access": {
+                "type": "string"
+              },
+              "articles": {
+                "type": "string"
+              },
+              "day": {
+                "type": "string"
+              },
+              "month": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "year": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "problem": {
+      "properties": {
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "summary": {
+      "properties": {
+        "coordinates": {
+          "description": "The coordinates of the item",
+          "properties": {
+            "lat": {
+              "description": "The latitude",
+              "type": "number"
+            },
+            "lon": {
+              "description": "The longitude",
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lon"
+          ],
+          "type": "object"
+        },
+        "description": {
+          "description": "Wikidata description for the page",
+          "example": "American poet",
+          "type": "string"
+        },
+        "dir": {
+          "description": "The page language direction code",
+          "example": "ltr",
+          "type": "string"
+        },
+        "extract": {
+          "description": "First several sentences of an article in plain text",
+          "type": "string"
+        },
+        "lang": {
+          "description": "The page language code",
+          "example": "en",
+          "type": "string"
+        },
+        "originalimage": {
+          "$ref": "#/definitions/originalimage"
+        },
+        "thumbnail": {
+          "$ref": "#/definitions/thumbnail"
+        },
+        "timestamp": {
+          "description": "The time when the page was last editted in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format",
+          "example": "1970-01-01T00:00:00.000Z",
+          "type": "string"
+        },
+        "title": {
+          "description": "The page title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "extract",
+        "lang",
+        "dir"
+      ],
+      "type": "object"
+    },
+    "thumbnail": {
+      "properties": {
+        "height": {
+          "description": "Thumnail height",
+          "type": "integer"
+        },
+        "source": {
+          "description": "Thumbnail image URI",
+          "type": "string"
+        },
+        "width": {
+          "description": "Thumbnail width",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source",
+        "width",
+        "height"
+      ],
+      "type": "object"
+    },
+    "unique-devices": {
+      "properties": {
+        "items": {
+          "items": {
+            "properties": {
+              "access-site": {
+                "type": "string"
+              },
+              "devices": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "granularity": {
+                "type": "string"
+              },
+              "project": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string"
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "media.math.check.type.post",
+      "title": "media.math.check.type.post",
+      "description": "Checks the supplied TeX formula for correctness and returns the\nnormalised formula representation as well as information about\nidentifiers. Available types are tex and inline-tex. The response\ncontains the `x-resource-location` header which can be used to retrieve\nthe render of the checked formula in one of the supported rendering\nformats. Just append the value of the header to `/media/math/{format}/`\nand perform a GET request against that URL.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The input type of the given formula; can be tex or inline-tex",
+            "enum": [
+              "tex",
+              "inline-tex",
+              "chem"
+            ]
+          },
+          "q": {
+            "type": "string",
+            "description": "The formula to check"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "media.math.formula.hash.get",
+      "title": "media.math.formula.hash.get",
+      "description": "Returns the previously-stored formula via `/media/math/check/{type}` for\nthe given hash.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hash": {
+            "type": "string",
+            "description": "The hash string of the previous POST data",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "media.math.render.format.hash.get",
+      "title": "media.math.render.format.hash.get",
+      "description": "Given a request hash, renders a TeX formula into its mathematic\nrepresentation in the given format. When a request is issued to the\n`/media/math/check/{format}` POST endpoint, the response contains the\n`x-resource-location` header denoting the hash ID of the POST data. Once\nobtained, this endpoint has to be used to obtain the actual render.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "The output format; can be svg or mml",
+            "enum": [
+              "svg",
+              "mml",
+              "png"
+            ]
+          },
+          "hash": {
+            "type": "string",
+            "description": "The hash string of the previous POST data",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "metrics.legacy.get",
+      "title": "metrics.legacy.get",
+      "description": "This is the root of all legacy data endpoints. For the moment it only contains aggregated pagecounts.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/listing"
+      }
+    },
+    {
+      "id": "metrics.legacy.pagecounts.aggregate.project.access_site.granularity.start.end.get",
+      "title": "metrics.legacy.pagecounts.aggregate.project.access_site.granularity.start.end.get",
+      "description": "Given a project and a date range, returns a timeseries of pagecounts. You can filter by access site (mobile or desktop) and you can choose between monthly, daily and hourly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "The name of any Wikimedia project formatted like {language code}.{project name}, for example en.wikipedia. You may pass en.wikipedia.org and the .org will be stripped off. For projects like commons without language codes, use commons.wikimedia."
+          },
+          "access-site": {
+            "type": "string",
+            "description": "If you want to filter by access site, use one of desktop-site or mobile-site. If you are interested in pagecounts regardless of access site use all-sites.",
+            "enum": [
+              "all-sites",
+              "desktop-site",
+              "mobile-site"
+            ]
+          },
+          "granularity": {
+            "type": "string",
+            "description": "The time unit for the response data. As of today, the supported granularities for this endpoint are hourly, daily and monthly.",
+            "enum": [
+              "hourly",
+              "daily",
+              "monthly"
+            ]
+          },
+          "start": {
+            "type": "string",
+            "description": "The timestamp of the first hour/day/month to include, in YYYYMMDDHH format."
+          },
+          "end": {
+            "type": "string",
+            "description": "The timestamp of the last hour/day/month to include, in YYYYMMDDHH format. In hourly and daily granularities this value is inclusive, in the monthly granularity this value is exclusive."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/pagecounts-project"
+      }
+    },
+    {
+      "id": "metrics.pageviews.get",
+      "title": "metrics.pageviews.get",
+      "description": "This is the root of all pageview data endpoints.  The list of paths that this returns includes ways to query by article, project, top articles, etc.  If browsing the interactive documentation, see the specifics for each endpoint below.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/listing"
+      }
+    },
+    {
+      "id": "metrics.pageviews.aggregate.project.access.agent.granularity.start.end.get",
+      "title": "metrics.pageviews.aggregate.project.access.agent.granularity.start.end.get",
+      "description": "Given a date range, returns a timeseries of pageview counts. You can filter by project, access method and/or agent type. You can choose between daily and hourly granularity as well.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "If you want to filter by project, use the domain of any Wikimedia project, for example 'en.wikipedia.org', 'www.mediawiki.org' or 'commons.wikimedia.org'. If you are interested in all pageviews regardless of project, use all-projects."
+          },
+          "access": {
+            "type": "string",
+            "description": "If you want to filter by access method, use one of desktop, mobile-app or mobile-web. If you are interested in pageviews regardless of access method, use all-access",
+            "enum": [
+              "all-access",
+              "desktop",
+              "mobile-app",
+              "mobile-web"
+            ]
+          },
+          "agent": {
+            "type": "string",
+            "description": "If you want to filter by agent type, use one of user or spider. If you are interested in pageviews regardless of agent type, use all-agents",
+            "enum": [
+              "all-agents",
+              "user",
+              "spider"
+            ]
+          },
+          "granularity": {
+            "type": "string",
+            "description": "The time unit for the response data. As of today, the supported granularities for this endpoint are hourly, daily, and monthly",
+            "enum": [
+              "hourly",
+              "daily",
+              "monthly"
+            ]
+          },
+          "start": {
+            "type": "string",
+            "description": "The timestamp of the first hour/day/month to include, in YYYYMMDDHH format"
+          },
+          "end": {
+            "type": "string",
+            "description": "The timestamp of the last hour/day/month to include, in YYYYMMDDHH format"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/pageview-project"
+      }
+    },
+    {
+      "id": "metrics.pageviews.per_article.project.access.agent.article.granularity.start.end.get",
+      "title": "metrics.pageviews.per_article.project.access.agent.article.granularity.start.end.get",
+      "description": "Given a Mediawiki article and a date range, returns a daily timeseries of its pageview counts. You can also filter by access method and/or agent type.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "If you want to filter by project, use the domain of any Wikimedia project, for example 'en.wikipedia.org', 'www.mediawiki.org' or 'commons.wikimedia.org'."
+          },
+          "access": {
+            "type": "string",
+            "description": "If you want to filter by access method, use one of desktop, mobile-app or mobile-web. If you are interested in pageviews regardless of access method, use all-access",
+            "enum": [
+              "all-access",
+              "desktop",
+              "mobile-app",
+              "mobile-web"
+            ]
+          },
+          "agent": {
+            "type": "string",
+            "description": "If you want to filter by agent type, use one of user, bot or spider. If you are interested in pageviews regardless of agent type, use all-agents",
+            "enum": [
+              "all-agents",
+              "user",
+              "spider",
+              "bot"
+            ]
+          },
+          "article": {
+            "type": "string",
+            "description": "The title of any article in the specified project. Any spaces should be replaced with underscores. It also should be URI-encoded, so that non-URI-safe characters like %, / or ? are accepted. Example: Are_You_the_One%3F"
+          },
+          "granularity": {
+            "type": "string",
+            "description": "The time unit for the response data. As of today, the only supported granularity for this endpoint is daily and monthly.",
+            "enum": [
+              "daily",
+              "monthly"
+            ]
+          },
+          "start": {
+            "type": "string",
+            "description": "The date of the first day to include, in YYYYMMDD format"
+          },
+          "end": {
+            "type": "string",
+            "description": "The date of the last day to include, in YYYYMMDD format"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/pageview-article"
+      }
+    },
+    {
+      "id": "metrics.pageviews.top.project.access.year.month.day.get",
+      "title": "metrics.pageviews.top.project.access.year.month.day.get",
+      "description": "Lists the 1000 most viewed articles for a given project and timespan (month or day). You can filter by access method.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "If you want to filter by project, use the domain of any Wikimedia project, for example 'en.wikipedia.org', 'www.mediawiki.org' or 'commons.wikimedia.org'."
+          },
+          "access": {
+            "type": "string",
+            "description": "If you want to filter by access method, use one of desktop, mobile-app or mobile-web. If you are interested in pageviews regardless of access method, use all-access",
+            "enum": [
+              "all-access",
+              "desktop",
+              "mobile-app",
+              "mobile-web"
+            ]
+          },
+          "year": {
+            "type": "string",
+            "description": "The year of the date for which to retrieve top articles, in YYYY format."
+          },
+          "month": {
+            "type": "string",
+            "description": "The month of the date for which to retrieve top articles, in MM format. If you want to get the top articles of a whole month, the day parameter should be all-days."
+          },
+          "day": {
+            "type": "string",
+            "description": "The day of the date for which to retrieve top articles, in DD format."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/pageview-tops"
+      }
+    },
+    {
+      "id": "metrics.unique_devices.project.access_site.granularity.start.end.get",
+      "title": "metrics.unique_devices.project.access_site.granularity.start.end.get",
+      "description": "Given a project and a date range, returns a timeseries of unique devices counts. You need to specify a project, and can filter by accessed site (mobile or desktop). You can choose between daily and hourly granularity as well.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "type": "string",
+            "description": "If you want to filter by project, use the domain of any Wikimedia project, for example 'en.wikipedia.org', 'www.mediawiki.org' or 'commons.wikimedia.org'."
+          },
+          "access-site": {
+            "type": "string",
+            "description": "If you want to filter by accessed site, use one of desktop-site or mobile-site. If you are interested in unique devices regardless of accessed site, use or all-sites",
+            "enum": [
+              "all-sites",
+              "desktop-site",
+              "mobile-site"
+            ]
+          },
+          "granularity": {
+            "type": "string",
+            "description": "The time unit for the response data. As of today, the supported granularities for this endpoint are daily and monthly",
+            "enum": [
+              "daily",
+              "monthly"
+            ]
+          },
+          "start": {
+            "type": "string",
+            "description": "The timestamp of the first day/month to include, in YYYYMMDD format"
+          },
+          "end": {
+            "type": "string",
+            "description": "The timestamp of the last day/month to include, in YYYYMMDD format"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/unique-devices"
+      }
+    }
+  ]
+}

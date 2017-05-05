@@ -1,0 +1,206 @@
+{
+  "title": "HTTP",
+  "description": "Make HTTP calls",
+  "actions": [
+    {
+      "id": "request",
+      "title": "request",
+      "description": "Make an HTTP request",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          },
+          "method": {
+            "type": "string",
+            "default": "get",
+            "enum": [
+              "get",
+              "put",
+              "post",
+              "patch",
+              "delete",
+              "options",
+              "head"
+            ]
+          }
+        },
+        "required": [
+          "url"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "get",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "put",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "post",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "patch",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "delete",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "options",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "head",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "query": {
+            "type": "object"
+          },
+          "body": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object"
+          }
+        }
+      },
+      "outputSchema": {}
+    }
+  ]
+}
