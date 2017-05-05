@@ -47,13 +47,11 @@ let target = new datafire.Project({
 });
 
 describe('HTTP integration', () => {
-  let server = null;
   before(() => {
     return target.serve(3333)
-      .then(df => server = df.server);
   })
   after(() => {
-    server.close();
+    target.server.close();
   })
   it('should make a request', () => {
     return http.actions.get({url: 'http://localhost:3333/foo'})
