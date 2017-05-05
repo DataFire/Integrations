@@ -33,7 +33,6 @@ let mongoHandler = (input, context, run) => {
     let collection = db.collection(input.collection);
     return new Promise((resolve, reject) => {
       run(collection, (err, data) => {
-        if (closeOnFinish) db.close();
         if (err) return reject(err);
         if (!data) return resolve(data);
 
@@ -50,6 +49,9 @@ let mongoHandler = (input, context, run) => {
       })
     }).then(result => {
       return JSON.parse(JSON.stringify(result));
+    }).then(result => {
+      if (closeOnFinish) db.close();
+      return result;
     });
   }
 

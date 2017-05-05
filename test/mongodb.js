@@ -1,24 +1,25 @@
 let expect = require('chai').expect;
-let mongomock = require('mongo-mock');
-mongomock.max_delay = 0;
+
+let MongoInMem = require('mongo-in-memory');
+const MONGO_PORT = 3333;
+const MONGO_URL = 'mongodb://localhost:' + MONGO_PORT + '/myproject';
+let mongoServer = new MongoInMem(MONGO_PORT);
 
 let datafire = require('datafire');
 let mongo = require('../integrations/manual/mongodb').actions;
 let context = new datafire.Context({
   accounts: {
     mongodb: {
+      url: MONGO_URL,
     }
   }
 });
 
 describe('MongoDB Integration', () => {
   before(done => {
-    mongomock.MongoClient.connect('mongodb://localhost:27017/myproject', (err, db) => {
-      if (err) return done(err);
-      context.accounts.mongodb.database = db;
-      done();
-    })
+    mongoServer.start(done);
   })
+  after(() => mongoServer.stop());
 
   it('should insert', () => {
     let pets = [{
