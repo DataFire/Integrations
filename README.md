@@ -1,5 +1,10 @@
 # DataFire Integrations
 
+[![Travis][travis-image]][travis-link]
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://www.npmjs.com/package/datafire)
+[travis-image]: https://travis-ci.org/DataFire/Integrations.svg?branch=master
+[travis-link]: https://travis-ci.org/DataFire/Integrations
+
 This is an integration registry for DataFire. See the
 [DataFire repo](https://github.com/DataFire/DataFire/blob/master/docs/Integrations.md) for full documentation.
 
