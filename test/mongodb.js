@@ -1,3 +1,5 @@
+"use strict";
+
 let expect = require('chai').expect;
 
 let MongoInMem = require('mongo-in-memory');

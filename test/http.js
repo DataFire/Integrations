@@ -1,3 +1,5 @@
+"use strict";
+
 let expect = require('chai').expect;
 let datafire = require('datafire');
 let http = require('../integrations/manual/http');

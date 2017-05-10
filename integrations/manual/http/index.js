@@ -1,3 +1,5 @@
+"use strict";
+
 let datafire = require('datafire');
 let request = require('request');
 
