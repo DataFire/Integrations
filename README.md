@@ -9,8 +9,6 @@
 This is an integration registry for DataFire. See the
 [DataFire repo](https://github.com/DataFire/DataFire/blob/master/docs/Integrations.md) for full documentation.
 
-Credit to [APIs.guru](http://apis.guru) for supplying many of the OpenAPI specs here.
-
 ## Installing an Integration
 Integrations are available in the `@datafire` scope in npm:
 ```
