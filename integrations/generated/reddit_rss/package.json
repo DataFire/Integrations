@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/reddit_rss",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for reddit_rss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": {
+      "frontPage": "https://www.reddit.com/.rss",
+      "subreddit": "https://www.reddit.com/r/{subreddit}/.rss"
+    },
+    "type": "rss"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

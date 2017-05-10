@@ -1,0 +1,953 @@
+{
+  "title": "Consumer Surveys",
+  "description": "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.",
+  "definitions": {
+    "FieldMask": {
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/definitions/FieldMask"
+          },
+          "type": "array"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "MobileAppPanel": {
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "isPublicPanel": {
+          "type": "boolean"
+        },
+        "language": {
+          "type": "string"
+        },
+        "mobileAppPanelId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owners": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "MobileAppPanelsListResponse": {
+      "properties": {
+        "pageInfo": {
+          "$ref": "#/definitions/PageInfo"
+        },
+        "requestId": {
+          "description": "Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.",
+          "type": "string"
+        },
+        "resources": {
+          "description": "An individual predefined panel of Opinion Rewards mobile users.",
+          "items": {
+            "$ref": "#/definitions/MobileAppPanel"
+          },
+          "type": "array"
+        },
+        "tokenPagination": {
+          "$ref": "#/definitions/TokenPagination"
+        }
+      },
+      "type": "object"
+    },
+    "PageInfo": {
+      "properties": {
+        "resultPerPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "startIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalResults": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ResultsGetRequest": {
+      "properties": {
+        "resultMask": {
+          "$ref": "#/definitions/ResultsMask"
+        }
+      },
+      "type": "object"
+    },
+    "ResultsMask": {
+      "properties": {
+        "fields": {
+          "items": {
+            "$ref": "#/definitions/FieldMask"
+          },
+          "type": "array"
+        },
+        "projection": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Survey": {
+      "properties": {
+        "audience": {
+          "$ref": "#/definitions/SurveyAudience"
+        },
+        "cost": {
+          "$ref": "#/definitions/SurveyCost"
+        },
+        "customerData": {
+          "format": "byte",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "owners": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "questions": {
+          "items": {
+            "$ref": "#/definitions/SurveyQuestion"
+          },
+          "type": "array"
+        },
+        "rejectionReason": {
+          "$ref": "#/definitions/SurveyRejection"
+        },
+        "state": {
+          "type": "string"
+        },
+        "surveyUrlId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "wantedResponseCount": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyAudience": {
+      "properties": {
+        "ages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "country": {
+          "type": "string"
+        },
+        "countrySubdivision": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "languages": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "mobileAppPanelId": {
+          "type": "string"
+        },
+        "populationSource": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyCost": {
+      "properties": {
+        "costPerResponseNanos": {
+          "format": "int64",
+          "type": "string"
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "maxCostPerResponseNanos": {
+          "format": "int64",
+          "type": "string"
+        },
+        "nanos": {
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyQuestion": {
+      "properties": {
+        "answerOrder": {
+          "type": "string"
+        },
+        "answers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "hasOther": {
+          "type": "boolean"
+        },
+        "highValueLabel": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/SurveyQuestionImage"
+          },
+          "type": "array"
+        },
+        "lastAnswerPositionPinned": {
+          "type": "boolean"
+        },
+        "lowValueLabel": {
+          "type": "string"
+        },
+        "mustPickSuggestion": {
+          "type": "boolean"
+        },
+        "numStars": {
+          "type": "string"
+        },
+        "openTextPlaceholder": {
+          "type": "string"
+        },
+        "openTextSuggestions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "question": {
+          "type": "string"
+        },
+        "sentimentText": {
+          "type": "string"
+        },
+        "singleLineResponse": {
+          "type": "boolean"
+        },
+        "thresholdAnswers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "type": {
+          "type": "string"
+        },
+        "unitOfMeasurementLabel": {
+          "type": "string"
+        },
+        "videoId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyQuestionImage": {
+      "properties": {
+        "altText": {
+          "type": "string"
+        },
+        "data": {
+          "format": "byte",
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyRejection": {
+      "properties": {
+        "explanation": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveyResults": {
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "surveyUrlId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveysDeleteResponse": {
+      "properties": {
+        "requestId": {
+          "description": "Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveysListResponse": {
+      "properties": {
+        "pageInfo": {
+          "$ref": "#/definitions/PageInfo"
+        },
+        "requestId": {
+          "description": "Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.",
+          "type": "string"
+        },
+        "resources": {
+          "description": "An individual survey resource.",
+          "items": {
+            "$ref": "#/definitions/Survey"
+          },
+          "type": "array"
+        },
+        "tokenPagination": {
+          "$ref": "#/definitions/TokenPagination"
+        }
+      },
+      "type": "object"
+    },
+    "SurveysStartRequest": {
+      "properties": {
+        "maxCostPerResponseNanos": {
+          "description": "Threshold to start a survey automically if the quoted prices is less than or equal to this value. See Survey.Cost for more details.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveysStartResponse": {
+      "properties": {
+        "requestId": {
+          "description": "Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SurveysStopResponse": {
+      "properties": {
+        "requestId": {
+          "description": "Unique request ID used for logging and debugging. Please include in any error reporting or troubleshooting requests.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TokenPagination": {
+      "properties": {
+        "nextPageToken": {
+          "type": "string"
+        },
+        "previousPageToken": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "mobileapppanels.list",
+      "title": "mobileapppanels.list",
+      "description": "Lists the MobileAppPanels available to the authenticated user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "maxResults": {
+            "type": "integer"
+          },
+          "startIndex": {
+            "type": "integer"
+          },
+          "token": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MobileAppPanelsListResponse"
+      }
+    },
+    {
+      "id": "mobileapppanels.get",
+      "title": "mobileapppanels.get",
+      "description": "Retrieves a MobileAppPanel that is available to the authenticated user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "panelId": {
+            "type": "string",
+            "description": "External URL ID for the panel."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MobileAppPanel"
+      }
+    },
+    {
+      "id": "mobileapppanels.update",
+      "title": "mobileapppanels.update",
+      "description": "Updates a MobileAppPanel. Currently the only property that can be updated is the owners property.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "panelId": {
+            "type": "string",
+            "description": "External URL ID for the panel."
+          },
+          "body": {
+            "$ref": "#/definitions/MobileAppPanel"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/MobileAppPanel"
+      }
+    },
+    {
+      "id": "surveys.list",
+      "title": "surveys.list",
+      "description": "Lists the surveys owned by the authenticated user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "maxResults": {
+            "type": "integer"
+          },
+          "startIndex": {
+            "type": "integer"
+          },
+          "token": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SurveysListResponse"
+      }
+    },
+    {
+      "id": "surveys.insert",
+      "title": "surveys.insert",
+      "description": "Creates a survey.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/Survey"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Survey"
+      }
+    },
+    {
+      "id": "surveys.start",
+      "title": "surveys.start",
+      "description": "Begins running a survey.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string"
+          },
+          "body": {
+            "$ref": "#/definitions/SurveysStartRequest"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SurveysStartResponse"
+      }
+    },
+    {
+      "id": "surveys.stop",
+      "title": "surveys.stop",
+      "description": "Stops a running survey.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SurveysStopResponse"
+      }
+    },
+    {
+      "id": "surveys.delete",
+      "title": "surveys.delete",
+      "description": "Removes a survey from view in all user GET requests.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "surveyUrlId": {
+            "type": "string",
+            "description": "External URL ID for the survey."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SurveysDeleteResponse"
+      }
+    },
+    {
+      "id": "surveys.get",
+      "title": "surveys.get",
+      "description": "Retrieves information about the specified survey.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "surveyUrlId": {
+            "type": "string",
+            "description": "External URL ID for the survey."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Survey"
+      }
+    },
+    {
+      "id": "surveys.update",
+      "title": "surveys.update",
+      "description": "Updates a survey. Currently the only property that can be updated is the owners property.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "surveyUrlId": {
+            "type": "string",
+            "description": "External URL ID for the survey."
+          },
+          "body": {
+            "$ref": "#/definitions/Survey"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Survey"
+      }
+    },
+    {
+      "id": "results.get",
+      "title": "results.get",
+      "description": "Retrieves any survey results that have been produced so far. Results are formatted as an Excel file. You must add \"?alt=media\" to the URL as an argument to get results.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "surveyUrlId": {
+            "type": "string",
+            "description": "External URL ID for the survey."
+          },
+          "body": {
+            "$ref": "#/definitions/ResultsGetRequest"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SurveyResults"
+      }
+    }
+  ]
+}

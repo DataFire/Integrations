@@ -1,20 +1,29 @@
 {
   "name": "integrations",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An integration registry for DataFire",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DataFire/integrations.git"
+    "url": "git+https://github.com/DataFire/Integrations.git"
   },
   "author": "DataFire",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DataFire/integrations/issues"
+    "url": "https://github.com/DataFire/Integrations/issues"
   },
-  "homepage": "https://github.com/DataFire/integrations#readme",
+  "homepage": "https://github.com/DataFire/Integrations#readme",
   "dependencies": {
     "async": "^2.1.4",
     "request": "^2.79.0",
     "yargs": "^6.4.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "mongo-in-memory": "0.0.5"
   }
 }

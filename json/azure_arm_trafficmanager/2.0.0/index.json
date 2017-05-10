@@ -1,0 +1,590 @@
+{
+  "title": "TrafficManagerManagementClient",
+  "description": "",
+  "definitions": {
+    "CheckTrafficManagerRelativeDnsNameAvailabilityParameters": {
+      "description": "Parameters supplied to check Traffic Manager name operation.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the name of the resource.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Gets or sets the type of the resource.",
+          "type": "string"
+        }
+      }
+    },
+    "DnsConfig": {
+      "description": "Class containing DNS settings in a Traffic Manager profile.",
+      "properties": {
+        "fqdn": {
+          "description": "Gets or sets the fully-qualified domain name (FQDN) of the Traffic Manager profile.  This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.",
+          "type": "string"
+        },
+        "relativeName": {
+          "description": "Gets or sets the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.",
+          "type": "string"
+        },
+        "ttl": {
+          "description": "Gets or sets the DNS Ttime-To-Live (TTL), in seconds.  This informs the local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.",
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "Endpoint": {
+      "description": "Class representing a Traffic Manager endpoint.",
+      "properties": {
+        "id": {
+          "description": "Gets or sets the ID of the Traffic Manager endpoint.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Gets or sets the name of the Traffic Manager endpoint.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/EndpointProperties",
+          "x-ms-client-flatten": true
+        },
+        "type": {
+          "description": "Gets or sets the endpoint type of the Traffic Manager endpoint.",
+          "type": "string"
+        }
+      }
+    },
+    "EndpointProperties": {
+      "description": "Class representing a Traffic Manager endpoint properties.",
+      "properties": {
+        "endpointLocation": {
+          "description": "Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.",
+          "type": "string"
+        },
+        "endpointMonitorStatus": {
+          "description": "Gets or sets the monitoring status of the endpoint.",
+          "type": "string"
+        },
+        "endpointStatus": {
+          "description": "Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.",
+          "type": "string"
+        },
+        "minChildEndpoints": {
+          "description": "Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "priority": {
+          "description": "Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "target": {
+          "description": "Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.",
+          "type": "string"
+        },
+        "targetResourceId": {
+          "description": "Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.",
+          "type": "string"
+        },
+        "weight": {
+          "description": "Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.",
+          "format": "int64",
+          "type": "integer"
+        }
+      }
+    },
+    "MonitorConfig": {
+      "description": "Class containing endpoint monitoring settings in a Traffic Manager profile.",
+      "properties": {
+        "path": {
+          "description": "Gets or sets the path relative to the endpoint domain name used to probe for endpoint health.",
+          "type": "string"
+        },
+        "port": {
+          "description": "Gets or sets the TCP port used to probe for endpoint health.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "profileMonitorStatus": {
+          "description": "Gets or sets the profile-level monitoring status of the Traffic Manager profile.",
+          "type": "string"
+        },
+        "protocol": {
+          "description": "Gets or sets the protocol (HTTP or HTTPS) used to probe for endpoint health.",
+          "type": "string"
+        }
+      }
+    },
+    "Profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "Class representing a Traffic Manager profile.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ProfileProperties",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "ProfileListResult": {
+      "description": "The list Traffic Manager profiles operation response.",
+      "properties": {
+        "value": {
+          "description": "Gets the list of Traffic manager profiles.",
+          "items": {
+            "$ref": "#/definitions/Profile"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ProfileProperties": {
+      "description": "Class representing the Traffic Manager profile properties.",
+      "properties": {
+        "dnsConfig": {
+          "$ref": "#/definitions/DnsConfig",
+          "description": "Gets or sets the DNS settings of the Traffic Manager profile."
+        },
+        "endpoints": {
+          "description": "Gets or sets the list of endpoints in the Traffic Manager profile.",
+          "items": {
+            "$ref": "#/definitions/Endpoint"
+          },
+          "type": "array"
+        },
+        "monitorConfig": {
+          "$ref": "#/definitions/MonitorConfig",
+          "description": "Gets or sets the endpoint monitoring settings of the Traffic Manager profile."
+        },
+        "profileStatus": {
+          "description": "Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.",
+          "type": "string"
+        },
+        "trafficRoutingMethod": {
+          "description": "Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.",
+          "type": "string"
+        }
+      }
+    },
+    "Resource": {
+      "properties": {
+        "id": {
+          "description": "Resource Id",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "Resource location",
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags",
+          "type": "object"
+        },
+        "type": {
+          "description": "Resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "SubResource": {
+      "properties": {
+        "id": {
+          "description": "Resource Id",
+          "type": "string"
+        }
+      },
+      "x-ms-external": true
+    },
+    "TrafficManagerNameAvailability": {
+      "description": "Class representing a Traffic Manager Name Availability response.",
+      "properties": {
+        "message": {
+          "description": "Descriptive message that explains why the name is not available, when applicable.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The relative name.",
+          "type": "string"
+        },
+        "nameAvailable": {
+          "description": "Describes whether the relative name is available or not.",
+          "type": "boolean"
+        },
+        "reason": {
+          "description": "The reason why the name is not available, when applicable.",
+          "type": "string"
+        },
+        "type": {
+          "description": "Traffic Manager profile resource type.",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "Profiles_CheckTrafficManagerRelativeDnsNameAvailability",
+      "title": "Profiles_CheckTrafficManagerRelativeDnsNameAvailability",
+      "description": "Checks the availability of a Traffic Manager Relative DNS name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/CheckTrafficManagerRelativeDnsNameAvailabilityParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TrafficManagerNameAvailability"
+      }
+    },
+    {
+      "id": "Profiles_ListAll",
+      "title": "Profiles_ListAll",
+      "description": "Lists all Traffic Manager profiles within a subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProfileListResult"
+      }
+    },
+    {
+      "id": "Profiles_ListAllInResourceGroup",
+      "title": "Profiles_ListAllInResourceGroup",
+      "description": "Lists all Traffic Manager profiles within a resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager profiles to be listed."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProfileListResult"
+      }
+    },
+    {
+      "id": "Profiles_Delete",
+      "title": "Profiles_Delete",
+      "description": "Deletes a Traffic Manager profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager profile to be deleted."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile to be deleted."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Profiles_Get",
+      "title": "Profiles_Get",
+      "description": "Gets a Traffic Manager profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager profile."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Profile"
+      }
+    },
+    {
+      "id": "Profiles_Update",
+      "title": "Profiles_Update",
+      "description": "Update a Traffic Manager profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager profile."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "parameters": {
+            "$ref": "#/definitions/Profile"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Profile"
+      }
+    },
+    {
+      "id": "Profiles_CreateOrUpdate",
+      "title": "Profiles_CreateOrUpdate",
+      "description": "Create or update a Traffic Manager profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager profile."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "parameters": {
+            "$ref": "#/definitions/Profile"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Profile"
+      }
+    },
+    {
+      "id": "Endpoints_Delete",
+      "title": "Endpoints_Delete",
+      "description": "Deletes a Traffic Manager endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager endpoint to be deleted."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "endpointType": {
+            "type": "string",
+            "description": "The type of the Traffic Manager endpoint to be deleted."
+          },
+          "endpointName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager endpoint to be deleted."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Endpoints_Get",
+      "title": "Endpoints_Get",
+      "description": "Gets a Traffic Manager endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager endpoint."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "endpointType": {
+            "type": "string",
+            "description": "The type of the Traffic Manager endpoint."
+          },
+          "endpointName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager endpoint."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Endpoint"
+      }
+    },
+    {
+      "id": "Endpoints_Update",
+      "title": "Endpoints_Update",
+      "description": "Update a Traffic Manager endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager endpoint to be updated."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "endpointType": {
+            "type": "string",
+            "description": "The type of the Traffic Manager endpoint to be updated."
+          },
+          "endpointName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager endpoint to be updated."
+          },
+          "parameters": {
+            "$ref": "#/definitions/Endpoint"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Endpoint"
+      }
+    },
+    {
+      "id": "Endpoints_CreateOrUpdate",
+      "title": "Endpoints_CreateOrUpdate",
+      "description": "Create or update a Traffic Manager endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group containing the Traffic Manager endpoint to be created or updated."
+          },
+          "profileName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager profile."
+          },
+          "endpointType": {
+            "type": "string",
+            "description": "The type of the Traffic Manager endpoint to be created or updated."
+          },
+          "endpointName": {
+            "type": "string",
+            "description": "The name of the Traffic Manager endpoint to be created or updated."
+          },
+          "parameters": {
+            "$ref": "#/definitions/Endpoint"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client Api Version."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Endpoint"
+      }
+    }
+  ]
+}

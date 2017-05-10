@@ -1,0 +1,153 @@
+{
+  "title": "Hacker News",
+  "description": "Hacker News is a social news website focusing on computer science and entrepreneurship",
+  "definitions": {
+    "Item": {
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "by": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "dead": {
+          "type": "boolean"
+        },
+        "parent": {
+          "type": "integer"
+        },
+        "kids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "url": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "descendants": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "User": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "created": {
+          "type": "integer"
+        },
+        "delay": {
+          "type": "integer"
+        },
+        "karma": {
+          "type": "integer"
+        },
+        "about": {
+          "type": "string"
+        },
+        "submitted": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "getStories",
+      "title": "getStories",
+      "description": "Get an up-to-date list of stories for the given type",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "storyType": {
+            "type": "string",
+            "description": "The type of stories to retrieve\n",
+            "enum": [
+              "top",
+              "new",
+              "job",
+              "show",
+              "ask"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        }
+      }
+    },
+    {
+      "id": "getItem",
+      "title": "getItem",
+      "description": "Get details for a given item",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "itemID": {
+            "type": "integer",
+            "description": "The ID of the item to retrieve"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Item"
+      }
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "Get details for a given user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "The unique username for this user"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      }
+    }
+  ]
+}

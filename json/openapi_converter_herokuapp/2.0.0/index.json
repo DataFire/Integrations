@@ -1,0 +1,106 @@
+{
+  "title": "Swagger2OpenAPI Converter",
+  "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
+  "actions": [
+    {
+      "id": "getBadge",
+      "title": "getBadge",
+      "description": "Return a redirect to a badge svg file depending on a source definition's validity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "convertUrl",
+      "title": "convertUrl",
+      "description": "Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "convert",
+      "title": "convert",
+      "description": "Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x ",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "The file to upload and convert"
+          },
+          "source": {
+            "type": "string",
+            "description": "The text of a Swagger 2.0 definition to convert"
+          },
+          "validate": {
+            "type": "string",
+            "enum": [
+              "on"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getStatus",
+      "title": "getStatus",
+      "description": "Get the status of the API",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "validateUrl",
+      "title": "validateUrl",
+      "description": "Validate an OpenAPI 3.0.x definition",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "validate",
+      "title": "validate",
+      "description": "Validate an OpenAPI 3.0.x definition supplied in the body of the request",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "filename": {
+            "type": "string",
+            "description": "The file to upload and validate"
+          },
+          "source": {
+            "type": "string",
+            "description": "The text of an OpenAPI 3.0.x definition to validate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@datafire/hetras_certification_booking",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for hetras Booking API Version 0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/hetras-certification.net/booking/v0/swagger.json",
+    "type": "openapi"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

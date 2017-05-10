@@ -1,0 +1,51 @@
+{
+  "title": "rss.nytimes.com",
+  "description": "",
+  "actions": [
+    {
+      "id": "homePage",
+      "title": "homePage",
+      "description": "NYT > Home Page",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "world",
+      "title": "world",
+      "description": "NYT > World",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "business",
+      "title": "business",
+      "description": "NYT > Business Day",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "sports",
+      "title": "sports",
+      "description": "NYT > Sports",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "science",
+      "title": "science",
+      "description": "NYT > Science",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ]
+}

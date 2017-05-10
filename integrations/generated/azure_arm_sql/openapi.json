@@ -1,0 +1,246 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "https"
+  ],
+  "host": "management.azure.com",
+  "info": {
+    "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.",
+    "title": "Azure SQL Database",
+    "version": "2014-04-01",
+    "x-apisguru-categories": [
+      "enterprise"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-sql/2014-04-01/swagger/backups.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "azure.com",
+    "x-serviceName": "arm-sql",
+    "x-tags": [
+      "Azure",
+      "Microsoft"
+    ],
+    "x-datafire": {
+      "name": "azure_arm_sql",
+      "type": "openapi"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "parameters": {
+    "ApiVersionParameter": {
+      "description": "The API version to use for the request.",
+      "in": "query",
+      "name": "api-version",
+      "required": true,
+      "type": "string"
+    },
+    "DatabaseExpandParameter": {
+      "description": "A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.",
+      "in": "query",
+      "name": "$expand",
+      "required": false,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ResourceGroupParameter": {
+      "description": "The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.",
+      "in": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ServerNameParameter": {
+      "description": "The name of the server.",
+      "in": "path",
+      "name": "serverName",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "SubscriptionIdParameter": {
+      "description": "The subscription ID that identifies an Azure subscription.",
+      "in": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/restorePoints": {
+      "get": {
+        "description": "Returns a list of database restore points.",
+        "operationId": "Databases_ListRestorePoints",
+        "parameters": [
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameter"
+          },
+          {
+            "description": "The name of the database from which to retrieve available restore points.",
+            "in": "path",
+            "name": "databaseName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/RestorePointListResult"
+            }
+          }
+        },
+        "tags": [
+          "DatabaseBackup"
+        ],
+        "x-ms-pageable": {}
+      }
+    }
+  },
+  "definitions": {
+    "ProxyResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "ARM proxy resource."
+    },
+    "Resource": {
+      "description": "ARM resource.",
+      "properties": {
+        "id": {
+          "description": "Resource ID.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Resource name.",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "Resource type.",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "x-ms-azure-resource": true
+    },
+    "RestorePoint": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProxyResource"
+        }
+      ],
+      "description": "Represents a database restore point.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/RestorePointProperties",
+          "description": "The properties representing the restore point.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "RestorePointListResult": {
+      "description": "Represents the response to a list database restore points request.",
+      "properties": {
+        "value": {
+          "description": "The list of a given database restore points.",
+          "items": {
+            "$ref": "#/definitions/RestorePoint"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "RestorePointProperties": {
+      "description": "Represents the properties of a database restore point.",
+      "properties": {
+        "earliestRestoreDate": {
+          "description": "Earliest restore time (ISO8601 format). Populated when restorePointType = DISCRETE. Null otherwise.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "restorePointCreationDate": {
+          "description": "Restore point creation time (ISO8601 format). Populated when restorePointType = CONTINUOUS. Null otherwise.",
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "restorePointType": {
+          "description": "The restore point type of the database restore point.",
+          "enum": [
+            "DISCRETE",
+            "CONTINUOUS"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "name": "RestorePointTypes"
+          }
+        }
+      }
+    },
+    "TrackedResource": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "ARM tracked top level resource.",
+      "properties": {
+        "location": {
+          "description": "Resource location.",
+          "type": "string",
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Resource tags.",
+          "type": "object",
+          "x-ms-mutability": [
+            "read",
+            "create",
+            "update"
+          ]
+        }
+      },
+      "required": [
+        "location"
+      ]
+    }
+  }
+}

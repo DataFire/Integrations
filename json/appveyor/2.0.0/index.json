@@ -1,0 +1,3432 @@
+{
+  "title": "AppVeyor",
+  "description": "AppVeyor is a hosted continuous integration service which runs on Microsoft\nWindows.  The AppVeyor REST API provides a RESTful way to interact with the\nAppVeyor service.  This includes managing projects, builds, deployments,\nand the teams that build them.\n\nAdditional help and discussion of the AppVeyor REST API is available at\nhttp://help.appveyor.com/discussions\n\nThis Swagger definition is an **unofficial** description of the AppVeyor\nREST API maintained at https://github.com/kevinoid/appveyor-swagger\nPlease report any issues or suggestions for this Swagger definition at\nhttps://github.com/kevinoid/appveyor-swagger/issues/new\n\n#### API Conventions\n\nFields which are missing from update operations (`PUT` requests) are\ntypically reset to their default values.  So although most fields are not\ntechnically required, they should usually be specified in practice.\n",
+  "definitions": {
+    "AccessRightName": {
+      "enum": [
+        "Delete",
+        "Deploy",
+        "RunBuild",
+        "Update",
+        "View"
+      ],
+      "type": "string"
+    },
+    "AceAccessRight": {
+      "properties": {
+        "allowed": {
+          "type": "boolean"
+        },
+        "name": {
+          "$ref": "#/definitions/AccessRightName"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "AceAccessRightDefinition": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/AccessRightName"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "Artifact": {
+      "properties": {
+        "name": {
+          "minLength": 0,
+          "title": "Deployment name",
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/ArtifactType"
+        }
+      },
+      "required": [
+        "path",
+        "name"
+      ],
+      "type": "object"
+    },
+    "ArtifactType": {
+      "enum": [
+        "WebDeployPackage"
+      ],
+      "type": "string"
+    },
+    "Build": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BuildLookupModel"
+        },
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "authorName": {
+              "type": "string"
+            },
+            "authorUsername": {
+              "type": "string"
+            },
+            "buildNumber": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "commitId": {
+              "type": "string"
+            },
+            "committed": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "committerName": {
+              "type": "string"
+            },
+            "committerUsername": {
+              "type": "string"
+            },
+            "finished": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "isTag": {
+              "type": "boolean"
+            },
+            "jobs": {
+              "description": "Always empty in getProjectHistory and startDeployment responses.",
+              "items": {
+                "$ref": "#/definitions/BuildJob"
+              },
+              "type": "array"
+            },
+            "messageExtended": {
+              "type": "string"
+            },
+            "messages": {
+              "items": {
+                "$ref": "#/definitions/BuildMessage"
+              },
+              "type": "array"
+            },
+            "pullRequestId": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "pullRequestName": {
+              "type": "string"
+            },
+            "started": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "BuildCloudName": {
+      "enum": [
+        "gce"
+      ],
+      "type": "string"
+    },
+    "BuildJob": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Job"
+        },
+        {
+          "properties": {
+            "allowFailure": {
+              "type": "boolean"
+            },
+            "artifactsCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "compilationErrorsCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "compilationMessagesCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "compilationWarningsCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "failedTestsCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "messagesCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "passedTestsCount": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "testsCount": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "BuildLookupModel": {
+      "properties": {
+        "branch": {
+          "type": "string"
+        },
+        "buildId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BuildMessage": {
+      "properties": {
+        "category": {
+          "$ref": "#/definitions/BuildMessageCategory"
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BuildMessageCategory": {
+      "enum": [
+        "information",
+        "warning"
+      ],
+      "type": "string"
+    },
+    "BuildMode": {
+      "enum": [
+        "msbuild",
+        "none",
+        "script"
+      ],
+      "type": "string"
+    },
+    "BuildNotificationFrequency": {
+      "enum": [
+        "all",
+        "myCommits",
+        "none"
+      ],
+      "type": "string"
+    },
+    "BuildStartRequest": {
+      "example": {
+        "accountName": "your-account-name",
+        "branch": "master",
+        "environmentVariables": {
+          "another_var": "another value",
+          "my_var": "value"
+        },
+        "projectSlug": "project-slug-from-url"
+      },
+      "properties": {
+        "accountName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "commitId": {
+          "type": "string"
+        },
+        "environmentVariables": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "projectSlug": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "pullRequestId": {
+          "description": "Can not be used with `branch` or `commitId`",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "accountName",
+        "projectSlug"
+      ],
+      "type": "object"
+    },
+    "BuildWorkerImage": {
+      "properties": {
+        "buildCloudName": {
+          "$ref": "#/definitions/BuildCloudName"
+        },
+        "buildWorkerImageId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "name": {
+          "$ref": "#/definitions/BuildWorkerImageName"
+        }
+      },
+      "required": [
+        "buildWorkerImageId",
+        "name"
+      ],
+      "type": "object"
+    },
+    "BuildWorkerImageName": {
+      "enum": [
+        "Previous Visual Studio 2013",
+        "Previous Visual Studio 2015",
+        "Visual Studio 2013",
+        "Visual Studio 2015",
+        "WMF 5"
+      ],
+      "type": "string"
+    },
+    "CollaboratorAddition": {
+      "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n",
+      "example": {
+        "email": "john@smith.com",
+        "roleId": 3040
+      },
+      "properties": {
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "roleId": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "email",
+        "roleId"
+      ],
+      "type": "object"
+    },
+    "CollaboratorUpdate": {
+      "description": "Technically `userId` and `roleId` have default value 0 and are not\nrequired, but since user 0 and role 0 never exist it would always cause\na 404 response.\n",
+      "example": {
+        "roleId": 3040,
+        "userId": 2018
+      },
+      "properties": {
+        "roleId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "userId": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "userId",
+        "roleId"
+      ],
+      "type": "object"
+    },
+    "DeployMode": {
+      "enum": [
+        "providers",
+        "none",
+        "script"
+      ],
+      "type": "string"
+    },
+    "Deployment": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentLookupModel"
+        },
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "build": {
+              "$ref": "#/definitions/Build"
+            },
+            "environment": {
+              "$ref": "#/definitions/DeploymentEnvironment"
+            },
+            "jobs": {
+              "items": {
+                "$ref": "#/definitions/DeploymentJob"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "DeploymentCancellation": {
+      "example": {
+        "deploymentId": 123
+      },
+      "properties": {
+        "deploymentId": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deploymentId"
+      ],
+      "type": "object"
+    },
+    "DeploymentEnvironment": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentEnvironmentLookupModel"
+        },
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "accountId": {
+              "type": "integer"
+            },
+            "projectsMode": {
+              "description": "0 is \"Any project can be deployed to the environment\"\n1 is \"Only selected projects can be deployed to the environment\"\n2 is \"All except selected projects can be deployed to the environment\"",
+              "enum": [
+                0,
+                1,
+                2
+              ],
+              "type": "integer"
+            },
+            "securityDescriptor": {
+              "$ref": "#/definitions/SecurityDescriptor"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "DeploymentEnvironmentAddition": {
+      "example": {
+        "name": "production",
+        "provider": "FTP",
+        "settings": {
+          "environmentVariables": [
+            {
+              "name": "my-var",
+              "value": {
+                "isEncrypted": false,
+                "value": "123"
+              }
+            }
+          ],
+          "providerSettings": [
+            {
+              "name": "server",
+              "value": {
+                "isEncrypted": false,
+                "value": "ftp.myserver.com"
+              }
+            },
+            {
+              "name": "username",
+              "value": {
+                "isEncrypted": false,
+                "value": "ftp-user"
+              }
+            },
+            {
+              "name": "password",
+              "value": {
+                "isEncrypted": true,
+                "value": "password"
+              }
+            }
+          ]
+        }
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/definitions/DeploymentProviderType"
+        },
+        "settings": {
+          "$ref": "#/definitions/DeploymentEnvironmentSettings"
+        }
+      },
+      "required": [
+        "name",
+        "provider",
+        "settings"
+      ],
+      "type": "object"
+    },
+    "DeploymentEnvironmentDeploymentsResults": {
+      "properties": {
+        "deployments": {
+          "items": {
+            "$ref": "#/definitions/EnvironmentDeploymentModel"
+          },
+          "type": "array"
+        },
+        "environment": {
+          "$ref": "#/definitions/DeploymentEnvironment"
+        }
+      },
+      "required": [
+        "environment",
+        "deployments"
+      ],
+      "type": "object"
+    },
+    "DeploymentEnvironmentLookupModel": {
+      "properties": {
+        "deploymentEnvironmentId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "provider": {
+          "$ref": "#/definitions/DeploymentProviderType"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentEnvironmentProject": {
+      "properties": {
+        "isSelected": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "projectId": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "projectId",
+        "name",
+        "isSelected"
+      ],
+      "type": "object"
+    },
+    "DeploymentEnvironmentSettings": {
+      "properties": {
+        "environmentVariables": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        },
+        "notifications": {
+          "items": {
+            "$ref": "#/definitions/NotificationProviderSettings"
+          },
+          "type": "array"
+        },
+        "providerSettings": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentEnvironmentSettingsResults": {
+      "properties": {
+        "environment": {
+          "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentEnvironmentWithSettings": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentEnvironment"
+        },
+        {
+          "properties": {
+            "environmentAccessKey": {
+              "type": "string"
+            },
+            "projects": {
+              "description": "Projects available for selection in UI.\nOnly present in response from getEnvironmentSettings.\n",
+              "items": {
+                "$ref": "#/definitions/DeploymentEnvironmentProject"
+              },
+              "type": "array"
+            },
+            "selectedProjects": {
+              "description": "Project IDs of selected projects",
+              "items": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "settings": {
+              "$ref": "#/definitions/DeploymentEnvironmentSettings"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "example": {
+        "deploymentEnvironmentId": 3018,
+        "environmentAccessKey": "gi3ttevuk7123",
+        "name": "production",
+        "settings": {
+          "environmentVariables": [
+            {
+              "name": "my-var",
+              "value": {
+                "isEncrypted": false,
+                "value": "123"
+              }
+            }
+          ],
+          "provider": "FTP",
+          "providerSettings": [
+            {
+              "name": "server",
+              "value": {
+                "isEncrypted": false,
+                "value": "ftp.myserver.com"
+              }
+            },
+            {
+              "name": "username",
+              "value": {
+                "isEncrypted": false,
+                "value": "ftp-user"
+              }
+            },
+            {
+              "name": "password",
+              "value": {
+                "isEncrypted": true,
+                "value": "password"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "DeploymentJob": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Job"
+        },
+        {
+          "properties": {
+            "messagesCount": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "DeploymentLookupModel": {
+      "properties": {
+        "build": {
+          "$ref": "#/definitions/BuildLookupModel"
+        },
+        "deploymentId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "finished": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "started": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentNotificationFrequency": {
+      "enum": [
+        "all",
+        "none"
+      ],
+      "type": "string"
+    },
+    "DeploymentProvider": {
+      "properties": {
+        "onBranch": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "onEnvironmentVariables": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        },
+        "provider": {
+          "$ref": "#/definitions/DeploymentProviderType"
+        },
+        "providerSettings": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "provider"
+      ],
+      "type": "object"
+    },
+    "DeploymentProviderType": {
+      "enum": [
+        "Agent",
+        "AzureBlob",
+        "AzureCS",
+        "AzureWebJob",
+        "BinTray",
+        "FTP",
+        "GitHub",
+        "NuGet",
+        "S3",
+        "SqlDatabase",
+        "WebDeploy",
+        "Webhook"
+      ],
+      "type": "string"
+    },
+    "DeploymentStartRequest": {
+      "example": {
+        "accountName": "your-account-name",
+        "buildJobId": "sfke9239ydzf",
+        "buildVersion": "1.2.0",
+        "environmentName": "environment-to-deploy",
+        "environmentVariables": {
+          "another_var": "another value",
+          "server": "myserver.com"
+        },
+        "projectSlug": "project-slug-from-url"
+      },
+      "properties": {
+        "accountName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "buildJobId": {
+          "description": "Optional job id with artifacts if build contains multiple jobs.",
+          "type": "string"
+        },
+        "buildVersion": {
+          "description": "Build to deploy",
+          "minLength": 1,
+          "type": "string"
+        },
+        "environmentName": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "environmentVariables": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "projectSlug": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "environmentName",
+        "accountName",
+        "projectSlug",
+        "buildVersion"
+      ],
+      "type": "object"
+    },
+    "EncryptRequest": {
+      "example": {
+        "plainValue": "encryptme"
+      },
+      "properties": {
+        "plainValue": {
+          "default": "",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EnvironmentDeploymentModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentLookupModel"
+        },
+        {
+          "properties": {
+            "project": {
+              "$ref": "#/definitions/ProjectLookupModel"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "Error": {
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "modelState": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "description": "When present, this property is a map of property names in the format\n`request.<capitalized name>` to an `Array` of validation error\nmessage strings for the property.\n",
+          "type": "object"
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "type": "object"
+    },
+    "GroupName": {
+      "enum": [
+        "Account",
+        "BuildEnvironment",
+        "Environments",
+        "Projects",
+        "Roles",
+        "User",
+        "Users"
+      ],
+      "type": "string"
+    },
+    "GroupPermissions": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/GroupName"
+        },
+        "permissions": {
+          "items": {
+            "$ref": "#/definitions/PermissionState"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "name",
+        "permissions"
+      ],
+      "type": "object"
+    },
+    "HostEntry": {
+      "properties": {
+        "host": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "ip": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "host",
+        "ip"
+      ],
+      "type": "object"
+    },
+    "HttpMethodRestricted": {
+      "enum": [
+        "GET",
+        "POST"
+      ],
+      "type": "string"
+    },
+    "Job": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "finished": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "jobId": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "started": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "status": {
+              "$ref": "#/definitions/Status"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "MSBuildVerbosity": {
+      "enum": [
+        "quiet",
+        "minimal",
+        "normal",
+        "detailed"
+      ],
+      "type": "string"
+    },
+    "NotificationProviderSettings": {
+      "properties": {
+        "provider": {
+          "$ref": "#/definitions/NotificationProviderType"
+        },
+        "settings": {
+          "$ref": "#/definitions/NotificationSettings"
+        }
+      },
+      "required": [
+        "provider",
+        "settings"
+      ],
+      "type": "object"
+    },
+    "NotificationProviderType": {
+      "enum": [
+        "Campfire",
+        "Email",
+        "GitHubPullRequest",
+        "HipChat",
+        "Slack",
+        "Webhook",
+        "VSOTeamRoom"
+      ],
+      "type": "string"
+    },
+    "NotificationSettings": {
+      "description": "This type is the union of the settings types for each of the various\nnotification types supported by the API.  The properties correspond to\nthe following notification types:\n\n#### All Types\n- onBuildSuccess\n- onBuildFailure\n- onBuildStatusChanged\n\n#### Campfire\n- account\n- authToken\n- room\n- template\n\n#### Email\n- subjectTemplate\n- bodyTemplate\n- recipients\n- recipientsValue\n\n#### GitHubPullRequest\n- authToken\n- template\n\n#### HipChat\n- authToken\n- from\n- room\n- template\n- serverUrl\n\n#### Slack\n- incomingWebhookUrl\n- authToken\n- channel\n- template\n\n#### Webhook\n- method\n- url\n- headers\n- headersValue\n- addCustomRequestBody\n- customRequestBodyContentType\n- customRequestBody\n\n#### VSOTeamRoom\n- vsoAccount\n- username\n- password\n- room\n- template\n",
+      "properties": {
+        "$type": {
+          "$ref": "#/definitions/NotificationSettingsType"
+        },
+        "account": {
+          "type": "string"
+        },
+        "addCustomRequestBody": {
+          "type": "boolean"
+        },
+        "authToken": {
+          "$ref": "#/definitions/StoredValue"
+        },
+        "bodyTemplate": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "customRequestBody": {
+          "type": "string"
+        },
+        "customRequestBodyContentType": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "headers": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        },
+        "headersValue": {
+          "type": "string"
+        },
+        "incomingWebhookUrl": {
+          "format": "uri",
+          "type": "string"
+        },
+        "method": {
+          "$ref": "#/definitions/HttpMethodRestricted"
+        },
+        "onBuildFailure": {
+          "type": "boolean"
+        },
+        "onBuildStatusChanged": {
+          "type": "boolean"
+        },
+        "onBuildSuccess": {
+          "type": "boolean"
+        },
+        "password": {
+          "$ref": "#/definitions/StoredValue"
+        },
+        "recipients": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "recipientsValue": {
+          "type": "string"
+        },
+        "room": {
+          "type": "string"
+        },
+        "serverUrl": {
+          "format": "uri",
+          "type": "string"
+        },
+        "subjectTemplate": {
+          "type": "string"
+        },
+        "template": {
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "vsoAccount": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NotificationSettingsType": {
+      "enum": [
+        "Appveyor.Models.CampfireNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.EmailNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.GitHubPullRequestNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.HipChatNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.SlackNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.WebhookNotificationSettings, Appveyor.Models",
+        "Appveyor.Models.VSOTeamRoomNotificationSettings, Appveyor.Models"
+      ],
+      "type": "string"
+    },
+    "NuGetFeed": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "accountId": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "projectId": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "publishingEnabled": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "OSServiceName": {
+      "enum": [
+        "iis",
+        "mongodb",
+        "msmq",
+        "mssql2008r2sp2",
+        "mssql2008r2sp2rs",
+        "mssql2012sp1",
+        "mssql2012sp1rs",
+        "mssql2014",
+        "mssql2014rs",
+        "mssql2016",
+        "mysql",
+        "postgresql"
+      ],
+      "type": "string"
+    },
+    "PermissionName": {
+      "description": "Available permission names.  The names correspond to the following groups:\n#### AccountPermission\n- ManageApplicationAuthorizations\n- UpdateAccountDetails\n- UpdateBillingDetails\n#### BuildEnvironmentPermission\n- ConfigureBuildEnvironment\n#### EnvironmentsPermission\n- DeployToEnvironment\n- ManageEnvironments\n- UpdateEnvironmentSettings\n#### ProjectsPermission\n- ManageProjects\n- RunProjectBuild\n- UpdateProjectSettings\n#### RolesPermission\n- AddRole\n- DeleteRole\n- UpdateRoleDetails\n#### UserPermission\n- ConfigureApiKeys\n#### UsersPermission\n- AddUser\n- DeleteUser\n- UpdateUserDetails\n",
+      "enum": [
+        "ManageApplicationAuthorizations",
+        "UpdateAccountDetails",
+        "UpdateBillingDetails",
+        "ConfigureBuildEnvironment",
+        "DeployToEnvironment",
+        "ManageEnvironments",
+        "UpdateEnvironmentSettings",
+        "ManageProjects",
+        "RunProjectBuild",
+        "UpdateProjectSettings",
+        "AddRole",
+        "DeleteRole",
+        "UpdateRoleDetails",
+        "ConfigureApiKeys",
+        "AddUser",
+        "DeleteUser",
+        "UpdateUserDetails"
+      ],
+      "type": "string"
+    },
+    "PermissionState": {
+      "properties": {
+        "allowed": {
+          "description": "State of the named permission.  `true` to allow, `false` to deny,\nmissing to inherit.\n",
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name": {
+          "$ref": "#/definitions/PermissionName"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "PlatformName": {
+      "enum": [
+        "ARM",
+        "Any CPU",
+        "x64",
+        "x86"
+      ],
+      "type": "string"
+    },
+    "Project": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProjectLookupModel"
+        },
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "accountId": {
+              "minimum": 0,
+              "readOnly": true,
+              "type": "integer"
+            },
+            "alwaysBuildClosedPullRequests": {
+              "type": "boolean"
+            },
+            "builds": {
+              "description": "Only non-empty for response from getProjects.",
+              "items": {
+                "$ref": "#/definitions/Build"
+              },
+              "readOnly": true,
+              "type": "array"
+            },
+            "enableDeploymentInPullRequests": {
+              "type": "boolean"
+            },
+            "enableSecureVariablesInPullRequests": {
+              "type": "boolean"
+            },
+            "enableSecureVariablesInPullRequestsFromSameRepo": {
+              "type": "boolean"
+            },
+            "isPrivate": {
+              "type": "boolean"
+            },
+            "nuGetFeed": {
+              "$ref": "#/definitions/NuGetFeed",
+              "description": "Not present in response from addProject."
+            },
+            "repositoryBranch": {
+              "description": "Not present in response from addProject.",
+              "type": "string"
+            },
+            "repositoryName": {
+              "type": "string"
+            },
+            "repositoryScm": {
+              "$ref": "#/definitions/RepositoryScm"
+            },
+            "repositoryType": {
+              "$ref": "#/definitions/RepositoryProvider"
+            },
+            "rollingBuilds": {
+              "type": "boolean"
+            },
+            "securityDescriptor": {
+              "$ref": "#/definitions/SecurityDescriptor",
+              "description": "Not present in response from addProject. Not always present in response from getProjects (only after updateProject or startBuild?)."
+            },
+            "skipBranchesWithoutAppveyorYml": {
+              "type": "boolean"
+            },
+            "tags": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "repositoryName"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "ProjectAddition": {
+      "description": "`repositoryAuthentication` is only used for git, mercurial, subversion `repositoryProvider`.",
+      "example": {
+        "repositoryName": "FeodorFitsner/demo-app",
+        "repositoryProvider": "gitHub"
+      },
+      "properties": {
+        "repositoryAuthentication": {
+          "$ref": "#/definitions/RepositoryAuthenticationType"
+        },
+        "repositoryName": {
+          "description": "URL when repositoryProvider is git, mercurial, subversion username/project when repositoryProvider is gitHub",
+          "minLength": 1,
+          "type": "string"
+        },
+        "repositoryPassword": {
+          "description": "Required if repositoryAuthentication is credentials",
+          "format": "password",
+          "type": "string"
+        },
+        "repositoryProvider": {
+          "$ref": "#/definitions/RepositoryProvider"
+        },
+        "repositoryUsername": {
+          "description": "Required if repositoryAuthentication is credentials",
+          "type": "string"
+        }
+      },
+      "required": [
+        "repositoryProvider",
+        "repositoryName"
+      ],
+      "type": "object"
+    },
+    "ProjectBranchesMode": {
+      "enum": [
+        "exclude",
+        "include"
+      ],
+      "type": "string"
+    },
+    "ProjectBuildNumberUpdate": {
+      "example": {
+        "nextBuildNumber": 35
+      },
+      "properties": {
+        "nextBuildNumber": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "nextBuildNumber"
+      ],
+      "type": "object"
+    },
+    "ProjectBuildResults": {
+      "properties": {
+        "build": {
+          "$ref": "#/definitions/Build"
+        },
+        "project": {
+          "$ref": "#/definitions/Project"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectConfiguration": {
+      "properties": {
+        "afterBuildScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "afterDeployScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "afterTestScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "artifacts": {
+          "items": {
+            "$ref": "#/definitions/Artifact"
+          },
+          "type": "array"
+        },
+        "assemblyFileVersionFormat": {
+          "type": "string"
+        },
+        "assemblyInfoFile": {
+          "type": "string"
+        },
+        "assemblyInformationalVersionFormat": {
+          "type": "string"
+        },
+        "assemblyVersionFormat": {
+          "type": "string"
+        },
+        "beforeBuildScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "beforeDeployScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "beforePackageScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "beforeTestScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "branchesMode": {
+          "$ref": "#/definitions/ProjectBranchesMode"
+        },
+        "buildCloud": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "buildMode": {
+          "$ref": "#/definitions/BuildMode"
+        },
+        "buildScripts": {
+          "description": "Only set/used when `buildMode` is `script`.",
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "cacheEntries": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "cloneDepth": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "cloneFolder": {
+          "type": "string"
+        },
+        "cloneScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "configuration": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "configureNuGetAccountSource": {
+          "type": "boolean"
+        },
+        "configureNuGetProjectSource": {
+          "type": "boolean"
+        },
+        "deployMode": {
+          "$ref": "#/definitions/DeployMode"
+        },
+        "deployScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "deployments": {
+          "items": {
+            "$ref": "#/definitions/DeploymentProvider"
+          },
+          "type": "array"
+        },
+        "disableNuGetPublishOnPullRequests": {
+          "type": "boolean"
+        },
+        "doNotIncrementBuildNumberOnPullRequests": {
+          "type": "boolean"
+        },
+        "environmentVariables": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValue"
+          },
+          "type": "array"
+        },
+        "environmentVariablesMatrix": {
+          "items": {
+            "$ref": "#/definitions/StoredNameValueMatrix"
+          },
+          "type": "array"
+        },
+        "excludeBranches": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "forceHttpsClone": {
+          "type": "boolean"
+        },
+        "hostsEntries": {
+          "items": {
+            "$ref": "#/definitions/HostEntry"
+          },
+          "type": "array"
+        },
+        "includeBranches": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "includeNuGetReferences": {
+          "type": "boolean"
+        },
+        "initScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "installScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "matrixAllowFailures": {
+          "description": "Although the names and values are not enforced, the combinations which are meaningful are documented at https://www.appveyor.com/docs/build-configuration/#allow-failing-jobs",
+          "items": {
+            "$ref": "#/definitions/StoredNameValueMatrix"
+          },
+          "type": "array"
+        },
+        "matrixFastFinish": {
+          "type": "boolean"
+        },
+        "maxJobs": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "msBuildInParallel": {
+          "type": "boolean"
+        },
+        "msBuildProjectFileName": {
+          "type": "string"
+        },
+        "msBuildVerbosity": {
+          "$ref": "#/definitions/MSBuildVerbosity"
+        },
+        "notifications": {
+          "items": {
+            "$ref": "#/definitions/NotificationProviderSettings"
+          },
+          "type": "array"
+        },
+        "onBuildErrorScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "onBuildFinishScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "onBuildSuccessScripts": {
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "onlyCommitsFiles": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "operatingSystem": {
+          "items": {
+            "properties": {
+              "value": {
+                "$ref": "#/definitions/BuildWorkerImageName"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "type": "object"
+          },
+          "title": "Build worker image",
+          "type": "array"
+        },
+        "packageAzureCloudServiceProjects": {
+          "type": "boolean"
+        },
+        "packageNuGetProjects": {
+          "type": "boolean"
+        },
+        "packageNuGetSymbols": {
+          "type": "boolean"
+        },
+        "packageWebApplicationProjects": {
+          "type": "boolean"
+        },
+        "packageWebApplicationProjectsXCopy": {
+          "type": "boolean"
+        },
+        "patchAssemblyInfo": {
+          "type": "boolean"
+        },
+        "platform": {
+          "items": {
+            "properties": {
+              "value": {
+                "$ref": "#/definitions/PlatformName"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "services": {
+          "items": {
+            "properties": {
+              "value": {
+                "$ref": "#/definitions/OSServiceName"
+              }
+            },
+            "required": [
+              "value"
+            ],
+            "type": "object"
+          },
+          "title": "OS services to start during the build process",
+          "type": "array"
+        },
+        "shallowClone": {
+          "type": "boolean"
+        },
+        "skipBranchWithPullRequests": {
+          "type": "boolean"
+        },
+        "skipCommitsFiles": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "skipNonTags": {
+          "type": "boolean"
+        },
+        "skipTags": {
+          "type": "boolean"
+        },
+        "testAssemblies": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "testCategories": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "testCategoriesMatrix": {
+          "items": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "$ref": "#/definitions/StringValueObject"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "testCategoriesMode": {
+          "enum": [
+            "exclude",
+            "include"
+          ],
+          "type": "string"
+        },
+        "testMode": {
+          "$ref": "#/definitions/TestMode"
+        },
+        "testScripts": {
+          "description": "Only set/used when `testMode` is `script`.",
+          "items": {
+            "$ref": "#/definitions/Script"
+          },
+          "type": "array"
+        },
+        "xamarinRegisterAndroidProduct": {
+          "type": "boolean"
+        },
+        "xamarinRegisterIosProduct": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectDeployment": {
+      "properties": {
+        "deployment": {
+          "$ref": "#/definitions/Deployment"
+        },
+        "project": {
+          "$ref": "#/definitions/Project"
+        }
+      },
+      "required": [
+        "project",
+        "deployment"
+      ],
+      "type": "object"
+    },
+    "ProjectDeploymentModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/DeploymentLookupModel"
+        },
+        {
+          "properties": {
+            "environment": {
+              "$ref": "#/definitions/DeploymentEnvironmentLookupModel"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ProjectDeploymentsResults": {
+      "properties": {
+        "deployments": {
+          "items": {
+            "$ref": "#/definitions/ProjectDeploymentModel"
+          },
+          "type": "array"
+        },
+        "project": {
+          "$ref": "#/definitions/Project"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectHistory": {
+      "properties": {
+        "builds": {
+          "items": {
+            "$ref": "#/definitions/Build"
+          },
+          "type": "array"
+        },
+        "project": {
+          "$ref": "#/definitions/Project"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectLookupModel": {
+      "properties": {
+        "accountName": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "projectId": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "slug": {
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectId"
+      ],
+      "type": "object"
+    },
+    "ProjectSettingsResults": {
+      "example": {
+        "build": {
+          "project": "MySolution.sln",
+          "publish_wap": true,
+          "verbosity": "minimal"
+        },
+        "version": "1.0.{build}"
+      },
+      "properties": {
+        "buildClouds": {
+          "items": {
+            "$ref": "#/definitions/StringValueObject"
+          },
+          "type": "array"
+        },
+        "defaultImageName": {
+          "type": "string"
+        },
+        "images": {
+          "items": {
+            "$ref": "#/definitions/BuildWorkerImage"
+          },
+          "type": "array"
+        },
+        "project": {
+          "$ref": "#/definitions/Project"
+        },
+        "settings": {
+          "$ref": "#/definitions/ProjectWithConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "ProjectWithConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Project"
+        },
+        {
+          "example": {
+            "accountId": 2,
+            "accountName": "appvyr",
+            "builds": [],
+            "configuration": {
+              "afterBuildScripts": [],
+              "afterDeployScripts": [],
+              "afterTestScripts": [],
+              "artifacts": [],
+              "assemblyFileVersionFormat": "{version}",
+              "assemblyInfoFile": "**\\AssemblyInfo.*",
+              "assemblyInformationalVersionFormat": "{version}",
+              "assemblyVersionFormat": "{version}",
+              "beforeBuildScripts": [],
+              "beforeDeployScripts": [],
+              "beforeTestScripts": [],
+              "buildMode": "msbuild",
+              "buildScripts": [],
+              "configuration": [],
+              "deployMode": "providers",
+              "deployScripts": [],
+              "deployments": [],
+              "environmentVariables": [],
+              "environmentVariablesMatrix": [],
+              "excludeBranches": [],
+              "hostsEntries": [],
+              "includeBranches": [],
+              "initScripts": [],
+              "installScripts": [],
+              "matrixAllowFailures": [],
+              "matrixFastFinish": false,
+              "msBuildVerbosity": "minimal",
+              "notifications": [],
+              "onBuildErrorScripts": [],
+              "onBuildSuccessScripts": [],
+              "operatingSystem": [],
+              "packageAzureCloudServiceProjects": false,
+              "packageNuGetProjects": false,
+              "packageWebApplicationProjects": false,
+              "packageWebApplicationProjectsXCopy": false,
+              "patchAssemblyInfo": false,
+              "platform": [],
+              "services": [],
+              "shallowClone": false,
+              "testAssemblies": [],
+              "testCategories": [],
+              "testCategoriesMatrix": [],
+              "testMode": "auto",
+              "testScripts": []
+            },
+            "created": "2014-08-16T00:52:15.6604826+00:00",
+            "ignoreAppveyorYml": false,
+            "isPrivate": false,
+            "name": "demo-app",
+            "nextBuildNumber": 1,
+            "nuGetFeed": {
+              "created": "2014-08-16T00:52:16.9886427+00:00",
+              "id": "demo-app-tw5iw2wk3bl1",
+              "name": "Project demo-app",
+              "publishingEnabled": false
+            },
+            "projectId": 43682,
+            "repositoryBranch": "master",
+            "repositoryName": "FeodorFitsner/demo-app",
+            "repositoryScm": "git",
+            "repositoryType": "gitHub",
+            "securityDescriptor": {
+              "accessRightDefinitions": [
+                {
+                  "description": "View",
+                  "name": "View"
+                },
+                {
+                  "description": "Run build",
+                  "name": "RunBuild"
+                },
+                {
+                  "description": "Update settings",
+                  "name": "Update"
+                },
+                {
+                  "description": "Delete project",
+                  "name": "Delete"
+                }
+              ],
+              "roleAces": [
+                {
+                  "accessRights": [
+                    {
+                      "allowed": true,
+                      "name": "View"
+                    },
+                    {
+                      "allowed": true,
+                      "name": "RunBuild"
+                    },
+                    {
+                      "allowed": true,
+                      "name": "Update"
+                    },
+                    {
+                      "allowed": true,
+                      "name": "Delete"
+                    }
+                  ],
+                  "isAdmin": true,
+                  "name": "Administrator",
+                  "roleId": 4
+                },
+                {
+                  "accessRights": [
+                    {
+                      "name": "View"
+                    },
+                    {
+                      "name": "RunBuild"
+                    },
+                    {
+                      "name": "Update"
+                    },
+                    {
+                      "name": "Delete"
+                    }
+                  ],
+                  "isAdmin": false,
+                  "name": "User",
+                  "roleId": 5
+                }
+              ]
+            },
+            "skipBranchesWithoutAppveyorYml": false,
+            "slug": "demo-app-335",
+            "versionFormat": "1.0.{build}",
+            "webhookId": "rca5vb5qqu",
+            "webhookUrl": "https://ci.appveyor.com/api/github/webhook?id=rca5vb5qqu"
+          },
+          "properties": {
+            "buildPriority": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "configuration": {
+              "$ref": "#/definitions/ProjectConfiguration"
+            },
+            "customYmlName": {
+              "type": "string"
+            },
+            "ignoreAppveyorYml": {
+              "type": "boolean"
+            },
+            "nextBuildNumber": {
+              "type": "integer"
+            },
+            "repositoryAuthentication": {
+              "$ref": "#/definitions/RepositoryAuthenticationType"
+            },
+            "repositoryUsername": {
+              "type": "string"
+            },
+            "scheduleCrontabExpression": {
+              "type": "string"
+            },
+            "sshPublicKey": {
+              "type": "string"
+            },
+            "versionFormat": {
+              "minLength": 7,
+              "pattern": "[{]build[}]",
+              "type": "string"
+            },
+            "webhookId": {
+              "type": "string"
+            },
+            "webhookUrl": {
+              "format": "uri",
+              "type": "string"
+            }
+          },
+          "required": [
+            "versionFormat",
+            "configuration"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "object"
+    },
+    "RepositoryAuthenticationType": {
+      "enum": [
+        "credentials",
+        "ssh"
+      ],
+      "type": "string"
+    },
+    "RepositoryProvider": {
+      "enum": [
+        "bitBucket",
+        "git",
+        "gitHub",
+        "gitLab",
+        "kiln",
+        "mercurial",
+        "stash",
+        "subversion",
+        "vso"
+      ],
+      "type": "string"
+    },
+    "RepositoryScm": {
+      "enum": [
+        "git",
+        "mercurial",
+        "subversion"
+      ],
+      "type": "string"
+    },
+    "Role": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "properties": {
+            "isSystem": {
+              "readOnly": true,
+              "type": "boolean"
+            },
+            "name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "roleId": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "roleId",
+            "name"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n"
+    },
+    "RoleAce": {
+      "properties": {
+        "accessRights": {
+          "items": {
+            "$ref": "#/definitions/AceAccessRight"
+          },
+          "type": "array"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "roleId": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "RoleAddition": {
+      "example": {
+        "name": "My Role"
+      },
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "RoleWithGroups": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Role"
+        },
+        {
+          "properties": {
+            "groups": {
+              "items": {
+                "$ref": "#/definitions/GroupPermissions"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        }
+      ],
+      "example": {
+        "created": "2014-03-18T20:12:08.4749886+00:00",
+        "groups": [
+          {
+            "name": "Projects",
+            "permissions": [
+              {
+                "allowed": true,
+                "description": "Create, delete projects, update project settings",
+                "name": "ManageProjects"
+              },
+              {
+                "allowed": true,
+                "description": "Update project settings",
+                "name": "UpdateProjectSettings"
+              },
+              {
+                "allowed": false,
+                "description": "Run project builds",
+                "name": "RunProjectBuild"
+              },
+              {
+                "allowed": false,
+                "description": "Delete project builds",
+                "name": "DeleteProjectBuilds"
+              }
+            ]
+          },
+          {
+            "name": "Environments",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Create, delete projects, update environment settings",
+                "name": "ManageEnvironments"
+              },
+              {
+                "allowed": false,
+                "description": "Update environment settings",
+                "name": "UpdateEnvironmentSettings"
+              },
+              {
+                "allowed": false,
+                "description": "Deploy to environment",
+                "name": "DeployToEnvironment"
+              }
+            ]
+          },
+          {
+            "name": "Account",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Update account details",
+                "name": "UpdateAccountDetails"
+              }
+            ]
+          },
+          {
+            "name": "Users",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Add new user",
+                "name": "AddUser"
+              },
+              {
+                "allowed": false,
+                "description": "Update user details",
+                "name": "UpdateUserDetails"
+              },
+              {
+                "allowed": false,
+                "description": "Delete user",
+                "name": "DeleteUser"
+              }
+            ]
+          },
+          {
+            "name": "Roles",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Add new role",
+                "name": "AddRole"
+              },
+              {
+                "allowed": false,
+                "description": "Update role details",
+                "name": "UpdateRoleDetails"
+              },
+              {
+                "allowed": false,
+                "description": "Delete role",
+                "name": "DeleteRole"
+              }
+            ]
+          },
+          {
+            "name": "User",
+            "permissions": [
+              {
+                "allowed": false,
+                "description": "Generate API keys",
+                "name": "ConfigureApiKeys"
+              }
+            ]
+          }
+        ],
+        "isSystem": false,
+        "name": "My Role",
+        "roleId": 3040
+      }
+    },
+    "Script": {
+      "properties": {
+        "language": {
+          "$ref": "#/definitions/ScriptLanguage"
+        },
+        "script": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "script"
+      ],
+      "type": "object"
+    },
+    "ScriptLanguage": {
+      "enum": [
+        "cmd",
+        "ps"
+      ],
+      "type": "string"
+    },
+    "SecurityDescriptor": {
+      "properties": {
+        "accessRightDefinitions": {
+          "items": {
+            "$ref": "#/definitions/AceAccessRightDefinition"
+          },
+          "type": "array"
+        },
+        "roleAces": {
+          "items": {
+            "$ref": "#/definitions/RoleAce"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "cancelled",
+        "cancelling",
+        "failed",
+        "queued",
+        "running",
+        "success"
+      ],
+      "type": "string"
+    },
+    "StoredNameValue": {
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/StoredValue"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ],
+      "type": "object"
+    },
+    "StoredNameValueMatrix": {
+      "properties": {
+        "variables": {
+          "$ref": "#/definitions/StoredNameValue"
+        }
+      },
+      "type": "object"
+    },
+    "StoredValue": {
+      "properties": {
+        "isEncrypted": {
+          "type": "boolean"
+        },
+        "value": {
+          "description": "Encrypted values can be created using the encryptValue operation.\n\nEmpty environment variables are represented by missing (null) value\nrather than an empty string.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StringValueObject": {
+      "properties": {
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TestMode": {
+      "enum": [
+        "auto",
+        "none",
+        "script"
+      ],
+      "type": "string"
+    },
+    "Timestamped": {
+      "properties": {
+        "created": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        },
+        "updated": {
+          "format": "date-time",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UserAccount": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Timestamped"
+        },
+        {
+          "$ref": "#/definitions/UserAccountSettings"
+        },
+        {
+          "properties": {
+            "accountId": {
+              "minimum": 0,
+              "readOnly": true,
+              "type": "integer"
+            },
+            "accountName": {
+              "readOnly": true,
+              "type": "string"
+            },
+            "email": {
+              "format": "email",
+              "type": "string"
+            },
+            "fullName": {
+              "type": "string"
+            },
+            "isCollaborator": {
+              "readOnly": true,
+              "type": "boolean"
+            },
+            "isOwner": {
+              "readOnly": true,
+              "type": "boolean"
+            },
+            "pageSize": {
+              "minimum": 0,
+              "readOnly": true,
+              "type": "integer"
+            },
+            "password": {
+              "format": "password",
+              "minLength": 1,
+              "type": "string"
+            },
+            "roleId": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "roleName": {
+              "readOnly": true,
+              "type": "string"
+            },
+            "userId": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "fullName",
+            "email"
+          ],
+          "type": "object"
+        }
+      ],
+      "example": {
+        "email": "john@smith.com",
+        "failedBuildNotification": "all",
+        "fullName": "John Smith",
+        "notifyWhenBuildStatusChangedOnly": true,
+        "roleId": 4,
+        "successfulBuildNotification": "all",
+        "userId": 3019
+      }
+    },
+    "UserAccountRolesResults": {
+      "description": "The roles property contains all roles, not only the role for which the user is a member.",
+      "properties": {
+        "roles": {
+          "items": {
+            "$ref": "#/definitions/Role"
+          },
+          "type": "array"
+        },
+        "user": {
+          "$ref": "#/definitions/UserAccount"
+        }
+      },
+      "type": "object"
+    },
+    "UserAccountSettings": {
+      "properties": {
+        "failedBuildNotification": {
+          "$ref": "#/definitions/BuildNotificationFrequency"
+        },
+        "failedDeploymentNotification": {
+          "$ref": "#/definitions/DeploymentNotificationFrequency"
+        },
+        "notifyWhenBuildStatusChangedOnly": {
+          "default": false,
+          "description": "Note that this value is `true` on user creation, but behaves as\n`false` when not specified on update.\n",
+          "type": "boolean"
+        },
+        "notifyWhenDeploymentStatusChangedOnly": {
+          "default": false,
+          "description": "Note that this value is `true` on user creation, but behaves as\n`false` when not specified on update.\n",
+          "type": "boolean"
+        },
+        "successfulBuildNotification": {
+          "$ref": "#/definitions/BuildNotificationFrequency"
+        },
+        "successfulDeploymentNotification": {
+          "$ref": "#/definitions/DeploymentNotificationFrequency"
+        }
+      },
+      "required": [
+        "successfulBuildNotification",
+        "failedBuildNotification",
+        "successfulDeploymentNotification",
+        "failedDeploymentNotification"
+      ],
+      "type": "object"
+    },
+    "UserAddition": {
+      "example": {
+        "confirmPassword": "password",
+        "email": "john@smith.com",
+        "fullName": "John Smith",
+        "generatePassword": false,
+        "password": "password",
+        "roleId": 4
+      },
+      "properties": {
+        "confirmPassword": {
+          "format": "password",
+          "minLength": 1,
+          "type": "string"
+        },
+        "email": {
+          "format": "email",
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "generatePassword": {
+          "type": "boolean"
+        },
+        "password": {
+          "format": "password",
+          "minLength": 1,
+          "type": "string"
+        },
+        "roleId": {
+          "description": "Technically `roleId` has default value 0 and is not required, but\nsince role 0 never exists it would always cause a 404 response.\n",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "fullName",
+        "email",
+        "roleId"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "encryptValue",
+      "title": "encryptValue",
+      "description": "Encrypt a value for use in StoredValue.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/EncryptRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "getBuildLog",
+      "title": "getBuildLog",
+      "description": "Download build log",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "description": "Build ID (`jobId` property of `BuildJob`)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "startBuild",
+      "title": "startBuild",
+      "description": "Start build of branch most recent commit",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BuildStartRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Build"
+      }
+    },
+    {
+      "id": "cancelBuild",
+      "title": "cancelBuild",
+      "description": "Cancel build",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          },
+          "buildVersion": {
+            "type": "string",
+            "description": "Build Version (`version` property of `Build`)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getCollaborators",
+      "title": "getCollaborators",
+      "description": "Get collaborators",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserAccount"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "addCollaborator",
+      "title": "addCollaborator",
+      "description": "Add collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CollaboratorAddition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "updateCollaborator",
+      "title": "updateCollaborator",
+      "description": "Update collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CollaboratorUpdate"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteCollaborator",
+      "title": "deleteCollaborator",
+      "description": "Delete collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "User ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getCollaborator",
+      "title": "getCollaborator",
+      "description": "Get collaborator",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "User ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserAccountRolesResults"
+      }
+    },
+    {
+      "id": "startDeployment",
+      "title": "startDeployment",
+      "description": "Start deployment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeploymentStartRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Deployment"
+      }
+    },
+    {
+      "id": "cancelDeployment",
+      "title": "cancelDeployment",
+      "description": "Cancel deployment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeploymentCancellation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getDeployment",
+      "title": "getDeployment",
+      "description": "Get deployment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deploymentId": {
+            "type": "integer",
+            "description": "Deployment ID (`deploymentId` property of `Deployment`)",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectDeployment"
+      }
+    },
+    {
+      "id": "getEnvironments",
+      "title": "getEnvironments",
+      "description": "Get environments",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/DeploymentEnvironmentLookupModel"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "addEnvironment",
+      "title": "addEnvironment",
+      "description": "Add environment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeploymentEnvironmentAddition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+      }
+    },
+    {
+      "id": "updateEnvironment",
+      "title": "updateEnvironment",
+      "description": "Update environment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+      }
+    },
+    {
+      "id": "deleteEnvironment",
+      "title": "deleteEnvironment",
+      "description": "Delete environment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deploymentEnvironmentId": {
+            "type": "integer",
+            "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getEnvironmentDeployments",
+      "title": "getEnvironmentDeployments",
+      "description": "Get environment deployments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deploymentEnvironmentId": {
+            "type": "integer",
+            "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeploymentEnvironmentDeploymentsResults"
+      }
+    },
+    {
+      "id": "getEnvironmentSettings",
+      "title": "getEnvironmentSettings",
+      "description": "Get environment settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deploymentEnvironmentId": {
+            "type": "integer",
+            "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeploymentEnvironmentSettingsResults"
+      }
+    },
+    {
+      "id": "getProjects",
+      "title": "getProjects",
+      "description": "Get projects",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Project"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "addProject",
+      "title": "addProject",
+      "description": "Add project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ProjectAddition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Project"
+      }
+    },
+    {
+      "id": "updateProject",
+      "title": "updateProject",
+      "description": "Update project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ProjectWithConfiguration"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getPublicProjectStatusBadge",
+      "title": "getPublicProjectStatusBadge",
+      "description": "Get status badge image for a project with a public repository",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "branch": {
+            "type": "string",
+            "description": "Repository Branch",
+            "minLength": 1
+          },
+          "svg": {
+            "type": "boolean",
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+          },
+          "retina": {
+            "type": "boolean",
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+          },
+          "passingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is passing.",
+            "minLength": 1
+          },
+          "failingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is failing.",
+            "minLength": 1
+          },
+          "pendingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is pending.",
+            "minLength": 1
+          },
+          "badgeRepoProvider": {
+            "type": "string",
+            "description": "Repository provider supported for badges",
+            "enum": [
+              "bitBucket",
+              "gitHub"
+            ]
+          },
+          "repoAccountName": {
+            "type": "string",
+            "description": "Account name with repository provider",
+            "minLength": 1
+          },
+          "repoSlug": {
+            "type": "string",
+            "description": "Slug (URL component) of repository.",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "getProjectStatusBadge",
+      "title": "getProjectStatusBadge",
+      "description": "Get project status badge image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "svg": {
+            "type": "boolean",
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+          },
+          "retina": {
+            "type": "boolean",
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+          },
+          "passingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is passing.",
+            "minLength": 1
+          },
+          "failingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is failing.",
+            "minLength": 1
+          },
+          "pendingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is pending.",
+            "minLength": 1
+          },
+          "webhookId": {
+            "type": "string",
+            "description": "Project webhook ID (`webhookId` from `ProjectWithConfiguration`)",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "getProjectBranchStatusBadge",
+      "title": "getProjectBranchStatusBadge",
+      "description": "Get project branch status badge image",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "svg": {
+            "type": "boolean",
+            "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
+          },
+          "retina": {
+            "type": "boolean",
+            "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
+          },
+          "passingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is passing.",
+            "minLength": 1
+          },
+          "failingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is failing.",
+            "minLength": 1
+          },
+          "pendingText": {
+            "type": "string",
+            "description": "Text to show in badge when build is pending.",
+            "minLength": 1
+          },
+          "webhookId": {
+            "type": "string",
+            "description": "Project webhook ID (`webhookId` from `ProjectWithConfiguration`)",
+            "minLength": 1
+          },
+          "buildBranch": {
+            "type": "string",
+            "description": "Build Branch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "file"
+      }
+    },
+    {
+      "id": "deleteProject",
+      "title": "deleteProject",
+      "description": "Delete project",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectLastBuild",
+      "title": "getProjectLastBuild",
+      "description": "Get project last build",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectBuildResults"
+      }
+    },
+    {
+      "id": "getProjectLastBuildBranch",
+      "title": "getProjectLastBuildBranch",
+      "description": "Get project last branch build",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          },
+          "buildBranch": {
+            "type": "string",
+            "description": "Build Branch"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectBuildResults"
+      }
+    },
+    {
+      "id": "getProjectBuildByVersion",
+      "title": "getProjectBuildByVersion",
+      "description": "Get project build by version",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          },
+          "buildVersion": {
+            "type": "string",
+            "description": "Build Version (`version` property of `Build`)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectBuildResults"
+      }
+    },
+    {
+      "id": "deleteProjectBuildCache",
+      "title": "deleteProjectBuildCache",
+      "description": "Delete project build cache",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectDeployments",
+      "title": "getProjectDeployments",
+      "description": "Get project deployments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectDeploymentsResults"
+      }
+    },
+    {
+      "id": "getProjectHistory",
+      "title": "getProjectHistory",
+      "description": "Get project history",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "recordsNumber": {
+            "type": "integer",
+            "description": "Number of results to include in the response.",
+            "minimum": 0
+          },
+          "startBuildId": {
+            "type": "integer",
+            "description": "Maximum `buildId` to include in the results (exclusive).",
+            "minimum": 0
+          },
+          "branch": {
+            "type": "string",
+            "description": "Repository Branch",
+            "minLength": 1
+          },
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectHistory"
+      }
+    },
+    {
+      "id": "getProjectSettings",
+      "title": "getProjectSettings",
+      "description": "Get project settings",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProjectSettingsResults"
+      }
+    },
+    {
+      "id": "updateProjectBuildNumber",
+      "title": "updateProjectBuildNumber",
+      "description": "Update project build number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ProjectBuildNumberUpdate"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectSettingsYaml",
+      "title": "getProjectSettingsYaml",
+      "description": "Get project settings in YAML",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "string"
+      }
+    },
+    {
+      "id": "updateProjectSettingsYaml",
+      "title": "updateProjectSettingsYaml",
+      "description": "Update project settings in YAML",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "format": "binary",
+            "type": "string"
+          },
+          "accountName": {
+            "type": "string",
+            "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
+            "minLength": 1
+          },
+          "projectSlug": {
+            "type": "string",
+            "description": "Project Slug"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getRoles",
+      "title": "getRoles",
+      "description": "Get roles",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Role"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "addRole",
+      "title": "addRole",
+      "description": "Add role",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RoleAddition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleWithGroups"
+      }
+    },
+    {
+      "id": "updateRole",
+      "title": "updateRole",
+      "description": "Update role",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RoleWithGroups"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleWithGroups"
+      }
+    },
+    {
+      "id": "deleteRole",
+      "title": "deleteRole",
+      "description": "Delete role",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "description": "Role ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getRole",
+      "title": "getRole",
+      "description": "Get role",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "description": "Role ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RoleWithGroups"
+      }
+    },
+    {
+      "id": "getUsers",
+      "title": "getUsers",
+      "description": "Get users",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserAccount"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "addUser",
+      "title": "addUser",
+      "description": "Add user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UserAddition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "updateUser",
+      "title": "updateUser",
+      "description": "Update user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UserAccount"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteUser",
+      "title": "deleteUser",
+      "description": "Delete user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "User ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "Get user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "description": "User ID",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserAccountRolesResults"
+      }
+    }
+  ]
+}

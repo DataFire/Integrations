@@ -1,0 +1,28 @@
+{
+  "name": "@datafire/bbc_rss",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for bbc_rss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": {
+      "topStories": "http://feeds.bbci.co.uk/news/rss.xml",
+      "world": "http://feeds.bbci.co.uk/news/world/rss.xml",
+      "uk": "http://feeds.bbci.co.uk/news/uk/rss.xml",
+      "technology": "http://feeds.bbci.co.uk/news/technology/rss.xml"
+    },
+    "type": "rss"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "title": "Furkot Trips",
+  "description": "Furkot provides Rest API to access user trip data.\nUsing Furkot API an application can list user trips and display stops for a specific trip.\nFurkot API uses OAuth2 protocol to authorize applications to access data on behalf of users.\n",
+  "definitions": {
+    "Step": {
+      "properties": {
+        "address": {
+          "description": "address of the stop",
+          "type": "string"
+        },
+        "arrival": {
+          "description": "arrival at the stop in its local timezone as YYYY-MM-DDThh:mm",
+          "format": "date-time",
+          "type": "string"
+        },
+        "coordinates": {
+          "description": "geographical coordinates of the stop",
+          "properties": {
+            "lat": {
+              "description": "latitude",
+              "format": "float",
+              "type": "number"
+            },
+            "lon": {
+              "description": "longitude",
+              "format": "float",
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "departure": {
+          "description": "departure from the stop in its local timezone as YYYY-MM-DDThh:mm",
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the stop",
+          "type": "string"
+        },
+        "nights": {
+          "description": "number of nights",
+          "format": "int64",
+          "type": "integer"
+        },
+        "route": {
+          "description": "route leading to the stop",
+          "properties": {
+            "distance": {
+              "description": "route distance in meters",
+              "format": "int64",
+              "type": "integer"
+            },
+            "duration": {
+              "description": "route duration in seconds",
+              "format": "int64",
+              "type": "integer"
+            },
+            "mode": {
+              "description": "travel mode",
+              "enum": [
+                "car",
+                "motorcycle",
+                "bicycle",
+                "walk",
+                "other"
+              ],
+              "type": "string"
+            },
+            "polyline": {
+              "description": "route path compatible with Google polyline encoding algorithm",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "url": {
+          "description": "url of the page with more information about the stop",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Trip": {
+      "properties": {
+        "begin": {
+          "description": "begin of the trip in its local timezone as YYYY-MM-DDThh:mm",
+          "format": "date-time",
+          "type": "string"
+        },
+        "description": {
+          "description": "description of the trip (truncated to 200 characters)",
+          "type": "string"
+        },
+        "end": {
+          "description": "end of the trip in its local timezone as YYYY-MM-DDThh:mm",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique ID of the trip",
+          "type": "string"
+        },
+        "name": {
+          "description": "name of the trip",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "trip.get",
+      "title": "trip.get",
+      "description": "list user's trips",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Trip"
+        },
+        "type": "array"
+      }
+    },
+    {
+      "id": "trip.trip_id.stop.get",
+      "title": "trip.trip_id.stop.get",
+      "description": "list stops for a trip identified by {trip_id}",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "trip_id": {
+            "type": "string",
+            "description": "id of the trip"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Step"
+        },
+        "type": "array"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@datafire/cnn_rss",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for cnn_rss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": {
+      "topStories": "http://rss.cnn.com/rss/cnn_topstories.rss",
+      "world": "http://rss.cnn.com/rss/cnn_world.rss",
+      "politics": "http://rss.cnn.com/rss/cnn_allpolitics.rss",
+      "business": "http://rss.cnn.com/rss/money_latest.rss"
+    },
+    "type": "rss"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

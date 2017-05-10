@@ -1,0 +1,21 @@
+{
+  "name": "@datafire/mongodb",
+  "version": "2.0.0",
+  "main": "integration",
+  "description": "MongoDB integration for DataFire",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {},
+  "dependencies": {
+    "datafire": "^2.0.0",
+    "mongodb": "^2.2.26"
+  }
+}

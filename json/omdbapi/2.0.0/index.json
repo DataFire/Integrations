@@ -1,0 +1,229 @@
+{
+  "title": "OMDb",
+  "description": "The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.",
+  "definitions": {
+    "combinedResult": {
+      "properties": {
+        "Actors": {
+          "type": "string"
+        },
+        "Awards": {
+          "type": "string"
+        },
+        "BoxOffice": {
+          "type": "string"
+        },
+        "Country": {
+          "type": "string"
+        },
+        "DVD": {
+          "type": "string"
+        },
+        "Director": {
+          "type": "string"
+        },
+        "Genre": {
+          "type": "string"
+        },
+        "Language": {
+          "type": "string"
+        },
+        "Metascore": {
+          "type": "string"
+        },
+        "Plot": {
+          "type": "string"
+        },
+        "Poster": {
+          "type": "string"
+        },
+        "Production": {
+          "type": "string"
+        },
+        "Rated": {
+          "type": "string"
+        },
+        "Released": {
+          "type": "string"
+        },
+        "Response": {
+          "type": "string"
+        },
+        "Runtime": {
+          "type": "string"
+        },
+        "Search": {
+          "items": {
+            "properties": {
+              "Poster": {
+                "type": "string"
+              },
+              "Title": {
+                "type": "string"
+              },
+              "Type": {
+                "type": "string"
+              },
+              "Year": {
+                "type": "string"
+              },
+              "imdbID": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "Title",
+              "Year",
+              "imdbID",
+              "Type",
+              "Poster"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "Website": {
+          "type": "string"
+        },
+        "Writer": {
+          "type": "string"
+        },
+        "Year": {
+          "type": "string"
+        },
+        "imdbID": {
+          "type": "string"
+        },
+        "imdbRating": {
+          "type": "string"
+        },
+        "imdbVotes": {
+          "type": "string"
+        },
+        "tomatoConsensus": {
+          "type": "string"
+        },
+        "tomatoFresh": {
+          "type": "string"
+        },
+        "tomatoImage": {
+          "type": "string"
+        },
+        "tomatoMeter": {
+          "type": "string"
+        },
+        "tomatoRating": {
+          "type": "string"
+        },
+        "tomatoReviews": {
+          "type": "string"
+        },
+        "tomatoRotten": {
+          "type": "string"
+        },
+        "tomatoURL": {
+          "type": "string"
+        },
+        "tomatoUserMeter": {
+          "type": "string"
+        },
+        "tomatoUserRating": {
+          "type": "string"
+        },
+        "tomatoUserReviews": {
+          "type": "string"
+        },
+        "totalResults": {
+          "type": "string"
+        },
+        "totalSeasons": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Response"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": ".get",
+      "title": ".get",
+      "description": "Find a movie, series or episode from the OMDb by title, IMDb-id or by free-text search",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "type": "string",
+            "description": "Movie title to search for. One of t, i or s is required."
+          },
+          "i": {
+            "type": "string",
+            "description": "A valid IMDb ID (e.g. tt1285016). One of t, i or s is required."
+          },
+          "s": {
+            "type": "string",
+            "description": "Movie title to search for. One of t, i or s is required."
+          },
+          "y": {
+            "type": "integer",
+            "description": "Year of release."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of result to return.",
+            "enum": [
+              "movie",
+              "series",
+              "episode"
+            ]
+          },
+          "plot": {
+            "type": "string",
+            "description": "Return short or full plot.",
+            "enum": [
+              "short",
+              "full"
+            ]
+          },
+          "tomatoes": {
+            "type": "boolean",
+            "description": "Include Rotten Tomatoes ratings."
+          },
+          "r": {
+            "type": "string",
+            "description": "The data type to return.",
+            "enum": [
+              "json",
+              "xml"
+            ]
+          },
+          "v": {
+            "type": "integer",
+            "description": "API version (reserved for future use)."
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page number to return."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP callback name."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/combinedResult"
+      }
+    }
+  ]
+}

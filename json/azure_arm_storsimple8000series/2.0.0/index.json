@@ -1,0 +1,1498 @@
+{
+  "title": "StorSimpleSeries8000ManagementClient",
+  "description": "",
+  "definitions": {
+    "AsymmetricEncryptedSecret": {
+      "description": "Represent the secrets intended for encryption with asymmetric key pair.",
+      "properties": {
+        "encryptionAlgorithm": {
+          "description": "Algorithm used to encrypt \"Value\".",
+          "enum": [
+            "None",
+            "AES256",
+            "RSAES_PKCS1_v_1_5"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "EncryptionAlgorithm"
+          }
+        },
+        "encryptionCertThumbprint": {
+          "description": "Thumbprint certificate that was used to encrypt \"Value\". If the value in unencrypted, it will be null.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value of the secret.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "encryptionAlgorithm"
+      ],
+      "type": "object"
+    },
+    "AsymmetricEncryptedSecretList": {
+      "description": "Collection of asymmetric encrypted secret entities",
+      "properties": {
+        "value": {
+          "description": "The value.",
+          "items": {
+            "$ref": "#/definitions/AsymmetricEncryptedSecret"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "AvailableProviderOperation": {
+      "description": "Represents available provider operation.",
+      "properties": {
+        "display": {
+          "$ref": "#/definitions/AvailableProviderOperationDisplay",
+          "description": "Contains the localized display information for this particular operation/action."
+        },
+        "name": {
+          "description": "The name of the operation being performed on a particular object. Name format: \"{resourceProviderNamespace}/{resourceType}/{read|write|delete|action}\". Eg. Microsoft.StorSimple/managers/devices/volumeContainers/read, Microsoft.StorSimple/managers/devices/alerts/clearAlerts/action",
+          "type": "string"
+        },
+        "origin": {
+          "description": "The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX. Default value is \"user,system\"",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/AvailableProviderOperationProperties",
+          "description": "Reserved for future use.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "AvailableProviderOperationDisplay": {
+      "description": "Contains the localized display information for this particular operation/action. These value will be used by several clients for (a) custom role definitions for RBAC, (b) complex query filters for the event service and (c) audit history/records for management operations.",
+      "properties": {
+        "description": {
+          "description": "The localized friendly description for the operation, as it should be shown to the user. It should be thorough, yet concise - it will be used in tool tips and detailed views.",
+          "type": "string"
+        },
+        "operation": {
+          "description": "The localized friendly name for the operation, as it should be shown to the user. It should be concise (to fit in drop downs) but clear (i.e. self-documenting). It should use Title Casing and include the entity/resource to which it applies.",
+          "type": "string"
+        },
+        "provider": {
+          "description": "The localized friendly form of the resource provider name - it is expected to also include the publisher/company responsible. It should use Title Casing and begin with 'Microsoft' for 1st party services.",
+          "type": "string"
+        },
+        "resource": {
+          "description": "The localized friendly form of the resource type related to this action/operation - it should match the public documentation for the resource provider. It should use Title Casing – for examples, please refer to the 'name' section.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AvailableProviderOperationList": {
+      "description": "List of available provider operations.",
+      "properties": {
+        "nextLink": {
+          "description": "The NextLink.",
+          "type": "string"
+        },
+        "value": {
+          "description": "The value.",
+          "items": {
+            "$ref": "#/definitions/AvailableProviderOperation"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "AvailableProviderOperationProperties": {
+      "description": "Represents properties of AvailableProviderOperation",
+      "properties": {},
+      "type": "object"
+    },
+    "BaseModel": {
+      "description": "Represents the base class for all other ARM object models",
+      "properties": {
+        "id": {
+          "description": "The Path Id that uniquely identifies the object",
+          "readOnly": true,
+          "type": "string"
+        },
+        "kind": {
+          "description": "The Kind of the object. Currently only Series8000 is supported",
+          "enum": [
+            "Series8000"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "Kind"
+          }
+        },
+        "name": {
+          "description": "The name of the object",
+          "readOnly": true,
+          "type": "string"
+        },
+        "type": {
+          "description": "The hierarchical type of the object",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigureDeviceRequest": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseModel"
+        }
+      ],
+      "description": "Mandatory device configuration request",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/ConfigureDeviceRequestProperties",
+          "description": "Properties of the Configure device.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "ConfigureDeviceRequestProperties": {
+      "description": "Configure device properties",
+      "properties": {
+        "currentDeviceName": {
+          "description": "Current name of the device",
+          "type": "string"
+        },
+        "dnsSettings": {
+          "$ref": "#/definitions/SecondaryDNSSettings",
+          "description": "Secondary DNS Settings of the device."
+        },
+        "friendlyName": {
+          "description": "Friendly name for the device",
+          "type": "string"
+        },
+        "networkInterfaceData0Settings": {
+          "$ref": "#/definitions/NetworkInterfaceData0Settings",
+          "description": "Data 0 Network interface card settings."
+        },
+        "timeZone": {
+          "description": "The device Time Zone. For eg: \"Pacific Standard Time\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "friendlyName",
+        "currentDeviceName",
+        "timeZone"
+      ],
+      "type": "object"
+    },
+    "Device": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseModel"
+        }
+      ],
+      "description": "Represents a StorSimple device along with its properties",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DeviceProperties",
+          "description": "Collection of properties for the device",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "DeviceDetails": {
+      "description": "Additional details having endpoint count and volume container count",
+      "properties": {
+        "endpointCount": {
+          "description": "Total number of endpoints that are currently on the device ( i.e. number of volumes)",
+          "format": "int32",
+          "type": "integer"
+        },
+        "volumeContainerCount": {
+          "description": "Total number of volume containers on the device",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceList": {
+      "description": "Collection of Devices",
+      "properties": {
+        "value": {
+          "description": "The value.",
+          "items": {
+            "$ref": "#/definitions/Device"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "DevicePatch": {
+      "description": "Represents the patch request for the device.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/DevicePatchProperties",
+          "description": "Properties of the device patch.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "DevicePatchProperties": {
+      "description": "Patch Device properties.",
+      "properties": {
+        "deviceDescription": {
+          "description": "Short description given for the device",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceProperties": {
+      "description": "Encases all the properties of the Device",
+      "properties": {
+        "activationTime": {
+          "description": "The UTC time at which the device was activated",
+          "format": "date-time",
+          "type": "string"
+        },
+        "activeController": {
+          "description": "The active controller.",
+          "enum": [
+            "Unknown",
+            "None",
+            "Controller0",
+            "Controller1"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ControllerId"
+          }
+        },
+        "agentGroupVersion": {
+          "description": "The device agent group version.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "availableLocalStorageInBytes": {
+          "description": "Storage in bytes that is available locally on the device",
+          "format": "int64",
+          "type": "integer"
+        },
+        "availableTieredStorageInBytes": {
+          "description": "Storage in bytes that is available on the device for tiered volumes",
+          "format": "int64",
+          "type": "integer"
+        },
+        "culture": {
+          "description": "Language culture setting on the device. For eg: \"en-US\"",
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/definitions/DeviceDetails",
+          "description": "Additional details having endpoint count and volume container count"
+        },
+        "deviceConfigurationStatus": {
+          "description": "Current state of device configuration",
+          "enum": [
+            "Complete",
+            "Pending"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DeviceConfigurationStatus"
+          }
+        },
+        "deviceDescription": {
+          "description": "The device description.",
+          "type": "string"
+        },
+        "deviceLocation": {
+          "description": "The location of the Virtual appliance",
+          "type": "string"
+        },
+        "deviceSoftwareVersion": {
+          "description": "Version number of the software running on the device",
+          "type": "string"
+        },
+        "deviceType": {
+          "description": "Type of the device",
+          "enum": [
+            "Invalid",
+            "Series8000VirtualAppliance",
+            "Series8000PhysicalAppliance"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DeviceType"
+          }
+        },
+        "friendlyName": {
+          "description": "The friendly name of the device.",
+          "type": "string"
+        },
+        "friendlySoftwareName": {
+          "description": "Friendly name for the software version",
+          "type": "string"
+        },
+        "friendlySoftwareVersion": {
+          "description": "The device friendly software version.",
+          "type": "string"
+        },
+        "modelDescription": {
+          "description": "Name of the device model",
+          "type": "string"
+        },
+        "networkInterfaceCardCount": {
+          "description": "The number of network interface cards",
+          "format": "int32",
+          "type": "integer"
+        },
+        "provisionedLocalStorageInBytes": {
+          "description": "Storage in bytes that has been provisioned on the device",
+          "format": "int64",
+          "type": "integer"
+        },
+        "provisionedTieredStorageInBytes": {
+          "description": "Storage in bytes that has been provisioned on the device for tiered volumes",
+          "format": "int64",
+          "type": "integer"
+        },
+        "serialNumber": {
+          "description": "The serial number.",
+          "type": "string"
+        },
+        "status": {
+          "description": "Current status of the device",
+          "enum": [
+            "Unknown",
+            "Online",
+            "Offline",
+            "Deactivated",
+            "RequiresAttention",
+            "MaintenanceMode",
+            "Creating",
+            "Provisioning",
+            "Deactivating",
+            "Deleted",
+            "ReadyToSetup"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "DeviceStatus"
+          }
+        },
+        "targetIqn": {
+          "description": "The target iqn.",
+          "type": "string"
+        },
+        "totalTieredStorageInBytes": {
+          "description": "Storage in bytes of the total tiered storage available on the device",
+          "format": "int64",
+          "type": "integer"
+        },
+        "usingStorageInBytes": {
+          "description": "Storage in bytes that is being currently used including both local and cloud",
+          "format": "int64",
+          "type": "integer"
+        },
+        "virtualMachineApiType": {
+          "description": "The virtual machine API type.",
+          "enum": [
+            "Classic",
+            "Arm"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "VirtualMachineApiType"
+          }
+        }
+      },
+      "required": [
+        "friendlyName",
+        "activationTime",
+        "culture",
+        "deviceDescription",
+        "deviceSoftwareVersion",
+        "deviceConfigurationStatus",
+        "targetIqn",
+        "modelDescription",
+        "status",
+        "serialNumber",
+        "deviceType",
+        "activeController",
+        "friendlySoftwareVersion"
+      ],
+      "type": "object"
+    },
+    "EncryptionSettings": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseModel"
+        }
+      ],
+      "description": "The EncryptionSettings",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/EncryptionSettingsProperties",
+          "description": "Properties of the EncryptionSettings.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "required": [
+        "properties"
+      ],
+      "type": "object"
+    },
+    "EncryptionSettingsProperties": {
+      "description": "The properties of EncryptionSettings",
+      "properties": {
+        "encryptionStatus": {
+          "description": "The encryption status which indicates if encryption is enabled or not.",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "EncryptionStatus"
+          }
+        },
+        "keyRolloverStatus": {
+          "description": "The key rollover status which indicates if key rollover is required or not. If secrets encryption has been upgraded, then it requires key rollover.",
+          "enum": [
+            "Required",
+            "NotRequired"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "KeyRolloverStatus"
+          }
+        }
+      },
+      "required": [
+        "encryptionStatus",
+        "keyRolloverStatus"
+      ],
+      "type": "object"
+    },
+    "Key": {
+      "description": "The key.",
+      "properties": {
+        "activationKey": {
+          "description": "The activation key for the device",
+          "type": "string"
+        }
+      },
+      "required": [
+        "activationKey"
+      ],
+      "type": "object"
+    },
+    "Manager": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Resource"
+        }
+      ],
+      "description": "The StorSimple Manager",
+      "properties": {
+        "etag": {
+          "description": "ETag of the Manager",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ManagerProperties",
+          "description": "List of properties of the Manager",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "ManagerExtendedInfo": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseModel"
+        }
+      ],
+      "description": "The extended info of the manager.",
+      "properties": {
+        "etag": {
+          "description": "ETag of the Resource",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/ManagerExtendedInfoProperties",
+          "description": "The extended info properties.",
+          "x-ms-client-flatten": true
+        }
+      },
+      "type": "object"
+    },
+    "ManagerExtendedInfoProperties": {
+      "description": "Properties of the ManagerExtendedInfo",
+      "properties": {
+        "algorithm": {
+          "description": "Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. AlgorithmName - if Key is encrypted",
+          "type": "string"
+        },
+        "encryptionKey": {
+          "description": "Represents the CEK of the resource",
+          "type": "string"
+        },
+        "encryptionKeyThumbprint": {
+          "description": "Represents the Cert thumbprint that was used to encrypt the CEK",
+          "type": "string"
+        },
+        "integrityKey": {
+          "description": "Represents the CIK of the resource",
+          "type": "string"
+        },
+        "portalCertificateThumbprint": {
+          "description": "Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Represents the version of the ExtendedInfo object being persisted",
+          "type": "string"
+        }
+      },
+      "required": [
+        "integrityKey",
+        "algorithm"
+      ],
+      "type": "object"
+    },
+    "ManagerIntrinsicSettings": {
+      "description": "Intrinsic settings which refers to the type of the Storsimple manager",
+      "properties": {
+        "type": {
+          "description": "Refers to the type of the StorSimple Manager",
+          "enum": [
+            "GardaV1",
+            "HelsinkiV1"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ManagerType"
+          }
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "ManagerList": {
+      "description": "List of storsimple Managers under a particular resourceGroup",
+      "properties": {
+        "value": {
+          "description": "List of Managers",
+          "items": {
+            "$ref": "#/definitions/Manager"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "ManagerProperties": {
+      "description": "The properties of the Manager",
+      "properties": {
+        "cisIntrinsicSettings": {
+          "$ref": "#/definitions/ManagerIntrinsicSettings",
+          "description": "Specifies if the Manager is Garda or Helsinki"
+        },
+        "provisioningState": {
+          "description": "Specifies the state of the resource as it is getting provisioned. Value of \"Succeeded\" means the Manager was successfully created",
+          "type": "string"
+        },
+        "sku": {
+          "$ref": "#/definitions/ManagerSku",
+          "description": "Specifies the Sku"
+        }
+      },
+      "type": "object"
+    },
+    "ManagerSku": {
+      "description": "The Sku.",
+      "properties": {
+        "name": {
+          "description": "Refers to the sku name which should be \"Standard\"",
+          "enum": [
+            "Standard"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ManagerSkuType"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "NetworkInterfaceData0Settings": {
+      "description": "Network interface Data 0 IP settings",
+      "properties": {
+        "controllerOneIp": {
+          "description": "Controller 1's IPv4 address",
+          "type": "string"
+        },
+        "controllerZeroIp": {
+          "description": "Controller 0's IPv4 address",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PublicKey": {
+      "description": "The public key.",
+      "properties": {
+        "key": {
+          "description": "The key",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "Resource": {
+      "description": "The Azure Resource.",
+      "properties": {
+        "id": {
+          "description": "The Resource Id",
+          "readOnly": true,
+          "type": "string"
+        },
+        "location": {
+          "description": "The Geo location of the Manager",
+          "type": "string"
+        },
+        "name": {
+          "description": "The Resource Name",
+          "readOnly": true,
+          "type": "string"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Tags attached to the Manager",
+          "type": "object"
+        },
+        "type": {
+          "description": "The Resource type",
+          "readOnly": true,
+          "type": "string"
+        }
+      },
+      "required": [
+        "location"
+      ],
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "SecondaryDNSSettings": {
+      "description": "Mandatory DNS settings",
+      "properties": {
+        "secondaryDnsServers": {
+          "description": "Secondary DNS Server address",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SymmetricEncryptedSecret": {
+      "description": "Represents secrets encrypted using Symmetric Encryption Key.",
+      "properties": {
+        "encryptionAlgorithm": {
+          "description": "Algorithm used to encrypt \"Value\"",
+          "enum": [
+            "None",
+            "AES256",
+            "RSAES_PKCS1_v_1_5"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "EncryptionAlgorithm"
+          }
+        },
+        "value": {
+          "description": "The value of the secret itself. If the secret is in plaintext or null then EncryptionAlgorithm will be none",
+          "type": "string"
+        },
+        "valueCertificateThumbprint": {
+          "description": "Thumbprint cert that was used to encrypt \"Value\"",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "encryptionAlgorithm"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "Operations_List",
+      "title": "Operations_List",
+      "description": "Lists all of the available REST API operations of the Microsoft.Storsimple provider",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AvailableProviderOperationList"
+      }
+    },
+    {
+      "id": "Managers_List",
+      "title": "Managers_List",
+      "description": "Retrieves all the managers in a subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ManagerList"
+      }
+    },
+    {
+      "id": "Managers_ListByResourceGroup",
+      "title": "Managers_ListByResourceGroup",
+      "description": "Retrieves all the managers in a resource group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ManagerList"
+      }
+    },
+    {
+      "id": "Managers_Delete",
+      "title": "Managers_Delete",
+      "description": "Deletes the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Managers_Get",
+      "title": "Managers_Get",
+      "description": "Returns the properties of the specified manager name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Manager"
+      }
+    },
+    {
+      "id": "Managers_CreateOrUpdate",
+      "title": "Managers_CreateOrUpdate",
+      "description": "Creates or updates the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/Manager"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Manager"
+      }
+    },
+    {
+      "id": "Devices_Configure",
+      "title": "Devices_Configure",
+      "description": "Complete minimal setup before using the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ConfigureDeviceRequest"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Devices_ListByManager",
+      "title": "Devices_ListByManager",
+      "description": "Returns the list of devices for the specified manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Specify $expand=details to populate additional fields related to the device."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeviceList"
+      }
+    },
+    {
+      "id": "Devices_Delete",
+      "title": "Devices_Delete",
+      "description": "Deletes the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "description": "The device name."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Devices_Get",
+      "title": "Devices_Get",
+      "description": "Returns the properties of the specified device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "description": "The device name."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          },
+          "$expand": {
+            "type": "string",
+            "description": "Specify $expand=details to populate additional fields related to the device."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      }
+    },
+    {
+      "id": "Devices_Update",
+      "title": "Devices_Update",
+      "description": "Patches the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "description": "The device Name."
+          },
+          "parameters": {
+            "$ref": "#/definitions/DevicePatch"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      }
+    },
+    {
+      "id": "Devices_Deactivate",
+      "title": "Devices_Deactivate",
+      "description": "Deactivates the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "description": "The device name."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Managers_GetDevicePublicEncryptionKey",
+      "title": "Managers_GetDevicePublicEncryptionKey",
+      "description": "Returns the public encryption key of the device.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "description": "The device name."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PublicKey"
+      }
+    },
+    {
+      "id": "Managers_GetEncryptionSettings",
+      "title": "Managers_GetEncryptionSettings",
+      "description": "Returns the encryption settings of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/EncryptionSettings"
+      }
+    },
+    {
+      "id": "Managers_DeleteExtendedInfo",
+      "title": "Managers_DeleteExtendedInfo",
+      "description": "Deletes the extended info of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "Managers_GetExtendedInfo",
+      "title": "Managers_GetExtendedInfo",
+      "description": "Returns the extended information of the specified manager name.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ManagerExtendedInfo"
+      }
+    },
+    {
+      "id": "Managers_UpdateExtendedInfo",
+      "title": "Managers_UpdateExtendedInfo",
+      "description": "Updates the extended info of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ManagerExtendedInfo"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          },
+          "If-Match": {
+            "type": "string",
+            "description": "Pass the ETag of ExtendedInfo fetched from GET call"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ManagerExtendedInfo"
+      }
+    },
+    {
+      "id": "Managers_CreateExtendedInfo",
+      "title": "Managers_CreateExtendedInfo",
+      "description": "Creates the extended info of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ManagerExtendedInfo"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ManagerExtendedInfo"
+      }
+    },
+    {
+      "id": "Managers_GetActivationKey",
+      "title": "Managers_GetActivationKey",
+      "description": "Returns the activation key of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Key"
+      }
+    },
+    {
+      "id": "Managers_GetPrivateEncryptionKey",
+      "title": "Managers_GetPrivateEncryptionKey",
+      "description": "Returns the symmetric encrypted private encryption key of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SymmetricEncryptedSecret"
+      }
+    },
+    {
+      "id": "Managers_GetPublicEncryptionKey",
+      "title": "Managers_GetPublicEncryptionKey",
+      "description": "Returns the symmetric encrypted public encryption key of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SymmetricEncryptedSecret"
+      }
+    },
+    {
+      "id": "Managers_RegenerateActivationKey",
+      "title": "Managers_RegenerateActivationKey",
+      "description": "Re-generates and returns the activation key of the manager.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string",
+            "description": "The subscription id"
+          },
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The resource group name"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "The manager name",
+            "maxLength": 50,
+            "minLength": 2
+          },
+          "api-version": {
+            "type": "string",
+            "description": "The api version"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Key"
+      }
+    }
+  ]
+}

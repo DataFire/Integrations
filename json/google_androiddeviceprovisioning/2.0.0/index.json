@@ -1,0 +1,852 @@
+{
+  "title": "Android Device Provisioning Partner",
+  "description": "Android Device Provisioning Partner API",
+  "definitions": {
+    "ClaimDeviceRequest": {
+      "description": "Request message to claim a device on behalf of a customer.",
+      "properties": {
+        "customerId": {
+          "description": "The customer to claim for.",
+          "format": "int64",
+          "type": "string"
+        },
+        "deviceIdentifier": {
+          "$ref": "#/definitions/DeviceIdentifier",
+          "description": "The device identifier of the device to claim."
+        },
+        "sectionType": {
+          "description": "Section to claim",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "SECTION_TYPE_ZERO_TOUCH"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ClaimDeviceResponse": {
+      "description": "Response message containing device id of the claim.",
+      "properties": {
+        "deviceId": {
+          "description": "the device id of the claimed device.",
+          "format": "int64",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Company": {
+      "description": "Company",
+      "properties": {
+        "companyId": {
+          "description": "company id",
+          "format": "int64",
+          "type": "string"
+        },
+        "companyName": {
+          "description": "company name",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Device": {
+      "description": "Device",
+      "properties": {
+        "claims": {
+          "description": "claims",
+          "items": {
+            "$ref": "#/definitions/DeviceClaim"
+          },
+          "type": "array"
+        },
+        "deviceId": {
+          "description": "Device id",
+          "format": "int64",
+          "type": "string"
+        },
+        "deviceIdentifier": {
+          "$ref": "#/definitions/DeviceIdentifier",
+          "description": "Device identifier"
+        },
+        "deviceMetadata": {
+          "$ref": "#/definitions/DeviceMetadata",
+          "description": "Device metadata"
+        },
+        "name": {
+          "description": "Resource name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceClaim": {
+      "description": "containing the necessary info about a claim for a partner.",
+      "properties": {
+        "ownerCompanyId": {
+          "description": "owner id",
+          "format": "int64",
+          "type": "string"
+        },
+        "sectionType": {
+          "description": "section type.",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "SECTION_TYPE_ZERO_TOUCH"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceIdentifier": {
+      "description": "DeviceIdentifiers identifies an unique device.",
+      "properties": {
+        "imei": {
+          "description": "IMEI (either IMEI or MEID is required).",
+          "type": "string"
+        },
+        "manufacturer": {
+          "description": "Manufacturer to match android.os.Build.MANUFACTURER (required).",
+          "type": "string"
+        },
+        "meid": {
+          "description": "MEID",
+          "type": "string"
+        },
+        "model": {
+          "description": "Model to match android.os.Build.MODEL (required).",
+          "type": "string"
+        },
+        "serialNumber": {
+          "description": "Serial number (optional)",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceMetadata": {
+      "description": "metadata",
+      "properties": {
+        "entries": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Metadata entries",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Empty": {
+      "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "properties": {},
+      "type": "object"
+    },
+    "FindDevicesByDeviceIdentifierRequest": {
+      "description": "Request to find devices.",
+      "properties": {
+        "deviceIdentifier": {
+          "$ref": "#/definitions/DeviceIdentifier",
+          "description": "The device identifier to search"
+        },
+        "limit": {
+          "description": "Number of devices to show.",
+          "format": "int64",
+          "type": "string"
+        },
+        "pageToken": {
+          "description": "Page token",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FindDevicesByDeviceIdentifierResponse": {
+      "description": "Response containing found devices.",
+      "properties": {
+        "devices": {
+          "description": "Found devices.",
+          "items": {
+            "$ref": "#/definitions/Device"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "Page token of next page",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FindDevicesByOwnerRequest": {
+      "description": "Request to find devices by customers.",
+      "properties": {
+        "customerId": {
+          "description": "List of customer ids to search for.",
+          "items": {
+            "format": "int64",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "limit": {
+          "description": "The number of devices to show in the result.",
+          "format": "int64",
+          "type": "string"
+        },
+        "pageToken": {
+          "description": "Page token",
+          "type": "string"
+        },
+        "sectionType": {
+          "description": "The section type.",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "SECTION_TYPE_ZERO_TOUCH"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FindDevicesByOwnerResponse": {
+      "description": "Response containing found devices.",
+      "properties": {
+        "devices": {
+          "description": "Devices found.",
+          "items": {
+            "$ref": "#/definitions/Device"
+          },
+          "type": "array"
+        },
+        "nextPageToken": {
+          "description": "Page token of next page",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ListCustomersResponse": {
+      "description": "Response message of all customers related to this partner.",
+      "properties": {
+        "customers": {
+          "description": "List of customers related to this partner.",
+          "items": {
+            "$ref": "#/definitions/Company"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "UnclaimDeviceRequest": {
+      "description": "Request message to unclaim a device.",
+      "properties": {
+        "deviceId": {
+          "description": "The device id returned by ClaimDevice.",
+          "format": "int64",
+          "type": "string"
+        },
+        "deviceIdentifier": {
+          "$ref": "#/definitions/DeviceIdentifier",
+          "description": "The device identifier you use when you claimed this device."
+        },
+        "sectionType": {
+          "description": "The section type to unclaim for.",
+          "enum": [
+            "SECTION_TYPE_UNSPECIFIED",
+            "SECTION_TYPE_ZERO_TOUCH"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDeviceMetadataRequest": {
+      "description": "Request to set metadata for a device.",
+      "properties": {
+        "deviceMetadata": {
+          "$ref": "#/definitions/DeviceMetadata",
+          "description": "The metdata to set."
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "partners.devices.metadata",
+      "title": "partners.devices.metadata",
+      "description": "Update the metadata",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateDeviceMetadataRequest"
+          },
+          "deviceId": {
+            "type": "string",
+            "description": "id of the partner."
+          },
+          "metadataOwnerId": {
+            "type": "string",
+            "description": "The owner of the newly set metadata. Should be partner id itself."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeviceMetadata"
+      }
+    },
+    {
+      "id": "partners.customers.list",
+      "title": "partners.customers.list",
+      "description": "List all the customers that has delegates some role to this customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "string",
+            "description": "the id of the partner."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCustomersResponse"
+      }
+    },
+    {
+      "id": "partners.devices.claim",
+      "title": "partners.devices.claim",
+      "description": "Claim the device identified by device identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ClaimDeviceRequest"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "Id of the partner."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ClaimDeviceResponse"
+      }
+    },
+    {
+      "id": "partners.devices.findByIdentifier",
+      "title": "partners.devices.findByIdentifier",
+      "description": "Find devices by device identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/FindDevicesByDeviceIdentifierRequest"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "id of the partner."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FindDevicesByDeviceIdentifierResponse"
+      }
+    },
+    {
+      "id": "partners.devices.findByOwner",
+      "title": "partners.devices.findByOwner",
+      "description": "Find devices by ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/FindDevicesByOwnerRequest"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "id of the partner."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FindDevicesByOwnerResponse"
+      }
+    },
+    {
+      "id": "partners.devices.unclaim",
+      "title": "partners.devices.unclaim",
+      "description": "Unclaim the device identified by device_id or identifier.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UnclaimDeviceRequest"
+          },
+          "partnerId": {
+            "type": "string",
+            "description": "Id of the partner."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Empty"
+      }
+    },
+    {
+      "id": "partners.devices.get",
+      "title": "partners.devices.get",
+      "description": "Get a device",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "resource name in 'partners/[PARTNER_ID]/devices/[DEVICE_ID]'."
+          },
+          "$.xgafv": {
+            "type": "string",
+            "description": "V1 error format.",
+            "enum": [
+              "1",
+              "2"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "description": "OAuth access token."
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for response.",
+            "enum": [
+              "json",
+              "media",
+              "proto"
+            ]
+          },
+          "bearer_token": {
+            "type": "string",
+            "description": "OAuth bearer token."
+          },
+          "callback": {
+            "type": "string",
+            "description": "JSONP"
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "pp": {
+            "type": "boolean",
+            "description": "Pretty-print response."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+          },
+          "uploadType": {
+            "type": "string",
+            "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+          },
+          "upload_protocol": {
+            "type": "string",
+            "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1992 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "demo.traccar.org",
+  "basePath": "/api",
+  "info": {
+    "description": "Open Source GPS Tracking Platform",
+    "title": "traccar",
+    "version": "3.10",
+    "x-apisguru-categories": [
+      "location"
+    ],
+    "x-logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
+    },
+    "x-origin": [
+      {
+        "format": "swagger",
+        "url": "https://raw.githubusercontent.com/tananaev/traccar/master/swagger.json",
+        "version": "2.0"
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "traccar.org",
+    "x-datafire": {
+      "name": "traccar",
+      "type": "openapi"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "basicAuth": {
+      "description": "Basic HTTP authorization with _email_ and _password_",
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "parameters": {
+    "AttributeAlias": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/AttributeAlias"
+      }
+    },
+    "Calendar": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Calendar"
+      }
+    },
+    "CalendarPermission": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/CalendarPermission"
+      }
+    },
+    "Device": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Device"
+      }
+    },
+    "DeviceGeofence": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/DeviceGeofence"
+      }
+    },
+    "DevicePermission": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/DevicePermission"
+      }
+    },
+    "Geofence": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Geofence"
+      }
+    },
+    "GeofencePermission": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/GeofencePermission"
+      }
+    },
+    "Group": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/Group"
+      }
+    },
+    "GroupGeofence": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/GroupGeofence"
+      }
+    },
+    "GroupPermission": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/GroupPermission"
+      }
+    },
+    "User": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    "UserPermission": {
+      "in": "body",
+      "name": "body",
+      "required": true,
+      "schema": {
+        "$ref": "#/definitions/UserPermission"
+      }
+    },
+    "all": {
+      "description": "Can only be used by admins or managers to fetch all entities",
+      "in": "query",
+      "name": "all",
+      "type": "boolean"
+    },
+    "deviceId": {
+      "description": "Standard users can use this only with _userId_s, they have access to",
+      "in": "query",
+      "name": "deviceId",
+      "type": "integer"
+    },
+    "deviceIdArray": {
+      "collectionFormat": "multi",
+      "in": "query",
+      "items": {
+        "type": "integer"
+      },
+      "name": "deviceId",
+      "type": "array"
+    },
+    "entityId": {
+      "in": "path",
+      "name": "id",
+      "required": true,
+      "type": "integer"
+    },
+    "fromTime": {
+      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+      "format": "date-time",
+      "in": "query",
+      "name": "from",
+      "required": true,
+      "type": "string"
+    },
+    "groupIdArray": {
+      "collectionFormat": "multi",
+      "in": "query",
+      "items": {
+        "type": "integer"
+      },
+      "name": "groupId",
+      "type": "array"
+    },
+    "toTime": {
+      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+      "format": "date-time",
+      "in": "query",
+      "name": "to",
+      "required": true,
+      "type": "string"
+    },
+    "userId": {
+      "description": "Standard users can use this only with their own _userId_",
+      "in": "query",
+      "name": "userId",
+      "type": "integer"
+    }
+  },
+  "paths": {
+    "/attributes/aliases": {
+      "get": {
+        "description": "Without params, it returns a list of AttributeAlias from all the user's Devices",
+        "parameters": [
+          {
+            "$ref": "#/parameters/deviceId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/AttributeAlias"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of AttributeAlias",
+        "operationId": "attributes.aliases.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/AttributeAlias"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AttributeAlias"
+            }
+          }
+        },
+        "summary": "Set an AttributeAlias",
+        "operationId": "attributes.aliases.post"
+      }
+    },
+    "/attributes/aliases/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete an AttributeAlias",
+        "operationId": "attributes.aliases.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/AttributeAlias"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AttributeAlias"
+            }
+          }
+        },
+        "summary": "Update an AttributeAlias",
+        "operationId": "attributes.aliases.id.put"
+      }
+    },
+    "/calendars": {
+      "get": {
+        "description": "Without params, it returns a list of Calendars the user has access to",
+        "parameters": [
+          {
+            "$ref": "#/parameters/all"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Calendar"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Calendars",
+        "operationId": "calendars.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/Calendar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
+          }
+        },
+        "summary": "Create a Calendar",
+        "operationId": "calendars.post"
+      }
+    },
+    "/calendars/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete a Calendar",
+        "operationId": "calendars.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/Calendar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Calendar"
+            }
+          }
+        },
+        "summary": "Update a Calendar",
+        "operationId": "calendars.id.put"
+      }
+    },
+    "/commands": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Command"
+            }
+          },
+          "400": {
+            "description": "Could happen when dispatching to a device that is offline, the user doesn't have permission or an incorrect command _type_ for the device"
+          }
+        },
+        "summary": "Dispatch commands to device",
+        "operationId": "commands.post"
+      }
+    },
+    "/commandtypes": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "deviceId",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/CommandType"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "Could happen when trying to fetch from an offline device or the user does not have permission"
+          }
+        },
+        "summary": "Fetch a list of available Commands for the Device",
+        "operationId": "commandtypes.get"
+      }
+    },
+    "/devices": {
+      "get": {
+        "description": "Without any params, returns a list of the user's devices",
+        "parameters": [
+          {
+            "$ref": "#/parameters/all"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Device"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No permission"
+          }
+        },
+        "summary": "Fetch a list of Devices",
+        "operationId": "devices.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/Device"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "summary": "Create a Device",
+        "operationId": "devices.post"
+      }
+    },
+    "/devices/geofences": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeviceGeofence"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Geofence from a Device",
+        "operationId": "devices.geofences.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/DeviceGeofence"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeviceGeofence"
+            }
+          }
+        },
+        "summary": "Link a Geofence to a Device",
+        "operationId": "devices.geofences.post"
+      }
+    },
+    "/devices/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Update a Device",
+        "operationId": "devices.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/Device"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        },
+        "summary": "Update a Device",
+        "operationId": "devices.id.put"
+      }
+    },
+    "/devices/{id}/distance": {
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeviceTotalDistance"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Update the distance counter of the Device",
+        "operationId": "devices.id.distance.put"
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Event"
+            }
+          }
+        },
+        "operationId": "events.id.get"
+      }
+    },
+    "/geofences": {
+      "get": {
+        "description": "Without params, it returns a list of Geofences the user has access to",
+        "parameters": [
+          {
+            "$ref": "#/parameters/all"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          },
+          {
+            "in": "query",
+            "name": "groupId",
+            "type": "integer"
+          },
+          {
+            "$ref": "#/parameters/deviceId"
+          },
+          {
+            "in": "query",
+            "name": "refresh",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Geofence"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Geofences",
+        "operationId": "geofences.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/Geofence"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Geofence"
+            }
+          }
+        },
+        "summary": "Create a Geofence",
+        "operationId": "geofences.post"
+      }
+    },
+    "/geofences/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete a Geofence",
+        "operationId": "geofences.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/Geofence"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Geofence"
+            }
+          }
+        },
+        "summary": "Update a Geofence",
+        "operationId": "geofences.id.put"
+      }
+    },
+    "/groups": {
+      "get": {
+        "description": "Without any params, returns a list of the Groups the user belongs to",
+        "parameters": [
+          {
+            "$ref": "#/parameters/all"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Group"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Groups",
+        "operationId": "groups.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/Group"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          },
+          "400": {
+            "description": "No permission"
+          }
+        },
+        "summary": "Create a Group",
+        "operationId": "groups.post"
+      }
+    },
+    "/groups/geofences": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupGeofence"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Geofence from a Group",
+        "operationId": "groups.geofences.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupGeofence"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupGeofence"
+            }
+          }
+        },
+        "summary": "Link a Geofence to a Group",
+        "operationId": "groups.geofences.post"
+      }
+    },
+    "/groups/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete a Group",
+        "operationId": "groups.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/Group"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Group"
+            }
+          }
+        },
+        "summary": "Update a Group",
+        "operationId": "groups.id.put"
+      }
+    },
+    "/permissions/calendars": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/CalendarPermission"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Calendar from a User",
+        "operationId": "permissions.calendars.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/CalendarPermission"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CalendarPermission"
+            }
+          }
+        },
+        "summary": "Link a Calendar to a User",
+        "operationId": "permissions.calendars.post"
+      }
+    },
+    "/permissions/devices": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/DevicePermission"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Device from a User",
+        "operationId": "permissions.devices.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/DevicePermission"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DevicePermission"
+            }
+          },
+          "400": {
+            "description": "No permission"
+          }
+        },
+        "summary": "Link a Device to a User",
+        "operationId": "permissions.devices.post"
+      }
+    },
+    "/permissions/geofences": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GeofencePermission"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Geofence from a User",
+        "operationId": "permissions.geofences.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GeofencePermission"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GeofencePermission"
+            }
+          }
+        },
+        "summary": "Link a Geofence to a User",
+        "operationId": "permissions.geofences.post"
+      }
+    },
+    "/permissions/groups": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupPermission"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a Group from a User",
+        "operationId": "permissions.groups.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/GroupPermission"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GroupPermission"
+            }
+          }
+        },
+        "summary": "Link a Group to a User",
+        "operationId": "permissions.groups.post"
+      }
+    },
+    "/permissions/users": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserPermission"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Remove a User from a manager User",
+        "operationId": "permissions.users.delete"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserPermission"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserPermission"
+            }
+          }
+        },
+        "summary": "Link a User to a manager User",
+        "operationId": "permissions.users.post"
+      }
+    },
+    "/positions": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "text/csv",
+          "application/gpx+xml"
+        ],
+        "description": "Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_",
+        "parameters": [
+          {
+            "description": "_deviceId_ is optional, but requires the _from_ and _to_ parameters when used",
+            "in": "query",
+            "name": "deviceId",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+            "format": "date-time",
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "collectionFormat": "multi",
+            "description": "To fetch one or more positions. Multiple params can be passed like `id=31&id=42`",
+            "in": "query",
+            "name": "id",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "text/csv",
+          "application/gpx+xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Position"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetches a list of Positions",
+        "operationId": "positions.get"
+      }
+    },
+    "/reports/events": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "parameters": [
+          {
+            "$ref": "#/parameters/deviceIdArray"
+          },
+          {
+            "$ref": "#/parameters/groupIdArray"
+          },
+          {
+            "description": "% can be used to return events of all types",
+            "in": "query",
+            "items": {
+              "type": "string"
+            },
+            "name": "type",
+            "type": "array"
+          },
+          {
+            "$ref": "#/parameters/fromTime"
+          },
+          {
+            "$ref": "#/parameters/toTime"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Event"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Events within the time period for the Devices or Groups",
+        "operationId": "reports.events.get"
+      }
+    },
+    "/reports/route": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "parameters": [
+          {
+            "$ref": "#/parameters/deviceIdArray"
+          },
+          {
+            "$ref": "#/parameters/groupIdArray"
+          },
+          {
+            "$ref": "#/parameters/fromTime"
+          },
+          {
+            "$ref": "#/parameters/toTime"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Position"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Positions within the time period for the Devices or Groups",
+        "operationId": "reports.route.get"
+      }
+    },
+    "/reports/summary": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "parameters": [
+          {
+            "$ref": "#/parameters/deviceIdArray"
+          },
+          {
+            "$ref": "#/parameters/groupIdArray"
+          },
+          {
+            "$ref": "#/parameters/fromTime"
+          },
+          {
+            "$ref": "#/parameters/toTime"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ReportSummary"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of ReportSummary within the time period for the Devices or Groups",
+        "operationId": "reports.summary.get"
+      }
+    },
+    "/reports/trips": {
+      "get": {
+        "consumes": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "description": "At least one _deviceId_ or one _groupId_ must be passed",
+        "parameters": [
+          {
+            "$ref": "#/parameters/deviceIdArray"
+          },
+          {
+            "$ref": "#/parameters/groupIdArray"
+          },
+          {
+            "$ref": "#/parameters/fromTime"
+          },
+          {
+            "$ref": "#/parameters/toTime"
+          }
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/ReportTrips"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of ReportTrips within the time period for the Devices or Groups",
+        "operationId": "reports.trips.get"
+      }
+    },
+    "/server": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Server"
+            }
+          }
+        },
+        "summary": "Fetch Server information",
+        "operationId": "server.get"
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Server"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Server"
+            }
+          }
+        },
+        "summary": "Update Server information",
+        "operationId": "server.put"
+      }
+    },
+    "/session": {
+      "delete": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Close the Session",
+        "operationId": "session.delete"
+      },
+      "get": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "summary": "Fetch Session information",
+        "operationId": "session.get"
+      },
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "format": "password",
+            "in": "formData",
+            "name": "password",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "summary": "Create a new Session",
+        "operationId": "session.post"
+      }
+    },
+    "/statistics": {
+      "get": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/fromTime"
+          },
+          {
+            "$ref": "#/parameters/toTime"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Statistics"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch server Statistics",
+        "operationId": "statistics.get"
+      }
+    },
+    "/users": {
+      "get": {
+        "parameters": [
+          {
+            "description": "Can only be used by admin or manager users",
+            "in": "query",
+            "name": "userId",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/User"
+              },
+              "type": "array"
+            }
+          },
+          "400": {
+            "description": "No Permission"
+          }
+        },
+        "summary": "Fetch a list of Users",
+        "operationId": "users.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/User"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "summary": "Create a User",
+        "operationId": "users.post"
+      }
+    },
+    "/users/notifications": {
+      "get": {
+        "description": "Without params, it returns a list of the user's enabled Notifications",
+        "parameters": [
+          {
+            "description": "To fetch a list of all available Notifications",
+            "in": "query",
+            "name": "all",
+            "type": "boolean"
+          },
+          {
+            "$ref": "#/parameters/userId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Notification"
+              },
+              "type": "array"
+            }
+          }
+        },
+        "summary": "Fetch a list of Notification types",
+        "operationId": "users.notifications.get"
+      },
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "summary": "Set or unset a Notification",
+        "operationId": "users.notifications.post"
+      }
+    },
+    "/users/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "summary": "Delete a User",
+        "operationId": "users.id.delete"
+      },
+      "put": {
+        "parameters": [
+          {
+            "$ref": "#/parameters/entityId"
+          },
+          {
+            "$ref": "#/parameters/User"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "summary": "Update a User",
+        "operationId": "users.id.put"
+      }
+    }
+  },
+  "definitions": {
+    "AttributeAlias": {
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "attribute": {
+          "type": "string"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "Calendar": {
+      "properties": {
+        "atributes": {},
+        "data": {
+          "description": "base64 encoded in iCalendar format",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "CalendarPermission": {
+      "properties": {
+        "calendarId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Command": {
+      "properties": {
+        "attributes": {},
+        "deviceId": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "CommandType": {
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "Device": {
+      "properties": {
+        "attributes": {},
+        "category": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "geofenceIds": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "groupId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "lastUpdate": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "positionId": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string"
+        },
+        "uniqueId": {
+          "type": "string"
+        }
+      }
+    },
+    "DeviceGeofence": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "geofenceId": {
+          "type": "integer"
+        }
+      }
+    },
+    "DevicePermission": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    },
+    "DeviceTotalDistance": {
+      "properties": {
+        "deviceId": {
+          "type": "integer"
+        },
+        "totalDistance": {
+          "description": "in meters",
+          "type": "number"
+        }
+      }
+    },
+    "Event": {
+      "properties": {
+        "attributes": {},
+        "deviceId": {
+          "type": "integer"
+        },
+        "geofenceId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "positionId": {
+          "type": "integer"
+        },
+        "serverTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "Geofence": {
+      "properties": {
+        "area": {
+          "type": "string"
+        },
+        "attributes": {},
+        "calendarId": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "GeofencePermission": {
+      "properties": {
+        "geofenceId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Group": {
+      "properties": {
+        "attributes": {},
+        "groupId": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "GroupGeofence": {
+      "properties": {
+        "geofenceId": {
+          "type": "integer"
+        },
+        "groupId": {
+          "type": "integer"
+        }
+      }
+    },
+    "GroupPermission": {
+      "properties": {
+        "groupId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    },
+    "Notification": {
+      "properties": {
+        "attributes": {},
+        "id": {
+          "type": "integer"
+        },
+        "mail": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "integer"
+        },
+        "web": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Position": {
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "address": {
+          "type": "string"
+        },
+        "altitude": {
+          "type": "number"
+        },
+        "attributes": {},
+        "course": {
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "fixTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "network": {
+          "type": "string"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "serverTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "speed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ReportSummary": {
+      "properties": {
+        "averageSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "distance": {
+          "description": "in meters",
+          "type": "number"
+        },
+        "engineHours": {
+          "type": "integer"
+        },
+        "maxSpeed": {
+          "description": "in knots",
+          "type": "number"
+        }
+      }
+    },
+    "ReportTrips": {
+      "properties": {
+        "averageSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "deviceId": {
+          "type": "integer"
+        },
+        "deviceName": {
+          "type": "string"
+        },
+        "distance": {
+          "description": "in meters",
+          "type": "number"
+        },
+        "duration": {
+          "type": "integer"
+        },
+        "endAddress": {
+          "type": "string"
+        },
+        "endLat": {
+          "type": "number"
+        },
+        "endLon": {
+          "type": "number"
+        },
+        "endTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "maxSpeed": {
+          "description": "in knots",
+          "type": "number"
+        },
+        "startAddress": {
+          "type": "string"
+        },
+        "startLat": {
+          "type": "number"
+        },
+        "startLon": {
+          "type": "number"
+        },
+        "startTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "Server": {
+      "properties": {
+        "attributes": {},
+        "bingKey": {
+          "type": "string"
+        },
+        "coordinateFormat": {
+          "type": "string"
+        },
+        "distanceUnit": {
+          "type": "string"
+        },
+        "forceSettings": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "map": {
+          "type": "string"
+        },
+        "mapUrl": {
+          "type": "string"
+        },
+        "readonly": {
+          "type": "boolean"
+        },
+        "registration": {
+          "type": "boolean"
+        },
+        "speedUnit": {
+          "type": "string"
+        },
+        "twelveHourFormat": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        },
+        "zoom": {
+          "type": "integer"
+        }
+      }
+    },
+    "Statistics": {
+      "properties": {
+        "activeDevices": {
+          "type": "integer"
+        },
+        "activeUsers": {
+          "type": "integer"
+        },
+        "captureTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "messagesReceived": {
+          "type": "integer"
+        },
+        "messagesStored": {
+          "type": "integer"
+        },
+        "requests": {
+          "type": "integer"
+        }
+      }
+    },
+    "User": {
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "attributes": {},
+        "coordinateFormat": {
+          "type": "string"
+        },
+        "deviceLimit": {
+          "type": "integer"
+        },
+        "deviceReadonly": {
+          "type": "boolean"
+        },
+        "disabled": {
+          "type": "boolean"
+        },
+        "distanceUnit": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "expirationTime": {
+          "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`",
+          "format": "date-time",
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "map": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "readonly": {
+          "type": "boolean"
+        },
+        "speedUnit": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "twelveHourFormat": {
+          "type": "boolean"
+        },
+        "userLimit": {
+          "type": "integer"
+        },
+        "zoom": {
+          "type": "integer"
+        }
+      }
+    },
+    "UserPermission": {
+      "properties": {
+        "managedUserId": {
+          "type": "integer"
+        },
+        "userId": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

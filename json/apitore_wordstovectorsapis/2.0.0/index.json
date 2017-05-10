@@ -1,0 +1,70 @@
+{
+  "title": "Words to Vectors APIs",
+  "description": "Word to vectors.<BR />[Endpoint] https://api.apitore.com/api/10",
+  "definitions": {
+    "WordVectorResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        },
+        "vector": {
+          "description": "Vector",
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "word": {
+          "description": "Input word",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "log",
+        "processTime",
+        "startTime",
+        "word"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "wordvectorUsingGET",
+      "title": "wordvectorUsingGET",
+      "description": "Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response\">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.WordVectorResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "word": {
+            "type": "string",
+            "description": "word"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/WordVectorResponseEntity"
+      }
+    }
+  ]
+}
