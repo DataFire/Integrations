@@ -15,15 +15,14 @@
     "url": "https://github.com/DataFire/Integrations/issues"
   },
   "homepage": "https://github.com/DataFire/Integrations#readme",
-  "dependencies": {
-    "async": "^2.1.4",
-    "request": "^2.79.0",
-    "yargs": "^6.4.0"
-  },
   "devDependencies": {
+    "async": "^2.1.4",
     "chai": "^3.5.0",
+    "datafire": "^2.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.2.0",
-    "mongo-in-memory": "0.0.5"
+    "mongo-in-memory": "0.0.5",
+    "request": "^2.79.0",
+    "yargs": "^6.4.0"
   }
 }
