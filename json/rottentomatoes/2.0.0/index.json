@@ -1,4 +1,5 @@
 {
+  "id": "rottentomatoes",
   "title": "Rotten Tomatoes",
   "description": "Test our API services using I/O Docs.",
   "definitions": {},

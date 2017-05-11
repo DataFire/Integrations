@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_storage",
   "title": "StorageManagement",
   "description": "The Azure Storage Management API.",
   "definitions": {

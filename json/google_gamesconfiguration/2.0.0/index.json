@@ -1,4 +1,5 @@
 {
+  "id": "google_gamesconfiguration",
   "title": "Google Play Game Services Publishing",
   "description": "The Publishing API for Google Play Game Services.",
   "definitions": {

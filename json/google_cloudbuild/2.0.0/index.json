@@ -1,4 +1,5 @@
 {
+  "id": "google_cloudbuild",
   "title": "Google Cloud Container Builder",
   "description": "Builds container images in the cloud.",
   "definitions": {

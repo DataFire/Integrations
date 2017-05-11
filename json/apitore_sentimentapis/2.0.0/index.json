@@ -1,4 +1,5 @@
 {
+  "id": "apitore_sentimentapis",
   "title": "Sentiment APIs",
   "description": "Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/11",
   "definitions": {

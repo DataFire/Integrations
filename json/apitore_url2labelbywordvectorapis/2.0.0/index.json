@@ -1,4 +1,5 @@
 {
+  "id": "apitore_url2labelbywordvectorapis",
   "title": "Url2Label by word vector APIs",
   "description": "Url to label by word2vec of contents.<BR />[Endpoint] https://api.apitore.com/api/21",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "apitore_2chmatomefeedsapis",
   "title": "2ch matome feeds APIs",
   "description": "Various 2ch matome feeds.<BR />[Endpoint] https://api.apitore.com/api/29",
   "definitions": {

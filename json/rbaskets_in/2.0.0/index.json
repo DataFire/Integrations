@@ -1,4 +1,5 @@
 {
+  "id": "rbaskets_in",
   "title": "Request Baskets",
   "description": "RESTful API of Request Baskets service",
   "definitions": {

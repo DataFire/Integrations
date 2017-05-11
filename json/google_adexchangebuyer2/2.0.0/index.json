@@ -1,4 +1,5 @@
 {
+  "id": "google_adexchangebuyer2",
   "title": "Ad Exchange Buyer API II",
   "description": "Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.",
   "definitions": {

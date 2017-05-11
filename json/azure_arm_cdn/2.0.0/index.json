@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_cdn",
   "title": "CdnManagementClient",
   "description": "Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure.",
   "definitions": {

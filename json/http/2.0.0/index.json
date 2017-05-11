@@ -1,4 +1,5 @@
 {
+  "id": "http",
   "title": "HTTP",
   "description": "Make HTTP calls",
   "actions": [

@@ -1,4 +1,5 @@
 {
+  "id": "google_clouduseraccounts",
   "title": "Cloud User Accounts",
   "description": "Creates and manages users and groups for accessing Google Compute Engine virtual machines.",
   "definitions": {

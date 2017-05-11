@@ -1,4 +1,5 @@
 {
+  "id": "google_oauth2",
   "title": "Google OAuth2",
   "description": "Obtains end-user authorization grants for use with other Google APIs.",
   "definitions": {

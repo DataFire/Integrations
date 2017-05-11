@@ -1,4 +1,5 @@
 {
+  "id": "cenit",
   "title": "Cenit IO - REST API Specification",
   "description": "Cenit IO is an Open Platform for Data and Business Integration (iPaaS)\n",
   "definitions": {

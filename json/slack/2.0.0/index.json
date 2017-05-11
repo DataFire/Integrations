@@ -1,4 +1,5 @@
 {
+  "id": "slack",
   "title": "Slack",
   "description": "A messaging app for teams",
   "definitions": {

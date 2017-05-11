@@ -1,4 +1,5 @@
 {
+  "id": "visagecloud",
   "title": "VisageCloud",
   "description": "Face search, recognition & classification API. Just make a call to our REST API each time your app needs to access face recognition and classification capabilities.",
   "definitions": {

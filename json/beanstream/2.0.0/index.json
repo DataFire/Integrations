@@ -1,4 +1,5 @@
 {
+  "id": "beanstream",
   "title": "Beanstream Payments",
   "description": "https://www.beanstream.com/api/v1",
   "definitions": {

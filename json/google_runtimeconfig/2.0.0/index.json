@@ -1,4 +1,5 @@
 {
+  "id": "google_runtimeconfig",
   "title": "Google Cloud RuntimeConfig",
   "description": "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform.\n",
   "definitions": {

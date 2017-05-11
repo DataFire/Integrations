@@ -1,4 +1,5 @@
 {
+  "id": "google_gmail",
   "title": "Gmail",
   "description": "Access Gmail mailboxes including sending user email.",
   "definitions": {

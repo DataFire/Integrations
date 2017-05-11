@@ -1,1463 +1,1837 @@
 {
   "6_dot_authentiqio_appspot": {
+    "id": "6_dot_authentiqio_appspot",
     "title": "Authentiq"
   },
   "amadeus": {
+    "id": "amadeus",
     "title": "Amadeus Travel Innovation Sandbox"
   },
   "apacta": {
+    "id": "apacta",
     "title": "Apacta",
     "description": "API for a tool to craftsmen used to register working hours, material usage and quality assurance.    "
   },
   "apimatic": {
+    "id": "apimatic",
     "title": "APIMATIC API Transformer",
     "description": "Transform API Descriptions from/to various formats"
   },
   "apis_guru": {
+    "id": "apis_guru",
     "title": "APIs.guru",
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format."
   },
   "apitore_2chmatomefeedsapis": {
+    "id": "apitore_2chmatomefeedsapis",
     "title": "2ch matome feeds APIs",
     "description": "Various 2ch matome feeds.[Endpoint] https://api.apitore.com/api/29"
   },
   "apitore_certificatefeedsapis": {
+    "id": "apitore_certificatefeedsapis",
     "title": "Certificate feeds APIs",
     "description": "Various certificate feeds.[Endpoint] https://api.apitore.com/api/31"
   },
   "apitore_designfeedsapis": {
+    "id": "apitore_designfeedsapis",
     "title": "Design feeds APIs",
     "description": "Various design feeds.[Endpoint] https://api.apitore.com/api/32"
   },
   "apitore_documentfrequencyapis": {
+    "id": "apitore_documentfrequencyapis",
     "title": "Document frequency APIs",
     "description": "Document frequency of Wikipedia.[Endpoint] https://api.apitore.com/api/16"
   },
   "apitore_gamefeedsapis": {
+    "id": "apitore_gamefeedsapis",
     "title": "Game feeds APIs",
     "description": "Various game feeds.[Endpoint] https://api.apitore.com/api/33"
   },
   "apitore_kuromojiapis": {
+    "id": "apitore_kuromojiapis",
     "title": "Kuromoji APIs",
     "description": "Kuromoji: japanese morphological analyzer.[Endpoint] https://api.apitore.com/api/7"
   },
   "apitore_languagedetectionapis": {
+    "id": "apitore_languagedetectionapis",
     "title": "Language Detection APIs",
     "description": "Language detection.[Endpoint] https://api.apitore.com/api/22"
   },
   "apitore_newsfeedsapis": {
+    "id": "apitore_newsfeedsapis",
     "title": "News feeds APIs",
     "description": "Various news feeds.[Endpoint] https://api.apitore.com/api/34"
   },
   "apitore_pioneerblogfeedsapis": {
+    "id": "apitore_pioneerblogfeedsapis",
     "title": "Pioneer blog feeds APIs",
     "description": "Various blog feeds.[Endpoint] https://api.apitore.com/api/30"
   },
   "apitore_rss2jsonapis": {
+    "id": "apitore_rss2jsonapis",
     "title": "RSS2JSON APIs",
     "description": "Rss to Json.[Endpoint] https://api.apitore.com/api/28"
   },
   "apitore_sentencepieceapis_wikipedia_": {
+    "id": "apitore_sentencepieceapis_wikipedia_",
     "title": "SentencePiece APIs (wikipedia)",
     "description": "SentencePiece tokenizer (wikipedia).[Endpoint] https://api.apitore.com/api/37"
   },
   "apitore_sentenceseparatorapis": {
+    "id": "apitore_sentenceseparatorapis",
     "title": "Sentence separator APIs",
     "description": "Simple sentence separator.[Endpoint] https://api.apitore.com/api/17"
   },
   "apitore_sentimentapis": {
+    "id": "apitore_sentimentapis",
     "title": "Sentiment APIs",
     "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11"
   },
   "apitore_synonymapis": {
+    "id": "apitore_synonymapis",
     "title": "Synonym APIs",
     "description": "Return synonymous words. (equal to \"word2vec distance\")[Endpoint] https://api.apitore.com/api/9"
   },
   "apitore_techfeedsapis": {
+    "id": "apitore_techfeedsapis",
     "title": "Tech feeds APIs",
     "description": "Various tech feeds.[Endpoint] https://api.apitore.com/api/35"
   },
   "apitore_text2labelbytfidfapis": {
+    "id": "apitore_text2labelbytfidfapis",
     "title": "Text2Label by tfidf APIs",
     "description": "Text to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/18"
   },
   "apitore_text2labelbywordvectorapis": {
+    "id": "apitore_text2labelbywordvectorapis",
     "title": "Text2Label by word vector APIs",
     "description": "Text to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/19"
   },
   "apitore_travelfeedsapis": {
+    "id": "apitore_travelfeedsapis",
     "title": "Travel feeds APIs",
     "description": "Various travel feeds.[Endpoint] https://api.apitore.com/api/36"
   },
   "apitore_tweetsummarizationapis": {
+    "id": "apitore_tweetsummarizationapis",
     "title": "Tweet summarization APIs",
     "description": "Tweet summarization.[Endpoint] https://api.apitore.com/api/27"
   },
   "apitore_twitterapis": {
+    "id": "apitore_twitterapis",
     "title": "Twitter APIs",
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23"
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
+    "id": "apitore_twitterapiswithword2vecqueryexpansion",
     "title": "Twitter APIs with Word2Vec query expansion",
     "description": "Call Twitter APIs with word2vec query expansion.[Endpoint] https://api.apitore.com/api/24"
   },
   "apitore_url2hrefapis": {
+    "id": "apitore_url2hrefapis",
     "title": "Url2Href APIs",
     "description": "Url to Href links.[Endpoint] https://api.apitore.com/api/14"
   },
   "apitore_url2htmlapis": {
+    "id": "apitore_url2htmlapis",
     "title": "Url2Html APIs",
     "description": "Url to Html.[Endpoint] https://api.apitore.com/api/12"
   },
   "apitore_url2labelbytfidfapis": {
+    "id": "apitore_url2labelbytfidfapis",
     "title": "Url2Label by tfidf APIs",
     "description": "Url to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/20"
   },
   "apitore_url2labelbywordvectorapis": {
+    "id": "apitore_url2labelbywordvectorapis",
     "title": "Url2Label by word vector APIs",
     "description": "Url to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/21"
   },
   "apitore_url2srcapis": {
+    "id": "apitore_url2srcapis",
     "title": "Url2Src APIs",
     "description": "Url to Image src urls.[Endpoint] https://api.apitore.com/api/15"
   },
   "apitore_url2textapis": {
+    "id": "apitore_url2textapis",
     "title": "Url2Text APIs",
     "description": "Url to Text.[Endpoint] https://api.apitore.com/api/13"
   },
   "apitore_word2vecapis": {
+    "id": "apitore_word2vecapis",
     "title": "Word2Vec APIs",
     "description": "Word2Vec.[Endpoint] https://api.apitore.com/api/8"
   },
   "apitore_wordstovectorsapis": {
+    "id": "apitore_wordstovectorsapis",
     "title": "Words to Vectors APIs",
     "description": "Word to vectors.[Endpoint] https://api.apitore.com/api/10"
   },
   "appveyor": {
+    "id": "appveyor",
     "title": "AppVeyor",
     "description": "AppVeyor is a hosted continuous integration service which runs on Microsoft"
   },
   "authentiq": {
+    "id": "authentiq",
     "title": "Authentiq Connect",
     "description": "Authentiq Connect OAuth 2.0 and OpenID Connect API reference."
   },
   "azure_arm_advisor": {
+    "id": "azure_arm_advisor",
     "title": "AdvisorManagementClient",
     "description": "REST APIs for Azure Advisor"
   },
   "azure_arm_analysisservices": {
+    "id": "azure_arm_analysisservices",
     "title": "AzureAnalysisServices",
     "description": "The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, updat..."
   },
   "azure_arm_apimanagement": {
+    "id": "azure_arm_apimanagement",
     "title": "ApiManagementClient",
     "description": "Use these REST APIs for performing operations on entities like API, Product, and Subscription associated with your Azure..."
   },
   "azure_arm_appinsights": {
+    "id": "azure_arm_appinsights",
     "title": "AppInsightsManagementClient",
     "description": "Azure Application Insights client for web test based alerting."
   },
   "azure_arm_authorization": {
+    "id": "azure_arm_authorization",
     "title": "AuthorizationManagementClient",
     "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources ..."
   },
   "azure_arm_batch": {
+    "id": "azure_arm_batch",
     "title": "BatchManagement"
   },
   "azure_arm_billing": {
+    "id": "azure_arm_billing",
     "title": "BillingClient",
     "description": "Billing client provides access to billing resources for Azure Web-Direct subscriptions. Other subscription types which w..."
   },
   "azure_arm_cdn": {
+    "id": "azure_arm_cdn",
     "title": "CdnManagementClient",
     "description": "Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made t..."
   },
   "azure_arm_cognitiveservices": {
+    "id": "azure_arm_cognitiveservices",
     "title": "CognitiveServicesManagementClient",
     "description": "Cognitive Services Management Client"
   },
   "azure_arm_commerce": {
+    "id": "azure_arm_commerce",
     "title": "UsageManagementClient"
   },
   "azure_arm_compute": {
+    "id": "azure_arm_compute",
     "title": "ComputeManagementClient",
     "description": "The Compute Management Client."
   },
   "azure_arm_compute_containerservice": {
+    "id": "azure_arm_compute_containerservice",
     "title": "ContainerServiceClient",
     "description": "The Container Service Client."
   },
   "azure_arm_compute_disk": {
+    "id": "azure_arm_compute_disk",
     "title": "DiskResourceProviderClient",
     "description": "The Disk Resource Provider Client."
   },
   "azure_arm_consumption": {
+    "id": "azure_arm_consumption",
     "title": "ConsumptionManagementClient",
     "description": "Consumption management client provides access to consumption resources for Azure Web-Direct subscriptions. Other subscri..."
   },
   "azure_arm_containerregistry": {
+    "id": "azure_arm_containerregistry",
     "title": "ContainerRegistryManagementClient"
   },
   "azure_arm_devtestlabs": {
+    "id": "azure_arm_devtestlabs",
     "title": "DevTestLabsClient",
     "description": "Azure DevTest Labs REST API."
   },
   "azure_arm_dns": {
+    "id": "azure_arm_dns",
     "title": "DnsManagementClient",
     "description": "The DNS Management Client."
   },
   "azure_arm_documentdb": {
+    "id": "azure_arm_documentdb",
     "title": "DocumentDB",
     "description": "Azure DocumentDB Database Service Resource Provider REST API"
   },
   "azure_arm_eventhub": {
+    "id": "azure_arm_eventhub",
     "title": "EventHubManagementClient",
     "description": "Azure Event Hubs client"
   },
   "azure_arm_insights": {
+    "id": "azure_arm_insights",
     "title": "InsightsManagementClient"
   },
   "azure_arm_intune": {
+    "id": "azure_arm_intune",
     "title": "IntuneResourceManagementClient",
     "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification"
   },
   "azure_arm_iothub": {
+    "id": "azure_arm_iothub",
     "title": "iotHubClient",
     "description": "Use this API to manage the IoT hubs in your subscription."
   },
   "azure_arm_keyvault": {
+    "id": "azure_arm_keyvault",
     "title": "KeyVaultManagementClient",
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault."
   },
   "azure_arm_logic": {
+    "id": "azure_arm_logic",
     "title": "LogicManagementClient",
     "description": "REST API for Azure Logic Apps."
   },
   "azure_arm_machinelearning_commitmentplans": {
+    "id": "azure_arm_machinelearning_commitmentplans",
     "title": "Azure ML Commitment Plans Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment As..."
   },
   "azure_arm_machinelearning_webservices": {
+    "id": "azure_arm_machinelearning_webservices",
     "title": "Azure ML Web Services Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following opera..."
   },
   "azure_arm_mediaservices": {
+    "id": "azure_arm_mediaservices",
     "title": "MediaServicesManagementClient",
     "description": "Media Services resource management APIs."
   },
   "azure_arm_mobileengagement": {
+    "id": "azure_arm_mobileengagement",
     "title": "Engagement.ManagementClient",
     "description": "Microsoft Azure Mobile Engagement REST APIs."
   },
   "azure_arm_monitor": {
+    "id": "azure_arm_monitor",
     "title": "MonitorManagementClient"
   },
   "azure_arm_network": {
+    "id": "azure_arm_network",
     "title": "NetworkManagementClient",
     "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Net..."
   },
   "azure_arm_notificationhubs": {
+    "id": "azure_arm_notificationhubs",
     "title": "NotificationHubsManagementClient",
     "description": "Azure NotificationHub client"
   },
   "azure_arm_operationalinsights": {
+    "id": "azure_arm_operationalinsights",
     "title": "Azure Log Analytics",
     "description": "Azure Log Analytics API reference for LinkTargets, StorageInsightConfigs and SavedSearches."
   },
   "azure_arm_powerbiembedded": {
+    "id": "azure_arm_powerbiembedded",
     "title": "Power BI Embedded Management Client",
     "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces."
   },
   "azure_arm_recoveryservicesbackup": {
+    "id": "azure_arm_recoveryservicesbackup",
     "title": "RecoveryServicesBackupClient"
   },
   "azure_arm_redis": {
+    "id": "azure_arm_redis",
     "title": "RedisManagementClient",
     "description": "REST API for Azure Redis Cache Service."
   },
   "azure_arm_relay": {
+    "id": "azure_arm_relay",
     "title": "Relay",
     "description": "Use these API to manage Azure Relay resources through Azure Resources Manager."
   },
   "azure_arm_resourcehealth": {
+    "id": "azure_arm_resourcehealth",
     "title": "Microsoft.ResourceHealth",
     "description": "The Resource Health Client."
   },
   "azure_arm_scheduler": {
+    "id": "azure_arm_scheduler",
     "title": "SchedulerManagementClient"
   },
   "azure_arm_search": {
+    "id": "azure_arm_search",
     "title": "SearchManagementClient",
     "description": "Client that can be used to manage Azure Search services and API keys."
   },
   "azure_arm_servermanagement": {
+    "id": "azure_arm_servermanagement",
     "title": "ServerManagement",
     "description": "REST API for Azure Server Management Service."
   },
   "azure_arm_service_map": {
+    "id": "azure_arm_service_map",
     "title": "Service Map",
     "description": "Service Map API Reference"
   },
   "azure_arm_servicebus": {
+    "id": "azure_arm_servicebus",
     "title": "ServiceBusManagementClient",
     "description": "Azure Service Bus client"
   },
   "azure_arm_servicefabric": {
+    "id": "azure_arm_servicefabric",
     "title": "ServiceFabricManagementClient"
   },
   "azure_arm_sql": {
+    "id": "azure_arm_sql",
     "title": "Azure SQL Database",
     "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, el..."
   },
   "azure_arm_storage": {
+    "id": "azure_arm_storage",
     "title": "StorageManagement",
     "description": "The Azure Storage Management API."
   },
   "azure_arm_storageimportexport": {
+    "id": "azure_arm_storageimportexport",
     "title": "StorageImportExport",
     "description": "The Microsoft Azure Storage Import/Export Resource Provider API."
   },
   "azure_arm_storsimple8000series": {
+    "id": "azure_arm_storsimple8000series",
     "title": "StorSimpleSeries8000ManagementClient"
   },
   "azure_arm_trafficmanager": {
+    "id": "azure_arm_trafficmanager",
     "title": "TrafficManagerManagementClient"
   },
   "azure_arm_web": {
+    "id": "azure_arm_web",
     "title": "WebSite Management Client",
     "description": "Use these APIs to manage Azure Websites resources through the Azure Resource Manager. All task operations conform to the..."
   },
   "azure_insights": {
+    "id": "azure_insights",
     "title": "InsightsClient"
   },
   "azure_monitor": {
+    "id": "azure_monitor",
     "title": "MonitorClient"
   },
   "bbc": {
+    "id": "bbc",
     "title": "BBC Nitro",
     "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata."
   },
   "bbc_rss": {
+    "id": "bbc_rss",
     "title": "feeds.bbci.co.uk"
   },
   "bbci": {
+    "id": "bbci",
     "title": "BBC iPlayer Business Layer",
     "description": "The definitive iPlayer API."
   },
   "bclaws_ca_bclaws": {
+    "id": "bclaws_ca_bclaws",
     "title": "BC Laws",
     "description": "BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the ..."
   },
   "beanstream": {
+    "id": "beanstream",
     "title": "Beanstream Payments",
     "description": "https://www.beanstream.com/api/v1"
   },
   "beezup": {
+    "id": "beezup",
     "title": "Marketplaces - Orders",
     "description": "This API will gives you the ability to manage your orders."
   },
   "bigoven": {
+    "id": "bigoven",
     "title": "BigOven",
     "description": "#Documentation\r"
   },
   "bikewise": {
+    "id": "bikewise",
     "title": "BikeWise API v2",
     "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub."
   },
   "bitbucket": {
+    "id": "bitbucket",
     "title": "Bitbucket",
     "description": "Code against the Bitbucket API to automate simple tasks, embed Bitbucket data into your own site, build mobile or deskto..."
   },
   "bluemix_containers": {
+    "id": "bluemix_containers",
     "title": "IBM Containers",
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene..."
   },
   "botify": {
+    "id": "botify",
     "title": "Botify",
     "description": "Botify Saas API"
   },
   "brandlovers": {
+    "id": "brandlovers",
     "title": "BrandLovers Marketplace API V1",
     "description": "Allows sellers to: 1) Load products definitions to the BrandLovers marktplace. 2) Receive and update orders status. 3) R..."
   },
   "browshot": {
+    "id": "browshot",
     "title": "Browshot",
     "description": "Take screenshots of any website in real time"
   },
   "bufferapp": {
+    "id": "bufferapp",
     "title": "Bufferapp",
     "description": "Social media management for marketers and agencies"
   },
   "cambase": {
+    "id": "cambase",
     "title": "Cambase.io",
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ..."
   },
   "cenit": {
+    "id": "cenit",
     "title": "Cenit IO - REST API Specification",
     "description": "Cenit IO is an Open Platform for Data and Business Integration (iPaaS)"
   },
   "channel4": {
+    "id": "channel4",
     "title": "Channel 4",
     "description": "This is the place to come for all the technical details you need to power your applications with Channel 4's deep progra..."
   },
   "circleci": {
+    "id": "circleci",
     "title": "CircleCI",
     "description": "The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI."
   },
   "cisco": {
+    "id": "cisco",
     "title": "Cisco PSIRT openVuln",
     "description": "The Cisco Product Security Incident Response Team (PSIRT) openVuln API is a RESTful API that allows customers to obtain ..."
   },
   "citrix_gotoassistseeit": {
+    "id": "citrix_gotoassistseeit",
     "title": "GoToAssist Seeit",
     "description": "Allows you to integrate GoToAssist Seeit into your own solutions.General notes:GoToAssist Seeit sessions are identified ..."
   },
   "citrix_gotomeeting": {
+    "id": "citrix_gotomeeting",
     "title": "GoToMeeting",
     "description": "The GoToMeeting API provides seamless integration of GoToMeeting provisioning and meeting management into your existing ..."
   },
   "citrix_gototraining": {
+    "id": "citrix_gototraining",
     "title": "GoToTraining",
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ..."
   },
   "citrix_gotowebinar": {
+    "id": "citrix_gotowebinar",
     "title": "GoToWebinar",
     "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct..."
   },
   "citrix_scim": {
+    "id": "citrix_scim",
     "title": "SCIM",
     "description": "The SCIM API lets you manage users in your organization. You can then automate the provisioning of product licenses for ..."
   },
   "citycontext": {
+    "id": "citycontext",
     "title": "City Context",
     "description": "City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more."
   },
   "clarify": {
+    "id": "clarify",
     "title": "Clarify",
     "description": "The API to Search and Understand Audio & Video Data."
   },
   "clickmeter": {
+    "id": "clickmeter",
     "title": "ClickMeter",
     "description": "Api dashboard for ClickMeter API"
   },
   "cloud_gov": {
+    "id": "cloud_gov",
     "title": "Discovery Market Research",
     "description": "This API drives the Discovery Market Research Tool."
   },
   "cnab_online_herokuapp": {
+    "id": "cnab_online_herokuapp",
     "title": "Cnab Online",
     "description": "Processe arquivos de retorno CNAB"
   },
   "cnn_rss": {
+    "id": "cnn_rss",
     "title": "rss.cnn.com"
   },
   "consumerfinance_gov": {
+    "id": "consumerfinance_gov",
     "title": "The Consumer Financial Protection Bureau",
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API."
   },
   "core_ac_uk": {
+    "id": "core_ac_uk",
     "title": "CORE API v2",
     "description": "You can use the CORE API to access the "
   },
   "cybertaxonomy_eu": {
+    "id": "cybertaxonomy_eu",
     "title": "EU BON UTIS",
     "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project"
   },
   "data2crm": {
+    "id": "data2crm",
     "title": "Data2CRM.API",
     "description": "Make use of our in-depth documentation to get more information about the various functions of the service. Those willing..."
   },
   "data_gov": {
+    "id": "data_gov",
     "title": "Regulations.gov",
     "description": "Provides public users access to federal regulatory content."
   },
   "datumbox": {
+    "id": "datumbox",
     "title": "DatumBox",
     "description": "Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functi..."
   },
   "dweet": {
+    "id": "dweet",
     "title": "dweet.io",
     "description": "Dweet.io allows users to share data from mobile, tablets, and pcs, and them to other devices and accounts across social ..."
   },
   "epa_gov_air": {
+    "id": "epa_gov_air",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Air Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_case": {
+    "id": "epa_gov_case",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Enforcement Case Search",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_cwa": {
+    "id": "epa_gov_cwa",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_dfr": {
+    "id": "epa_gov_dfr",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Detailed Facility Report (DFR)",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_echo": {
+    "id": "epa_gov_echo",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - All Data",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_eff": {
+    "id": "epa_gov_eff",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Effluent Charting and Reporting",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_rcra": {
+    "id": "epa_gov_rcra",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Resource Conservation and Recovery Act ",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "epa_gov_sdw": {
+    "id": "epa_gov_sdw",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C..."
   },
   "europeana_eu": {
+    "id": "europeana_eu",
     "title": "Europeana",
     "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything..."
   },
   "exavault": {
+    "id": "exavault",
     "title": "ExaVault",
     "description": "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own appli..."
   },
   "firebrowse": {
+    "id": "firebrowse",
     "title": "FireBrowse Beta API",
     "description": "A simple and elegant way to explore cancer data"
   },
   "flat": {
+    "id": "flat",
     "title": "Flat",
     "description": "The Flat API allows you to easily extend the abilities of the [Flat Platform](https://flat.io), with a wide range of use..."
   },
   "furkot": {
+    "id": "furkot",
     "title": "Furkot Trips",
     "description": "Furkot provides Rest API to access user trip data."
   },
   "geneea": {
+    "id": "geneea",
     "title": "Geneea Natural Language Processing",
     "description": ""
   },
   "geodesystems": {
+    "id": "geodesystems",
     "title": "RAMADDA",
     "description": "Search for data in lots of places - manage your documents, photos and critical business knowledge - communicate and coor..."
   },
   "getsandbox": {
+    "id": "getsandbox",
     "title": "Sandbox",
     "description": "Sandbox API"
   },
   "gettyimages": {
+    "id": "gettyimages",
     "title": "Getty Images",
     "description": "Build applications using the world's most powerful imagery"
   },
   "github": {
+    "id": "github",
     "title": "GitHub",
     "description": "Powerful collaboration, code review, and code management for open source and private projects."
   },
   "gitlab": {
+    "id": "gitlab",
     "title": "Gitlab",
     "description": "The platform for modern developers"
   },
   "google_acceleratedmobilepageurl": {
+    "id": "google_acceleratedmobilepageurl",
     "title": "Accelerated Mobile Pages (AMP) URL",
     "description": "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for..."
   },
   "google_adexchangebuyer": {
+    "id": "google_adexchangebuyer",
     "title": "Ad Exchange Buyer",
     "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves..."
   },
   "google_adexchangebuyer2": {
+    "id": "google_adexchangebuyer2",
     "title": "Ad Exchange Buyer API II",
     "description": "Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, an..."
   },
   "google_adexchangeseller": {
+    "id": "google_adexchangeseller",
     "title": "Ad Exchange Seller",
     "description": "Accesses the inventory of Ad Exchange seller users and generates reports."
   },
   "google_admin": {
+    "id": "google_admin",
     "title": "Admin Reports",
     "description": "Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their..."
   },
   "google_adsense": {
+    "id": "google_adsense",
     "title": "AdSense Management",
     "description": "Accesses AdSense publishers' inventory and generates performance reports."
   },
   "google_adsensehost": {
+    "id": "google_adsensehost",
     "title": "AdSense Host",
     "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts."
   },
   "google_analytics": {
+    "id": "google_analytics",
     "title": "Google Analytics",
     "description": "Views and manages your Google Analytics data."
   },
   "google_analyticsreporting": {
+    "id": "google_analyticsreporting",
     "title": "Google Analytics Reporting",
     "description": "Accesses Analytics report data."
   },
   "google_androiddeviceprovisioning": {
+    "id": "google_androiddeviceprovisioning",
     "title": "Android Device Provisioning Partner",
     "description": "Android Device Provisioning Partner API"
   },
   "google_androidenterprise": {
+    "id": "google_androidenterprise",
     "title": "Google Play EMM",
     "description": "Manages the deployment of apps to Android for Work users."
   },
   "google_androidpublisher": {
+    "id": "google_androidpublisher",
     "title": "Google Play Developer",
     "description": "Lets Android application developers access their Google Play accounts."
   },
   "google_appengine": {
+    "id": "google_appengine",
     "title": "Google App Engine Admin",
     "description": "The App Engine Admin API enables developers to provision and manage their App Engine applications."
   },
   "google_appsactivity": {
+    "id": "google_appsactivity",
     "title": "G Suite Activity",
     "description": "Provides a historical view of activity."
   },
   "google_appstate": {
+    "id": "google_appstate",
     "title": "Google App State",
     "description": "The Google App State API."
   },
   "google_bigquery": {
+    "id": "google_bigquery",
     "title": "BigQuery",
     "description": "A data platform for customers to create, manage, share and query data."
   },
   "google_blogger": {
+    "id": "google_blogger",
     "title": "Blogger",
     "description": "API for access to the data within Blogger."
   },
   "google_books": {
+    "id": "google_books",
     "title": "Books",
     "description": "Searches for books and manages your Google Books library."
   },
   "google_calendar": {
+    "id": "google_calendar",
     "title": "Calendar",
     "description": "Manipulates events and other calendar data."
   },
   "google_civicinfo": {
+    "id": "google_civicinfo",
     "title": "Google Civic Information",
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S...."
   },
   "google_classroom": {
+    "id": "google_classroom",
     "title": "Google Classroom",
     "description": "Manages classes, rosters, and invitations in Google Classroom."
   },
   "google_cloudbilling": {
+    "id": "google_cloudbilling",
     "title": "Google Cloud Billing",
     "description": "Allows developers to manage billing for their Google Cloud Platform projects"
   },
   "google_cloudbuild": {
+    "id": "google_cloudbuild",
     "title": "Google Cloud Container Builder",
     "description": "Builds container images in the cloud."
   },
   "google_clouddebugger": {
+    "id": "google_clouddebugger",
     "title": "Stackdriver Debugger",
     "description": "Examines the call stack and variables of a running application without stopping or slowing it down."
   },
   "google_clouderrorreporting": {
+    "id": "google_clouderrorreporting",
     "title": "Stackdriver Error Reporting",
     "description": "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API pr..."
   },
   "google_cloudfunctions": {
+    "id": "google_cloudfunctions",
     "title": "Google Cloud Functions",
     "description": "API for managing lightweight user-provided functions executed in response to events."
   },
   "google_cloudkms": {
+    "id": "google_cloudkms",
     "title": "Google Cloud Key Management Service (KMS)",
     "description": "Manages encryption for your cloud services the same way you do on-premise. You can generate, use, rotate, and destroy AE..."
   },
   "google_cloudmonitoring": {
+    "id": "google_cloudmonitoring",
     "title": "Cloud Monitoring",
     "description": "Accesses Google Cloud Monitoring data."
   },
   "google_cloudresourcemanager": {
+    "id": "google_cloudresourcemanager",
     "title": "Google Cloud Resource Manager",
     "description": "The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata."
   },
   "google_cloudtrace": {
+    "id": "google_cloudtrace",
     "title": "Stackdriver Trace",
     "description": "Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine appli..."
   },
   "google_clouduseraccounts": {
+    "id": "google_clouduseraccounts",
     "title": "Cloud User Accounts",
     "description": "Creates and manages users and groups for accessing Google Compute Engine virtual machines."
   },
   "google_compute": {
+    "id": "google_compute",
     "title": "Compute Engine",
     "description": "Creates and runs virtual machines on Google Cloud Platform."
   },
   "google_consumersurveys": {
+    "id": "google_consumersurveys",
     "title": "Consumer Surveys",
     "description": "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and inform..."
   },
   "google_container": {
+    "id": "google_container",
     "title": "Google Container Engine",
     "description": "The Google Container Engine API is used for building and managing container based applications, powered by the open sour..."
   },
   "google_content": {
+    "id": "google_content",
     "title": "Content API for Shopping",
     "description": "Manages product items, inventory, and Merchant Center accounts for Google Shopping."
   },
   "google_customsearch": {
+    "id": "google_customsearch",
     "title": "CustomSearch",
     "description": "Lets you search over a website or collection of websites"
   },
   "google_dataflow": {
+    "id": "google_dataflow",
     "title": "Google Dataflow",
     "description": "Manages Google Cloud Dataflow projects on Google Cloud Platform."
   },
   "google_dataproc": {
+    "id": "google_dataproc",
     "title": "Google Cloud Dataproc",
     "description": "Manages Hadoop-based clusters and jobs on Google Cloud Platform."
   },
   "google_datastore": {
+    "id": "google_datastore",
     "title": "Google Cloud Datastore",
     "description": "Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application."
   },
   "google_deploymentmanager": {
+    "id": "google_deploymentmanager",
     "title": "Google Cloud Deployment Manager",
     "description": "Declares, configures, and deploys complex solutions on Google Cloud Platform."
   },
   "google_dfareporting": {
+    "id": "google_dfareporting",
     "title": "DCM/DFA Reporting And Trafficking",
     "description": "Manages your DoubleClick Campaign Manager ad campaigns and reports."
   },
   "google_discovery": {
+    "id": "google_discovery",
     "title": "APIs Discovery Service",
     "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each..."
   },
   "google_dlp": {
+    "id": "google_dlp",
     "title": "DLP",
     "description": "The Google Data Loss Prevention API provides methods for detection of privacy-sensitive fragments in text, images, and G..."
   },
   "google_dns": {
+    "id": "google_dns",
     "title": "Google Cloud DNS",
     "description": "Configures and serves authoritative DNS records."
   },
   "google_doubleclickbidmanager": {
+    "id": "google_doubleclickbidmanager",
     "title": "DoubleClick Bid Manager",
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager."
   },
   "google_doubleclicksearch": {
+    "id": "google_doubleclicksearch",
     "title": "DoubleClick Search",
     "description": "Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conve..."
   },
   "google_drive": {
+    "id": "google_drive",
     "title": "Drive",
     "description": "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions."
   },
   "google_firebasedynamiclinks": {
+    "id": "google_firebasedynamiclinks",
     "title": "Firebase Dynamic Links",
     "description": "Firebase Dynamic Links API enables third party developers to programmatically create and manage Dynamic Links."
   },
   "google_firebaserules": {
+    "id": "google_firebaserules",
     "title": "Firebase Rules",
     "description": "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request."
   },
   "google_fitness": {
+    "id": "google_fitness",
     "title": "Fitness",
     "description": "Stores and accesses user data in the fitness store from apps on any platform."
   },
   "google_fusiontables": {
+    "id": "google_fusiontables",
     "title": "Fusion Tables",
     "description": "API for working with Fusion Tables data."
   },
   "google_games": {
+    "id": "google_games",
     "title": "Google Play Game Services",
     "description": "The API for Google Play Game Services."
   },
   "google_gamesconfiguration": {
+    "id": "google_gamesconfiguration",
     "title": "Google Play Game Services Publishing",
     "description": "The Publishing API for Google Play Game Services."
   },
   "google_gamesmanagement": {
+    "id": "google_gamesmanagement",
     "title": "Google Play Game Services Management",
     "description": "The Management API for Google Play Game Services."
   },
   "google_genomics": {
+    "id": "google_genomics",
     "title": "Genomics",
     "description": "Upload, process, query, and search Genomics data in the cloud."
   },
   "google_gmail": {
+    "id": "google_gmail",
     "title": "Gmail",
     "description": "Access Gmail mailboxes including sending user email."
   },
   "google_groupsmigration": {
+    "id": "google_groupsmigration",
     "title": "Groups Migration",
     "description": "Groups Migration Api."
   },
   "google_groupssettings": {
+    "id": "google_groupssettings",
     "title": "Groups Settings",
     "description": "Lets you manage permission levels and related settings of a group."
   },
   "google_iam": {
+    "id": "google_iam",
     "title": "Google Identity and Access Management (IAM)",
     "description": "Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, whi..."
   },
   "google_identitytoolkit": {
+    "id": "google_identitytoolkit",
     "title": "Google Identity Toolkit",
     "description": "Help the third party sites to implement federated login."
   },
   "google_kgsearch": {
+    "id": "google_kgsearch",
     "title": "Knowledge Graph Search",
     "description": "Searches the Google Knowledge Graph for entities."
   },
   "google_language": {
+    "id": "google_language",
     "title": "Google Cloud Natural Language",
     "description": "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include s..."
   },
   "google_licensing": {
+    "id": "google_licensing",
     "title": "Enterprise License Manager",
     "description": "Views and manages licenses for your domain."
   },
   "google_logging": {
+    "id": "google_logging",
     "title": "Stackdriver Logging",
     "description": "Writes log entries and manages your Stackdriver Logging configuration."
   },
   "google_manufacturers": {
+    "id": "google_manufacturers",
     "title": "Manufacturer Center",
     "description": "Public API for managing Manufacturer Center related data."
   },
   "google_mirror": {
+    "id": "google_mirror",
     "title": "Google Mirror",
     "description": "Interacts with Glass users via the timeline."
   },
   "google_ml": {
+    "id": "google_ml",
     "title": "Google Cloud Machine Learning Engine",
     "description": "An API to enable creating and using machine learning models."
   },
   "google_monitoring": {
+    "id": "google_monitoring",
     "title": "Stackdriver Monitoring",
     "description": "Manages your Stackdriver Monitoring data and configurations. Most projects must be associated with a Stackdriver account..."
   },
   "google_oauth2": {
+    "id": "google_oauth2",
     "title": "Google OAuth2",
     "description": "Obtains end-user authorization grants for use with other Google APIs."
   },
   "google_pagespeedonline": {
+    "id": "google_pagespeedonline",
     "title": "PageSpeed Insights",
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster."
   },
   "google_partners": {
+    "id": "google_partners",
     "title": "Google Partners",
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients."
   },
   "google_people": {
+    "id": "google_people",
     "title": "Google People",
     "description": "Provides access to information about profiles and contacts."
   },
   "google_playmoviespartner": {
+    "id": "google_playmoviespartner",
     "title": "Google Play Movies Partner",
     "description": "Gets the delivery status of titles for Google Play Movies Partners."
   },
   "google_plus": {
+    "id": "google_plus",
     "title": "Google+",
     "description": "Builds on top of the Google+ platform."
   },
   "google_plusdomains": {
+    "id": "google_plusdomains",
     "title": "Google+ Domains",
     "description": "Builds on top of the Google+ platform for Google Apps Domains."
   },
   "google_prediction": {
+    "id": "google_prediction",
     "title": "Prediction",
     "description": "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps"
   },
   "google_proximitybeacon": {
+    "id": "google_proximitybeacon",
     "title": "Google Proximity Beacon",
     "description": "Registers, manages, indexes, and searches beacons."
   },
   "google_pubsub": {
+    "id": "google_pubsub",
     "title": "Google Cloud Pub/Sub",
     "description": "Provides reliable, many-to-many, asynchronous messaging between applications."
   },
   "google_qpxexpress": {
+    "id": "google_qpxexpress",
     "title": "QPX Express",
     "description": "Finds the least expensive flights between an origin and a destination."
   },
   "google_replicapool": {
+    "id": "google_replicapool",
     "title": "Google Compute Engine Instance Group Manager",
     "description": "[Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances."
   },
   "google_replicapoolupdater": {
+    "id": "google_replicapoolupdater",
     "title": "Google Compute Engine Instance Group Updater",
     "description": "[Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after Decem..."
   },
   "google_reseller": {
+    "id": "google_reseller",
     "title": "Enterprise Apps Reseller",
     "description": "Creates and manages your customers and their subscriptions."
   },
   "google_resourceviews": {
+    "id": "google_resourceviews",
     "title": "Google Compute Engine Instance Groups",
     "description": "The Resource View API allows users to create and manage logical sets of Google Compute Engine instances."
   },
   "google_runtimeconfig": {
+    "id": "google_runtimeconfig",
     "title": "Google Cloud RuntimeConfig",
     "description": "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform."
   },
   "google_safebrowsing": {
+    "id": "google_safebrowsing",
     "title": "Google Safe Browsing",
     "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u..."
   },
   "google_script": {
+    "id": "google_script",
     "title": "Google Apps Script Execution",
     "description": "Executes Google Apps Script projects."
   },
   "google_searchconsole": {
+    "id": "google_searchconsole",
     "title": "Google Search Console URL Testing Tools",
     "description": "Provides tools for running validation tests against single URLs"
   },
   "google_servicecontrol": {
+    "id": "google_servicecontrol",
     "title": "Google Service Control",
     "description": "Google Service Control provides control plane functionality to managed services, such as logging, monitoring, and status..."
   },
   "google_servicemanagement": {
+    "id": "google_servicemanagement",
     "title": "Google Service Management",
     "description": "Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can b..."
   },
   "google_serviceuser": {
+    "id": "google_serviceuser",
     "title": "Google Service User",
     "description": "Enables services that service consumers want to use on Google Cloud Platform, lists the available or enabled services, o..."
   },
   "google_sheets": {
+    "id": "google_sheets",
     "title": "Google Sheets",
     "description": "Reads and writes Google Sheets."
   },
   "google_siteverification": {
+    "id": "google_siteverification",
     "title": "Google Site Verification",
     "description": "Verifies ownership of websites or domains with Google."
   },
   "google_slides": {
+    "id": "google_slides",
     "title": "Google Slides",
     "description": "An API for creating and editing Google Slides presentations."
   },
   "google_sourcerepo": {
+    "id": "google_sourcerepo",
     "title": "Cloud Source Repositories",
     "description": "Access source code repositories hosted by Google."
   },
   "google_spanner": {
+    "id": "google_spanner",
     "title": "Cloud Spanner",
     "description": "Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service."
   },
   "google_spectrum": {
+    "id": "google_spectrum",
     "title": "Google Spectrum Database",
     "description": "API for spectrum-management functions."
   },
   "google_speech": {
+    "id": "google_speech",
     "title": "Google Cloud Speech",
     "description": "Google Cloud Speech API."
   },
   "google_sqladmin": {
+    "id": "google_sqladmin",
     "title": "Cloud SQL Administration",
     "description": "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases."
   },
   "google_storage": {
+    "id": "google_storage",
     "title": "Cloud Storage",
     "description": "Stores and retrieves potentially large, immutable data objects."
   },
   "google_storagetransfer": {
+    "id": "google_storagetransfer",
     "title": "Google Storage Transfer",
     "description": "Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets."
   },
   "google_supportcases": {
+    "id": "google_supportcases",
     "title": "Google Support Cases Private",
     "description": "Support Cases API"
   },
   "google_surveys": {
+    "id": "google_surveys",
     "title": "Surveys",
     "description": "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and inform..."
   },
   "google_tagmanager": {
+    "id": "google_tagmanager",
     "title": "Tag Manager",
     "description": "Accesses Tag Manager accounts and containers."
   },
   "google_taskqueue": {
+    "id": "google_taskqueue",
     "title": "TaskQueue",
     "description": "Accesses a Google App Engine Pull Task Queue over REST."
   },
   "google_tasks": {
+    "id": "google_tasks",
     "title": "Tasks",
     "description": "Lets you manage your tasks and task lists."
   },
   "google_toolresults": {
+    "id": "google_toolresults",
     "title": "Cloud Tool Results",
     "description": "Reads and publishes results from Firebase Test Lab."
   },
   "google_tracing": {
+    "id": "google_tracing",
     "title": "Google Tracing",
     "description": "Send and retrieve trace data from Google Stackdriver Trace."
   },
   "google_translate": {
+    "id": "google_translate",
     "title": "Translate",
     "description": "Translates text from one language to another."
   },
   "google_urlshortener": {
+    "id": "google_urlshortener",
     "title": "URL Shortener",
     "description": "Lets you create, inspect, and manage goo.gl short URLs"
   },
   "google_vision": {
+    "id": "google_vision",
     "title": "Google Cloud Vision",
     "description": "Integrates Google Vision features, including image labeling, face, logo, and landmark detection, optical character recog..."
   },
   "google_webfonts": {
+    "id": "google_webfonts",
     "title": "Google Fonts Developer",
     "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (includi..."
   },
   "google_webmasters": {
+    "id": "google_webmasters",
     "title": "Search Console",
     "description": "View Google Search Console data for your verified sites."
   },
   "google_youtube": {
+    "id": "google_youtube",
     "title": "YouTube Data",
     "description": "Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and mu..."
   },
   "google_youtubeanalytics": {
+    "id": "google_youtubeanalytics",
     "title": "YouTube Analytics",
     "description": "Retrieves your YouTube Analytics data."
   },
   "google_youtubereporting": {
+    "id": "google_youtubereporting",
     "title": "YouTube Reporting",
     "description": "Schedules reporting jobs containing your YouTube Analytics data and downloads the resulting bulk data reports in the for..."
   },
   "gov_bc_ca_bcdc": {
+    "id": "gov_bc_ca_bcdc",
     "title": "BC Data Catalogue",
     "description": "This API provides live access to the BC Data Catalogue. Further documentation on the API is available from http://docs.c..."
   },
   "gov_bc_ca_bcgnws": {
+    "id": "gov_bc_ca_bcgnws",
     "title": "BC Geographical Names Web Service -",
     "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, in..."
   },
   "gov_bc_ca_geocoder": {
+    "id": "gov_bc_ca_geocoder",
     "title": "Gated Geocoder",
     "description": "This gated API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic a..."
   },
   "gov_bc_ca_geomark": {
+    "id": "gov_bc_ca_geomark",
     "title": "GeoMark Web Service",
     "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats..."
   },
   "gov_bc_ca_jobposting": {
+    "id": "gov_bc_ca_jobposting",
     "title": "WorkBC Job Posting",
     "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice."
   },
   "gov_bc_ca_open511": {
+    "id": "gov_bc_ca_open511",
     "title": "DriveBC's Open511",
     "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (tra..."
   },
   "gov_bc_ca_router": {
+    "id": "gov_bc_ca_router",
     "title": "BC Route Planner",
     "description": "Finds shortest/fastest route between a start point and one or more stop points on British Columbia's public road network..."
   },
   "graphhopper": {
+    "id": "graphhopper",
     "title": "Route Optimization",
     "description": "Our Route Optimization API solves the so called vehicle routing problem fast. It calculates an optimal tour for a set of..."
   },
   "hacker_news": {
+    "id": "hacker_news",
     "title": "Hacker News",
     "description": "Hacker News is a social news website focusing on computer science and entrepreneurship"
   },
   "healthcare_gov": {
+    "id": "healthcare_gov",
     "title": "Healthcare"
   },
   "hetras_certification_booking": {
+    "id": "hetras_certification_booking",
     "title": "hetras Booking API Version 0"
   },
   "hetras_certification_hotel": {
+    "id": "hetras_certification_hotel",
     "title": "hetras Hotel API Version 0"
   },
   "hhs_gov": {
+    "id": "hhs_gov",
     "title": "HHS Media Services",
     "description": ""
   },
   "idtbeyond": {
+    "id": "idtbeyond",
     "title": "Active Documentation for /v1",
     "description": "Our active docs provide the ability to test out your account and to see the responses to your queries. The services are ..."
   },
   "ijenko": {
+    "id": "ijenko",
     "title": "IoE² IoT API - to create end-user applications"
   },
   "import_data": {
+    "id": "import_data",
     "title": "import.io"
   },
   "import_extraction": {
+    "id": "import_extraction",
     "title": "import.io"
   },
   "import_rss": {
+    "id": "import_rss",
     "title": "import.io"
   },
   "import_run": {
+    "id": "import_run",
     "title": "import.io"
   },
   "import_schedule": {
+    "id": "import_schedule",
     "title": "import.io"
   },
   "inboxroute": {
+    "id": "inboxroute",
     "title": "Mailsquad",
     "description": "MailSquad offers an affordable and super easy way to create, send and track delightful emails."
   },
   "infermedica": {
+    "id": "infermedica",
     "title": "Infermedica",
     "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API."
   },
   "instagram": {
+    "id": "instagram",
     "title": "Instagram",
     "description": "Description of Instagram RESTful API."
   },
   "jirafe": {
+    "id": "jirafe",
     "title": "Jirafe Events",
     "description": "API endpoins for sending Jirafe events"
   },
   "learnifier": {
+    "id": "learnifier",
     "title": "Learnifier"
   },
   "lyft": {
+    "id": "lyft",
     "title": "Lyft",
     "description": "Drive your app to success with Lyft's API"
   },
   "magick_nu": {
+    "id": "magick_nu",
     "title": "Tradeworks",
     "description": "Authentication is required to access all methods of the API. Enter username and password."
   },
   "mandrillapp": {
+    "id": "mandrillapp",
     "title": "Mandrill",
     "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ..."
   },
   "medium": {
+    "id": "medium",
     "title": "Medium.com",
     "description": "Medium’s unofficial API documentation using OpenAPI specification."
   },
   "moonmoonmoonmoon": {
+    "id": "moonmoonmoonmoon",
     "title": "Moon by Ai Weiwei & Olafur Eliasson",
     "description": "Turn nothing into something – make a drawing, make a mark."
   },
   "motaword": {
+    "id": "motaword",
     "title": "MotaWord",
     "description": "Use MotaWord API to post and track your translation projects."
   },
   "mozilla_kinto": {
+    "id": "mozilla_kinto",
     "title": "kinto"
   },
   "nativeads": {
+    "id": "nativeads",
     "title": "Native Ads Publisher",
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI."
   },
   "nba": {
+    "id": "nba",
     "title": "NBA Stats",
     "description": "The destination for current and historic NBA statistics."
   },
   "neowsapp": {
+    "id": "neowsapp",
     "title": "NeoWs - (Near Earth Object Web Service)",
     "description": "A web service for near earth objects. All the data is from the  NASA JPL Asteroid team. "
   },
   "netatmo": {
+    "id": "netatmo",
     "title": "Netatmo",
     "description": "Welcome to the Netatmo swagger on-line documentation !This site is a complement to the official Netatmo developper docum..."
   },
   "netlicensing": {
+    "id": "netlicensing",
     "title": "Labs64 NetLicensing RESTful API Test Center",
     "description": "The Labs64 NetLicensing RESTful API gives you access to NetLicensing’s core features.AuthenticationYou authenticate to t..."
   },
   "neutrinoapi": {
+    "id": "neutrinoapi",
     "title": "NeutrinoAPI",
     "description": "The general-purpose API"
   },
   "npr_rss": {
+    "id": "npr_rss",
     "title": "www.npr.org"
   },
   "nrel_building_case_studies": {
+    "id": "nrel_building_case_studies",
     "title": "High Performance Building Database",
     "description": "The Buildings Database is a shared resource for the building industry. The Database, developed by the U.S. Department of..."
   },
   "nrel_transportation_incentives_laws": {
+    "id": "nrel_transportation_incentives_laws",
     "title": "Transportation Laws and Incentives",
     "description": "Query our database of State and Federal Laws and Incentives for Alternative Fuels"
   },
   "nsidc": {
+    "id": "nsidc",
     "title": "NSIDC Web Service Documentation Index",
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application..."
   },
   "nytimes_article_search": {
+    "id": "nytimes_article_search",
     "title": "Article Search",
     "description": "With the Article Search API, you can search New York Times articles from Sept. 18, 1851 to today, retrieving headlines, ..."
   },
   "nytimes_books_api": {
+    "id": "nytimes_books_api",
     "title": "Books",
     "description": "The Books API provides information about book reviews and The New York Times bestsellers lists."
   },
   "nytimes_community": {
+    "id": "nytimes_community",
     "title": "Community",
     "description": "Get access to comments from registered users on New York Times articles."
   },
   "nytimes_geo_api": {
+    "id": "nytimes_geo_api",
     "title": "Geographic",
     "description": "The Geographic API extends the Semantic API, using a linked data approach to enhance location concepts used in The New Y..."
   },
   "nytimes_most_popular_api": {
+    "id": "nytimes_most_popular_api",
     "title": "Most Popular",
     "description": "Get lists of NYT Articles based on shares, emails, and views."
   },
   "nytimes_movie_reviews": {
+    "id": "nytimes_movie_reviews",
     "title": "Movie Reviews",
     "description": "With the Movie Reviews API, you can search New York Times movie reviews by keyword and get lists of NYT Critics' Picks."
   },
   "nytimes_rss": {
+    "id": "nytimes_rss",
     "title": "rss.nytimes.com"
   },
   "nytimes_semantic_api": {
+    "id": "nytimes_semantic_api",
     "title": "Semantic",
     "description": "The Semantic API complements the Articles API. With the Semantic API, you get access to the long list of people, places,..."
   },
   "nytimes_times_tags": {
+    "id": "nytimes_times_tags",
     "title": "TimesTags",
     "description": "With the TimesTags API, you can mine the riches of the New York Times tag set. The TimesTags service matches your query ..."
   },
   "nytimes_timeswire": {
+    "id": "nytimes_timeswire",
     "title": "Times Newswire",
     "description": "With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are publis..."
   },
   "nytimes_top_stories": {
+    "id": "nytimes_top_stories",
     "title": "Top Stories",
     "description": "The Top Stories API provides lists of articles and associated images by section."
   },
   "oceandrivers": {
+    "id": "oceandrivers",
     "title": "ODWeather",
     "description": "This is the api to access the ODWeather API information"
   },
   "omdbapi": {
+    "id": "omdbapi",
     "title": "OMDb",
     "description": "The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the s..."
   },
   "openapi_converter_herokuapp": {
+    "id": "openapi_converter_herokuapp",
     "title": "Swagger2OpenAPI Converter",
     "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions"
   },
   "opencagedata": {
+    "id": "opencagedata",
     "title": "OpenCage Geocoder",
     "description": "Worldwide forward and reverse geocoding"
   },
   "orghunter": {
+    "id": "orghunter",
     "title": "OrgHunter",
     "description": "Get the latest IRS data and most up to date charity information for your website or application"
   },
   "owler": {
+    "id": "owler",
     "title": "Owler",
     "description": "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Co..."
   },
   "oxforddictionaries": {
+    "id": "oxforddictionaries",
     "title": "Oxford Dictionaries"
   },
   "pandorabots": {
+    "id": "pandorabots",
     "title": "Pandorabots AIaaS",
     "description": "AIaaS provides API access to our bot hosting platform and SDKs, allowing developers to easily integrate conversational i..."
   },
   "passwordutility": {
+    "id": "passwordutility",
     "title": "PasswordUtility.Web",
     "description": "Validate and generate passwords using open source tools"
   },
   "patientview": {
+    "id": "patientview",
     "title": "PatientView",
     "description": "The recommended REST API endpoints to be used when integrating with PatientView"
   },
   "peel_ci": {
+    "id": "peel_ci",
     "title": "Peel Tune-in API",
     "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtag..."
   },
   "posty": {
+    "id": "posty",
     "title": "posty_API",
     "description": "The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Post..."
   },
   "rbaskets_in": {
+    "id": "rbaskets_in",
     "title": "Request Baskets",
     "description": "RESTful API of Request Baskets service"
   },
   "rebilly": {
+    "id": "rebilly",
     "title": "Rebilly",
     "description": "# Introduction"
   },
   "reddit_rss": {
+    "id": "reddit_rss",
     "title": "www.reddit.com"
   },
   "refugerestrooms": {
+    "id": "refugerestrooms",
     "title": "Refuge Restrooms",
     "description": "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconformi..."
   },
   "reverb": {
+    "id": "reverb",
     "title": "reverb",
     "description": "reverb"
   },
   "ritc": {
+    "id": "ritc",
     "title": "Ritc",
     "description": "Rules in the Cloud"
   },
   "rottentomatoes": {
+    "id": "rottentomatoes",
     "title": "Rotten Tomatoes",
     "description": "Test our API services using I/O Docs."
   },
   "rummblelabs": {
+    "id": "rummblelabs",
     "title": "Seldon",
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep..."
   },
   "schooldigger": {
+    "id": "schooldigger",
     "title": "SchoolDigger API V1",
     "description": "Get detailed data on over 120,000 schools and 18,500 districts in the U.S."
   },
   "scrapewebsite_email": {
+    "id": "scrapewebsite_email",
     "title": "Scrape Website Email API",
     "description": "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website."
   },
   "semantria": {
+    "id": "semantria",
     "title": "Semantria",
     "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content."
   },
   "sendgrid": {
+    "id": "sendgrid",
     "title": "SendGrid v3"
   },
   "simplyrets": {
+    "id": "simplyrets",
     "title": "SimplyRETS",
     "description": "The SimplyRETS API is an exciting step towards making it easier for"
   },
   "slack": {
+    "id": "slack",
     "title": "Slack",
     "description": "A messaging app for teams"
   },
   "slideroom": {
+    "id": "slideroom",
     "title": "SlideRoom API V2",
     "description": "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account."
   },
   "smart_me": {
+    "id": "smart_me",
     "title": "smart-me",
     "description": "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So..."
   },
   "solarvps": {
+    "id": "solarvps",
     "title": "Solar VPS",
     "description": "This is the Solar VPS Public API. You can find more at http://www.solarvps.com"
   },
   "spectrocoin": {
+    "id": "spectrocoin",
     "title": "SpectroCoin Merchant",
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally."
   },
   "spotify": {
+    "id": "spotify",
     "title": "Spotify"
   },
   "squareup": {
+    "id": "squareup",
     "title": "Square Connect",
     "description": "Client library for accessing the Square Connect APIs"
   },
   "stackexchange": {
+    "id": "stackexchange",
     "title": "StackExchange",
     "description": "Stack Exchange is a network of 130+ Q&A communities including Stack Overflow."
   },
   "statsocial": {
+    "id": "statsocial",
     "title": "StatSocial Platform",
     "description": "API Reference:  The StatSocial API is organized around REST. Our API is designed to have predictable, resource-oriented ..."
   },
   "swagger_generator": {
+    "id": "swagger_generator",
     "title": "Swagger Generator",
     "description": "This is an online swagger codegen server.  You can find out more at https://github.com/swagger-api/swagger-codegen or on..."
   },
   "swaggerhub": {
+    "id": "swaggerhub",
     "title": "SwaggerHub Registry",
     "description": "The registry API for SwaggerHub"
   },
   "t213_vg": {
+    "id": "t213_vg",
     "title": "Magento Enterprise",
     "description": "Magento Commerce is the leading provider of open omnichannel innovation."
   },
   "taxamo": {
+    "id": "taxamo",
     "title": "Taxamo",
     "description": "Taxamo’s elegant suite of APIs and comprehensive reporting dashboard enables digital merchants to easily comply with EU ..."
   },
   "tfl_gov_uk": {
+    "id": "tfl_gov_uk",
     "title": "Transport for London Unified",
     "description": "Our unified API brings together data across all modes of transport into a single RESTful API. This API provides access t..."
   },
   "thenounproject": {
+    "id": "thenounproject",
     "title": "The Noun Project",
     "description": "Icons for Everything"
   },
   "thetvdb": {
+    "id": "thetvdb",
     "title": "TheTVDB API v2",
     "description": "API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provid..."
   },
   "traccar": {
+    "id": "traccar",
     "title": "traccar",
     "description": "Open Source GPS Tracking Platform"
   },
   "trello": {
+    "id": "trello",
     "title": "Trello",
     "description": "This document describes the REST API of Trello as published by Trello.com."
   },
   "twilio": {
+    "id": "twilio",
     "title": "Twilio",
     "description": "Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software."
   },
   "uebermaps": {
+    "id": "uebermaps",
     "title": "uebermaps API endpoints",
     "description": "Enable people to store spots on public and private maps"
   },
   "vatapi": {
+    "id": "vatapi",
     "title": "VAT API",
     "description": "A developer friendly API to help your business achieve VAT compliance"
   },
   "versioneye": {
+    "id": "versioneye",
     "title": "Available API endpoints",
     "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries."
   },
   "vestorly": {
+    "id": "vestorly",
     "title": "Vestorly",
     "description": "Vestorly Developers API"
   },
   "visagecloud": {
+    "id": "visagecloud",
     "title": "VisageCloud",
     "description": "Face search, recognition & classification API. Just make a call to our REST API each time your app needs to access face ..."
   },
   "waag": {
+    "id": "waag",
     "title": "CitySDK Linked Data",
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas."
   },
   "watchful_li": {
+    "id": "watchful_li",
     "title": "watchful.li"
   },
   "wavecell": {
+    "id": "wavecell",
     "title": "Wavecell.Sms.Api",
     "description": "This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be ..."
   },
   "wikimedia": {
+    "id": "wikimedia",
     "title": "Wikimedia",
     "description": "This API provides cacheable and straightforward access to Wikimedia content and data, in machine-readable formats. Each ..."
   },
   "windows_arm_graphrbac": {
+    "id": "windows_arm_graphrbac",
     "title": "GraphRbacManagementClient",
     "description": "The Graph RBAC Management Client"
   },
   "windows_batch": {
+    "id": "windows_batch",
     "title": "BatchService",
     "description": "A client for issuing REST requests to the Azure Batch service."
   },
   "winning_email": {
+    "id": "winning_email",
     "title": "Winning Email",
     "description": "The Winning Email API allows you to access our services from your applications. Contact us if you need help with anythin..."
   },
   "wordnik": {
+    "id": "wordnik",
     "title": "Wordnik",
     "description": "Wordnik is the world's biggest online English dictionary, by number of words"
   },
   "xkcd": {
+    "id": "xkcd",
     "title": "XKCD",
     "description": "Webcomic of romance, sarcasm, math, and language."
   },
   "yunbi": {
+    "id": "yunbi",
     "title": "Yunbi",
     "description": "Professional Cloud Trading Platform for Digital Assets"
   },
   "zappiti": {
+    "id": "zappiti",
     "title": "Zappiti Player",
     "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests."
   },
   "zoomconnect": {
+    "id": "zoomconnect",
     "title": "Zoom Connect",
     "description": "The world's greatest SMS API"
   },
   "http": {
+    "id": "http",
     "title": "HTTP",
     "description": "Make HTTP calls"
   },
   "mongodb": {
+    "id": "mongodb",
     "title": "MongoDB",
     "description": "Interact with MongoDB"
   }

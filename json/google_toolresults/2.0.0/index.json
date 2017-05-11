@@ -1,4 +1,5 @@
 {
+  "id": "google_toolresults",
   "title": "Cloud Tool Results",
   "description": "Reads and publishes results from Firebase Test Lab.",
   "definitions": {

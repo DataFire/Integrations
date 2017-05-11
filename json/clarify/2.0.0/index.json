@@ -1,4 +1,5 @@
 {
+  "id": "clarify",
   "title": "Clarify",
   "description": "The API to Search and Understand Audio & Video Data.",
   "definitions": {

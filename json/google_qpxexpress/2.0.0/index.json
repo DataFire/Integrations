@@ -1,4 +1,5 @@
 {
+  "id": "google_qpxexpress",
   "title": "QPX Express",
   "description": "Finds the least expensive flights between an origin and a destination.",
   "definitions": {

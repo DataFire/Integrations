@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_billing",
   "title": "BillingClient",
   "description": "Billing client provides access to billing resources for Azure Web-Direct subscriptions. Other subscription types which were not purchased directly through the Azure web portal are not supported through this preview API.",
   "definitions": {

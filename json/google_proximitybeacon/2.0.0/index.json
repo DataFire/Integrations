@@ -1,4 +1,5 @@
 {
+  "id": "google_proximitybeacon",
   "title": "Google Proximity Beacon",
   "description": "Registers, manages, indexes, and searches beacons.",
   "definitions": {

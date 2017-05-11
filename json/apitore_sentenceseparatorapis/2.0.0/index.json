@@ -1,4 +1,5 @@
 {
+  "id": "apitore_sentenceseparatorapis",
   "title": "Sentence separator APIs",
   "description": "Simple sentence separator.<BR />[Endpoint] https://api.apitore.com/api/17",
   "definitions": {

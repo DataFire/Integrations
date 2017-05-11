@@ -1,4 +1,5 @@
 {
+  "id": "uebermaps",
   "title": "uebermaps API endpoints",
   "description": "Enable people to store spots on public and private maps",
   "definitions": {

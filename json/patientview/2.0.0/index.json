@@ -1,4 +1,5 @@
 {
+  "id": "patientview",
   "title": "PatientView",
   "description": "The recommended REST API endpoints to be used when integrating with PatientView",
   "definitions": {

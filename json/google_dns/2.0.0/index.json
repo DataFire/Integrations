@@ -1,4 +1,5 @@
 {
+  "id": "google_dns",
   "title": "Google Cloud DNS",
   "description": "Configures and serves authoritative DNS records.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "apitore_techfeedsapis",
   "title": "Tech feeds APIs",
   "description": "Various tech feeds.<BR />[Endpoint] https://api.apitore.com/api/35",
   "definitions": {

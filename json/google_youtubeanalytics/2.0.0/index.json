@@ -1,4 +1,5 @@
 {
+  "id": "google_youtubeanalytics",
   "title": "YouTube Analytics",
   "description": "Retrieves your YouTube Analytics data.",
   "definitions": {

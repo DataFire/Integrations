@@ -1,4 +1,5 @@
 {
+  "id": "google_cloudmonitoring",
   "title": "Cloud Monitoring",
   "description": "Accesses Google Cloud Monitoring data.",
   "definitions": {

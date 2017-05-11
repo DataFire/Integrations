@@ -1,4 +1,5 @@
 {
+  "id": "google_fitness",
   "title": "Fitness",
   "description": "Stores and accesses user data in the fitness store from apps on any platform.",
   "definitions": {

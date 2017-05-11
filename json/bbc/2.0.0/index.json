@@ -1,4 +1,5 @@
 {
+  "id": "bbc",
   "title": "BBC Nitro",
   "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
   "definitions": {

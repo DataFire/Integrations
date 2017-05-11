@@ -1,4 +1,5 @@
 {
+  "id": "gitlab",
   "title": "Gitlab",
   "description": "The platform for modern developers\nGitLab unifies issues, code review, CI and CD into a single UI",
   "definitions": {

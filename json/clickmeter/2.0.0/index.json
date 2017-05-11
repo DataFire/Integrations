@@ -1,4 +1,5 @@
 {
+  "id": "clickmeter",
   "title": "ClickMeter",
   "description": "Api dashboard for ClickMeter API",
   "definitions": {

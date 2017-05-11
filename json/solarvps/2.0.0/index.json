@@ -1,4 +1,5 @@
 {
+  "id": "solarvps",
   "title": "Solar VPS",
   "description": "This is the Solar VPS Public API. You can find more at http://www.solarvps.com",
   "actions": [

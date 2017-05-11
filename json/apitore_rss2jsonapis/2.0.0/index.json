@@ -1,4 +1,5 @@
 {
+  "id": "apitore_rss2jsonapis",
   "title": "RSS2JSON APIs",
   "description": "Rss to Json.<BR />[Endpoint] https://api.apitore.com/api/28",
   "definitions": {

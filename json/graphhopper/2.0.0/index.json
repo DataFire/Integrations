@@ -1,4 +1,5 @@
 {
+  "id": "graphhopper",
   "title": "Route Optimization",
   "description": "Our Route Optimization API solves the so called vehicle routing problem fast. It calculates an optimal tour for a set of vehicles, services and constraints",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "nytimes_community",
   "title": "Community",
   "description": "Get access to comments from registered users on New York Times articles.",
   "definitions": {},

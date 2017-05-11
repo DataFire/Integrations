@@ -1,4 +1,5 @@
 {
+  "id": "nytimes_top_stories",
   "title": "Top Stories",
   "description": "The Top Stories API provides lists of articles and associated images by section.",
   "definitions": {

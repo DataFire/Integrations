@@ -1,4 +1,5 @@
 {
+  "id": "google_spanner",
   "title": "Cloud Spanner",
   "description": "Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.",
   "definitions": {

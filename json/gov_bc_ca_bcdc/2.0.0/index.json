@@ -1,4 +1,5 @@
 {
+  "id": "gov_bc_ca_bcdc",
   "title": "BC Data Catalogue",
   "description": "This API provides live access to the BC Data Catalogue. Further documentation on the API is available from http://docs.ckan.org/en/latest/ Confirm the version of the API available from the catalogue by requesting https://catalogue.data.gov.bc.ca/api/3/action/status_show ",
   "actions": [

@@ -1,4 +1,5 @@
 {
+  "id": "google_cloudbilling",
   "title": "Google Cloud Billing",
   "description": "Allows developers to manage billing for their Google Cloud Platform projects\n    programmatically.",
   "definitions": {

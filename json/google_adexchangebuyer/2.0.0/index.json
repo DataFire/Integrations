@@ -1,4 +1,5 @@
 {
+  "id": "google_adexchangebuyer",
   "title": "Ad Exchange Buyer",
   "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
   "definitions": {

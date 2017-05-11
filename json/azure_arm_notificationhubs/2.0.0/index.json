@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_notificationhubs",
   "title": "NotificationHubsManagementClient",
   "description": "Azure NotificationHub client",
   "definitions": {

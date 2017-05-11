@@ -1,4 +1,5 @@
 {
+  "id": "google_firebaserules",
   "title": "Firebase Rules",
   "description": "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.\n",
   "definitions": {

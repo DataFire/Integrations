@@ -1,4 +1,5 @@
 {
+  "id": "apitore_url2htmlapis",
   "title": "Url2Html APIs",
   "description": "Url to Html.<BR />[Endpoint] https://api.apitore.com/api/12",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "google_customsearch",
   "title": "CustomSearch",
   "description": "Lets you search over a website or collection of websites",
   "definitions": {

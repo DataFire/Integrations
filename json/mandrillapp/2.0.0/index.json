@@ -1,4 +1,5 @@
 {
+  "id": "mandrillapp",
   "title": "Mandrill",
   "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages.\n",
   "definitions": {

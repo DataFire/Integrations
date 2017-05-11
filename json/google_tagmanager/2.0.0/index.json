@@ -1,4 +1,5 @@
 {
+  "id": "google_tagmanager",
   "title": "Tag Manager",
   "description": "Accesses Tag Manager accounts and containers.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "google_doubleclickbidmanager",
   "title": "DoubleClick Bid Manager",
   "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
   "definitions": {

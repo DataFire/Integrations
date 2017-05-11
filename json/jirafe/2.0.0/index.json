@@ -1,4 +1,5 @@
 {
+  "id": "jirafe",
   "title": "Jirafe Events",
   "description": "API endpoins for sending Jirafe events",
   "definitions": {

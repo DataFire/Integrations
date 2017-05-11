@@ -1,4 +1,5 @@
 {
+  "id": "google_games",
   "title": "Google Play Game Services",
   "description": "The API for Google Play Game Services.",
   "definitions": {

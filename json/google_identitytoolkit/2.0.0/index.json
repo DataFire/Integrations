@@ -1,4 +1,5 @@
 {
+  "id": "google_identitytoolkit",
   "title": "Google Identity Toolkit",
   "description": "Help the third party sites to implement federated login.",
   "definitions": {

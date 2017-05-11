@@ -1,4 +1,5 @@
 {
+  "id": "wavecell",
   "title": "Wavecell.Sms.Api",
   "description": "This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be send individually or as a bulk request.",
   "definitions": {

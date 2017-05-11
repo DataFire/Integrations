@@ -1,4 +1,5 @@
 {
+  "id": "openapi_converter_herokuapp",
   "title": "Swagger2OpenAPI Converter",
   "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
   "actions": [

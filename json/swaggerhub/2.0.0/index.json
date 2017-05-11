@@ -1,4 +1,5 @@
 {
+  "id": "swaggerhub",
   "title": "SwaggerHub Registry",
   "description": "The registry API for SwaggerHub",
   "definitions": {

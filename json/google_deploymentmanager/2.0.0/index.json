@@ -1,4 +1,5 @@
 {
+  "id": "google_deploymentmanager",
   "title": "Google Cloud Deployment Manager",
   "description": "Declares, configures, and deploys complex solutions on Google Cloud Platform.",
   "definitions": {

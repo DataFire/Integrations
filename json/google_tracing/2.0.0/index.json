@@ -1,4 +1,5 @@
 {
+  "id": "google_tracing",
   "title": "Google Tracing",
   "description": "Send and retrieve trace data from Google Stackdriver Trace.\n",
   "definitions": {

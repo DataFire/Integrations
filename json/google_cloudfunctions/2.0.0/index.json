@@ -1,4 +1,5 @@
 {
+  "id": "google_cloudfunctions",
   "title": "Google Cloud Functions",
   "description": "API for managing lightweight user-provided functions executed in response to events.",
   "definitions": {

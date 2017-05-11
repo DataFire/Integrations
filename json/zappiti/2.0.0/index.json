@@ -1,4 +1,5 @@
 {
+  "id": "zappiti",
   "title": "Zappiti Player",
   "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
   "definitions": {

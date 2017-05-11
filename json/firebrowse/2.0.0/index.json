@@ -1,4 +1,5 @@
 {
+  "id": "firebrowse",
   "title": "FireBrowse Beta API",
   "description": "A simple and elegant way to explore cancer data",
   "actions": [

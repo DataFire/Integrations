@@ -1,4 +1,5 @@
 {
+  "id": "google_sqladmin",
   "title": "Cloud SQL Administration",
   "description": "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.",
   "definitions": {

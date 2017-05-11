@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_servicebus",
   "title": "ServiceBusManagementClient",
   "description": "Azure Service Bus client",
   "definitions": {

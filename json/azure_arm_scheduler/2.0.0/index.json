@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_scheduler",
   "title": "SchedulerManagementClient",
   "description": "",
   "definitions": {

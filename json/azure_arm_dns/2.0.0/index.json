@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_dns",
   "title": "DnsManagementClient",
   "description": "The DNS Management Client.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_eventhub",
   "title": "EventHubManagementClient",
   "description": "Azure Event Hubs client",
   "definitions": {

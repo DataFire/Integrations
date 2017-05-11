@@ -1,4 +1,5 @@
 {
+  "id": "nytimes_books_api",
   "title": "Books",
   "description": "The Books API provides information about book reviews and The New York Times bestsellers lists.",
   "definitions": {},

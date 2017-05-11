@@ -1,4 +1,5 @@
 {
+  "id": "nytimes_most_popular_api",
   "title": "Most Popular",
   "description": "Get lists of NYT Articles based on shares, emails, and views.",
   "definitions": {

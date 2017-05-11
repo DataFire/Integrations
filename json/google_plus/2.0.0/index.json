@@ -1,4 +1,5 @@
 {
+  "id": "google_plus",
   "title": "Google+",
   "description": "Builds on top of the Google+ platform.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_appinsights",
   "title": "AppInsightsManagementClient",
   "description": "Azure Application Insights client for web test based alerting.",
   "definitions": {

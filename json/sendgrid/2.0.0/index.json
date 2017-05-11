@@ -1,4 +1,5 @@
 {
+  "id": "sendgrid",
   "title": "SendGrid v3",
   "description": "",
   "definitions": {

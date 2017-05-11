@@ -1,4 +1,5 @@
 {
+  "id": "rummblelabs",
   "title": "Seldon",
   "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.",
   "definitions": {

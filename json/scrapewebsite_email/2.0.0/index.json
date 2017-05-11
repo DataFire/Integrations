@@ -1,4 +1,5 @@
 {
+  "id": "scrapewebsite_email",
   "title": "Scrape Website Email API",
   "description": "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.",
   "actions": [

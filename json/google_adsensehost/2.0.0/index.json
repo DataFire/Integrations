@@ -1,4 +1,5 @@
 {
+  "id": "google_adsensehost",
   "title": "AdSense Host",
   "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
   "definitions": {

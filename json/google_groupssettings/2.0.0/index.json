@@ -1,4 +1,5 @@
 {
+  "id": "google_groupssettings",
   "title": "Groups Settings",
   "description": "Lets you manage permission levels and related settings of a group.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "apitore_wordstovectorsapis",
   "title": "Words to Vectors APIs",
   "description": "Word to vectors.<BR />[Endpoint] https://api.apitore.com/api/10",
   "definitions": {

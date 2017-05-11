@@ -1,4 +1,5 @@
 {
+  "id": "apitore_travelfeedsapis",
   "title": "Travel feeds APIs",
   "description": "Various travel feeds.<BR />[Endpoint] https://api.apitore.com/api/36",
   "definitions": {

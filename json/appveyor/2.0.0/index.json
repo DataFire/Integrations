@@ -1,4 +1,5 @@
 {
+  "id": "appveyor",
   "title": "AppVeyor",
   "description": "AppVeyor is a hosted continuous integration service which runs on Microsoft\nWindows.  The AppVeyor REST API provides a RESTful way to interact with the\nAppVeyor service.  This includes managing projects, builds, deployments,\nand the teams that build them.\n\nAdditional help and discussion of the AppVeyor REST API is available at\nhttp://help.appveyor.com/discussions\n\nThis Swagger definition is an **unofficial** description of the AppVeyor\nREST API maintained at https://github.com/kevinoid/appveyor-swagger\nPlease report any issues or suggestions for this Swagger definition at\nhttps://github.com/kevinoid/appveyor-swagger/issues/new\n\n#### API Conventions\n\nFields which are missing from update operations (`PUT` requests) are\ntypically reset to their default values.  So although most fields are not\ntechnically required, they should usually be specified in practice.\n",
   "definitions": {

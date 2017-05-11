@@ -1,4 +1,5 @@
 {
+  "id": "opencagedata",
   "title": "OpenCage Geocoder",
   "description": "Worldwide forward and reverse geocoding",
   "definitions": {

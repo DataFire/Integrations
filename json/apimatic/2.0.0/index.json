@@ -1,4 +1,5 @@
 {
+  "id": "apimatic",
   "title": "APIMATIC API Transformer",
   "description": "Transform API Descriptions from/to various formats",
   "actions": [

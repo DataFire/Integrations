@@ -1,4 +1,5 @@
 {
+  "id": "motaword",
   "title": "MotaWord",
   "description": "Use MotaWord API to post and track your translation projects.",
   "definitions": {

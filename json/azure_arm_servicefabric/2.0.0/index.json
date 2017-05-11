@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_servicefabric",
   "title": "ServiceFabricManagementClient",
   "description": "",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "apitore_kuromojiapis",
   "title": "Kuromoji APIs",
   "description": "Kuromoji: japanese morphological analyzer.<BR />[Endpoint] https://api.apitore.com/api/7",
   "definitions": {

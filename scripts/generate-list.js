@@ -38,6 +38,7 @@ function addDirToList(dir) {
     let package = require(path.join(dir, name, 'package.json'));
     if (list[name]) throw new Error("Duplicate name " + name);
     list[name] = {
+      id: name,
       title: integ.title,
       description: integ.description,
     };

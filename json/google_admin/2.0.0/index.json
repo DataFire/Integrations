@@ -1,4 +1,5 @@
 {
+  "id": "google_admin",
   "title": "Admin Reports",
   "description": "Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.",
   "definitions": {

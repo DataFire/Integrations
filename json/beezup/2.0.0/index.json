@@ -1,4 +1,5 @@
 {
+  "id": "beezup",
   "title": "Marketplaces - Orders",
   "description": "This API will gives you the ability to manage your orders.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "google_content",
   "title": "Content API for Shopping",
   "description": "Manages product items, inventory, and Merchant Center accounts for Google Shopping.",
   "definitions": {

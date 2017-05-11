@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_compute",
   "title": "ComputeManagementClient",
   "description": "The Compute Management Client.",
   "definitions": {

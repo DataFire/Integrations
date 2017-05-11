@@ -1,4 +1,5 @@
 {
+  "id": "google_books",
   "title": "Books",
   "description": "Searches for books and manages your Google Books library.",
   "definitions": {

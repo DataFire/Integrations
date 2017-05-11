@@ -1,4 +1,5 @@
 {
+  "id": "google_gamesmanagement",
   "title": "Google Play Game Services Management",
   "description": "The Management API for Google Play Game Services.",
   "definitions": {

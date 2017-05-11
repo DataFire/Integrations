@@ -1,4 +1,5 @@
 {
+  "id": "mongodb",
   "title": "MongoDB",
   "description": "Interact with MongoDB",
   "actions": [

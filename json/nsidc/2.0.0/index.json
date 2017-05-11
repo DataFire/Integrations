@@ -1,4 +1,5 @@
 {
+  "id": "nsidc",
   "title": "NSIDC Web Service Documentation Index",
   "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their applications.",
   "actions": [

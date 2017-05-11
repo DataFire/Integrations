@@ -1,4 +1,5 @@
 {
+  "id": "apitore_synonymapis",
   "title": "Synonym APIs",
   "description": "Return synonymous words. (equal to \"word2vec distance\")<BR />[Endpoint] https://api.apitore.com/api/9",
   "definitions": {

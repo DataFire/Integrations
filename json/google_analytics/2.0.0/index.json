@@ -1,4 +1,5 @@
 {
+  "id": "google_analytics",
   "title": "Google Analytics",
   "description": "Views and manages your Google Analytics data.",
   "definitions": {

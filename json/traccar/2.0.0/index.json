@@ -1,4 +1,5 @@
 {
+  "id": "traccar",
   "title": "traccar",
   "description": "Open Source GPS Tracking Platform",
   "definitions": {

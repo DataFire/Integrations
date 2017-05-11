@@ -1,4 +1,5 @@
 {
+  "id": "google_siteverification",
   "title": "Google Site Verification",
   "description": "Verifies ownership of websites or domains with Google.",
   "definitions": {

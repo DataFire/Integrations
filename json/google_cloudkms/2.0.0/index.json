@@ -1,4 +1,5 @@
 {
+  "id": "google_cloudkms",
   "title": "Google Cloud Key Management Service (KMS)",
   "description": "Manages encryption for your cloud services the same way you do on-premise. You can generate, use, rotate, and destroy AES256 encryption keys.",
   "definitions": {

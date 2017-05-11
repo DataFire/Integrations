@@ -1,4 +1,5 @@
 {
+  "id": "vatapi",
   "title": "VAT API",
   "description": "A developer friendly API to help your business achieve VAT compliance",
   "definitions": {

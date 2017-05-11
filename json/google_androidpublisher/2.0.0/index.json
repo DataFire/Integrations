@@ -1,4 +1,5 @@
 {
+  "id": "google_androidpublisher",
   "title": "Google Play Developer",
   "description": "Lets Android application developers access their Google Play accounts.",
   "definitions": {

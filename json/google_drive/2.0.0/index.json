@@ -1,4 +1,5 @@
 {
+  "id": "google_drive",
   "title": "Drive",
   "description": "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.",
   "definitions": {

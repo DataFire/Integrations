@@ -1,4 +1,5 @@
 {
+  "id": "google_prediction",
   "title": "Prediction",
   "description": "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps",
   "definitions": {

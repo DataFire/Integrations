@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_mobileengagement",
   "title": "Engagement.ManagementClient",
   "description": "Microsoft Azure Mobile Engagement REST APIs.",
   "definitions": {

@@ -1,4 +1,5 @@
 {
+  "id": "google_androidenterprise",
   "title": "Google Play EMM",
   "description": "Manages the deployment of apps to Android for Work users.",
   "definitions": {

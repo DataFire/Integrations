@@ -1,4 +1,5 @@
 {
+  "id": "google_plusdomains",
   "title": "Google+ Domains",
   "description": "Builds on top of the Google+ platform for Google Apps Domains.",
   "definitions": {

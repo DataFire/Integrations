@@ -1,4 +1,5 @@
 {
+  "id": "google_appengine",
   "title": "Google App Engine Admin",
   "description": "The App Engine Admin API enables developers to provision and manage their App Engine applications.",
   "definitions": {

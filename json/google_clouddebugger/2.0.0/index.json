@@ -1,4 +1,5 @@
 {
+  "id": "google_clouddebugger",
   "title": "Stackdriver Debugger",
   "description": "Examines the call stack and variables of a running application without stopping or slowing it down.\n",
   "definitions": {

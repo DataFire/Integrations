@@ -1,4 +1,5 @@
 {
+  "id": "gov_bc_ca_geocoder",
   "title": "Gated Geocoder",
   "description": "This gated API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic and non-civic addresses in British Columbia.  CORS is enabled for any domain. To request an apikey, please contact the <a href=https://forms.gov.bc.ca/databc-contact-us/  target=\"_blank\">DataBC Help Desk</a><br>Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
   "actions": [

@@ -1,4 +1,5 @@
 {
+  "id": "schooldigger",
   "title": "SchoolDigger API V1",
   "description": "Get detailed data on over 120,000 schools and 18,500 districts in the U.S.",
   "definitions": {

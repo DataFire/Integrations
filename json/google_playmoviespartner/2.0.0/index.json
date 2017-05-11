@@ -1,4 +1,5 @@
 {
+  "id": "google_playmoviespartner",
   "title": "Google Play Movies Partner",
   "description": "Gets the delivery status of titles for Google Play Movies Partners.",
   "definitions": {

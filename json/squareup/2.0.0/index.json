@@ -1,4 +1,5 @@
 {
+  "id": "squareup",
   "title": "Square Connect",
   "description": "Client library for accessing the Square Connect APIs",
   "definitions": {

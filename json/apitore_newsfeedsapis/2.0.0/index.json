@@ -1,4 +1,5 @@
 {
+  "id": "apitore_newsfeedsapis",
   "title": "News feeds APIs",
   "description": "Various news feeds.<BR />[Endpoint] https://api.apitore.com/api/34",
   "definitions": {

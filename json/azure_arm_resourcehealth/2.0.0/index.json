@@ -1,4 +1,5 @@
 {
+  "id": "azure_arm_resourcehealth",
   "title": "Microsoft.ResourceHealth",
   "description": "The Resource Health Client.",
   "definitions": {
