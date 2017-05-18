@@ -34,7 +34,8 @@ let list = {};
 function addDirToList(dir) {
   fs.readdirSync(dir).forEach(name => {
     console.log('adding', name);
-    let integ = require(path.join(dir, name));
+    let packageName = require.resolve(path.join(dir, name));
+    let integ = require(packageName);
     let package = require(path.join(dir, name, 'package.json'));
     if (list[name]) throw new Error("Duplicate name " + name);
     list[name] = {
@@ -66,6 +67,15 @@ function addDirToList(dir) {
     let integDir = path.join(OUT_DIR, name, package.version);
     maybeMkdirp(integDir);
     fs.writeFileSync(path.join(integDir, 'index.json'), JSON.stringify(details, null, 2));
+    if (integ.ajv) {
+      integ.ajv._cache.clear();
+    }
+    integ = null;
+    for (let key in require.cache) {
+      if (key.indexOf(path.join(__dirname, '..')) !== -1) {
+        delete require.cache[key];
+      }
+    }
   })
 }
 
