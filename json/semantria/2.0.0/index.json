@@ -2,6 +2,7 @@
   "id": "semantria",
   "title": "Semantria",
   "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
+  "security": {},
   "definitions": {
     "Attribute": {
       "properties": {

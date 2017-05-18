@@ -2,6 +2,7 @@
   "id": "apitore_pioneerblogfeedsapis",
   "title": "Pioneer blog feeds APIs",
   "description": "Various blog feeds.<BR />[Endpoint] https://api.apitore.com/api/30",
+  "security": {},
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

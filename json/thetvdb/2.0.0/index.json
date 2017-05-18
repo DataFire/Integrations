@@ -2,6 +2,14 @@
   "id": "thetvdb",
   "title": "TheTVDB API v2",
   "description": "API v2 targets v1 functionality with a few minor additions. The API is accessible via https://api.thetvdb.com and provides the following REST endpoints in JSON format.\n\n\nHow to use this API documentation\n----------------\n\n\nYou may browse the API routes without authentication, but if you wish to send requests to the API and see response data, then you must authenticate.\n1. Obtain a JWT token by `POST`ing  to the `/login` route in the `Authentication` section with your API key and credentials.\n1. Paste the JWT token from the response into the \"JWT Token\" field at the top of the page and click the 'Add Token' button.\n\n\nYou will now be able to use the remaining routes to send requests to the API and get a response.\n\n\nLanguage Selection\n----------------\n\n\nLanguage selection is done via the `Accept-Language` header. At the moment, you may only pass one language abbreviation in the header at a time. Valid language abbreviations can be found at the `/languages` route..\n\n\nAuthentication\n----------------\n\n\nAuthentication to use the API is similar to the How-to section above. Users must `POST` to the `/login` route with their API key and credentials in the following format in order to obtain a JWT token.\n\n`{\"apikey\":\"APIKEY\",\"username\":\"USERNAME\",\"userkey\":\"USERKEY\"}`\n\nNote that the username and key are ONLY required for the `/user` routes. The user's key is labled `Account Identifier` in the account section of the main site.\nThe token is then used in all subsequent requests by providing it in the `Authorization` header. The header will look like: `Authorization: Bearer <yourJWTtoken>`. Currently, the token expires after 24 hours. You can `GET` the `/refresh_token` route to extend that expiration date.\n\n\nVersioning\n----------------\n\n\nYou may request a different version of the API by including an `Accept` header in your request with the following format: `Accept:application/vnd.thetvdb.v$VERSION`. This documentation automatically uses the version seen at the top and bottom of the page.",
+  "security": {
+    "thetvdb": {
+      "integration": "thetvdb",
+      "fields": {
+        "jwtToken": "JWT token prefixed with \"Bearer \""
+      }
+    }
+  },
   "definitions": {
     "Auth": {
       "properties": {
@@ -795,6 +803,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EpisodeRecordData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -804,6 +817,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/LanguageData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -822,6 +840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Language"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -839,6 +862,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -848,6 +876,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -881,6 +914,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesSearchData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -890,6 +928,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/EpisodeDataQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -913,6 +956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -934,7 +982,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
+      }
     },
     {
       "id": "series.id.actors.get",
@@ -953,6 +1006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesActors"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -976,6 +1034,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodes"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1027,6 +1090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesQuery"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1046,6 +1114,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1065,6 +1138,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesSummary"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1092,6 +1170,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1115,6 +1198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FilterKeys"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1138,6 +1226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImagesCounts"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1173,6 +1266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImageQueryResults"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1196,6 +1294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImagesQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1222,6 +1325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1231,6 +1339,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UpdateDataQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1240,6 +1353,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1249,6 +1367,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1268,6 +1391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1287,6 +1415,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserFavoritesData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1296,6 +1429,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1318,6 +1456,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsData"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1327,6 +1470,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsQueryParams"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1351,6 +1499,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsDataNoLinksEmptyArray"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     },
     {
@@ -1380,6 +1533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsDataNoLinks"
+      },
+      "security": {
+        "thetvdb": {
+          "integration": "thetvdb"
+        }
       }
     }
   ]

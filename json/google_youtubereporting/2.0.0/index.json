@@ -2,6 +2,28 @@
   "id": "google_youtubereporting",
   "title": "YouTube Reporting",
   "description": "Schedules reporting jobs containing your YouTube Analytics data and downloads the resulting bulk data reports in the form of CSV files.",
+  "security": {
+    "google_youtubereporting": {
+      "integration": "google_youtubereporting",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/yt-analytics-monetary.readonly": "View monetary and non-monetary YouTube Analytics reports for your YouTube content",
+          "https://www.googleapis.com/auth/yt-analytics.readonly": "View YouTube Analytics reports for your YouTube content"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
@@ -256,6 +278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResponse"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -341,6 +368,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -424,6 +456,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -507,6 +544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -610,6 +652,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListReportsResponse"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -697,6 +744,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -776,6 +828,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Media"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     },
     {
@@ -870,6 +927,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListReportTypesResponse"
+      },
+      "security": {
+        "google_youtubereporting": {
+          "integration": "google_youtubereporting"
+        }
       }
     }
   ]

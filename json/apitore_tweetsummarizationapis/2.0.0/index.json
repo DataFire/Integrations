@@ -2,6 +2,7 @@
   "id": "apitore_tweetsummarizationapis",
   "title": "Tweet summarization APIs",
   "description": "Tweet summarization.<BR />[Endpoint] https://api.apitore.com/api/27",
+  "security": {},
   "definitions": {
     "TweetSummarizeEntity": {
       "properties": {

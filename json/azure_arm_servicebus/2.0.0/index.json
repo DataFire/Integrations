@@ -2,6 +2,26 @@
   "id": "azure_arm_servicebus",
   "title": "ServiceBusManagementClient",
   "description": "Azure Service Bus client",
+  "security": {
+    "azure_arm_servicebus": {
+      "integration": "azure_arm_servicebus",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CheckNameAvailability": {
       "description": "Description of a Check Name availability request properties.",
@@ -954,6 +974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -979,6 +1004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1001,6 +1031,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1029,6 +1064,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1061,7 +1101,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Namespaces_Get",
@@ -1095,6 +1140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1132,6 +1182,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1167,6 +1222,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1201,6 +1261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1239,7 +1304,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Namespaces_GetAuthorizationRule",
@@ -1279,6 +1349,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1322,6 +1397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1362,6 +1442,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1405,6 +1490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1439,6 +1529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueueListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1477,7 +1572,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Queues_Get",
@@ -1517,6 +1617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueueResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1560,6 +1665,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueueResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1600,6 +1710,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1644,7 +1759,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Queues_GetAuthorizationRule",
@@ -1690,6 +1810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1739,6 +1864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1785,6 +1915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1834,6 +1969,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1868,6 +2008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopicListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1906,7 +2051,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Topics_Get",
@@ -1946,6 +2096,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopicResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -1989,6 +2144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopicResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2029,6 +2189,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2073,7 +2238,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Topics_GetAuthorizationRule",
@@ -2119,6 +2289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2168,6 +2343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2214,6 +2394,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2263,6 +2448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2303,6 +2493,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionListResult"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2347,7 +2542,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
+      }
     },
     {
       "id": "Subscriptions_Get",
@@ -2393,6 +2593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     },
     {
@@ -2442,6 +2647,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionResource"
+      },
+      "security": {
+        "azure_arm_servicebus": {
+          "integration": "azure_arm_servicebus"
+        }
       }
     }
   ]

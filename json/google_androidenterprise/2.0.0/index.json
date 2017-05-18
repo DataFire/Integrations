@@ -2,6 +2,27 @@
   "id": "google_androidenterprise",
   "title": "Google Play EMM",
   "description": "Manages the deployment of apps to Android for Work users.",
+  "security": {
+    "google_androidenterprise": {
+      "integration": "google_androidenterprise",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/androidenterprise": "Manage corporate Android devices"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Administrator": {
       "description": "This represents an enterprise admin who can manage the enterprise in the managed Google Play store.",
@@ -1299,6 +1320,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterprisesListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1351,6 +1377,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1401,7 +1432,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "enterprises.completeSignup",
@@ -1457,6 +1493,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1509,6 +1550,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1565,6 +1611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSet"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1617,6 +1668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SignupInfo"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1664,7 +1720,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "enterprises.get",
@@ -1713,6 +1774,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1765,6 +1831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterpriseAccount"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1817,6 +1888,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdministratorWebToken"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1866,6 +1942,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicensesListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1919,6 +2000,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicense"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -1972,6 +2058,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicenseUsersListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2041,6 +2132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2098,6 +2194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2155,6 +2256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppRestrictionsSchema"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2209,7 +2315,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "products.generateApprovalUrl",
@@ -2266,6 +2377,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsGenerateApprovalUrlResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2319,6 +2435,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductPermissions"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2370,7 +2491,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "enterprises.sendTestPushNotification",
@@ -2419,6 +2545,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterprisesSendTestPushNotificationResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2476,6 +2607,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2525,6 +2661,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKeysListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2577,6 +2718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKey"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2628,7 +2774,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "enterprises.getStoreLayout",
@@ -2677,6 +2828,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayout"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2729,6 +2885,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayout"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2778,6 +2939,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayoutPagesListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2830,6 +2996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2881,7 +3052,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "storelayoutpages.get",
@@ -2934,6 +3110,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -2990,6 +3171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3046,6 +3232,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3099,6 +3290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayoutClustersListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3155,6 +3351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3210,7 +3411,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "storelayoutclusters.get",
@@ -3267,6 +3473,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3327,6 +3538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3387,6 +3603,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3434,7 +3655,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "users.list",
@@ -3487,6 +3713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3539,6 +3770,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3590,7 +3826,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "users.get",
@@ -3643,6 +3884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3699,6 +3945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3755,6 +4006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3808,6 +4064,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3861,6 +4122,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductSet"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3917,6 +4183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductSet"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -3970,6 +4241,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicesListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4027,6 +4303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4084,6 +4365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstallsListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4143,7 +4429,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "installs.get",
@@ -4204,6 +4495,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4268,6 +4564,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4332,6 +4633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4389,6 +4695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfigurationsForDeviceListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4448,7 +4759,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "managedconfigurationsfordevice.get",
@@ -4509,6 +4825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4573,6 +4894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4637,6 +4963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4694,6 +5025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceState"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4754,6 +5090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceState"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4807,6 +5148,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntitlementsListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4862,7 +5208,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "entitlements.get",
@@ -4919,6 +5270,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -4983,6 +5339,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5047,6 +5408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5100,6 +5466,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfigurationsForUserListResponse"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5155,7 +5526,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "managedconfigurationsforuser.get",
@@ -5212,6 +5588,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5272,6 +5653,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5332,6 +5718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5383,7 +5774,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
     },
     {
       "id": "users.generateToken",
@@ -5436,6 +5832,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserToken"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     },
     {
@@ -5489,6 +5890,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
       }
     }
   ]

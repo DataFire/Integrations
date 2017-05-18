@@ -2,6 +2,14 @@
   "id": "sendgrid",
   "title": "SendGrid v3",
   "description": "",
+  "security": {
+    "sendgrid": {
+      "integration": "sendgrid",
+      "fields": {
+        "Authorization": "API key"
+      }
+    }
+  },
   "definitions": {
     "advanced_stats_clicks": {
       "properties": {
@@ -2859,6 +2867,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -2893,7 +2906,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "access_settings.whitelist.get",
@@ -2938,6 +2956,11 @@
           "result"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3028,6 +3051,11 @@
           "result"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3044,7 +3072,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "access_settings.whitelist.rule_id.get",
@@ -3086,6 +3119,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3151,6 +3189,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3239,6 +3282,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3255,7 +3303,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "alerts.alert_id.get",
@@ -3318,6 +3371,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3397,6 +3455,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3425,6 +3488,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3490,6 +3558,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3507,6 +3580,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3532,6 +3610,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3561,6 +3644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/api_key_name_id"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3599,6 +3687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/api_key_name_id_scopes"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3623,6 +3716,11 @@
           "$ref": "#/definitions/suppression_group"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3692,6 +3790,11 @@
           "is_default"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3710,6 +3813,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3754,6 +3862,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3803,6 +3916,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suppression_group"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3825,6 +3943,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3876,6 +3999,11 @@
           "recipient_emails"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3928,6 +4056,11 @@
           "recipient_emails"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -3948,7 +4081,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "asm.suppressions.get",
@@ -3984,6 +4122,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4031,6 +4174,11 @@
           "recipient_emails"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4047,7 +4195,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "asm.suppressions.global.email.get",
@@ -4075,6 +4228,11 @@
         ],
         "title": "Retrieve a Global Suppression response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4134,6 +4292,11 @@
           "suppressions"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4180,6 +4343,11 @@
           "$ref": "#/definitions/advanced_stats_clicks"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4263,6 +4431,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4303,6 +4476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/campaign_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4321,6 +4499,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4389,6 +4572,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4452,6 +4640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/campaign_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4469,6 +4662,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4496,6 +4694,11 @@
         ],
         "title": "View Scheduled Time of a Campaign response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4549,6 +4752,11 @@
         ],
         "title": "Update a Scheduled Campaign response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4605,6 +4813,11 @@
         ],
         "title": "Schedule a Campaign response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4636,6 +4849,11 @@
         ],
         "title": "Send a Campaign response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4678,6 +4896,11 @@
         ],
         "title": "Send a Test Campaign request",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4719,6 +4942,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4766,6 +4994,11 @@
           "$ref": "#/definitions/category_stats"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4817,6 +5050,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/category_stats"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4851,6 +5089,11 @@
           "$ref": "#/definitions/advanced_stats_opens"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4895,6 +5138,11 @@
           "$ref": "#/definitions/advanced_stats_opens"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4916,6 +5164,11 @@
         ],
         "title": "List All Custom Fields response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4959,6 +5212,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4977,6 +5235,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/global:ErrorResponse"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -4995,6 +5258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_custom_field_with_id"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5024,6 +5292,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5045,6 +5318,11 @@
         ],
         "title": "List All Lists response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5077,6 +5355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_list"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5102,6 +5385,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5119,6 +5407,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_list"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5152,6 +5445,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5186,6 +5484,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5214,6 +5517,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5236,6 +5544,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5258,6 +5571,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5285,6 +5603,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5322,6 +5645,11 @@
         ],
         "title": "List Recipients response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5369,6 +5697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5427,6 +5760,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5436,6 +5774,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient_count"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5445,6 +5788,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient_count"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5473,6 +5821,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5491,6 +5844,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5509,6 +5867,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5535,6 +5898,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5557,6 +5925,11 @@
         ],
         "title": "List fields that are reserved and can't be used for custom field names. response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5578,6 +5951,11 @@
         ],
         "title": "List All Segments response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5622,6 +6000,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_segments_with_id"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5643,6 +6026,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5660,6 +6048,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_segments"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5711,6 +6104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_segments"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5747,6 +6145,11 @@
         ],
         "title": "List Recipients On a Segment response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5784,6 +6187,11 @@
           "$ref": "#/definitions/advanced_stats_opens"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5834,6 +6242,11 @@
           "$ref": "#/definitions/advanced_stats_country"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5921,6 +6334,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5961,6 +6379,11 @@
         },
         "title": "List all assigned IPs response",
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -5973,6 +6396,11 @@
           "$ref": "#/definitions/ip_pool"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6006,6 +6434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_pool"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6024,6 +6457,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6059,6 +6497,11 @@
           "pool_name"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6090,6 +6533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_pool"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6147,6 +6595,11 @@
           "warmup"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6169,6 +6622,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6178,6 +6636,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/ip_warmup_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6207,6 +6670,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_warmup_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6225,6 +6693,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6243,6 +6716,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_warmup_response"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6309,6 +6787,11 @@
           "whitelabeled"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6318,6 +6801,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_batch_id"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6335,6 +6823,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_batch_id"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6863,6 +7356,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6924,6 +7422,11 @@
           "result"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6933,6 +7436,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_address_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6973,6 +7481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_address_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -6982,6 +7495,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_bcc"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7006,6 +7524,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_patch"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7015,6 +7538,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_bounce_purge"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7040,6 +7568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_bounce_purge"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7049,6 +7582,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_footer"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7074,6 +7612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_footer"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7083,6 +7626,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_forward_bounce"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7107,6 +7655,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_forward_bounce"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7116,6 +7669,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_forward_spam"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7140,6 +7698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_forward_spam"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7155,6 +7718,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7190,6 +7758,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7199,6 +7772,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_spam_check"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7241,6 +7819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_spam_check"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7250,6 +7833,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/mail_settings_template"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7298,6 +7886,11 @@
           "html_content"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7344,6 +7937,11 @@
           "$ref": "#/definitions/advanced_stats_mailbox_provider"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7401,6 +7999,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7410,6 +8013,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/partner_settings_new_relic"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7449,6 +8057,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/partner_settings_new_relic"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7471,6 +8084,11 @@
           "scopes"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7488,6 +8106,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7593,6 +8216,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senderID"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7612,6 +8240,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7630,6 +8263,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senderID"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7724,6 +8362,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senderID"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7743,6 +8386,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7873,6 +8521,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7905,6 +8558,11 @@
           "$ref": "#/definitions/subuser"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -7963,6 +8621,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subuser_post"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8000,6 +8663,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8043,6 +8711,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/stats"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8085,6 +8758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subuser_stats"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8131,6 +8809,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/category_stats"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8149,6 +8832,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8179,6 +8867,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8217,6 +8910,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8236,6 +8934,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8254,6 +8957,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8279,6 +8987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8304,6 +9017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8345,6 +9063,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subuser_stats"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8383,7 +9106,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.blocks.get",
@@ -8443,6 +9171,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8459,7 +9192,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.blocks.email.get",
@@ -8503,6 +9241,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8543,6 +9286,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8586,6 +9334,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8608,6 +9361,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8642,6 +9400,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8680,7 +9443,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.invalid_emails.get",
@@ -8736,6 +9504,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8752,7 +9525,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.invalid_emails.email.get",
@@ -8792,6 +9570,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8808,7 +9591,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.spam_report.email.get",
@@ -8848,6 +9636,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8886,7 +9679,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "suppression.spam_reports.get",
@@ -8941,6 +9739,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -8991,6 +9794,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9003,6 +9811,11 @@
           "$ref": "#/definitions/transactional_template"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9036,6 +9849,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transactional_template"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9052,7 +9870,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "templates.template_id.get",
@@ -9070,6 +9893,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transactional_template"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9101,6 +9929,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transactional_template"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9146,6 +9979,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9164,7 +10002,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "templates.template_id.versions.version_id.get",
@@ -9201,6 +10044,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9270,6 +10118,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9307,6 +10160,11 @@
           "updated_at"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9359,6 +10217,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9382,6 +10245,11 @@
           "enabled"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9425,6 +10293,11 @@
           "enabled"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9434,6 +10307,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/google_analytics_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9462,6 +10340,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/google_analytics_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9480,6 +10363,11 @@
           "enabled"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9518,6 +10406,11 @@
           "enabled"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9527,6 +10420,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/subscription_tracking_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9555,6 +10453,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subscription_tracking_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9583,6 +10486,11 @@
         ],
         "title": "GET User Account response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9631,6 +10539,11 @@
           "reset_frequency"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9649,6 +10562,11 @@
           "email"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9687,6 +10605,11 @@
           "email"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9723,7 +10646,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "user.profile.get",
@@ -9791,6 +10719,11 @@
         ],
         "title": "GET User Profile response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9816,6 +10749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user_profile"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9828,6 +10766,11 @@
           "$ref": "#/definitions/user_scheduled_send_status"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9873,6 +10816,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user_scheduled_send_status"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9890,6 +10838,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9911,6 +10864,11 @@
         },
         "title": "Retrieve scheduled send response",
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9947,6 +10905,11 @@
       },
       "outputSchema": {
         "type": "null"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -9970,6 +10933,11 @@
           "require_valid_cert"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10018,6 +10986,11 @@
           "require_valid_cert"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10041,6 +11014,11 @@
           "user_id"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10079,6 +11057,11 @@
           "username"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10088,6 +11071,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/event_webhook_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10123,6 +11111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/event_webhook_settings"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10150,7 +11143,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "user.webhooks.parse.settings.get",
@@ -10168,6 +11166,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10194,6 +11197,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/parse-setting"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10210,7 +11218,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "user.webhooks.parse.settings.hostname.get",
@@ -10228,6 +11241,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/parse-setting"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10254,6 +11272,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/parse-setting"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10327,6 +11350,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10508,6 +11536,11 @@
           "type": "object"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10577,6 +11610,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel::domain"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10586,6 +11624,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10593,7 +11636,12 @@
       "title": "whitelabel.domains.subuser.delete",
       "description": "**This endpoint allows you to disassociate a specific whitelabel from a subuser.**\n\nA domain whitelabel allows you to remove the “via” or “sent on behalf of” message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.\n\nDomain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The the parent may then associate the whitelabel via the subuser management tools.\n\nFor more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)\n\n## URI Parameters\n| URI Parameter   | Type  | Required?  | Description  |\n|---|---|---|---|\n| username | string  | required  | Username for the subuser to find associated whitelabels for. |",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "whitelabel.domains.subuser.get",
@@ -10602,6 +11650,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10618,7 +11671,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "whitelabel.domains.domain_id.get",
@@ -10636,6 +11694,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel::domain"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10684,6 +11747,11 @@
         },
         "title": "Update a Domain response",
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10716,6 +11784,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10748,6 +11821,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10768,6 +11846,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10854,6 +11937,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10886,6 +11974,11 @@
           "$ref": "#/definitions/ip_whitelabel"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10930,6 +12023,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10948,6 +12046,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -10966,6 +12069,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11032,6 +12140,11 @@
           "validation_results"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11056,6 +12169,11 @@
           "$ref": "#/definitions/link_whitelabel"
         },
         "type": "array"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11111,6 +12229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11132,6 +12255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11148,7 +12276,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "whitelabel.links.subuser.get",
@@ -11166,6 +12299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11182,7 +12320,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
+      }
     },
     {
       "id": "whitelabel.links.id.get",
@@ -11200,6 +12343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11234,6 +12382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11330,6 +12483,11 @@
           "validation_results"
         ],
         "type": "object"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     },
     {
@@ -11360,6 +12518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
+      },
+      "security": {
+        "sendgrid": {
+          "integration": "sendgrid"
+        }
       }
     }
   ]

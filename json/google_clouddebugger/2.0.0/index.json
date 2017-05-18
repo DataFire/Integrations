@@ -2,6 +2,28 @@
   "id": "google_clouddebugger",
   "title": "Stackdriver Debugger",
   "description": "Examines the call stack and variables of a running application without stopping or slowing it down.\n",
+  "security": {
+    "google_clouddebugger": {
+      "integration": "google_clouddebugger",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud_debugger": "Manage cloud debugger"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AliasContext": {
       "description": "An alias to a repo revision.",
@@ -648,6 +670,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterDebuggeeResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -735,6 +762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListActiveBreakpointsResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -821,6 +853,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateActiveBreakpointResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -911,6 +948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDebuggeesResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -1018,6 +1060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBreakpointsResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -1104,6 +1151,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SetBreakpointResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -1191,6 +1243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     },
     {
@@ -1278,6 +1335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBreakpointResponse"
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
       }
     }
   ]

@@ -2,6 +2,7 @@
   "id": "azure_arm_compute_disk",
   "title": "DiskResourceProviderClient",
   "description": "The Disk Resource Provider Client.",
+  "security": {},
   "definitions": {
     "AccessUri": {
       "description": "A disk access SAS uri.",

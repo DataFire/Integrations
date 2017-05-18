@@ -2,6 +2,26 @@
   "id": "azure_arm_mobileengagement",
   "title": "Engagement.ManagementClient",
   "description": "Microsoft Azure Mobile Engagement REST APIs.",
+  "security": {
+    "azure_arm_mobileengagement": {
+      "integration": "azure_arm_mobileengagement",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AnnouncementFeedbackCriterion": {
       "allOf": [
@@ -1921,6 +1941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppCollectionListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -1946,6 +1971,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppCollectionNameAvailability"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -1968,6 +1998,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SupportedPlatformsListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -1998,6 +2033,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2062,6 +2102,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignsListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2109,6 +2154,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2156,6 +2206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignState"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2202,7 +2257,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
+      }
     },
     {
       "id": "Campaigns_Get",
@@ -2250,6 +2310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2301,6 +2366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2349,6 +2419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2397,6 +2472,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2448,6 +2528,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignPushResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2496,6 +2581,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStatisticsResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2544,6 +2634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2595,6 +2690,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2643,6 +2743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2689,6 +2794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicesQueryResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2738,6 +2848,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2775,6 +2890,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2812,6 +2932,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2849,6 +2974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2886,6 +3016,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2923,6 +3058,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2960,6 +3100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -2997,6 +3142,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3034,6 +3184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3071,6 +3226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3108,6 +3268,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3146,6 +3311,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3195,6 +3365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskListResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3232,6 +3407,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3270,6 +3450,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3307,6 +3492,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceTagsResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3345,6 +3535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3382,6 +3577,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceTagsResult"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     },
     {
@@ -3420,6 +3620,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "azure_arm_mobileengagement": {
+          "integration": "azure_arm_mobileengagement"
+        }
       }
     }
   ]

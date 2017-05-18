@@ -2,6 +2,7 @@
   "id": "azure_arm_machinelearning_commitmentplans",
   "title": "Azure ML Commitment Plans Management Client",
   "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment Association resources. They support CRUD operations for commitment plans, get and list operations for commitment associations, moving commitment associations between commitment plans, and retrieving commitment plan usage history.",
+  "security": {},
   "definitions": {
     "CommitmentAssociation": {
       "allOf": [

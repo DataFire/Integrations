@@ -2,6 +2,14 @@
   "id": "amadeus",
   "title": "Amadeus Travel Innovation Sandbox",
   "description": "",
+  "security": {
+    "amadeus": {
+      "integration": "amadeus",
+      "fields": {
+        "apikey": "API Key provided for your account, to identify you for API access. Make sure to keep this API key secret."
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "description": "An object to describe a postal address.",
@@ -2163,6 +2171,11 @@
           "$ref": "#/definitions/AirportAutocompleteResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2188,6 +2201,11 @@
           "$ref": "#/definitions/NearestAirport"
         },
         "type": "array"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2247,6 +2265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CarSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2314,6 +2337,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CarSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2376,6 +2404,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AffiliateSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2422,6 +2455,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtremeSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2469,6 +2507,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtremeSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2548,6 +2591,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LowFareSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2610,6 +2658,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2672,6 +2725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2738,6 +2796,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2780,6 +2843,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelPropertyResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2798,6 +2866,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2876,6 +2949,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PointsOfInterestResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2946,6 +3024,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PointsOfInterestResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2964,6 +3047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RailStationResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -2985,6 +3073,11 @@
           "$ref": "#/definitions/RailStationAutocompleteResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3011,6 +3104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtensiveTrainSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3034,6 +3132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TrainScheduleSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3067,6 +3170,11 @@
           "$ref": "#/definitions/FlightTrafficSearchResult"
         },
         "type": "array"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3093,6 +3201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopDestinationsSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3127,6 +3240,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopSearchesSearchResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     },
     {
@@ -3153,6 +3271,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelRecordResponse"
+      },
+      "security": {
+        "amadeus": {
+          "integration": "amadeus"
+        }
       }
     }
   ]

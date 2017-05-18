@@ -2,6 +2,7 @@
   "id": "azure_arm_storage",
   "title": "StorageManagement",
   "description": "The Azure Storage Management API.",
+  "security": {},
   "definitions": {
     "AccountSasParameters": {
       "description": "The parameters to list SAS credentials of a storage account.",

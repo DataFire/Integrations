@@ -2,6 +2,14 @@
   "id": "import_extraction",
   "title": "import.io",
   "description": "",
+  "security": {
+    "import_extraction": {
+      "integration": "import_extraction",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "APIError": {
       "properties": {
@@ -215,6 +223,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResponse"
+      },
+      "security": {
+        "import_extraction": {
+          "integration": "import_extraction"
+        }
       }
     }
   ]

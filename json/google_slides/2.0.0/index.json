@@ -2,6 +2,32 @@
   "id": "google_slides",
   "title": "Google Slides",
   "description": "An API for creating and editing Google Slides presentations.",
+  "security": {
+    "google_slides": {
+      "integration": "google_slides",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
+          "https://www.googleapis.com/auth/presentations": "View and manage your Google Slides presentations",
+          "https://www.googleapis.com/auth/presentations.readonly": "View your Google Slides presentations",
+          "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
+          "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AffineTransform": {
       "description": "AffineTransform uses a 3x3 matrix with an implied last row of [ 0 0 1 ]\nto transform source coordinates (x,y) into destination coordinates (x', y')\naccording to:\n\n      x'  x  =   shear_y  scale_y  translate_y  \n      1  [ 1 ]\n\nAfter transformation,\n\n     x' = scale_x * x + shear_x * y + translate_x;\n     y' = scale_y * y + shear_y * x + translate_y;\n\nThis message is therefore composed of these six matrix elements.",
@@ -2957,6 +2983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Presentation"
+      },
+      "security": {
+        "google_slides": {
+          "integration": "google_slides"
+        }
       }
     },
     {
@@ -3036,6 +3067,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Presentation"
+      },
+      "security": {
+        "google_slides": {
+          "integration": "google_slides"
+        }
       }
     },
     {
@@ -3119,6 +3155,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_slides": {
+          "integration": "google_slides"
+        }
       }
     },
     {
@@ -3217,6 +3258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Thumbnail"
+      },
+      "security": {
+        "google_slides": {
+          "integration": "google_slides"
+        }
       }
     },
     {
@@ -3299,6 +3345,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdatePresentationResponse"
+      },
+      "security": {
+        "google_slides": {
+          "integration": "google_slides"
+        }
       }
     }
   ]

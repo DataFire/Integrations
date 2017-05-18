@@ -2,6 +2,14 @@
   "id": "rottentomatoes",
   "title": "Rotten Tomatoes",
   "description": "Test our API services using I/O Docs.",
+  "security": {
+    "rottentomatoes": {
+      "integration": "rottentomatoes",
+      "fields": {
+        "key": "API key"
+      }
+    }
+  },
   "definitions": {},
   "actions": [
     {
@@ -9,14 +17,24 @@
       "title": "ListsDirectoryTopLevelLists",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "DVDListsDirectoryTopLevelLists",
       "title": "DVDListsDirectoryTopLevelLists",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "CurrentReleaseDVDsDVDLists",
@@ -43,7 +61,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "NewReleaseDVDsDVDLists",
@@ -70,7 +93,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "TopRentalsDVDLists",
@@ -93,7 +121,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "UpcomingDVDsDVDLists",
@@ -120,14 +153,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MovieListsDirectoryTopLevelLists",
       "title": "MovieListsDirectoryTopLevelLists",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "BoxOfficeMovieLists",
@@ -150,7 +193,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "InTheatersMovieLists",
@@ -177,7 +225,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "OpeningMoviesMovieLists",
@@ -200,7 +253,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "UpcomingMoviesMovieLists",
@@ -227,7 +285,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MoviesAliasDetailedInfo",
@@ -250,7 +313,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MoviesSearchSearch",
@@ -277,7 +345,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MoviesInfoDetailedInfo",
@@ -293,7 +366,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "CastInfoDetailedInfo",
@@ -309,7 +387,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MovieClipsDetailedInfo",
@@ -325,7 +408,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MoviesReviewsDetailedInfo",
@@ -357,7 +445,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     },
     {
       "id": "MoviesSimilarDetailedInfo",
@@ -377,7 +470,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rottentomatoes": {
+          "integration": "rottentomatoes"
+        }
+      }
     }
   ]
 }

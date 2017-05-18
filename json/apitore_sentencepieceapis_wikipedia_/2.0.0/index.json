@@ -2,6 +2,7 @@
   "id": "apitore_sentencepieceapis_wikipedia_",
   "title": "SentencePiece APIs (wikipedia)",
   "description": "SentencePiece tokenizer (wikipedia).<BR />[Endpoint] https://api.apitore.com/api/37",
+  "security": {},
   "definitions": {
     "SPTokenEntity": {
       "properties": {

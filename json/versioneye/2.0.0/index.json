@@ -2,6 +2,7 @@
   "id": "versioneye",
   "title": "Available API endpoints",
   "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
+  "security": {},
   "actions": [
     {
       "id": "getFacebookPing",

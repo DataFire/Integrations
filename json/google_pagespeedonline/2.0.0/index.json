@@ -2,6 +2,7 @@
   "id": "google_pagespeedonline",
   "title": "PageSpeed Insights",
   "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
+  "security": {},
   "definitions": {
     "PagespeedApiFormatStringV2": {
       "properties": {

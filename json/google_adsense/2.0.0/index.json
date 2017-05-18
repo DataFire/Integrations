@@ -2,6 +2,28 @@
   "id": "google_adsense",
   "title": "AdSense Management",
   "description": "Accesses AdSense publishers' inventory and generates performance reports.",
+  "security": {
+    "google_adsense": {
+      "integration": "google_adsense",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adsense": "View and manage your AdSense data",
+          "https://www.googleapis.com/auth/adsense.readonly": "View your AdSense data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -812,6 +834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Accounts"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -866,6 +893,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -926,6 +958,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -994,6 +1031,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnits"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1052,6 +1094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1110,6 +1157,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdCode"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1178,6 +1230,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1242,6 +1299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1300,6 +1362,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1372,6 +1439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnits"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1436,6 +1508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1490,6 +1567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Alerts"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1542,7 +1624,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
+      }
     },
     {
       "id": "accounts.payments.list",
@@ -1592,6 +1679,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payments"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1690,6 +1782,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdsenseReportsGenerateResponse"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1750,6 +1847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedReports"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1820,6 +1922,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdsenseReportsGenerateResponse"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1880,6 +1987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedAdStyles"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1934,6 +2046,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedAdStyle"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -1993,6 +2110,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2057,6 +2179,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnits"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2111,6 +2238,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2165,6 +2297,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdCode"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2229,6 +2366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2289,6 +2431,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2343,6 +2490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2411,6 +2563,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnits"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2471,6 +2628,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannels"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2524,6 +2686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Alerts"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2572,7 +2739,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
+      }
     },
     {
       "id": "metadata.dimensions.list",
@@ -2621,6 +2793,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2670,6 +2847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2719,6 +2901,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payments"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2817,6 +3004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdsenseReportsGenerateResponse"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2876,6 +3068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedReports"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -2942,6 +3139,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdsenseReportsGenerateResponse"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -3001,6 +3203,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedAdStyles"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     },
     {
@@ -3051,6 +3258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedAdStyle"
+      },
+      "security": {
+        "google_adsense": {
+          "integration": "google_adsense"
+        }
       }
     }
   ]

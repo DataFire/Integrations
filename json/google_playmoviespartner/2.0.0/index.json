@@ -2,6 +2,27 @@
   "id": "google_playmoviespartner",
   "title": "Google Play Movies Partner",
   "description": "Gets the delivery status of titles for Google Play Movies Partners.",
+  "security": {
+    "google_playmoviespartner": {
+      "integration": "google_playmoviespartner",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/playmovies_partner.readonly": "View the digital assets you publish on Google Play Movies and TV"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Avail": {
       "description": "An Avail describes the Availability Window of a specific Edit in a given\ncountry, which means the period Google is allowed to sell or rent the Edit.\n\nAvails are exposed in EMA format Version 1.6b (available at\nhttp://www.movielabs.com/md/avails/)\n\nStudios can see the Avails for the Titles they own.\nPost-production houses cannot see any Avails.",
@@ -605,6 +626,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAvailsResponse"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     },
     {
@@ -688,6 +714,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Avail"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     },
     {
@@ -799,6 +830,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOrdersResponse"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     },
     {
@@ -882,6 +918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     },
     {
@@ -1001,6 +1042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStoreInfosResponse"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     },
     {
@@ -1088,6 +1134,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreInfo"
+      },
+      "security": {
+        "google_playmoviespartner": {
+          "integration": "google_playmoviespartner"
+        }
       }
     }
   ]

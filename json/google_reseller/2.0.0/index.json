@@ -2,6 +2,28 @@
   "id": "google_reseller",
   "title": "Enterprise Apps Reseller",
   "description": "Creates and manages your customers and their subscriptions.",
+  "security": {
+    "google_reseller": {
+      "integration": "google_reseller",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/apps.order": "Manage users on your domain",
+          "https://www.googleapis.com/auth/apps.order.readonly": "Manage users on your domain"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "description": "JSON template for address of a customer.",
@@ -393,6 +415,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -442,6 +469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -494,6 +526,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -546,6 +583,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -602,6 +644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -663,7 +710,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
+      }
     },
     {
       "id": "subscriptions.get",
@@ -716,6 +768,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -769,6 +826,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -825,6 +887,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -881,6 +948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -937,6 +1009,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -990,6 +1067,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -1043,6 +1125,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -1091,6 +1178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResellernotifyGetwatchdetailsResponse"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -1143,6 +1235,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResellernotifyResource"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -1195,6 +1292,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResellernotifyResource"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     },
     {
@@ -1265,6 +1367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscriptions"
+      },
+      "security": {
+        "google_reseller": {
+          "integration": "google_reseller"
+        }
       }
     }
   ]

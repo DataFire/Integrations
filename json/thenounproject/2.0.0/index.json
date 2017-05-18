@@ -2,6 +2,7 @@
   "id": "thenounproject",
   "title": "The Noun Project",
   "description": "Icons for Everything",
+  "security": {},
   "actions": [
     {
       "id": "getCollectionById",

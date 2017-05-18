@@ -2,6 +2,26 @@
   "id": "lyft",
   "title": "Lyft",
   "description": "Drive your app to success with Lyft's API",
+  "security": {
+    "lyft": {
+      "integration": "lyft",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "description": "OAuth 2.0 - Application Only Credentials",
+        "flow": "application",
+        "scopes": {
+          "public": "Access public information such as ETAs and cost estimates"
+        },
+        "tokenUrl": "https://api.lyft.com/oauth/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ApiError": {
       "description": "Details about why a request failed, such as missing or invalid parameters",
@@ -1384,6 +1404,11 @@
         },
         "title": "CostEstimateResponse",
         "type": "object"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1417,6 +1442,11 @@
         },
         "title": "NearbyDriversResponse",
         "type": "object"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1469,6 +1499,11 @@
         },
         "title": "EtaEstimateResponse",
         "type": "object"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1478,6 +1513,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1520,6 +1560,11 @@
         },
         "title": "RidesResponse",
         "type": "object"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1537,6 +1582,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RideRequest"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1555,6 +1605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RideDetail"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1574,7 +1629,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
     },
     {
       "id": "SetRideDestination",
@@ -1595,6 +1655,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1614,7 +1679,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
     },
     {
       "id": "GetRideReceipt",
@@ -1632,6 +1702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RideReceipt"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1674,6 +1749,11 @@
         },
         "title": "RideTypesResponse",
         "type": "object"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1689,7 +1769,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
     },
     {
       "id": "SetRideStatus",
@@ -1710,6 +1795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SandboxRideUpdate"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1727,6 +1817,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SandboxRideType"
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
       }
     },
     {
@@ -1750,7 +1845,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
     }
   ]
 }

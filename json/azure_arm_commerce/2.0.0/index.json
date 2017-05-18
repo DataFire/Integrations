@@ -2,6 +2,7 @@
   "id": "azure_arm_commerce",
   "title": "UsageManagementClient",
   "description": "",
+  "security": {},
   "definitions": {
     "ErrorResponse": {
       "description": "Describes the format of Error response.",

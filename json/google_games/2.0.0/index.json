@@ -2,6 +2,29 @@
   "id": "google_games",
   "title": "Google Play Game Services",
   "description": "The API for Google Play Game Services.",
+  "security": {
+    "google_games": {
+      "integration": "google_games",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/drive.appdata": "View and manage its own configuration data in your Google Drive",
+          "https://www.googleapis.com/auth/games": "Share your Google+ profile information and view and manage your game activity",
+          "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AchievementDefinition": {
       "description": "This is a JSON template for an achievement definition object.",
@@ -2910,6 +2933,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementDefinitionsListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -2965,6 +2993,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementUpdateMultipleResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3027,6 +3060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementIncrementResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3080,6 +3118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementRevealResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3138,6 +3181,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementSetStepsAtLeastResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3191,6 +3239,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementUnlockResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3241,7 +3294,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "applications.get",
@@ -3307,6 +3365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3360,6 +3423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationVerifyResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3426,6 +3494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventDefinitionListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3492,6 +3565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerEventListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3551,6 +3629,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventUpdateResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3617,6 +3700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3676,6 +3764,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerScoreListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3733,6 +3826,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Leaderboard"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3798,6 +3896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerScoreResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3883,6 +3986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardScores"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -3976,6 +4084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardScores"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4028,6 +4141,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetagameConfig"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4101,6 +4219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4158,6 +4281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Player"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4235,6 +4363,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerAchievementListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4309,6 +4442,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CategoryListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4399,6 +4537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerLeaderboardScoreListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4466,6 +4609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QuestListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4533,6 +4681,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SnapshotListResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4586,7 +4739,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "pushtokens.remove",
@@ -4639,7 +4797,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "quests.accept",
@@ -4696,6 +4859,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Quest"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4755,7 +4923,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "revisions.check",
@@ -4808,6 +4981,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RevisionCheckResponse"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4874,6 +5052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoomList"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4933,6 +5116,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -4990,6 +5178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5047,6 +5240,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5098,7 +5296,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "rooms.join",
@@ -5158,6 +5361,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5218,6 +5426,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5278,6 +5491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoomStatus"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5335,6 +5553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Snapshot"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5411,6 +5634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatchList"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5470,6 +5698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5546,6 +5779,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatchSync"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5607,6 +5845,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5658,7 +5901,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "turnBasedMatches.decline",
@@ -5715,6 +5963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5766,7 +6019,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
+      }
     },
     {
       "id": "turnBasedMatches.finish",
@@ -5826,6 +6084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5883,6 +6146,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -5940,6 +6208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -6005,6 +6278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -6066,6 +6344,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatchRematch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     },
     {
@@ -6126,6 +6409,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TurnBasedMatch"
+      },
+      "security": {
+        "google_games": {
+          "integration": "google_games"
+        }
       }
     }
   ]

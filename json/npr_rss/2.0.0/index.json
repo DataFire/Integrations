@@ -2,6 +2,7 @@
   "id": "npr_rss",
   "title": "www.npr.org",
   "description": "",
+  "security": {},
   "actions": [
     {
       "id": "news",

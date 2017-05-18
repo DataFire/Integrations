@@ -2,6 +2,15 @@
   "id": "cenit",
   "title": "Cenit IO - REST API Specification",
   "description": "Cenit IO is an Open Platform for Data and Business Integration (iPaaS)\n",
+  "security": {
+    "cenit": {
+      "integration": "cenit",
+      "fields": {
+        "X-User-Access-Key": "API key",
+        "X-User-Access-Token": "API key"
+      }
+    }
+  },
   "definitions": {
     "connection": {
       "properties": {
@@ -324,6 +333,11 @@
           "$ref": "#/definitions/connection"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -333,6 +347,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/connection"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -349,7 +368,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.connection.id.get",
@@ -367,6 +391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/connection"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -379,6 +408,11 @@
           "$ref": "#/definitions/connection_role"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -388,6 +422,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/connection_role"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -404,7 +443,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.connection_role.id.get",
@@ -422,6 +466,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/connection_role"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -434,6 +483,11 @@
           "$ref": "#/definitions/data_type"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -443,6 +497,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/data_type"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -459,7 +518,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.data_type.id.get",
@@ -477,6 +541,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/data_type"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -489,6 +558,11 @@
           "$ref": "#/definitions/flow"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -498,6 +572,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/flow"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -514,7 +593,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.flow.id.get",
@@ -532,6 +616,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/flow"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -544,6 +633,11 @@
           "$ref": "#/definitions/namespace"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -553,6 +647,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/namespace"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -569,7 +668,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.namespace.id.get",
@@ -587,6 +691,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/namespace"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -599,6 +708,11 @@
           "$ref": "#/definitions/observer"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -608,6 +722,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/observer"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -624,7 +743,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.observer.id.get",
@@ -642,6 +766,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/observer"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -654,6 +783,11 @@
           "$ref": "#/definitions/scheduler"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -663,6 +797,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/scheduler"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -679,7 +818,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.scheduler.id.get",
@@ -697,6 +841,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/scheduler"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -709,6 +858,11 @@
           "$ref": "#/definitions/schema"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -718,6 +872,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/schema"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -734,7 +893,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.schema.id.get",
@@ -752,6 +916,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/schema"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -764,6 +933,11 @@
           "$ref": "#/definitions/translator"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -773,6 +947,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/translator"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -789,7 +968,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.translator.id.get",
@@ -807,6 +991,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/translator"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -819,6 +1008,11 @@
           "$ref": "#/definitions/webhook"
         },
         "type": "array"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -828,6 +1022,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/webhook"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     },
     {
@@ -844,7 +1043,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
+      }
     },
     {
       "id": "setup.webhook.id.get",
@@ -862,6 +1066,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook"
+      },
+      "security": {
+        "cenit": {
+          "integration": "cenit"
+        }
       }
     }
   ]

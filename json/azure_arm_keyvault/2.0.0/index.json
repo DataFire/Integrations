@@ -2,6 +2,7 @@
   "id": "azure_arm_keyvault",
   "title": "KeyVaultManagementClient",
   "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
+  "security": {},
   "definitions": {
     "AccessPolicyEntry": {
       "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",

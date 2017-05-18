@@ -2,6 +2,38 @@
   "id": "google_classroom",
   "title": "Google Classroom",
   "description": "Manages classes, rosters, and invitations in Google Classroom.",
+  "security": {
+    "google_classroom": {
+      "integration": "google_classroom",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/classroom.courses": "Manage your Google Classroom classes",
+          "https://www.googleapis.com/auth/classroom.courses.readonly": "View your Google Classroom classes",
+          "https://www.googleapis.com/auth/classroom.coursework.me": "Manage your course work and view your grades in Google Classroom",
+          "https://www.googleapis.com/auth/classroom.coursework.me.readonly": "View your course work and grades in Google Classroom",
+          "https://www.googleapis.com/auth/classroom.coursework.students": "Manage course work and grades for students in the Google Classroom classes you teach and view the course work and grades for classes you administer",
+          "https://www.googleapis.com/auth/classroom.coursework.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer",
+          "https://www.googleapis.com/auth/classroom.profile.emails": "View the email addresses of people in your classes",
+          "https://www.googleapis.com/auth/classroom.profile.photos": "View the profile photos of people in your classes",
+          "https://www.googleapis.com/auth/classroom.rosters": "Manage your Google Classroom class rosters",
+          "https://www.googleapis.com/auth/classroom.rosters.readonly": "View your Google Classroom class rosters",
+          "https://www.googleapis.com/auth/classroom.student-submissions.me.readonly": "View your course work and grades in Google Classroom",
+          "https://www.googleapis.com/auth/classroom.student-submissions.students.readonly": "View course work and grades for students in the Google Classroom classes you teach or administer"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Assignment": {
       "description": "Additional details for assignments.",
@@ -1059,6 +1091,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCoursesResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1140,6 +1177,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1227,6 +1269,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCourseAliasesResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1309,6 +1356,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseAlias"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1392,6 +1444,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1487,6 +1544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCourseWorkResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1569,6 +1631,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1677,6 +1744,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStudentSubmissionsResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1764,6 +1836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1858,6 +1935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -1948,6 +2030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2038,6 +2125,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2128,6 +2220,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2218,6 +2315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2301,6 +2403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2384,6 +2491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2474,6 +2586,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2561,6 +2678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStudentsResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2647,6 +2769,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Student"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2730,6 +2857,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2813,6 +2945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Student"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2900,6 +3037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTeachersResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -2982,6 +3124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Teacher"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3065,6 +3212,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3148,6 +3300,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Teacher"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3227,6 +3384,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3306,6 +3468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3392,6 +3559,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3474,6 +3646,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3568,6 +3745,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInvitationsResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3649,6 +3831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invitation"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3728,6 +3915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3807,6 +3999,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invitation"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3886,6 +4083,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -3981,6 +4183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGuardianInvitationsResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4063,6 +4270,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4146,6 +4358,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4236,6 +4453,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4327,6 +4549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGuardiansResponse"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4410,6 +4637,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4493,6 +4725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Guardian"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     },
     {
@@ -4572,6 +4809,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserProfile"
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
       }
     }
   ]

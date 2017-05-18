@@ -2,6 +2,31 @@
   "id": "google_genomics",
   "title": "Genomics",
   "description": "Upload, process, query, and search Genomics data in the cloud.",
+  "security": {
+    "google_genomics": {
+      "integration": "google_genomics",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/genomics": "View and manage Genomics data",
+          "https://www.googleapis.com/auth/genomics.readonly": "View Genomics data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Annotation": {
       "description": "An annotation describes a region of reference genome. The value of an\nannotation may be one of several canonical types, supplemented by arbitrary\ninfo tags. An annotation is not inherently associated with a specific\nsample or individual (though a client could choose to use annotations in\nthis way). Example canonical annotation types are `GENE` and\n`VARIANT`.",
@@ -2088,6 +2113,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2169,6 +2199,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchAnnotationsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2248,6 +2283,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2327,6 +2367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2413,6 +2458,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2494,6 +2544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchCreateAnnotationsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2575,6 +2630,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2656,6 +2716,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchAnnotationSetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2735,6 +2800,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2814,6 +2884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2900,6 +2975,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -2981,6 +3061,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CallSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3062,6 +3147,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchCallSetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3141,6 +3231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3220,6 +3315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CallSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3306,6 +3406,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CallSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3396,6 +3501,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDatasetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3477,6 +3587,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3556,6 +3671,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3635,6 +3755,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3721,6 +3846,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3803,6 +3933,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3884,6 +4019,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchReadGroupSetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -3963,6 +4103,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4042,6 +4187,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadGroupSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4128,6 +4278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadGroupSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4231,6 +4386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCoverageBucketsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4313,6 +4473,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4394,6 +4559,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4475,6 +4645,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchReadsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4556,6 +4731,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchReferencesResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4635,6 +4815,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Reference"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4730,6 +4915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBasesResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4811,6 +5001,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchReferenceSetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4890,6 +5085,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReferenceSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -4971,6 +5171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variant"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5052,6 +5257,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchVariantsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5131,6 +5341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5210,6 +5425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variant"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5296,6 +5516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variant"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5377,6 +5602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5458,6 +5688,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5539,6 +5774,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VariantSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5620,6 +5860,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchVariantSetsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5699,6 +5944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5778,6 +6028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VariantSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5864,6 +6119,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VariantSet"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -5946,6 +6206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -6025,6 +6290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -6107,6 +6377,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -6189,6 +6464,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -6271,6 +6551,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     },
     {
@@ -6353,6 +6638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
       }
     }
   ]

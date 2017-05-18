@@ -2,6 +2,7 @@
   "id": "vestorly",
   "title": "Vestorly",
   "description": "Vestorly Developers API",
+  "security": {},
   "definitions": {
     "Advisor": {
       "properties": {

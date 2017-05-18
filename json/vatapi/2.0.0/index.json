@@ -2,6 +2,14 @@
   "id": "vatapi",
   "title": "VAT API",
   "description": "A developer friendly API to help your business achieve VAT compliance",
+  "security": {
+    "vatapi": {
+      "integration": "vatapi",
+      "fields": {
+        "apikey": "Enter your API key"
+      }
+    }
+  },
   "definitions": {
     "Convert_Price": {
       "properties": {
@@ -780,6 +788,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Country_Code_Check"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -810,6 +823,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Currency_Conversion"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -831,6 +849,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Create_Invoice"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -851,7 +874,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
+      }
     },
     {
       "id": "get_invoice",
@@ -873,6 +901,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Retrieve_Invoice"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -898,6 +931,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Update_Invoice"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -920,6 +958,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IP_Check"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -940,7 +983,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
+      }
     },
     {
       "id": "convert_price",
@@ -974,6 +1022,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Convert_Price"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     },
     {
@@ -995,6 +1048,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Vat_Rates"
+      },
+      "security": {
+        "vatapi": {
+          "integration": "vatapi"
+        }
       }
     }
   ]

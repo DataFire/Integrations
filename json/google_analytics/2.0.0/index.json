@@ -2,6 +2,32 @@
   "id": "google_analytics",
   "title": "Google Analytics",
   "description": "Views and manages your Google Analytics data.",
+  "security": {
+    "google_analytics": {
+      "integration": "google_analytics",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/analytics": "View and manage your Google Analytics data",
+          "https://www.googleapis.com/auth/analytics.edit": "Edit Google Analytics management entities",
+          "https://www.googleapis.com/auth/analytics.manage.users": "Manage Google Analytics Account users by email address",
+          "https://www.googleapis.com/auth/analytics.manage.users.readonly": "View Google Analytics user permissions",
+          "https://www.googleapis.com/auth/analytics.provision": "Create a new Google Analytics account along with its default property and view",
+          "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "JSON template for Analytics account entry.",
@@ -3441,6 +3467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GaData"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3532,6 +3563,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/McfData"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3601,6 +3637,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RealtimeData"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3658,6 +3699,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountSummaries"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3715,6 +3761,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Accounts"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3773,6 +3824,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3825,6 +3881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3876,7 +3937,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.accountUserLinks.update",
@@ -3932,6 +3998,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -3990,6 +4061,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filters"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4042,6 +4118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4095,6 +4176,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4148,6 +4234,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4204,6 +4295,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4260,6 +4356,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4318,6 +4419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperties"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4370,6 +4476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4423,6 +4534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4479,6 +4595,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4535,6 +4656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4598,6 +4724,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDataSources"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4656,7 +4787,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.uploads.list",
@@ -4723,6 +4859,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Uploads"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4780,6 +4921,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Upload"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4841,6 +4987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Upload"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4903,6 +5054,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimensions"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -4959,6 +5115,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5016,6 +5177,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5080,6 +5246,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5144,6 +5315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5206,6 +5382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetrics"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5262,6 +5443,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5319,6 +5505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5383,6 +5574,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5447,6 +5643,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5509,6 +5710,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLinks"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5565,6 +5771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5620,7 +5831,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.webPropertyAdWordsLinks.get",
@@ -5677,6 +5893,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5737,6 +5958,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5797,6 +6023,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5859,6 +6090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5915,6 +6151,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -5970,7 +6211,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.webpropertyUserLinks.update",
@@ -6030,6 +6276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6092,6 +6343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profiles"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6148,6 +6404,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6203,7 +6464,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.profiles.get",
@@ -6260,6 +6526,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6320,6 +6591,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6380,6 +6656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6446,6 +6727,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6506,6 +6792,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6565,7 +6856,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.profileUserLinks.update",
@@ -6629,6 +6925,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6695,6 +6996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiments"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6755,6 +7061,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6814,7 +7125,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.experiments.get",
@@ -6875,6 +7191,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -6939,6 +7260,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7003,6 +7329,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7069,6 +7400,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Goals"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7129,6 +7465,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7190,6 +7531,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7254,6 +7600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7318,6 +7669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7384,6 +7740,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLinks"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7444,6 +7805,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7503,7 +7869,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.profileFilterLinks.get",
@@ -7564,6 +7935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7628,6 +8004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7692,6 +8073,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7758,6 +8144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReports"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7818,6 +8209,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReport"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -7877,7 +8273,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.unsampledReports.get",
@@ -7938,6 +8339,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReport"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8003,6 +8409,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudiences"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8059,6 +8470,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8114,7 +8530,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
     },
     {
       "id": "management.remarketingAudience.get",
@@ -8171,6 +8592,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8231,6 +8657,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8291,6 +8722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8348,6 +8784,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Segments"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8397,6 +8838,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Columns"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     },
     {
@@ -8448,6 +8894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTicket"
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
       }
     }
   ]

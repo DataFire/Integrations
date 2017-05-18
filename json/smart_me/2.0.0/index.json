@@ -2,6 +2,15 @@
   "id": "smart_me",
   "title": "smart-me",
   "description": "With the smart-me REST API you get Access to all your devices in the smart-me Cloud and you can add your own devices. So it's a easy way to add the smart-me Cloud support to your Hardware or Software Product.",
+  "security": {
+    "smart_me": {
+      "integration": "smart_me",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "definitions": {
     "AccessTokenToPut": {
       "description": "Container Class for the Put action of an Access Token",
@@ -682,6 +691,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -697,7 +711,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
     },
     {
       "id": "Actions_Get",
@@ -718,6 +737,11 @@
           "$ref": "#/definitions/ActionInformation"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -730,6 +754,11 @@
           "$ref": "#/definitions/CustomDeviceToPost"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -747,6 +776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -765,6 +799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -784,6 +823,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -796,6 +840,11 @@
           "$ref": "#/definitions/Device"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -813,6 +862,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceToPost"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -831,6 +885,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -858,6 +917,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -893,6 +957,11 @@
           "$ref": "#/definitions/Device"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -919,6 +988,11 @@
           "$ref": "#/definitions/Device"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -936,6 +1010,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -951,7 +1030,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
+      }
     },
     {
       "id": "MeterFolderInformation_Get",
@@ -968,6 +1052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MeterFolderInformation"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -989,6 +1078,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceInPast"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1006,6 +1100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1015,6 +1114,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1027,6 +1131,11 @@
           "$ref": "#/definitions/Device"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1044,6 +1153,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1061,6 +1175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     },
     {
@@ -1073,6 +1192,11 @@
           "$ref": "#/definitions/Device"
         },
         "type": "array"
+      },
+      "security": {
+        "smart_me": {
+          "integration": "smart_me"
+        }
       }
     }
   ]

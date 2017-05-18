@@ -2,6 +2,37 @@
   "id": "spotify",
   "title": "Spotify",
   "description": "",
+  "security": {
+    "spotify": {
+      "integration": "spotify",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.spotify.com/authorize",
+        "description": "Spotify supports OAuth 2.0 for authenticating all API requests.\n",
+        "flow": "accessCode",
+        "scopes": {
+          "playlist-modify-private": "",
+          "playlist-modify-public": "",
+          "playlist-read-collaborative": "",
+          "playlist-read-private": "",
+          "user-follow-modify": "",
+          "user-follow-read": "",
+          "user-library-modify": "",
+          "user-library-read": "",
+          "user-read-birthdate": "",
+          "user-read-email": "",
+          "user-read-private": ""
+        },
+        "tokenUrl": "https://accounts.spotify.com/api/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "album": {
       "properties": {
@@ -1235,6 +1266,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1257,6 +1293,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/album"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1289,6 +1330,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/track-simple-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1315,6 +1361,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1333,6 +1384,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/artist"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1369,6 +1425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/album-simple-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1395,6 +1456,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1425,6 +1491,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1464,6 +1535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/category-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1494,6 +1570,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/category"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1535,6 +1616,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1578,6 +1664,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/featured-playlists"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1613,6 +1704,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/album-simple-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1622,6 +1718,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/current-user-profile"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1646,7 +1747,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "me.following.get",
@@ -1677,6 +1783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user-followed"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1701,7 +1812,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "me.following.contains.get",
@@ -1731,6 +1847,11 @@
           "type": "boolean"
         },
         "type": "array"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1751,7 +1872,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "me.tracks.get",
@@ -1786,6 +1912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/saved-track-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1806,7 +1937,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "me.tracks.contains.get",
@@ -1828,6 +1964,11 @@
           "type": "boolean"
         },
         "type": "array"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1864,6 +2005,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/search"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1894,6 +2040,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1915,6 +2066,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/track"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1933,6 +2089,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user-profile"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -1965,6 +2126,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-simple-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2001,6 +2167,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2035,6 +2206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2070,7 +2246,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "users.user_id.playlists.playlist_id.followers.delete",
@@ -2090,7 +2271,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "users.user_id.playlists.playlist_id.followers.put",
@@ -2118,7 +2304,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
     },
     {
       "id": "users.user_id.playlists.playlist_id.followers.contains.get",
@@ -2148,6 +2339,11 @@
           "type": "boolean"
         },
         "type": "array"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2186,6 +2382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2230,6 +2431,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-track-page"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2264,6 +2470,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     },
     {
@@ -2302,6 +2513,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
       }
     }
   ]

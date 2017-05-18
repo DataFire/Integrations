@@ -2,6 +2,32 @@
   "id": "google_youtube",
   "title": "YouTube Data",
   "description": "Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.",
+  "security": {
+    "google_youtube": {
+      "integration": "google_youtube",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
+          "https://www.googleapis.com/auth/youtube.force-ssl": "Manage your YouTube account",
+          "https://www.googleapis.com/auth/youtube.readonly": "View your YouTube account",
+          "https://www.googleapis.com/auth/youtube.upload": "Manage your YouTube videos",
+          "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
+          "https://www.googleapis.com/auth/youtubepartner-channel-audit": "View private information of your YouTube channel relevant during the audit process with a YouTube partner"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AccessPolicy": {
       "description": "Rights management policy for YouTube resources.",
@@ -6100,6 +6126,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActivityListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6152,6 +6183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Activity"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6207,7 +6243,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "captions.list",
@@ -6272,6 +6313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CaptionListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6336,6 +6382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Caption"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6400,6 +6451,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Caption"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6470,7 +6526,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "channelBanners.insert",
@@ -6525,6 +6586,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelBannerResource"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6576,7 +6642,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "channelSections.list",
@@ -6645,6 +6716,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelSectionListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6705,6 +6781,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelSection"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6761,6 +6842,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelSection"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6852,6 +6938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -6908,6 +6999,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7012,6 +7108,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentThreadListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7064,6 +7165,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentThread"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7116,6 +7222,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentThread"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7163,7 +7274,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "comments.list",
@@ -7238,6 +7354,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7290,6 +7411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7342,6 +7468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7389,7 +7520,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "comments.setModerationStatus",
@@ -7449,7 +7585,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "fanFundingEvents.list",
@@ -7512,6 +7653,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FanFundingEventListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7573,6 +7719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GuideCategoryListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7626,6 +7777,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/I18nLanguageListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7679,6 +7835,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/I18nRegionListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7734,7 +7895,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "liveBroadcasts.list",
@@ -7828,6 +7994,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcastListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7888,6 +8059,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcast"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -7948,6 +8124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcast"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8013,6 +8194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcast"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8086,6 +8272,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcast"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8156,6 +8347,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveBroadcast"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8203,7 +8399,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "liveChatBans.insert",
@@ -8255,6 +8456,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveChatBan"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8302,7 +8508,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "liveChatMessages.list",
@@ -8375,6 +8586,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveChatMessageListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8427,6 +8643,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveChatMessage"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8474,7 +8695,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "liveChatModerators.list",
@@ -8537,6 +8763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveChatModeratorListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8589,6 +8820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveChatModerator"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8644,7 +8880,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "liveStreams.list",
@@ -8719,6 +8960,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveStreamListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8779,6 +9025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveStream"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8839,6 +9090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LiveStream"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -8890,7 +9146,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "playlistItems.list",
@@ -8965,6 +9226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlaylistItemListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9021,6 +9287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlaylistItem"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9077,6 +9348,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlaylistItem"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9128,7 +9404,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "playlists.list",
@@ -9211,6 +9492,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlaylistListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9271,6 +9557,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Playlist"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9327,6 +9618,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Playlist"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9559,6 +9855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9626,6 +9927,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SponsorListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9673,7 +9979,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "subscriptions.list",
@@ -9773,6 +10084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9825,6 +10141,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9888,6 +10209,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuperChatEventListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9941,6 +10267,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ThumbnailSetResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -9994,6 +10325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoAbuseReportReasonListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10055,6 +10391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoCategoryListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10106,7 +10447,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "videos.list",
@@ -10216,6 +10562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoListResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10288,6 +10639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Video"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10344,6 +10700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Video"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10397,6 +10758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoGetRatingResponse"
+      },
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
       }
     },
     {
@@ -10453,7 +10819,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "videos.reportAbuse",
@@ -10506,7 +10877,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "watermarks.set",
@@ -10560,7 +10936,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     },
     {
       "id": "watermarks.unset",
@@ -10611,7 +10992,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtube": {
+          "integration": "google_youtube"
+        }
+      }
     }
   ]
 }

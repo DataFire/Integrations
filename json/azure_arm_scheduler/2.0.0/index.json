@@ -2,6 +2,7 @@
   "id": "azure_arm_scheduler",
   "title": "SchedulerManagementClient",
   "description": "",
+  "security": {},
   "definitions": {
     "BasicAuthentication": {
       "allOf": [

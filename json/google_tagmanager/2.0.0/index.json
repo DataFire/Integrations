@@ -2,6 +2,33 @@
   "id": "google_tagmanager",
   "title": "Tag Manager",
   "description": "Accesses Tag Manager accounts and containers.",
+  "security": {
+    "google_tagmanager": {
+      "integration": "google_tagmanager",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/tagmanager.delete.containers": "Delete your Google Tag Manager containers",
+          "https://www.googleapis.com/auth/tagmanager.edit.containers": "Manage your Google Tag Manager container and its subcomponents, excluding versioning and publishing",
+          "https://www.googleapis.com/auth/tagmanager.edit.containerversions": "Manage your Google Tag Manager container versions",
+          "https://www.googleapis.com/auth/tagmanager.manage.accounts": "View and manage your Google Tag Manager accounts",
+          "https://www.googleapis.com/auth/tagmanager.manage.users": "Manage user permissions of your Google Tag Manager account and container",
+          "https://www.googleapis.com/auth/tagmanager.publish": "Publish your Google Tag Manager container versions",
+          "https://www.googleapis.com/auth/tagmanager.readonly": "View your Google Tag Manager container and its subcomponents"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "Represents a Google Tag Manager Account.",
@@ -1157,6 +1184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAccountsResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1206,6 +1238,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1262,6 +1299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1311,6 +1353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListContainersResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1363,6 +1410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Container"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1414,7 +1466,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.get",
@@ -1467,6 +1524,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Container"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1527,6 +1589,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Container"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1580,6 +1647,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListEnvironmentsResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1636,6 +1708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1691,7 +1768,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.environments.get",
@@ -1748,6 +1830,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1812,6 +1899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1876,6 +1968,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1929,6 +2026,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListFoldersResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -1985,6 +2087,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2040,7 +2147,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.folders.get",
@@ -2097,6 +2209,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2161,6 +2278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2218,6 +2340,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FolderEntities"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2288,7 +2415,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.reauthorize_environments.update",
@@ -2348,6 +2480,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2401,6 +2538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTagsResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2457,6 +2599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2512,7 +2659,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.tags.get",
@@ -2569,6 +2721,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2633,6 +2790,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2686,6 +2848,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTriggersResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2742,6 +2909,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2797,7 +2969,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.triggers.get",
@@ -2854,6 +3031,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2918,6 +3100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -2971,6 +3158,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListVariablesResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3027,6 +3219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3082,7 +3279,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.variables.get",
@@ -3139,6 +3341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3203,6 +3410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3264,6 +3476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListContainerVersionsResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3320,6 +3537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateContainerVersionResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3375,7 +3597,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.containers.versions.get",
@@ -3432,6 +3659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContainerVersion"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3496,6 +3728,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContainerVersion"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3557,6 +3794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublishContainerVersionResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3614,6 +3856,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContainerVersion"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3671,6 +3918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContainerVersion"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3720,6 +3972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAccountUsersResponse"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3772,6 +4029,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccess"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3823,7 +4085,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
+      }
     },
     {
       "id": "accounts.permissions.get",
@@ -3876,6 +4143,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccess"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     },
     {
@@ -3932,6 +4204,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccess"
+      },
+      "security": {
+        "google_tagmanager": {
+          "integration": "google_tagmanager"
+        }
       }
     }
   ]

@@ -2,6 +2,28 @@
   "id": "google_webmasters",
   "title": "Search Console",
   "description": "View Google Search Console data for your verified sites.",
+  "security": {
+    "google_webmasters": {
+      "integration": "google_webmasters",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/webmasters": "View and manage Search Console data for your verified sites",
+          "https://www.googleapis.com/auth/webmasters.readonly": "View Search Console data for your verified sites"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ApiDataRow": {
       "properties": {
@@ -389,6 +411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SitesListResponse"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -436,7 +463,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
+      }
     },
     {
       "id": "sites.get",
@@ -485,6 +517,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WmxSite"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -532,7 +569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
+      }
     },
     {
       "id": "searchanalytics.query",
@@ -584,6 +626,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchAnalyticsQueryResponse"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -637,6 +684,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SitemapsListResponse"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -688,7 +740,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
+      }
     },
     {
       "id": "sitemaps.get",
@@ -741,6 +798,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WmxSitemap"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -792,7 +854,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
+      }
     },
     {
       "id": "urlcrawlerrorscounts.query",
@@ -869,6 +936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlCrawlErrorsCountsQueryResponse"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -942,6 +1014,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlCrawlErrorsSamplesListResponse"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     },
     {
@@ -1017,7 +1094,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
+      }
     },
     {
       "id": "urlcrawlerrorssamples.get",
@@ -1094,6 +1176,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlCrawlErrorsSample"
+      },
+      "security": {
+        "google_webmasters": {
+          "integration": "google_webmasters"
+        }
       }
     }
   ]

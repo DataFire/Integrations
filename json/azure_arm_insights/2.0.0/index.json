@@ -2,6 +2,7 @@
   "id": "azure_arm_insights",
   "title": "InsightsManagementClient",
   "description": "",
+  "security": {},
   "definitions": {
     "LogProfileCollection": {
       "description": "Represents a collection of log profiles.",

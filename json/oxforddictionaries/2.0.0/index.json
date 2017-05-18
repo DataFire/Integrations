@@ -2,6 +2,7 @@
   "id": "oxforddictionaries",
   "title": "Oxford Dictionaries",
   "description": "",
+  "security": {},
   "definitions": {
     "ArrayOfRelatedEntries": {
       "description": "A list of written or spoken words",

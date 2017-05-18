@@ -2,6 +2,14 @@
   "id": "nytimes_timeswire",
   "title": "Times Newswire",
   "description": "With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.",
+  "security": {
+    "nytimes_timeswire": {
+      "integration": "nytimes_timeswire",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "definitions": {
     "Article": {
       "properties": {
@@ -161,6 +169,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_timeswire": {
+          "integration": "nytimes_timeswire"
+        }
       }
     },
     {
@@ -213,6 +226,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_timeswire": {
+          "integration": "nytimes_timeswire"
+        }
       }
     },
     {
@@ -269,6 +287,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_timeswire": {
+          "integration": "nytimes_timeswire"
+        }
       }
     }
   ]

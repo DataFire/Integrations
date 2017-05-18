@@ -2,6 +2,31 @@
   "id": "flat",
   "title": "Flat",
   "description": "The Flat API allows you to easily extend the abilities of the [Flat Platform](https://flat.io), with a wide range of use cases including the following:\n\n* Creating and importing new music scores using MusicXML or MIDI files\n* Browsing, updating, copying, exporting the user's scores (for example in MP3, WAV or MIDI)\n* Managing educational resources with Flat for Education: creating & updating the organization accounts, the classes, rosters and assignments.\n\nThe Flat API is built on HTTP. Our API is RESTful It has predictable resource URLs. It returns HTTP response codes to indicate errors. It also accepts and returns JSON in the HTTP body.\nThe [schema](/swagger.yaml) of this API follows the [OpenAPI Initiative (OAI) specification](https://www.openapis.org/), you can use and work with [compatible Swagger tools](http://swagger.io/open-source-integrations/).\nThis API features Cross-Origin Resource Sharing (CORS) implemented in compliance with [W3C spec](https://www.w3.org/TR/cors/).\n\nYou can use your favorite HTTP/REST library for your programming language to use Flat's API. This specification and reference is [available on Github](https://github.com/FlatIO/api-reference).\n\nGetting Started and learn more:\n\n* [API Overview and interoduction](https://flat.io/developers/docs/api/)\n* [Authentication (Personal Access Tokens or OAuth2)](https://flat.io/developers/docs/api/authentication.html)\n* [SDKs](https://flat.io/developers/docs/api/sdks.html)\n* [Rate Limits](https://flat.io/developers/docs/api/rate-limits.html)\n* [Changelog](https://flat.io/developers/docs/api/changelog.html)\n",
+  "security": {
+    "flat": {
+      "integration": "flat",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://flat.io/auth/oauth",
+        "description": "OAuth 2.0 authentication for your app or script.\n",
+        "flow": "accessCode",
+        "scopes": {
+          "account.education_profile": "Provides access to the basic person's education profile and public organization information.\n",
+          "account.public_profile": "Provides access to the basic person's public profile. Education profiles may be anonymized with this scope, you can request the scope `education_profile` to access to the a basic education account profile.\n",
+          "scores": "Full, permissive scope to access all of a user's scores.\n",
+          "scores.readonly": "Allows read-only access to all a user's scores. You won't need this scope to read public scores.\n",
+          "scores.social": "Allow to post comments and like scores\n"
+        },
+        "tokenUrl": "https://api.flat.io/oauth/access_token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ClassRoles": {
       "description": "User's Class Role (for Edu users only)",
@@ -1133,6 +1158,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserDetails"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1150,6 +1180,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1166,7 +1201,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
     },
     {
       "id": "getScore",
@@ -1188,6 +1228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1209,6 +1254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1234,6 +1284,11 @@
           "$ref": "#/definitions/ScoreCollaborator"
         },
         "type": "array"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1255,6 +1310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreCollaborator"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1275,7 +1335,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
     },
     {
       "id": "getScoreCollaborator",
@@ -1301,6 +1366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreCollaborator"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1326,6 +1396,11 @@
           "$ref": "#/definitions/ScoreComment"
         },
         "type": "array"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1351,6 +1426,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreComment"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1375,7 +1455,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
     },
     {
       "id": "updateScoreComment",
@@ -1404,6 +1489,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreComment"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1428,7 +1518,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
     },
     {
       "id": "markScoreCommentResolved",
@@ -1452,7 +1547,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
     },
     {
       "id": "forkScore",
@@ -1477,6 +1577,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1502,6 +1607,11 @@
           "$ref": "#/definitions/ScoreRevision"
         },
         "type": "array"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1523,6 +1633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreRevision"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1615,6 +1730,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1640,6 +1760,11 @@
           "$ref": "#/definitions/ScoreDetails"
         },
         "type": "array"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     },
     {
@@ -1665,6 +1790,11 @@
           "$ref": "#/definitions/ScoreDetails"
         },
         "type": "array"
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
       }
     }
   ]

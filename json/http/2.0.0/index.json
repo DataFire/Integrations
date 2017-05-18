@@ -2,6 +2,7 @@
   "id": "http",
   "title": "HTTP",
   "description": "Make HTTP calls",
+  "security": {},
   "actions": [
     {
       "id": "request",

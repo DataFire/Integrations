@@ -2,6 +2,14 @@
   "id": "nytimes_movie_reviews",
   "title": "Movie Reviews",
   "description": "With the Movie Reviews API, you can search New York Times movie reviews by keyword and get lists of NYT Critics' Picks.",
+  "security": {
+    "nytimes_movie_reviews": {
+      "integration": "nytimes_movie_reviews",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "definitions": {
     "Critic": {
       "properties": {
@@ -151,6 +159,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_movie_reviews": {
+          "integration": "nytimes_movie_reviews"
+        }
       }
     },
     {
@@ -217,6 +230,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_movie_reviews": {
+          "integration": "nytimes_movie_reviews"
+        }
       }
     },
     {
@@ -269,6 +287,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_movie_reviews": {
+          "integration": "nytimes_movie_reviews"
+        }
       }
     }
   ]

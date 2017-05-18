@@ -2,6 +2,14 @@
   "id": "getsandbox",
   "title": "Sandbox",
   "description": "Sandbox API",
+  "security": {
+    "getsandbox": {
+      "integration": "getsandbox",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "ActivityMessage": {
       "properties": {
@@ -456,6 +464,11 @@
           "$ref": "#/definitions/ActivityMessage"
         },
         "type": "array"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -479,6 +492,11 @@
           "$ref": "#/definitions/Sandbox"
         },
         "type": "array"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -496,6 +514,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -512,7 +535,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
     },
     {
       "id": "getSandbox",
@@ -530,6 +558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -551,6 +584,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -569,6 +607,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
       }
     },
     {
@@ -585,7 +628,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
     },
     {
       "id": "getSandboxState",
@@ -601,7 +649,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
     }
   ]
 }

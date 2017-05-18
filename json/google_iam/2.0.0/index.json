@@ -2,6 +2,27 @@
   "id": "google_iam",
   "title": "Google Identity and Access Management (IAM)",
   "description": "Manages identity and access control for Google Cloud Platform resources, including the creation of service accounts, which you can use to authenticate to Google and make API calls.",
+  "security": {
+    "google_iam": {
+      "integration": "google_iam",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AuditData": {
       "description": "Audit log information specific to Cloud IAM. This message is serialized\nas an `Any` type in the `ServiceData` message of an\n`AuditLog` message.",
@@ -466,6 +487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryGrantableRolesResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -545,6 +571,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -633,6 +664,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKey"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -715,6 +751,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -798,6 +839,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListServiceAccountKeysResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -880,6 +926,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKey"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -967,6 +1018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListServiceAccountsResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1049,6 +1105,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1131,6 +1192,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SignBlobResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1213,6 +1279,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SignJwtResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1292,6 +1363,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1374,6 +1450,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     },
     {
@@ -1456,6 +1537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_iam": {
+          "integration": "google_iam"
+        }
       }
     }
   ]

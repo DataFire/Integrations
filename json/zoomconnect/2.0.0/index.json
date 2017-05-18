@@ -2,6 +2,15 @@
   "id": "zoomconnect",
   "title": "Zoom Connect",
   "description": "The world's greatest SMS API",
+  "security": {
+    "zoomconnect": {
+      "integration": "zoomconnect",
+      "fields": {
+        "email": "API key",
+        "token": "API key"
+      }
+    }
+  },
   "definitions": {
     "Link": {
       "properties": {
@@ -445,6 +454,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceAccount"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -463,7 +477,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "search",
@@ -481,6 +500,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceUsers"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -501,6 +525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -520,6 +549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -542,6 +576,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceUser"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -551,6 +590,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceContacts"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -571,6 +615,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -587,7 +636,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "contacts.contactId.get",
@@ -605,6 +659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -626,6 +685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceContact"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -646,7 +710,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "contacts.contactId.addFromGroup.groupId.post",
@@ -666,7 +735,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "contacts.contactId.addToGroup.groupId.get",
@@ -686,7 +760,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "contacts.contactId.addToGroup.groupId.post",
@@ -706,7 +785,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "context.lookup.get",
@@ -726,6 +810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -746,6 +835,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -755,6 +849,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceGroups"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -775,6 +874,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -791,7 +895,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "groups.groupId.get",
@@ -809,6 +918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -830,6 +944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceGroup"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -850,7 +969,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "groups.groupId.addContact.contactId.post",
@@ -870,7 +994,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "groups.groupId.removeContact.contactId.get",
@@ -890,7 +1019,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "groups.groupId.removeContact.contactId.post",
@@ -910,7 +1044,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "messages.all.get",
@@ -1007,6 +1146,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessages"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1023,7 +1167,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "messages.messageId.get",
@@ -1041,6 +1190,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1059,6 +1213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1077,6 +1236,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1095,6 +1259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1113,6 +1282,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceMessage"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1122,6 +1296,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceSendSmsRequest"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1142,6 +1321,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceSendSmsResponse"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1151,6 +1335,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceSendSmsRequests"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1171,6 +1360,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceSendSmsResponses"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1206,6 +1400,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1241,6 +1440,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1280,6 +1484,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1319,6 +1528,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1328,6 +1542,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/WebServiceTemplates"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     },
     {
@@ -1345,7 +1564,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
+      }
     },
     {
       "id": "templates.templateId.get",
@@ -1364,6 +1588,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceTemplate"
+      },
+      "security": {
+        "zoomconnect": {
+          "integration": "zoomconnect"
+        }
       }
     }
   ]

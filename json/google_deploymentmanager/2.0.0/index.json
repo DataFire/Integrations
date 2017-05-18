@@ -2,6 +2,30 @@
   "id": "google_deploymentmanager",
   "title": "Google Cloud Deployment Manager",
   "description": "Declares, configures, and deploys complex solutions on Google Cloud Platform.",
+  "security": {
+    "google_deploymentmanager": {
+      "integration": "google_deploymentmanager",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/ndev.cloudman": "View and manage your Google Cloud Platform management resources and deployment status information",
+          "https://www.googleapis.com/auth/ndev.cloudman.readonly": "View your Google Cloud Platform management resources and deployment status information"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AuditConfig": {
       "description": "Specifies the audit configuration for a service. The configuration determines which permission types are logged, and what identities, if any, are exempted from logging. An AuditConifg must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service, the union of the two AuditConfigs is used for that service: the log_types specified in each AuditConfig are enabled, and the exempted_members in each AuditConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n{ \"audit_configs\": [ { \"service\": \"allServices\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", \"exempted_members\": [ \"user:foo@gmail.com\" ] }, { \"log_type\": \"DATA_WRITE\", }, { \"log_type\": \"ADMIN_READ\", } ] }, { \"service\": \"fooservice.googleapis.com\" \"audit_log_configs\": [ { \"log_type\": \"DATA_READ\", }, { \"log_type\": \"DATA_WRITE\", \"exempted_members\": [ \"user:bar@gmail.com\" ] } ] } ] }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ logging. It also exempts foo@gmail.com from DATA_READ logging, and bar@gmail.com from DATA_WRITE logging.",
@@ -955,6 +979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentsListResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1011,6 +1040,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1072,6 +1106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1125,6 +1164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1201,6 +1245,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1277,6 +1326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1333,6 +1387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1403,6 +1462,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManifestsListResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1460,6 +1524,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Manifest"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1530,6 +1599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourcesListResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1587,6 +1661,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Resource"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1643,6 +1722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1696,6 +1780,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1752,6 +1841,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1808,6 +1902,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestPermissionsResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1874,6 +1973,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationsListResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1927,6 +2031,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     },
     {
@@ -1993,6 +2102,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TypesListResponse"
+      },
+      "security": {
+        "google_deploymentmanager": {
+          "integration": "google_deploymentmanager"
+        }
       }
     }
   ]

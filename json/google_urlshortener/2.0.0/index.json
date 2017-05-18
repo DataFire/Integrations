@@ -2,6 +2,27 @@
   "id": "google_urlshortener",
   "title": "URL Shortener",
   "description": "Lets you create, inspect, and manage goo.gl short URLs",
+  "security": {
+    "google_urlshortener": {
+      "integration": "google_urlshortener",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/urlshortener": "Manage your goo.gl short URLs"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AnalyticsSnapshot": {
       "properties": {
@@ -204,6 +225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Url"
+      },
+      "security": {
+        "google_urlshortener": {
+          "integration": "google_urlshortener"
+        }
       }
     },
     {
@@ -255,6 +281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Url"
+      },
+      "security": {
+        "google_urlshortener": {
+          "integration": "google_urlshortener"
+        }
       }
     },
     {
@@ -315,6 +346,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlHistory"
+      },
+      "security": {
+        "google_urlshortener": {
+          "integration": "google_urlshortener"
+        }
       }
     }
   ]

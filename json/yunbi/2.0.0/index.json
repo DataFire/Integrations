@@ -2,6 +2,7 @@
   "id": "yunbi",
   "title": "Yunbi",
   "description": "Professional Cloud Trading Platform for Digital Assets",
+  "security": {},
   "actions": [
     {
       "id": "v2.addresses.address.json.get",

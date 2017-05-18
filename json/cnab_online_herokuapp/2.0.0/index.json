@@ -2,6 +2,7 @@
   "id": "cnab_online_herokuapp",
   "title": "Cnab Online",
   "description": "Processe arquivos de retorno CNAB",
+  "security": {},
   "definitions": {
     "Error": {
       "properties": {

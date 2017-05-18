@@ -2,6 +2,7 @@
   "id": "reddit_rss",
   "title": "www.reddit.com",
   "description": "",
+  "security": {},
   "definitions": {
     "Feed": {
       "type": "object",

@@ -2,6 +2,29 @@
   "id": "google_surveys",
   "title": "Surveys",
   "description": "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.",
+  "security": {
+    "google_surveys": {
+      "integration": "google_surveys",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/surveys": "View and manage your surveys and results",
+          "https://www.googleapis.com/auth/surveys.readonly": "View your surveys and survey results",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "FieldMask": {
       "properties": {
@@ -498,6 +521,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanelsListResponse"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -547,6 +575,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanel"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -599,6 +632,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanel"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -656,6 +694,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysListResponse"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -707,6 +750,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -758,6 +806,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysStartResponse"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -806,6 +859,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysStopResponse"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -855,6 +913,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysDeleteResponse"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -904,6 +967,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -956,6 +1024,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     },
     {
@@ -1008,6 +1081,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveyResults"
+      },
+      "security": {
+        "google_surveys": {
+          "integration": "google_surveys"
+        }
       }
     }
   ]

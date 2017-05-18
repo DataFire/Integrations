@@ -2,6 +2,28 @@
   "id": "google_calendar",
   "title": "Calendar",
   "description": "Manipulates events and other calendar data.",
+  "security": {
+    "google_calendar": {
+      "integration": "google_calendar",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/calendar": "Manage your calendars",
+          "https://www.googleapis.com/auth/calendar.readonly": "View your calendars"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Acl": {
       "properties": {
@@ -1141,6 +1163,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1188,7 +1215,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "calendars.get",
@@ -1237,6 +1269,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1289,6 +1326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1341,6 +1383,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1407,6 +1454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Acl"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1459,6 +1511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AclRule"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1528,6 +1585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1579,7 +1641,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "acl.get",
@@ -1632,6 +1699,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AclRule"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1688,6 +1760,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AclRule"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1744,6 +1821,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AclRule"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1791,7 +1873,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "events.list",
@@ -1914,6 +2001,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Events"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -1979,6 +2071,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2035,6 +2132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2092,6 +2194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2218,6 +2325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2273,7 +2385,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "events.get",
@@ -2339,6 +2456,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2412,6 +2534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2485,6 +2612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2576,6 +2708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Events"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2637,6 +2774,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2686,7 +2828,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "colors.get",
@@ -2734,6 +2881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Colors"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2785,6 +2937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FreeBusyResponse"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2864,6 +3021,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarList"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -2919,6 +3081,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarListEntry"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3001,6 +3168,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3048,7 +3220,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
+      }
     },
     {
       "id": "calendarList.get",
@@ -3097,6 +3274,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarListEntry"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3153,6 +3335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarListEntry"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3209,6 +3396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarListEntry"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3270,6 +3462,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Settings"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3334,6 +3531,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     },
     {
@@ -3383,6 +3585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Setting"
+      },
+      "security": {
+        "google_calendar": {
+          "integration": "google_calendar"
+        }
       }
     }
   ]

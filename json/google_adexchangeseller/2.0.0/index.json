@@ -2,6 +2,28 @@
   "id": "google_adexchangeseller",
   "title": "Ad Exchange Seller",
   "description": "Accesses the inventory of Ad Exchange seller users and generates reports.",
+  "security": {
+    "google_adexchangeseller": {
+      "integration": "google_adexchangeseller",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adexchange.seller": "View and manage your Ad Exchange data",
+          "https://www.googleapis.com/auth/adexchange.seller.readonly": "View your Ad Exchange data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -545,6 +567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Accounts"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -595,6 +622,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -655,6 +687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -719,6 +756,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -777,6 +819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -841,6 +888,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannels"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -895,6 +947,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Alerts"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -945,6 +1002,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -995,6 +1057,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -1045,6 +1112,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PreferredDeals"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -1099,6 +1171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PreferredDeal"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -1189,6 +1266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -1249,6 +1331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedReports"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     },
     {
@@ -1319,6 +1406,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
       }
     }
   ]

@@ -2,6 +2,26 @@
   "id": "azure_arm_mediaservices",
   "title": "MediaServicesManagementClient",
   "description": "Media Services resource management APIs.",
+  "security": {
+    "azure_arm_mediaservices": {
+      "integration": "azure_arm_mediaservices",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ApiEndpoint": {
       "description": "The properties for a Media Services REST API endpoint.",
@@ -333,6 +353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityOutput"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -359,6 +384,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaServiceCollection"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -390,7 +420,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
+      }
     },
     {
       "id": "MediaService_Get",
@@ -423,6 +458,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -459,6 +499,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -495,6 +540,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -528,6 +578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceKeys"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -564,6 +619,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegenerateKeyOutput"
+      },
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
       }
     },
     {
@@ -598,7 +658,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_mediaservices": {
+          "integration": "azure_arm_mediaservices"
+        }
+      }
     }
   ]
 }

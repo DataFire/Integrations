@@ -2,6 +2,7 @@
   "id": "google_androiddeviceprovisioning",
   "title": "Android Device Provisioning Partner",
   "description": "Android Device Provisioning Partner API",
+  "security": {},
   "definitions": {
     "ClaimDeviceRequest": {
       "description": "Request message to claim a device on behalf of a customer.",

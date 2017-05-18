@@ -2,6 +2,26 @@
   "id": "azure_arm_resourcehealth",
   "title": "Microsoft.ResourceHealth",
   "description": "The Resource Health Client.",
+  "security": {
+    "azure_arm_resourcehealth": {
+      "integration": "azure_arm_resourcehealth",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ErrorResponse": {
       "description": "Error details.",
@@ -294,6 +314,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/operationListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
       }
     },
     {
@@ -324,6 +349,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
       }
     },
     {
@@ -358,6 +388,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
       }
     },
     {
@@ -388,6 +423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availabilityStatusListResult"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
       }
     },
     {
@@ -418,6 +458,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availabilityStatus"
+      },
+      "security": {
+        "azure_arm_resourcehealth": {
+          "integration": "azure_arm_resourcehealth"
+        }
       }
     }
   ]

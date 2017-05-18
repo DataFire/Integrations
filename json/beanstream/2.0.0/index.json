@@ -2,6 +2,7 @@
   "id": "beanstream",
   "title": "Beanstream Payments",
   "description": "https://www.beanstream.com/api/v1",
+  "security": {},
   "definitions": {
     "Address": {
       "properties": {

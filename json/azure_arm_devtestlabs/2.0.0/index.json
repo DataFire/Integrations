@@ -2,6 +2,26 @@
   "id": "azure_arm_devtestlabs",
   "title": "DevTestLabsClient",
   "description": "Azure DevTest Labs REST API.",
+  "security": {
+    "azure_arm_devtestlabs": {
+      "integration": "azure_arm_devtestlabs",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "OAuth2 Implicit Grant",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "Access Microsoft Azure"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ApplyArtifactsRequest": {
       "description": "Request body for applying artifacts to a virtual machine.",
@@ -1676,6 +1696,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Lab]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1715,6 +1740,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Lab]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1758,6 +1788,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[ArtifactSource]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1805,6 +1840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Artifact]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1843,6 +1883,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Artifact"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1884,6 +1929,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ArmTemplateInfo"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1916,7 +1966,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "ArtifactSource_GetResource",
@@ -1950,6 +2005,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -1987,6 +2047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2024,6 +2089,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2058,6 +2128,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Cost"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2101,6 +2176,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[CustomImage]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2133,7 +2213,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "CustomImage_GetResource",
@@ -2167,6 +2252,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomImage"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2204,6 +2294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomImage"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2247,6 +2342,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Formula]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2279,7 +2379,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "Formula_GetResource",
@@ -2313,6 +2418,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Formula"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2350,6 +2460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Formula"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2393,6 +2508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[GalleryImage]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2430,6 +2550,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EvaluatePoliciesResponse"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2477,6 +2602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Policy]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2513,7 +2643,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "Policy_GetResource",
@@ -2551,6 +2686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2592,6 +2732,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2633,6 +2778,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2676,6 +2826,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Schedule]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2708,7 +2863,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "Schedule_GetResource",
@@ -2742,6 +2902,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2779,6 +2944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2816,6 +2986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2848,7 +3023,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualMachine_List",
@@ -2891,6 +3071,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[LabVirtualMachine]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2923,7 +3108,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualMachine_GetResource",
@@ -2957,6 +3147,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -2994,6 +3189,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3031,6 +3231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3066,7 +3271,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualMachine_Start",
@@ -3098,7 +3308,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualMachine_Stop",
@@ -3130,7 +3345,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualNetwork_List",
@@ -3173,6 +3393,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[VirtualNetwork]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3205,7 +3430,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "VirtualNetwork_GetResource",
@@ -3239,6 +3469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3276,6 +3511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3313,6 +3553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3341,7 +3586,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "Lab_GetResource",
@@ -3371,6 +3621,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3404,6 +3659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3437,6 +3697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3468,7 +3733,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
+      }
     },
     {
       "id": "Lab_GenerateUploadUri",
@@ -3501,6 +3771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GenerateUploadUriResponse"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     },
     {
@@ -3531,6 +3806,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[LabVhd]"
+      },
+      "security": {
+        "azure_arm_devtestlabs": {
+          "integration": "azure_arm_devtestlabs"
+        }
       }
     }
   ]

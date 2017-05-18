@@ -2,6 +2,29 @@
   "id": "google_consumersurveys",
   "title": "Consumer Surveys",
   "description": "Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.",
+  "security": {
+    "google_consumersurveys": {
+      "integration": "google_consumersurveys",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/consumersurveys": "View and edit your surveys and results",
+          "https://www.googleapis.com/auth/consumersurveys.readonly": "View the results for your surveys",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "FieldMask": {
       "properties": {
@@ -438,6 +461,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanelsListResponse"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -487,6 +515,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanel"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -539,6 +572,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileAppPanel"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -596,6 +634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysListResponse"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -647,6 +690,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -698,6 +746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysStartResponse"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -746,6 +799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysStopResponse"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -795,6 +853,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveysDeleteResponse"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -844,6 +907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -896,6 +964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Survey"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     },
     {
@@ -948,6 +1021,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SurveyResults"
+      },
+      "security": {
+        "google_consumersurveys": {
+          "integration": "google_consumersurveys"
+        }
       }
     }
   ]

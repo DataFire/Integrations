@@ -2,6 +2,15 @@
   "id": "ijenko",
   "title": "IoE² IoT API - to create end-user applications",
   "description": "",
+  "security": {
+    "ijenko": {
+      "integration": "ijenko",
+      "fields": {
+        "Token in Access-Token header": "Token in Access-Token header",
+        "Token in query": "Token in query"
+      }
+    }
+  },
   "definitions": {
     "AccountId": {
       "description": "Unique identifier of the *Account*",
@@ -2221,7 +2230,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Account.places",
@@ -2234,6 +2248,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2254,6 +2273,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlaceCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2267,6 +2291,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2283,7 +2312,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Account.users",
@@ -2308,6 +2342,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2325,6 +2364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2341,7 +2385,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Account.getUser",
@@ -2359,6 +2408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2378,7 +2432,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "User.getMetadata",
@@ -2396,6 +2455,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2417,6 +2481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2473,7 +2542,12 @@
       "title": "AuthRevokeToken",
       "description": "Invalidate the authentication used for the request. The access token and the refresh token will be invalid after this request.\nThis request is typically called to implement logout.\n",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Devices.get",
@@ -2491,6 +2565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2510,7 +2589,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Device.addFunctionality",
@@ -2531,6 +2615,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionalityCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2549,6 +2638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2570,6 +2664,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2600,6 +2699,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionMultiResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2618,6 +2722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2639,6 +2748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2657,6 +2771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Functionality"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2676,7 +2795,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Functionality.values",
@@ -2708,6 +2832,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributesValues"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2730,6 +2859,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributeValue"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2753,7 +2887,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Functionality.getMetadata",
@@ -2771,6 +2910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2792,6 +2936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2817,6 +2966,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2835,6 +2989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2856,6 +3015,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2865,6 +3029,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserMe"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2880,7 +3049,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Notification.delete",
@@ -2896,7 +3070,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Notifications.get",
@@ -2914,6 +3093,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2933,7 +3117,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Notification.getMetadata",
@@ -2951,6 +3140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2972,6 +3166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -2997,6 +3196,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3015,6 +3219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Place"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3034,7 +3243,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Place.buses",
@@ -3060,6 +3274,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3082,6 +3301,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BusPairing"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3107,6 +3331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BusPairing"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3138,6 +3367,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3173,6 +3407,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityAutonomy"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3195,6 +3434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityFlows"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3213,6 +3457,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityFlowsSetup"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3248,6 +3497,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricitySelfConsumption"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3284,6 +3538,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3302,6 +3561,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3323,6 +3587,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3349,6 +3618,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3370,6 +3644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3396,6 +3675,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3417,6 +3701,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProgramCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3452,6 +3741,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionMultiResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3468,7 +3762,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Programs.get",
@@ -3486,6 +3785,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Program"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3505,7 +3809,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     },
     {
       "id": "Program.log",
@@ -3537,6 +3846,11 @@
         },
         "type": "array",
         "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3555,6 +3869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3576,6 +3895,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
       }
     },
     {
@@ -3592,7 +3916,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
     }
   ]
 }

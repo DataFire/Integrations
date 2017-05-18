@@ -2,6 +2,27 @@
   "id": "google_container",
   "title": "Google Container Engine",
   "description": "The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.",
+  "security": {
+    "google_container": {
+      "integration": "google_container",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AddonsConfig": {
       "description": "Configuration for the addons that can be automatically spun up in the\ncluster, enabling additional functionality.",
@@ -792,6 +813,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListClustersResponse"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -878,6 +904,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -965,6 +996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1052,6 +1088,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Cluster"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1142,6 +1183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1232,6 +1278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1319,6 +1370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListNodePoolsResponse"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1409,6 +1465,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1500,6 +1561,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1591,6 +1657,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NodePool"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1685,6 +1756,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1779,6 +1855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1869,6 +1950,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -1959,6 +2045,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -2042,6 +2133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOperationsResponse"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -2129,6 +2225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -2219,6 +2320,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     },
     {
@@ -2302,6 +2408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerConfig"
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
       }
     }
   ]

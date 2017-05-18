@@ -2,6 +2,27 @@
   "id": "google_appstate",
   "title": "Google App State",
   "description": "The Google App State API.",
+  "security": {
+    "google_appstate": {
+      "integration": "google_appstate",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/appstate": "View and manage your data for this application"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "GetResponse": {
       "description": "This is a JSON template for an app state resource.",
@@ -137,6 +158,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListResponse"
+      },
+      "security": {
+        "google_appstate": {
+          "integration": "google_appstate"
+        }
       }
     },
     {
@@ -186,7 +212,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_appstate": {
+          "integration": "google_appstate"
+        }
+      }
     },
     {
       "id": "states.get",
@@ -237,6 +268,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetResponse"
+      },
+      "security": {
+        "google_appstate": {
+          "integration": "google_appstate"
+        }
       }
     },
     {
@@ -295,6 +331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WriteResult"
+      },
+      "security": {
+        "google_appstate": {
+          "integration": "google_appstate"
+        }
       }
     },
     {
@@ -350,6 +391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WriteResult"
+      },
+      "security": {
+        "google_appstate": {
+          "integration": "google_appstate"
+        }
       }
     }
   ]

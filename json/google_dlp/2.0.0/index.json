@@ -2,6 +2,27 @@
   "id": "google_dlp",
   "title": "DLP",
   "description": "The Google Data Loss Prevention API provides methods for detection of privacy-sensitive fragments in text, images, and Google Cloud Platform storage repositories.",
+  "security": {
+    "google_dlp": {
+      "integration": "google_dlp",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CancelOperationRequest": {
       "description": "The request message for Operations.CancelOperation.",
@@ -712,6 +733,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InspectContentResponse"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -793,6 +819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedactContentResponse"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -874,6 +905,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -956,6 +992,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRootCategoriesResponse"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -1039,6 +1080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInfoTypesResponse"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -1118,6 +1164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -1197,6 +1248,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -1284,6 +1340,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInspectFindingsResponse"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     },
     {
@@ -1366,6 +1427,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_dlp": {
+          "integration": "google_dlp"
+        }
       }
     }
   ]

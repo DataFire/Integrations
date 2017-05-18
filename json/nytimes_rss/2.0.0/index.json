@@ -2,6 +2,7 @@
   "id": "nytimes_rss",
   "title": "rss.nytimes.com",
   "description": "",
+  "security": {},
   "actions": [
     {
       "id": "homePage",

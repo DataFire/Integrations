@@ -2,6 +2,14 @@
   "id": "appveyor",
   "title": "AppVeyor",
   "description": "AppVeyor is a hosted continuous integration service which runs on Microsoft\nWindows.  The AppVeyor REST API provides a RESTful way to interact with the\nAppVeyor service.  This includes managing projects, builds, deployments,\nand the teams that build them.\n\nAdditional help and discussion of the AppVeyor REST API is available at\nhttp://help.appveyor.com/discussions\n\nThis Swagger definition is an **unofficial** description of the AppVeyor\nREST API maintained at https://github.com/kevinoid/appveyor-swagger\nPlease report any issues or suggestions for this Swagger definition at\nhttps://github.com/kevinoid/appveyor-swagger/issues/new\n\n#### API Conventions\n\nFields which are missing from update operations (`PUT` requests) are\ntypically reset to their default values.  So although most fields are not\ntechnically required, they should usually be specified in practice.\n",
+  "security": {
+    "appveyor": {
+      "integration": "appveyor",
+      "fields": {
+        "apiToken": "API token can be acquired from https://ci.appveyor.com/api-token\nThis value must be passed to the server in the `Authorization` header as `\"Bearer <token>\"`.  Since [bearer token authentication support is not explicitly supported in OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/issues/583), client code will vary.  Clients created with [swagger-codegen](https://github.com/swagger-api/swagger-codegen) should set `apiKeyPrefix` to `\"Bearer\"` and set `apiKey` to the token.  Other clients may need to set `apiKey` to the string `\"Bearer <token>\"`.\nNote that this should be [fixed in OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification/pull/807)), whenever that becomes available and supported."
+      }
+    }
+  },
   "definitions": {
     "AccessRightName": {
       "enum": [
@@ -2510,6 +2518,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2545,6 +2558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2570,7 +2588,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getCollaborators",
@@ -2582,6 +2605,11 @@
           "$ref": "#/definitions/UserAccount"
         },
         "type": "array"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2597,7 +2625,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "updateCollaborator",
@@ -2612,7 +2645,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "deleteCollaborator",
@@ -2629,7 +2667,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getCollaborator",
@@ -2648,6 +2691,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccountRolesResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2665,6 +2713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2680,7 +2733,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getDeployment",
@@ -2699,6 +2757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectDeployment"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2711,6 +2774,11 @@
           "$ref": "#/definitions/DeploymentEnvironmentLookupModel"
         },
         "type": "array"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2728,6 +2796,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2745,6 +2818,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2762,7 +2840,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getEnvironmentDeployments",
@@ -2781,6 +2864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentDeploymentsResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2800,6 +2888,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentSettingsResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2812,6 +2905,11 @@
           "$ref": "#/definitions/Project"
         },
         "type": "array"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2829,6 +2927,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -2844,7 +2947,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getPublicProjectStatusBadge",
@@ -3013,7 +3121,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getProjectLastBuild",
@@ -3111,7 +3224,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getProjectDeployments",
@@ -3134,6 +3252,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectDeploymentsResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3195,6 +3318,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSettingsResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3219,7 +3347,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getProjectSettingsYaml",
@@ -3242,6 +3375,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3267,7 +3405,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getRoles",
@@ -3279,6 +3422,11 @@
           "$ref": "#/definitions/Role"
         },
         "type": "array"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3296,6 +3444,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3313,6 +3466,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3330,7 +3488,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getRole",
@@ -3349,6 +3512,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3361,6 +3529,11 @@
           "$ref": "#/definitions/UserAccount"
         },
         "type": "array"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     },
     {
@@ -3376,7 +3549,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "updateUser",
@@ -3391,7 +3569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "deleteUser",
@@ -3408,7 +3591,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
+      }
     },
     {
       "id": "getUser",
@@ -3427,6 +3615,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccountRolesResults"
+      },
+      "security": {
+        "appveyor": {
+          "integration": "appveyor"
+        }
       }
     }
   ]

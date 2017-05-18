@@ -2,6 +2,26 @@
   "id": "azure_arm_compute",
   "title": "ComputeManagementClient",
   "description": "The Compute Management Client.",
+  "security": {
+    "azure_arm_compute": {
+      "integration": "azure_arm_compute",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AdditionalUnattendContent": {
       "description": "Additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is a applied.",
@@ -2265,6 +2285,11 @@
           "$ref": "#/definitions/VirtualMachineImageResource"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2296,6 +2321,11 @@
           "$ref": "#/definitions/VirtualMachineExtensionImage"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2341,6 +2371,11 @@
           "$ref": "#/definitions/VirtualMachineExtensionImage"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2375,6 +2410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineExtensionImage"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2408,6 +2448,11 @@
           "$ref": "#/definitions/VirtualMachineImageResource"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2445,6 +2490,11 @@
           "$ref": "#/definitions/VirtualMachineImageResource"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2497,6 +2547,11 @@
           "$ref": "#/definitions/VirtualMachineImageResource"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2539,6 +2594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineImage"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2566,6 +2626,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUsagesResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2593,6 +2658,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineSizeListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2615,6 +2685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetListWithLinkResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2637,6 +2712,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2663,6 +2743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailabilitySetListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2693,6 +2778,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2723,6 +2813,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailabilitySet"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2753,6 +2848,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineSizeListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2786,6 +2886,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailabilitySet"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2812,6 +2917,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2845,6 +2955,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSet"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2887,6 +3002,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetVMListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2917,6 +3037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2947,6 +3072,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSet"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -2980,6 +3110,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3013,6 +3148,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3043,6 +3183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetInstanceView"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3076,6 +3221,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3109,6 +3259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3139,6 +3294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3172,6 +3332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3202,6 +3367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetListSkusResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3235,6 +3405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3269,6 +3444,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3303,6 +3483,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetVM"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3337,6 +3522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3371,6 +3561,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineScaleSetVMInstanceView"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3405,6 +3600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3439,6 +3639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3473,6 +3678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3507,6 +3717,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3533,6 +3748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3563,6 +3783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3600,6 +3825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachine"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3633,6 +3863,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachine"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3666,6 +3901,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineCaptureResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3696,6 +3936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3730,6 +3975,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3768,6 +4018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineExtension"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3805,6 +4060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineExtension"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3835,6 +4095,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3865,6 +4130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3895,6 +4165,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3925,6 +4200,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3955,6 +4235,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     },
     {
@@ -3985,6 +4270,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualMachineSizeListResult"
+      },
+      "security": {
+        "azure_arm_compute": {
+          "integration": "azure_arm_compute"
+        }
       }
     }
   ]

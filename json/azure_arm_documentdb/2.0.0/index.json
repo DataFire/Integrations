@@ -2,6 +2,26 @@
   "id": "azure_arm_documentdb",
   "title": "DocumentDB",
   "description": "Azure DocumentDB Database Service Resource Provider REST API",
+  "security": {
+    "azure_arm_documentdb": {
+      "integration": "azure_arm_documentdb",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "Impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ConsistencyPolicy": {
       "description": "The consistency policy for the DocumentDB database account.",
@@ -432,7 +452,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
     },
     {
       "id": "DatabaseAccounts_List",
@@ -454,6 +479,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -483,6 +513,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountsListResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -516,7 +551,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
     },
     {
       "id": "DatabaseAccounts_Get",
@@ -551,6 +591,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -589,6 +634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -627,6 +677,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -663,7 +718,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
     },
     {
       "id": "DatabaseAccounts_ListConnectionStrings",
@@ -698,6 +758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListConnectionStringsResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -733,6 +798,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListKeysResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -768,6 +838,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult"
+      },
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
       }
     },
     {
@@ -804,7 +879,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_documentdb": {
+          "integration": "azure_arm_documentdb"
+        }
+      }
     }
   ]
 }

@@ -2,6 +2,7 @@
   "id": "apitore_documentfrequencyapis",
   "title": "Document frequency APIs",
   "description": "Document frequency of Wikipedia.<BR />[Endpoint] https://api.apitore.com/api/16",
+  "security": {},
   "definitions": {
     "DocumentFrequencyResponseEntity": {
       "properties": {

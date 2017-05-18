@@ -2,6 +2,26 @@
   "id": "azure_arm_operationalinsights",
   "title": "Azure Log Analytics",
   "description": "Azure Log Analytics API reference for LinkTargets, StorageInsightConfigs and SavedSearches.",
+  "security": {
+    "azure_arm_operationalinsights": {
+      "integration": "azure_arm_operationalinsights",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CoreSummary": {
       "description": "The core summary of a search.",
@@ -593,6 +613,11 @@
           "$ref": "#/definitions/LinkTarget"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -626,6 +651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedSearchesListResult"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -661,7 +691,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
+      }
     },
     {
       "id": "SavedSearches_Get",
@@ -698,6 +733,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedSearch"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -738,6 +778,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedSearch"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -775,6 +820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResultsResponse"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -808,6 +858,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchGetSchemaResponse"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -844,6 +899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResultsResponse"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -881,6 +941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResultsResponse"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -914,6 +979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorageInsightListResult"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -949,7 +1019,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
+      }
     },
     {
       "id": "StorageInsights_Get",
@@ -986,6 +1061,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorageInsight"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     },
     {
@@ -1026,6 +1106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StorageInsight"
+      },
+      "security": {
+        "azure_arm_operationalinsights": {
+          "integration": "azure_arm_operationalinsights"
+        }
       }
     }
   ]

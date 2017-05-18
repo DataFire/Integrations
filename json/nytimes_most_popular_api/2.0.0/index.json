@@ -2,6 +2,14 @@
   "id": "nytimes_most_popular_api",
   "title": "Most Popular",
   "description": "Get lists of NYT Articles based on shares, emails, and views.",
+  "security": {
+    "nytimes_most_popular_api": {
+      "integration": "nytimes_most_popular_api",
+      "fields": {
+        "api-key": "API key"
+      }
+    }
+  },
   "definitions": {
     "Article": {
       "properties": {
@@ -248,6 +256,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
       }
     },
     {
@@ -330,6 +343,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
       }
     },
     {
@@ -412,6 +430,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
       }
     }
   ]

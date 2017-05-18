@@ -2,6 +2,26 @@
   "id": "azure_arm_authorization",
   "title": "AuthorizationManagementClient",
   "description": "Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.",
+  "security": {
+    "azure_arm_authorization": {
+      "integration": "azure_arm_authorization",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ClassicAdministrator": {
       "description": "Classic Administrators",
@@ -368,6 +388,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProviderOperationsMetadataListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -394,6 +419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProviderOperationsMetadata"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -416,6 +446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicAdministratorListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -442,6 +477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -472,6 +512,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -498,6 +543,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionGetResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -540,6 +590,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionGetResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -586,6 +641,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -608,6 +668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -630,6 +695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -655,6 +725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -677,6 +752,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -703,6 +783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -729,6 +814,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -755,6 +845,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -784,6 +879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -810,6 +910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinitionListResult"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -836,6 +941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -862,6 +972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     },
     {
@@ -891,6 +1006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
+      },
+      "security": {
+        "azure_arm_authorization": {
+          "integration": "azure_arm_authorization"
+        }
       }
     }
   ]

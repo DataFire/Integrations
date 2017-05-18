@@ -2,6 +2,26 @@
   "id": "azure_monitor",
   "title": "MonitorClient",
   "description": "",
+  "security": {
+    "azure_monitor": {
+      "integration": "azure_monitor",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ErrorResponse": {
       "description": "Describes the format of Error response.",
@@ -111,6 +131,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageMetricCollection"
+      },
+      "security": {
+        "azure_monitor": {
+          "integration": "azure_monitor"
+        }
       }
     }
   ]

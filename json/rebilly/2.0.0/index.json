@@ -2,6 +2,17 @@
   "id": "rebilly",
   "title": "Rebilly",
   "description": "# Introduction\nThe Rebilly API is built on HTTP.  Our API is RESTful.  It has predictable\nresource URLs.  It returns HTTP response codes to indicate errors.  It also\naccepts and returns JSON in the HTTP body.  You can use your favorite\nHTTP/REST library for your programming language to use Rebilly's API, or\nyou can use one of our SDKs (currently available in [PHP](https://github.com/Rebilly/rebilly-php)\nand [C#](https://github.com/Rebilly/rebilly-dotnet-client)).\n\n# Authentication\nWhen you sign up for an account, you are given your first API key.\nYou can generate additional API keys, and delete API keys (as you may\nneed to rotate your keys in the future). You authenticate to the\nRebilly API by providing your secret key in the request header.\n\nRebilly offers three forms of authentication:  private key, JSON Web Tokens, and\npublic key.\n- private key: authenticates each request by searching for the presence\nof an HTTP header: REB-APIKEY.\n- JWT: authenticates each request by the HTTP header: Authorization.\n- public key: authenticates by the HTTP header: REB-AUTH (read more on this below).\n\nRebilly also offers JSON Web Tokens (JWT) authentication, where you can control\nthe specific granular permissions and expiration for that JWT.  We call our resource\nfor generating JWT [Sessions](#tag/Sessions).\n\nRebilly also has a client-side authentication scheme that uses an\napiUser and HMAC-SHA1 signature (only for the Tokens resource), so\nthat you may safely create tokens from the client-side without compromising\nyour secret keys.\n\nNever share your secret keys. Keep them guarded and secure.\nThe client-side authentication scheme uses one HTTP header named REB-AUTH.\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\n# PHP SDK\nFor all PHP SDK examples provided in this spec you will need to configure `$client`.\nYou may do it like this:\n\n```php\n$client = new Rebilly\\Client([\n    'apiKey' => 'YourApiKeyHere',\n    'baseUrl' => 'https://api.rebilly.com',\n]);\n```\n",
+  "security": {
+    "rebilly": {
+      "integration": "rebilly",
+      "fields": {
+        "ApiKey": "When you sign up for an account, you are given your first API key.\nTo do so please follow this link: https://www.rebilly.com/site/signup/\nAlso you can generate additional API keys, and delete API keys (as you may\nneed to rotate your keys in the future).\n",
+        "username": "Your username",
+        "password": "Your password",
+        "RebAuth": "Only for the Tokens resource.\nThe REB-AUTH value is created in this way\nGenerate a Nonce (random string), and a Timestamp (unix timestamp)\nConcatenate the values of ApiUser, Nonce, and Timestamp (in that order).\nUse that value as the input data when you calculate the <a href=\"http://tools.ietf.org/html/rfc2104\">HMAC-SHA1</a> with your secret key, called the signature.\nForming the four data points into a JSON object.\n\n```json\n{\n  \"REB-APIUSER\": \"abcdefg\",\n  \"REB-NONCE\": \"adfsjtreitou345fgkdafgj\",\n  \"REB-TIMESTAMP\": \"1382591345\",\n  \"REB-SIGNATURE\": \"a234fc95460401cfg09c9d09\"\n}\n```\n\nThen base64 encode that JSON object. This is the final value of the REB-AUTH HTTP header\n"
+      }
+    }
+  },
   "definitions": {
     "A1Gateway": {
       "allOf": [
@@ -9636,6 +9647,11 @@
           "$ref": "#/definitions/ThreeDSecure"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9653,6 +9669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ThreeDSecure"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9671,6 +9692,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ThreeDSecure"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9687,7 +9713,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "api_keys.get",
@@ -9718,6 +9749,11 @@
           "$ref": "#/definitions/ApiKey"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9735,6 +9771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9751,7 +9792,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "api_keys.id.get",
@@ -9769,6 +9815,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9790,6 +9841,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9841,6 +9897,11 @@
           "$ref": "#/definitions/Attachment"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9858,6 +9919,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9874,7 +9940,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "attachments.id.get",
@@ -9892,6 +9963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9913,6 +9989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9925,6 +10006,11 @@
           "$ref": "#/definitions/AuthenticationOptions"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9942,6 +10028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationOptions"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9973,6 +10064,11 @@
           "$ref": "#/definitions/AuthenticationToken"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -9990,6 +10086,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10006,7 +10107,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "authentication_tokens.token.get",
@@ -10024,6 +10130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10055,6 +10166,11 @@
           "$ref": "#/definitions/BankAccount"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10072,6 +10188,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10090,6 +10211,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10111,6 +10237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10129,6 +10260,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10160,6 +10296,11 @@
           "$ref": "#/definitions/Blacklist"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10177,6 +10318,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10193,7 +10339,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "blacklists.id.get",
@@ -10211,6 +10362,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10232,6 +10388,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10263,6 +10424,11 @@
           "$ref": "#/definitions/CheckoutPage"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10280,6 +10446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10296,7 +10467,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "checkout_pages.id.get",
@@ -10314,6 +10490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10335,6 +10516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10366,6 +10552,11 @@
           "$ref": "#/definitions/Contact"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10383,6 +10574,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10401,6 +10597,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10422,6 +10623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10469,6 +10675,11 @@
           "$ref": "#/definitions/Coupon"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10486,6 +10697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10533,6 +10749,11 @@
           "$ref": "#/definitions/CouponRedemption"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10550,6 +10771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CouponRedemption"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10568,6 +10794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CouponRedemption"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10584,7 +10815,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "coupons.redemptionCode.get",
@@ -10602,6 +10838,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10623,6 +10864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10640,6 +10886,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SmtpCredential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10658,6 +10909,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SmtpCredential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10675,6 +10931,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebhookCredential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10693,6 +10954,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebhookCredential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10724,6 +10990,11 @@
           "$ref": "#/definitions/Credential"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10741,6 +11012,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10757,7 +11033,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "credentials.id.get",
@@ -10775,6 +11056,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10796,6 +11082,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10827,6 +11118,11 @@
           "$ref": "#/definitions/CustomEvent"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10844,6 +11140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10860,7 +11161,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "custom_events.id.get",
@@ -10878,6 +11184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10899,6 +11210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10917,6 +11233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10938,6 +11259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -10990,6 +11316,11 @@
           "$ref": "#/definitions/RuleSetHistoryItem"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11021,6 +11352,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetHistoryItem"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11052,6 +11388,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetVersion"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11083,6 +11424,11 @@
           "$ref": "#/definitions/CustomField"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11112,7 +11458,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "custom_fields.resource.name.get",
@@ -11143,6 +11494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomField"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11177,6 +11533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomField"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11236,6 +11597,11 @@
           "$ref": "#/definitions/Customer"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11253,6 +11619,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11271,6 +11642,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11292,6 +11668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11308,7 +11689,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "customers.id.lead_source.get",
@@ -11326,6 +11712,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11347,6 +11738,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11378,6 +11774,11 @@
           "$ref": "#/definitions/Dispute"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11395,6 +11796,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11413,6 +11819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11434,6 +11845,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11446,6 +11862,11 @@
           "$ref": "#/definitions/SystemEvent"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11464,6 +11885,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SystemEvent"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11482,6 +11908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11503,6 +11934,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11555,6 +11991,11 @@
           "$ref": "#/definitions/RuleSetHistoryItem"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11586,6 +12027,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetHistoryItem"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11617,6 +12063,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetVersion"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11668,6 +12119,11 @@
           "$ref": "#/definitions/File"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11691,6 +12147,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11707,7 +12168,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "files.id.get",
@@ -11725,6 +12191,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11746,6 +12217,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11765,6 +12241,11 @@
       "outputSchema": {
         "readOnly": true,
         "type": "string"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11792,6 +12273,11 @@
       "outputSchema": {
         "readOnly": true,
         "type": "string"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11807,7 +12293,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "gateway_accounts.get",
@@ -11838,6 +12329,11 @@
           "$ref": "#/definitions/GatewayAccount"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11855,6 +12351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11871,7 +12372,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "gateway_accounts.id.get",
@@ -11889,6 +12395,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11910,6 +12421,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11931,6 +12447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11970,6 +12491,11 @@
           "$ref": "#/definitions/Invoice"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -11987,6 +12513,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12013,6 +12544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12034,6 +12570,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12052,6 +12593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12073,6 +12619,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12105,6 +12656,11 @@
           "$ref": "#/definitions/InvoiceItem"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12126,6 +12682,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InvoiceItem"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12142,7 +12703,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "invoices.id.lead_source.get",
@@ -12160,6 +12726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12181,6 +12752,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12199,6 +12775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12230,6 +12811,11 @@
           "$ref": "#/definitions/Layout"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12247,6 +12833,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12263,7 +12854,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "layouts.id.get",
@@ -12281,6 +12877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12302,6 +12903,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12345,6 +12951,11 @@
           "$ref": "#/definitions/List"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12362,6 +12973,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12378,7 +12994,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "lists.id.get",
@@ -12396,6 +13017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12417,6 +13043,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12440,6 +13071,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12471,6 +13107,11 @@
           "$ref": "#/definitions/Note"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12488,6 +13129,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12506,6 +13152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12527,6 +13178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12558,6 +13214,11 @@
           "$ref": "#/definitions/Organization"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12575,6 +13236,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12591,7 +13257,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "organizations.id.get",
@@ -12609,6 +13280,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12630,6 +13306,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12661,6 +13342,11 @@
           "$ref": "#/definitions/ResetPasswordToken"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12678,6 +13364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResetPasswordToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12694,7 +13385,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "password_tokens.id.get",
@@ -12712,6 +13408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResetPasswordToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12743,6 +13444,11 @@
           "$ref": "#/definitions/PaymentCard"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12760,6 +13466,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12791,6 +13502,11 @@
           "$ref": "#/definitions/PaymentCard"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12808,6 +13524,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCardMigrationResponse"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12826,6 +13547,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12847,6 +13573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12891,6 +13622,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12909,6 +13645,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12948,6 +13689,11 @@
           "$ref": "#/definitions/Payment"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12968,6 +13714,11 @@
           "$ref": "#/definitions/Payment"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -12986,6 +13737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13010,6 +13766,11 @@
           "$ref": "#/definitions/Payment"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13041,6 +13802,11 @@
           "$ref": "#/definitions/Plan"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13058,6 +13824,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13074,7 +13845,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "plans.id.get",
@@ -13092,6 +13868,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13113,6 +13894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13130,6 +13916,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendTestEmail"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13147,6 +13938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendPreviewWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13162,7 +13958,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "products.get",
@@ -13193,6 +13994,11 @@
           "$ref": "#/definitions/Product"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13210,6 +14016,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13226,7 +14037,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "products.id.get",
@@ -13244,6 +14060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13265,6 +14086,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13274,6 +14100,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13291,6 +14122,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13322,6 +14158,11 @@
           "$ref": "#/definitions/CustomEvent"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13338,7 +14179,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "queue.custom_events.id.get",
@@ -13356,6 +14202,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13387,6 +14238,11 @@
           "$ref": "#/definitions/Payment"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13405,6 +14261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13426,6 +14287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13444,6 +14310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13475,6 +14346,11 @@
           "$ref": "#/definitions/Session"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13492,6 +14368,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13508,7 +14389,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "sessions.id.get",
@@ -13526,6 +14412,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13547,6 +14438,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13578,6 +14474,11 @@
           "$ref": "#/definitions/ShippingZone"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13595,6 +14496,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13611,7 +14517,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "shipping_zones.id.get",
@@ -13629,6 +14540,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13650,6 +14566,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13684,6 +14605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13732,6 +14658,11 @@
           "$ref": "#/definitions/Subscription"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13749,6 +14680,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13767,6 +14703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13788,6 +14729,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13809,6 +14755,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13825,7 +14776,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "subscriptions.id.lead_source.get",
@@ -13843,6 +14799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13864,6 +14825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13885,6 +14851,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13897,6 +14868,11 @@
           "$ref": "#/definitions/TaxCategory"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13928,6 +14904,11 @@
           "$ref": "#/definitions/PaymentToken"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13945,6 +14926,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13963,6 +14949,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -13984,6 +14975,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14023,6 +15019,11 @@
           "$ref": "#/definitions/ApiTracking"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14041,6 +15042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiTracking"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14072,6 +15078,11 @@
           "$ref": "#/definitions/List"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14103,6 +15114,11 @@
           "$ref": "#/definitions/SubscriptionTracking"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14121,6 +15137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionTracking"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14152,6 +15173,11 @@
           "$ref": "#/definitions/WebsiteWebhookTracking"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14170,6 +15196,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhookTracking"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14217,6 +15248,11 @@
           "$ref": "#/definitions/Transaction"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14235,6 +15271,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14253,6 +15294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TransactionGatewayLog"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14269,7 +15315,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "transactions.id.lead_source.get",
@@ -14287,6 +15338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14308,6 +15364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14329,6 +15390,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14360,6 +15426,11 @@
           "$ref": "#/definitions/User"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14377,6 +15448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14398,6 +15474,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14414,7 +15495,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "users.id.get",
@@ -14432,6 +15518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14453,6 +15544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14474,6 +15570,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14492,6 +15593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14523,6 +15629,11 @@
           "$ref": "#/definitions/GlobalWebhook"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14540,6 +15651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14558,6 +15674,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14579,6 +15700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14618,6 +15744,11 @@
           "$ref": "#/definitions/Website"
         },
         "type": "array"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14635,6 +15766,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14651,7 +15787,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "websites.id.get",
@@ -14669,6 +15810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14690,6 +15836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14706,7 +15857,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
+      }
     },
     {
       "id": "websites.id.webhook.get",
@@ -14724,6 +15880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     },
     {
@@ -14745,6 +15906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhook"
+      },
+      "security": {
+        "rebilly": {
+          "integration": "rebilly"
+        }
       }
     }
   ]

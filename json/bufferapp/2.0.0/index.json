@@ -2,6 +2,25 @@
   "id": "bufferapp",
   "title": "Bufferapp",
   "description": "Social media management for marketers and agencies",
+  "security": {
+    "bufferapp": {
+      "integration": "bufferapp",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://bufferapp.com/oauth2/authorize",
+        "description": "Body example for authorisation request:\n\nclient_id=...&\nredirect_uri=...&\nresponse_type=code\n\nBidy example for token request:\n\nPOST Data\nclient_id=...&\nclient_secret=...&\nredirect_uri=...&\ncode=...&\ngrant_type=authorization_code\n\nAll requests to the Buffer API must be made using HTTPS, with the access token provided in the HTTP Authorization header, request body or query string.\n",
+        "flow": "accessCode",
+        "scopes": {},
+        "tokenUrl": "https://api.bufferapp.com/1/oauth2/token.json",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "configuration": {
       "properties": {
@@ -1191,6 +1210,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/configuration"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1209,6 +1233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shares"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1226,6 +1255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1243,6 +1277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/schedules"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1277,6 +1316,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/updates-array"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1294,6 +1338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shuffle"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1328,6 +1377,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/updates-array"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1345,6 +1399,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shuffle"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1362,6 +1421,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/profile"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1371,6 +1435,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/profiles"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1380,6 +1449,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/newUpdate"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1397,6 +1471,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1426,6 +1505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/interactions"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1443,6 +1527,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1460,6 +1549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/success"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1477,6 +1571,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/individual-update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1494,6 +1593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/update"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     },
     {
@@ -1503,6 +1607,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "bufferapp": {
+          "integration": "bufferapp"
+        }
       }
     }
   ]

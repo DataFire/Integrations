@@ -2,6 +2,14 @@
   "id": "nytimes_top_stories",
   "title": "Top Stories",
   "description": "The Top Stories API provides lists of articles and associated images by section.",
+  "security": {
+    "nytimes_top_stories": {
+      "integration": "nytimes_top_stories",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "definitions": {
     "Article": {
       "properties": {
@@ -186,6 +194,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_top_stories": {
+          "integration": "nytimes_top_stories"
+        }
       }
     }
   ]

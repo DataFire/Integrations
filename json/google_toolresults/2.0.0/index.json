@@ -2,6 +2,27 @@
   "id": "google_toolresults",
   "title": "Cloud Tool Results",
   "description": "Reads and publishes results from Firebase Test Lab.",
+  "security": {
+    "google_toolresults": {
+      "integration": "google_toolresults",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Any": {
       "description": "`Any` contains an arbitrary serialized protocol buffer message along with a URL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form of utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\nFoo foo = ...; Any any; any.PackFrom(foo); ... if (any.UnpackTo(&foo)) { ... }\n\nExample 2: Pack and unpack a message in Java.\n\nFoo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo = any.unpack(Foo.class); }\n\nExample 3: Pack and unpack a message in Python.\n\nfoo = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR): any.Unpack(foo) ...\n\nThe pack methods provided by protobuf library will by default use 'type.googleapis.com/full.type.name' as the type URL and the unpack methods only use the fully qualified type name after the last '/' in the type URL, for example \"foo.bar.com/x/y.z\" will yield type name \"y.z\".\n\n\n\nJSON ==== The JSON representation of an `Any` value uses the regular representation of the deserialized, embedded message, with an additional field `@type` which contains the type URL. Example:\n\npackage google.profile; message Person { string first_name = 1; string last_name = 2; }\n\n{ \"@type\": \"type.googleapis.com/google.profile.Person\", \"firstName\": , \"lastName\":  }\n\nIf the embedded message type is well-known and has a custom JSON representation, that representation will be embedded adding a field `value` which holds the custom JSON in addition to the `@type` field. Example (for message [google.protobuf.Duration][]):\n\n{ \"@type\": \"type.googleapis.com/google.protobuf.Duration\", \"value\": \"1.212s\" }",
@@ -943,6 +964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListHistoriesResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -999,6 +1025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/History"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1052,6 +1083,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/History"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1113,6 +1149,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListExecutionsResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1173,6 +1214,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Execution"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1230,6 +1276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Execution"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1294,6 +1345,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Execution"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1359,6 +1415,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStepsResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1423,6 +1484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Step"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1484,6 +1550,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Step"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1552,6 +1623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Step"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1613,6 +1689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PerfMetricsSummary"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1677,6 +1758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PerfMetricsSummary"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1742,6 +1828,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPerfSampleSeriesResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1806,6 +1897,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PerfSampleSeries"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1871,6 +1967,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PerfSampleSeries"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -1944,6 +2045,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPerfSamplesResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -2012,6 +2118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchCreatePerfSamplesResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -2081,6 +2192,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStepThumbnailsResponse"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -2145,6 +2261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Step"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -2194,6 +2315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSettings"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     },
     {
@@ -2243,6 +2369,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSettings"
+      },
+      "security": {
+        "google_toolresults": {
+          "integration": "google_toolresults"
+        }
       }
     }
   ]

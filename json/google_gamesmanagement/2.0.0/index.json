@@ -2,6 +2,28 @@
   "id": "google_gamesmanagement",
   "title": "Google Play Game Services Management",
   "description": "The Management API for Google Play Game Services.",
+  "security": {
+    "google_gamesmanagement": {
+      "integration": "google_gamesmanagement",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/games": "Share your Google+ profile information and view and manage your game activity",
+          "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AchievementResetAllResponse": {
       "description": "This is a JSON template for achievement reset all response.",
@@ -386,6 +408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementResetAllResponse"
+      },
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
       }
     },
     {
@@ -432,7 +459,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "achievements.resetMultipleForAllPlayers",
@@ -481,7 +513,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "achievements.reset",
@@ -530,6 +567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementResetResponse"
+      },
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
       }
     },
     {
@@ -577,7 +619,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "applications.listHidden",
@@ -636,6 +683,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HiddenPlayerList"
+      },
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
       }
     },
     {
@@ -687,7 +739,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "players.hide",
@@ -738,7 +795,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "events.resetAll",
@@ -784,7 +846,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "events.resetAllForAllPlayers",
@@ -830,7 +897,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "events.resetMultipleForAllPlayers",
@@ -879,7 +951,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "events.reset",
@@ -926,7 +1003,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "events.resetForAllPlayers",
@@ -973,7 +1055,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "scores.reset",
@@ -1022,6 +1109,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerScoreResetResponse"
+      },
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
       }
     },
     {
@@ -1069,7 +1161,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "quests.resetAll",
@@ -1115,7 +1212,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "quests.resetAllForAllPlayers",
@@ -1161,7 +1263,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "quests.resetMultipleForAllPlayers",
@@ -1210,7 +1317,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "quests.reset",
@@ -1257,7 +1369,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "quests.resetForAllPlayers",
@@ -1304,7 +1421,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "rooms.reset",
@@ -1350,7 +1472,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "rooms.resetForAllPlayers",
@@ -1396,7 +1523,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "scores.resetAll",
@@ -1444,6 +1576,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlayerScoreResetAllResponse"
+      },
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
       }
     },
     {
@@ -1490,7 +1627,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "scores.resetMultipleForAllPlayers",
@@ -1539,7 +1681,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "turnBasedMatches.reset",
@@ -1585,7 +1732,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     },
     {
       "id": "turnBasedMatches.resetForAllPlayers",
@@ -1631,7 +1783,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesmanagement": {
+          "integration": "google_gamesmanagement"
+        }
+      }
     }
   ]
 }

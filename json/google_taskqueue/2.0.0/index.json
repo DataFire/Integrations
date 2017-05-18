@@ -2,6 +2,28 @@
   "id": "google_taskqueue",
   "title": "TaskQueue",
   "description": "Accesses a Google App Engine Pull Task Queue over REST.",
+  "security": {
+    "google_taskqueue": {
+      "integration": "google_taskqueue",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/taskqueue": "Manage your Tasks and Taskqueues",
+          "https://www.googleapis.com/auth/taskqueue.consumer": "Consume Tasks from your Taskqueues"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Task": {
       "properties": {
@@ -207,6 +229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskQueue"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -260,6 +287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tasks2"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -316,6 +348,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -385,6 +422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tasks"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -440,7 +482,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
+      }
     },
     {
       "id": "tasks.get",
@@ -497,6 +544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -559,6 +611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     },
     {
@@ -621,6 +678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_taskqueue": {
+          "integration": "google_taskqueue"
+        }
       }
     }
   ]

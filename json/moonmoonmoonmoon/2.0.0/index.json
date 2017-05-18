@@ -2,6 +2,7 @@
   "id": "moonmoonmoonmoon",
   "title": "Moon by Ai Weiwei & Olafur Eliasson",
   "description": "Turn nothing into something – make a drawing, make a mark.",
+  "security": {},
   "actions": [
     {
       "id": "api.hashtags.get",

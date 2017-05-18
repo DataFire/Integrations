@@ -2,6 +2,7 @@
   "id": "azure_arm_cognitiveservices",
   "title": "CognitiveServicesManagementClient",
   "description": "Cognitive Services Management Client",
+  "security": {},
   "definitions": {
     "CognitiveServicesAccount": {
       "description": "Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.",

@@ -2,6 +2,28 @@
   "id": "google_admin",
   "title": "Admin Reports",
   "description": "Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.",
+  "security": {
+    "google_admin": {
+      "integration": "google_admin",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/admin.reports.audit.readonly": "View audit reports for your G Suite domain",
+          "https://www.googleapis.com/auth/admin.reports.usage.readonly": "View usage reports for your G Suite domain"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Activities": {
       "description": "JSON template for a collection of activites.",
@@ -447,6 +469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Activities"
+      },
+      "security": {
+        "google_admin": {
+          "integration": "google_admin"
+        }
       }
     },
     {
@@ -537,6 +564,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_admin": {
+          "integration": "google_admin"
+        }
       }
     },
     {
@@ -586,7 +618,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_admin": {
+          "integration": "google_admin"
+        }
+      }
     },
     {
       "id": "customerUsageReports.get",
@@ -647,6 +684,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageReports"
+      },
+      "security": {
+        "google_admin": {
+          "integration": "google_admin"
+        }
       }
     },
     {
@@ -721,6 +763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageReports"
+      },
+      "security": {
+        "google_admin": {
+          "integration": "google_admin"
+        }
       }
     }
   ]

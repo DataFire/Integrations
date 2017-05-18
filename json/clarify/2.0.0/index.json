@@ -2,6 +2,7 @@
   "id": "clarify",
   "title": "Clarify",
   "description": "The API to Search and Understand Audio & Video Data.",
+  "security": {},
   "definitions": {
     "Bundle": {
       "$ref": "#/definitions/object",

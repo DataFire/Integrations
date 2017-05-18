@@ -2,6 +2,14 @@
   "id": "browshot",
   "title": "Browshot",
   "description": "Take screenshots of any website in real time",
+  "security": {
+    "browshot": {
+      "integration": "browshot",
+      "fields": {
+        "apiKeyQuery": "API key"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -483,6 +491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -644,6 +657,11 @@
           "$ref": "#/definitions/Batch"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -662,6 +680,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Batch"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -680,6 +703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Browser"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -689,6 +717,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/BrowserList"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -707,6 +740,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Instance"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -716,6 +754,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/InstanceList"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -867,6 +910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Screenshot"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -892,6 +940,11 @@
           "$ref": "#/definitions/ScreenshotShort"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -950,6 +1003,11 @@
           "$ref": "#/definitions/ScreenshotHost"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -966,7 +1024,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
+      }
     },
     {
       "id": "GetScreenshotInfo",
@@ -993,6 +1056,11 @@
           "$ref": "#/definitions/Screenshot"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -1028,6 +1096,11 @@
           "$ref": "#/definitions/ScreenshotList"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -1167,6 +1240,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ScreenshotList"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -1203,6 +1281,11 @@
           "$ref": "#/definitions/ScreenshotList"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -1228,6 +1311,11 @@
           "$ref": "#/definitions/ScreenshotHost"
         },
         "type": "array"
+      },
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
       }
     },
     {
@@ -1314,7 +1402,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "browshot": {
+          "integration": "browshot"
+        }
+      }
     }
   ]
 }

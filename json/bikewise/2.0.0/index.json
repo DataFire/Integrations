@@ -2,6 +2,7 @@
   "id": "bikewise",
   "title": "BikeWise API v2",
   "description": "<p>This is an API for accessing information about bicycling related incidents. You can find the source code on <a href=\"https://github.com/bikeindex/bikewise\">GitHub</a>.</p>\n",
+  "security": {},
   "actions": [
     {
       "id": "v2.incidents.get",

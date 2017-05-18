@@ -2,6 +2,28 @@
   "id": "google_siteverification",
   "title": "Google Site Verification",
   "description": "Verifies ownership of websites or domains with Google.",
+  "security": {
+    "google_siteverification": {
+      "integration": "google_siteverification",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/siteverification": "Manage the list of sites and domains you control",
+          "https://www.googleapis.com/auth/siteverification.verify_only": "Manage your new site verifications with Google"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "SiteVerificationWebResourceGettokenRequest": {
       "properties": {
@@ -132,6 +154,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceGettokenResponse"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     },
     {
@@ -180,6 +207,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceListResponse"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     },
     {
@@ -232,6 +264,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceResource"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     },
     {
@@ -279,7 +316,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
+      }
     },
     {
       "id": "webResource.get",
@@ -328,6 +370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceResource"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     },
     {
@@ -380,6 +427,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceResource"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     },
     {
@@ -432,6 +484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteVerificationWebResourceResource"
+      },
+      "security": {
+        "google_siteverification": {
+          "integration": "google_siteverification"
+        }
       }
     }
   ]

@@ -2,6 +2,7 @@
   "id": "azure_arm_trafficmanager",
   "title": "TrafficManagerManagementClient",
   "description": "",
+  "security": {},
   "definitions": {
     "CheckTrafficManagerRelativeDnsNameAvailabilityParameters": {
       "description": "Parameters supplied to check Traffic Manager name operation.",

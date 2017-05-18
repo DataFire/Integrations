@@ -2,6 +2,7 @@
   "id": "spectrocoin",
   "title": "SpectroCoin Merchant",
   "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
+  "security": {},
   "definitions": {
     "Order_information_class": {
       "properties": {

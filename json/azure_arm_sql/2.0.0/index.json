@@ -2,6 +2,7 @@
   "id": "azure_arm_sql",
   "title": "Azure SQL Database",
   "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.",
+  "security": {},
   "definitions": {
     "ProxyResource": {
       "allOf": [

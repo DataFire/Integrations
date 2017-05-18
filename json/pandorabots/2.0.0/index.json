@@ -2,6 +2,14 @@
   "id": "pandorabots",
   "title": "Pandorabots AIaaS",
   "description": "AIaaS provides API access to our bot hosting platform and SDKs, allowing developers to easily integrate conversational interfaces into applications.",
+  "security": {
+    "pandorabots": {
+      "integration": "pandorabots",
+      "fields": {
+        "user_key": "Your application's user key."
+      }
+    }
+  },
   "actions": [
     {
       "id": "atalkBot",
@@ -37,7 +45,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "listBots",
@@ -53,7 +66,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "deleteBot",
@@ -73,7 +91,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "listBotFiles",
@@ -97,7 +120,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "createBot",
@@ -117,7 +145,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "compileBot",
@@ -137,7 +170,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "deleteBotFile2",
@@ -161,7 +199,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "getBotFile2",
@@ -185,7 +228,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "uploadFile2",
@@ -212,7 +260,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "deleteBotFile1",
@@ -240,7 +293,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "getBotFile1",
@@ -268,7 +326,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "uploadFile1",
@@ -299,7 +362,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     },
     {
       "id": "debugBot",
@@ -359,7 +427,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "pandorabots": {
+          "integration": "pandorabots"
+        }
+      }
     }
   ]
 }

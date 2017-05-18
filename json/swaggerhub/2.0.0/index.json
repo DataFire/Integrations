@@ -2,6 +2,14 @@
   "id": "swaggerhub",
   "title": "SwaggerHub Registry",
   "description": "The registry API for SwaggerHub",
+  "security": {
+    "swaggerhub": {
+      "integration": "swaggerhub",
+      "fields": {
+        "TokenSecured": "API key"
+      }
+    }
+  },
   "definitions": {
     "AccessToken": {
       "properties": {
@@ -923,6 +931,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -932,6 +945,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplateCatalog"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -976,6 +994,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -996,7 +1019,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteApi",
@@ -1016,7 +1044,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getApiVersions",
@@ -1038,6 +1071,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1073,7 +1111,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteCollaboration",
@@ -1093,7 +1136,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getCollaboration",
@@ -1118,6 +1166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Collaboration"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1141,7 +1194,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "renameApi",
@@ -1165,7 +1223,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "saveApiDefinitionByTemplate",
@@ -1193,7 +1256,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "transferApi",
@@ -1224,6 +1292,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1248,7 +1321,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDefinition",
@@ -1275,6 +1353,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1311,7 +1394,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getApiComments",
@@ -1340,6 +1428,11 @@
           "$ref": "#/definitions/ClosableComment"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1369,6 +1462,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1396,7 +1494,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteApiComment",
@@ -1424,7 +1527,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "updateApiComment",
@@ -1457,6 +1565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1493,6 +1606,11 @@
           "$ref": "#/definitions/Comment"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1525,7 +1643,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "updateApiCommentReply",
@@ -1562,6 +1685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1598,7 +1726,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteDraftApi",
@@ -1622,7 +1755,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDraft",
@@ -1649,6 +1787,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1676,7 +1819,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "forkApi",
@@ -1711,7 +1859,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "compareApis",
@@ -1750,6 +1903,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comparison"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1788,6 +1946,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comparison"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1815,6 +1978,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1842,6 +2010,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1901,6 +2074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1910,6 +2088,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplateCatalog"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1954,6 +2137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1972,6 +2160,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -1996,7 +2189,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDomainVersions",
@@ -2018,6 +2216,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2053,7 +2256,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "renameDomain",
@@ -2081,7 +2289,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "transferDomain",
@@ -2112,6 +2325,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2140,7 +2358,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDomainDefinition",
@@ -2167,6 +2390,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2203,7 +2431,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDomainComments",
@@ -2232,6 +2465,11 @@
           "$ref": "#/definitions/ClosableComment"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2261,6 +2499,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2288,7 +2531,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteDomainComment",
@@ -2316,7 +2564,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "updateDomainComment",
@@ -2349,6 +2602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2385,6 +2643,11 @@
           "$ref": "#/definitions/Comment"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2417,7 +2680,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "updateDomainCommentReply",
@@ -2454,6 +2722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2490,7 +2763,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "deleteDraftDomain",
@@ -2514,7 +2792,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDraftDomain",
@@ -2541,6 +2824,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2568,7 +2856,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "forkDomain",
@@ -2603,7 +2896,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "saveDomainDefinitionByTemplate",
@@ -2635,7 +2933,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getDomainJsonDefinition",
@@ -2662,6 +2965,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2689,6 +2997,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2701,6 +3014,11 @@
           "$ref": "#/definitions/PluginDefinition"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2716,7 +3034,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "getPlugins",
@@ -2747,6 +3070,11 @@
           "$ref": "#/definitions/PluginConfiguration"
         },
         "type": "array"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2766,7 +3094,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "updatePluginConfiguration",
@@ -2785,7 +3118,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "triggerPluginConfiguration",
@@ -2801,7 +3139,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
+      }
     },
     {
       "id": "buildConfigurationSchema",
@@ -2819,6 +3162,11 @@
       "outputSchema": {
         "properties": {},
         "type": "object"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     },
     {
@@ -2836,6 +3184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessToken"
+      },
+      "security": {
+        "swaggerhub": {
+          "integration": "swaggerhub"
+        }
       }
     }
   ]

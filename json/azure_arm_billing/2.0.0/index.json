@@ -2,6 +2,26 @@
   "id": "azure_arm_billing",
   "title": "BillingClient",
   "description": "Billing client provides access to billing resources for Azure Web-Direct subscriptions. Other subscription types which were not purchased directly through the Azure web portal are not supported through this preview API.",
+  "security": {
+    "azure_arm_billing": {
+      "integration": "azure_arm_billing",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "DownloadUrl": {
       "description": "A secure URL that can be used to download a PDF invoice until the URL expires.",
@@ -190,6 +210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_billing": {
+          "integration": "azure_arm_billing"
+        }
       }
     },
     {
@@ -230,6 +255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InvoicesListResult"
+      },
+      "security": {
+        "azure_arm_billing": {
+          "integration": "azure_arm_billing"
+        }
       }
     },
     {
@@ -252,6 +282,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "azure_arm_billing": {
+          "integration": "azure_arm_billing"
+        }
       }
     },
     {
@@ -278,6 +313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
+      },
+      "security": {
+        "azure_arm_billing": {
+          "integration": "azure_arm_billing"
+        }
       }
     }
   ]

@@ -2,6 +2,32 @@
   "id": "google_compute",
   "title": "Compute Engine",
   "description": "Creates and runs virtual machines on Google Cloud Platform.",
+  "security": {
+    "google_compute": {
+      "integration": "google_compute",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+          "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources",
+          "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AccessConfig": {
       "description": "An access configuration attached to an instance's network interface. Only one access config per instance is supported.",
@@ -7128,6 +7154,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7194,6 +7225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7260,6 +7296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoscalerAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7326,6 +7367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendServiceAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7392,6 +7438,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskTypeAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7458,6 +7509,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7524,6 +7580,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingRuleAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7590,6 +7651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManagerAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7656,6 +7722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7722,6 +7793,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7788,6 +7864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineTypeAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7854,6 +7935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7920,6 +8006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouterAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -7986,6 +8077,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubnetworkAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8052,6 +8148,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetInstanceAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8118,6 +8219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetPoolAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8184,6 +8290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetVpnGatewayAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8250,6 +8361,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VpnTunnelAggregatedList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8316,6 +8432,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8368,6 +8489,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8421,6 +8547,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8474,6 +8605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Address"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8540,6 +8676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendBucketList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8592,6 +8733,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8645,6 +8791,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8698,6 +8849,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendBucket"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8754,6 +8910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8810,6 +8971,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8876,6 +9042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendServiceList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8928,6 +9099,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -8981,6 +9157,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9034,6 +9215,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendService"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9090,6 +9276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9146,6 +9337,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9201,6 +9397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendServiceGroupHealth"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9267,6 +9468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FirewallList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9319,6 +9525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9372,6 +9583,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9425,6 +9641,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Firewall"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9481,6 +9702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9537,6 +9763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9603,6 +9834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingRuleList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9655,6 +9891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9708,6 +9949,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9761,6 +10007,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingRule"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9817,6 +10068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9883,6 +10139,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HealthCheckList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9935,6 +10196,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -9988,6 +10254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10041,6 +10312,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HealthCheck"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10097,6 +10373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10153,6 +10434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10219,6 +10505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HttpHealthCheckList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10271,6 +10562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10324,6 +10620,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10377,6 +10678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HttpHealthCheck"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10433,6 +10739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10489,6 +10800,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10555,6 +10871,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HttpsHealthCheckList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10607,6 +10928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10660,6 +10986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10713,6 +11044,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HttpsHealthCheck"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10769,6 +11105,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10825,6 +11166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10891,6 +11237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImageList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10943,6 +11294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -10996,6 +11352,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Image"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11049,6 +11410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11102,6 +11468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Image"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11158,6 +11529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11224,6 +11600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceTemplateList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11276,6 +11657,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11329,6 +11715,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11382,6 +11773,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceTemplate"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11435,6 +11831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/License"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11501,6 +11902,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11553,6 +11959,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11606,6 +12017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11659,6 +12075,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Network"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11712,6 +12133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11778,6 +12204,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11829,7 +12260,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
+      }
     },
     {
       "id": "globalOperations.get",
@@ -11882,6 +12318,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -11948,6 +12389,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12000,6 +12446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12053,6 +12504,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12106,6 +12562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Route"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12172,6 +12633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SnapshotList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12225,6 +12691,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12278,6 +12749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Snapshot"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12344,6 +12820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCertificateList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12396,6 +12877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12449,6 +12935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12502,6 +12993,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCertificate"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12568,6 +13064,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetHttpProxyList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12620,6 +13121,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12673,6 +13179,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12726,6 +13237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetHttpProxy"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12792,6 +13308,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetHttpsProxyList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12844,6 +13365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12897,6 +13423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -12950,6 +13481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetHttpsProxy"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13016,6 +13552,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetSslProxyList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13068,6 +13609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13121,6 +13667,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13174,6 +13725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetSslProxy"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13230,6 +13786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13286,6 +13847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13342,6 +13908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13408,6 +13979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlMapList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13460,6 +14036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13513,6 +14094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13566,6 +14152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlMap"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13622,6 +14213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13678,6 +14274,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13734,6 +14335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13790,6 +14396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlMapsValidateResponse"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13842,6 +14453,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13894,6 +14510,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -13960,6 +14581,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14013,6 +14639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Region"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14083,6 +14714,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14139,6 +14775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14196,6 +14837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14253,6 +14899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Address"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14323,6 +14974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionAutoscalerList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14383,6 +15039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14439,6 +15100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14499,6 +15165,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14556,6 +15227,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14613,6 +15289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Autoscaler"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14683,6 +15364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendServiceList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14739,6 +15425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14796,6 +15487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14853,6 +15549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendService"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14913,6 +15614,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -14973,6 +15679,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15032,6 +15743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendServiceGroupHealth"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15102,6 +15818,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingRuleList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15158,6 +15879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15215,6 +15941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15272,6 +16003,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingRule"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15332,6 +16068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15402,6 +16143,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionInstanceGroupManagerList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15458,6 +16204,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15515,6 +16266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15572,6 +16328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManager"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15632,6 +16393,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15692,6 +16458,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15762,6 +16533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionInstanceGroupManagersListInstancesResponse"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15822,6 +16598,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15884,6 +16665,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -15944,6 +16730,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16004,6 +16795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16074,6 +16870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionInstanceGroupList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16131,6 +16932,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroup"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16208,6 +17014,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionInstanceGroupsListInstances"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16268,6 +17079,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16338,6 +17154,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16393,7 +17214,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
+      }
     },
     {
       "id": "regionOperations.get",
@@ -16450,6 +17276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16520,6 +17351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouterList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16576,6 +17412,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16633,6 +17474,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16690,6 +17536,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Router"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16750,6 +17601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16810,6 +17666,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16867,6 +17728,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouterStatusResponse"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16927,6 +17793,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoutersPreviewResponse"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -16997,6 +17868,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubnetworkList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17053,6 +17929,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17110,6 +17991,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17167,6 +18053,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subnetwork"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17227,6 +18118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17287,6 +18183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17357,6 +18258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetPoolList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17413,6 +18319,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17470,6 +18381,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17527,6 +18443,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetPool"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17587,6 +18508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17647,6 +18573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17707,6 +18638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetPoolInstanceHealth"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17767,6 +18703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17827,6 +18768,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17891,6 +18837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -17961,6 +18912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetVpnGatewayList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18017,6 +18973,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18074,6 +19035,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18131,6 +19097,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetVpnGateway"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18201,6 +19172,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VpnTunnelList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18257,6 +19233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18314,6 +19295,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18371,6 +19357,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VpnTunnel"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18423,6 +19414,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18475,6 +19471,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18531,6 +19532,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18587,6 +19593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18643,6 +19654,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18709,6 +19725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ZoneList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18762,6 +19783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Zone"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18832,6 +19858,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoscalerList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18892,6 +19923,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -18948,6 +19984,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19008,6 +20049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19065,6 +20111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19122,6 +20173,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Autoscaler"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19192,6 +20248,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskTypeList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19249,6 +20310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskType"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19319,6 +20385,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19379,6 +20450,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19436,6 +20512,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19493,6 +20574,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Disk"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19556,6 +20642,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19616,6 +20707,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19686,6 +20782,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManagerList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19742,6 +20843,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19799,6 +20905,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19856,6 +20967,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManager"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19916,6 +21032,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -19976,6 +21097,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20046,6 +21172,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManagersListManagedInstancesResponse"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20106,6 +21237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20167,6 +21303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20227,6 +21368,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20287,6 +21433,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20357,6 +21508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20413,6 +21569,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20470,6 +21631,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20527,6 +21693,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroup"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20587,6 +21758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20664,6 +21840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupsListInstances"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20724,6 +21905,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20784,6 +21970,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20854,6 +22045,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20910,6 +22106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -20967,6 +22168,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21024,6 +22230,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Instance"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21088,6 +22299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21148,6 +22364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21213,6 +22434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21274,6 +22500,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21331,6 +22562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21398,6 +22634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SerialPortOutput"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21463,6 +22704,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21523,6 +22769,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21583,6 +22834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21643,6 +22899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21703,6 +22964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21763,6 +23029,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21820,6 +23091,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21880,6 +23156,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -21937,6 +23218,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22007,6 +23293,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineTypeList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22064,6 +23355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineType"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22134,6 +23430,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22189,7 +23490,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
+      }
     },
     {
       "id": "zoneOperations.get",
@@ -22246,6 +23552,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22316,6 +23627,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetInstanceList"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22372,6 +23688,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22429,6 +23750,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     },
     {
@@ -22486,6 +23812,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetInstance"
+      },
+      "security": {
+        "google_compute": {
+          "integration": "google_compute"
+        }
       }
     }
   ]

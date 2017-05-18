@@ -2,6 +2,14 @@
   "id": "taxamo",
   "title": "Taxamo",
   "description": "Taxamo’s elegant suite of APIs and comprehensive reporting dashboard enables digital merchants to easily comply with EU regulatory requirements on tax calculation, evidence collection, tax return creation and data storage.",
+  "security": {
+    "taxamo": {
+      "integration": "taxamo",
+      "fields": {
+        "apiKey": "API key"
+      }
+    }
+  },
   "definitions": {
     "C": {
       "properties": {
@@ -2964,6 +2972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getCountriesDictOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -2973,6 +2986,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/getCurrenciesDictOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -2982,6 +3000,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/getProductTypesDictOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -2991,6 +3014,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/locateMyIPOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3009,6 +3037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/locateGivenIPOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3047,6 +3080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getDomesticSummaryReportOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3101,6 +3139,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getEuViesReportOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3142,6 +3185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getDetailedRefundsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3172,6 +3220,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getRefundsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3206,6 +3259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementSummaryOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3260,6 +3318,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3282,6 +3345,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementStatsByCountryOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3304,6 +3372,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementStatsByTaxationTypeOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3330,6 +3403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getDailySettlementStatsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3356,6 +3434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionsStatsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3382,6 +3465,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionsStatsByCountryOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3456,6 +3544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/calculateSimpleTaxOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3473,6 +3566,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/calculateTaxOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3498,6 +3596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/calculateTaxLocationOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3520,6 +3623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/validateTaxNumberOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3605,6 +3713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/listTransactionsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3622,6 +3735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/createTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3640,6 +3758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/cancelTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3658,6 +3781,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3679,6 +3807,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/updateTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3700,6 +3833,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/confirmTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3725,6 +3863,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/emailRefundOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3746,6 +3889,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/emailInvoiceOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3772,6 +3920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/listPaymentsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3793,6 +3946,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/createPaymentOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3811,6 +3969,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/capturePaymentOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3829,6 +3992,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/listRefundsOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3850,6 +4018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/createRefundOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3871,6 +4044,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/unconfirmTransactionOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3888,6 +4066,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/createSMSTokenOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     },
     {
@@ -3906,6 +4089,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/verifySMSTokenOut"
+      },
+      "security": {
+        "taxamo": {
+          "integration": "taxamo"
+        }
       }
     }
   ]

@@ -2,6 +2,14 @@
   "id": "wikimedia",
   "title": "Wikimedia",
   "description": "This API provides cacheable and straightforward access to Wikimedia content and data, in machine-readable formats. Each entry point has explicit stability markers to inform you about development status and change policy, according to [our API version policy](https://www.mediawiki.org/wiki/API_versioning).\nSee https://www.mediawiki.org/wiki/REST_API for background and details.\n### High-volume access\n  - Limit your clients to no more than 200 requests/s to this API.\n  - Set a unique `User-Agent` or `Api-User-Agent` header that\n    allows us to contact you quickly. Email addresses or URLs\n    of contact pages work well.\n\nBy using this API, you agree to Wikimedia's  [Terms of Use](https://wikimediafoundation.org/wiki/Terms_of_Use) and [Privacy Policy](https://wikimediafoundation.org/wiki/Privacy_policy), and you irrevocably agree to release modifications or additions made through this API under the  [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)  License and the [GFDL](https://www.gnu.org/copyleft/fdl.html).\n",
+  "security": {
+    "wikimedia": {
+      "integration": "wikimedia",
+      "fields": {
+        "mediawiki_auth": "Checks permissions using MW api"
+      }
+    }
+  },
   "definitions": {
     "listing": {
       "description": "The result format for listings",
@@ -314,7 +322,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
+      }
     },
     {
       "id": "media.math.formula.hash.get",
@@ -331,7 +344,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
+      }
     },
     {
       "id": "media.math.render.format.hash.get",
@@ -357,7 +375,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
+      }
     },
     {
       "id": "metrics.legacy.get",
@@ -366,6 +389,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/listing"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -410,6 +438,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pagecounts-project"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -419,6 +452,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/listing"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -473,6 +511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-project"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -531,6 +574,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-article"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -571,6 +619,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-tops"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     },
     {
@@ -614,6 +667,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/unique-devices"
+      },
+      "security": {
+        "wikimedia": {
+          "integration": "wikimedia"
+        }
       }
     }
   ]

@@ -2,6 +2,14 @@
   "id": "nrel_transportation_incentives_laws",
   "title": "Transportation Laws and Incentives",
   "description": "Query our database of State and Federal Laws and Incentives for Alternative Fuels",
+  "security": {
+    "nrel_transportation_incentives_laws": {
+      "integration": "nrel_transportation_incentives_laws",
+      "fields": {
+        "api_key": "API Key"
+      }
+    }
+  },
   "definitions": {
     "Category": {
       "description": "A category that the law applies to",
@@ -461,6 +469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LawsResponse"
+      },
+      "security": {
+        "nrel_transportation_incentives_laws": {
+          "integration": "nrel_transportation_incentives_laws"
+        }
       }
     },
     {
@@ -493,6 +506,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CategoryResults"
+      },
+      "security": {
+        "nrel_transportation_incentives_laws": {
+          "integration": "nrel_transportation_incentives_laws"
+        }
       }
     },
     {
@@ -519,6 +537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PocResults"
+      },
+      "security": {
+        "nrel_transportation_incentives_laws": {
+          "integration": "nrel_transportation_incentives_laws"
+        }
       }
     },
     {
@@ -549,6 +572,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LawResult"
+      },
+      "security": {
+        "nrel_transportation_incentives_laws": {
+          "integration": "nrel_transportation_incentives_laws"
+        }
       }
     }
   ]

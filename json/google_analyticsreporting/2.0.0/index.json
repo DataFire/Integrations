@@ -2,6 +2,28 @@
   "id": "google_analyticsreporting",
   "title": "Google Analytics Reporting",
   "description": "Accesses Analytics report data.",
+  "security": {
+    "google_analyticsreporting": {
+      "integration": "google_analyticsreporting",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/analytics": "View and manage your Google Analytics data",
+          "https://www.googleapis.com/auth/analytics.readonly": "View your Google Analytics data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Cohort": {
       "description": "Defines a cohort. A cohort is a group of users who share a common\ncharacteristic. For example, all users with the same acquisition date\nbelong to the same cohort.",
@@ -961,6 +983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetReportsResponse"
+      },
+      "security": {
+        "google_analyticsreporting": {
+          "integration": "google_analyticsreporting"
+        }
       }
     }
   ]

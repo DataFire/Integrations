@@ -2,6 +2,28 @@
   "id": "google_identitytoolkit",
   "title": "Google Identity Toolkit",
   "description": "Help the third party sites to implement federated login.",
+  "security": {
+    "google_identitytoolkit": {
+      "integration": "google_identitytoolkit",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CreateAuthUriResponse": {
       "description": "Response of creating the IDP authentication URL.",
@@ -1494,6 +1516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateAuthUriResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1545,6 +1572,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteAccountResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1596,6 +1628,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DownloadAccountResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1647,6 +1684,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAccountInfoResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1698,6 +1740,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOobConfirmationCodeResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1754,6 +1801,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentitytoolkitRelyingpartyGetProjectConfigResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1802,6 +1854,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetRecaptchaParamResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1850,6 +1907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentitytoolkitRelyingpartyGetPublicKeysResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1901,6 +1963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResetPasswordResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -1952,6 +2019,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SetAccountInfoResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2003,6 +2075,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentitytoolkitRelyingpartySetProjectConfigResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2054,6 +2131,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentitytoolkitRelyingpartySignOutUserResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2105,6 +2187,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SignupNewUserResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2156,6 +2243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UploadAccountResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2207,6 +2299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyAssertionResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2258,6 +2355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyCustomTokenResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     },
     {
@@ -2309,6 +2411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyPasswordResponse"
+      },
+      "security": {
+        "google_identitytoolkit": {
+          "integration": "google_identitytoolkit"
+        }
       }
     }
   ]

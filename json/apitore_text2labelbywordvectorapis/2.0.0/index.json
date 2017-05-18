@@ -2,6 +2,7 @@
   "id": "apitore_text2labelbywordvectorapis",
   "title": "Text2Label by word vector APIs",
   "description": "Text to label by word2vec of contents.<BR />[Endpoint] https://api.apitore.com/api/19",
+  "security": {},
   "definitions": {
     "LabelEntity": {
       "properties": {

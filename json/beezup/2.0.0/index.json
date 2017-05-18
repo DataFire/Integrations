@@ -2,6 +2,14 @@
   "id": "beezup",
   "title": "Marketplaces - Orders",
   "description": "This API will gives you the ability to manage your orders.",
+  "security": {
+    "beezup": {
+      "integration": "beezup",
+      "fields": {
+        "api_key": "the api subscription key"
+      }
+    }
+  },
   "definitions": {
     "BeezUP.Common.CurrencyCode": {
       "description": "The currency code <a href=\"https://en.wikipedia.org/wiki/ISO_4217\">(ISO 4217)</a>\n",
@@ -2058,6 +2066,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/automaticTransitionInfos"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2073,7 +2086,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "ChangeOrderList",
@@ -2100,7 +2118,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "ClearMerchantOrderInfoList",
@@ -2115,7 +2138,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "SetMerchantOrderInfoList",
@@ -2130,7 +2158,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "GetOrderExportations",
@@ -2157,6 +2190,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/orderExportations"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2179,14 +2217,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "HarvestAll",
       "title": "HarvestAll",
       "description": "Harvest orders from all marketplaces",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "GetOrderListFull",
@@ -2207,6 +2255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/orderListFull"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2227,6 +2280,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/orderListLight"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2236,6 +2294,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/accountSynchronizations"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2263,6 +2326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/order"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2288,7 +2356,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "HarvestOrder",
@@ -2313,7 +2386,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "GetOrderHistory",
@@ -2340,6 +2418,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/orderHistory"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     },
     {
@@ -2368,7 +2451,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
+      }
     },
     {
       "id": "ChangeOrder",
@@ -2410,6 +2498,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/changeOrderResponse"
+      },
+      "security": {
+        "beezup": {
+          "integration": "beezup"
+        }
       }
     }
   ]

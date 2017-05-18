@@ -2,6 +2,27 @@
   "id": "google_adsensehost",
   "title": "AdSense Host",
   "description": "Generates performance reports, generates ad codes, and provides publisher management capabilities for AdSense Hosts.",
+  "security": {
+    "google_adsensehost": {
+      "integration": "google_adsensehost",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adsensehost": "View and manage your AdSense host data and associated accounts"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -526,6 +547,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Accounts"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -576,6 +602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -636,6 +667,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -690,6 +726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClient"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -758,6 +799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnits"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -819,6 +865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -876,6 +927,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -933,6 +989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -991,6 +1052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1049,6 +1115,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdUnit"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1111,6 +1182,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdCode"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1201,6 +1277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1260,6 +1341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1310,6 +1396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClient"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1370,6 +1461,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1427,6 +1523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1480,6 +1581,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1533,6 +1639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1587,6 +1698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1641,6 +1757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1701,6 +1822,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannels"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1754,6 +1880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1808,6 +1939,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannel"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1870,6 +2006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AssociationSession"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -1920,6 +2061,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AssociationSession"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     },
     {
@@ -2006,6 +2152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_adsensehost": {
+          "integration": "google_adsensehost"
+        }
       }
     }
   ]

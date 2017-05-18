@@ -2,6 +2,26 @@
   "id": "azure_arm_web",
   "title": "WebSite Management Client",
   "description": "Use these APIs to manage Azure Websites resources through the Azure Resource Manager. All task operations conform to the HTTP/1.1 protocol specification and each operation returns an x-ms-request-id header that can be used to obtain information about the request. You must make sure that requests made to these resources are secure. For more information, see https://msdn.microsoft.com/en-us/library/azure/dn790557.aspx.",
+  "security": {
+    "azure_arm_web": {
+      "integration": "azure_arm_web",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "description": "Address information for domain registration",
@@ -5210,6 +5230,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5231,6 +5256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5249,6 +5279,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControlCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5271,6 +5306,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5296,6 +5336,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5318,6 +5363,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5343,6 +5393,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5368,6 +5423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainAvailablilityCheckResult"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5390,6 +5450,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5412,6 +5477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainControlCenterSsoRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5437,6 +5507,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NameIdentifierCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5459,6 +5534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopLevelDomainCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5485,6 +5565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TopLevelDomain"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5514,6 +5599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TldLegalAgreementCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5539,6 +5629,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5561,6 +5656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5586,6 +5686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceNameAvailability"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5608,6 +5713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileServiceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5638,6 +5748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GeoRegionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5660,6 +5775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5686,6 +5806,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5712,6 +5837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5734,6 +5864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedHostingEnvironmentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5756,6 +5891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5778,6 +5918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5803,6 +5948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5836,6 +5986,11 @@
           "$ref": "#/definitions/Recommendation"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5862,6 +6017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5884,6 +6044,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5910,7 +6075,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
+      }
     },
     {
       "id": "CertificateOrders_GetCertificateOrders",
@@ -5936,6 +6106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -5966,6 +6141,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificateCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6000,6 +6180,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6034,6 +6219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6071,6 +6261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6108,6 +6303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6138,6 +6338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6168,6 +6373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6201,6 +6411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6234,6 +6449,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6267,6 +6487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6300,6 +6525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6330,6 +6560,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6363,6 +6598,11 @@
           "$ref": "#/definitions/CertificateOrderAction"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6396,6 +6636,11 @@
           "$ref": "#/definitions/CertificateEmail"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6426,6 +6671,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6452,6 +6702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6486,6 +6741,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6516,6 +6776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6549,6 +6814,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6582,6 +6852,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6616,6 +6891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6655,6 +6935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6681,6 +6966,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6711,6 +7001,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6741,6 +7036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6774,6 +7074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6807,6 +7112,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6833,6 +7143,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileServiceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6863,6 +7178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6893,6 +7213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileService"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6922,6 +7247,11 @@
           "$ref": "#/definitions/Csr"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6952,6 +7282,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -6982,6 +7317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7015,6 +7355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7048,6 +7393,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7082,6 +7432,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeletedSiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7108,6 +7463,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7142,6 +7502,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7172,6 +7537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7205,6 +7575,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7235,6 +7610,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StampCapacityCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7265,6 +7645,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressResponse"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7298,6 +7683,11 @@
           "$ref": "#/definitions/HostingEnvironmentDiagnostics"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7332,6 +7722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentDiagnostics"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7362,6 +7757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinition"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7400,6 +7800,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7430,6 +7835,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPoolCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7460,6 +7870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7493,6 +7908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7527,6 +7947,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7565,6 +7990,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7595,6 +8025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7645,6 +8080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7675,6 +8115,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SkuInfoCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7705,6 +8150,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7735,6 +8185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7769,6 +8224,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7799,6 +8259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7829,6 +8294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7859,6 +8329,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7893,6 +8368,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7923,6 +8403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7957,6 +8442,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -7987,6 +8477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8017,6 +8512,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPoolCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8051,6 +8551,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8088,6 +8593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8126,6 +8636,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8172,6 +8687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8206,6 +8726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8248,6 +8773,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8282,6 +8812,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SkuInfoCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8316,6 +8851,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8342,6 +8882,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8376,6 +8921,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8406,6 +8956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedHostingEnvironment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8439,6 +8994,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8469,6 +9029,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressResponse"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8503,6 +9068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8533,6 +9103,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8567,6 +9142,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8597,6 +9177,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8623,6 +9208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8653,6 +9243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8683,6 +9278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8720,6 +9320,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8750,6 +9355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8788,6 +9398,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8822,6 +9437,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8856,6 +9476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8898,6 +9523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8931,6 +9561,11 @@
           "$ref": "#/definitions/VnetInfo"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -8965,6 +9600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9003,6 +9643,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9044,6 +9689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9081,6 +9731,11 @@
           "$ref": "#/definitions/VnetRoute"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9119,6 +9774,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9160,6 +9820,11 @@
           "$ref": "#/definitions/VnetRoute"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9201,6 +9866,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetRoute"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9242,6 +9912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetRoute"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9276,6 +9951,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9314,6 +9994,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9360,6 +10045,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9394,6 +10084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9443,6 +10138,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9476,6 +10176,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9509,6 +10214,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9539,6 +10249,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItemCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9572,6 +10287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9606,6 +10326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9640,6 +10365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9677,6 +10407,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9714,6 +10449,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreResponse"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9747,6 +10487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9777,6 +10522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9810,6 +10560,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9840,6 +10595,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9873,6 +10633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9903,6 +10668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9936,6 +10706,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9966,6 +10741,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -9996,6 +10776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10029,6 +10814,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10062,6 +10852,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10092,6 +10887,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10122,6 +10922,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10152,6 +10957,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotConfigNamesResource"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10185,6 +10995,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotConfigNamesResource"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10215,6 +11030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10248,6 +11068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10281,6 +11106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10311,6 +11141,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10345,6 +11180,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10379,6 +11219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10416,6 +11261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10446,6 +11296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBindingCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10480,6 +11335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10514,6 +11374,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10551,6 +11416,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10581,6 +11451,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10615,6 +11490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10649,6 +11529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10686,6 +11571,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10723,6 +11613,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10753,6 +11648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteInstanceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10787,6 +11687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10825,6 +11730,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10863,6 +11773,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10904,6 +11819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10934,6 +11854,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCloneability"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -10964,6 +11889,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11002,6 +11932,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11036,6 +11971,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkFeatures"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11066,6 +12006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11100,6 +12045,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11128,6 +12078,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11159,6 +12114,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11190,6 +12150,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11224,6 +12189,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11257,6 +12227,11 @@
       },
       "outputSchema": {
         "type": "file"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11290,6 +12265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11320,6 +12300,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11358,6 +12343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11392,6 +12382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11442,6 +12437,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11480,6 +12480,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11533,6 +12538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11570,6 +12580,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11607,6 +12622,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11641,6 +12661,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItemCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11678,6 +12703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11716,6 +12746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11754,6 +12789,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11795,6 +12835,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11836,6 +12881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreResponse"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11873,6 +12923,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11907,6 +12962,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11944,6 +13004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -11978,6 +13043,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12015,6 +13085,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12049,6 +13124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12086,6 +13166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12120,6 +13205,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12154,6 +13244,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12191,6 +13286,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12228,6 +13328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12262,6 +13367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12296,6 +13406,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12330,6 +13445,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12367,6 +13487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12404,6 +13529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12438,6 +13568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12476,6 +13611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12514,6 +13654,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12555,6 +13700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12589,6 +13739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBindingCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12627,6 +13782,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12665,6 +13825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12706,6 +13871,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12740,6 +13910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12778,6 +13953,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12816,6 +13996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12857,6 +14042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12898,6 +14088,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12932,6 +14127,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteInstanceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -12970,6 +14170,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13012,6 +14217,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13054,6 +14264,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13099,6 +14314,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13133,6 +14353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCloneability"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13167,6 +14392,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13209,6 +14439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13247,6 +14482,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkFeatures"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13281,6 +14521,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13319,6 +14564,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13350,6 +14600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13384,6 +14639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13418,6 +14678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13455,6 +14720,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13492,6 +14762,11 @@
       },
       "outputSchema": {
         "type": "file"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13529,6 +14804,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13563,6 +14843,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13605,6 +14890,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13642,6 +14932,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotDifferenceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13679,6 +14974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13713,6 +15013,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13747,6 +15052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13781,6 +15091,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13818,6 +15133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13855,6 +15175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13889,6 +15214,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13923,6 +15253,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13954,6 +15289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -13992,6 +15332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14029,6 +15374,11 @@
           "$ref": "#/definitions/VnetInfo"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14067,6 +15417,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14105,6 +15460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14146,6 +15506,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14187,6 +15552,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14229,6 +15599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14274,6 +15649,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14319,6 +15699,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14352,6 +15737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotDifferenceCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14385,6 +15775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14415,6 +15810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14445,6 +15845,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14475,6 +15880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14508,6 +15918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14541,6 +15956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14571,6 +15991,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14601,6 +16026,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14629,6 +16059,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14663,6 +16098,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14696,6 +16136,11 @@
           "$ref": "#/definitions/VnetInfo"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14730,6 +16175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14764,6 +16214,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14801,6 +16256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14838,6 +16298,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14876,6 +16341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14917,6 +16387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14958,6 +16433,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -14999,6 +16479,11 @@
           "$ref": "#/definitions/Recommendation"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -15045,6 +16530,11 @@
           "$ref": "#/definitions/Recommendation"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     },
     {
@@ -15079,6 +16569,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RecommendationRule"
+      },
+      "security": {
+        "azure_arm_web": {
+          "integration": "azure_arm_web"
+        }
       }
     }
   ]

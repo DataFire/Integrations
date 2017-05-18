@@ -2,6 +2,27 @@
   "id": "google_books",
   "title": "Books",
   "description": "Searches for books and manages your Google Books library.",
+  "security": {
+    "google_books": {
+      "integration": "google_books",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/books": "Manage your books"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Annotation": {
       "properties": {
@@ -2232,6 +2253,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BooksCloudloadingResource"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2279,7 +2305,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "cloudloading.updateBook",
@@ -2330,6 +2361,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BooksCloudloadingResource"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2379,6 +2415,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2427,6 +2468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Usersettings"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2488,6 +2534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DownloadAccesses"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2562,6 +2613,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RequestAccess"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2639,6 +2695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2690,6 +2751,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Usersettings"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2780,6 +2846,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotations"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2847,6 +2918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2900,6 +2976,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationsSummary"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -2951,7 +3032,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "mylibrary.annotations.update",
@@ -3007,6 +3093,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3059,6 +3150,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelves"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3112,6 +3208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelf"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3176,7 +3277,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "mylibrary.bookshelves.clearVolumes",
@@ -3227,7 +3333,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "mylibrary.bookshelves.moveVolume",
@@ -3286,7 +3397,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "mylibrary.bookshelves.removeVolume",
@@ -3348,7 +3464,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "mylibrary.bookshelves.volumes.list",
@@ -3431,6 +3552,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3488,6 +3614,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadingPosition"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3567,7 +3698,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "notification.get",
@@ -3624,6 +3760,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3676,6 +3817,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Category"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3748,6 +3894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volume2"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3812,6 +3963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Discoveryclusters"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -3889,7 +4045,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "promooffer.dismiss",
@@ -3963,7 +4124,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
     },
     {
       "id": "promooffer.get",
@@ -4035,6 +4201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Offers"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4084,6 +4255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Series"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4141,6 +4317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Seriesmembership"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4194,6 +4375,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelves"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4251,6 +4437,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelf"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4322,6 +4513,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4457,6 +4653,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4536,6 +4737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4600,6 +4806,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4665,6 +4876,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BooksVolumesRecommendedRateResponse"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4740,6 +4956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4816,6 +5037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volume"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4890,6 +5116,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -4997,6 +5228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumeannotations"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -5062,6 +5298,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumeannotation"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -5162,6 +5403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotationsdata"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -5248,6 +5494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotationdata"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -5315,6 +5566,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Layersummaries"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     },
     {
@@ -5376,6 +5632,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Layersummary"
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
       }
     }
   ]

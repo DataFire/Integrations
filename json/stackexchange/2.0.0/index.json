@@ -2,6 +2,24 @@
   "id": "stackexchange",
   "title": "StackExchange",
   "description": "Stack Exchange is a network of 130+ Q&A communities including Stack Overflow.\n",
+  "security": {
+    "stackexchange": {
+      "integration": "stackexchange",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://stackexchange.com/oauth",
+        "description": "The Stack Exchange API offers user authentication via OAuth 2.0, specifically templated after Facebook's implementation. There are two flows, an explicit grant for server side applications and an implicit one for pure browser based ones.\n\n#The explicit OAuth 2.0 flow consists of the following steps:\n1. Send a user to https://stackexchange.com/oauth, with these query string parameters\n- client_id\n- scope\n- redirect_uri - must be under an apps registered domain\n- state - optional\n2. The user approves your app\n3. The user is redirected to redirect_uri, with these query string parameters\n- code\n- state - optional, only returned if provided in the first step\n4. POST (application/x-www-form-urlencoded) the following parameters to https://stackexchange.com/oauth/access_token\n- client_id\n- client_secret\n- code - from the previous step\n- redirect_uri - must be the same as the provided in the first step\nThis request is responded to with either an error (HTTP status code 400) or an access token of the form access_token=...&expires=1234. expires will only be set if scope does not include no_expiry, the use of which is strongly advised against unless your app truly needs perpetual access.\n\n#The implicit OAuth 2.0 flow consists of the following steps:\n\n1. Open a new window at https://stackexchange.com/oauth/dialog, with these query string parameters\n- client_id\n- scope (details)\n- redirect_uri - must be under an apps registered domain\n- state - optional\n2. The user approves your app\n3. The user is redirected to redirect_uri, with these parameters in the hash\n- access_token\n- expires - optional, only if scope doesn't contain no_expiry\nThe explicit flow should be used by server-side applications, with special care taken to never leak client_secret. Client side applications should use the implicit flow.\n\nOnce you have authenticated a user once, regardless of flow, subsequent re-authorizations will occur without requiring user action. Naturally, should a user revoke an applications permissions then further action will be required to re-authorize.\n\nApplications using the implicit flow can make use of our provided minimalistic Javascript SDK.\n\n#Scope\n\nWith an empty scope, authentication will only allow an application to identify a user via the /me method. In order to access other information, different scope values must be sent. Multiple values may be sent in scope by comma or space delimitting them.\n\n- read_inbox - access a user's global inbox\n- no_expiry - access_token's with this scope do not expire\n- write_access - perform write operations as a user 2.1\n- private_info - access full history of a user's private actions on the site 2.1\n\n#Desktop Applications\n\nDesktop applications cannot participate directly in OAuth 2.0 flows, however the embeddable browser controls available in most frameworks make it possible to work around this limitation.\n\nDesktop applications should use the implicit client-side flow, hosting the process within a browser control. For redirect_uri, a value of https://stackexchange.com/oauth/login_success should be used. Upon a successful authentication, access_token will be placed in the url hash as with a standard implicit authentication.\n\n#Usage\n\nAccess tokens can be passed (as access_token) to any method to grant applications an increased throttle quota. When passing an access token an app must pass its request key as well, if you don't have a request key you can obtain one by registering your application on Stack Apps (http://stackapps.com/users/login?returnurl=/apps/oauth/register).\n",
+        "flow": "implicit",
+        "scopes": {},
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "access_tokens": {
       "items": {
@@ -2576,6 +2594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2608,6 +2631,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2671,6 +2699,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2738,6 +2771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2804,6 +2842,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2836,6 +2879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2902,6 +2950,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -2967,6 +3020,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3007,6 +3065,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3072,6 +3135,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3139,6 +3207,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3183,6 +3256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3245,6 +3323,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3311,6 +3394,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3341,7 +3429,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
+      }
     },
     {
       "id": "comments.id.edit.post",
@@ -3376,6 +3469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/created_comment"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3407,6 +3505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/errors"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3424,6 +3527,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3460,6 +3568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3491,6 +3604,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/single_filter"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3509,6 +3627,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/filters"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3540,6 +3663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3575,6 +3703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3593,6 +3726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/info_object"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3657,6 +3795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3720,6 +3863,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3751,6 +3899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/network_users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3814,6 +3967,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3876,6 +4034,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -3941,6 +4104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4005,6 +4173,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4037,6 +4210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4073,6 +4251,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4135,6 +4318,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4166,6 +4354,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/account_merge"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4198,6 +4391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4230,6 +4428,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4262,6 +4465,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4325,6 +4533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4388,6 +4601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4451,6 +4669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4514,6 +4737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4577,6 +4805,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4603,6 +4836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_changes"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4635,6 +4873,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4667,6 +4910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4730,6 +4978,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4793,6 +5046,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4860,6 +5118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4931,6 +5194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -4971,6 +5239,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user_timeline_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5003,6 +5276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5035,6 +5313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5067,6 +5350,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/write_permissions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5098,6 +5386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5129,6 +5422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5192,6 +5490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/posts"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5259,6 +5562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/posts"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5325,6 +5633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5369,6 +5682,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/revisions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5436,6 +5754,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5471,6 +5794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/created_comment"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5503,6 +5831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5574,6 +5907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5641,6 +5979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5708,6 +6051,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5775,6 +6123,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5842,6 +6195,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5909,6 +6267,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -5975,6 +6338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6043,6 +6411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6111,6 +6484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6155,6 +6533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/question_timeline_events"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6199,6 +6582,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/revisions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6274,6 +6662,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6402,6 +6795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6477,6 +6875,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6508,6 +6911,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/sites"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6571,6 +6979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6638,6 +7051,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6704,6 +7122,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6770,6 +7193,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6836,6 +7264,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6899,6 +7332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_synonyms"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -6935,6 +7373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7002,6 +7445,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7038,6 +7486,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7105,6 +7558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_synonyms"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7141,6 +7599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_wikis"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7183,6 +7646,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_score_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7225,6 +7693,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_score_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7292,6 +7765,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7356,6 +7834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7420,6 +7903,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7488,6 +7976,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7555,6 +8048,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7587,6 +8085,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/network_users"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7655,6 +8158,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7721,6 +8229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7790,6 +8303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7858,6 +8376,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7924,6 +8447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -7956,6 +8484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/account_merge"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8023,6 +8556,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8090,6 +8628,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8157,6 +8700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8224,6 +8772,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8291,6 +8844,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8335,6 +8893,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_changes"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8371,6 +8934,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8438,6 +9006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8505,6 +9078,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8549,6 +9127,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user_timeline_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8584,6 +9167,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8623,6 +9211,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8658,6 +9251,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8693,6 +9291,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8728,6 +9331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8763,6 +9371,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8833,6 +9446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8903,6 +9521,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8938,6 +9561,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -8973,6 +9601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     },
     {
@@ -9008,6 +9641,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/write_permissions"
+      },
+      "security": {
+        "stackexchange": {
+          "integration": "stackexchange"
+        }
       }
     }
   ]

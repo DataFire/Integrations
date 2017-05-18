@@ -2,6 +2,30 @@
   "id": "google_sheets",
   "title": "Google Sheets",
   "description": "Reads and writes Google Sheets.",
+  "security": {
+    "google_sheets": {
+      "integration": "google_sheets",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
+          "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
+          "https://www.googleapis.com/auth/spreadsheets.readonly": "View your Google Spreadsheets"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AddBandingRequest": {
       "description": "Adds a new banded range to the spreadsheet.",
@@ -3234,6 +3258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Spreadsheet"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3321,6 +3350,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Spreadsheet"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3407,6 +3441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SheetProperties"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3516,6 +3555,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ValueRange"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3632,6 +3676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3756,6 +3805,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppendValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3842,6 +3896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClearValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -3924,6 +3983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchClearValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -4033,6 +4097,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchGetValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -4115,6 +4184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdateValuesResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     },
     {
@@ -4197,6 +4271,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdateSpreadsheetResponse"
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
       }
     }
   ]

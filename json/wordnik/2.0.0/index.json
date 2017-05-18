@@ -2,6 +2,14 @@
   "id": "wordnik",
   "title": "Wordnik",
   "description": "Wordnik is the world's biggest online English dictionary, by number of words\n",
+  "security": {
+    "wordnik": {
+      "integration": "wordnik",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "ApiTokenStatus": {
       "properties": {
@@ -856,6 +864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiTokenStatus"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -878,6 +891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -899,6 +917,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -917,6 +940,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -948,6 +976,11 @@
           "$ref": "#/definitions/WordList"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -974,6 +1007,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordObject"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1004,6 +1042,11 @@
           "$ref": "#/definitions/AudioFile"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1050,6 +1093,11 @@
           "$ref": "#/definitions/Definition"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1075,6 +1123,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1111,6 +1164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExampleSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1143,6 +1201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FrequencySummary"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1177,6 +1240,11 @@
           "$ref": "#/definitions/Syllable"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1212,6 +1280,11 @@
           "$ref": "#/definitions/Bigram"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1250,6 +1323,11 @@
           "$ref": "#/definitions/TextPron"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1284,6 +1362,11 @@
           "$ref": "#/definitions/Related"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1306,6 +1389,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Example"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1326,7 +1414,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
     },
     {
       "id": "getWordListByPermalink",
@@ -1348,6 +1441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordList"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1371,7 +1469,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
     },
     {
       "id": "deleteWordsFromWordList",
@@ -1397,7 +1500,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
     },
     {
       "id": "getWordListWords",
@@ -1440,6 +1548,11 @@
           "$ref": "#/definitions/WordListWord"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1466,7 +1579,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
+      }
     },
     {
       "id": "createWordList",
@@ -1487,6 +1605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordList"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1546,6 +1669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordObject"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1621,6 +1749,11 @@
           "$ref": "#/definitions/WordObject"
         },
         "type": "array"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1704,6 +1837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DefinitionSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1774,6 +1912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordSearchResults"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     },
     {
@@ -1795,6 +1938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WordOfTheDay"
+      },
+      "security": {
+        "wordnik": {
+          "integration": "wordnik"
+        }
       }
     }
   ]

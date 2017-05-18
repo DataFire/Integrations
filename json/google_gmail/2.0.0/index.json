@@ -2,6 +2,36 @@
   "id": "google_gmail",
   "title": "Gmail",
   "description": "Access Gmail mailboxes including sending user email.",
+  "security": {
+    "google_gmail": {
+      "integration": "google_gmail",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://mail.google.com/": "Read, send, delete, and manage your email",
+          "https://www.googleapis.com/auth/gmail.compose": "Manage drafts and send emails",
+          "https://www.googleapis.com/auth/gmail.insert": "Insert mail into your mailbox",
+          "https://www.googleapis.com/auth/gmail.labels": "Manage mailbox labels",
+          "https://www.googleapis.com/auth/gmail.metadata": "View your email message metadata such as labels and headers, but not the email body",
+          "https://www.googleapis.com/auth/gmail.modify": "View and modify but not delete your email",
+          "https://www.googleapis.com/auth/gmail.readonly": "View your emails messages and settings",
+          "https://www.googleapis.com/auth/gmail.send": "Send email on your behalf",
+          "https://www.googleapis.com/auth/gmail.settings.basic": "Manage your basic mail settings",
+          "https://www.googleapis.com/auth/gmail.settings.sharing": "Manage your sensitive mail settings, including who can manage your mail"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AutoForwarding": {
       "description": "Auto-forwarding settings for an account.",
@@ -1012,6 +1042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDraftsResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1064,6 +1099,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Draft"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1116,6 +1156,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1167,7 +1212,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.drafts.get",
@@ -1230,6 +1280,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Draft"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1286,6 +1341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Draft"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1355,6 +1415,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListHistoryResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1404,6 +1469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLabelsResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1456,6 +1526,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1507,7 +1582,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.labels.get",
@@ -1560,6 +1640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1616,6 +1701,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1672,6 +1762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1741,6 +1836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListMessagesResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1805,6 +1905,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -1855,7 +1960,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.messages.batchModify",
@@ -1905,7 +2015,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.messages.import",
@@ -1977,6 +2092,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2029,6 +2149,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2080,7 +2205,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.messages.get",
@@ -2147,6 +2277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2203,6 +2338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2256,6 +2396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2309,6 +2454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Message"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2366,6 +2516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MessagePartBody"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2415,6 +2570,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2464,6 +2624,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoForwarding"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2516,6 +2681,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoForwarding"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2565,6 +2735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListFiltersResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2617,6 +2792,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2668,7 +2848,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.filters.get",
@@ -2721,6 +2906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2770,6 +2960,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListForwardingAddressesResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2822,6 +3017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingAddress"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2873,7 +3073,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.forwardingAddresses.get",
@@ -2926,6 +3131,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ForwardingAddress"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -2975,6 +3185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImapSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3027,6 +3242,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImapSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3076,6 +3296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PopSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3128,6 +3353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PopSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3177,6 +3407,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSendAsResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3229,6 +3464,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendAs"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3280,7 +3520,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.sendAs.get",
@@ -3333,6 +3578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendAs"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3389,6 +3639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendAs"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3445,6 +3700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendAs"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3498,6 +3758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSmimeInfoResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3554,6 +3819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SmimeInfo"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3609,7 +3879,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.sendAs.smimeInfo.get",
@@ -3666,6 +3941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SmimeInfo"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3721,7 +4001,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.sendAs.verify",
@@ -3772,7 +4057,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.settings.getVacation",
@@ -3821,6 +4111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VacationSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3873,6 +4168,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VacationSettings"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -3920,7 +4220,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.threads.list",
@@ -3989,6 +4294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListThreadsResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4040,7 +4350,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     },
     {
       "id": "users.threads.get",
@@ -4106,6 +4421,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Thread"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4162,6 +4482,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Thread"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4215,6 +4540,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Thread"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4268,6 +4598,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Thread"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4320,6 +4655,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WatchResponse"
+      },
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
       }
     },
     {
@@ -4345,7 +4685,12 @@
           }
         }
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gmail": {
+          "integration": "google_gmail"
+        }
+      }
     }
   ]
 }

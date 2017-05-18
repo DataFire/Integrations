@@ -2,6 +2,7 @@
   "id": "google_searchconsole",
   "title": "Google Search Console URL Testing Tools",
   "description": "Provides tools for running validation tests against single URLs",
+  "security": {},
   "definitions": {
     "BlockedResource": {
       "description": "Blocked resource.",

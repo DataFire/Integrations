@@ -2,6 +2,27 @@
   "id": "google_manufacturers",
   "title": "Manufacturer Center",
   "description": "Public API for managing Manufacturer Center related data.",
+  "security": {
+    "google_manufacturers": {
+      "integration": "google_manufacturers",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/manufacturercenter": "Manage your product listings for Google Manufacturer Center"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Attributes": {
       "description": "Attributes of the product. For more information, see\nhttps://support.google.com/manufacturers/answer/6124116.",
@@ -459,6 +480,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListProductsResponse"
+      },
+      "security": {
+        "google_manufacturers": {
+          "integration": "google_manufacturers"
+        }
       }
     },
     {
@@ -542,6 +568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_manufacturers": {
+          "integration": "google_manufacturers"
+        }
       }
     }
   ]

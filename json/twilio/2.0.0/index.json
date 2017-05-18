@@ -2,6 +2,15 @@
   "id": "twilio",
   "title": "Twilio",
   "description": "Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software.\n",
+  "security": {
+    "twilio": {
+      "integration": "twilio",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "definitions": {
     "account": {
       "properties": {
@@ -3703,7 +3712,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Applications.ApplicationSid.json.get",
@@ -3723,6 +3737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/application"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3743,6 +3762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/application"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3760,6 +3784,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/applications"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3775,7 +3804,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.AuthorizedConnectApps.ConnectAppSid.json.get",
@@ -3795,6 +3829,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/authApp"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3812,6 +3851,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/authApps"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3835,6 +3879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availablePhoneNumbers"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3858,6 +3907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/phoneMobileNumbers"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3881,6 +3935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/phoneTollFreeNumbers"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3898,6 +3957,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/availablePhoneNumbers"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3918,6 +3982,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3938,6 +4007,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/recordings"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3958,6 +4032,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/callInstance"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3978,6 +4057,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/callInstance"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -3995,6 +4079,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/calls"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4010,7 +4099,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.delete",
@@ -4031,7 +4125,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Conferences.ConferenceSid.Participants.CallSid.json.get",
@@ -4054,6 +4153,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4077,6 +4181,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4097,6 +4206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/participants"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4117,6 +4231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/conference"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4134,6 +4253,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/conferences"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4154,6 +4278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApp"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4174,6 +4303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApp"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4191,6 +4325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApps"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4206,7 +4345,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.Local.json.post",
@@ -4221,7 +4365,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.get",
@@ -4236,7 +4385,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.Mobile.json.post",
@@ -4251,7 +4405,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.get",
@@ -4266,7 +4425,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.TollFree.json.post",
@@ -4281,7 +4445,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.delete",
@@ -4299,7 +4468,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.IncomingPhoneNumbers.IncomingPhoneNumberSid.json.get",
@@ -4319,6 +4493,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4339,6 +4518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4359,6 +4543,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4376,6 +4565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCalls"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4391,7 +4585,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Messages.MessageSid.Media.MediaSid.json.get",
@@ -4414,6 +4613,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/media"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4434,6 +4638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/mediaList"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4454,6 +4663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/message"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4471,6 +4685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4506,7 +4725,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Notifications.NotificationSid.json.delete",
@@ -4524,7 +4748,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Notifications.NotificationSid.json.get",
@@ -4544,6 +4773,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notification"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4561,6 +4795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4579,7 +4818,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.OutgoingCallerIds.OutgoingCallerIdSid.json.get",
@@ -4599,6 +4843,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/outgoingCallerId"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4619,6 +4868,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/outgoingCallerId"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4637,7 +4891,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.OutgoingCallerIds.json.get",
@@ -4654,6 +4913,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/outCallerIds"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4669,7 +4933,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Queues.QueueSid.Members.Front.json.get",
@@ -4689,6 +4958,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4709,6 +4983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4732,6 +5011,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4755,6 +5039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4775,6 +5064,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/members"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4793,7 +5087,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Queues.QueueSid.json.get",
@@ -4813,6 +5112,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/queue"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4833,6 +5137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/queue"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4850,6 +5159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/queues"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4865,7 +5179,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Recordings.RecordingSid.Transcriptions.json.get",
@@ -4885,6 +5204,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transcriptions"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4903,7 +5227,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Recordings.RecordingSid.json.get",
@@ -4921,7 +5250,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Recordings.json.get",
@@ -4938,6 +5272,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/recordings"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -4959,7 +5298,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.CredentialLists.CLSid.Credentials.CredentialSid.json.get",
@@ -4982,6 +5326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credential"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5005,6 +5354,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credential"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5025,6 +5379,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credentials"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5043,7 +5402,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.CredentialLists.CLSid.json.delete",
@@ -5061,7 +5425,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.CredentialLists.CLSid.json.get",
@@ -5081,6 +5450,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialList"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5101,6 +5475,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialList"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5118,6 +5497,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialLists"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5133,7 +5517,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.CLSid.json.delete",
@@ -5154,7 +5543,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.CredentialListMappings.json.get",
@@ -5174,6 +5568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialListMappings"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5192,7 +5591,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.delete",
@@ -5213,7 +5617,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.ALSid.json.get",
@@ -5236,6 +5645,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5254,7 +5668,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.IpAccessControlListMappings.json.post",
@@ -5272,7 +5691,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.json.delete",
@@ -5290,7 +5714,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.Domains.SipDomainSid.json.get",
@@ -5310,6 +5739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/domain"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5330,6 +5764,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/domain"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5347,6 +5786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/domains"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5362,7 +5806,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.delete",
@@ -5383,7 +5832,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.IpAddresses.IpAddressSid.json.get",
@@ -5406,6 +5860,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddress"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5429,6 +5888,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddress"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5449,6 +5913,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddresses"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5467,7 +5936,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.delete",
@@ -5485,7 +5959,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.IpAccessControlLists.IpAccessControlListSid.json.get",
@@ -5505,6 +5984,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5525,6 +6009,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5540,7 +6029,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.SIP.IpAccessControlLists.json.post",
@@ -5557,6 +6051,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5577,6 +6076,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCode"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5597,6 +6101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCode"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5614,6 +6123,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCodes"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5632,7 +6146,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Transcriptions.TranscriptionSid.json.get",
@@ -5652,6 +6171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transcription"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5669,6 +6193,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/transcriptions"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5700,6 +6229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/usageRecords"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5717,6 +6251,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/usageRecords"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5735,7 +6274,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.Usage.Triggers.UsageTriggerSid.json.get",
@@ -5755,6 +6299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTrigger"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5775,6 +6324,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTrigger"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5792,6 +6346,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTriggers"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5807,7 +6366,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     },
     {
       "id": "Accounts.AccountSid.json.get",
@@ -5827,6 +6391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/account"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5847,6 +6416,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/account"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5867,6 +6441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/account"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5876,6 +6455,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/accounts"
+      },
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
       }
     },
     {
@@ -5883,7 +6467,12 @@
       "title": "Accounts.json.post",
       "description": "Create a new Account instance resource as a subaccount of the one used to make the request. See\nCreating Subaccounts for more information.\n",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "twilio": {
+          "integration": "twilio"
+        }
+      }
     }
   ]
 }

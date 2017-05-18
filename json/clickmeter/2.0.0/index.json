@@ -2,6 +2,14 @@
   "id": "clickmeter",
   "title": "ClickMeter",
   "description": "Api dashboard for ClickMeter API",
+  "security": {
+    "clickmeter": {
+      "integration": "clickmeter",
+      "fields": {
+        "api_key": "API Key Authentication"
+      }
+    }
+  },
   "definitions": {
     "Api.Core.Dto.Accounting.ConversionOptions": {
       "properties": {
@@ -1493,6 +1501,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1510,6 +1523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1537,6 +1555,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1554,6 +1577,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1572,6 +1600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1615,6 +1648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1632,6 +1670,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1653,6 +1696,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1672,6 +1720,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1691,6 +1744,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1713,6 +1771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1763,6 +1826,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1803,6 +1871,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1833,6 +1906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1863,6 +1941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1890,6 +1973,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1907,6 +1995,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1925,6 +2018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1934,6 +2032,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -1985,6 +2088,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2036,6 +2144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2113,6 +2226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2213,6 +2331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2298,6 +2421,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2346,6 +2474,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2393,6 +2526,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2410,6 +2548,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2469,6 +2612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2506,6 +2654,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2525,6 +2678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2544,6 +2702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2566,6 +2729,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2626,6 +2794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2682,6 +2855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2745,6 +2923,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2767,6 +2950,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2810,6 +2998,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2832,6 +3025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2894,6 +3092,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2916,6 +3119,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -2987,6 +3195,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3064,6 +3277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3081,6 +3299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3154,6 +3377,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3231,6 +3459,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3248,6 +3481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3265,6 +3503,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3282,6 +3525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3337,6 +3585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3356,6 +3609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3375,6 +3633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3397,6 +3660,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3449,6 +3717,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3505,6 +3778,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3524,6 +3802,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3586,6 +3869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3608,6 +3896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3672,6 +3965,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3713,6 +4011,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3730,6 +4033,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3761,6 +4069,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3780,6 +4093,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3799,6 +4117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3821,6 +4144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3876,6 +4204,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3893,6 +4226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -3956,6 +4294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4019,6 +4362,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4064,6 +4412,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4083,6 +4436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4102,6 +4460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4124,6 +4487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4176,6 +4544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4232,6 +4605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4330,6 +4708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4409,6 +4792,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4431,6 +4819,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4488,6 +4881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4507,6 +4905,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4569,6 +4972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4591,6 +4999,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4663,6 +5076,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4720,6 +5138,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4729,6 +5152,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4738,6 +5166,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4816,6 +5249,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4843,6 +5281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4860,6 +5303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4869,6 +5317,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4888,6 +5341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4907,6 +5365,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -4929,6 +5392,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5000,6 +5468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5049,6 +5522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5098,6 +5576,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5115,6 +5598,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5154,6 +5642,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5173,6 +5666,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5192,6 +5690,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5211,6 +5714,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5270,6 +5778,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5319,6 +5832,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5341,6 +5859,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5360,6 +5883,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5409,6 +5937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5448,6 +5981,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.CountResponce"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5470,6 +6008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     },
     {
@@ -5492,6 +6035,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
+      },
+      "security": {
+        "clickmeter": {
+          "integration": "clickmeter"
+        }
       }
     }
   ]

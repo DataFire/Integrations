@@ -2,6 +2,29 @@
   "id": "google_supportcases",
   "title": "Google Support Cases Private",
   "description": "Support Cases API",
+  "security": {
+    "google_supportcases": {
+      "integration": "google_supportcases",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cases": "View and manage your Google Support Cases",
+          "https://www.googleapis.com/auth/cases.readonly": "View your Google Support Cases",
+          "https://www.googleapis.com/auth/supportcontent": "View and manage your support data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -11474,6 +11497,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAgentActivitiesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11525,6 +11553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AgentActivity"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11576,6 +11609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AgentActivity"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11624,6 +11662,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAgentSettingsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11672,6 +11715,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAgentUnreadCasesInfoResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11723,6 +11771,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoAssignResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11774,6 +11827,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateNewCaseResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11822,6 +11880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAgentSearchCountResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11885,6 +11948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCasesByAgentResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11936,6 +12004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ValidateConsultFormResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -11987,6 +12060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchGetCategoryInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12035,6 +12113,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTopLevelCategoryInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12104,6 +12187,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchCategoryInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12155,6 +12243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchCategoryInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12206,6 +12299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCommunicationsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12257,6 +12355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildNewEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12308,6 +12411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildReplyEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12359,6 +12467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateConsultNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12410,6 +12523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12461,6 +12579,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12515,6 +12638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRelatedCommunicationsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12577,6 +12705,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuggestReplyEmailHeadersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12649,6 +12782,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInteractionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12712,6 +12850,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SummarizeResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12763,6 +12906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCustomerIssuesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12829,6 +12977,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDevicesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12883,6 +13036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetByDeviceIdResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -12961,6 +13119,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateOwnerResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13012,6 +13175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckRedeemerResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13063,6 +13231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LookupGiftCardResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13114,6 +13287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedeemGiftCardResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13165,6 +13343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyGiftCardResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13216,6 +13399,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13267,6 +13455,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListHardwareOrdersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13318,6 +13511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetHardwareSignalsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13369,6 +13567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListHardwareOrdersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13420,6 +13623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOtherDevicesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13474,6 +13682,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOpportunitiesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13525,6 +13738,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchCreatePitchResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13576,6 +13794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13627,6 +13850,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RefundOrdersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13678,6 +13906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchOrdersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13729,6 +13962,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetSubscriptionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13780,6 +14018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelSubscriptionResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13831,6 +14074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetCancellationStatusResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13882,6 +14130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSubscriptionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13933,6 +14186,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetRefundStatusResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -13981,6 +14239,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListProductsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14053,6 +14316,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListResolutionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14104,6 +14372,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AssignCohortsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14155,6 +14428,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14206,6 +14484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuggestResolutionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14257,6 +14540,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SaveRmaResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14308,6 +14596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubmitRmaResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14370,6 +14663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRmasResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14421,6 +14719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateExchangeWithoutReturnResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14469,6 +14772,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBuyersRemorseCountryCodesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14520,6 +14828,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RunWorkflowResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14571,6 +14884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendRmaResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14619,6 +14937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetMyAssignStreamSearchesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14670,6 +14993,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TroubleshooterSession"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14721,6 +15049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDevicesResponse1"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14784,6 +15117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListIssuesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14835,6 +15173,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPurchasedAppsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14886,6 +15229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPurchasedBooksResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14937,6 +15285,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPurchasedVideosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -14988,6 +15341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPaymentMethodHijackReviewsStatusResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15039,6 +15397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InitiatePaymentMethodHijackReviewsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15090,6 +15453,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPaymentsInfoResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15141,6 +15509,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAccountReviewStatusResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15195,6 +15568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAccountSignalsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15246,6 +15624,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchAccountReviewsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15297,6 +15680,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBankAccountCountriesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15348,6 +15736,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCreditCardTypesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15399,6 +15792,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPaymentInstrumentTypeInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15459,6 +15857,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuggestPaymentInstrumentIssuerResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15510,6 +15913,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTransactionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15561,6 +15969,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TroubleshootAccountResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15612,6 +16025,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TroubleshootTransactionResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15663,6 +16081,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelComponentsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15714,6 +16137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelEntitlementResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15765,6 +16193,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOneTimePurchasesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15816,6 +16249,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetCustomerSummaryResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15867,6 +16305,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTransactionsResponse1"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15918,6 +16361,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RefundTransactionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -15969,6 +16417,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16020,6 +16473,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Rma"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16071,6 +16529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CasesWorkflow"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16122,6 +16585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16173,6 +16641,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBillingAddressesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16224,6 +16697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListShippingAddressesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16272,6 +16750,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPropertiesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16323,6 +16806,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListHardwareRefundsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16374,6 +16862,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WaitForConsultResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16425,6 +16918,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AssignResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16476,6 +16974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticateResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16527,6 +17030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdateAttributesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16578,6 +17086,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BlockResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16629,6 +17142,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CallBackResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16680,6 +17198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelRmaResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16731,6 +17254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16782,6 +17310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16833,6 +17366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckWalletAccountResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16884,6 +17422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateNoteConsultCaseResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16935,6 +17478,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateRealTimeConsultCaseResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -16986,6 +17534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeauthenticateResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17037,6 +17590,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DedupeResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17088,6 +17646,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DiscardDraftResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17139,6 +17702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EscalateResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17190,6 +17758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FinalizeConsultNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17241,6 +17814,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FinalizeNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17292,6 +17870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FinishResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17343,6 +17926,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAuthenticationCreditCardTypesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17394,6 +17982,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAuthenticationQuestionsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17445,6 +18038,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAuthenticationResultResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17496,6 +18094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBusinessListingsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17547,6 +18150,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetConsultSlaResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17598,6 +18206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/HardwareOrderDetail"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17646,6 +18259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetEscalationTargetsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17697,6 +18315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LostStolenEligibility"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17748,6 +18371,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LostStolenRefundEligibility"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17799,6 +18427,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MailingAddress"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17850,6 +18483,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RmaOrderDetail"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17901,6 +18539,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReplacementDetail"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -17949,6 +18592,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetRoutingTargetsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18000,6 +18648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingAddress"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18051,6 +18704,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingCustomerName"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18102,6 +18760,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingCustomerPhoneNumber"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18150,6 +18813,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListChildrenCategoryInfosResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18201,6 +18869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSettingsResponse1"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18252,6 +18925,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18303,6 +18981,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18354,6 +19037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NeedsInfoResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18405,6 +19093,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OfferedSolutionResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18456,6 +19149,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18507,6 +19205,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RefundHardwareOrderResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18558,6 +19261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReleaseResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18609,6 +19317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18660,6 +19373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RunRmaStepsResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18711,6 +19429,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18762,6 +19485,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SpamResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18813,6 +19541,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SplitResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18861,6 +19594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuggestNewEmailHeadersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18909,6 +19647,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuggestNoteHeadersResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -18960,6 +19703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TakeResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19011,6 +19759,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TransferResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19062,6 +19815,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TroubleshootIssueResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19113,6 +19871,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnassignResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19164,6 +19927,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnblockResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19215,6 +19983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UnspamResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19266,6 +20039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateAttributesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19317,6 +20095,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CasesWorkflow"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19368,6 +20151,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateAgentCategoriesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19419,6 +20207,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateConsultNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19470,6 +20263,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateContactEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19521,6 +20319,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateContactNameResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19572,6 +20375,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateCustomerAttributesResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19623,6 +20431,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19674,6 +20487,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateEligibleProgramResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19725,6 +20543,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateEmailResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19776,6 +20599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateLocaleResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19827,6 +20655,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateNoteResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     },
     {
@@ -19878,6 +20711,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateSummaryResponse"
+      },
+      "security": {
+        "google_supportcases": {
+          "integration": "google_supportcases"
+        }
       }
     }
   ]

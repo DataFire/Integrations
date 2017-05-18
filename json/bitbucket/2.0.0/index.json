@@ -2,6 +2,51 @@
   "id": "bitbucket",
   "title": "Bitbucket",
   "description": "Code against the Bitbucket API to automate simple tasks, embed Bitbucket data into your own site, build mobile or desktop apps, or even add custom UI add-ons into Bitbucket itself using the Connect framework.",
+  "security": {
+    "bitbucket": {
+      "integration": "bitbucket",
+      "fields": {
+        "api_key": "API Keys can be used as Basic HTTP Authentication credentials and provide a substitute for the account's actual username and password. API Keys are only available to team accounts and there is only 1 key per account. API Keys do not support scopes and have therefore access to all contents of the account.",
+        "username": "Your username",
+        "password": "Your password",
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://bitbucket.org/site/oauth2/authorize",
+        "description": "OAuth 2 as per [RFC-6749](https://tools.ietf.org/html/rfc6749).",
+        "flow": "accessCode",
+        "scopes": {
+          "account": "Read your account information",
+          "account:write": "Read and modify your account information",
+          "email": "Read your account's primary email address",
+          "issue": "Read your repositories' issues",
+          "issue:write": "Read and modify your repositories' issues",
+          "pipeline": "Access your repositories' build pipelines",
+          "pipeline:variable": "Access your repositories' build pipelines and configure their variables",
+          "pipeline:write": "Access and rerun your repositories' build pipelines",
+          "project": "Read your team's project settings and read repositories contained within your team's projects",
+          "project:write": "Read and modify your team's project settings, and read and transfer repositories within your team's projects",
+          "pullrequest": "Read your repositories and their pull requests",
+          "pullrequest:write": "Read and modify your repositories and their pull requests",
+          "repository": "Read your repositories",
+          "repository:admin": "Administer your repositories",
+          "repository:delete": "Delete your repositories",
+          "repository:write": "Read and modify your repositories",
+          "snippet": "Read your snippets",
+          "snippet:write": "Read and modify your snippets",
+          "team": "Read your team membership information",
+          "team:write": "Read and modify your team membership information",
+          "webhook": "Read and modify your repositories' webhooks",
+          "wiki": "Read and modify your repositories' wikis"
+        },
+        "tokenUrl": "https://bitbucket.org/site/oauth2/access_token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "account": {
       "allOf": [
@@ -3467,6 +3512,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3476,6 +3526,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3485,6 +3540,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3502,6 +3562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3519,6 +3584,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3536,6 +3606,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3553,6 +3628,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3570,6 +3650,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3587,6 +3672,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3604,6 +3694,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3613,6 +3708,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/subject_types"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3630,6 +3730,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_hook_events"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3651,6 +3756,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_repositories"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3678,6 +3788,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_repositories"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3696,7 +3811,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.get",
@@ -3716,6 +3836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3739,6 +3864,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3762,6 +3892,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3782,6 +3917,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_branchrestrictions"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3805,6 +3945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3826,7 +3971,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.branch_restrictions.id.get",
@@ -3849,6 +3999,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3875,6 +4030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3896,7 +4056,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.commit.node.approve.post",
@@ -3919,6 +4084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3942,6 +4112,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_commitstatuses"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3965,6 +4140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -3991,6 +4171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4020,6 +4205,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4043,6 +4233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/commit"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4066,6 +4261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4092,6 +4292,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4112,6 +4317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4132,6 +4342,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4155,6 +4370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4178,6 +4398,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4198,6 +4423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_components"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4221,6 +4451,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/component"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4239,7 +4474,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.default_reviewers.target_username.delete",
@@ -4262,6 +4502,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4285,6 +4530,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4308,6 +4558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4337,7 +4592,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.downloads.get",
@@ -4357,6 +4617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4377,6 +4642,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4400,6 +4670,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4423,6 +4698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4443,6 +4723,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_repositories"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4463,6 +4748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4483,6 +4773,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4504,7 +4799,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.hooks.uid.get",
@@ -4527,6 +4827,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4550,6 +4855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4570,6 +4880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_issues"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4593,6 +4908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4616,6 +4936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4639,6 +4964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4662,6 +4992,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_issue_attachments"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4683,7 +5018,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.issues.issue_id.attachments.path.delete",
@@ -4707,7 +5047,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.issues.issue_id.attachments.path.get",
@@ -4731,7 +5076,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.issues.issue_id.comments.get",
@@ -4754,6 +5104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4780,6 +5135,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4803,6 +5163,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4826,6 +5191,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4849,6 +5219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4872,6 +5247,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4895,6 +5275,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4918,6 +5303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4938,6 +5328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_milestones"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4961,6 +5356,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -4982,7 +5382,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getPipelinesForRepository",
@@ -5004,6 +5409,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipelines"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5029,6 +5439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5055,6 +5470,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5081,6 +5501,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_steps"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5111,6 +5536,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_step"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5139,7 +5569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "stopPipeline",
@@ -5163,7 +5598,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getRepositoryPipelineConfig",
@@ -5185,6 +5625,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipelines_config"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5210,6 +5655,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipelines_config"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5230,7 +5680,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getRepositoryPipelineSshKeyPair",
@@ -5252,6 +5707,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_ssh_key_pair"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5277,6 +5737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_ssh_key_pair"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5299,6 +5764,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_known_hosts"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5324,6 +5794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5348,7 +5823,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getRepositoryPipelineKnownHost",
@@ -5374,6 +5854,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5403,6 +5888,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5425,6 +5915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5450,6 +5945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5474,7 +5974,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getRepositoryPipelineVariable",
@@ -5500,6 +6005,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5529,6 +6039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5559,6 +6074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pullrequests"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5582,6 +6102,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5600,7 +6125,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.pullrequests.pull_request_id.get",
@@ -5623,6 +6153,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5649,6 +6184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5670,7 +6210,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete",
@@ -5693,6 +6238,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5716,6 +6266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5739,6 +6294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5765,6 +6325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5788,6 +6353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5811,6 +6381,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5834,6 +6409,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5860,6 +6440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5883,6 +6468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5906,6 +6496,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_commitstatuses"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5926,6 +6521,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5946,6 +6546,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5969,6 +6574,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -5991,6 +6601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6016,6 +6631,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tag"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6039,6 +6659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6059,6 +6684,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_versions"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6082,6 +6712,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/version"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6102,6 +6737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6128,6 +6768,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippets"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6145,6 +6790,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6171,6 +6821,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippets"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6191,6 +6846,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6209,7 +6869,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.get",
@@ -6229,6 +6894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6249,6 +6919,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6269,6 +6944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippet_comments"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6292,6 +6972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6313,7 +6998,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.comments.comment_id.get",
@@ -6336,6 +7026,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet_comment"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6357,7 +7052,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.commits.get",
@@ -6377,6 +7077,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippet_commit"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6400,6 +7105,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet_commit"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6420,6 +7130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6440,6 +7155,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6460,6 +7180,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6480,6 +7205,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6501,7 +7231,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.node_id.get",
@@ -6524,6 +7259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6547,6 +7287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6571,7 +7316,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.revision.diff.get",
@@ -6596,7 +7346,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "snippets.username.encoded_id.revision.patch.get",
@@ -6617,7 +7372,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "teams.get",
@@ -6643,6 +7403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_teams"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6661,6 +7426,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_projects"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6682,6 +7452,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6702,7 +7477,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "teams.owner.projects.project_key.get",
@@ -6724,6 +7504,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6749,6 +7534,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6766,6 +7556,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/team"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6783,6 +7578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6800,6 +7600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6817,6 +7622,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6834,6 +7644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6852,7 +7667,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "teams.username.hooks.uid.get",
@@ -6872,6 +7692,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6892,6 +7717,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6909,6 +7739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6927,6 +7762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6948,6 +7788,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -6968,7 +7813,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getPipelineVariableForTeam",
@@ -6990,6 +7840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7015,6 +7870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7032,6 +7892,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7041,6 +7906,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7050,6 +7920,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7067,6 +7942,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7084,6 +7964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7101,6 +7986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7118,6 +8008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7135,6 +8030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7152,6 +8052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7170,7 +8075,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "users.username.hooks.uid.get",
@@ -7190,6 +8100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7210,6 +8125,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7228,6 +8148,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7249,6 +8174,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7269,7 +8199,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
     },
     {
       "id": "getPipelineVariableForUser",
@@ -7291,6 +8226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7316,6 +8256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     },
     {
@@ -7333,6 +8278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
       }
     }
   ]

@@ -2,6 +2,7 @@
   "id": "bbc_rss",
   "title": "feeds.bbci.co.uk",
   "description": "",
+  "security": {},
   "actions": [
     {
       "id": "topStories",

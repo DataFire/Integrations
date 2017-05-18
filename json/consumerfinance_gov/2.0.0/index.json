@@ -2,6 +2,7 @@
   "id": "consumerfinance_gov",
   "title": "The Consumer Financial Protection Bureau",
   "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
+  "security": {},
   "definitions": {
     "QueryResponse": {
       "description": "Response to a slice query.",

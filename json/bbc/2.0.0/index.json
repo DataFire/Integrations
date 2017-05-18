@@ -2,6 +2,14 @@
   "id": "bbc",
   "title": "BBC Nitro",
   "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
+  "security": {
+    "bbc": {
+      "integration": "bbc",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "ErrorModel": {
       "properties": {
@@ -4845,7 +4853,12 @@
       "title": "getAPI",
       "description": "Get API definition",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
     },
     {
       "id": "listAvailability",
@@ -4915,6 +4928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5047,6 +5065,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5157,6 +5180,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5254,6 +5282,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5358,6 +5391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5422,6 +5460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5489,6 +5532,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5520,6 +5568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5559,6 +5612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5826,6 +5884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -5897,6 +5960,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6053,6 +6121,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6060,7 +6133,12 @@
       "title": "getXSD",
       "description": "Get Schema definition",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
+      }
     },
     {
       "id": "listServices",
@@ -6143,6 +6221,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6160,6 +6243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6177,6 +6265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6194,6 +6287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6211,6 +6309,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6228,6 +6331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6245,6 +6353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6262,6 +6375,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6279,6 +6397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6296,6 +6419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     },
     {
@@ -6368,6 +6496,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
+      },
+      "security": {
+        "bbc": {
+          "integration": "bbc"
+        }
       }
     }
   ]

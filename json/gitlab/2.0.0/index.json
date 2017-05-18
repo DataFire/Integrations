@@ -2,6 +2,15 @@
   "id": "gitlab",
   "title": "Gitlab",
   "description": "The platform for modern developers\nGitLab unifies issues, code review, CI and CD into a single UI",
+  "security": {
+    "gitlab": {
+      "integration": "gitlab",
+      "fields": {
+        "private_token_header": "API key",
+        "private_token_query": "API key"
+      }
+    }
+  },
   "definitions": {
     "AccessRequester": {
       "description": "This feature was introduced in GitLab 8.11.",
@@ -2358,6 +2367,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/ApplicationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2682,6 +2696,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2698,14 +2717,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3DeployKeys",
       "title": "getV3DeployKeys",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3Dockerfiles",
@@ -2714,6 +2743,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2732,6 +2766,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2741,6 +2780,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2759,6 +2803,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2768,6 +2817,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2786,6 +2840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2845,6 +2904,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2884,6 +2948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2915,6 +2984,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2931,7 +3005,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3GroupsId",
@@ -2949,6 +3028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupDetail"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -2992,6 +3076,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3020,6 +3109,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3038,6 +3132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3059,7 +3158,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3GroupsIdAccessRequestsUserIdApprove",
@@ -3087,6 +3191,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3148,6 +3257,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3180,6 +3294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3213,6 +3332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3234,7 +3358,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3GroupsIdMembersUserId",
@@ -3257,6 +3386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3290,6 +3424,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3308,6 +3447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3378,6 +3522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3447,6 +3596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3469,6 +3623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupDetail"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3478,6 +3637,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Hook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3512,6 +3676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3531,6 +3700,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3550,6 +3724,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3557,49 +3736,84 @@
       "title": "postV3InternalAllowed",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3InternalBroadcastMessage",
       "title": "getV3InternalBroadcastMessage",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3InternalCheck",
       "title": "getV3InternalCheck",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3InternalDiscover",
       "title": "getV3InternalDiscover",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3InternalLfsAuthenticate",
       "title": "postV3InternalLfsAuthenticate",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3InternalMergeRequestUrls",
       "title": "getV3InternalMergeRequestUrls",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3InternalTwoFactorRecoveryCodes",
       "title": "postV3InternalTwoFactorRecoveryCodes",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3Issues",
@@ -3659,6 +3873,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3677,6 +3896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKeyWithUser"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3698,6 +3922,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3716,6 +3945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3747,6 +3981,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Namespace"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3756,6 +3995,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/GlobalNotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3829,6 +4073,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalNotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3897,6 +4146,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BasicProjectDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -3994,6 +4248,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4066,6 +4325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BasicProjectDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4088,6 +4352,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4160,6 +4429,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BasicProjectDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4208,6 +4482,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4276,6 +4555,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BasicProjectDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4378,6 +4662,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4446,6 +4735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BasicProjectDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4462,7 +4756,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsId",
@@ -4480,6 +4779,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectWithAccess"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4576,6 +4880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4602,6 +4911,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4630,6 +4944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4648,6 +4967,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4669,7 +4993,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdAccessRequestsUserIdApprove",
@@ -4697,6 +5026,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4715,6 +5049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4733,6 +5072,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Board"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4756,6 +5100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4784,6 +5133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4812,6 +5166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4840,6 +5199,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4873,6 +5237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4912,6 +5281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4936,7 +5310,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdBuildsBuildId",
@@ -4959,6 +5338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -4980,7 +5364,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdBuildsBuildIdArtifactsKeep",
@@ -5003,6 +5392,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5026,6 +5420,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5049,6 +5448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5072,6 +5476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5095,6 +5504,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5116,7 +5530,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdDeployKeys",
@@ -5134,6 +5553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5160,6 +5584,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5183,6 +5612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5206,6 +5640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5229,6 +5668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5252,6 +5696,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5280,6 +5729,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5303,6 +5757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5331,6 +5790,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5360,6 +5824,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5383,6 +5852,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5417,6 +5891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5445,6 +5924,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5461,7 +5945,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdForkForkedFromId",
@@ -5481,7 +5970,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdHooks",
@@ -5509,6 +6003,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5571,6 +6070,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5594,6 +6098,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5617,6 +6126,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5684,6 +6198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5750,6 +6269,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5808,6 +6332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5829,7 +6358,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdIssuesIssueId",
@@ -5852,6 +6386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5921,6 +6460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -5946,7 +6490,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdIssuesIssueIdAwardEmoji",
@@ -5979,6 +6528,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6005,6 +6559,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6032,6 +6591,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6059,6 +6623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6087,6 +6656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6123,6 +6697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6153,6 +6732,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6184,6 +6768,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6215,6 +6804,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6236,7 +6830,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdIssuesIssueIdResetTimeEstimate",
@@ -6257,7 +6856,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdIssuesIssueIdTimeEstimate",
@@ -6282,7 +6886,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdIssuesIssueIdTimeStats",
@@ -6303,7 +6912,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdIssuesIssueIdTodo",
@@ -6326,6 +6940,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6359,6 +6978,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6390,6 +7014,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6418,6 +7047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6446,6 +7080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6478,6 +7117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6500,6 +7144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6522,6 +7171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6540,6 +7194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6566,6 +7225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6589,6 +7253,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6612,6 +7281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6635,6 +7309,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6658,6 +7337,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6680,6 +7364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6698,6 +7387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6733,6 +7427,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6772,6 +7471,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6794,6 +7498,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6816,6 +7525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6848,6 +7562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6881,6 +7600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6902,7 +7626,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdMembersUserId",
@@ -6925,6 +7654,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6958,6 +7692,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -6981,6 +7720,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7042,6 +7786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7064,6 +7813,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7086,6 +7840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestChanges"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7118,6 +7877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7150,6 +7914,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7176,6 +7945,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7198,6 +7972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7236,6 +8015,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7258,6 +8042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7280,6 +8069,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7338,6 +8132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7395,6 +8194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7416,7 +8220,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdMergeRequestsMergeRequestId",
@@ -7438,6 +8247,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7499,6 +8313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7524,7 +8343,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji",
@@ -7557,6 +8381,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7583,6 +8412,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7610,6 +8444,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7637,6 +8476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7659,6 +8503,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7681,6 +8530,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestChanges"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7713,6 +8567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7745,6 +8604,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7771,6 +8635,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7793,6 +8662,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7831,6 +8705,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7867,6 +8746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7897,6 +8781,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7928,6 +8817,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7959,6 +8853,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -7980,7 +8879,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdMergeRequestsMergeRequestIdResetTimeEstimate",
@@ -8001,7 +8905,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdMergeRequestsMergeRequestIdTimeEstimate",
@@ -8026,7 +8935,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdMergeRequestsMergeRequestIdTimeStats",
@@ -8047,7 +8961,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdMergeRequestsMergeRequestIdTodo",
@@ -8070,6 +8989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8093,6 +9017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestDiff"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8121,6 +9050,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestDiffFull"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8154,6 +9088,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8185,6 +9124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8213,6 +9157,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8241,6 +9190,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8273,6 +9227,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8295,6 +9254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8317,6 +9281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8358,6 +9327,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8392,6 +9366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8415,6 +9394,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8462,6 +9446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8495,6 +9484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8513,6 +9507,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8583,6 +9582,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8605,6 +9609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8642,6 +9651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8665,6 +9679,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8688,6 +9707,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8711,6 +9735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8735,7 +9764,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryBlobsSha",
@@ -8759,7 +9793,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryBranches",
@@ -8777,6 +9816,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8803,6 +9847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8823,7 +9872,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryBranchesBranch",
@@ -8845,6 +9899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8875,6 +9934,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8897,6 +9961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8941,6 +10010,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -8979,6 +10053,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommitDetail"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9001,6 +10080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommitDetail"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9025,7 +10109,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryCommitsShaBuilds",
@@ -9068,6 +10157,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9094,6 +10188,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9126,6 +10225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9169,6 +10273,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitNote"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9189,7 +10298,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryCommitsShaStatuses",
@@ -9237,6 +10351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitStatus"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9263,6 +10382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Compare"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9281,6 +10405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contributor"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9317,7 +10446,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryFiles",
@@ -9341,7 +10475,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdRepositoryFiles",
@@ -9388,7 +10527,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdRepositoryFiles",
@@ -9435,7 +10579,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "deleteV3ProjectsIdRepositoryMergedBranches",
@@ -9451,7 +10600,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryRawBlobsSha",
@@ -9471,7 +10625,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryTags",
@@ -9489,6 +10648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9523,6 +10687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9543,7 +10712,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdRepositoryTagsTagName",
@@ -9565,6 +10739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9591,6 +10770,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9617,6 +10801,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9647,6 +10836,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTreeObject"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9686,6 +10880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9709,6 +10908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9732,6 +10936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -9760,7 +10969,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesAssembla",
@@ -9788,7 +11002,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesBamboo",
@@ -9824,7 +11043,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesBugzilla",
@@ -9864,7 +11088,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesBuildkite",
@@ -9896,7 +11125,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesBuildsEmail",
@@ -9928,7 +11162,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesCampfire",
@@ -9960,7 +11199,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesCustomIssueTracker",
@@ -10000,7 +11244,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesDroneCi",
@@ -10040,7 +11289,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesEmailsOnPush",
@@ -10076,7 +11330,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesExternalWiki",
@@ -10096,7 +11355,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesFlowdock",
@@ -10120,7 +11384,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesGemnasium",
@@ -10148,7 +11417,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesHipchat",
@@ -10216,7 +11490,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesIrker",
@@ -10257,7 +11536,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesJira",
@@ -10302,7 +11586,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesKubernetes",
@@ -10334,7 +11623,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesMattermost",
@@ -10389,7 +11683,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesMattermostSlashCommands",
@@ -10409,7 +11708,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdServicesMattermostSlashCommandsTrigger",
@@ -10429,7 +11733,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesPipelinesEmail",
@@ -10456,7 +11765,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesPivotaltracker",
@@ -10484,7 +11798,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesPushover",
@@ -10524,7 +11843,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesRedmine",
@@ -10560,7 +11884,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesSlack",
@@ -10623,7 +11952,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesSlackSlashCommands",
@@ -10643,7 +11977,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "postV3ProjectsIdServicesSlackSlashCommandsTrigger",
@@ -10663,7 +12002,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "putV3ProjectsIdServicesTeamcity",
@@ -10699,7 +12043,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "deleteV3ProjectsIdServicesServiceSlug",
@@ -10747,7 +12096,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdServicesServiceSlug",
@@ -10797,6 +12151,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectService"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -10836,6 +12195,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectGroupLink"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -10857,7 +12221,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdSnippets",
@@ -10885,6 +12254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -10925,6 +12299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -10958,6 +12337,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -10989,6 +12373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11017,6 +12406,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11045,6 +12439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11077,6 +12476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11098,7 +12502,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdSnippetsSnippetId",
@@ -11121,6 +12530,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11166,6 +12580,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11199,6 +12618,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11225,6 +12649,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11252,6 +12681,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11279,6 +12713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11315,6 +12754,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11345,6 +12789,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11376,6 +12825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11407,6 +12861,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11428,7 +12887,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "deleteV3ProjectsIdStar",
@@ -11446,6 +12910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11464,6 +12933,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11517,6 +12991,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitStatus"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11545,6 +13024,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11563,6 +13047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11585,6 +13074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11607,6 +13101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11625,6 +13124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11645,7 +13149,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3ProjectsIdUsers",
@@ -11677,6 +13186,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserBasic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11705,6 +13219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11731,6 +13250,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11753,6 +13277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11775,6 +13304,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11801,6 +13335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11837,6 +13376,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11875,6 +13419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11894,6 +13443,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11913,6 +13467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RunnerDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11952,6 +13511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RunnerDetails"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11978,6 +13542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserWithPrivateToken"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -11985,28 +13554,48 @@
       "title": "getV3SidekiqCompoundMetrics",
       "description": "Get the Sidekiq Compound metrics. Includes queue, process, and job statistics",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3SidekiqJobStats",
       "title": "getV3SidekiqJobStats",
       "description": "Get the Sidekiq job statistics",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3SidekiqProcessMetrics",
       "title": "getV3SidekiqProcessMetrics",
       "description": "Get the Sidekiq process metrics",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3SidekiqQueueMetrics",
       "title": "getV3SidekiqQueueMetrics",
       "description": "Get the Sidekiq queue metrics",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3Snippets",
@@ -12033,6 +13622,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12069,6 +13663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12096,6 +13695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12115,6 +13719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12134,6 +13743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12175,6 +13789,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12192,7 +13811,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3TemplatesDockerfiles",
@@ -12201,6 +13825,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12219,6 +13848,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12228,6 +13862,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12246,6 +13885,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12255,6 +13899,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/TemplatesList"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12273,6 +13922,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12294,6 +13948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12312,6 +13971,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12319,7 +13983,12 @@
       "title": "deleteV3Todos",
       "description": "Mark all todos as done",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3Todos",
@@ -12346,6 +14015,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12365,6 +14039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12374,6 +14053,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12383,6 +14067,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12401,6 +14090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12418,7 +14112,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3UserEmailsEmailId",
@@ -12437,6 +14136,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12446,6 +14150,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12468,6 +14177,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12487,6 +14201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12506,6 +14225,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12553,6 +14277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserBasic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12640,6 +14369,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12659,6 +14393,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12678,6 +14417,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserBasic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12770,6 +14514,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12787,7 +14536,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3UsersIdEmails",
@@ -12806,6 +14560,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12829,6 +14588,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12853,6 +14617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12882,6 +14651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12901,6 +14675,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12928,6 +14707,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12952,6 +14736,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
+      },
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
       }
     },
     {
@@ -12969,14 +14758,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     },
     {
       "id": "getV3Version",
       "title": "getV3Version",
       "description": "This feature was introduced in GitLab 8.13.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gitlab": {
+          "integration": "gitlab"
+        }
+      }
     }
   ]
 }

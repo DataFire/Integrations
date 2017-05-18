@@ -2,6 +2,31 @@
   "id": "google_youtubeanalytics",
   "title": "YouTube Analytics",
   "description": "Retrieves your YouTube Analytics data.",
+  "security": {
+    "google_youtubeanalytics": {
+      "integration": "google_youtubeanalytics",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/youtube": "Manage your YouTube account",
+          "https://www.googleapis.com/auth/youtube.readonly": "View your YouTube account",
+          "https://www.googleapis.com/auth/youtubepartner": "View and manage your assets and associated content on YouTube",
+          "https://www.googleapis.com/auth/yt-analytics-monetary.readonly": "View monetary and non-monetary YouTube Analytics reports for your YouTube content",
+          "https://www.googleapis.com/auth/yt-analytics.readonly": "View YouTube Analytics reports for your YouTube content"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Group": {
       "properties": {
@@ -204,7 +229,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
+      }
     },
     {
       "id": "groupItems.list",
@@ -258,6 +288,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupItemListResponse"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     },
     {
@@ -314,6 +349,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupItem"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     },
     {
@@ -366,7 +406,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
+      }
     },
     {
       "id": "groups.list",
@@ -431,6 +476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupListResponse"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     },
     {
@@ -487,6 +537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     },
     {
@@ -543,6 +598,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     },
     {
@@ -635,6 +695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResultTable"
+      },
+      "security": {
+        "google_youtubeanalytics": {
+          "integration": "google_youtubeanalytics"
+        }
       }
     }
   ]

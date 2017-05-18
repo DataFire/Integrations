@@ -2,6 +2,7 @@
   "id": "apitore_word2vecapis",
   "title": "Word2Vec APIs",
   "description": "Word2Vec.<BR />[Endpoint] https://api.apitore.com/api/8",
+  "security": {},
   "definitions": {
     "AnalogyResponseEntity": {
       "properties": {

@@ -2,6 +2,14 @@
   "id": "import_rss",
   "title": "import.io",
   "description": "",
+  "security": {
+    "import_rss": {
+      "integration": "import_rss",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "APIError": {
       "properties": {
@@ -214,6 +222,11 @@
           "type": "string"
         },
         "type": "object"
+      },
+      "security": {
+        "import_rss": {
+          "integration": "import_rss"
+        }
       }
     }
   ]

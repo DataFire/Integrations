@@ -2,6 +2,29 @@
   "id": "google_serviceuser",
   "title": "Google Service User",
   "description": "Enables services that service consumers want to use on Google Cloud Platform, lists the available or enabled services, or disables services that service consumers no longer use.",
+  "security": {
+    "google_serviceuser": {
+      "integration": "google_serviceuser",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Api": {
       "description": "Api is a light-weight descriptor for a protocol buffer service.",
@@ -1584,6 +1607,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchServicesResponse"
+      },
+      "security": {
+        "google_serviceuser": {
+          "integration": "google_serviceuser"
+        }
       }
     },
     {
@@ -1666,6 +1694,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_serviceuser": {
+          "integration": "google_serviceuser"
+        }
       }
     },
     {
@@ -1748,6 +1781,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_serviceuser": {
+          "integration": "google_serviceuser"
+        }
       }
     },
     {
@@ -1835,6 +1873,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListEnabledServicesResponse"
+      },
+      "security": {
+        "google_serviceuser": {
+          "integration": "google_serviceuser"
+        }
       }
     }
   ]

@@ -2,6 +2,29 @@
   "id": "google_dataflow",
   "title": "Google Dataflow",
   "description": "Manages Google Cloud Dataflow projects on Google Cloud Platform.",
+  "security": {
+    "google_dataflow": {
+      "integration": "google_dataflow",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ApproximateProgress": {
       "description": "Obsolete in favor of ApproximateReportedProgress and ApproximateSplitRequest.",
@@ -3261,6 +3284,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendWorkerMessagesResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3372,6 +3400,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3472,6 +3505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3569,6 +3607,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3659,6 +3702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3745,6 +3793,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDebugConfigResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3831,6 +3884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendDebugCaptureResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -3946,6 +4004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobMessagesResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4037,6 +4100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobMetrics"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4123,6 +4191,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaseWorkItemResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4209,6 +4282,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportWorkItemStatusResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4295,6 +4373,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendWorkerMessagesResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4406,6 +4489,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4506,6 +4594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4603,6 +4696,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4693,6 +4791,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4783,6 +4886,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDebugConfigResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4873,6 +4981,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SendDebugCaptureResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -4988,6 +5101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobMessagesResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5079,6 +5197,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobMetrics"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5169,6 +5292,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaseWorkItemResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5259,6 +5387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportWorkItemStatusResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5345,6 +5478,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5439,6 +5577,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTemplateResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5533,6 +5676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LaunchTemplateResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5615,6 +5763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5709,6 +5862,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTemplateResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     },
     {
@@ -5803,6 +5961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LaunchTemplateResponse"
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
       }
     }
   ]

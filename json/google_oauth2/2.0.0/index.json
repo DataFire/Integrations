@@ -2,6 +2,30 @@
   "id": "google_oauth2",
   "title": "Google OAuth2",
   "description": "Obtains end-user authorization grants for use with other Google APIs.",
+  "security": {
+    "google_oauth2": {
+      "integration": "google_oauth2",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
+          "https://www.googleapis.com/auth/plus.me": "Know who you are on Google",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address",
+          "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Jwk": {
       "properties": {
@@ -177,6 +201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Jwk"
+      },
+      "security": {
+        "google_oauth2": {
+          "integration": "google_oauth2"
+        }
       }
     },
     {
@@ -234,6 +263,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tokeninfo"
+      },
+      "security": {
+        "google_oauth2": {
+          "integration": "google_oauth2"
+        }
       }
     },
     {
@@ -282,6 +316,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Userinfoplus"
+      },
+      "security": {
+        "google_oauth2": {
+          "integration": "google_oauth2"
+        }
       }
     },
     {
@@ -330,6 +369,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Userinfoplus"
+      },
+      "security": {
+        "google_oauth2": {
+          "integration": "google_oauth2"
+        }
       }
     }
   ]

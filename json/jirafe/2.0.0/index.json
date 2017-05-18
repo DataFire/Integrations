@@ -2,6 +2,26 @@
   "id": "jirafe",
   "title": "Jirafe Events",
   "description": "API endpoins for sending Jirafe events",
+  "security": {
+    "jirafe": {
+      "integration": "jirafe",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://account.jirafe.com/oauth2/auth_token",
+        "flow": "accessCode",
+        "scopes": {
+          "write": "Send events"
+        },
+        "tokenUrl": "https://account.jirafe.com/oauth2/code",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Address": {},
     "Attribute": {
@@ -620,7 +640,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     },
     {
       "id": "postCart",
@@ -639,7 +664,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     },
     {
       "id": "postCategory",
@@ -658,7 +688,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     },
     {
       "id": "postCustomer",
@@ -677,7 +712,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     },
     {
       "id": "postOrderCancelled",
@@ -696,7 +736,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     },
     {
       "id": "postProduct",
@@ -715,7 +760,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
     }
   ]
 }

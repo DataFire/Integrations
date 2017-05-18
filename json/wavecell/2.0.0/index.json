@@ -2,6 +2,15 @@
   "id": "wavecell",
   "title": "Wavecell.Sms.Api",
   "description": "This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be send individually or as a bulk request.",
+  "security": {
+    "wavecell": {
+      "integration": "wavecell",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "definitions": {
     "BulkSmsRequest": {
       "properties": {
@@ -203,7 +212,12 @@
       "title": "SmsV1StatusGet",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
+      }
     },
     {
       "id": "SendManyMessages",
@@ -223,6 +237,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BulkSmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
       }
     },
     {
@@ -243,6 +262,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BulkSmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
       }
     },
     {
@@ -263,6 +287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SmsResponse"
+      },
+      "security": {
+        "wavecell": {
+          "integration": "wavecell"
+        }
       }
     }
   ]

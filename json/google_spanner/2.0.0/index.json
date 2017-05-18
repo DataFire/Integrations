@@ -2,6 +2,27 @@
   "id": "google_spanner",
   "title": "Cloud Spanner",
   "description": "Cloud Spanner is a managed, mission-critical, globally consistent and scalable relational database service.",
+  "security": {
+    "google_spanner": {
+      "integration": "google_spanner",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AuditConfig": {
       "description": "Specifies the audit configuration for a service.\nThe configuration determines which permission types are logged, and what\nidentities, if any, are exempted from logging.\nAn AuditConifg must have one or more AuditLogConfigs.\n\nIf there are AuditConfigs for both `allServices` and a specific service,\nthe union of the two AuditConfigs is used for that service: the log_types\nspecified in each AuditConfig are enabled, and the exempted_members in each\nAuditConfig are exempted.\n\nExample Policy with multiple AuditConfigs:\n\n    {\n      \"audit_configs\": [\n        {\n          \"service\": \"allServices\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n              \"exempted_members\": [\n                \"user:foo@gmail.com\"\n              ]\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n            },\n            {\n              \"log_type\": \"ADMIN_READ\",\n            }\n          ]\n        },\n        {\n          \"service\": \"fooservice@googleapis.com\"\n          \"audit_log_configs\": [\n            {\n              \"log_type\": \"DATA_READ\",\n            },\n            {\n              \"log_type\": \"DATA_WRITE\",\n              \"exempted_members\": [\n                \"user:bar@gmail.com\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n\nFor fooservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ\nlogging. It also exempts foo@gmail.com from DATA_READ logging, and\nbar@gmail.com from DATA_WRITE logging.",
@@ -1335,6 +1356,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1414,6 +1440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDatabaseDdlResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1496,6 +1527,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1575,6 +1611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1654,6 +1695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1733,6 +1779,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceConfig"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1815,6 +1866,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1894,6 +1950,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -1981,6 +2042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDatabasesResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2063,6 +2129,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2150,6 +2221,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInstanceConfigsResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2241,6 +2317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInstancesResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2323,6 +2404,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2405,6 +2491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2487,6 +2578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2569,6 +2665,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2651,6 +2752,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2733,6 +2839,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitResponse"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2815,6 +2926,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResultSet"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2897,6 +3013,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PartialResultSet"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -2979,6 +3100,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResultSet"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -3061,6 +3187,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     },
     {
@@ -3143,6 +3274,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PartialResultSet"
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
       }
     }
   ]

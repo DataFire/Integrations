@@ -2,6 +2,7 @@
   "id": "gov_bc_ca_jobposting",
   "title": "WorkBC Job Posting",
   "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href=\"https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice\" target=\"_blank\">data collection notice</a>.",
+  "security": {},
   "definitions": {
     "Error": {
       "properties": {

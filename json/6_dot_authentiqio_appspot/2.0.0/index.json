@@ -2,6 +2,7 @@
   "id": "6_dot_authentiqio_appspot",
   "title": "Authentiq",
   "description": "",
+  "security": {},
   "definitions": {
     "AuthentiqID": {
       "description": "Authentiq ID in JWT format, self-signed.\n",

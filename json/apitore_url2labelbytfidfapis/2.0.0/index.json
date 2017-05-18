@@ -2,6 +2,7 @@
   "id": "apitore_url2labelbytfidfapis",
   "title": "Url2Label by tfidf APIs",
   "description": "Url to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/20",
+  "security": {},
   "definitions": {
     "LabelEntity": {
       "properties": {

@@ -2,6 +2,29 @@
   "id": "google_firebaserules",
   "title": "Firebase Rules",
   "description": "Creates and manages rules that determine when a Firebase Rules-enabled service should permit a request.\n",
+  "security": {
+    "google_firebaserules": {
+      "integration": "google_firebaserules",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/firebase": "View and administer all your Firebase data and settings",
+          "https://www.googleapis.com/auth/firebase.readonly": "View all your Firebase data and settings"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Empty": {
       "description": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:\n\n    service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
@@ -318,6 +341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -397,6 +425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -479,6 +512,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -570,6 +608,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListReleasesResponse"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -652,6 +695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -743,6 +791,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRulesetsResponse"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -825,6 +878,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Ruleset"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     },
     {
@@ -907,6 +965,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestRulesetResponse"
+      },
+      "security": {
+        "google_firebaserules": {
+          "integration": "google_firebaserules"
+        }
       }
     }
   ]

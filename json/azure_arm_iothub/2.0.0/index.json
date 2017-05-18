@@ -2,6 +2,7 @@
   "id": "azure_arm_iothub",
   "title": "iotHubClient",
   "description": "Use this API to manage the IoT hubs in your subscription.",
+  "security": {},
   "definitions": {
     "CloudToDeviceProperties": {
       "description": "The IoT hub cloud-to-device messaging properties.",

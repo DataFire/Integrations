@@ -2,6 +2,31 @@
   "id": "netatmo",
   "title": "Netatmo",
   "description": "<h3>Welcome to the Netatmo swagger on-line documentation !</h3>This site is a complement to the official <a href=\"https://dev.netatmo.com/\">Netatmo developper documentation</a> using swagger to bring interactivity and easy testing of requests with the \"try it\" button (authenticate with the authorization code 0Auth2 flow by clicking the authenticate button in the methods). You can find the source code for this site can be found in the project <a href=\"https://github.com/cbornet/netatmo-swagger-ui\">netatmo-swagger-ui</a>. You can also use the online <a href=\"./swagger.json\">swagger declaration</a> file to generate code or static documentation (see <a href=\"https://github.com/cbornet/netatmo-swagger-api\">netatmo-swagger-api</a>).",
+  "security": {
+    "netatmo": {
+      "integration": "netatmo",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://api.netatmo.net/oauth2/authorize",
+        "flow": "accessCode",
+        "scopes": {
+          "access_camera": "Access welcome camera",
+          "read_camera": "Read welcome camera's data",
+          "read_station": "Read weather station's data",
+          "read_thermostat": "Read thermostat's data",
+          "write_camera": "Write welcome camera's data",
+          "write_thermostat": "Configure the thermostat"
+        },
+        "tokenUrl": "https://api.netatmo.net/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "NADashboardData": {
       "properties": {
@@ -1608,6 +1633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeWebhookResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1633,6 +1663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NANewScheduleResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1666,6 +1701,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NADeviceListResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1684,6 +1724,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeWebhookResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1707,6 +1752,11 @@
       "outputSchema": {
         "format": "byte",
         "type": "string"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1729,6 +1779,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1754,6 +1809,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeHomeDataResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1780,6 +1840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1842,6 +1907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAMeasureResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1868,6 +1938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1889,6 +1964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAStationDataResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1910,6 +1990,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAThermostatDataResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1932,6 +2017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAThermStateResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1941,6 +2031,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/NAUserResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1950,6 +2045,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/NAPartnerDevicesResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -1972,6 +2072,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomePersonsAwayResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -2016,6 +2121,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -2042,6 +2152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     },
     {
@@ -2067,6 +2182,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
       }
     }
   ]

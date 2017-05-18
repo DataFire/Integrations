@@ -2,6 +2,37 @@
   "id": "google_script",
   "title": "Google Apps Script Execution",
   "description": "Executes Google Apps Script projects.",
+  "security": {
+    "google_script": {
+      "integration": "google_script",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://mail.google.com/": "Read, send, delete, and manage your email",
+          "https://www.google.com/calendar/feeds": "Manage your calendars",
+          "https://www.google.com/m8/feeds": "Manage your contacts",
+          "https://www.googleapis.com/auth/admin.directory.group": "View and manage the provisioning of groups on your domain",
+          "https://www.googleapis.com/auth/admin.directory.user": "View and manage the provisioning of users on your domain",
+          "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+          "https://www.googleapis.com/auth/forms": "View and manage your forms in Google Drive",
+          "https://www.googleapis.com/auth/forms.currentonly": "View and manage forms that this application has been installed in",
+          "https://www.googleapis.com/auth/groups": "View and manage your Google Groups",
+          "https://www.googleapis.com/auth/spreadsheets": "View and manage your spreadsheets in Google Drive",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ExecutionError": {
       "description": "An object that provides information about the nature of an error in the Apps\nScript Execution API. If an\n`run` call succeeds but the\nscript function (or Apps Script itself) throws an exception, the response\nbody's `error` field contains a\n`Status` object. The `Status` object's `details` field\ncontains an array with a single one of these `ExecutionError` objects.",
@@ -245,6 +276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_script": {
+          "integration": "google_script"
+        }
       }
     }
   ]

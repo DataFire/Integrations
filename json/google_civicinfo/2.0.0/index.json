@@ -2,6 +2,7 @@
   "id": "google_civicinfo",
   "title": "Google Civic Information",
   "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.",
+  "security": {},
   "definitions": {
     "AdministrationRegion": {
       "description": "Describes information about a regional election administrative area.",

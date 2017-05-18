@@ -2,6 +2,7 @@
   "id": "t213_vg",
   "title": "Magento Enterprise",
   "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
+  "security": {},
   "definitions": {
     "bundle-data-bundle-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\BundleOptionInterface",

@@ -2,6 +2,14 @@
   "id": "channel4",
   "title": "Channel 4",
   "description": "This is the place to come for all the technical details you need to power your applications with Channel 4's deep programmes data.",
+  "security": {
+    "channel4": {
+      "integration": "channel4",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "definitions": {
     "ContentTypeType": {
       "additionalProperties": false,
@@ -1244,6 +1252,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1277,6 +1290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1310,6 +1328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1343,6 +1366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1377,6 +1405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1415,6 +1448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1448,6 +1486,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1482,6 +1525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1515,6 +1563,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1549,6 +1602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1582,6 +1640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1616,6 +1679,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1649,6 +1717,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1683,6 +1756,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1717,6 +1795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1755,6 +1838,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1789,6 +1877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1827,6 +1920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1861,6 +1959,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1899,6 +2002,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1945,6 +2053,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -1991,6 +2104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2041,6 +2159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2087,6 +2210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2137,6 +2265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2183,6 +2316,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2233,6 +2371,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2283,6 +2426,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2329,6 +2477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2379,6 +2532,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2413,6 +2571,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2447,6 +2610,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2485,6 +2653,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2519,6 +2692,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2557,6 +2735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2591,6 +2774,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2629,6 +2817,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2667,6 +2860,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2701,6 +2899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2739,6 +2942,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2777,6 +2985,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2811,6 +3024,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2849,6 +3067,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2883,6 +3106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2921,6 +3149,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2955,6 +3188,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -2989,6 +3227,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3023,6 +3266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3057,6 +3305,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3090,6 +3343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3124,6 +3382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3158,6 +3421,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3192,6 +3460,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3230,6 +3503,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3264,6 +3542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3302,6 +3585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3344,6 +3632,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3398,6 +3691,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3432,6 +3730,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3466,6 +3769,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3500,6 +3808,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3534,6 +3847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3572,6 +3890,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3614,6 +3937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3648,6 +3976,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3686,6 +4019,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3728,6 +4066,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     },
     {
@@ -3766,6 +4109,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
+      },
+      "security": {
+        "channel4": {
+          "integration": "channel4"
+        }
       }
     }
   ]

@@ -2,6 +2,14 @@
   "id": "data_gov",
   "title": "Regulations.gov",
   "description": "Provides public users access to federal regulatory content.",
+  "security": {
+    "data_gov": {
+      "integration": "data_gov",
+      "fields": {
+        "api_key": "API Key"
+      }
+    }
+  },
   "actions": [
     {
       "id": "docket",
@@ -25,7 +33,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "data_gov": {
+          "integration": "data_gov"
+        }
+      }
     },
     {
       "id": "document",
@@ -53,7 +66,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "data_gov": {
+          "integration": "data_gov"
+        }
+      }
     },
     {
       "id": "documents",
@@ -241,7 +259,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "data_gov": {
+          "integration": "data_gov"
+        }
+      }
     }
   ]
 }

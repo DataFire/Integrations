@@ -2,6 +2,16 @@
   "id": "netlicensing",
   "title": "Labs64 NetLicensing RESTful API Test Center",
   "description": "The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='http://netlicensing.io' target='_blank'>netlicensing.io</a>",
+  "security": {
+    "netlicensing": {
+      "integration": "netlicensing",
+      "fields": {
+        "api_key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "definitions": {
     "License": {
       "properties": {
@@ -293,6 +303,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -349,6 +364,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -367,6 +387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -385,6 +410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -438,6 +468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -450,6 +485,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -479,6 +519,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -501,6 +546,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -519,6 +569,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -548,6 +603,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -574,6 +634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -586,6 +651,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -649,6 +719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -671,6 +746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -689,6 +769,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -752,6 +837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -764,6 +854,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -782,6 +877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -808,6 +908,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -820,6 +925,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -862,6 +972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -884,6 +999,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -902,6 +1022,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -948,6 +1073,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -960,6 +1090,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1013,6 +1148,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1035,6 +1175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1053,6 +1198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1106,6 +1256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1118,6 +1273,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1161,6 +1321,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1179,6 +1344,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1197,6 +1367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1209,6 +1384,11 @@
           "$ref": "#/definitions/netlicensing"
         },
         "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1260,6 +1440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1278,6 +1463,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1330,6 +1520,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1339,6 +1534,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     },
     {
@@ -1348,6 +1548,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
       }
     }
   ]

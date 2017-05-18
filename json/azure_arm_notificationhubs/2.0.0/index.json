@@ -2,6 +2,26 @@
   "id": "azure_arm_notificationhubs",
   "title": "NotificationHubsManagementClient",
   "description": "Azure NotificationHub client",
+  "security": {
+    "azure_arm_notificationhubs": {
+      "integration": "azure_arm_notificationhubs",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AdmCredential": {
       "description": "Description of a NotificationHub AdmCredential.",
@@ -719,6 +739,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -741,6 +766,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -767,6 +797,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -795,7 +830,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
+      }
     },
     {
       "id": "Namespaces_Get",
@@ -825,6 +865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -858,6 +903,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -891,6 +941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -921,6 +976,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -953,7 +1013,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
+      }
     },
     {
       "id": "Namespaces_GetAuthorizationRule",
@@ -987,6 +1052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1024,6 +1094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1058,6 +1133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1095,6 +1175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1128,6 +1213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1158,6 +1248,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationHubListResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1190,7 +1285,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
+      }
     },
     {
       "id": "NotificationHubs_Get",
@@ -1224,6 +1324,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationHubResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1261,6 +1366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationHubResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1295,6 +1405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1331,7 +1446,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
+      }
     },
     {
       "id": "NotificationHubs_GetAuthorizationRule",
@@ -1369,6 +1489,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1410,6 +1535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1448,6 +1578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1489,6 +1624,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     },
     {
@@ -1523,6 +1663,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PnsCredentialsResource"
+      },
+      "security": {
+        "azure_arm_notificationhubs": {
+          "integration": "azure_arm_notificationhubs"
+        }
       }
     }
   ]

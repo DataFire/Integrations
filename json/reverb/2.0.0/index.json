@@ -2,6 +2,40 @@
   "id": "reverb",
   "title": "reverb",
   "description": "reverb",
+  "security": {
+    "reverb": {
+      "integration": "reverb",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "flow": "application",
+        "scopes": {
+          "public": "",
+          "read_feedback": "",
+          "read_listings": "",
+          "read_lists": "",
+          "read_messages": "",
+          "read_offers": "",
+          "read_orders": "",
+          "read_profile": "",
+          "write_feedback": "",
+          "write_listings": "",
+          "write_lists": "",
+          "write_messages": "",
+          "write_offers": "",
+          "write_orders": "",
+          "write_profile": "",
+          "write_reviews": ""
+        },
+        "tokenUrl": "https://reverb.com/oauth/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {},
   "actions": [
     {
@@ -52,28 +86,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "articles.get",
       "title": "articles.get",
       "description": "See all Reverb blog posts",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "articles.featured.get",
       "title": "articles.featured.get",
       "description": "See featured Reverb blog posts",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "articles.recently_featured.get",
       "title": "articles.recently_featured.get",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "articles.slug.get",
@@ -88,7 +142,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "articles.slug.related_listings.get",
@@ -103,7 +162,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "auth.forgot_password.post",
@@ -129,7 +193,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "auth.logout.put",
@@ -162,21 +231,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "autosuggest.get",
       "title": "autosuggest.get",
       "description": "Autosuggest terms for searches",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "cart.get",
       "title": "cart.get",
       "description": "Get all cart items",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "cart.move_to_watch_list.cart_item_id.post",
@@ -191,7 +275,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "cart.id.delete",
@@ -206,7 +295,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "cart.id.post",
@@ -221,7 +315,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "cart.id.put",
@@ -236,21 +335,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "categories.get",
       "title": "categories.get",
       "description": "List of supported product categories",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "categories.flat.get",
       "title": "categories.flat.get",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "categories.product_type.category.get",
@@ -268,7 +382,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "categories.uuid.get",
@@ -283,14 +402,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "collections.get",
       "title": "collections.get",
       "description": "List of curated collections",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "collections.slug.get",
@@ -305,14 +434,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "comparison_shopping_pages.get",
       "title": "comparison_shopping_pages.get",
       "description": "Returns a set of comparison shopping pages based on the current params",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "comparison_shopping_pages.id.get",
@@ -327,7 +466,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "comparison_shopping_pages.id.listings.get",
@@ -346,7 +490,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "conversations.id.offer.post",
@@ -428,28 +577,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "countries.get",
       "title": "countries.get",
       "description": "Retrieve a list of country codes with corresponding subregions",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "currencies.display.get",
       "title": "currencies.display.get",
       "description": "List of supported display currencies for browsing listings",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "currencies.listing.get",
       "title": "currencies.listing.get",
       "description": "List of supported listing currencies for shops",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "feedback.feedback_id.get",
@@ -464,7 +633,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "handpicked.slug.get",
@@ -479,14 +653,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listing_conditions.get",
       "title": "listing_conditions.get",
       "description": "List of supported product conditions",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.get",
@@ -626,7 +810,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.post",
@@ -863,7 +1052,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.all.get",
@@ -1003,7 +1197,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.id.offer.post",
@@ -1038,7 +1237,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.bump.get",
@@ -1053,7 +1257,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.bump.budget_type.post",
@@ -1071,7 +1280,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.conversations.post",
@@ -1097,7 +1311,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.images.get",
@@ -1112,7 +1331,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.images.image_id.delete",
@@ -1130,7 +1354,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.product_bundle.get",
@@ -1149,7 +1378,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.listing_id.sales.get",
@@ -1164,7 +1398,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.delete",
@@ -1179,7 +1418,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.get",
@@ -1194,7 +1438,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.put",
@@ -1431,7 +1680,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.edit.get",
@@ -1446,7 +1700,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.flag.post",
@@ -1473,7 +1732,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.reviews.get",
@@ -1488,7 +1752,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.reviews.post",
@@ -1503,7 +1772,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "listings.slug.similar_listings.get",
@@ -1518,14 +1792,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.account.get",
       "title": "my.account.get",
       "description": "Get account details",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.account.put",
@@ -1561,21 +1845,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.addresses.get",
       "title": "my.addresses.get",
       "description": "See all addresses in your address book",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.addresses.post",
       "title": "my.addresses.post",
       "description": "Create a new address in your address book",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.addresses.address_id.delete",
@@ -1590,7 +1889,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.addresses.address_id.put",
@@ -1605,7 +1909,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.conversations.get",
@@ -1634,7 +1943,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.conversations.post",
@@ -1676,7 +1990,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.conversations.conversation_id.messages.post",
@@ -1702,7 +2021,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.conversations.id.get",
@@ -1717,7 +2041,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.conversations.id.put",
@@ -1741,49 +2070,84 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.counts.get",
       "title": "my.counts.get",
       "description": "Get your actionable status counts",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.feed.get",
       "title": "my.feed.get",
       "description": "Get listings from your feed",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.feed.grid.get",
       "title": "my.feed.grid.get",
       "description": "get your feed",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.feedback.received.get",
       "title": "my.feedback.received.get",
       "description": "List of received feedback",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.feedback.sent.get",
       "title": "my.feedback.sent.get",
       "description": "List of sent feedback",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.get",
       "title": "my.follows.get",
       "description": "See what the user is following",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.brands.slug.delete",
@@ -1798,7 +2162,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.brands.slug.get",
@@ -1813,7 +2182,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.brands.slug.post",
@@ -1828,7 +2202,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.category.subcategory.delete",
@@ -1846,7 +2225,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.category.subcategory.get",
@@ -1864,7 +2248,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.category.subcategory.post",
@@ -1882,7 +2271,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.identifier.delete",
@@ -1897,7 +2291,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.identifier.get",
@@ -1912,7 +2311,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.categories.identifier.post",
@@ -1927,7 +2331,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.collections.slug.delete",
@@ -1942,7 +2351,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.collections.slug.get",
@@ -1957,7 +2371,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.collections.slug.post",
@@ -1972,7 +2391,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.handpicked.slug.delete",
@@ -1987,7 +2411,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.handpicked.slug.get",
@@ -2002,7 +2431,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.handpicked.slug.post",
@@ -2017,14 +2451,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.search.get",
       "title": "my.follows.search.get",
       "description": "Follow status for a search",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.search.post",
@@ -2190,7 +2634,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.shops.slug.delete",
@@ -2205,7 +2654,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.shops.slug.get",
@@ -2220,7 +2674,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.shops.slug.post",
@@ -2235,7 +2694,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.follow_id.delete",
@@ -2250,7 +2714,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.follow_id.alert.delete",
@@ -2265,7 +2734,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.follows.follow_id.alert.post",
@@ -2280,7 +2754,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.listings.get",
@@ -2418,7 +2897,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.listings.drafts.get",
@@ -2552,7 +3036,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.listings.negotiations.get",
@@ -2573,7 +3062,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.listings.slug.state.end.put",
@@ -2604,14 +3098,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.lists.get",
       "title": "my.lists.get",
       "description": "Get a list of your lists (wishlist, watch list, etc)",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.negotiations.buying.get",
@@ -2632,7 +3136,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.negotiations.id.get",
@@ -2647,7 +3156,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.negotiations.id.accept.post",
@@ -2671,7 +3185,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.negotiations.id.counter.post",
@@ -2753,7 +3272,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.negotiations.id.decline.post",
@@ -2768,21 +3292,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.awaiting_feedback.get",
       "title": "my.orders.awaiting_feedback.get",
       "description": "List of orders that need feedback",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.buying.all.get",
       "title": "my.orders.buying.all.get",
       "description": "Returns all orders, newest first.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.buying.buying_history.seller_id.get",
@@ -2797,14 +3336,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.buying.unpaid.get",
       "title": "my.orders.buying.unpaid.get",
       "description": "Returns unpaid orders, newest first.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.buying.id.get",
@@ -2819,7 +3368,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.buying.id.mark_received.post",
@@ -2834,7 +3388,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.all.get",
@@ -2871,7 +3430,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.awaiting_shipment.get",
@@ -2908,7 +3472,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.buyer_history.buyer_id.get",
@@ -2923,7 +3492,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.unpaid.get",
@@ -2960,7 +3534,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.id.get",
@@ -2975,7 +3554,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.id.mark_picked_up.post",
@@ -2999,7 +3583,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.orders.selling.id.ship.post",
@@ -3036,7 +3625,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.payments.selling.get",
@@ -3077,7 +3671,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.payments.selling.id.get",
@@ -3092,21 +3691,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.viewed_listings.get",
       "title": "my.viewed_listings.get",
       "description": "Get a list of your recently viewed listings.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.wishlist.get",
       "title": "my.wishlist.get",
       "description": "Get a list of wishlisted items",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.wishlist.id.delete",
@@ -3121,7 +3735,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "my.wishlist.id.put",
@@ -3136,7 +3755,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "orders.order_id.feedback.buyer.get",
@@ -3151,7 +3775,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "orders.order_id.feedback.buyer.post",
@@ -3166,7 +3795,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "orders.order_id.feedback.seller.get",
@@ -3181,7 +3815,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "orders.order_id.feedback.seller.post",
@@ -3196,14 +3835,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "payment_methods.get",
       "title": "payment_methods.get",
       "description": "Get list of payment methods",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "priceguide.get",
@@ -3222,7 +3871,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "priceguide.id.get",
@@ -3237,7 +3891,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "priceguide.id.transactions.get",
@@ -3255,7 +3914,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "priceguide.id.transactions.summary.get",
@@ -3276,7 +3940,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "products.reviews.id.get",
@@ -3291,7 +3960,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "products.reviews.id.put",
@@ -3323,7 +3997,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "products.slug.reviews.get",
@@ -3338,7 +4017,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "products.slug.reviews.post",
@@ -3353,21 +4037,36 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "sales.reverb.get",
       "title": "sales.reverb.get",
       "description": "View upcoming and live Reverb official sales.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "sales.seller.get",
       "title": "sales.seller.get",
       "description": "View your created sales.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "sales.sale_id.listings.delete",
@@ -3382,7 +4081,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "sales.sale_id.listings.post",
@@ -3397,7 +4101,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "sales.slug.get",
@@ -3412,28 +4121,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shipping.providers.get",
       "title": "shipping.providers.get",
       "description": "List of supported shipping providers",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shipping.regions.get",
       "title": "shipping.regions.get",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.get",
       "title": "shop.get",
       "description": "Get your own shop details",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.put",
@@ -3513,28 +4242,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.listing_conditions.get",
       "title": "shop.listing_conditions.get",
       "description": "List of supported product conditions",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.payment_methods.get",
       "title": "shop.payment_methods.get",
       "description": "Get accepted payment methods",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.stats.get",
       "title": "shop.stats.get",
       "description": "Get listings stats",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.stats.activity.get",
@@ -3554,28 +4303,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.vacation.delete",
       "title": "shop.vacation.delete",
       "description": "Disable vacation mode. All listings will be re-enabled.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.vacation.get",
       "title": "shop.vacation.get",
       "description": "Returns shop vacation status",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shop.vacation.post",
       "title": "shop.vacation.post",
       "description": "Enable vacation mode. All listings will be unavailable until vacation mode is turned off.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shops.slug.get",
@@ -3590,7 +4359,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shops.slug.feedback.get",
@@ -3605,7 +4379,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shops.slug.feedback.buyer.get",
@@ -3620,7 +4399,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "shops.slug.feedback.seller.get",
@@ -3635,7 +4419,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "vinyl.listings.get",
@@ -3651,14 +4440,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "vinyl.listings.post",
       "title": "vinyl.listings.post",
       "description": "",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "vinyl.listings.id.get",
@@ -3673,14 +4472,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "wants.get",
       "title": "wants.get",
       "description": "A list of wanted items by the user",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "wants.id.delete",
@@ -3695,7 +4504,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "wants.id.put",
@@ -3710,14 +4524,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "webhooks.registrations.get",
       "title": "webhooks.registrations.get",
       "description": "Get webhook registrations",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "webhooks.registrations.post",
@@ -3758,7 +4582,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "webhooks.registrations.id.delete",
@@ -3773,7 +4602,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     },
     {
       "id": "webhooks.registrations.id.get",
@@ -3788,7 +4622,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
     }
   ]
 }

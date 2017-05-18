@@ -2,6 +2,14 @@
   "id": "brandlovers",
   "title": "BrandLovers Marketplace API V1",
   "description": "Allows sellers to: 1) Load products definitions to the BrandLovers marktplace. 2) Receive and update orders status. 3) Receive and update shipping information. 4) Receive and update customer tickets. All requests consume and return application/json content. All request must be authenticated and use HTTPS.",
+  "security": {
+    "brandlovers": {
+      "integration": "brandlovers",
+      "fields": {
+        "authorization": "Authorization token. The Authorization token can be found in your Admin console."
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "properties": {
@@ -1616,6 +1624,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1639,7 +1652,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "order.orderId.shipment.delivered.post",
@@ -1662,7 +1680,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "order.orderId.shipment.exchange.post",
@@ -1685,7 +1708,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "order.orderId.shipment.return.post",
@@ -1708,7 +1736,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "order.orderId.shipment.sent.post",
@@ -1731,7 +1764,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "orders.get",
@@ -1757,6 +1795,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1787,6 +1830,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersShipments"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1806,7 +1854,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "orders.shipments.shipped.get",
@@ -1842,6 +1895,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersShipments"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1857,7 +1915,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "orders.status.approved.get",
@@ -1883,6 +1946,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1909,6 +1977,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1935,6 +2008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1961,6 +2039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -1987,6 +2070,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2013,6 +2101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2039,6 +2132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2058,7 +2156,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "product.skuSellerId.get",
@@ -2080,6 +2183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProduct"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2103,7 +2211,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "product.skuSellerId.prices.put",
@@ -2126,7 +2239,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "product.skuSellerId.status.put",
@@ -2149,7 +2267,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "product.skuSellerId.stock.put",
@@ -2172,7 +2295,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "products.get",
@@ -2198,6 +2326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProductsResponse"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2220,7 +2353,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "products.prices.put",
@@ -2242,7 +2380,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "products.status.get",
@@ -2268,6 +2411,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetSellerProductsStatus"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2290,7 +2438,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "products.status.selling.get",
@@ -2316,6 +2469,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProductsStatusSelling"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2338,7 +2496,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "ticket.post",
@@ -2357,7 +2520,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "ticket.ticketId.message.post",
@@ -2380,7 +2548,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "ticket.ticketId.messages.get",
@@ -2410,6 +2583,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTicketMessages"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     },
     {
@@ -2433,7 +2611,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
+      }
     },
     {
       "id": "tickets.get",
@@ -2468,6 +2651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTickets"
+      },
+      "security": {
+        "brandlovers": {
+          "integration": "brandlovers"
+        }
       }
     }
   ]

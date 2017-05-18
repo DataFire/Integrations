@@ -2,6 +2,31 @@
   "id": "google_storage",
   "title": "Cloud Storage",
   "description": "Stores and retrieves potentially large, immutable data objects.",
+  "security": {
+    "google_storage": {
+      "integration": "google_storage",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Bucket": {
       "description": "A bucket.",
@@ -936,6 +961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Buckets"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1019,6 +1049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1074,7 +1109,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "buckets.get",
@@ -1139,6 +1179,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1230,6 +1275,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1321,6 +1371,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1370,6 +1425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControls"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1422,6 +1482,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1473,7 +1538,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "bucketAccessControls.get",
@@ -1526,6 +1596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1582,6 +1657,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1638,6 +1718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1695,6 +1780,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControls"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1747,6 +1837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1798,7 +1893,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "defaultObjectAccessControls.get",
@@ -1851,6 +1951,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1907,6 +2012,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -1963,6 +2073,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2012,6 +2127,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2064,6 +2184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2117,6 +2242,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2166,6 +2296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Notifications"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2218,6 +2353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2269,7 +2409,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "notifications.get",
@@ -2322,6 +2467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2400,6 +2550,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Objects"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2496,6 +2651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2577,6 +2737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2648,7 +2813,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "objects.get",
@@ -2729,6 +2899,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2825,6 +3000,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2921,6 +3101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -2978,6 +3163,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControls"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3038,6 +3228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3097,7 +3292,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "objectAccessControls.get",
@@ -3158,6 +3358,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3222,6 +3427,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3286,6 +3496,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3343,6 +3558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3403,6 +3623,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3464,6 +3689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3540,6 +3770,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3660,6 +3895,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3788,6 +4028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RewriteResponse"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     },
     {
@@ -3837,7 +4082,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
     },
     {
       "id": "projects.serviceAccount.get",
@@ -3886,6 +4136,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
       }
     }
   ]

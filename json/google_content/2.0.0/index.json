@@ -2,6 +2,27 @@
   "id": "google_content",
   "title": "Content API for Shopping",
   "description": "Manages product items, inventory, and Merchant Center accounts for Google Shopping.",
+  "security": {
+    "google_content": {
+      "integration": "google_content",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/content": "Manage your product listings and accounts for Google Shopping"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "Account data.",
@@ -3916,6 +3937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsAuthInfoResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -3971,6 +3997,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4022,6 +4053,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountstatusesCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4077,6 +4113,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccounttaxCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4132,6 +4173,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedsCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4183,6 +4229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedstatusesCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4238,6 +4289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InventoryCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4289,6 +4345,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4344,6 +4405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4395,6 +4461,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductstatusesCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4450,6 +4521,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingsettingsCustomBatchResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4507,6 +4583,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4563,6 +4644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4618,7 +4704,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
+      }
     },
     {
       "id": "accounts.get",
@@ -4671,6 +4762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4731,6 +4827,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4791,6 +4892,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4848,6 +4954,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountstatusesListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4901,6 +5012,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountStatus"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -4958,6 +5074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccounttaxListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5011,6 +5132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5071,6 +5197,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5131,6 +5262,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5188,6 +5324,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedsListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5243,6 +5384,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5296,7 +5442,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
+      }
     },
     {
       "id": "datafeeds.get",
@@ -5347,6 +5498,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5405,6 +5561,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5463,6 +5624,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5520,6 +5686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedstatusesListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5571,6 +5742,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedStatus"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5635,6 +5811,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InventorySetResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5716,6 +5897,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5769,6 +5955,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5825,6 +6016,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersAcknowledgeResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5881,6 +6077,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCancelResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5937,6 +6138,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCancelLineItemResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -5993,6 +6199,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersRefundResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6049,6 +6260,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersReturnLineItemResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6105,6 +6321,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersShipLineItemsResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6161,6 +6382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersUpdateMerchantOrderIdResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6217,6 +6443,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersUpdateShipmentResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6270,6 +6501,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersGetByMerchantOrderIdResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6331,6 +6567,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6387,6 +6628,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6442,7 +6688,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
+      }
     },
     {
       "id": "products.get",
@@ -6495,6 +6746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6556,6 +6812,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductstatusesListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6609,6 +6870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductStatus"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6666,6 +6932,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingsettingsListResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6719,6 +6990,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6779,6 +7055,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6839,6 +7120,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6888,6 +7174,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingsettingsGetSupportedCarriersResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6940,6 +7231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCreateTestOrderResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -6993,6 +7289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersAdvanceTestOrderResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     },
     {
@@ -7052,6 +7353,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersGetTestOrderTemplateResponse"
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
       }
     }
   ]

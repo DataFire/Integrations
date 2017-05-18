@@ -2,13 +2,26 @@
   "id": "solarvps",
   "title": "Solar VPS",
   "description": "This is the Solar VPS Public API. You can find more at http://www.solarvps.com",
+  "security": {
+    "solarvps": {
+      "integration": "solarvps",
+      "fields": {
+        "apiKey": "API key"
+      }
+    }
+  },
   "actions": [
     {
       "id": "contacts.get",
       "title": "contacts.get",
       "description": "Shows all contacts under the client account.",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "dns.domain.get",
@@ -24,7 +37,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "dns.domain.add.post",
@@ -60,7 +78,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "dns.domain.delete.post",
@@ -80,7 +103,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "dns.domain.update.post",
@@ -120,14 +148,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "domains.get",
       "title": "domains.get",
       "description": "Shows all your domains",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "domains.add.post",
@@ -143,7 +181,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "domains.delete.post",
@@ -159,7 +202,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "key.generate.get",
@@ -179,7 +227,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "key.get.get",
@@ -199,14 +252,24 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "pods.get",
       "title": "pods.get",
       "description": "Shows all your pods",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "pods.podId.get",
@@ -222,7 +285,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "pods.podId.ping.get",
@@ -238,7 +306,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "pods.podId.action.get",
@@ -258,28 +331,48 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "solarray.get",
       "title": "solarray.get",
       "description": "Shows all your monitors",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "solarray.critical.get",
       "title": "solarray.critical.get",
       "description": "Shows all your critical notifications",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "tickets.get",
       "title": "tickets.get",
       "description": "Shows all your tickets",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "tickets.department.add.post",
@@ -303,7 +396,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "tickets.ticketId.get",
@@ -319,7 +417,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     },
     {
       "id": "tickets.ticketid.update.post",
@@ -339,7 +442,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "solarvps": {
+          "integration": "solarvps"
+        }
+      }
     }
   ]
 }

@@ -2,6 +2,30 @@
   "id": "google_replicapoolupdater",
   "title": "Google Compute Engine Instance Group Updater",
   "description": "[Deprecated. Please use compute.instanceGroupManagers.update method. replicapoolupdater API will be disabled after December 30th, 2016] Updates groups of Compute Engine instances.",
+  "security": {
+    "google_replicapoolupdater": {
+      "integration": "google_replicapoolupdater",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/replicapool": "View and manage replica pools",
+          "https://www.googleapis.com/auth/replicapool.readonly": "View replica pools"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "InstanceUpdate": {
       "description": "Update of a single instance.",
@@ -459,6 +483,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -516,6 +545,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -583,6 +617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RollingUpdateList"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -639,6 +678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -696,6 +740,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RollingUpdate"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -753,6 +802,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -824,6 +878,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceUpdateList"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -881,6 +940,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -938,6 +1002,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     },
     {
@@ -995,6 +1064,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapoolupdater": {
+          "integration": "google_replicapoolupdater"
+        }
       }
     }
   ]

@@ -2,6 +2,26 @@
   "id": "azure_arm_redis",
   "title": "RedisManagementClient",
   "description": "REST API for Azure Redis Cache Service.",
+  "security": {
+    "azure_arm_redis": {
+      "integration": "azure_arm_redis",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "RedisAccessKeys": {
       "description": "Redis cache access keys.",
@@ -328,6 +348,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListResult"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     },
     {
@@ -354,6 +379,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListResult"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     },
     {
@@ -382,7 +412,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
+      }
     },
     {
       "id": "Redis_Get",
@@ -412,6 +447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisResource"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     },
     {
@@ -445,6 +485,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisResourceWithAccessKey"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     },
     {
@@ -476,7 +521,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
+      }
     },
     {
       "id": "Redis_ListKeys",
@@ -506,6 +556,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListKeysResult"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     },
     {
@@ -539,6 +594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListKeysResult"
+      },
+      "security": {
+        "azure_arm_redis": {
+          "integration": "azure_arm_redis"
+        }
       }
     }
   ]

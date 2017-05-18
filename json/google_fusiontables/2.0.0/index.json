@@ -2,6 +2,28 @@
   "id": "google_fusiontables",
   "title": "Fusion Tables",
   "description": "API for working with Fusion Tables data.",
+  "security": {
+    "google_fusiontables": {
+      "integration": "google_fusiontables",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/fusiontables": "Manage your Fusion Tables",
+          "https://www.googleapis.com/auth/fusiontables.readonly": "View your Fusion Tables"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Bucket": {
       "description": "Specifies the minimum and maximum values, the color, opacity, icon and weight of a bucket within a StyleSetting.",
@@ -723,6 +745,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sqlresponse"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -781,6 +808,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Sqlresponse"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -839,6 +871,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TableList"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -891,6 +928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -949,6 +991,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -997,7 +1044,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
     },
     {
       "id": "table.get",
@@ -1047,6 +1099,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1104,6 +1161,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1161,6 +1223,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1220,6 +1287,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ColumnList"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1273,6 +1345,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1325,7 +1402,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
     },
     {
       "id": "column.get",
@@ -1379,6 +1461,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1436,6 +1523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1493,6 +1585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1547,6 +1644,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1617,6 +1719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Import"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1687,6 +1794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1746,6 +1858,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSettingList"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1799,6 +1916,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1851,7 +1973,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
     },
     {
       "id": "style.get",
@@ -1905,6 +2032,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -1962,6 +2094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2019,6 +2156,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2082,6 +2224,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskList"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2134,7 +2281,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
     },
     {
       "id": "task.get",
@@ -2188,6 +2340,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2247,6 +2404,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TemplateList"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2300,6 +2462,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2352,7 +2519,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
     },
     {
       "id": "template.get",
@@ -2406,6 +2578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2463,6 +2640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     },
     {
@@ -2520,6 +2702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
       }
     }
   ]

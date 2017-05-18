@@ -2,6 +2,26 @@
   "id": "azure_arm_search",
   "title": "SearchManagementClient",
   "description": "Client that can be used to manage Azure Search services and API keys.",
+  "security": {
+    "azure_arm_search": {
+      "integration": "azure_arm_search",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AdminKeyResult": {
       "description": "Response containing the primary and secondary admin API keys for a given Azure Search service.",
@@ -366,6 +386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityOutput"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -397,6 +422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchServiceListResult"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -430,7 +460,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
+      }
     },
     {
       "id": "Services_Get",
@@ -465,6 +500,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchService"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -503,6 +543,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchService"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -542,6 +587,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryKey"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -579,7 +629,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
+      }
     },
     {
       "id": "AdminKeys_Get",
@@ -614,6 +669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminKeyResult"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -649,6 +709,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListQueryKeysResult"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     },
     {
@@ -692,6 +757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminKeyResult"
+      },
+      "security": {
+        "azure_arm_search": {
+          "integration": "azure_arm_search"
+        }
       }
     }
   ]

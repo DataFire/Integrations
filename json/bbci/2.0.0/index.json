@@ -2,6 +2,16 @@
   "id": "bbci",
   "title": "BBC iPlayer Business Layer",
   "description": "The definitive iPlayer API.",
+  "security": {
+    "bbci": {
+      "integration": "bbci",
+      "fields": {
+        "api_key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "definitions": {
     "added": {
       "additionalProperties": false,
@@ -3533,6 +3543,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
+      },
+      "security": {
+        "bbci": {
+          "integration": "bbci"
+        }
       }
     },
     {

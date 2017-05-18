@@ -2,6 +2,26 @@
   "id": "furkot",
   "title": "Furkot Trips",
   "description": "Furkot provides Rest API to access user trip data.\nUsing Furkot API an application can list user trips and display stops for a specific trip.\nFurkot API uses OAuth2 protocol to authorize applications to access data on behalf of users.\n",
+  "security": {
+    "furkot": {
+      "integration": "furkot",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://trips.furkot.com/oauth/authorize",
+        "flow": "accessCode",
+        "scopes": {
+          "read:trips": "list trips and stops info"
+        },
+        "tokenUrl": "https://trips.furkot.com/pub/api/access_token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Step": {
       "properties": {
@@ -121,6 +141,11 @@
           "$ref": "#/definitions/Trip"
         },
         "type": "array"
+      },
+      "security": {
+        "furkot": {
+          "integration": "furkot"
+        }
       }
     },
     {
@@ -142,6 +167,11 @@
           "$ref": "#/definitions/Step"
         },
         "type": "array"
+      },
+      "security": {
+        "furkot": {
+          "integration": "furkot"
+        }
       }
     }
   ]

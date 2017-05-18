@@ -2,6 +2,29 @@
   "id": "google_appengine",
   "title": "Google App Engine Admin",
   "description": "The App Engine Admin API enables developers to provision and manage their App Engine applications.",
+  "security": {
+    "google_appengine": {
+      "integration": "google_appengine",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/appengine.admin": "View and manage your applications deployed on Google App Engine",
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ListLocationsResponse": {
       "description": "The response message for Locations.ListLocations.",
@@ -393,6 +416,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLocationsResponse"
+      },
+      "security": {
+        "google_appengine": {
+          "integration": "google_appengine"
+        }
       }
     },
     {
@@ -476,6 +504,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "google_appengine": {
+          "integration": "google_appengine"
+        }
       }
     },
     {
@@ -567,6 +600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOperationsResponse"
+      },
+      "security": {
+        "google_appengine": {
+          "integration": "google_appengine"
+        }
       }
     },
     {
@@ -650,6 +688,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_appengine": {
+          "integration": "google_appengine"
+        }
       }
     }
   ]

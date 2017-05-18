@@ -2,6 +2,7 @@
   "id": "apitore_languagedetectionapis",
   "title": "Language Detection APIs",
   "description": "Language detection.<BR />[Endpoint] https://api.apitore.com/api/22",
+  "security": {},
   "definitions": {
     "LanguageEntity": {
       "properties": {

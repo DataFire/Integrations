@@ -2,13 +2,26 @@
   "id": "orghunter",
   "title": "OrgHunter",
   "description": "Get the latest IRS data and most up to date charity information for your website or application",
+  "security": {
+    "orghunter": {
+      "integration": "orghunter",
+      "fields": {
+        "user_key": "Your API access key"
+      }
+    }
+  },
   "actions": [
     {
       "id": "v1.categories.post",
       "title": "v1.categories.post",
       "description": "<p>This operation provides a list of categories.</p>",
       "inputSchema": {},
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     },
     {
       "id": "v1.charitybasic.post",
@@ -27,7 +40,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     },
     {
       "id": "v1.charityfinancial.post",
@@ -46,7 +64,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     },
     {
       "id": "v1.charitygeolocation.post",
@@ -65,7 +88,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     },
     {
       "id": "v1.charitypremium.post",
@@ -84,7 +112,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     },
     {
       "id": "v1.charitysearch.post",
@@ -135,7 +168,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "orghunter": {
+          "integration": "orghunter"
+        }
+      }
     }
   ]
 }

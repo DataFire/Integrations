@@ -2,6 +2,26 @@
   "id": "azure_arm_service_map",
   "title": "Service Map",
   "description": "Service Map API Reference",
+  "security": {
+    "azure_arm_service_map": {
+      "integration": "azure_arm_service_map",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Acceptor": {
       "allOf": [
@@ -1472,6 +1492,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroup"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1531,6 +1556,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroupMembersCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1583,6 +1613,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroupMembersCount"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1622,6 +1657,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MapResponse"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1658,6 +1698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroupCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1697,6 +1742,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1737,7 +1787,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
+      }
     },
     {
       "id": "MachineGroups_Get",
@@ -1779,6 +1834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1824,6 +1884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1886,6 +1951,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1933,6 +2003,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Machine"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -1985,6 +2060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2037,6 +2117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2079,6 +2164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroupCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2131,6 +2221,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PortCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2189,6 +2284,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Port"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2247,6 +2347,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProcessCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2305,6 +2410,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2363,6 +2473,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2424,6 +2539,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProcessCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2477,6 +2597,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Process"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2535,6 +2660,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PortCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2593,6 +2723,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2651,6 +2786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     },
     {
@@ -2697,6 +2837,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MachinesSummary"
+      },
+      "security": {
+        "azure_arm_service_map": {
+          "integration": "azure_arm_service_map"
+        }
       }
     }
   ]

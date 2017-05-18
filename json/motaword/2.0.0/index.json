@@ -2,6 +2,23 @@
   "id": "motaword",
   "title": "MotaWord",
   "description": "Use MotaWord API to post and track your translation projects.",
+  "security": {
+    "motaword": {
+      "integration": "motaword",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "description": "OAuth2 authentication, Client Credentials flow.",
+        "flow": "password",
+        "tokenUrl": "/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "properties": {
@@ -690,6 +707,11 @@
       "inputSchema": {},
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -702,6 +724,11 @@
           "$ref": "#/definitions/Formats"
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -711,6 +738,11 @@
       "inputSchema": {},
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -735,6 +767,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -747,6 +784,11 @@
           "$ref": "#/definitions/Language"
         },
         "type": "array"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -756,6 +798,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -782,6 +829,11 @@
           "$ref": "#/definitions/ProjectList"
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -825,6 +877,11 @@
           "$ref": "#/definitions/Project"
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -844,6 +901,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -880,6 +942,11 @@
           "$ref": "#/definitions/Project"
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -899,6 +966,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -922,6 +994,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -963,6 +1040,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -986,6 +1068,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1009,6 +1096,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PackageStatus"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1036,6 +1128,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Package"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1055,6 +1152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Progress"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1080,6 +1182,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActivityList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1104,6 +1211,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Activity"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1132,6 +1244,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1156,6 +1273,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1181,6 +1303,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1200,6 +1327,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DocumentList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1223,6 +1355,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1253,6 +1390,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1277,6 +1419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1305,6 +1452,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1329,6 +1481,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1348,6 +1505,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GlossaryList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1371,6 +1533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1401,6 +1568,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1425,6 +1597,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1453,6 +1630,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1477,6 +1659,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1496,6 +1683,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuideList"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1519,6 +1711,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1549,6 +1746,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1573,6 +1775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1601,6 +1808,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1625,6 +1837,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1634,6 +1851,11 @@
       "inputSchema": {},
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1658,6 +1880,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     },
     {
@@ -1680,6 +1907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
       }
     }
   ]

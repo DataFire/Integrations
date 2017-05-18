@@ -2,6 +2,27 @@
   "id": "google_proximitybeacon",
   "title": "Google Proximity Beacon",
   "description": "Registers, manages, indexes, and searches beacons.",
+  "security": {
+    "google_proximitybeacon": {
+      "integration": "google_proximitybeacon",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/userlocation.beacon.registry": "View and modify your beacons"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AdvertisedId": {
       "description": "Defines a unique identifier of a beacon as broadcast by the device.",
@@ -516,6 +537,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetInfoForObservedBeaconsResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -610,6 +636,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBeaconsResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -695,6 +726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Beacon"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -773,6 +809,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EphemeralIdRegistrationParams"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -855,6 +896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListNamespacesResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -938,6 +984,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1021,6 +1072,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1104,6 +1160,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Beacon"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1190,6 +1251,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Beacon"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1277,6 +1343,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBeaconAttachmentsResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1363,6 +1434,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BeaconAttachment"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1450,6 +1526,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteAttachmentsResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1550,6 +1631,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDiagnosticsResponse"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1633,6 +1719,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1716,6 +1807,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1799,6 +1895,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     },
     {
@@ -1885,6 +1986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Namespace"
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
       }
     }
   ]

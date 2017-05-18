@@ -2,6 +2,26 @@
   "id": "windows_arm_graphrbac",
   "title": "GraphRbacManagementClient",
   "description": "The Graph RBAC Management Client",
+  "security": {
+    "windows_arm_graphrbac": {
+      "integration": "windows_arm_graphrbac",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AADObject": {
       "description": "The properties of an Active Directory object.",
@@ -781,6 +801,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -806,6 +831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -830,7 +860,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Applications_Get",
@@ -856,6 +891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -883,7 +923,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Applications_ListKeyCredentials",
@@ -909,6 +954,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/KeyCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -936,7 +986,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Applications_ListPasswordCredentials",
@@ -962,6 +1017,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PasswordCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -989,7 +1049,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Objects_GetObjectsByObjectIds",
@@ -1014,6 +1079,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1040,6 +1110,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1065,6 +1140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ADGroup"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1089,7 +1169,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Groups_AddMember",
@@ -1116,7 +1201,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Groups_RemoveMember",
@@ -1144,7 +1234,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Groups_Get",
@@ -1170,6 +1265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ADGroup"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1199,6 +1299,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupGetMemberGroupsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1225,6 +1330,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1250,6 +1360,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckGroupMembershipResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1272,6 +1387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AADObject"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1298,6 +1418,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipalListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1323,6 +1448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipal"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1347,7 +1477,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "ServicePrincipals_Get",
@@ -1373,6 +1508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipal"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1399,6 +1539,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/KeyCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1426,7 +1571,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "ServicePrincipals_ListPasswordCredentials",
@@ -1452,6 +1602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PasswordCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1479,7 +1634,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Users_List",
@@ -1505,6 +1665,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1530,6 +1695,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1559,6 +1729,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserGetMemberGroupsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1583,7 +1758,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     },
     {
       "id": "Users_Get",
@@ -1609,6 +1789,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
       }
     },
     {
@@ -1636,7 +1821,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
     }
   ]
 }

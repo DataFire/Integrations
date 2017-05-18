@@ -2,6 +2,7 @@
   "id": "azure_arm_compute_containerservice",
   "title": "ContainerServiceClient",
   "description": "The Container Service Client.",
+  "security": {},
   "definitions": {
     "ContainerService": {
       "allOf": [

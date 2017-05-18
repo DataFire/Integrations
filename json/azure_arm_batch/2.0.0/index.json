@@ -2,6 +2,26 @@
   "id": "azure_arm_batch",
   "title": "BatchManagement",
   "description": "",
+  "security": {
+    "azure_arm_batch": {
+      "integration": "azure_arm_batch",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ActivateApplicationPackageParameters": {
       "description": "Parameters for an ApplicationOperations.ActivateApplicationPackage request.",
@@ -416,6 +436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountListResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -442,6 +467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchLocationQuota"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -469,6 +499,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountListResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -501,7 +536,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     },
     {
       "id": "BatchAccount_Get",
@@ -535,6 +575,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -572,6 +617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -609,6 +659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -648,6 +703,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListApplicationsResult"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -684,7 +744,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     },
     {
       "id": "Application_Get",
@@ -722,6 +787,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -761,7 +831,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     },
     {
       "id": "Application_Create",
@@ -802,6 +877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -842,7 +922,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     },
     {
       "id": "ApplicationPackage_Get",
@@ -884,6 +969,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationPackage"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -926,6 +1016,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationPackage"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -969,7 +1064,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     },
     {
       "id": "BatchAccount_GetKeys",
@@ -1003,6 +1103,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountKeys"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -1040,6 +1145,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountKeys"
+      },
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
       }
     },
     {
@@ -1072,7 +1182,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_batch": {
+          "integration": "azure_arm_batch"
+        }
+      }
     }
   ]
 }

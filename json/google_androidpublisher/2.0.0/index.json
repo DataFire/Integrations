@@ -2,6 +2,27 @@
   "id": "google_androidpublisher",
   "title": "Google Play Developer",
   "description": "Lets Android application developers access their Google Play accounts.",
+  "security": {
+    "google_androidpublisher": {
+      "integration": "google_androidpublisher",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Apk": {
       "properties": {
@@ -1146,6 +1167,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InappproductsBatchResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1198,6 +1224,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppEdit"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1249,7 +1280,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.get",
@@ -1302,6 +1338,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppEdit"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1355,6 +1396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApksListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1408,6 +1454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Apk"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1464,6 +1515,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApksAddExternallyHostedResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1527,6 +1583,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeobfuscationFilesUploadResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1591,6 +1652,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpansionFile"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1658,6 +1724,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpansionFile"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1722,6 +1793,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpansionFilesUploadResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1789,6 +1865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpansionFile"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1844,7 +1925,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.apklistings.list",
@@ -1901,6 +1987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApkListingsListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -1960,7 +2051,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.apklistings.get",
@@ -2021,6 +2117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApkListing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2085,6 +2186,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApkListing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2149,6 +2255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApkListing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2202,6 +2313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppDetails"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2258,6 +2374,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppDetails"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2314,6 +2435,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppDetails"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2365,7 +2491,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.listings.list",
@@ -2418,6 +2549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListingsListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2473,7 +2609,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.listings.get",
@@ -2530,6 +2671,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Listing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2590,6 +2736,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Listing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2650,6 +2801,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Listing"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2721,6 +2877,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImagesDeleteAllResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2792,6 +2953,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImagesListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2863,6 +3029,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImagesUploadResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -2936,7 +3107,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "edits.testers.get",
@@ -2998,6 +3174,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Testers"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3063,6 +3244,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Testers"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3128,6 +3314,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Testers"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3181,6 +3372,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TracksListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3244,6 +3440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Track"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3310,6 +3511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Track"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3376,6 +3582,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Track"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3429,6 +3640,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppEdit"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3482,6 +3698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppEdit"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3544,6 +3765,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EntitlementsListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3602,6 +3828,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InappproductsListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3658,6 +3889,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InAppProduct"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3709,7 +3945,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "inappproducts.get",
@@ -3761,6 +4002,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InAppProduct"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3821,6 +4067,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InAppProduct"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3881,6 +4132,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InAppProduct"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3938,6 +4194,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductPurchase"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -3995,6 +4256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionPurchase"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -4050,7 +4316,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "purchases.subscriptions.defer",
@@ -4110,6 +4381,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionPurchasesDeferResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -4165,7 +4441,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "purchases.subscriptions.revoke",
@@ -4220,7 +4501,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
+      }
     },
     {
       "id": "purchases.voidedpurchases.list",
@@ -4286,6 +4572,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VoidedPurchasesListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -4347,6 +4638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReviewsListResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -4402,6 +4698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Review"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     },
     {
@@ -4457,6 +4758,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReviewsReplyResponse"
+      },
+      "security": {
+        "google_androidpublisher": {
+          "integration": "google_androidpublisher"
+        }
       }
     }
   ]

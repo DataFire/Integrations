@@ -2,6 +2,26 @@
   "id": "azure_arm_logic",
   "title": "LogicManagementClient",
   "description": "REST API for Azure Logic Apps.",
+  "security": {
+    "azure_arm_logic": {
+      "integration": "azure_arm_logic",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AS2AcknowledgementConnectionSettings": {
       "description": "The AS2 agreement acknowledegment connection settings.",
@@ -4140,6 +4160,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4167,6 +4192,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4198,6 +4228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4229,6 +4264,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4257,7 +4297,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "IntegrationAccounts_Get",
@@ -4287,6 +4332,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4320,6 +4370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4353,6 +4408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4392,6 +4452,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreementListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4424,7 +4489,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Agreements_Get",
@@ -4458,6 +4528,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreement"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4495,6 +4570,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreement"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4530,6 +4610,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificateListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4562,7 +4647,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Certificates_Get",
@@ -4596,6 +4686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificate"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4633,6 +4728,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificate"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4666,6 +4766,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CallbackUrl"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4705,6 +4810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMapListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4737,7 +4847,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Maps_Get",
@@ -4771,6 +4886,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMap"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4808,6 +4928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMap"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4847,6 +4972,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartnerListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4879,7 +5009,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Partners_Get",
@@ -4913,6 +5048,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartner"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4950,6 +5090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartner"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -4989,6 +5134,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchemaListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5021,7 +5171,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Schemas_Get",
@@ -5055,6 +5210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchema"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5092,6 +5252,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchema"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5131,6 +5296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSessionListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5163,7 +5333,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Sessions_Get",
@@ -5197,6 +5372,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSession"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5234,6 +5414,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSession"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5269,7 +5454,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Workflows_ListByResourceGroup",
@@ -5304,6 +5494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5332,7 +5527,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Workflows_Get",
@@ -5362,6 +5562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5395,6 +5600,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5428,6 +5638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5456,7 +5671,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Workflows_Enable",
@@ -5484,7 +5704,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "Workflows_GenerateUpgradedDefinition",
@@ -5517,6 +5742,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5547,6 +5777,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5578,7 +5813,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "WorkflowRuns_List",
@@ -5617,6 +5857,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5651,6 +5896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRun"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5694,6 +5944,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunActionListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5732,6 +5987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunAction"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5764,7 +6024,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "WorkflowTriggers_List",
@@ -5803,6 +6068,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5837,6 +6107,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTrigger"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5880,6 +6155,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerHistoryListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5918,6 +6198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerHistory"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -5954,7 +6239,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
+      }
     },
     {
       "id": "WorkflowTriggers_ListCallbackUrl",
@@ -5988,6 +6278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerCallbackUrl"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -6022,6 +6317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -6057,6 +6357,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowVersionListResult"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -6091,6 +6396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowVersion"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     },
     {
@@ -6132,6 +6442,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerCallbackUrl"
+      },
+      "security": {
+        "azure_arm_logic": {
+          "integration": "azure_arm_logic"
+        }
       }
     }
   ]

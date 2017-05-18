@@ -2,6 +2,27 @@
   "id": "google_adexchangebuyer",
   "title": "Ad Exchange Buyer",
   "description": "Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.",
+  "security": {
+    "google_adexchangebuyer": {
+      "integration": "google_adexchangebuyer",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "Configuration data for an Ad Exchange buyer account.",
@@ -2304,6 +2325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsList"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2353,6 +2379,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2409,6 +2440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2465,6 +2501,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2513,6 +2554,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BillingInfoList"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2562,6 +2608,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BillingInfo"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2615,6 +2666,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Budget"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2671,6 +2727,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Budget"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2727,6 +2788,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Budget"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2813,6 +2879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativesList"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2864,6 +2935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2917,6 +2993,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -2972,7 +3053,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
+      }
     },
     {
       "id": "creatives.listDeals",
@@ -3025,6 +3111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeDealIds"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3080,7 +3171,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
+      }
     },
     {
       "id": "performanceReport.list",
@@ -3147,6 +3243,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PerformanceReportList"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3196,6 +3297,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PretargetingConfigList"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3248,6 +3354,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PretargetingConfig"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3299,7 +3410,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
+      }
     },
     {
       "id": "pretargetingConfig.get",
@@ -3352,6 +3468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PretargetingConfig"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3408,6 +3529,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PretargetingConfig"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3464,6 +3590,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PretargetingConfig"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3513,7 +3644,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
+      }
     },
     {
       "id": "products.search",
@@ -3565,6 +3701,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOffersResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3614,6 +3755,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3665,6 +3811,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateOrdersResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3717,6 +3868,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3766,6 +3922,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Proposal"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3819,6 +3980,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrderDealsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3871,6 +4037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteOrderDealsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3923,6 +4094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddOrderDealsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -3975,6 +4151,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EditAllOrderDealsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -4028,6 +4209,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrderNotesResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -4080,6 +4266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddOrderNotesResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -4127,7 +4318,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
+      }
     },
     {
       "id": "proposals.patch",
@@ -4195,6 +4391,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Proposal"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -4263,6 +4464,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Proposal"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     },
     {
@@ -4312,6 +4518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPublisherProfilesByAccountIdResponse"
+      },
+      "security": {
+        "google_adexchangebuyer": {
+          "integration": "google_adexchangebuyer"
+        }
       }
     }
   ]

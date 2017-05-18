@@ -2,6 +2,14 @@
   "id": "inboxroute",
   "title": "Mailsquad",
   "description": "MailSquad offers an affordable and super easy way to create, send and track delightful emails.",
+  "security": {
+    "inboxroute": {
+      "integration": "inboxroute",
+      "fields": {
+        "mqApiKey": "API key"
+      }
+    }
+  },
   "definitions": {
     "Contact": {
       "properties": {
@@ -302,6 +310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContactPage"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
       }
     },
     {
@@ -331,6 +344,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContactListPage"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
       }
     },
     {
@@ -351,6 +369,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NewId"
+      },
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
       }
     },
     {
@@ -367,7 +390,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
     },
     {
       "id": "contacts.lists.listid.put",
@@ -386,7 +414,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
     },
     {
       "id": "contacts.contactid.delete",
@@ -402,7 +435,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
     },
     {
       "id": "contacts.contactid.put",
@@ -421,7 +459,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
     },
     {
       "id": "subscription.listid.post",
@@ -440,7 +483,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "inboxroute": {
+          "integration": "inboxroute"
+        }
+      }
     }
   ]
 }

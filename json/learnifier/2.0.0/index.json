@@ -2,6 +2,7 @@
   "id": "learnifier",
   "title": "Learnifier",
   "description": "",
+  "security": {},
   "definitions": {
     "ActivationError": {
       "properties": {

@@ -2,6 +2,7 @@
   "id": "google_translate",
   "title": "Translate",
   "description": "Translates text from one language to another.",
+  "security": {},
   "definitions": {
     "DetectionsListResponse": {
       "properties": {

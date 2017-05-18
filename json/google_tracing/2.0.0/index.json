@@ -2,6 +2,29 @@
   "id": "google_tracing",
   "title": "Google Tracing",
   "description": "Send and retrieve trace data from Google Stackdriver Trace.\n",
+  "security": {
+    "google_tracing": {
+      "integration": "google_tracing",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/trace.append": "Write Trace data for a project or application",
+          "https://www.googleapis.com/auth/trace.readonly": "Read Trace data for a project or application"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Annotation": {
       "description": "Text annotation with a set of attributes. A maximum of 32 annotations are\nallowed per Span.",
@@ -486,6 +509,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Span"
+      },
+      "security": {
+        "google_tracing": {
+          "integration": "google_tracing"
+        }
       }
     },
     {
@@ -568,6 +596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_tracing": {
+          "integration": "google_tracing"
+        }
       }
     },
     {
@@ -671,6 +704,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTracesResponse"
+      },
+      "security": {
+        "google_tracing": {
+          "integration": "google_tracing"
+        }
       }
     },
     {
@@ -754,6 +792,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSpansResponse"
+      },
+      "security": {
+        "google_tracing": {
+          "integration": "google_tracing"
+        }
       }
     }
   ]

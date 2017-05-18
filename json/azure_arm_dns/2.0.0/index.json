@@ -2,6 +2,7 @@
   "id": "azure_arm_dns",
   "title": "DnsManagementClient",
   "description": "The DNS Management Client.",
+  "security": {},
   "definitions": {
     "ARecord": {
       "description": "An A record.",

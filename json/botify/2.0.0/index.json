@@ -2,6 +2,14 @@
   "id": "botify",
   "title": "Botify",
   "description": "Botify Saas API",
+  "security": {
+    "botify": {
+      "integration": "botify",
+      "fields": {
+        "DjangoRestToken": "API key"
+      }
+    }
+  },
   "definitions": {
     "AdvancedExportStatus": {
       "properties": {
@@ -1327,6 +1335,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1353,6 +1366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisDetail"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1379,6 +1397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CrawlStatistics"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1419,6 +1442,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CrawlStatisticsTime"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1456,6 +1484,11 @@
           "$ref": "#/definitions/CrawlStatisticsUrls"
         },
         "type": "array"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1543,6 +1576,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1569,6 +1607,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LinksPercentiles"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1595,6 +1638,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PageRankLost"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1621,6 +1669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SitemapsReport"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1678,6 +1731,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1735,6 +1793,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1792,6 +1855,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1849,6 +1917,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -1936,6 +2009,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2008,6 +2086,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2050,6 +2133,11 @@
           "$ref": "#/definitions/UrlsAggs"
         },
         "type": "array"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2086,6 +2174,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Datamodel"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2143,6 +2236,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2182,6 +2280,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CsvExportStatus"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2212,6 +2315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CsvExportStatus"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2249,6 +2357,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlsAggsQuery"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2283,6 +2396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlDetail"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2336,6 +2454,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2389,6 +2512,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2414,6 +2542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSavedFilter"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     },
     {
@@ -2459,6 +2592,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Default"
+      },
+      "security": {
+        "botify": {
+          "integration": "botify"
+        }
       }
     }
   ]

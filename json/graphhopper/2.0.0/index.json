@@ -2,6 +2,14 @@
   "id": "graphhopper",
   "title": "Route Optimization",
   "description": "Our Route Optimization API solves the so called vehicle routing problem fast. It calculates an optimal tour for a set of vehicles, services and constraints",
+  "security": {
+    "graphhopper": {
+      "integration": "graphhopper",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "Activity": {
       "properties": {
@@ -678,6 +686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobId"
+      },
+      "security": {
+        "graphhopper": {
+          "integration": "graphhopper"
+        }
       }
     },
     {
@@ -700,6 +713,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
+      },
+      "security": {
+        "graphhopper": {
+          "integration": "graphhopper"
+        }
       }
     }
   ]

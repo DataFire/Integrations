@@ -2,6 +2,29 @@
   "id": "google_dfareporting",
   "title": "DCM/DFA Reporting And Trafficking",
   "description": "Manages your DoubleClick Campaign Manager ad campaigns and reports.",
+  "security": {
+    "google_dfareporting": {
+      "integration": "google_dfareporting",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/ddmconversions": "Manage DoubleClick Digital Marketing conversions",
+          "https://www.googleapis.com/auth/dfareporting": "View and manage DoubleClick for Advertisers reports",
+          "https://www.googleapis.com/auth/dfatrafficking": "View and manage your DoubleClick Campaign Manager's (DCM) display ad campaigns"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "Contains properties of a DCM account.",
@@ -8740,6 +8763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -8788,6 +8816,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserProfileList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -8837,6 +8870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserProfile"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -8890,6 +8928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountActiveAdSummary"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -8939,6 +8982,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountPermissionGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -8992,6 +9040,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountPermissionGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9041,6 +9094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountPermissionsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9094,6 +9152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountPermission"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9187,6 +9250,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountUserProfilesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9243,6 +9311,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountUserProfile"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9295,6 +9368,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountUserProfile"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9347,6 +9425,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountUserProfile"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9400,6 +9483,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountUserProfile"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9485,6 +9573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9541,6 +9634,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9593,6 +9691,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9646,6 +9749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9802,6 +9910,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9858,6 +9971,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Ad"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9910,6 +10028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Ad"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -9962,6 +10085,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Ad"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10015,6 +10143,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Ad"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10096,6 +10229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertiserGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10152,6 +10290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertiserGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10204,6 +10347,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertiserGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10256,6 +10404,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertiserGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10307,7 +10460,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "advertiserGroups.get",
@@ -10360,6 +10518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertiserGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10469,6 +10632,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdvertisersListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10525,6 +10693,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Advertiser"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10577,6 +10750,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Advertiser"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10629,6 +10807,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Advertiser"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10682,6 +10865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Advertiser"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10731,6 +10919,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BrowsersListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10840,6 +11033,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10896,6 +11094,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Campaign"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -10956,6 +11159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Campaign"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11008,6 +11216,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Campaign"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11077,6 +11290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignCreativeAssociationsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11133,6 +11351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignCreativeAssociation"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11186,6 +11409,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LandingPagesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11246,6 +11474,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LandingPage"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11302,6 +11535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LandingPage"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11358,6 +11596,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LandingPage"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11413,7 +11656,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "landingPages.get",
@@ -11470,6 +11718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LandingPage"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11523,6 +11776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Campaign"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11672,6 +11930,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChangeLogsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11725,6 +11988,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChangeLog"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11790,6 +12058,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CitiesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11839,6 +12112,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionTypesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11892,6 +12170,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionType"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -11973,6 +12256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContentCategoriesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12029,6 +12317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContentCategory"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12081,6 +12374,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContentCategory"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12133,6 +12431,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContentCategory"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12184,7 +12487,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "contentCategories.get",
@@ -12237,6 +12545,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContentCategory"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12289,6 +12602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionsBatchInsertResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12338,6 +12656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CountriesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12391,6 +12714,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Country"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12447,6 +12775,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeAssetMetadata"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12532,6 +12865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12588,6 +12926,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeField"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12640,6 +12983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeField"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12692,6 +13040,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeField"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12777,6 +13130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldValuesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12837,6 +13195,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldValue"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12893,6 +13256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldValue"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -12949,6 +13317,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldValue"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13004,7 +13377,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "creativeFieldValues.get",
@@ -13061,6 +13439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeFieldValue"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13112,7 +13495,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "creativeFields.get",
@@ -13165,6 +13553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeField"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13254,6 +13647,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13310,6 +13708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13362,6 +13765,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13414,6 +13822,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13467,6 +13880,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativeGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13588,6 +14006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreativesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13644,6 +14067,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13696,6 +14124,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13748,6 +14181,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13801,6 +14239,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13863,6 +14306,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DimensionValueList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -13948,6 +14396,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DirectorySiteContactsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14001,6 +14454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DirectorySiteContact"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14110,6 +14568,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DirectorySitesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14162,6 +14625,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DirectorySite"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14215,6 +14683,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DirectorySite"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14286,6 +14759,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DynamicTargetingKeysListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14338,6 +14816,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DynamicTargetingKey"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14403,7 +14886,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "eventTags.list",
@@ -14500,6 +14988,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventTagsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14556,6 +15049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventTag"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14608,6 +15106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventTag"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14660,6 +15163,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventTag"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14711,7 +15219,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "eventTags.get",
@@ -14764,6 +15277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventTag"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14848,6 +15366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FileList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -14961,6 +15484,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivitiesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15017,6 +15545,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivity"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15069,6 +15602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivity"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15121,6 +15659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivity"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15174,6 +15717,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivitiesGenerateTagResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15225,7 +15773,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "floodlightActivities.get",
@@ -15278,6 +15831,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivity"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15375,6 +15933,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivityGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15431,6 +15994,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivityGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15483,6 +16051,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivityGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15535,6 +16108,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivityGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15588,6 +16166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightActivityGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15641,6 +16224,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightConfigurationsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15697,6 +16285,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightConfiguration"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15749,6 +16342,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightConfiguration"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15802,6 +16400,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FloodlightConfiguration"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15851,6 +16454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LanguagesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15900,6 +16508,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MetrosListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -15949,6 +16562,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileCarriersListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16002,6 +16620,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/MobileCarrier"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16051,6 +16674,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperatingSystemVersionsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16104,6 +16732,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperatingSystemVersion"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16153,6 +16786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperatingSystemsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16206,6 +16844,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperatingSystem"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16343,6 +16986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16399,6 +17047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16451,6 +17104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16503,6 +17161,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16556,6 +17219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16637,6 +17305,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementStrategiesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16693,6 +17366,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementStrategy"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16745,6 +17423,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementStrategy"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16797,6 +17480,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementStrategy"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -16848,7 +17536,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "placementStrategies.get",
@@ -16901,6 +17594,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementStrategy"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17050,6 +17748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17106,6 +17809,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Placement"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17158,6 +17866,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Placement"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17210,6 +17923,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Placement"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17271,6 +17989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlacementsGenerateTagsResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17324,6 +18047,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Placement"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17373,6 +18101,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlatformTypesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17426,6 +18159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PlatformType"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17475,6 +18213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostalCodesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17528,6 +18271,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostalCode"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17613,6 +18361,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17666,6 +18419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17767,6 +18525,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InventoryItemsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17824,6 +18587,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InventoryItem"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17921,6 +18689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrderDocumentsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -17978,6 +18751,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrderDocument"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18067,6 +18845,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18124,6 +18907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18173,6 +18961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18229,6 +19022,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingListShare"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18281,6 +19079,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingListShare"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18334,6 +19137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingListShare"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18423,6 +19231,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingListsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18479,6 +19292,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18531,6 +19349,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18583,6 +19406,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18636,6 +19464,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18720,6 +19553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18772,6 +19610,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18824,6 +19667,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CompatibleFields"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18875,7 +19723,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "reports.get",
@@ -18928,6 +19781,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -18984,6 +19842,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19040,6 +19903,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19119,6 +19987,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FileList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19176,6 +20049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19233,6 +20111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19350,6 +20233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SitesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19406,6 +20294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19458,6 +20351,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19510,6 +20408,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19563,6 +20466,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19628,6 +20536,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SizesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19680,6 +20593,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Size"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19733,6 +20651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Size"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19814,6 +20737,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubaccountsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19870,6 +20798,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subaccount"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19922,6 +20855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subaccount"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -19974,6 +20912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subaccount"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20027,6 +20970,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subaccount"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20112,6 +21060,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetableRemarketingListsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20165,6 +21118,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetableRemarketingList"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20250,6 +21208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetingTemplatesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20306,6 +21269,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetingTemplate"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20358,6 +21326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetingTemplate"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20410,6 +21383,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetingTemplate"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20463,6 +21441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TargetingTemplate"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20512,6 +21495,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRolePermissionGroupsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20565,6 +21553,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRolePermissionGroup"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20618,6 +21611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRolePermissionsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20671,6 +21669,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRolePermission"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20760,6 +21763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRolesListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20816,6 +21824,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRole"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20868,6 +21881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRole"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20920,6 +21938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRole"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -20971,7 +21994,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
+      }
     },
     {
       "id": "userRoles.get",
@@ -21024,6 +22052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRole"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -21073,6 +22106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoFormatsListResponse"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     },
     {
@@ -21126,6 +22164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoFormat"
+      },
+      "security": {
+        "google_dfareporting": {
+          "integration": "google_dfareporting"
+        }
       }
     }
   ]

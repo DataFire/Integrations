@@ -2,6 +2,7 @@
   "id": "apitore_designfeedsapis",
   "title": "Design feeds APIs",
   "description": "Various design feeds.<BR />[Endpoint] https://api.apitore.com/api/32",
+  "security": {},
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

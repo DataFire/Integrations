@@ -2,6 +2,28 @@
   "id": "google_mirror",
   "title": "Google Mirror",
   "description": "Interacts with Glass users via the timeline.",
+  "security": {
+    "google_mirror": {
+      "integration": "google_mirror",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/glass.location": "View your location",
+          "https://www.googleapis.com/auth/glass.timeline": "View and manage your Glass timeline"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Account": {
       "description": "Represents an account passed into the Account Manager on Glass.",
@@ -652,6 +674,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -700,6 +727,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ContactsListResponse"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -751,6 +783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -798,7 +835,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
+      }
     },
     {
       "id": "contacts.get",
@@ -847,6 +889,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -899,6 +946,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -951,6 +1003,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -999,6 +1056,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationsListResponse"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1048,6 +1110,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1097,6 +1164,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Setting"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1145,6 +1217,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionsListResponse"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1196,6 +1273,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1243,7 +1325,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
+      }
     },
     {
       "id": "subscriptions.update",
@@ -1295,6 +1382,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1375,6 +1467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimelineListResponse"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1426,6 +1523,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimelineItem"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1473,7 +1575,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
+      }
     },
     {
       "id": "timeline.get",
@@ -1522,6 +1629,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimelineItem"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1574,6 +1686,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimelineItem"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1626,6 +1743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimelineItem"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1675,6 +1797,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AttachmentsListResponse"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1724,6 +1851,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     },
     {
@@ -1775,7 +1907,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
+      }
     },
     {
       "id": "timeline.attachments.get",
@@ -1828,6 +1965,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
+      },
+      "security": {
+        "google_mirror": {
+          "integration": "google_mirror"
+        }
       }
     }
   ]

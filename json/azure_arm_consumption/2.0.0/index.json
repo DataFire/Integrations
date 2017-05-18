@@ -2,6 +2,26 @@
   "id": "azure_arm_consumption",
   "title": "ConsumptionManagementClient",
   "description": "Consumption management client provides access to consumption resources for Azure Web-Direct subscriptions. Other subscription types which were not purchased directly through the Azure web portal are not supported through this preview API.",
+  "security": {
+    "azure_arm_consumption": {
+      "integration": "azure_arm_consumption",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "ErrorDetails": {
       "description": "The details of the error.",
@@ -292,6 +312,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_consumption": {
+          "integration": "azure_arm_consumption"
+        }
       }
     },
     {
@@ -332,6 +357,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageDetailsListResult"
+      },
+      "security": {
+        "azure_arm_consumption": {
+          "integration": "azure_arm_consumption"
+        }
       }
     }
   ]

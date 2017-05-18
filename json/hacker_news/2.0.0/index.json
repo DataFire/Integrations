@@ -2,6 +2,7 @@
   "id": "hacker_news",
   "title": "Hacker News",
   "description": "Hacker News is a social news website focusing on computer science and entrepreneurship",
+  "security": {},
   "definitions": {
     "Item": {
       "properties": {

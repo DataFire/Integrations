@@ -2,6 +2,30 @@
   "id": "google_servicemanagement",
   "title": "Google Service Management",
   "description": "Google Service Management allows service producers to publish their services on Google Cloud Platform so that they can be discovered and used by service consumers.",
+  "security": {
+    "google_servicemanagement": {
+      "integration": "google_servicemanagement",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/service.management": "Manage your Google API service configuration",
+          "https://www.googleapis.com/auth/service.management.readonly": "View your Google API service configuration"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Advice": {
       "description": "Generated advice about this change, used for providing more\ninformation about how a change will affect the existing service.",
@@ -2252,6 +2276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOperationsResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2346,6 +2375,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListServicesResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2427,6 +2461,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2506,6 +2545,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2585,6 +2629,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedService"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2676,6 +2725,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Service"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2763,6 +2817,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListServiceConfigsResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2845,6 +2904,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Service"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -2936,6 +3000,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Service"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3018,6 +3087,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3105,6 +3179,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListServiceRolloutsResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3187,6 +3266,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3270,6 +3354,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Rollout"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3352,6 +3441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3434,6 +3528,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3513,6 +3612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3594,6 +3698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GenerateConfigReportResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3673,6 +3782,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3755,6 +3869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3837,6 +3956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     },
     {
@@ -3919,6 +4043,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_servicemanagement": {
+          "integration": "google_servicemanagement"
+        }
       }
     }
   ]

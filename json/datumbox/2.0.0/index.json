@@ -2,6 +2,14 @@
   "id": "datumbox",
   "title": "DatumBox",
   "description": "Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.",
+  "security": {
+    "datumbox": {
+      "integration": "datumbox",
+      "fields": {
+        "apiKey": "Your API Key"
+      }
+    }
+  },
   "actions": [
     {
       "id": "AdultContentDetection",
@@ -17,7 +25,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "CommercialDetection",
@@ -33,7 +46,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "DocumentSimilarity",
@@ -53,7 +71,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "EducationalDetection",
@@ -69,7 +92,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "GenderDetection",
@@ -85,7 +113,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "KeywordExtraction",
@@ -107,7 +140,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "LanguageDetection",
@@ -123,7 +161,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "ReadabilityAssessment",
@@ -139,7 +182,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "SentimentAnalysis",
@@ -155,7 +203,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "SpamDetection",
@@ -171,7 +224,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "SubjectivityAnalysis",
@@ -187,7 +245,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "TextExtraction",
@@ -203,7 +266,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "TopicClassification",
@@ -219,7 +287,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     },
     {
       "id": "TwitterSentimentAnalysis",
@@ -235,7 +308,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "datumbox": {
+          "integration": "datumbox"
+        }
+      }
     }
   ]
 }

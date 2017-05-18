@@ -2,6 +2,15 @@
   "id": "tfl_gov_uk",
   "title": "Transport for London Unified",
   "description": "Our unified API brings together data across all modes of transport into a single RESTful API. This API provides access to the most highly requested realtime and status infomation across all the modes of transport, in a single and consistent way. Access to the developer documentation is available at https://api.tfl.gov.uk",
+  "security": {
+    "tfl_gov_uk": {
+      "integration": "tfl_gov_uk",
+      "fields": {
+        "apiKey": "API Key Authentication",
+        "appId": "Application ID"
+      }
+    }
+  },
   "definitions": {
     "AccidentDetail": {
       "properties": {
@@ -3160,6 +3169,11 @@
           "$ref": "#/definitions/AccidentDetail"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3169,6 +3183,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3181,6 +3200,11 @@
           "$ref": "#/definitions/Place"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3202,6 +3226,11 @@
           "$ref": "#/definitions/Place"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3220,6 +3249,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Place"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3278,6 +3312,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3409,6 +3448,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ItineraryResult"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3421,6 +3465,11 @@
           "$ref": "#/definitions/Mode"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3433,6 +3482,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3445,6 +3499,11 @@
           "$ref": "#/definitions/Mode"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3457,6 +3516,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3469,6 +3533,11 @@
           "$ref": "#/definitions/StatusSeverity"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3490,6 +3559,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3511,6 +3585,11 @@
           "$ref": "#/definitions/Disruption"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3536,6 +3615,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3561,6 +3645,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3585,6 +3674,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3611,6 +3705,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteSearchResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3633,6 +3732,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3654,6 +3758,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3679,6 +3788,11 @@
           "$ref": "#/definitions/Prediction"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3713,6 +3827,11 @@
           "$ref": "#/definitions/Prediction"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3734,6 +3853,11 @@
           "$ref": "#/definitions/Disruption"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3759,6 +3883,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3784,6 +3913,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3829,6 +3963,11 @@
           "$ref": "#/definitions/Line"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3864,6 +4003,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteSequence"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3885,6 +4029,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3907,6 +4056,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimetableResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3933,6 +4087,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TimetableResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3945,6 +4104,11 @@
           "$ref": "#/definitions/ActiveServiceType"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3971,6 +4135,11 @@
           "$ref": "#/definitions/Prediction"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -3983,6 +4152,11 @@
           "$ref": "#/definitions/CarParkOccupancy"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4001,6 +4175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CarParkOccupancy"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4050,6 +4229,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4074,6 +4258,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4086,6 +4275,11 @@
           "$ref": "#/definitions/PlaceCategory"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4098,6 +4292,11 @@
           "$ref": "#/definitions/PlaceCategory"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4123,6 +4322,11 @@
           "$ref": "#/definitions/Place"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4148,6 +4352,11 @@
           "$ref": "#/definitions/Place"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4186,6 +4395,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4239,6 +4453,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4251,6 +4470,11 @@
           "$ref": "#/definitions/RoadCorridor"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4263,6 +4487,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4275,6 +4504,11 @@
           "$ref": "#/definitions/StatusSeverity"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4297,6 +4531,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RoadDisruption"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4321,6 +4560,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4342,6 +4586,11 @@
           "$ref": "#/definitions/RoadCorridor"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4379,6 +4628,11 @@
           "$ref": "#/definitions/RoadDisruption"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4408,6 +4662,11 @@
           "$ref": "#/definitions/RoadCorridor"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4426,6 +4685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4444,6 +4708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4456,6 +4725,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4468,6 +4742,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4480,6 +4759,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4527,6 +4811,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StopPointsResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4539,6 +4828,11 @@
           "$ref": "#/definitions/StopPointCategory"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4551,6 +4845,11 @@
           "$ref": "#/definitions/Mode"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4563,6 +4862,11 @@
           "type": "string"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4586,6 +4890,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StopPointsResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4611,6 +4920,11 @@
           "$ref": "#/definitions/DisruptedPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4650,6 +4964,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4689,6 +5008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4718,6 +5042,11 @@
           "$ref": "#/definitions/LineServiceType"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4740,6 +5069,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4761,6 +5095,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4786,6 +5125,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4819,6 +5163,11 @@
           "$ref": "#/definitions/DisruptedPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4840,6 +5189,11 @@
           "$ref": "#/definitions/Prediction"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4869,6 +5223,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4903,6 +5262,11 @@
           "$ref": "#/definitions/StopPoint"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4929,6 +5293,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4954,6 +5323,11 @@
           "$ref": "#/definitions/StopPointRouteSection"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -4975,6 +5349,11 @@
           "$ref": "#/definitions/Place"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -5056,6 +5435,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -5131,6 +5515,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -5149,6 +5538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EmissionsSurchargeVehicle"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     },
     {
@@ -5170,6 +5564,11 @@
           "$ref": "#/definitions/Prediction"
         },
         "type": "array"
+      },
+      "security": {
+        "tfl_gov_uk": {
+          "integration": "tfl_gov_uk"
+        }
       }
     }
   ]

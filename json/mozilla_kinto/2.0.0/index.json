@@ -2,6 +2,15 @@
   "id": "mozilla_kinto",
   "title": "kinto",
   "description": "",
+  "security": {
+    "mozilla_kinto": {
+      "integration": "mozilla_kinto",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "actions": [
     {
       "id": "server_info",
@@ -262,6 +271,11 @@
         },
         "title": "Schema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -352,6 +366,11 @@
         },
         "title": "Schema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -436,6 +455,11 @@
         },
         "title": "Schema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -512,6 +536,11 @@
         },
         "title": "Schema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -574,6 +603,11 @@
         },
         "title": "RecordSchema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -651,6 +685,11 @@
         },
         "title": "RecordSchema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -735,6 +774,11 @@
         },
         "title": "Schema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -808,6 +852,11 @@
         ],
         "title": "RecordSchema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -878,6 +927,11 @@
         },
         "title": "RecordSchema",
         "type": "object"
+      },
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
       }
     },
     {
@@ -916,7 +970,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "mozilla_kinto": {
+          "integration": "mozilla_kinto"
+        }
+      }
     }
   ]
 }

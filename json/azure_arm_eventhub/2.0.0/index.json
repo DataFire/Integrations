@@ -2,6 +2,26 @@
   "id": "azure_arm_eventhub",
   "title": "EventHubManagementClient",
   "description": "Azure Event Hubs client",
+  "security": {
+    "azure_arm_eventhub": {
+      "integration": "azure_arm_eventhub",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CheckNameAvailabilityParameter": {
       "description": "Parameter supplied to check Namespace name availability operation ",
@@ -639,6 +659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -664,6 +689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -686,6 +716,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -714,6 +749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -746,7 +786,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
+      }
     },
     {
       "id": "Namespaces_Get",
@@ -780,6 +825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -817,6 +867,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -854,6 +909,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NamespaceResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -888,6 +948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -926,7 +991,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
+      }
     },
     {
       "id": "Namespaces_GetAuthorizationRule",
@@ -966,6 +1036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1009,6 +1084,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1049,6 +1129,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1092,6 +1177,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1126,6 +1216,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1164,7 +1259,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
+      }
     },
     {
       "id": "EventHubs_Get",
@@ -1204,6 +1304,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1247,6 +1352,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1287,6 +1397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1331,7 +1446,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
+      }
     },
     {
       "id": "EventHubs_GetAuthorizationRule",
@@ -1377,6 +1497,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1426,6 +1551,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessAuthorizationRuleResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1472,6 +1602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1521,6 +1656,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListKeys"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1561,6 +1701,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConsumerGroupListResult"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1605,7 +1750,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
+      }
     },
     {
       "id": "ConsumerGroups_Get",
@@ -1651,6 +1801,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConsumerGroupResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     },
     {
@@ -1700,6 +1855,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConsumerGroupResource"
+      },
+      "security": {
+        "azure_arm_eventhub": {
+          "integration": "azure_arm_eventhub"
+        }
       }
     }
   ]

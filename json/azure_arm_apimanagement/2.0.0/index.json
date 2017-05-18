@@ -2,6 +2,26 @@
   "id": "azure_arm_apimanagement",
   "title": "ApiManagementClient",
   "description": "Use these REST APIs for performing operations on entities like API, Product, and Subscription associated with your Azure API Management deployment.",
+  "security": {
+    "azure_arm_apimanagement": {
+      "integration": "azure_arm_apimanagement",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AccessInformationContract": {
       "description": "Tenant access information contract of the API Management service.",
@@ -2521,6 +2541,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -2563,7 +2588,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Apis_Get",
@@ -2603,6 +2633,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -2648,7 +2683,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Apis_CreateOrUpdate",
@@ -2693,7 +2733,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ApiOperations_ListByApi",
@@ -2749,6 +2794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -2798,7 +2848,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ApiOperations_Get",
@@ -2845,6 +2900,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -2897,7 +2957,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ApiOperations_CreateOrUpdate",
@@ -2945,7 +3010,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ApiProducts_ListByApi",
@@ -3001,6 +3071,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3050,6 +3125,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthorizationServerCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3089,7 +3169,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "AuthorizationServers_Get",
@@ -3128,6 +3213,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OAuth2AuthorizationServerContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3170,7 +3260,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "AuthorizationServers_CreateOrUpdate",
@@ -3210,7 +3305,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Backends_ListByService",
@@ -3259,6 +3359,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3301,7 +3406,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Backends_Get",
@@ -3341,6 +3451,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackendResponse"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3386,7 +3501,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Backends_CreateOrUpdate",
@@ -3427,7 +3547,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Certificates_ListByService",
@@ -3476,6 +3601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3515,7 +3645,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Certificates_Get",
@@ -3552,6 +3687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3597,7 +3737,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Groups_ListByService",
@@ -3646,6 +3791,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3688,7 +3838,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Groups_Get",
@@ -3728,6 +3883,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3773,7 +3933,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Groups_CreateOrUpdate",
@@ -3814,7 +3979,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "GroupUsers_ListByGroup",
@@ -3870,6 +4040,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -3915,7 +4090,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "GroupUsers_Add",
@@ -3960,7 +4140,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "IdentityProviders_ListByService",
@@ -3993,6 +4178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentityProviderList"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4039,7 +4229,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "IdentityProviders_Get",
@@ -4083,6 +4278,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IdentityProviderContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4132,7 +4332,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "IdentityProviders_CreateOrUpdate",
@@ -4177,7 +4382,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Loggers_ListByService",
@@ -4226,6 +4436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoggerCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4265,7 +4480,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Loggers_Get",
@@ -4302,6 +4522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoggerResponse"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4344,7 +4569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Loggers_CreateOrUpdate",
@@ -4384,7 +4614,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "OpenIdConnectProviders_ListByService",
@@ -4433,6 +4668,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OpenIdConnectProviderCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4472,7 +4712,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "OpenIdConnectProviders_Get",
@@ -4509,6 +4754,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OpenidConnectProviderContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4551,7 +4801,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "OpenIdConnectProviders_CreateOrUpdate",
@@ -4591,7 +4846,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "PolicySnippets_ListByService",
@@ -4638,6 +4898,11 @@
           "$ref": "#/definitions/PolicySnippetContract"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4691,6 +4956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4737,7 +5007,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Products_Get",
@@ -4777,6 +5052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4822,7 +5102,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Products_CreateOrUpdate",
@@ -4863,7 +5148,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ProductApis_ListByProduct",
@@ -4919,6 +5209,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -4964,7 +5259,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ProductApis_Add",
@@ -5009,7 +5309,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ProductGroups_ListByProduct",
@@ -5065,6 +5370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5110,7 +5420,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ProductGroups_Add",
@@ -5155,7 +5470,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "ProductSubscriptions_ListByProduct",
@@ -5211,6 +5531,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5260,6 +5585,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PropertyCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5299,7 +5629,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Property_Get",
@@ -5336,6 +5671,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PropertyContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5378,7 +5718,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Property_CreateOrUpdate",
@@ -5418,7 +5763,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "QuotaByCounterKeys_ListByService",
@@ -5455,6 +5805,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QuotaCounterCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5493,7 +5848,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "QuotaByPeriodKeys_Get",
@@ -5534,6 +5894,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QuotaCounterContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5576,7 +5941,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Regions_ListByService",
@@ -5609,6 +5979,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RegionListResult"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5675,6 +6050,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5724,6 +6104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5763,7 +6148,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Subscriptions_Get",
@@ -5800,6 +6190,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -5842,7 +6237,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Subscriptions_CreateOrUpdate",
@@ -5883,7 +6283,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Subscriptions_RegeneratePrimaryKey",
@@ -5918,7 +6323,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Subscriptions_RegenerateSecondaryKey",
@@ -5953,7 +6363,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantAccess_Get",
@@ -5986,6 +6401,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessInformationContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6024,7 +6444,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantAccessGit_Get",
@@ -6057,6 +6482,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessInformationContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6088,7 +6518,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantAccessGit_RegenerateSecondaryKey",
@@ -6119,7 +6554,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantAccess_RegeneratePrimaryKey",
@@ -6150,7 +6590,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantAccess_RegenerateSecondaryKey",
@@ -6181,7 +6626,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "TenantConfiguration_Deploy",
@@ -6217,6 +6667,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationResultContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6253,6 +6708,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationResultContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6286,6 +6746,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TenantConfigurationSyncStateContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6322,6 +6787,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationResultContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6371,6 +6841,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6417,7 +6892,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Users_Get",
@@ -6457,6 +6937,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContract"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6502,7 +6987,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Users_CreateOrUpdate",
@@ -6543,7 +7033,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
+      }
     },
     {
       "id": "Users_GenerateSsoUrl",
@@ -6584,6 +7079,11 @@
       "outputSchema": {
         "$ref": "#/definitions/GenerateSsoUrlResult",
         "x-ms-client-flatten": true
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6640,6 +7140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6683,6 +7188,11 @@
           "$ref": "#/definitions/UserIdentityContract"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     },
     {
@@ -6739,6 +7249,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionCollection"
+      },
+      "security": {
+        "azure_arm_apimanagement": {
+          "integration": "azure_arm_apimanagement"
+        }
       }
     }
   ]

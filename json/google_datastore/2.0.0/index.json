@@ -2,6 +2,28 @@
   "id": "google_datastore",
   "title": "Google Cloud Datastore",
   "description": "Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.\n",
+  "security": {
+    "google_datastore": {
+      "integration": "google_datastore",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/datastore": "View and manage your Google Cloud Datastore data"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AllocateIdsRequest": {
       "description": "The request for Datastore.AllocateIds.",
@@ -782,6 +804,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AllocateIdsResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     },
     {
@@ -864,6 +891,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BeginTransactionResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     },
     {
@@ -946,6 +978,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     },
     {
@@ -1028,6 +1065,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LookupResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     },
     {
@@ -1110,6 +1152,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RollbackResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     },
     {
@@ -1192,6 +1239,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RunQueryResponse"
+      },
+      "security": {
+        "google_datastore": {
+          "integration": "google_datastore"
+        }
       }
     }
   ]

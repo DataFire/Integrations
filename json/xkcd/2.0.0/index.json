@@ -2,6 +2,12 @@
   "id": "xkcd",
   "title": "XKCD",
   "description": "Webcomic of romance, sarcasm, math, and language.",
+  "security": {
+    "xkcd": {
+      "integration": "xkcd",
+      "fields": {}
+    }
+  },
   "definitions": {
     "comic": {
       "properties": {
@@ -50,6 +56,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/comic"
+      },
+      "security": {
+        "xkcd": {
+          "integration": "xkcd"
+        }
       }
     },
     {
@@ -67,6 +78,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comic"
+      },
+      "security": {
+        "xkcd": {
+          "integration": "xkcd"
+        }
       }
     }
   ]

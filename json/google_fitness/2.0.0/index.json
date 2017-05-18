@@ -2,6 +2,44 @@
   "id": "google_fitness",
   "title": "Fitness",
   "description": "Stores and accesses user data in the fitness store from apps on any platform.",
+  "security": {
+    "google_fitness": {
+      "integration": "google_fitness",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/fitness.activity.read": "View your activity information in Google Fit",
+          "https://www.googleapis.com/auth/fitness.activity.write": "View and store your activity information in Google Fit",
+          "https://www.googleapis.com/auth/fitness.blood_glucose.read": "View blood glucose data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.blood_glucose.write": "View and store blood glucose data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.blood_pressure.read": "View blood pressure data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.blood_pressure.write": "View and store blood pressure data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.body.read": "View body sensor information in Google Fit",
+          "https://www.googleapis.com/auth/fitness.body.write": "View and store body sensor data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.body_temperature.read": "View body temperature data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.body_temperature.write": "View and store body temperature data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.location.read": "View your stored location data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.location.write": "View and store your location data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.nutrition.read": "View nutrition information in Google Fit",
+          "https://www.googleapis.com/auth/fitness.nutrition.write": "View and store nutrition information in Google Fit",
+          "https://www.googleapis.com/auth/fitness.oxygen_saturation.read": "View oxygen saturation data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.oxygen_saturation.write": "View and store oxygen saturation data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.reproductive_health.read": "View reproductive health data in Google Fit",
+          "https://www.googleapis.com/auth/fitness.reproductive_health.write": "View and store reproductive health data in Google Fit"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AggregateBucket": {
       "properties": {
@@ -609,6 +647,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDataSourcesResponse"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -661,6 +704,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -714,6 +762,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -767,6 +820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -823,6 +881,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -879,6 +942,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -942,7 +1010,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
+      }
     },
     {
       "id": "users.dataSources.datasets.get",
@@ -1007,6 +1080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -1071,6 +1149,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -1123,6 +1206,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AggregateResponse"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -1188,6 +1276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSessionsResponse"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     },
     {
@@ -1243,7 +1336,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
+      }
     },
     {
       "id": "users.sessions.update",
@@ -1303,6 +1401,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
       }
     }
   ]

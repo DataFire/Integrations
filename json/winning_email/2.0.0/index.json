@@ -2,6 +2,14 @@
   "id": "winning_email",
   "title": "Winning Email",
   "description": "The Winning Email API allows you to access our services from your applications. Contact us if you need help with anything, or require access to something we don't yet offer. The API overview is available <a href='/api/v1/docs' target='_blank'>here</a>.",
+  "security": {
+    "winning_email": {
+      "integration": "winning_email",
+      "fields": {
+        "internalApiKey": "API key"
+      }
+    }
+  },
   "definitions": {
     "ErrorModel": {
       "properties": {
@@ -301,6 +309,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
       }
     },
     {
@@ -324,6 +337,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
       }
     },
     {
@@ -345,6 +363,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "winning_email": {
+          "integration": "winning_email"
+        }
       }
     }
   ]

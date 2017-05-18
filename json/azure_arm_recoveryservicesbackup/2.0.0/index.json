@@ -2,6 +2,26 @@
   "id": "azure_arm_recoveryservicesbackup",
   "title": "RecoveryServicesBackupClient",
   "description": "",
+  "security": {
+    "azure_arm_recoveryservicesbackup": {
+      "integration": "azure_arm_recoveryservicesbackup",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account."
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AzureBackupServerEngine": {
       "allOf": [
@@ -2714,6 +2734,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupEngineBaseResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -2750,7 +2775,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ProtectionContainers_Get",
@@ -2788,6 +2818,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -2830,6 +2865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -2870,7 +2910,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ProtectedItems_Get",
@@ -2916,6 +2961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -2959,7 +3009,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "Backups_Trigger",
@@ -3002,7 +3057,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ProtectedItemOperationResults_Get",
@@ -3048,6 +3108,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3094,6 +3159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3140,6 +3210,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RecoveryPointResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3186,6 +3261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RecoveryPointResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3233,7 +3313,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "Restores_Trigger",
@@ -3280,7 +3365,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ItemLevelRecoveryConnections_Revoke",
@@ -3324,7 +3414,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ProtectionContainers_Refresh",
@@ -3356,7 +3451,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "Jobs_List",
@@ -3394,6 +3494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3428,6 +3533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationResultInfoBaseResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3462,6 +3572,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3494,7 +3609,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "JobOperationResults_Get",
@@ -3530,7 +3650,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "Jobs_Export",
@@ -3562,7 +3687,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "BackupOperationResults_Get",
@@ -3594,7 +3724,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "BackupOperationStatuses_Get",
@@ -3628,6 +3763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3662,6 +3802,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3694,7 +3839,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
+      }
     },
     {
       "id": "ProtectionPolicies_Get",
@@ -3728,6 +3878,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3765,6 +3920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3803,6 +3963,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3841,6 +4006,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3879,6 +4049,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkloadProtectableItemResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3917,6 +4092,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     },
     {
@@ -3951,6 +4131,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResourceList"
+      },
+      "security": {
+        "azure_arm_recoveryservicesbackup": {
+          "integration": "azure_arm_recoveryservicesbackup"
+        }
       }
     }
   ]

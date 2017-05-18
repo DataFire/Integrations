@@ -2,6 +2,26 @@
   "id": "azure_arm_analysisservices",
   "title": "AzureAnalysisServices",
   "description": "The Azure Analysis Services Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Analysis Services servers",
+  "security": {
+    "azure_arm_analysisservices": {
+      "integration": "azure_arm_analysisservices",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AnalysisServicesServer": {
       "allOf": [
@@ -269,6 +289,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisServicesServers"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
       }
     },
     {
@@ -298,6 +323,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisServicesServers"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
       }
     },
     {
@@ -332,7 +362,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
     },
     {
       "id": "Servers_GetDetails",
@@ -368,6 +403,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
       }
     },
     {
@@ -407,6 +447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
       }
     },
     {
@@ -446,6 +491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalysisServicesServer"
+      },
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
       }
     },
     {
@@ -480,7 +530,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
     },
     {
       "id": "Servers_Suspend",
@@ -514,7 +569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_analysisservices": {
+          "integration": "azure_arm_analysisservices"
+        }
+      }
     }
   ]
 }

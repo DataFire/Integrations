@@ -2,6 +2,26 @@
   "id": "azure_arm_servicefabric",
   "title": "ServiceFabricManagementClient",
   "description": "",
+  "security": {
+    "azure_arm_servicefabric": {
+      "integration": "azure_arm_servicefabric",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AvailableOperationDisplay": {
       "description": "Operation supported by ServiceFabric resource provider",
@@ -780,6 +800,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -802,6 +827,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClusterListResult"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -837,6 +867,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClusterCodeVersionsListResult"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -865,7 +900,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
+      }
     },
     {
       "id": "Clusters_Get",
@@ -895,6 +935,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Cluster"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -928,6 +973,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Cluster"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -961,6 +1011,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Cluster"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     },
     {
@@ -987,6 +1042,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClusterListResult"
+      },
+      "security": {
+        "azure_arm_servicefabric": {
+          "integration": "azure_arm_servicefabric"
+        }
       }
     }
   ]

@@ -2,6 +2,7 @@
   "id": "azure_arm_containerregistry",
   "title": "ContainerRegistryManagementClient",
   "description": "",
+  "security": {},
   "definitions": {
     "Registry": {
       "allOf": [

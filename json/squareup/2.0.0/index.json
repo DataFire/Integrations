@@ -2,6 +2,40 @@
   "id": "squareup",
   "title": "Square Connect",
   "description": "Client library for accessing the Square Connect APIs",
+  "security": {
+    "squareup": {
+      "integration": "squareup",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://connect.squareup.com/oauth2/authorize?<PARAMETERS>",
+        "flow": "accessCode",
+        "scopes": {
+          "BANK_ACCOUNTS_READ": "GET endpoints related to a merchant's bank accounts",
+          "CUSTOMERS_READ": " GET endpoints related to customer management",
+          "CUSTOMERS_WRITE": "POST, PUT, and DELETE endpoints related to customer management",
+          "EMPLOYEES_READ": "GET endpoints related to employee management",
+          "EMPLOYEES_WRITE": "POST, PUT, and DELETE endpoints related to employee management",
+          "ITEMS_READ": "GET endpoints related to a merchant's item library",
+          "ITEMS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's item library",
+          "MERCHANT_PROFILE_READ": "GET endpoints related to a merchant's business and location entities. Almost all Connect API applications need this permission in order to obtain a merchant's location IDs",
+          "ORDERS_READ": "GET endpoints related to a merchant's Square online store.",
+          "ORDERS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's Square online store",
+          "PAYMENTS_READ": "GET endpoints related to transactions and refunds",
+          "PAYMENTS_WRITE": "POST, PUT, and DELETE endpoints related to transactions and refunds. E-commerce applications must request this permission",
+          "SETTLEMENTS_READ": "GET endpoints related to settlements (deposits)",
+          "TIMECARDS_READ": "GET endpoints related to employee timecards",
+          "TIMECARDS_WRITE": "POST, PUT, and DELETE endpoints related to employee timecards"
+        },
+        "tokenUrl": "https://connect.squareup.com/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "description": "Represents a physical address.",
@@ -3142,6 +3176,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCustomersResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3163,6 +3202,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3185,6 +3229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3207,6 +3256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3232,6 +3286,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3257,6 +3316,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCustomerCardResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3283,6 +3347,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteCustomerCardResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3301,6 +3370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLocationsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3326,6 +3400,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCheckoutResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3368,6 +3447,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRefundsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3410,6 +3494,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTransactionsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3435,6 +3524,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChargeResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3461,6 +3555,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3487,6 +3586,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CaptureTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3516,6 +3620,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateRefundResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     },
     {
@@ -3542,6 +3651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VoidTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
       }
     }
   ]

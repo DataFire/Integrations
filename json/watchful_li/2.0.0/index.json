@@ -2,6 +2,7 @@
   "id": "watchful_li",
   "title": "watchful.li",
   "description": "",
+  "security": {},
   "definitions": {
     "Audit": {
       "properties": {

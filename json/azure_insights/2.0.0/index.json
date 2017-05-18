@@ -2,6 +2,7 @@
   "id": "azure_insights",
   "title": "InsightsClient",
   "description": "",
+  "security": {},
   "definitions": {
     "LocalizableString": {
       "description": "The localizable string class.",

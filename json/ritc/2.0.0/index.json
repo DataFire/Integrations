@@ -2,6 +2,14 @@
   "id": "ritc",
   "title": "Ritc",
   "description": "Rules in the Cloud",
+  "security": {
+    "ritc": {
+      "integration": "ritc",
+      "fields": {
+        "Authorization": "HTTP Basic Authentication/API Key. Basic Auth requires a username and a password. For the username, use a valid API key. Ritc accepts the API key as both plaintext and base64 encoded. Remember that you must append a colon after the api key in order to avoid being prompted for a password. The format is Base64encode(api-key:)"
+      }
+    }
+  },
   "definitions": {
     "Action": {
       "properties": {
@@ -1036,6 +1044,11 @@
           "$ref": "#/definitions/ActionShortResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1053,6 +1066,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1069,7 +1087,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getAction",
@@ -1090,6 +1113,11 @@
           "$ref": "#/definitions/ActionFullResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1111,6 +1139,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1120,6 +1153,11 @@
       "inputSchema": {},
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1137,6 +1175,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1146,6 +1189,11 @@
       "inputSchema": {},
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1158,6 +1206,11 @@
           "$ref": "#/definitions/AppResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1175,6 +1228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1187,6 +1245,11 @@
           "$ref": "#/definitions/AppChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1208,6 +1271,11 @@
           "$ref": "#/definitions/AppChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1233,6 +1301,11 @@
           "$ref": "#/definitions/AppChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1255,6 +1328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1267,6 +1345,11 @@
           "$ref": "#/definitions/AppExternalCredentialsResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1284,6 +1367,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppExternalCredentialsResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1300,7 +1388,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getChannelExternalCredentials",
@@ -1321,6 +1414,11 @@
           "$ref": "#/definitions/AppExternalCredentialsResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1342,6 +1440,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppExternalCredentialsResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1370,6 +1473,11 @@
           "$ref": "#/definitions/RuleResults"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1397,6 +1505,11 @@
           "$ref": "#/definitions/RuleResults"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1413,7 +1526,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getApp",
@@ -1434,6 +1552,11 @@
           "$ref": "#/definitions/AppResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1455,6 +1578,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1467,6 +1595,11 @@
           "$ref": "#/definitions/ChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1484,6 +1617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1496,6 +1634,11 @@
           "$ref": "#/definitions/ChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1512,7 +1655,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getChannel",
@@ -1533,6 +1681,11 @@
           "$ref": "#/definitions/ChannelResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1554,6 +1707,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1575,6 +1733,11 @@
           "$ref": "#/definitions/FunctionResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1596,6 +1759,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1621,6 +1789,11 @@
           "$ref": "#/definitions/FunctionResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1641,6 +1814,11 @@
           "$ref": "#/definitions/OrgResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1653,6 +1831,11 @@
           "$ref": "#/definitions/OrgResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1665,6 +1848,11 @@
           "$ref": "#/definitions/RuleShortResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1682,6 +1870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleFullResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1698,7 +1891,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getRule",
@@ -1719,6 +1917,11 @@
           "$ref": "#/definitions/RuleFullResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1740,6 +1943,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleFullResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1761,6 +1969,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1773,6 +1986,11 @@
           "$ref": "#/definitions/TriggerShortResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1790,6 +2008,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1806,7 +2029,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getTrigger",
@@ -1827,6 +2055,11 @@
           "$ref": "#/definitions/TriggerFullResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1848,6 +2081,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1860,6 +2098,11 @@
           "$ref": "#/definitions/AppUserResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1877,6 +2120,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1889,6 +2137,11 @@
           "$ref": "#/definitions/AdminUserResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1906,6 +2159,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1922,7 +2180,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getAdminUser",
@@ -1943,6 +2206,11 @@
           "$ref": "#/definitions/AdminUserResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1964,6 +2232,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -1989,6 +2262,11 @@
           "$ref": "#/definitions/AuthorizeUrlResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2005,7 +2283,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getAppUser",
@@ -2026,6 +2309,11 @@
           "$ref": "#/definitions/AppUserResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2047,6 +2335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AppUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2068,6 +2361,11 @@
           "$ref": "#/definitions/UserChannel"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2089,6 +2387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UserChannel"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2109,7 +2412,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getAppUserChannel",
@@ -2134,6 +2442,11 @@
           "$ref": "#/definitions/UserChannel"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2155,6 +2468,11 @@
           "$ref": "#/definitions/RuleShortResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2175,7 +2493,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
     },
     {
       "id": "getAppUserRule",
@@ -2200,6 +2523,11 @@
           "$ref": "#/definitions/RuleFullResponse"
         },
         "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2222,6 +2550,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     },
     {
@@ -2244,6 +2577,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
       }
     }
   ]

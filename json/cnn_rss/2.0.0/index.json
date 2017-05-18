@@ -2,6 +2,7 @@
   "id": "cnn_rss",
   "title": "rss.cnn.com",
   "description": "",
+  "security": {},
   "actions": [
     {
       "id": "topStories",

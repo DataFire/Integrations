@@ -2,6 +2,14 @@
   "id": "import_schedule",
   "title": "import.io",
   "description": "",
+  "security": {
+    "import_schedule": {
+      "integration": "import_schedule",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
   "definitions": {
     "APIError": {
       "properties": {
@@ -202,6 +210,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "import_schedule": {
+          "integration": "import_schedule"
+        }
       }
     },
     {
@@ -219,6 +232,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "import_schedule": {
+          "integration": "import_schedule"
+        }
       }
     },
     {
@@ -235,7 +253,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "import_schedule": {
+          "integration": "import_schedule"
+        }
+      }
     },
     {
       "id": "extractor.extractorId.get",
@@ -253,6 +276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
+      },
+      "security": {
+        "import_schedule": {
+          "integration": "import_schedule"
+        }
       }
     }
   ]

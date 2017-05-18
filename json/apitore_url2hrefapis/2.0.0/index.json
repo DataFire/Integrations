@@ -2,6 +2,7 @@
   "id": "apitore_url2hrefapis",
   "title": "Url2Href APIs",
   "description": "Url to Href links.<BR />[Endpoint] https://api.apitore.com/api/14",
+  "security": {},
   "definitions": {
     "LinkResponseEntity": {
       "properties": {

@@ -2,6 +2,14 @@
   "id": "nytimes_community",
   "title": "Community",
   "description": "Get access to comments from registered users on New York Times articles.",
+  "security": {
+    "nytimes_community": {
+      "integration": "nytimes_community",
+      "fields": {
+        "api-key": "API key"
+      }
+    }
+  },
   "definitions": {},
   "actions": [
     {
@@ -136,6 +144,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
       }
     },
     {
@@ -348,6 +361,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
       }
     },
     {
@@ -542,6 +560,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
       }
     },
     {
@@ -791,6 +814,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_community": {
+          "integration": "nytimes_community"
+        }
       }
     }
   ]

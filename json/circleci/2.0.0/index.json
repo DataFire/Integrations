@@ -2,6 +2,14 @@
   "id": "circleci",
   "title": "CircleCI",
   "description": "The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI.\nYou can access all information and trigger all actions.\nThe only thing we don’t provide access to is billing functions, which must be done from the CircleCI web UI.\n",
+  "security": {
+    "circleci": {
+      "integration": "circleci",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "definitions": {
     "Artifact": {
       "properties": {
@@ -722,6 +730,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -763,6 +776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Builds"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -802,6 +820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildSummary"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -829,6 +852,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -851,6 +879,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Keys"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -880,6 +913,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -914,6 +952,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -940,6 +983,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -962,6 +1010,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvars"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -984,6 +1037,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvar"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1018,6 +1076,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1044,6 +1107,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvar"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1088,6 +1156,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1128,6 +1201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1154,6 +1232,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildDetail"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1180,6 +1263,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Artifacts"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1206,6 +1294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1232,6 +1325,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1258,6 +1356,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Tests"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1267,6 +1370,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Projects"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1293,6 +1401,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Builds"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     },
     {
@@ -1307,6 +1420,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
       }
     }
   ]

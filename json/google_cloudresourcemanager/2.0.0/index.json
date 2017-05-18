@@ -2,6 +2,28 @@
   "id": "google_cloudresourcemanager",
   "title": "Google Cloud Resource Manager",
   "description": "The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.",
+  "security": {
+    "google_cloudresourcemanager": {
+      "integration": "google_cloudresourcemanager",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Ancestor": {
       "description": "Identifying information for a single ancestor of a project.",
@@ -847,6 +869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLiensResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -928,6 +955,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Lien"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1009,6 +1041,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchOrganizationsResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1099,6 +1136,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListProjectsResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1180,6 +1222,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1259,6 +1306,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1338,6 +1390,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1420,6 +1477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1502,6 +1564,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAncestryResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1584,6 +1651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1666,6 +1738,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1748,6 +1825,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1830,6 +1912,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1909,6 +1996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -1988,6 +2080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2070,6 +2167,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2152,6 +2254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrgPolicy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2234,6 +2341,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2316,6 +2428,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrgPolicy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2398,6 +2515,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAvailableOrgPolicyConstraintsResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2480,6 +2602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOrgPoliciesResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2562,6 +2689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2644,6 +2776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OrgPolicy"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     },
     {
@@ -2726,6 +2863,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
+      },
+      "security": {
+        "google_cloudresourcemanager": {
+          "integration": "google_cloudresourcemanager"
+        }
       }
     }
   ]

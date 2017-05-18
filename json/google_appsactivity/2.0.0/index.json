@@ -2,6 +2,31 @@
   "id": "google_appsactivity",
   "title": "G Suite Activity",
   "description": "Provides a historical view of activity.",
+  "security": {
+    "google_appsactivity": {
+      "integration": "google_appsactivity",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/activity": "View the activity history of your Google apps",
+          "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Activity": {
       "description": "An Activity resource is a combined view of multiple events. An activity has a list of individual events and a combined view of the common fields among all events.",
@@ -360,6 +385,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListActivitiesResponse"
+      },
+      "security": {
+        "google_appsactivity": {
+          "integration": "google_appsactivity"
+        }
       }
     }
   ]

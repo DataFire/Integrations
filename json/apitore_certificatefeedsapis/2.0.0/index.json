@@ -2,6 +2,7 @@
   "id": "apitore_certificatefeedsapis",
   "title": "Certificate feeds APIs",
   "description": "Various certificate feeds.<BR />[Endpoint] https://api.apitore.com/api/31",
+  "security": {},
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

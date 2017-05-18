@@ -2,6 +2,36 @@
   "id": "google_plusdomains",
   "title": "Google+ Domains",
   "description": "Builds on top of the Google+ platform for Google Apps Domains.",
+  "security": {
+    "google_plusdomains": {
+      "integration": "google_plusdomains",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/plus.circles.read": "View your circles and the people and pages in them",
+          "https://www.googleapis.com/auth/plus.circles.write": "Manage your circles and add people and pages. People and pages you add to your circles will be notified. Others may see this information publicly. People you add to circles can use Hangouts with you.",
+          "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
+          "https://www.googleapis.com/auth/plus.me": "Know who you are on Google",
+          "https://www.googleapis.com/auth/plus.media.upload": "Send your photos and videos to Google+",
+          "https://www.googleapis.com/auth/plus.profiles.read": "View your own Google+ profile and profiles visible to you",
+          "https://www.googleapis.com/auth/plus.stream.read": "View your Google+ posts, comments, and stream",
+          "https://www.googleapis.com/auth/plus.stream.write": "Manage your Google+ posts, comments, and stream",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address",
+          "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Acl": {
       "properties": {
@@ -1416,6 +1446,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Activity"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1483,6 +1518,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1535,6 +1575,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1603,6 +1648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PeopleFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1650,7 +1700,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
+      }
     },
     {
       "id": "circles.get",
@@ -1699,6 +1754,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Circle"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1751,6 +1811,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Circle"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1803,6 +1868,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Circle"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1858,7 +1928,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
+      }
     },
     {
       "id": "people.listByCircle",
@@ -1917,6 +1992,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PeopleFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -1974,6 +2054,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Circle"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2023,6 +2108,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2072,6 +2162,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2128,6 +2223,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Activity"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2194,6 +2294,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ActivityFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2253,6 +2358,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AudiencesFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2312,6 +2422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CircleFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2364,6 +2479,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Circle"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2422,6 +2542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Media"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     },
     {
@@ -2496,6 +2621,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PeopleFeed"
+      },
+      "security": {
+        "google_plusdomains": {
+          "integration": "google_plusdomains"
+        }
       }
     }
   ]

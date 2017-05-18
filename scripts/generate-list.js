@@ -41,6 +41,7 @@ function addDirToList(dir) {
       id: name,
       title: integ.title,
       description: integ.description,
+      security: integ.security,
     };
     let details = Object.assign({}, list[name]);
     list[name].description = truncateDescription(list[name].description);
@@ -53,6 +54,10 @@ function addDirToList(dir) {
         description: action.description,
         inputSchema: Object.assign({definitions: null}, action.inputSchema),
         outputSchema: Object.assign({definitions: null}, action.outputSchema),
+      }
+      if (action.security && action.security[name]) {
+        actionDetails.security = {};
+        actionDetails.security[name] = {integration: name};
       }
       delete actionDetails.inputSchema.definitions;
       delete actionDetails.outputSchema.definitions;

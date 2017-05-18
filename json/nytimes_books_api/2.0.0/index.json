@@ -2,6 +2,14 @@
   "id": "nytimes_books_api",
   "title": "Books",
   "description": "The Books API provides information about book reviews and The New York Times bestsellers lists.",
+  "security": {
+    "nytimes_books_api": {
+      "integration": "nytimes_books_api",
+      "fields": {
+        "api-key": "API key"
+      }
+    }
+  },
   "definitions": {},
   "actions": [
     {
@@ -193,6 +201,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     },
     {
@@ -356,6 +369,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     },
     {
@@ -417,6 +435,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     },
     {
@@ -537,6 +560,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     },
     {
@@ -729,6 +757,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     },
     {
@@ -808,6 +841,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "nytimes_books_api": {
+          "integration": "nytimes_books_api"
+        }
       }
     }
   ]

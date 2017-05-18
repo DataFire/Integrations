@@ -2,6 +2,15 @@
   "id": "geodesystems",
   "title": "RAMADDA",
   "description": "Search for data in lots of places - manage your documents, photos and critical business knowledge - communicate and coordinate with blogs, interactive wikis, and data integration dashboards.",
+  "security": {
+    "geodesystems": {
+      "integration": "geodesystems",
+      "fields": {
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "actions": [
     {
       "id": "gps.teqc.qc",
@@ -21,7 +30,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_beforeafter",
@@ -114,7 +128,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_biblio",
@@ -227,7 +246,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_dicom",
@@ -320,7 +344,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_dicom_test",
@@ -421,7 +450,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_fasta",
@@ -514,7 +548,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_fastq",
@@ -607,7 +646,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_hmmer_index",
@@ -700,7 +744,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ome_tiff",
@@ -793,7 +842,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_assay",
@@ -886,7 +940,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_cohort",
@@ -979,7 +1038,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_person",
@@ -1076,7 +1140,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_sample",
@@ -1169,7 +1238,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_series",
@@ -1262,7 +1336,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_ontology_study",
@@ -1355,7 +1434,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_sam",
@@ -1448,7 +1532,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_sf_pdb",
@@ -1541,7 +1630,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_sra",
@@ -1634,7 +1728,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_stockholm",
@@ -1727,7 +1826,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bio_taxonomy",
@@ -1840,7 +1944,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_blogentry",
@@ -1937,7 +2046,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_bookmarks",
@@ -2046,7 +2160,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_boulder_county_voter_details",
@@ -2211,7 +2330,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_calendar",
@@ -2304,7 +2428,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_cdm_grid",
@@ -2397,7 +2526,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_community_case",
@@ -2506,7 +2640,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_community_datahub",
@@ -2599,7 +2738,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_community_resource",
@@ -2712,7 +2856,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_contact",
@@ -2817,7 +2966,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_db_co_indicators",
@@ -2939,7 +3093,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_earth_merra",
@@ -3056,7 +3215,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_earth_satellite_landsat",
@@ -3173,7 +3337,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_earth_satellite_modis_aqua",
@@ -3270,7 +3439,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_earth_wrf_namelist",
@@ -3363,7 +3537,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_exercise",
@@ -3464,7 +3643,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_faq",
@@ -3557,7 +3741,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_feed",
@@ -3650,7 +3839,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_file",
@@ -3743,7 +3937,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_fits_data",
@@ -3848,7 +4047,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_frames",
@@ -3941,7 +4145,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_ftp",
@@ -4034,7 +4243,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gadgets_clock",
@@ -4127,7 +4341,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gadgets_countdown",
@@ -4220,7 +4439,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gadgets_stock",
@@ -4313,7 +4537,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gadgets_weather",
@@ -4406,7 +4635,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gdata_docs",
@@ -4499,7 +4733,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gdata_photos",
@@ -4592,7 +4831,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_geo_geotiff",
@@ -4685,7 +4929,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_geo_gpx",
@@ -4778,7 +5027,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_geo_hdf5",
@@ -4871,7 +5125,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_geo_kml",
@@ -4964,7 +5223,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_geo_shapefile",
@@ -5057,7 +5321,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_glossary",
@@ -5150,7 +5419,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_gridaggregation",
@@ -5243,7 +5517,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_group",
@@ -5336,7 +5615,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_hipchat_group",
@@ -5429,7 +5713,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_homepage",
@@ -5522,7 +5811,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_incident",
@@ -5627,7 +5921,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_incident_basement",
@@ -5740,7 +6039,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_case",
@@ -5833,7 +6137,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_cellphonelog",
@@ -5979,7 +6288,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_event",
@@ -6072,7 +6386,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_oldphonelog",
@@ -6209,7 +6528,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_person",
@@ -6302,7 +6626,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_investigation_thing",
@@ -6395,7 +6724,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_latlonimage",
@@ -6488,7 +6822,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_lidar_collection",
@@ -6581,7 +6920,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_lidar_glas",
@@ -6674,7 +7018,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_lidar_las",
@@ -6767,7 +7116,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_lidar_lvis",
@@ -6860,7 +7214,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_link",
@@ -6953,7 +7312,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_localfiles",
@@ -7046,7 +7410,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_locations",
@@ -7151,7 +7520,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_map_googlemap",
@@ -7244,7 +7618,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_audiofile",
@@ -7337,7 +7716,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_imageloop",
@@ -7430,7 +7814,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_photoalbum",
@@ -7523,7 +7912,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_video_channel",
@@ -7616,7 +8010,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_video_quicktime",
@@ -7709,7 +8108,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_media_youtubevideo",
@@ -7802,7 +8206,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_multisearch",
@@ -7895,7 +8304,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_nga_tracks",
@@ -8000,7 +8414,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_notes",
@@ -8093,7 +8512,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_notes_note",
@@ -8186,7 +8610,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_opendaplink",
@@ -8279,7 +8708,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_owl.class",
@@ -8372,7 +8806,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_owl.ontology",
@@ -8465,7 +8904,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_pasteitentry",
@@ -8558,7 +9002,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_point_text",
@@ -8651,7 +9100,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_poll",
@@ -8744,7 +9198,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_campaign",
@@ -8837,7 +9296,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_casestudy",
@@ -8938,7 +9402,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_contribution",
@@ -9031,7 +9500,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_dataformat",
@@ -9132,7 +9606,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_dataset",
@@ -9237,7 +9716,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_deployment",
@@ -9330,7 +9814,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_experiment",
@@ -9423,7 +9912,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_fieldnote",
@@ -9516,7 +10010,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_gps_controlpoints",
@@ -9609,7 +10108,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_gps_raw",
@@ -9702,7 +10206,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_gps_rinex",
@@ -9795,7 +10304,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_instrument",
@@ -9888,7 +10402,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_learning_resource",
@@ -9989,7 +10508,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_meeting",
@@ -10094,7 +10618,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_organization",
@@ -10195,7 +10724,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_program",
@@ -10288,7 +10822,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_project",
@@ -10381,7 +10920,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_service",
@@ -10482,7 +11026,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_site",
@@ -10603,7 +11152,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_softwarepackage",
@@ -10724,7 +11278,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_standard_name",
@@ -10825,7 +11384,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_surveylocation",
@@ -10918,7 +11482,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_term",
@@ -11015,7 +11584,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_visit",
@@ -11108,7 +11682,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_project_vocabulary",
@@ -11201,7 +11780,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_property_sales",
@@ -11343,7 +11927,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_propertydb",
@@ -11486,7 +12075,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_python_notebook",
@@ -11579,7 +12173,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_registrations",
@@ -11720,7 +12319,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_slack_team",
@@ -11813,7 +12417,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_statusboard",
@@ -11914,7 +12523,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_tasks",
@@ -12036,7 +12650,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_todo",
@@ -12141,7 +12760,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_trip_event",
@@ -12234,7 +12858,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_trip_flight",
@@ -12327,7 +12956,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_trip_hotel",
@@ -12420,7 +13054,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_trip_report",
@@ -12513,7 +13152,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_trip_trip",
@@ -12606,7 +13250,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_artists_space",
@@ -12715,7 +13364,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_awc_metar",
@@ -12812,7 +13466,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_awhere_farm",
@@ -12905,7 +13564,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_awhere_field",
@@ -12998,7 +13662,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_biz_stockseries",
@@ -13091,7 +13760,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_census_acs",
@@ -13200,7 +13874,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_db_table",
@@ -13293,7 +13972,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_csv",
@@ -13386,7 +14070,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_doc",
@@ -13479,7 +14168,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_html",
@@ -13572,7 +14266,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_pdf",
@@ -13665,7 +14364,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_ppt",
@@ -13758,7 +14462,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_document_xls",
@@ -13851,7 +14560,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_drilsdown_casestudy",
@@ -13944,7 +14658,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_edgar_filing",
@@ -14061,7 +14780,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_eia_category",
@@ -14154,7 +14878,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_eia_series",
@@ -14247,7 +14976,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_featureserver",
@@ -14340,7 +15074,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_geometryserver",
@@ -14433,7 +15172,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_gpserver",
@@ -14526,7 +15270,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_imageserver",
@@ -14619,7 +15368,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_layer",
@@ -14716,7 +15470,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_mapserver",
@@ -14809,7 +15568,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_restfolder",
@@ -14902,7 +15666,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_restserver",
@@ -14995,7 +15764,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_esri_restservice",
@@ -15088,7 +15862,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_fred_category",
@@ -15181,7 +15960,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_fred_series",
@@ -15274,7 +16058,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_agency",
@@ -15367,7 +16156,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_route",
@@ -15468,7 +16262,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_routes",
@@ -15561,7 +16360,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_stop",
@@ -15674,7 +16478,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_stops",
@@ -15767,7 +16576,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_gtfs_trip",
@@ -15872,7 +16686,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_hazarddata",
@@ -15969,7 +16788,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_hydro_colorado",
@@ -16066,7 +16890,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_idv_bundle",
@@ -16159,7 +16988,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_image",
@@ -16252,7 +17086,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_image_airport",
@@ -16345,7 +17184,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_mb",
@@ -16438,7 +17282,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_mb_collection",
@@ -16531,7 +17380,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_mb_point_basic",
@@ -16624,7 +17478,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_metameta_collection",
@@ -16717,7 +17576,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_metameta_dictionary",
@@ -16842,7 +17706,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_metameta_field",
@@ -16967,7 +17836,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_nist_constant",
@@ -17064,7 +17938,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_nist_energy",
@@ -17169,7 +18048,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_nist_isotope",
@@ -17262,7 +18146,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_nist_janaffile",
@@ -17355,7 +18244,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_nitf",
@@ -17448,7 +18342,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ameriflux_level2",
@@ -17553,7 +18452,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_amrc_final",
@@ -17658,7 +18562,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_amrc_freewave",
@@ -17767,7 +18676,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_collection",
@@ -17860,7 +18774,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_czo",
@@ -17953,7 +18872,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_gcnet",
@@ -18046,7 +18970,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_geomag_iaga2002",
@@ -18163,7 +19092,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_hydro_waterml",
@@ -18264,7 +19198,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_icebridge_atm_icessn",
@@ -18357,7 +19296,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_icebridge_atm_qfit",
@@ -18450,7 +19394,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_icebridge_mccords_irmcr2",
@@ -18543,7 +19492,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_icebridge_mccords_irmcr3",
@@ -18636,7 +19590,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_icebridge_paris",
@@ -18729,7 +19688,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_idv",
@@ -18822,7 +19786,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ncdc_climate",
@@ -18915,7 +19884,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_netcdf",
@@ -19008,7 +19982,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_noaa_carbon",
@@ -19121,7 +20100,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_noaa_flask_event",
@@ -19234,7 +20218,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_noaa_flask_month",
@@ -19347,7 +20336,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_noaa_madis",
@@ -19440,7 +20434,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_noaa_tower",
@@ -19537,7 +20536,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_cnv",
@@ -19630,7 +20634,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_csv_sado_TTS",
@@ -19723,7 +20732,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_csv_sado_meteo",
@@ -19816,7 +20830,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_csv_sado_position",
@@ -19909,7 +20928,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_netcdf_glider",
@@ -20006,7 +21030,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_netcdf_track",
@@ -20103,7 +21132,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_ocean_ooi_dmgx",
@@ -20196,7 +21230,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_pbo_position_time_series",
@@ -20309,7 +21348,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_snotel",
@@ -20426,7 +21470,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_point_wsbb_ggp",
@@ -20531,7 +21580,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_power_miso_forecast",
@@ -20624,7 +21678,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_psd_monthly_climate_index",
@@ -20721,7 +21780,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_quandl_series",
@@ -20814,7 +21878,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_resilience_assessment",
@@ -20935,7 +22004,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_resilience_project",
@@ -21040,7 +22114,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_reuters_document",
@@ -21133,7 +22212,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_service_group",
@@ -21226,7 +22310,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_service_link",
@@ -21319,7 +22408,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_socrata_series",
@@ -21412,7 +22506,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_urbaninstitute_employment",
@@ -21509,7 +22608,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_usda_arms_crop",
@@ -21614,7 +22718,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_usda_arms_finance",
@@ -21719,7 +22828,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_usda_nass",
@@ -21824,7 +22938,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_virtual",
@@ -21917,7 +23036,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_wms_capabilities",
@@ -22010,7 +23134,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_type_wms_layer",
@@ -22103,7 +23232,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_vote_yesno",
@@ -22200,7 +23334,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_weblog",
@@ -22293,7 +23432,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     },
     {
       "id": "search_wikipage",
@@ -22394,7 +23538,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "geodesystems": {
+          "integration": "geodesystems"
+        }
+      }
     }
   ]
 }

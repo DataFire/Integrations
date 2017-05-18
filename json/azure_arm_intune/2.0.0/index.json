@@ -2,6 +2,7 @@
   "id": "azure_arm_intune",
   "title": "IntuneResourceManagementClient",
   "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
+  "security": {},
   "definitions": {
     "AndroidMAMPolicy": {
       "allOf": [

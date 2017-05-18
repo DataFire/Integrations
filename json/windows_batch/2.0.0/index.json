@@ -2,6 +2,7 @@
   "id": "windows_batch",
   "title": "BatchService",
   "description": "A client for issuing REST requests to the Azure Batch service.",
+  "security": {},
   "definitions": {
     "AccountListNodeAgentSkusResult": {
       "properties": {

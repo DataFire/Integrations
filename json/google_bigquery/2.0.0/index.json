@@ -2,6 +2,33 @@
   "id": "google_bigquery",
   "title": "BigQuery",
   "description": "A data platform for customers to create, manage, share and query data.",
+  "security": {
+    "google_bigquery": {
+      "integration": "google_bigquery",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/bigquery": "View and manage your data in Google BigQuery",
+          "https://www.googleapis.com/auth/bigquery.insertdata": "Insert data into Google BigQuery",
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "BigtableColumn": {
       "properties": {
@@ -1807,6 +1834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectList"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -1872,6 +1904,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatasetList"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -1924,6 +1961,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -1979,7 +2021,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
+      }
     },
     {
       "id": "datasets.get",
@@ -2032,6 +2079,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2088,6 +2140,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2144,6 +2201,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2205,6 +2267,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TableList"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2261,6 +2328,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2316,7 +2388,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
+      }
     },
     {
       "id": "tables.get",
@@ -2377,6 +2454,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2437,6 +2519,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2497,6 +2584,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2570,6 +2662,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TableDataList"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2630,6 +2727,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TableDataInsertAllResponse"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2703,6 +2805,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobList"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2755,6 +2862,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2808,6 +2920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2861,6 +2978,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCancelResponse"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2913,6 +3035,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResponse"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     },
     {
@@ -2982,6 +3109,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetQueryResultsResponse"
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
       }
     }
   ]

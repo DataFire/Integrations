@@ -2,6 +2,14 @@
   "id": "mongodb",
   "title": "MongoDB",
   "description": "Interact with MongoDB",
+  "security": {
+    "mongodb": {
+      "fields": {
+        "database": "A database connection returned from MongoClient.connect()",
+        "url": "A mongodb URL"
+      }
+    }
+  },
   "actions": [
     {
       "id": "findOne",
@@ -31,6 +39,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     },
     {
@@ -64,6 +77,11 @@
         "items": {
           "type": "object"
         }
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     },
     {
@@ -89,6 +107,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     },
     {
@@ -117,6 +140,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     },
     {
@@ -147,6 +175,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     },
     {
@@ -177,6 +210,11 @@
       },
       "outputSchema": {
         "type": "object"
+      },
+      "security": {
+        "mongodb": {
+          "integration": "mongodb"
+        }
       }
     }
   ]

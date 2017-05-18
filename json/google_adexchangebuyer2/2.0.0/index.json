@@ -2,6 +2,27 @@
   "id": "google_adexchangebuyer2",
   "title": "Ad Exchange Buyer API II",
   "description": "Accesses the latest features for managing Ad Exchange accounts, Real-Time Bidding configurations and auction metrics, and Marketplace programmatic deals.",
+  "security": {
+    "google_adexchangebuyer2": {
+      "integration": "google_adexchangebuyer2",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/adexchange.buyer": "Manage your Ad Exchange buyer account configuration"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AddDealAssociationRequest": {
       "description": "A request for associating a deal and a creative.",
@@ -989,6 +1010,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListClientsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1071,6 +1097,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1154,6 +1185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1240,6 +1276,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Client"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1331,6 +1372,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListClientUserInvitationsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1417,6 +1463,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientUserInvitation"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1504,6 +1555,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientUserInvitation"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1595,6 +1651,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListClientUsersResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1682,6 +1743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientUser"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1772,6 +1838,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientUser"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1863,6 +1934,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCreativesResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -1953,6 +2029,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2036,6 +2117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2122,6 +2208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Creative"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2217,6 +2308,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDealAssociationsResponse"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2303,6 +2399,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2389,6 +2490,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2475,6 +2581,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     },
     {
@@ -2561,6 +2672,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
+      },
+      "security": {
+        "google_adexchangebuyer2": {
+          "integration": "google_adexchangebuyer2"
+        }
       }
     }
   ]

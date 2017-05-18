@@ -2,6 +2,14 @@
   "id": "citycontext",
   "title": "City Context",
   "description": "City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more.",
+  "security": {
+    "citycontext": {
+      "integration": "citycontext",
+      "fields": {
+        "user_key": "City context user key"
+      }
+    }
+  },
   "definitions": {
     "Latlon": {},
     "Location": {
@@ -247,6 +255,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PointInfo"
+      },
+      "security": {
+        "citycontext": {
+          "integration": "citycontext"
+        }
       }
     },
     {
@@ -273,6 +286,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PointInfo"
+      },
+      "security": {
+        "citycontext": {
+          "integration": "citycontext"
+        }
       }
     },
     {
@@ -282,6 +300,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/Usage"
+      },
+      "security": {
+        "citycontext": {
+          "integration": "citycontext"
+        }
       }
     }
   ]

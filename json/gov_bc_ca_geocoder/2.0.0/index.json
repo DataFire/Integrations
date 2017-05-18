@@ -2,6 +2,14 @@
   "id": "gov_bc_ca_geocoder",
   "title": "Gated Geocoder",
   "description": "This gated API computes the physical locations (i.e., latitude and longitude) and correct, standardized forms of civic and non-civic addresses in British Columbia.  CORS is enabled for any domain. To request an apikey, please contact the <a href=https://forms.gov.bc.ca/databc-contact-us/  target=\"_blank\">DataBC Help Desk</a><br>Please read our <a href=https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice target=\"_blank\">data collection notice</a>",
+  "security": {
+    "gov_bc_ca_geocoder": {
+      "integration": "gov_bc_ca_geocoder",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
   "actions": [
     {
       "id": "addresses.outputFormat.get",
@@ -196,7 +204,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "intersections.near.outputFormat.get",
@@ -255,7 +268,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "intersections.nearest.outputFormat.get",
@@ -310,7 +328,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "intersections.within.outputFormat.get",
@@ -365,7 +388,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "intersections.intersectionID.outputFormat.get",
@@ -408,7 +436,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "occupants.addresses.outputFormat.get",
@@ -607,7 +640,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "occupants.near.outputFormat.get",
@@ -682,7 +720,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "occupants.nearest.outputFormat.get",
@@ -749,7 +792,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "occupants.within.outputFormat.get",
@@ -816,7 +864,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "occupants.occupantID.outputFormat.get",
@@ -875,7 +928,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "sites.near.outputFormat.get",
@@ -946,7 +1004,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "sites.nearest.outputFormat.get",
@@ -1013,7 +1076,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "sites.within.outputFormat.get",
@@ -1080,7 +1148,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     },
     {
       "id": "sites.siteID.outputFormat.get",
@@ -1139,7 +1212,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gov_bc_ca_geocoder": {
+          "integration": "gov_bc_ca_geocoder"
+        }
+      }
     }
   ]
 }

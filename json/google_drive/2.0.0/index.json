@@ -2,6 +2,34 @@
   "id": "google_drive",
   "title": "Drive",
   "description": "Manages files in Drive including uploading, downloading, searching, detecting changes, and updating sharing permissions.",
+  "security": {
+    "google_drive": {
+      "integration": "google_drive",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/drive": "View and manage the files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.appdata": "View and manage its own configuration data in your Google Drive",
+          "https://www.googleapis.com/auth/drive.file": "View and manage Google Drive files and folders that you have opened or created with this app",
+          "https://www.googleapis.com/auth/drive.metadata": "View and manage metadata of files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.metadata.readonly": "View metadata for files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.photos.readonly": "View the photos, videos and albums in your Google Photos",
+          "https://www.googleapis.com/auth/drive.readonly": "View the files in your Google Drive",
+          "https://www.googleapis.com/auth/drive.scripts": "Modify your Google Apps Script scripts' behavior"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "About": {
       "description": "Information about the user, the user's Drive, and system capabilities.",
@@ -1301,6 +1329,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/About"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1384,6 +1417,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ChangeList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1440,6 +1478,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StartPageToken"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1526,6 +1569,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1575,7 +1623,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "files.list",
@@ -1669,6 +1722,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FileList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1740,6 +1798,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1798,6 +1861,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GeneratedIds"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -1844,7 +1912,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "files.delete",
@@ -1895,7 +1968,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "files.get",
@@ -1952,6 +2030,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2028,6 +2111,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2095,6 +2183,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2147,6 +2240,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2198,7 +2296,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "comments.get",
@@ -2255,6 +2358,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2311,6 +2419,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2378,6 +2491,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReplyList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2434,6 +2552,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2489,7 +2612,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "replies.get",
@@ -2550,6 +2678,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2610,6 +2743,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2678,6 +2816,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2729,7 +2872,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "permissions.list",
@@ -2792,6 +2940,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2860,6 +3013,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -2915,7 +3073,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "permissions.get",
@@ -2972,6 +3135,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3040,6 +3208,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3099,6 +3272,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RevisionList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3150,7 +3328,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "revisions.get",
@@ -3207,6 +3390,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Revision"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3263,6 +3451,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Revision"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3323,6 +3516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3381,6 +3579,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDriveList"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3433,6 +3636,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3480,7 +3688,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
     },
     {
       "id": "teamdrives.get",
@@ -3529,6 +3742,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     },
     {
@@ -3581,6 +3799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
       }
     }
   ]

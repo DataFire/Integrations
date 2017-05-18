@@ -2,6 +2,7 @@
   "id": "apitore_twitterapis",
   "title": "Twitter APIs",
   "description": "Call Twitter APIs.<BR />[Endpoint] https://api.apitore.com/api/23",
+  "security": {},
   "definitions": {
     "TweetEntity": {
       "properties": {

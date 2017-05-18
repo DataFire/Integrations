@@ -2,6 +2,16 @@
   "id": "apimatic",
   "title": "APIMATIC API Transformer",
   "description": "Transform API Descriptions from/to various formats",
+  "security": {
+    "apimatic": {
+      "integration": "apimatic",
+      "fields": {
+        "api-key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
   "actions": [
     {
       "id": "ConvertAPI",

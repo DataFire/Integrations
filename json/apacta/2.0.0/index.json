@@ -2,6 +2,15 @@
   "id": "apacta",
   "title": "Apacta",
   "description": "API for a tool to craftsmen used to register working hours, material usage and quality assurance.    \n# Endpoint\nThe endpoint `https://app.apacta.com/api/v1` should be used to communicate with the API. API access is only allowed with SSL encrypted connection (https).\n# Authentication\nURL query authentication with an API key is used, so appending `?api_key={api_key}` to the URL where `{api_key}` is found within Apacta settings is used for authentication\n# Pagination\nIf the endpoint returns a `pagination` object it means the endpoint supports pagination - currently it's only possible to change pages with `?page={page_number}` but implementing custom page sizes are on the road map.\n\n\n# Search/filter\nIs experimental but implemented in some cases - see the individual endpoints' docs for further explanation.\n# Ordering\nIs currently experimental, but on some endpoints it's implemented on URL querys so eg. to order Invoices by `invoice_number` appending `?sort=Invoices.invoice_number&direction=desc` would sort the list descending by the value of `invoice_number`.\n# Associations\nIs currently implemented on an experimental basis where you can append eg. `?include=Contacts,Projects`  to the `/api/v1/invoices/` endpoint to embed `Contact` and `Project` objects directly.\n# Project Files\nCurrently project files can be retrieved from two endpoints. `/projects/{project_id}/files` handles files uploaded from wall posts or forms. `/projects/{project_id}/project_files` allows uploading and showing files, not belonging to specific form or wall post.\n# Errors/Exceptions\n## 422 (Validation)\nWrite something about how the `errors` object contains keys with the properties that failes validation like:\n```\n  {\n      \"success\": false,\n      \"data\": {\n          \"code\": 422,\n          \"url\": \"/api/v1/contacts?api_key=5523be3b-30ef-425d-8203-04df7caaa93a\",\n          \"message\": \"A validation error occurred\",\n          \"errorCount\": 1,\n          \"errors\": {\n              \"contact_types\": [ ## Property name that failed validation\n                  \"Contacts must have at least one contact type\" ## Message with further explanation\n              ]\n          }\n      }\n  }\n```\n## Code examples\nRunning examples of how to retrieve the 5 most recent forms registered and embed the details of the User that made the form, and eventual products contained in the form\n### Swift\n```\n  \n```\n### Java\n#### OkHttp\n```\n  OkHttpClient client = new OkHttpClient();\n  \n  Request request = new Request.Builder()\n    .url(\"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\")\n    .get()\n    .addHeader(\"x-auth-token\", \"{INSERT_YOUR_TOKEN}\")\n    .addHeader(\"accept\", \"application/json\")\n    .build();\n  \n  Response response = client.newCall(request).execute();\n```\n#### Unirest\n```\n  HttpResponse<String> response = Unirest.get(\"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\")\n    .header(\"x-auth-token\", \"{INSERT_YOUR_TOKEN}\")\n    .header(\"accept\", \"application/json\")\n    .asString();\n```\n### Javascript\n#### Native\n```\n  var data = null;\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"GET\", \"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\");\n  xhr.setRequestHeader(\"x-auth-token\", \"{INSERT_YOUR_TOKEN}\");\n  xhr.setRequestHeader(\"accept\", \"application/json\");\n  \n  xhr.send(data);\n```\n#### jQuery\n```\n  var settings = {\n    \"async\": true,\n    \"crossDomain\": true,\n    \"url\": \"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\",\n    \"method\": \"GET\",\n    \"headers\": {\n      \"x-auth-token\": \"{INSERT_YOUR_TOKEN}\",\n      \"accept\": \"application/json\",\n    }\n  }\n  \n  $.ajax(settings).done(function (response) {\n    console.log(response);\n  });\n```\n#### NodeJS (Request)\n```\n  var request = require(\"request\");\n\n  var options = { method: 'GET',\n    url: 'https://app.apacta.com/api/v1/forms',\n    qs: \n     { extended: 'true',\n       sort: 'Forms.created',\n       direction: 'DESC',\n       include: 'Products,CreatedBy',\n       limit: '5' },\n    headers: \n     { accept: 'application/json',\n       'x-auth-token': '{INSERT_YOUR_TOKEN}' } };\n  \n  request(options, function (error, response, body) {\n    if (error) throw new Error(error);\n  \n    console.log(body);\n  });\n\n```\n### Python 3\n```\n  import http.client\n  \n  conn = http.client.HTTPSConnection(\"app.apacta.com\")\n  \n  payload = \"\"\n  \n  headers = {\n      'x-auth-token': \"{INSERT_YOUR_TOKEN}\",\n      'accept': \"application/json\",\n      }\n  \n  conn.request(\"GET\", \"/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\", payload, headers)\n  \n  res = conn.getresponse()\n  data = res.read()\n  \n  print(data.decode(\"utf-8\"))\n```\n### C#\n#### RestSharp\n```\n  var client = new RestClient(\"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\");\n  var request = new RestRequest(Method.GET);\n  request.AddHeader(\"accept\", \"application/json\");\n  request.AddHeader(\"x-auth-token\", \"{INSERT_YOUR_TOKEN}\");\n  IRestResponse response = client.Execute(request);    \n```\n### Ruby\n```\n  require 'uri'\n  require 'net/http'\n  \n  url = URI(\"https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5\")\n  \n  http = Net::HTTP.new(url.host, url.port)\n  http.use_ssl = true\n  http.verify_mode = OpenSSL::SSL::VERIFY_NONE\n  \n  request = Net::HTTP::Get.new(url)\n  request[\"x-auth-token\"] = '{INSERT_YOUR_TOKEN}'\n  request[\"accept\"] = 'application/json'\n  \n  response = http.request(request)\n  puts response.read_body\n```\n### PHP (HttpRequest)\n```\n  <?php\n\n  $request = new HttpRequest();\n  $request->setUrl('https://app.apacta.com/api/v1/forms');\n  $request->setMethod(HTTP_METH_GET);\n  \n  $request->setQueryData(array(\n    'extended' => 'true',\n    'sort' => 'Forms.created',\n    'direction' => 'DESC',\n    'include' => 'Products,CreatedBy',\n    'limit' => '5'\n  ));\n  \n  $request->setHeaders(array(\n    'accept' => 'application/json',\n    'x-auth-token' => '{INSERT_YOUR_TOKEN}'\n  ));\n  \n  try {\n    $response = $request->send();\n  \n    echo $response->getBody();\n  } catch (HttpException $ex) {\n    echo $ex;\n  }\n```\n### Shell (cURL)\n```\n\n  $ curl --request GET --url 'https://app.apacta.com/api/v1/forms?extended=true&sort=Forms.created&direction=DESC&include=Products%2CCreatedBy&limit=5' --header 'accept: application/json' --header 'x-auth-token: {INSERT_YOUR_TOKEN}'\n  \n```",
+  "security": {
+    "apacta": {
+      "integration": "apacta",
+      "fields": {
+        "X-Auth-Token": "API key",
+        "api_key": "Uses the user's API token found from within the control panel in \"settings\" -> \"additional settings\""
+      }
+    }
+  },
   "definitions": {
     "City": {
       "properties": {
@@ -1550,6 +1559,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1576,6 +1590,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1612,6 +1631,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1662,6 +1686,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1677,6 +1706,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1705,6 +1739,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1731,6 +1770,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1759,6 +1803,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1777,6 +1826,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1803,6 +1857,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1860,6 +1919,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1947,6 +2011,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -1975,6 +2044,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2001,6 +2075,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2029,6 +2108,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2047,6 +2131,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2073,6 +2162,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2135,6 +2229,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2175,6 +2274,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2210,6 +2314,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2239,6 +2348,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2268,6 +2382,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2295,6 +2414,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2339,6 +2463,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2400,6 +2529,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2426,6 +2560,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2452,6 +2591,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2478,6 +2622,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2536,6 +2685,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2605,6 +2759,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2631,6 +2790,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2657,6 +2821,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2683,6 +2852,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2723,6 +2897,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2748,6 +2927,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2813,6 +2997,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2839,6 +3028,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2886,6 +3080,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2911,6 +3110,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -2973,6 +3177,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3022,6 +3231,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3037,7 +3251,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
+      }
     },
     {
       "id": "forms.form_id.get",
@@ -3062,6 +3281,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3077,7 +3301,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
+      }
     },
     {
       "id": "invoice_lines.get",
@@ -3126,6 +3355,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3199,6 +3433,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3228,6 +3467,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3254,6 +3498,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3283,6 +3532,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3364,6 +3618,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3469,6 +3728,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3497,6 +3761,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3522,6 +3791,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3550,6 +3824,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3598,6 +3877,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3626,6 +3910,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3651,6 +3940,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3679,6 +3973,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3711,6 +4010,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3776,6 +4080,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3825,6 +4134,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3856,6 +4170,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3884,6 +4203,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3952,6 +4276,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3983,6 +4312,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -3998,6 +4332,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4042,6 +4381,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4110,6 +4454,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4138,6 +4487,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4163,6 +4517,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4191,6 +4550,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4214,6 +4578,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4240,6 +4609,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4288,6 +4662,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4360,6 +4739,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4388,6 +4772,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4413,6 +4802,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4441,6 +4835,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4473,6 +4872,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4504,6 +4908,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4533,6 +4942,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4564,6 +4978,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4596,6 +5015,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4631,6 +5055,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4662,6 +5091,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4691,6 +5125,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4722,6 +5161,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4753,6 +5197,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4797,6 +5246,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4828,6 +5282,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4856,6 +5315,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4891,6 +5355,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4935,6 +5404,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4963,6 +5437,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -4988,6 +5467,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5016,6 +5500,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5074,6 +5563,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5147,6 +5641,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5176,6 +5675,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5202,6 +5706,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5231,6 +5740,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5254,6 +5768,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5280,6 +5799,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5303,6 +5827,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5361,6 +5890,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5390,6 +5924,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5416,6 +5955,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5445,6 +5989,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5468,6 +6017,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5494,6 +6048,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5517,6 +6076,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5543,6 +6107,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5590,6 +6159,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5698,6 +6272,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5726,6 +6305,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5751,6 +6335,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5779,6 +6368,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5827,6 +6421,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5852,6 +6451,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5888,6 +6492,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5936,6 +6545,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5961,6 +6575,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     },
     {
@@ -5992,6 +6611,11 @@
           }
         },
         "type": "object"
+      },
+      "security": {
+        "apacta": {
+          "integration": "apacta"
+        }
       }
     }
   ]

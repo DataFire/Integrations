@@ -2,6 +2,7 @@
   "id": "google_kgsearch",
   "title": "Knowledge Graph Search",
   "description": "Searches the Google Knowledge Graph for entities.",
+  "security": {},
   "definitions": {
     "SearchResponse": {
       "description": "Response message includes the context and a list of matching results\nwhich contain the detail of associated entities.",

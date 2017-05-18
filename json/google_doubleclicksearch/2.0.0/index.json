@@ -2,6 +2,27 @@
   "id": "google_doubleclicksearch",
   "title": "DoubleClick Search",
   "description": "Reports and modifies your advertising data in DoubleClick Search (for example, campaigns, ad groups, keywords, and conversions).",
+  "security": {
+    "google_doubleclicksearch": {
+      "integration": "google_doubleclicksearch",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/doubleclicksearch": "View and manage your advertising data in DoubleClick Search"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Availability": {
       "description": "A message containing availability data relevant to DoubleClick Search.",
@@ -684,6 +705,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -737,6 +763,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedColumnList"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -819,6 +850,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -870,6 +906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -921,6 +962,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -972,6 +1018,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateAvailabilityResponse"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -1023,6 +1074,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -1074,6 +1130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -1123,6 +1184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
       }
     },
     {
@@ -1175,7 +1241,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
+      }
     }
   ]
 }

@@ -2,6 +2,27 @@
   "id": "google_ml",
   "title": "Google Cloud Machine Learning Engine",
   "description": "An API to enable creating and using machine learning models.",
+  "security": {
+    "google_ml": {
+      "integration": "google_ml",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "GoogleApi__HttpBody": {
       "description": "Message that represents an arbitrary HTTP body. It should only be used for\npayload formats that can't be represented as JSON, such as raw binary or\nan HTML page.\n\n\nThis message can be used both in streaming and non-streaming API methods in\nthe request as well as the response.\n\nIt can be used as a top-level request field, which is convenient if one\nwants to extract parameters from either the URL or HTTP template into the\nrequest fields and also want access to the raw HTTP body.\n\nExample:\n\n    message GetResourceRequest {\n      // A unique request id.\n      string request_id = 1;\n\n      // The raw HTTP body is bound to this field.\n      google.api.HttpBody http_body = 2;\n    }\n\n    service ResourceService {\n      rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);\n      rpc UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty);\n    }\n\nExample with streaming methods:\n\n    service CaldavService {\n      rpc GetCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n      rpc UpdateCalendar(stream google.api.HttpBody)\n        returns (stream google.api.HttpBody);\n    }\n\nUse of this type only changes how the request and response bodies are\nhandled, all other features will continue to work unchanged.",
@@ -851,6 +872,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleLongrunning__Operation"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -930,6 +956,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__Job"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1021,6 +1052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleLongrunning__ListOperationsResponse"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1103,6 +1139,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleProtobuf__Empty"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1182,6 +1223,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__GetConfigResponse"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1264,6 +1310,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleApi__HttpBody"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1346,6 +1397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__Version"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1437,6 +1493,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__ListJobsResponse"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1519,6 +1580,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__Job"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1606,6 +1672,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__ListModelsResponse"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1688,6 +1759,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__Model"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1775,6 +1851,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleCloudMlV1__ListVersionsResponse"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     },
     {
@@ -1857,6 +1938,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleLongrunning__Operation"
+      },
+      "security": {
+        "google_ml": {
+          "integration": "google_ml"
+        }
       }
     }
   ]

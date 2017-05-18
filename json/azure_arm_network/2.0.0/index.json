@@ -2,6 +2,26 @@
   "id": "azure_arm_network",
   "title": "NetworkManagementClient",
   "description": "The Microsoft Azure Network management API provides a RESTful set of web services that interact with Microsoft Azure Networks service to manage your network resources. The API has entities that capture the relationship between an end user and the Microsoft Azure Networks service.",
+  "security": {
+    "azure_arm_network": {
+      "integration": "azure_arm_network",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AddressSpace": {
       "description": "AddressSpace contains an array of IP address ranges that can be used by subnets",
@@ -3895,6 +3915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationGatewayListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -3917,6 +3942,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -3939,6 +3969,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteServiceProviderListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -3961,6 +3996,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoadBalancerListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -3991,6 +4031,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DnsNameAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4018,6 +4063,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsagesListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4040,6 +4090,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterfaceListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4062,6 +4117,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkSecurityGroupListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4084,6 +4144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicIPAddressListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4106,6 +4171,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteTableListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4128,6 +4198,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4154,6 +4229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationGatewayListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4182,7 +4262,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "ApplicationGateways_Get",
@@ -4212,6 +4297,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4245,6 +4335,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4273,7 +4368,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "ApplicationGateways_Stop",
@@ -4301,7 +4401,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "VirtualNetworkGatewayConnections_List",
@@ -4327,6 +4432,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGatewayConnectionListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4357,6 +4467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionSharedKeyResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4385,7 +4500,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "VirtualNetworkGatewayConnections_Get",
@@ -4415,6 +4535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGatewayConnection"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4448,6 +4573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGatewayConnection"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4481,6 +4611,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionSharedKey"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4514,6 +4649,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionResetSharedKey"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4540,6 +4680,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4568,7 +4713,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "ExpressRouteCircuits_Get",
@@ -4598,6 +4748,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuit"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4631,6 +4786,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuit"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4661,6 +4821,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthorizationListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4693,7 +4858,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "ExpressRouteCircuitAuthorizations_Get",
@@ -4727,6 +4897,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitAuthorization"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4764,6 +4939,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitAuthorization"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4794,6 +4974,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitPeeringListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4826,7 +5011,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "ExpressRouteCircuitPeerings_Get",
@@ -4860,6 +5050,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitPeering"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4897,6 +5092,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitPeering"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4935,6 +5135,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitsArpTableListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -4973,6 +5178,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitsRoutesTableListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5011,6 +5221,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitsRoutesTableSummaryListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5045,6 +5260,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitStats"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5075,6 +5295,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ExpressRouteCircuitStats"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5101,6 +5326,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoadBalancerListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5129,7 +5359,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "LoadBalancers_Get",
@@ -5163,6 +5398,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoadBalancer"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5196,6 +5436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LoadBalancer"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5222,6 +5467,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocalNetworkGatewayListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5250,7 +5500,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "LocalNetworkGateways_Get",
@@ -5280,6 +5535,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocalNetworkGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5313,6 +5573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocalNetworkGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5339,6 +5604,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterfaceListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5367,7 +5637,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "NetworkInterfaces_Get",
@@ -5401,6 +5676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterface"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5434,6 +5714,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterface"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5464,6 +5749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EffectiveNetworkSecurityGroupListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5494,6 +5784,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EffectiveRouteListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5520,6 +5815,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkSecurityGroupListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5548,7 +5848,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "NetworkSecurityGroups_Get",
@@ -5582,6 +5887,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkSecurityGroup"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5615,6 +5925,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkSecurityGroup"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5645,6 +5960,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SecurityRuleListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5677,7 +5997,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "SecurityRules_Get",
@@ -5711,6 +6036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SecurityRule"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5748,6 +6078,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SecurityRule"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5774,6 +6109,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicIPAddressListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5802,7 +6142,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "PublicIPAddresses_Get",
@@ -5836,6 +6181,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicIPAddress"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5869,6 +6219,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicIPAddress"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5895,6 +6250,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteTableListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5923,7 +6283,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "RouteTables_Get",
@@ -5957,6 +6322,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteTable"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -5990,6 +6360,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteTable"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6020,6 +6395,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6052,7 +6432,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "Routes_Get",
@@ -6086,6 +6471,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Route"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6123,6 +6513,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Route"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6149,6 +6544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGatewayListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6177,7 +6577,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "VirtualNetworkGateways_Get",
@@ -6207,6 +6612,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6240,6 +6650,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6273,6 +6688,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6306,6 +6726,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkGateway"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6332,6 +6757,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6360,7 +6790,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "VirtualNetworks_Get",
@@ -6394,6 +6829,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6427,6 +6867,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6461,6 +6906,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/IPAddressAvailabilityResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6491,6 +6941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SubnetListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6523,7 +6978,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "Subnets_Get",
@@ -6561,6 +7021,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subnet"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6598,6 +7063,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Subnet"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6628,6 +7098,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkPeeringListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6660,7 +7135,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
+      }
     },
     {
       "id": "VirtualNetworkPeerings_Get",
@@ -6694,6 +7174,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkPeering"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6731,6 +7216,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetworkPeering"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6761,6 +7251,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterfaceListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6795,6 +7290,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterfaceListResult"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     },
     {
@@ -6837,6 +7337,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkInterface"
+      },
+      "security": {
+        "azure_arm_network": {
+          "integration": "azure_arm_network"
+        }
       }
     }
   ]

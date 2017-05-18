@@ -2,6 +2,15 @@
   "id": "trello",
   "title": "Trello",
   "description": "This document describes the REST API of Trello as published by Trello.com.\n - <a href='https://trello.com/docs/index.html' target='_blank'>Official Documentation</a>\n - <a href='https://trello.com/docs/api' target='_blank'>The HTML pages that were scraped in order to generate this specification.</a>",
+  "security": {
+    "trello": {
+      "integration": "trello",
+      "fields": {
+        "api_key": "API key",
+        "api_token": "API key"
+      }
+    }
+  },
   "definitions": {
     "actions": {
       "properties": {
@@ -1967,7 +1976,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsByIdAction",
@@ -2019,7 +2033,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateActionsByIdAction",
@@ -2046,7 +2065,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsBoardByIdAction",
@@ -2074,7 +2098,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsBoardByIdActionByField",
@@ -2102,7 +2131,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsCardByIdAction",
@@ -2130,7 +2164,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsCardByIdActionByField",
@@ -2158,7 +2197,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsDisplayByIdAction",
@@ -2182,7 +2226,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsEntitiesByIdAction",
@@ -2206,7 +2255,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsListByIdAction",
@@ -2234,7 +2288,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsListByIdActionByField",
@@ -2262,7 +2321,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsMemberByIdAction",
@@ -2290,7 +2354,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsMemberByIdActionByField",
@@ -2318,7 +2387,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsMemberCreatorByIdAction",
@@ -2346,7 +2420,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsMemberCreatorByIdActionByField",
@@ -2374,7 +2453,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsOrganizationByIdAction",
@@ -2402,7 +2486,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsOrganizationByIdActionByField",
@@ -2430,7 +2519,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateActionsTextByIdAction",
@@ -2457,7 +2551,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getActionsByIdActionByField",
@@ -2485,7 +2584,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBatch",
@@ -2509,7 +2613,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoards",
@@ -2532,7 +2641,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsByIdBoard",
@@ -2704,7 +2818,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsByIdBoard",
@@ -2731,7 +2850,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsActionsByIdBoard",
@@ -2811,7 +2935,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsBoardStarsByIdBoard",
@@ -2839,7 +2968,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsCalendarKeyGenerateByIdBoard",
@@ -2863,7 +2997,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsCardsByIdBoard",
@@ -2939,7 +3078,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsCardsByIdBoardByFilter",
@@ -2967,7 +3111,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsCardsByIdBoardByIdCard",
@@ -3059,7 +3208,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsChecklistsByIdBoard",
@@ -3107,7 +3261,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsChecklistsByIdBoard",
@@ -3134,7 +3293,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsClosedByIdBoard",
@@ -3161,7 +3325,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsDeltasByIdBoard",
@@ -3193,7 +3362,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsDescByIdBoard",
@@ -3220,7 +3394,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsEmailKeyGenerateByIdBoard",
@@ -3244,7 +3423,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsIdOrganizationByIdBoard",
@@ -3271,7 +3455,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesBlueByIdBoard",
@@ -3298,7 +3487,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesGreenByIdBoard",
@@ -3325,7 +3519,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesOrangeByIdBoard",
@@ -3352,7 +3551,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesPurpleByIdBoard",
@@ -3379,7 +3583,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesRedByIdBoard",
@@ -3406,7 +3615,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsLabelNamesYellowByIdBoard",
@@ -3433,7 +3647,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsLabelsByIdBoard",
@@ -3465,7 +3684,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsLabelsByIdBoard",
@@ -3492,7 +3716,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsLabelsByIdBoardByIdLabel",
@@ -3524,7 +3753,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsListsByIdBoard",
@@ -3564,7 +3798,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsListsByIdBoard",
@@ -3591,7 +3830,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsListsByIdBoardByFilter",
@@ -3619,7 +3863,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsMarkAsViewedByIdBoard",
@@ -3643,7 +3892,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembersByIdBoard",
@@ -3679,7 +3933,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMembersByIdBoard",
@@ -3706,7 +3965,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembersByIdBoardByFilter",
@@ -3734,7 +3998,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteBoardsMembersByIdBoardByIdMember",
@@ -3762,7 +4031,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMembersByIdBoardByIdMember",
@@ -3793,7 +4067,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembersCardsByIdBoardByIdMember",
@@ -3873,7 +4152,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembersInvitedByIdBoard",
@@ -3901,7 +4185,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembersInvitedByIdBoardByField",
@@ -3929,7 +4218,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembershipsByIdBoard",
@@ -3965,7 +4259,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMembershipsByIdBoardByIdMembership",
@@ -4001,7 +4300,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMembershipsByIdBoardByIdMembership",
@@ -4032,7 +4336,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsMyPrefsByIdBoard",
@@ -4056,7 +4365,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsEmailPositionByIdBoard",
@@ -4083,7 +4397,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsIdEmailListByIdBoard",
@@ -4110,7 +4429,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsShowListGuideByIdBoard",
@@ -4137,7 +4461,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsShowSidebarByIdBoard",
@@ -4164,7 +4493,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsShowSidebarActivityByIdBoard",
@@ -4191,7 +4525,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsShowSidebarBoardActionsByIdBoard",
@@ -4218,7 +4557,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsMyPrefsShowSidebarMembersByIdBoard",
@@ -4245,7 +4589,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsNameByIdBoard",
@@ -4272,7 +4621,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsOrganizationByIdBoard",
@@ -4300,7 +4654,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsOrganizationByIdBoardByField",
@@ -4328,7 +4687,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addBoardsPowerUpsByIdBoard",
@@ -4355,7 +4719,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteBoardsPowerUpsByIdBoardByPowerUp",
@@ -4383,7 +4752,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsBackgroundByIdBoard",
@@ -4410,7 +4784,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsCalendarFeedEnabledByIdBoard",
@@ -4437,7 +4816,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsCardAgingByIdBoard",
@@ -4464,7 +4848,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsCardCoversByIdBoard",
@@ -4491,7 +4880,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsCommentsByIdBoard",
@@ -4518,7 +4912,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsInvitationsByIdBoard",
@@ -4545,7 +4944,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsPermissionLevelByIdBoard",
@@ -4572,7 +4976,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsSelfJoinByIdBoard",
@@ -4599,7 +5008,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsPrefsVotingByIdBoard",
@@ -4626,7 +5040,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateBoardsSubscribedByIdBoard",
@@ -4653,7 +5072,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getBoardsByIdBoardByField",
@@ -4681,7 +5105,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCards",
@@ -4704,7 +5133,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsByIdCard",
@@ -4728,7 +5162,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsByIdCard",
@@ -4844,7 +5283,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsByIdCard",
@@ -4871,7 +5315,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsActionsByIdCard",
@@ -4951,7 +5400,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsActionsCommentsByIdCard",
@@ -4978,7 +5432,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsActionsCommentsByIdCardByIdAction",
@@ -5006,7 +5465,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsActionsCommentsByIdCardByIdAction",
@@ -5037,7 +5501,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsAttachmentsByIdCard",
@@ -5069,7 +5538,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsAttachmentsByIdCard",
@@ -5096,7 +5570,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsAttachmentsByIdCardByIdAttachment",
@@ -5124,7 +5603,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsAttachmentsByIdCardByIdAttachment",
@@ -5156,7 +5640,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsBoardByIdCard",
@@ -5184,7 +5673,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsBoardByIdCardByField",
@@ -5212,7 +5706,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsCheckItemStatesByIdCard",
@@ -5240,7 +5739,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsChecklistCheckItemByIdCardByIdChecklistCurrentByIdCheckItem",
@@ -5275,7 +5779,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsChecklistCheckItemByIdCardByIdChecklist",
@@ -5306,7 +5815,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsChecklistCheckItemByIdCardByIdChecklistByIdCheckItem",
@@ -5338,7 +5852,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsChecklistCheckItemConvertToCardByIdCardByIdChecklistByIdCheckItem",
@@ -5370,7 +5889,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsChecklistCheckItemNameByIdCardByIdChecklistByIdCheckItem",
@@ -5405,7 +5929,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsChecklistCheckItemPosByIdCardByIdChecklistByIdCheckItem",
@@ -5440,7 +5969,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsChecklistCheckItemStateByIdCardByIdChecklistByIdCheckItem",
@@ -5475,7 +6009,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsChecklistsByIdCard",
@@ -5523,7 +6062,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsChecklistsByIdCard",
@@ -5550,7 +6094,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsChecklistsByIdCardByIdChecklist",
@@ -5578,7 +6127,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsClosedByIdCard",
@@ -5605,7 +6159,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsDescByIdCard",
@@ -5632,7 +6191,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsDueByIdCard",
@@ -5659,7 +6223,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsIdAttachmentCoverByIdCard",
@@ -5686,7 +6255,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsIdBoardByIdCard",
@@ -5713,7 +6287,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsIdLabelsByIdCard",
@@ -5740,7 +6319,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsIdLabelsByIdCardByIdLabel",
@@ -5768,7 +6352,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsIdListByIdCard",
@@ -5795,7 +6384,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsIdMembersByIdCard",
@@ -5822,7 +6416,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsIdMembersByIdCard",
@@ -5849,7 +6448,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsIdMembersByIdCardByIdMember",
@@ -5877,7 +6481,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsLabelsByIdCard",
@@ -5904,7 +6513,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsLabelsByIdCard",
@@ -5931,7 +6545,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsLabelsByIdCardByColor",
@@ -5959,7 +6578,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsListByIdCard",
@@ -5987,7 +6611,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsListByIdCardByField",
@@ -6015,7 +6644,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsMarkAssociatedNotificationsReadByIdCard",
@@ -6039,7 +6673,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsMembersByIdCard",
@@ -6067,7 +6706,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsMembersVotedByIdCard",
@@ -6095,7 +6739,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsMembersVotedByIdCard",
@@ -6122,7 +6771,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsMembersVotedByIdCardByIdMember",
@@ -6150,7 +6804,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsNameByIdCard",
@@ -6177,7 +6836,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsPosByIdCard",
@@ -6204,7 +6868,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsStickersByIdCard",
@@ -6232,7 +6901,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addCardsStickersByIdCard",
@@ -6259,7 +6933,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteCardsStickersByIdCardByIdSticker",
@@ -6287,7 +6966,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsStickersByIdCardByIdSticker",
@@ -6319,7 +7003,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsStickersByIdCardByIdSticker",
@@ -6350,7 +7039,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateCardsSubscribedByIdCard",
@@ -6377,7 +7071,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getCardsByIdCardByField",
@@ -6405,7 +7104,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addChecklists",
@@ -6428,7 +7132,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteChecklistsByIdChecklist",
@@ -6452,7 +7161,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsByIdChecklist",
@@ -6496,7 +7210,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateChecklistsByIdChecklist",
@@ -6523,7 +7242,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsBoardByIdChecklist",
@@ -6551,7 +7275,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsBoardByIdChecklistByField",
@@ -6579,7 +7308,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsCardsByIdChecklist",
@@ -6655,7 +7389,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsCardsByIdChecklistByFilter",
@@ -6683,7 +7422,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsCheckItemsByIdChecklist",
@@ -6715,7 +7459,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addChecklistsCheckItemsByIdChecklist",
@@ -6742,7 +7491,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteChecklistsCheckItemsByIdChecklistByIdCheckItem",
@@ -6770,7 +7524,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsCheckItemsByIdChecklistByIdCheckItem",
@@ -6802,7 +7561,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateChecklistsIdCardByIdChecklist",
@@ -6829,7 +7593,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateChecklistsNameByIdChecklist",
@@ -6856,7 +7625,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateChecklistsPosByIdChecklist",
@@ -6883,7 +7657,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getChecklistsByIdChecklistByField",
@@ -6911,7 +7690,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addLabels",
@@ -6934,7 +7718,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteLabelsByIdLabel",
@@ -6958,7 +7747,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getLabelsByIdLabel",
@@ -6986,7 +7780,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateLabelsByIdLabel",
@@ -7013,7 +7812,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getLabelsBoardByIdLabel",
@@ -7041,7 +7845,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getLabelsBoardByIdLabelByField",
@@ -7069,7 +7878,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateLabelsColorByIdLabel",
@@ -7096,7 +7910,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateLabelsNameByIdLabel",
@@ -7123,7 +7942,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addLists",
@@ -7146,7 +7970,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsByIdList",
@@ -7190,7 +8019,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsByIdList",
@@ -7217,7 +8051,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsActionsByIdList",
@@ -7297,7 +8136,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addListsArchiveAllCardsByIdList",
@@ -7321,7 +8165,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsBoardByIdList",
@@ -7349,7 +8198,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsBoardByIdListByField",
@@ -7377,7 +8231,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsCardsByIdList",
@@ -7453,7 +8312,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addListsCardsByIdList",
@@ -7480,7 +8344,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsCardsByIdListByFilter",
@@ -7508,7 +8377,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsClosedByIdList",
@@ -7535,7 +8409,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsIdBoardByIdList",
@@ -7562,7 +8441,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addListsMoveAllCardsByIdList",
@@ -7589,7 +8473,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsNameByIdList",
@@ -7616,7 +8505,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsPosByIdList",
@@ -7643,7 +8537,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateListsSubscribedByIdList",
@@ -7670,7 +8569,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getListsByIdListByField",
@@ -7698,7 +8602,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersByIdMember",
@@ -7930,7 +8839,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersByIdMember",
@@ -7957,7 +8871,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersActionsByIdMember",
@@ -8037,7 +8956,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersAvatarByIdMember",
@@ -8064,7 +8988,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersAvatarSourceByIdMember",
@@ -8091,7 +9020,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersBioByIdMember",
@@ -8118,7 +9052,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardBackgroundsByIdMember",
@@ -8146,7 +9085,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersBoardBackgroundsByIdMember",
@@ -8173,7 +9117,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteMembersBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8201,7 +9150,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8233,7 +9187,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8264,7 +9223,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardStarsByIdMember",
@@ -8288,7 +9252,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersBoardStarsByIdMember",
@@ -8315,7 +9284,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteMembersBoardStarsByIdMemberByIdBoardStar",
@@ -8343,7 +9317,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardStarsByIdMemberByIdBoardStar",
@@ -8371,7 +9350,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersBoardStarsByIdMemberByIdBoardStar",
@@ -8402,7 +9386,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersBoardStarsIdBoardByIdMemberByIdBoardStar",
@@ -8433,7 +9422,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersBoardStarsPosByIdMemberByIdBoardStar",
@@ -8464,7 +9458,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardsByIdMember",
@@ -8536,7 +9535,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardsByIdMemberByFilter",
@@ -8564,7 +9568,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardsInvitedByIdMember",
@@ -8592,7 +9601,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersBoardsInvitedByIdMemberByField",
@@ -8620,7 +9634,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCardsByIdMember",
@@ -8696,7 +9715,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCardsByIdMemberByFilter",
@@ -8724,7 +9748,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomBoardBackgroundsByIdMember",
@@ -8752,7 +9781,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersCustomBoardBackgroundsByIdMember",
@@ -8779,7 +9813,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8807,7 +9846,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8839,7 +9883,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground",
@@ -8870,7 +9919,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomEmojiByIdMember",
@@ -8898,7 +9952,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersCustomEmojiByIdMember",
@@ -8925,7 +9984,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomEmojiByIdMemberByIdCustomEmoji",
@@ -8957,7 +10021,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomStickersByIdMember",
@@ -8985,7 +10054,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersCustomStickersByIdMember",
@@ -9012,7 +10086,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteMembersCustomStickersByIdMemberByIdCustomSticker",
@@ -9040,7 +10119,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersCustomStickersByIdMemberByIdCustomSticker",
@@ -9072,7 +10156,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersDeltasByIdMember",
@@ -9104,7 +10193,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersFullNameByIdMember",
@@ -9131,7 +10225,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersInitialsByIdMember",
@@ -9158,7 +10257,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersNotificationsByIdMember",
@@ -9226,7 +10330,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersNotificationsByIdMemberByFilter",
@@ -9254,7 +10363,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersOneTimeMessagesDismissedByIdMember",
@@ -9281,7 +10395,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersOrganizationsByIdMember",
@@ -9317,7 +10436,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersOrganizationsByIdMemberByFilter",
@@ -9345,7 +10469,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersOrganizationsInvitedByIdMember",
@@ -9373,7 +10502,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersOrganizationsInvitedByIdMemberByField",
@@ -9401,7 +10535,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersPrefsColorBlindByIdMember",
@@ -9428,7 +10567,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersPrefsLocaleByIdMember",
@@ -9455,7 +10599,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersPrefsMinutesBetweenSummariesByIdMember",
@@ -9482,7 +10631,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersSavedSearchesByIdMember",
@@ -9506,7 +10660,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addMembersSavedSearchesByIdMember",
@@ -9533,7 +10692,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteMembersSavedSearchesByIdMemberByIdSavedSearch",
@@ -9561,7 +10725,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersSavedSearchesByIdMemberByIdSavedSearch",
@@ -9589,7 +10758,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersSavedSearchesByIdMemberByIdSavedSearch",
@@ -9620,7 +10794,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersSavedSearchesNameByIdMemberByIdSavedSearch",
@@ -9651,7 +10830,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersSavedSearchesPosByIdMemberByIdSavedSearch",
@@ -9682,7 +10866,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersSavedSearchesQueryByIdMemberByIdSavedSearch",
@@ -9713,7 +10902,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersTokensByIdMember",
@@ -9741,7 +10935,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateMembersUsernameByIdMember",
@@ -9768,7 +10967,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getMembersByIdMemberByField",
@@ -9796,7 +11000,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addNotificationsAllRead",
@@ -9816,7 +11025,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsByIdNotification",
@@ -9896,7 +11110,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateNotificationsByIdNotification",
@@ -9923,7 +11142,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsBoardByIdNotification",
@@ -9951,7 +11175,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsBoardByIdNotificationByField",
@@ -9979,7 +11208,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsCardByIdNotification",
@@ -10007,7 +11241,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsCardByIdNotificationByField",
@@ -10035,7 +11274,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsDisplayByIdNotification",
@@ -10059,7 +11303,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsEntitiesByIdNotification",
@@ -10083,7 +11332,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsListByIdNotification",
@@ -10111,7 +11365,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsListByIdNotificationByField",
@@ -10139,7 +11398,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsMemberByIdNotification",
@@ -10167,7 +11431,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsMemberByIdNotificationByField",
@@ -10195,7 +11464,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsMemberCreatorByIdNotification",
@@ -10223,7 +11497,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsMemberCreatorByIdNotificationByField",
@@ -10251,7 +11530,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsOrganizationByIdNotification",
@@ -10279,7 +11563,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsOrganizationByIdNotificationByField",
@@ -10307,7 +11596,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateNotificationsUnreadByIdNotification",
@@ -10334,7 +11628,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getNotificationsByIdNotificationByField",
@@ -10362,7 +11661,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addOrganizations",
@@ -10385,7 +11689,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsByIdOrg",
@@ -10409,7 +11718,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsByIdOrg",
@@ -10533,7 +11847,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsByIdOrg",
@@ -10560,7 +11879,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsActionsByIdOrg",
@@ -10640,7 +11964,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsBoardsByIdOrg",
@@ -10712,7 +12041,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsBoardsByIdOrgByFilter",
@@ -10740,7 +12074,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsDeltasByIdOrg",
@@ -10772,7 +12111,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsDescByIdOrg",
@@ -10799,7 +12143,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsDisplayNameByIdOrg",
@@ -10826,7 +12175,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsLogoByIdOrg",
@@ -10850,7 +12204,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addOrganizationsLogoByIdOrg",
@@ -10877,7 +12236,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembersByIdOrg",
@@ -10913,7 +12277,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsMembersByIdOrg",
@@ -10940,7 +12309,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembersByIdOrgByFilter",
@@ -10968,7 +12342,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsMembersByIdOrgByIdMember",
@@ -10996,7 +12375,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsMembersByIdOrgByIdMember",
@@ -11027,7 +12411,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsMembersAllByIdOrgByIdMember",
@@ -11055,7 +12444,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembersCardsByIdOrgByIdMember",
@@ -11135,7 +12529,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsMembersDeactivatedByIdOrgByIdMember",
@@ -11166,7 +12565,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembersInvitedByIdOrg",
@@ -11194,7 +12598,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembersInvitedByIdOrgByField",
@@ -11222,7 +12631,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembershipsByIdOrg",
@@ -11258,7 +12672,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsMembershipsByIdOrgByIdMembership",
@@ -11294,7 +12713,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsMembershipsByIdOrgByIdMembership",
@@ -11325,7 +12749,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsNameByIdOrg",
@@ -11352,7 +12781,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsPrefsAssociatedDomainByIdOrg",
@@ -11376,7 +12810,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsAssociatedDomainByIdOrg",
@@ -11403,7 +12842,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsBoardVisibilityRestrictOrgByIdOrg",
@@ -11430,7 +12874,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsBoardVisibilityRestrictPrivateByIdOrg",
@@ -11457,7 +12906,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsBoardVisibilityRestrictPublicByIdOrg",
@@ -11484,7 +12938,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsExternalMembersDisabledByIdOrg",
@@ -11511,7 +12970,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsGoogleAppsVersionByIdOrg",
@@ -11538,7 +13002,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteOrganizationsPrefsOrgInviteRestrictByIdOrg",
@@ -11566,7 +13035,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsOrgInviteRestrictByIdOrg",
@@ -11593,7 +13067,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsPrefsPermissionLevelByIdOrg",
@@ -11620,7 +13099,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateOrganizationsWebsiteByIdOrg",
@@ -11647,7 +13131,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getOrganizationsByIdOrgByField",
@@ -11675,7 +13164,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getSearch",
@@ -11775,7 +13269,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getSearchMembers",
@@ -11815,7 +13314,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addSessions",
@@ -11838,7 +13342,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getSessionsSocket",
@@ -11858,7 +13367,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateSessionsByIdSession",
@@ -11885,7 +13399,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateSessionsStatusByIdSession",
@@ -11912,7 +13431,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteTokensByToken",
@@ -11932,7 +13456,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensByToken",
@@ -11960,7 +13489,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensMemberByToken",
@@ -11984,7 +13518,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensMemberByTokenByField",
@@ -12008,7 +13547,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensWebhooksByToken",
@@ -12028,7 +13572,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addTokensWebhooksByToken",
@@ -12051,7 +13600,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateTokensWebhooksByToken",
@@ -12074,7 +13628,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteTokensWebhooksByTokenByIdWebhook",
@@ -12098,7 +13657,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensWebhooksByTokenByIdWebhook",
@@ -12122,7 +13686,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTokensByTokenByField",
@@ -12146,7 +13715,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getTypesById",
@@ -12170,7 +13744,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "addWebhooks",
@@ -12193,7 +13772,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooks",
@@ -12216,7 +13800,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "deleteWebhooksByIdWebhook",
@@ -12240,7 +13829,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getWebhooksByIdWebhook",
@@ -12264,7 +13858,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooksByIdWebhook",
@@ -12291,7 +13890,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooksActiveByIdWebhook",
@@ -12318,7 +13922,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooksCallbackURLByIdWebhook",
@@ -12345,7 +13954,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooksDescriptionByIdWebhook",
@@ -12372,7 +13986,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "updateWebhooksIdModelByIdWebhook",
@@ -12399,7 +14018,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     },
     {
       "id": "getWebhooksByIdWebhookByField",
@@ -12427,7 +14051,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "trello": {
+          "integration": "trello"
+        }
+      }
     }
   ]
 }

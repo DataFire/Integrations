@@ -2,6 +2,7 @@
   "id": "peel_ci",
   "title": "Peel Tune-in API",
   "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtags in real time and to generate direct tune-in URLs.",
+  "security": {},
   "actions": [
     {
       "id": "getRelatedHashtags",

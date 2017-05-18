@@ -2,6 +2,31 @@
   "id": "google_prediction",
   "title": "Prediction",
   "description": "Lets you access a cloud hosted machine learning service that makes it easy to build smart apps",
+  "security": {
+    "google_prediction": {
+      "integration": "google_prediction",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/devstorage.full_control": "Manage your data and permissions in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_only": "View your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/devstorage.read_write": "Manage your data in Google Cloud Storage",
+          "https://www.googleapis.com/auth/prediction": "Manage your data in the Google Prediction API"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Analyze": {
       "properties": {
@@ -476,6 +501,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Output"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -528,6 +558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Insert2"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -586,6 +621,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -637,7 +677,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
+      }
     },
     {
       "id": "trainedmodels.get",
@@ -690,6 +735,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Insert2"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -746,6 +796,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Insert2"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -799,6 +854,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Analyze"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     },
     {
@@ -855,6 +915,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Output"
+      },
+      "security": {
+        "google_prediction": {
+          "integration": "google_prediction"
+        }
       }
     }
   ]

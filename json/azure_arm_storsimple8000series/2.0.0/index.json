@@ -2,6 +2,26 @@
   "id": "azure_arm_storsimple8000series",
   "title": "StorSimpleSeries8000ManagementClient",
   "description": "",
+  "security": {
+    "azure_arm_storsimple8000series": {
+      "integration": "azure_arm_storsimple8000series",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AsymmetricEncryptedSecret": {
       "description": "Represent the secrets intended for encryption with asymmetric key pair.",
@@ -800,6 +820,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailableProviderOperationList"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -822,6 +847,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerList"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -848,6 +878,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerList"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -878,7 +913,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
+      }
     },
     {
       "id": "Managers_Get",
@@ -910,6 +950,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Manager"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -945,6 +990,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Manager"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -978,7 +1028,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
+      }
     },
     {
       "id": "Devices_ListByManager",
@@ -1014,6 +1069,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceList"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1048,7 +1108,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
+      }
     },
     {
       "id": "Devices_Get",
@@ -1088,6 +1153,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1127,6 +1197,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1161,7 +1236,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
+      }
     },
     {
       "id": "Managers_GetDevicePublicEncryptionKey",
@@ -1197,6 +1277,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicKey"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1229,6 +1314,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EncryptionSettings"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1259,7 +1349,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
+      }
     },
     {
       "id": "Managers_GetExtendedInfo",
@@ -1291,6 +1386,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1330,6 +1430,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1365,6 +1470,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1397,6 +1507,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1429,6 +1544,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SymmetricEncryptedSecret"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1461,6 +1581,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SymmetricEncryptedSecret"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     },
     {
@@ -1493,6 +1618,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "azure_arm_storsimple8000series": {
+          "integration": "azure_arm_storsimple8000series"
+        }
       }
     }
   ]

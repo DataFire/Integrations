@@ -2,6 +2,27 @@
   "id": "google_gamesconfiguration",
   "title": "Google Play Game Services Publishing",
   "description": "The Publishing API for Google Play Game Services.",
+  "security": {
+    "google_gamesconfiguration": {
+      "integration": "google_gamesconfiguration",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/androidpublisher": "View and manage your Google Play Developer account"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AchievementConfiguration": {
       "description": "This is a JSON template for an achievement configuration resource.",
@@ -349,7 +370,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
+      }
     },
     {
       "id": "achievementConfigurations.get",
@@ -398,6 +424,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -450,6 +481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -502,6 +538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -561,6 +602,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementConfigurationListResponse"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -613,6 +659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AchievementConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -672,6 +723,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardConfigurationListResponse"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -724,6 +780,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -781,6 +842,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ImageConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -828,7 +894,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
+      }
     },
     {
       "id": "leaderboardConfigurations.get",
@@ -877,6 +948,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -929,6 +1005,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     },
     {
@@ -981,6 +1062,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaderboardConfiguration"
+      },
+      "security": {
+        "google_gamesconfiguration": {
+          "integration": "google_gamesconfiguration"
+        }
       }
     }
   ]

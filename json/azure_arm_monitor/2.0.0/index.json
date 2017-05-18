@@ -2,6 +2,26 @@
   "id": "azure_arm_monitor",
   "title": "MonitorManagementClient",
   "description": "",
+  "security": {
+    "azure_arm_monitor": {
+      "integration": "azure_arm_monitor",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AutoscaleNotification": {
       "description": "Autoscale notification.",
@@ -513,6 +533,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoscaleSettingResourceCollection"
+      },
+      "security": {
+        "azure_arm_monitor": {
+          "integration": "azure_arm_monitor"
+        }
       }
     },
     {
@@ -541,7 +566,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_monitor": {
+          "integration": "azure_arm_monitor"
+        }
+      }
     },
     {
       "id": "AutoscaleSettings_Get",
@@ -571,6 +601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoscaleSettingResource"
+      },
+      "security": {
+        "azure_arm_monitor": {
+          "integration": "azure_arm_monitor"
+        }
       }
     },
     {
@@ -604,6 +639,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoscaleSettingResource"
+      },
+      "security": {
+        "azure_arm_monitor": {
+          "integration": "azure_arm_monitor"
+        }
       }
     }
   ]

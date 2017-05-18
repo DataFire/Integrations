@@ -2,6 +2,7 @@
   "id": "passwordutility",
   "title": "PasswordUtility.Web",
   "description": "Validate and generate passwords using open source tools",
+  "security": {},
   "definitions": {
     "Object": {
       "properties": {},

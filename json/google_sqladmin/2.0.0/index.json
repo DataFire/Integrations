@@ -2,6 +2,28 @@
   "id": "google_sqladmin",
   "title": "Cloud SQL Administration",
   "description": "Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.",
+  "security": {
+    "google_sqladmin": {
+      "integration": "google_sqladmin",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/sqlservice.admin": "Manage your Google SQL Service instances"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "AclEntry": {
       "description": "An entry for an Access Control list.",
@@ -1348,6 +1370,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/FlagsListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1409,6 +1436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstancesListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1461,6 +1493,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1514,6 +1551,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1567,6 +1609,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseInstance"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1623,6 +1670,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1679,6 +1731,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1740,6 +1797,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRunsListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1796,6 +1858,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1853,6 +1920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1910,6 +1982,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRun"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -1966,6 +2043,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2022,6 +2104,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCert"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2075,6 +2162,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabasesListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2131,6 +2223,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2188,6 +2285,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2245,6 +2347,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Database"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2305,6 +2412,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2365,6 +2477,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2421,6 +2538,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2477,6 +2599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2533,6 +2660,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2586,6 +2718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2639,6 +2776,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2692,6 +2834,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2748,6 +2895,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2801,6 +2953,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCertsListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2857,6 +3014,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCertsInsertResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2914,6 +3076,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -2971,6 +3138,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SslCert"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3024,6 +3196,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3077,6 +3254,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3133,6 +3315,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3194,6 +3381,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3247,6 +3439,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3303,6 +3500,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3367,6 +3569,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3428,6 +3635,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationsListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3481,6 +3693,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     },
     {
@@ -3530,6 +3747,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TiersListResponse"
+      },
+      "security": {
+        "google_sqladmin": {
+          "integration": "google_sqladmin"
+        }
       }
     }
   ]

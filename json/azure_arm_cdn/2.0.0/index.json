@@ -2,6 +2,26 @@
   "id": "azure_arm_cdn",
   "title": "CdnManagementClient",
   "description": "Use these APIs to manage Azure CDN resources through the Azure Resource Manager. You must make sure that requests made to these resources are secure.",
+  "security": {
+    "azure_arm_cdn": {
+      "integration": "azure_arm_cdn",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "CheckNameAvailabilityInput": {
       "description": "Input of CheckNameAvailability API.",
@@ -916,6 +936,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityOutput"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -934,6 +959,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EdgenodeResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -952,6 +982,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -974,6 +1009,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -996,6 +1036,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1025,6 +1070,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1056,7 +1106,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "Profiles_Get",
@@ -1089,6 +1144,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1125,6 +1185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1161,6 +1226,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1194,6 +1264,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1227,6 +1302,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/EndpointListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1262,7 +1342,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "Endpoints_Get",
@@ -1299,6 +1384,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1339,6 +1429,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1379,6 +1474,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1416,6 +1516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1453,6 +1558,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomainListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1492,7 +1602,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "CustomDomains_Get",
@@ -1533,6 +1648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomain"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1577,6 +1697,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomain"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1616,7 +1741,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "CustomDomains_EnableCustomHttps",
@@ -1655,7 +1785,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "Endpoints_LoadContent",
@@ -1693,7 +1828,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "Origins_ListByEndpoint",
@@ -1730,6 +1870,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OriginListResult"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1771,6 +1916,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Origin"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1815,6 +1965,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Origin"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1853,7 +2008,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
+      }
     },
     {
       "id": "Endpoints_Start",
@@ -1890,6 +2050,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1927,6 +2092,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -1967,6 +2137,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ValidateCustomDomainOutput"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     },
     {
@@ -2000,6 +2175,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SsoUri"
+      },
+      "security": {
+        "azure_arm_cdn": {
+          "integration": "azure_arm_cdn"
+        }
       }
     }
   ]

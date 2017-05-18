@@ -2,6 +2,66 @@
   "id": "slack",
   "title": "Slack",
   "description": "A messaging app for teams",
+  "security": {
+    "slack": {
+      "integration": "slack",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://slack.com/oauth/authorize",
+        "description": "",
+        "flow": "accessCode",
+        "scopes": {
+          "admin": "",
+          "channels:history": "",
+          "channels:read": "",
+          "channels:write": "",
+          "chat:write:bot": "",
+          "chat:write:user": "",
+          "client": "",
+          "dnd:read": "",
+          "dnd:write": "",
+          "emoji:read": "",
+          "files:read": "",
+          "files:write:user": "",
+          "groups:history": "",
+          "groups:read": "",
+          "groups:write": "",
+          "identify": "",
+          "identity.basic": "",
+          "im:history": "",
+          "im:read": "",
+          "im:write": "",
+          "mpim:history": "",
+          "mpim:read": "",
+          "mpim:write": "",
+          "pins:read": "",
+          "pins:write": "",
+          "reactions:read": "",
+          "reactions:write": "",
+          "reminders:read": "",
+          "reminders:write": "",
+          "search:read": "",
+          "stars:read": "",
+          "stars:write": "",
+          "team:read": "",
+          "usergroups:read": "",
+          "usergroups:write": "",
+          "users.profile:read": "",
+          "users.profile:write": "",
+          "users:read": "",
+          "users:write": ""
+        },
+        "tokenUrl": "https://slack.com/api/oauth.access",
+        "type": "oauth2",
+        "name": "token"
+      }
+    }
+  },
   "definitions": {
     "channalsInfo": {
       "properties": {
@@ -1479,6 +1539,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1515,6 +1580,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1533,6 +1603,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/searchAll"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1555,6 +1630,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsInvite"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1573,6 +1653,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsInvite"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1591,6 +1676,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1612,6 +1702,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channels"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1634,6 +1729,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1656,6 +1756,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/purpose"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1678,6 +1783,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/topic"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1700,6 +1810,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/chatOk"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1750,6 +1865,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/chatOk"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1776,6 +1896,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/chatUpdate"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1785,6 +1910,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/emojiList"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1811,6 +1941,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/fileObj"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1854,6 +1989,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/files"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1899,6 +2039,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/fileObj"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1935,6 +2080,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1956,6 +2106,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/groups"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -1978,6 +2133,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2000,6 +2160,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/purpose"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2022,6 +2187,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/topic"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2058,6 +2228,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2067,6 +2242,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/ims"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2089,6 +2269,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2135,6 +2320,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/searchAll"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2181,6 +2371,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/searchFiles"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2227,6 +2422,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/searchMessages"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2256,6 +2456,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/starList"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     },
     {
@@ -2265,6 +2470,11 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/usersList"
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
       }
     }
   ]

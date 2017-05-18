@@ -2,6 +2,26 @@
   "id": "azure_arm_advisor",
   "title": "AdvisorManagementClient",
   "description": "REST APIs for Azure Advisor",
+  "security": {
+    "azure_arm_advisor": {
+      "integration": "azure_arm_advisor",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow.",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "OperationDisplayInfo": {
       "description": "The operation supported by Advisor.",
@@ -261,6 +281,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationEntityListResult"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     },
     {
@@ -281,7 +306,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
+      }
     },
     {
       "id": "Recommendations_GetGenerateRecommendationsStatus",
@@ -306,7 +336,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
+      }
     },
     {
       "id": "Recommendations_List",
@@ -340,6 +375,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceRecommendationBaseListResult"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     },
     {
@@ -365,6 +405,11 @@
           "$ref": "#/definitions/SuppressionContract"
         },
         "type": "array"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     },
     {
@@ -391,6 +436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceRecommendationBase"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     },
     {
@@ -419,7 +469,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
+      }
     },
     {
       "id": "Suppressions_Get",
@@ -449,6 +504,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuppressionContract"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     },
     {
@@ -482,6 +542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SuppressionContract"
+      },
+      "security": {
+        "azure_arm_advisor": {
+          "integration": "azure_arm_advisor"
+        }
       }
     }
   ]

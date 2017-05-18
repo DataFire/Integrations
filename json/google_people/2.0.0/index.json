@@ -2,6 +2,35 @@
   "id": "google_people",
   "title": "Google People",
   "description": "Provides access to information about profiles and contacts.",
+  "security": {
+    "google_people": {
+      "integration": "google_people",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/contacts": "Manage your contacts",
+          "https://www.googleapis.com/auth/contacts.readonly": "View your contacts",
+          "https://www.googleapis.com/auth/plus.login": "Know the list of people in your circles, your age range, and language",
+          "https://www.googleapis.com/auth/user.addresses.read": "View your street addresses",
+          "https://www.googleapis.com/auth/user.birthday.read": "View your complete date of birth",
+          "https://www.googleapis.com/auth/user.emails.read": "View your email addresses",
+          "https://www.googleapis.com/auth/user.phonenumbers.read": "View your phone numbers",
+          "https://www.googleapis.com/auth/userinfo.email": "View your email address",
+          "https://www.googleapis.com/auth/userinfo.profile": "View your basic profile info"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Address": {
       "description": "A person's physical address. May be a P.O. box or street address. All fields\nare optional.",
@@ -1116,6 +1145,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPeopleResponse"
+      },
+      "security": {
+        "google_people": {
+          "integration": "google_people"
+        }
       }
     },
     {
@@ -1199,6 +1233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Person"
+      },
+      "security": {
+        "google_people": {
+          "integration": "google_people"
+        }
       }
     },
     {
@@ -1307,6 +1346,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListConnectionsResponse"
+      },
+      "security": {
+        "google_people": {
+          "integration": "google_people"
+        }
       }
     }
   ]

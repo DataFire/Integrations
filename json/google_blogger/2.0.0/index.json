@@ -2,6 +2,28 @@
   "id": "google_blogger",
   "title": "Blogger",
   "description": "API for access to the data within Blogger.",
+  "security": {
+    "google_blogger": {
+      "integration": "google_blogger",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/blogger": "Manage your Blogger account",
+          "https://www.googleapis.com/auth/blogger.readonly": "View your Blogger account"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "Blog": {
       "properties": {
@@ -818,6 +840,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Blog"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -880,6 +907,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Blog"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -952,6 +984,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1025,6 +1062,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PageList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1081,6 +1123,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1132,7 +1179,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
+      }
     },
     {
       "id": "pages.get",
@@ -1193,6 +1245,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1257,6 +1314,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1321,6 +1383,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1374,6 +1441,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1427,6 +1499,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Page"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1479,6 +1556,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Pageviews"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1577,6 +1659,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1641,6 +1728,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1707,6 +1799,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1772,6 +1869,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1823,7 +1925,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
+      }
     },
     {
       "id": "posts.get",
@@ -1897,6 +2004,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -1973,6 +2085,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2049,6 +2166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2134,6 +2256,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2189,7 +2316,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
+      }
     },
     {
       "id": "comments.get",
@@ -2255,6 +2387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2312,6 +2449,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2369,6 +2511,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2426,6 +2573,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2483,6 +2635,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2536,6 +2693,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Post"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2585,6 +2747,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2655,6 +2822,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BlogList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2712,6 +2884,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BlogUserInfo"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2809,6 +2986,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostUserInfosList"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     },
     {
@@ -2870,6 +3052,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PostUserInfo"
+      },
+      "security": {
+        "google_blogger": {
+          "integration": "google_blogger"
+        }
       }
     }
   ]

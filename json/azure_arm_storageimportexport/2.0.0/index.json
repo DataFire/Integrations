@@ -2,6 +2,26 @@
   "id": "azure_arm_storageimportexport",
   "title": "StorageImportExport",
   "description": "The Microsoft Azure Storage Import/Export Resource Provider API.",
+  "security": {
+    "azure_arm_storageimportexport": {
+      "integration": "azure_arm_storageimportexport",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.windows-ppe.net/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "BitLockerKeysListResult": {
       "description": "List of BitLocker keys for the specified import/export job.",
@@ -704,6 +724,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationsListResult"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -736,6 +761,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -764,6 +794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/SupportedOperationsListResult"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -806,6 +841,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobListResult"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -852,6 +892,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/JobListResult"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -890,7 +935,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
+      }
     },
     {
       "id": "Jobs_Get",
@@ -930,6 +980,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -973,6 +1028,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -1016,6 +1076,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -1056,6 +1121,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/BitLockerKeysListResult"
+      },
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
       }
     },
     {
@@ -1093,7 +1163,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "azure_arm_storageimportexport": {
+          "integration": "azure_arm_storageimportexport"
+        }
+      }
     }
   ]
 }

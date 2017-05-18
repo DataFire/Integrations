@@ -2,6 +2,7 @@
   "id": "cybertaxonomy_eu",
   "title": "EU BON UTIS",
   "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
+  "security": {},
   "definitions": {
     "AtomisedName": {
       "properties": {

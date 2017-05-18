@@ -2,6 +2,27 @@
   "id": "google_clouderrorreporting",
   "title": "Stackdriver Error Reporting",
   "description": "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API provides a way to report new errors and read access to error groups and their associated errors.\n",
+  "security": {
+    "google_clouderrorreporting": {
+      "integration": "google_clouderrorreporting",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "DeleteEventsResponse": {
       "description": "Response message for deleting error events.",
@@ -373,6 +394,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ErrorGroup"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     },
     {
@@ -455,6 +481,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ErrorGroup"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     },
     {
@@ -534,6 +565,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteEventsResponse"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     },
     {
@@ -649,6 +685,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListEventsResponse"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     },
     {
@@ -731,6 +772,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportErrorEventResponse"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     },
     {
@@ -874,6 +920,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGroupStatsResponse"
+      },
+      "security": {
+        "google_clouderrorreporting": {
+          "integration": "google_clouderrorreporting"
+        }
       }
     }
   ]

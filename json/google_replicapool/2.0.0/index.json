@@ -2,6 +2,30 @@
   "id": "google_replicapool",
   "title": "Google Compute Engine Instance Group Manager",
   "description": "[Deprecated. Please use Instance Group Manager in Compute API] Provides groups of homogenous Compute Engine instances.",
+  "security": {
+    "google_replicapool": {
+      "integration": "google_replicapool",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)"
+      },
+      "oauth": {
+        "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+        "description": "Oauth 2.0 accessCode authentication",
+        "flow": "accessCode",
+        "scopes": {
+          "https://www.googleapis.com/auth/cloud-platform": "View and manage your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/cloud-platform.read-only": "View your data across Google Cloud Platform services",
+          "https://www.googleapis.com/auth/compute": "View and manage your Google Compute Engine resources",
+          "https://www.googleapis.com/auth/compute.readonly": "View your Google Compute Engine resources"
+        },
+        "tokenUrl": "https://accounts.google.com/o/oauth2/token",
+        "type": "oauth2"
+      }
+    }
+  },
   "definitions": {
     "InstanceGroupManager": {
       "description": "An Instance Group Manager resource.",
@@ -452,6 +476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManagerList"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -513,6 +542,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -570,6 +604,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -627,6 +666,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceGroupManager"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -687,6 +731,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -747,6 +796,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -807,6 +861,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -869,6 +928,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -929,6 +993,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -989,6 +1058,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -1056,6 +1130,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     },
     {
@@ -1113,6 +1192,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
+      },
+      "security": {
+        "google_replicapool": {
+          "integration": "google_replicapool"
+        }
       }
     }
   ]

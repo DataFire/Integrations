@@ -2,6 +2,7 @@
   "id": "gov_bc_ca_open511",
   "title": "DriveBC's Open511",
   "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (traffic accidents, construction, etc.) in British Columbia, Canada.",
+  "security": {},
   "actions": [
     {
       "id": "areas.get",

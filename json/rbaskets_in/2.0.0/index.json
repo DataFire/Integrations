@@ -2,6 +2,14 @@
   "id": "rbaskets_in",
   "title": "Request Baskets",
   "description": "RESTful API of Request Baskets service",
+  "security": {
+    "rbaskets_in": {
+      "integration": "rbaskets_in",
+      "fields": {
+        "basket_token": "Basket assigned secure token"
+      }
+    }
+  },
   "definitions": {
     "Baskets": {
       "properties": {
@@ -181,6 +189,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Baskets"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
       }
     },
     {
@@ -197,7 +210,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
     },
     {
       "id": "baskets.name.get",
@@ -215,6 +233,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Config"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
       }
     },
     {
@@ -236,6 +259,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
       }
     },
     {
@@ -255,7 +283,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
     },
     {
       "id": "baskets.name.requests.delete",
@@ -271,7 +304,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
     },
     {
       "id": "baskets.name.requests.get",
@@ -311,6 +349,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Requests"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
       }
     },
     {
@@ -344,6 +387,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
+      },
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
       }
     },
     {
@@ -378,7 +426,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "rbaskets_in": {
+          "integration": "rbaskets_in"
+        }
+      }
     }
   ]
 }

@@ -2,6 +2,14 @@
   "id": "gettyimages",
   "title": "Getty Images",
   "description": "Build applications using the world's most powerful imagery",
+  "security": {
+    "gettyimages": {
+      "integration": "gettyimages",
+      "fields": {
+        "Api-Key": "Provide your API key."
+      }
+    }
+  },
   "definitions": {
     "AddBoardAssetsResult": {
       "properties": {
@@ -2253,6 +2261,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AssetChanges"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2280,6 +2293,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2302,6 +2320,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PartnerChannelList"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2327,6 +2350,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2377,6 +2405,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/board_list"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2402,6 +2435,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/board_created"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2426,7 +2464,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
+      }
     },
     {
       "id": "Boards_GetBoard",
@@ -2452,6 +2495,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/board_detail"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2479,7 +2527,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
+      }
     },
     {
       "id": "Boards_RemoveAssets",
@@ -2509,6 +2562,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2541,6 +2599,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/AddBoardAssetsResult"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2569,7 +2632,12 @@
         },
         "additionalProperties": false
       },
-      "outputSchema": {}
+      "outputSchema": {},
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
+      }
     },
     {
       "id": "Boards_AddAsset",
@@ -2599,6 +2667,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2625,6 +2698,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comment_list"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2654,6 +2732,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comment_created"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2684,6 +2767,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2706,6 +2794,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/collections"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2731,6 +2824,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/countries"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2785,6 +2883,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/downloads_response"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2843,6 +2946,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2878,6 +2986,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2936,6 +3049,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -2980,6 +3098,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/events_result"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3022,6 +3145,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/event"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3101,6 +3229,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/images_detail"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3180,6 +3313,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/images_detail"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3261,6 +3399,11 @@
       },
       "outputSchema": {
         "type": "string"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3290,6 +3433,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsResult"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3328,6 +3476,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PreviousAssetPurchases"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3366,6 +3519,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/PreviousPurchases"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3443,6 +3601,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/events_result"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -3737,6 +3900,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/image_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4017,6 +4185,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/creative_image_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4323,6 +4496,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/editorial_image_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4511,6 +4689,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/video_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4690,6 +4873,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/creative_video_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4874,6 +5062,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/editorial_video_search_results"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4903,6 +5096,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/report_usage_batch_response"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -4968,6 +5166,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/videos_detail"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     },
     {
@@ -5033,6 +5236,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/video_detail"
+      },
+      "security": {
+        "gettyimages": {
+          "integration": "gettyimages"
+        }
       }
     }
   ]

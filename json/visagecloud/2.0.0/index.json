@@ -2,6 +2,14 @@
   "id": "visagecloud",
   "title": "VisageCloud",
   "description": "Face search, recognition & classification API. Just make a call to our REST API each time your app needs to access face recognition and classification capabilities.",
+  "security": {
+    "visagecloud": {
+      "integration": "visagecloud",
+      "fields": {
+        "accessKey": "The accessKey provided by VisageCloud"
+      }
+    }
+  },
   "definitions": {
     "RestResponse": {
       "properties": {
@@ -47,6 +55,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -70,6 +83,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -116,6 +134,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -138,6 +161,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -156,6 +184,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -178,6 +211,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -200,6 +238,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -222,6 +265,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -248,6 +296,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -278,6 +331,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -304,6 +362,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -334,6 +397,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -368,6 +436,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -395,6 +468,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -417,6 +495,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -439,6 +522,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -461,6 +549,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     },
     {
@@ -512,6 +605,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
+      },
+      "security": {
+        "visagecloud": {
+          "integration": "visagecloud"
+        }
       }
     }
   ]

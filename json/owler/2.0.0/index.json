@@ -2,6 +2,14 @@
   "id": "owler",
   "title": "Owler",
   "description": "Search for information on companies using a website or company name and get access to Company Data, News, Blog Posts, Competitor Lists and much more.",
+  "security": {
+    "owler": {
+      "integration": "owler",
+      "fields": {
+        "user_key": "API Access Key"
+      }
+    }
+  },
   "definitions": {
     "Acquisition": {
       "properties": {
@@ -477,6 +485,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/basic_results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -503,6 +516,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CompanyCompetitorVO"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -529,6 +547,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/CompanyCompetitorVO"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -559,6 +582,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/competitors"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -589,6 +617,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/competitors"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -615,6 +648,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -649,6 +687,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -675,6 +718,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -701,6 +749,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -727,6 +780,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/company"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     },
     {
@@ -765,6 +823,11 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/results"
+      },
+      "security": {
+        "owler": {
+          "integration": "owler"
+        }
       }
     }
   ]
