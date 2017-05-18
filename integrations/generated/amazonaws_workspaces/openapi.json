@@ -1,0 +1,2165 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "workspaces.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": "<fullname>Amazon WorkSpaces Service</fullname> <p>This reference provides detailed information about the Amazon WorkSpaces operations.</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon WorkSpaces",
+    "version": "2015-04-08",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/workspaces-2015-04-08.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "workspaces",
+    "x-datafire": {
+      "name": "amazonaws_workspaces",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/workspaces/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates tags for a WorkSpace.",
+        "operationId": "CreateTags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateTagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateTagsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "482": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Creates one or more WorkSpaces.</p> <note> <p>This operation is asynchronous and returns before the WorkSpaces are created.</p> </note>",
+        "operationId": "CreateWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateWorkspacesResult"
+            }
+          },
+          "480": {
+            "description": "ResourceLimitExceededException",
+            "schema": {
+              "$ref": "#/definitions/ResourceLimitExceededException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteTags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes tags from a WorkSpace.",
+        "operationId": "DeleteTags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteTagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteTagsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "481": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeTags": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes tags for a WorkSpace.",
+        "operationId": "DescribeTags",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeTagsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeTagsResult"
+            }
+          },
+          "480": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeWorkspaceBundles": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Obtains information about the WorkSpace bundles that are available to your account in the specified region.</p> <p>You can filter the results with either the <code>BundleIds</code> parameter, or the <code>Owner</code> parameter, but not both.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>NextToken</code> response member contains a token that you pass in the next call to this operation to retrieve the next set of items.</p>",
+        "operationId": "DescribeWorkspaceBundles",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspaceBundlesRequest"
+            }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspaceBundlesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeWorkspaceDirectories": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Retrieves information about the AWS Directory Service directories in the region that are registered with Amazon WorkSpaces and are available to your account.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>NextToken</code> response member contains a token that you pass in the next call to this operation to retrieve the next set of items.</p>",
+        "operationId": "DescribeWorkspaceDirectories",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspaceDirectoriesRequest"
+            }
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspaceDirectoriesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Obtains information about the specified WorkSpaces.</p> <p>Only one of the filter parameters, such as <code>BundleId</code>, <code>DirectoryId</code>, or <code>WorkspaceIds</code>, can be specified at a time.</p> <p>This operation supports pagination with the use of the <code>NextToken</code> request and response parameters. If more results are available, the <code>NextToken</code> response member contains a token that you pass in the next call to this operation to retrieve the next set of items.</p>",
+        "operationId": "DescribeWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspacesRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "Limit",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspacesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeWorkspacesConnectionStatus": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes the connection status of a specified WorkSpace.",
+        "operationId": "DescribeWorkspacesConnectionStatus",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspacesConnectionStatusRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeWorkspacesConnectionStatusResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          }
+        }
+      }
+    },
+    "/#ModifyWorkspaceProperties": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Modifies the WorkSpace properties, including the running mode and AutoStop time.",
+        "operationId": "ModifyWorkspaceProperties",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModifyWorkspacePropertiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ModifyWorkspacePropertiesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidParameterValuesException",
+            "schema": {
+              "$ref": "#/definitions/InvalidParameterValuesException"
+            }
+          },
+          "481": {
+            "description": "InvalidResourceStateException",
+            "schema": {
+              "$ref": "#/definitions/InvalidResourceStateException"
+            }
+          },
+          "482": {
+            "description": "OperationInProgressException",
+            "schema": {
+              "$ref": "#/definitions/OperationInProgressException"
+            }
+          },
+          "483": {
+            "description": "UnsupportedWorkspaceConfigurationException",
+            "schema": {
+              "$ref": "#/definitions/UnsupportedWorkspaceConfigurationException"
+            }
+          },
+          "484": {
+            "description": "ResourceNotFoundException",
+            "schema": {
+              "$ref": "#/definitions/ResourceNotFoundException"
+            }
+          },
+          "485": {
+            "description": "AccessDeniedException",
+            "schema": {
+              "$ref": "#/definitions/AccessDeniedException"
+            }
+          },
+          "486": {
+            "description": "ResourceUnavailableException",
+            "schema": {
+              "$ref": "#/definitions/ResourceUnavailableException"
+            }
+          }
+        }
+      }
+    },
+    "/#RebootWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Reboots the specified WorkSpaces.</p> <p>To be able to reboot a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code>, <code>IMPAIRED</code>, or <code>INOPERABLE</code>.</p> <note> <p>This operation is asynchronous and returns before the WorkSpaces have rebooted.</p> </note>",
+        "operationId": "RebootWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RebootWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RebootWorkspacesResult"
+            }
+          }
+        }
+      }
+    },
+    "/#RebuildWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Rebuilds the specified WorkSpaces.</p> <p>Rebuilding a WorkSpace is a potentially destructive action that can result in the loss of data. Rebuilding a WorkSpace causes the following to occur:</p> <ul> <li> <p>The system is restored to the image of the bundle that the WorkSpace is created from. Any applications that have been installed, or system settings that have been made since the WorkSpace was created will be lost.</p> </li> <li> <p>The data drive (D drive) is re-created from the last automatic snapshot taken of the data drive. The current contents of the data drive are overwritten. Automatic snapshots of the data drive are taken every 12 hours, so the snapshot can be as much as 12 hours old.</p> </li> </ul> <p>To be able to rebuild a WorkSpace, the WorkSpace must have a <b>State</b> of <code>AVAILABLE</code> or <code>ERROR</code>.</p> <note> <p>This operation is asynchronous and returns before the WorkSpaces have been completely rebuilt.</p> </note>",
+        "operationId": "RebuildWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RebuildWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RebuildWorkspacesResult"
+            }
+          }
+        }
+      }
+    },
+    "/#StartWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts the specified WorkSpaces. The WorkSpaces must have a running mode of AutoStop and a state of STOPPED.",
+        "operationId": "StartWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartWorkspacesResult"
+            }
+          }
+        }
+      }
+    },
+    "/#StopWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": " Stops the specified WorkSpaces. The WorkSpaces must have a running mode of AutoStop and a state of AVAILABLE, IMPAIRED, UNHEALTHY, or ERROR.",
+        "operationId": "StopWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopWorkspacesResult"
+            }
+          }
+        }
+      }
+    },
+    "/#TerminateWorkspaces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Terminates the specified WorkSpaces.</p> <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is not maintained and will be destroyed. If you need to archive any user data, contact Amazon Web Services before terminating the WorkSpace.</p> <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p> <note> <p>This operation is asynchronous and returns before the WorkSpaces have been completely terminated.</p> </note>",
+        "operationId": "TerminateWorkspaces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TerminateWorkspacesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TerminateWorkspacesResult"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ARN": {
+      "pattern": "^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$",
+      "type": "string"
+    },
+    "AccessDeniedException": {
+      "description": "The user is not authorized to access a resource.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Alias": {
+      "type": "string"
+    },
+    "BooleanObject": {
+      "type": "boolean"
+    },
+    "BundleId": {
+      "pattern": "^wsb-[0-9a-z]{8,63}$",
+      "type": "string"
+    },
+    "BundleIdList": {
+      "items": {
+        "$ref": "#/definitions/BundleId"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "BundleList": {
+      "items": {
+        "$ref": "#/definitions/WorkspaceBundle"
+      },
+      "type": "array"
+    },
+    "BundleOwner": {
+      "type": "string"
+    },
+    "Compute": {
+      "enum": [
+        "VALUE",
+        "STANDARD",
+        "PERFORMANCE"
+      ],
+      "type": "string"
+    },
+    "ComputeType": {
+      "description": "Contains information about the compute type of a WorkSpace bundle.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/Compute",
+          "description": "The name of the compute type for the bundle."
+        }
+      },
+      "type": "object"
+    },
+    "ComputerName": {
+      "type": "string"
+    },
+    "ConnectionState": {
+      "enum": [
+        "CONNECTED",
+        "DISCONNECTED",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "CreateTagsRequest": {
+      "description": "The request of the <a>CreateTags</a> operation.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The resource ID of the request."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags of the request."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "Tags"
+      ],
+      "type": "object"
+    },
+    "CreateTagsResult": {
+      "description": "The result of the <a>CreateTags</a> operation.",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateWorkspacesRequest": {
+      "description": "Contains the inputs for the <a>CreateWorkspaces</a> operation.",
+      "properties": {
+        "Workspaces": {
+          "$ref": "#/definitions/WorkspaceRequestList",
+          "description": "An array of structures that specify the WorkSpaces to create."
+        }
+      },
+      "required": [
+        "Workspaces"
+      ],
+      "type": "object"
+    },
+    "CreateWorkspacesResult": {
+      "description": "Contains the result of the <a>CreateWorkspaces</a> operation.",
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedCreateWorkspaceRequests",
+          "description": "An array of structures that represent the WorkSpaces that could not be created."
+        },
+        "PendingRequests": {
+          "$ref": "#/definitions/WorkspaceList",
+          "description": "<p>An array of structures that represent the WorkSpaces that were created.</p> <p>Because this operation is asynchronous, the identifier in <code>WorkspaceId</code> is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information will be returned.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DefaultOu": {
+      "type": "string"
+    },
+    "DefaultWorkspaceCreationProperties": {
+      "description": "Contains default WorkSpace creation information.",
+      "properties": {
+        "CustomSecurityGroupId": {
+          "$ref": "#/definitions/SecurityGroupId",
+          "description": "The identifier of any custom security groups that are applied to the WorkSpaces when they are created."
+        },
+        "DefaultOu": {
+          "$ref": "#/definitions/DefaultOu",
+          "description": "The organizational unit (OU) in the directory that the WorkSpace machine accounts are placed in."
+        },
+        "EnableInternetAccess": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "A public IP address will be attached to all WorkSpaces that are created or rebuilt."
+        },
+        "EnableWorkDocs": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Specifies if the directory is enabled for Amazon WorkDocs."
+        },
+        "UserEnabledAsLocalAdministrator": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "The WorkSpace user is an administrator on the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteTagsRequest": {
+      "description": "The request of the <a>DeleteTags</a> operation.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The resource ID of the request."
+        },
+        "TagKeys": {
+          "$ref": "#/definitions/TagKeyList",
+          "description": "The tag keys of the request."
+        }
+      },
+      "required": [
+        "ResourceId",
+        "TagKeys"
+      ],
+      "type": "object"
+    },
+    "DeleteTagsResult": {
+      "description": "The result of the <a>DeleteTags</a> operation.",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeTagsRequest": {
+      "description": "The request of the <a>DescribeTags</a> operation.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The resource ID of the request."
+        }
+      },
+      "required": [
+        "ResourceId"
+      ],
+      "type": "object"
+    },
+    "DescribeTagsResult": {
+      "description": "The result of the <a>DescribeTags</a> operation.",
+      "properties": {
+        "TagList": {
+          "$ref": "#/definitions/TagList",
+          "description": "The list of tags."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspaceBundlesRequest": {
+      "description": "Contains the inputs for the <a>DescribeWorkspaceBundles</a> operation.",
+      "properties": {
+        "BundleIds": {
+          "$ref": "#/definitions/BundleIdList",
+          "description": "An array of strings that contains the identifiers of the bundles to retrieve. This parameter cannot be combined with any other filter parameter."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to this operation. Pass null if this is the first call."
+        },
+        "Owner": {
+          "$ref": "#/definitions/BundleOwner",
+          "description": "<p>The owner of the bundles to retrieve. This parameter cannot be combined with any other filter parameter.</p> <p>This contains one of the following values:</p> <ul> <li> <p>null- Retrieves the bundles that belong to the account making the call.</p> </li> <li> <p> <code>AMAZON</code>- Retrieves the bundles that are provided by AWS.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspaceBundlesResult": {
+      "description": "Contains the results of the <a>DescribeWorkspaceBundles</a> operation.",
+      "properties": {
+        "Bundles": {
+          "$ref": "#/definitions/BundleList",
+          "description": "An array of structures that contain information about the bundles."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspaceDirectoriesRequest": {
+      "description": "Contains the inputs for the <a>DescribeWorkspaceDirectories</a> operation.",
+      "properties": {
+        "DirectoryIds": {
+          "$ref": "#/definitions/DirectoryIdList",
+          "description": "An array of strings that contains the directory identifiers to retrieve information for. If this member is null, all directories are retrieved."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to this operation. Pass null if this is the first call."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspaceDirectoriesResult": {
+      "description": "Contains the results of the <a>DescribeWorkspaceDirectories</a> operation.",
+      "properties": {
+        "Directories": {
+          "$ref": "#/definitions/DirectoryList",
+          "description": "An array of structures that contain information about the directories."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspacesConnectionStatusRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The next token of the request."
+        },
+        "WorkspaceIds": {
+          "$ref": "#/definitions/WorkspaceIdList",
+          "description": "An array of strings that contain the identifiers of the WorkSpaces."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspacesConnectionStatusResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The next token of the result."
+        },
+        "WorkspacesConnectionStatus": {
+          "$ref": "#/definitions/WorkspaceConnectionStatusList",
+          "description": "The connection status of the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspacesRequest": {
+      "description": "Contains the inputs for the <a>DescribeWorkspaces</a> operation.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/BundleId",
+          "description": "The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces that are created from this bundle will be retrieved. This parameter cannot be combined with any other filter parameter."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "Specifies the directory identifier to which to limit the WorkSpaces. Optionally, you can specify a specific directory user with the <code>UserName</code> parameter. This parameter cannot be combined with any other filter parameter."
+        },
+        "Limit": {
+          "$ref": "#/definitions/Limit",
+          "description": "The maximum number of items to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "The <code>NextToken</code> value from a previous call to this operation. Pass null if this is the first call."
+        },
+        "UserName": {
+          "$ref": "#/definitions/UserName",
+          "description": "Used with the <code>DirectoryId</code> parameter to specify the directory user for whom to obtain the WorkSpace."
+        },
+        "WorkspaceIds": {
+          "$ref": "#/definitions/WorkspaceIdList",
+          "description": "<p>An array of strings that contain the identifiers of the WorkSpaces for which to retrieve information. This parameter cannot be combined with any other filter parameter.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with this identifier, no information is returned.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeWorkspacesResult": {
+      "description": "Contains the results for the <a>DescribeWorkspaces</a> operation.",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If not null, more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to this operation to retrieve the next set of items. This token is valid for one day and must be used within that time frame."
+        },
+        "Workspaces": {
+          "$ref": "#/definitions/WorkspaceList",
+          "description": "<p>An array of structures that contain the information about the WorkSpaces.</p> <p>Because the <a>CreateWorkspaces</a> operation is asynchronous, some of this information may be incomplete for a newly-created WorkSpace.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "DirectoryId": {
+      "pattern": "^d-[0-9a-f]{8,63}$",
+      "type": "string"
+    },
+    "DirectoryIdList": {
+      "items": {
+        "$ref": "#/definitions/DirectoryId"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "DirectoryList": {
+      "items": {
+        "$ref": "#/definitions/WorkspaceDirectory"
+      },
+      "type": "array"
+    },
+    "DirectoryName": {
+      "type": "string"
+    },
+    "DnsIpAddresses": {
+      "items": {
+        "$ref": "#/definitions/IpAddress"
+      },
+      "type": "array"
+    },
+    "ErrorType": {
+      "type": "string"
+    },
+    "ExceptionMessage": {
+      "type": "string"
+    },
+    "FailedCreateWorkspaceRequest": {
+      "description": "Contains information about a WorkSpace that could not be created.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorType",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/Description",
+          "description": "The textual error message."
+        },
+        "WorkspaceRequest": {
+          "$ref": "#/definitions/WorkspaceRequest",
+          "description": "A <a>FailedCreateWorkspaceRequest$WorkspaceRequest</a> object that contains the information about the WorkSpace that could not be created."
+        }
+      },
+      "type": "object"
+    },
+    "FailedCreateWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedCreateWorkspaceRequest"
+      },
+      "type": "array"
+    },
+    "FailedRebootWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedWorkspaceChangeRequest"
+      },
+      "type": "array"
+    },
+    "FailedRebuildWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedWorkspaceChangeRequest"
+      },
+      "type": "array"
+    },
+    "FailedStartWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedWorkspaceChangeRequest"
+      },
+      "type": "array"
+    },
+    "FailedStopWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedWorkspaceChangeRequest"
+      },
+      "type": "array"
+    },
+    "FailedTerminateWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/FailedWorkspaceChangeRequest"
+      },
+      "type": "array"
+    },
+    "FailedWorkspaceChangeRequest": {
+      "description": "Contains information about a WorkSpace that could not be rebooted (<a>RebootWorkspaces</a>), rebuilt (<a>RebuildWorkspaces</a>), terminated (<a>TerminateWorkspaces</a>), started (<a>StartWorkspaces</a>), or stopped (<a>StopWorkspaces</a>).",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/ErrorType",
+          "description": "The error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/Description",
+          "description": "The textual error message."
+        },
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The identifier of the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "InvalidParameterValuesException": {
+      "description": "One or more parameter values are not valid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "The exception error message."
+        }
+      },
+      "type": "object"
+    },
+    "InvalidResourceStateException": {
+      "description": "The state of the WorkSpace is not valid for this operation.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "IpAddress": {
+      "type": "string"
+    },
+    "Limit": {
+      "maximum": 25,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ModifyWorkspacePropertiesRequest": {
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The ID of the WorkSpace."
+        },
+        "WorkspaceProperties": {
+          "$ref": "#/definitions/WorkspaceProperties",
+          "description": "The WorkSpace properties of the request."
+        }
+      },
+      "required": [
+        "WorkspaceId",
+        "WorkspaceProperties"
+      ],
+      "type": "object"
+    },
+    "ModifyWorkspacePropertiesResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "NonEmptyString": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "OperationInProgressException": {
+      "description": "The properties of this WorkSpace are currently being modified. Try again in a moment.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "PaginationToken": {
+      "maxLength": 63,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RebootRequest": {
+      "description": "Contains information used with the <a>RebootWorkspaces</a> operation to reboot a WorkSpace.",
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The identifier of the WorkSpace to reboot."
+        }
+      },
+      "required": [
+        "WorkspaceId"
+      ],
+      "type": "object"
+    },
+    "RebootWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/RebootRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RebootWorkspacesRequest": {
+      "description": "Contains the inputs for the <a>RebootWorkspaces</a> operation.",
+      "properties": {
+        "RebootWorkspaceRequests": {
+          "$ref": "#/definitions/RebootWorkspaceRequests",
+          "description": "An array of structures that specify the WorkSpaces to reboot."
+        }
+      },
+      "required": [
+        "RebootWorkspaceRequests"
+      ],
+      "type": "object"
+    },
+    "RebootWorkspacesResult": {
+      "description": "Contains the results of the <a>RebootWorkspaces</a> operation.",
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedRebootWorkspaceRequests",
+          "description": "An array of structures representing any WorkSpaces that could not be rebooted."
+        }
+      },
+      "type": "object"
+    },
+    "RebuildRequest": {
+      "description": "Contains information used with the <a>RebuildWorkspaces</a> operation to rebuild a WorkSpace.",
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The identifier of the WorkSpace to rebuild."
+        }
+      },
+      "required": [
+        "WorkspaceId"
+      ],
+      "type": "object"
+    },
+    "RebuildWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/RebuildRequest"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RebuildWorkspacesRequest": {
+      "description": "Contains the inputs for the <a>RebuildWorkspaces</a> operation.",
+      "properties": {
+        "RebuildWorkspaceRequests": {
+          "$ref": "#/definitions/RebuildWorkspaceRequests",
+          "description": "An array of structures that specify the WorkSpaces to rebuild."
+        }
+      },
+      "required": [
+        "RebuildWorkspaceRequests"
+      ],
+      "type": "object"
+    },
+    "RebuildWorkspacesResult": {
+      "description": "Contains the results of the <a>RebuildWorkspaces</a> operation.",
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedRebuildWorkspaceRequests",
+          "description": "An array of structures representing any WorkSpaces that could not be rebuilt."
+        }
+      },
+      "type": "object"
+    },
+    "RegistrationCode": {
+      "maxLength": 20,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceLimitExceededException": {
+      "description": "Your resource limits have been exceeded.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "The exception error message."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceNotFoundException": {
+      "description": "The resource could not be found.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The resource could not be found."
+        },
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "The resource could not be found."
+        }
+      },
+      "type": "object"
+    },
+    "ResourceUnavailableException": {
+      "description": "The specified resource is not available.",
+      "properties": {
+        "ResourceId": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The identifier of the resource that is not available."
+        },
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage",
+          "description": "The exception error message."
+        }
+      },
+      "type": "object"
+    },
+    "RunningMode": {
+      "enum": [
+        "AUTO_STOP",
+        "ALWAYS_ON"
+      ],
+      "type": "string"
+    },
+    "RunningModeAutoStopTimeoutInMinutes": {
+      "type": "integer"
+    },
+    "SecurityGroupId": {
+      "pattern": "^(sg-[0-9a-f]{8})$",
+      "type": "string"
+    },
+    "StartRequest": {
+      "description": "Describes the start request.",
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The ID of the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "StartWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/StartRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "StartWorkspacesRequest": {
+      "properties": {
+        "StartWorkspaceRequests": {
+          "$ref": "#/definitions/StartWorkspaceRequests",
+          "description": "The requests."
+        }
+      },
+      "required": [
+        "StartWorkspaceRequests"
+      ],
+      "type": "object"
+    },
+    "StartWorkspacesResult": {
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedStartWorkspaceRequests",
+          "description": "The failed requests."
+        }
+      },
+      "type": "object"
+    },
+    "StopRequest": {
+      "description": "Describes the stop request.",
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The ID of the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "StopWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/StopRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "StopWorkspacesRequest": {
+      "properties": {
+        "StopWorkspaceRequests": {
+          "$ref": "#/definitions/StopWorkspaceRequests",
+          "description": "The requests."
+        }
+      },
+      "required": [
+        "StopWorkspaceRequests"
+      ],
+      "type": "object"
+    },
+    "StopWorkspacesResult": {
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedStopWorkspaceRequests",
+          "description": "The failed requests."
+        }
+      },
+      "type": "object"
+    },
+    "SubnetId": {
+      "pattern": "^(subnet-[0-9a-f]{8})$",
+      "type": "string"
+    },
+    "SubnetIds": {
+      "items": {
+        "$ref": "#/definitions/SubnetId"
+      },
+      "type": "array"
+    },
+    "Tag": {
+      "description": "Describes the tag of the WorkSpace.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "The key of the tag."
+        },
+        "Value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value of the tag."
+        }
+      },
+      "required": [
+        "Key"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 127,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagKeyList": {
+      "items": {
+        "$ref": "#/definitions/NonEmptyString"
+      },
+      "type": "array"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TagValue": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "TerminateRequest": {
+      "description": "Contains information used with the <a>TerminateWorkspaces</a> operation to terminate a WorkSpace.",
+      "properties": {
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The identifier of the WorkSpace to terminate."
+        }
+      },
+      "required": [
+        "WorkspaceId"
+      ],
+      "type": "object"
+    },
+    "TerminateWorkspaceRequests": {
+      "items": {
+        "$ref": "#/definitions/TerminateRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "TerminateWorkspacesRequest": {
+      "description": "Contains the inputs for the <a>TerminateWorkspaces</a> operation.",
+      "properties": {
+        "TerminateWorkspaceRequests": {
+          "$ref": "#/definitions/TerminateWorkspaceRequests",
+          "description": "An array of structures that specify the WorkSpaces to terminate."
+        }
+      },
+      "required": [
+        "TerminateWorkspaceRequests"
+      ],
+      "type": "object"
+    },
+    "TerminateWorkspacesResult": {
+      "description": "Contains the results of the <a>TerminateWorkspaces</a> operation.",
+      "properties": {
+        "FailedRequests": {
+          "$ref": "#/definitions/FailedTerminateWorkspaceRequests",
+          "description": "An array of structures representing any WorkSpaces that could not be terminated."
+        }
+      },
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "UnsupportedWorkspaceConfigurationException": {
+      "description": "The configuration of this WorkSpace is not supported for this operation. For more information, see the <a href=\"http://docs.aws.amazon.com/workspaces/latest/adminguide/\">Amazon WorkSpaces Administration Guide</a>. ",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ExceptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "UserName": {
+      "maxLength": 63,
+      "minLength": 1,
+      "type": "string"
+    },
+    "UserStorage": {
+      "description": "Contains information about the user storage for a WorkSpace bundle.",
+      "properties": {
+        "Capacity": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The amount of user storage for the bundle."
+        }
+      },
+      "type": "object"
+    },
+    "VolumeEncryptionKey": {
+      "type": "string"
+    },
+    "Workspace": {
+      "description": "Contains information about a WorkSpace.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/BundleId",
+          "description": "The identifier of the bundle that the WorkSpace was created from."
+        },
+        "ComputerName": {
+          "$ref": "#/definitions/ComputerName",
+          "description": "The name of the WorkSpace as seen by the operating system."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "The identifier of the AWS Directory Service directory that the WorkSpace belongs to."
+        },
+        "ErrorCode": {
+          "$ref": "#/definitions/WorkspaceErrorCode",
+          "description": "If the WorkSpace could not be created, this contains the error code."
+        },
+        "ErrorMessage": {
+          "$ref": "#/definitions/Description",
+          "description": "If the WorkSpace could not be created, this contains a textual error message that describes the failure."
+        },
+        "IpAddress": {
+          "$ref": "#/definitions/IpAddress",
+          "description": "The IP address of the WorkSpace."
+        },
+        "RootVolumeEncryptionEnabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Specifies whether the data stored on the root volume, or C: drive, is encrypted."
+        },
+        "State": {
+          "$ref": "#/definitions/WorkspaceState",
+          "description": "The operational state of the WorkSpace."
+        },
+        "SubnetId": {
+          "$ref": "#/definitions/SubnetId",
+          "description": "The identifier of the subnet that the WorkSpace is in."
+        },
+        "UserName": {
+          "$ref": "#/definitions/UserName",
+          "description": "The user that the WorkSpace is assigned to."
+        },
+        "UserVolumeEncryptionEnabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Specifies whether the data stored on the user volume, or D: drive, is encrypted."
+        },
+        "VolumeEncryptionKey": {
+          "$ref": "#/definitions/VolumeEncryptionKey",
+          "description": "The KMS key used to encrypt data stored on your WorkSpace."
+        },
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The identifier of the WorkSpace."
+        },
+        "WorkspaceProperties": {
+          "$ref": "#/definitions/WorkspaceProperties"
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceBundle": {
+      "description": "Contains information about a WorkSpace bundle.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/BundleId",
+          "description": "The bundle identifier."
+        },
+        "ComputeType": {
+          "$ref": "#/definitions/ComputeType",
+          "description": "A <a>ComputeType</a> object that specifies the compute type for the bundle."
+        },
+        "Description": {
+          "$ref": "#/definitions/Description",
+          "description": "The bundle description."
+        },
+        "Name": {
+          "$ref": "#/definitions/NonEmptyString",
+          "description": "The name of the bundle."
+        },
+        "Owner": {
+          "$ref": "#/definitions/BundleOwner",
+          "description": "The owner of the bundle. This contains the owner's account identifier, or <code>AMAZON</code> if the bundle is provided by AWS."
+        },
+        "UserStorage": {
+          "$ref": "#/definitions/UserStorage",
+          "description": "A <a>UserStorage</a> object that specifies the amount of user storage that the bundle contains."
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceConnectionStatus": {
+      "description": "Describes the connection status of a WorkSpace.",
+      "properties": {
+        "ConnectionState": {
+          "$ref": "#/definitions/ConnectionState",
+          "description": "The connection state of the WorkSpace. Returns UNKOWN if the WorkSpace is in a Stopped state."
+        },
+        "ConnectionStateCheckTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp of the connection state check."
+        },
+        "LastKnownUserConnectionTimestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The timestamp of the last known user connection."
+        },
+        "WorkspaceId": {
+          "$ref": "#/definitions/WorkspaceId",
+          "description": "The ID of the WorkSpace."
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceConnectionStatusList": {
+      "items": {
+        "$ref": "#/definitions/WorkspaceConnectionStatus"
+      },
+      "type": "array"
+    },
+    "WorkspaceDirectory": {
+      "description": "Contains information about an AWS Directory Service directory for use with Amazon WorkSpaces.",
+      "properties": {
+        "Alias": {
+          "$ref": "#/definitions/Alias",
+          "description": "The directory alias."
+        },
+        "CustomerUserName": {
+          "$ref": "#/definitions/UserName",
+          "description": "The user name for the service account."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "The directory identifier."
+        },
+        "DirectoryName": {
+          "$ref": "#/definitions/DirectoryName",
+          "description": "The name of the directory."
+        },
+        "DirectoryType": {
+          "$ref": "#/definitions/WorkspaceDirectoryType",
+          "description": "The directory type."
+        },
+        "DnsIpAddresses": {
+          "$ref": "#/definitions/DnsIpAddresses",
+          "description": "An array of strings that contains the IP addresses of the DNS servers for the directory."
+        },
+        "IamRoleId": {
+          "$ref": "#/definitions/ARN",
+          "description": "The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf."
+        },
+        "RegistrationCode": {
+          "$ref": "#/definitions/RegistrationCode",
+          "description": "The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory."
+        },
+        "State": {
+          "$ref": "#/definitions/WorkspaceDirectoryState",
+          "description": "The state of the directory's registration with Amazon WorkSpaces"
+        },
+        "SubnetIds": {
+          "$ref": "#/definitions/SubnetIds",
+          "description": "An array of strings that contains the identifiers of the subnets used with the directory."
+        },
+        "WorkspaceCreationProperties": {
+          "$ref": "#/definitions/DefaultWorkspaceCreationProperties",
+          "description": "A structure that specifies the default creation properties for all WorkSpaces in the directory."
+        },
+        "WorkspaceSecurityGroupId": {
+          "$ref": "#/definitions/SecurityGroupId",
+          "description": "The identifier of the security group that is assigned to new WorkSpaces."
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceDirectoryState": {
+      "enum": [
+        "REGISTERING",
+        "REGISTERED",
+        "DEREGISTERING",
+        "DEREGISTERED",
+        "ERROR"
+      ],
+      "type": "string"
+    },
+    "WorkspaceDirectoryType": {
+      "enum": [
+        "SIMPLE_AD",
+        "AD_CONNECTOR"
+      ],
+      "type": "string"
+    },
+    "WorkspaceErrorCode": {
+      "type": "string"
+    },
+    "WorkspaceId": {
+      "pattern": "^ws-[0-9a-z]{8,63}$",
+      "type": "string"
+    },
+    "WorkspaceIdList": {
+      "items": {
+        "$ref": "#/definitions/WorkspaceId"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "WorkspaceList": {
+      "items": {
+        "$ref": "#/definitions/Workspace"
+      },
+      "type": "array"
+    },
+    "WorkspaceProperties": {
+      "description": "Describes the properties of a WorkSpace.",
+      "properties": {
+        "RunningMode": {
+          "$ref": "#/definitions/RunningMode",
+          "description": "The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop WorkSpaces are billed by the hour and stopped when no longer being used in order to save on costs."
+        },
+        "RunningModeAutoStopTimeoutInMinutes": {
+          "$ref": "#/definitions/RunningModeAutoStopTimeoutInMinutes",
+          "description": "The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60 minute intervals."
+        }
+      },
+      "type": "object"
+    },
+    "WorkspaceRequest": {
+      "description": "Contains information about a WorkSpace creation request.",
+      "properties": {
+        "BundleId": {
+          "$ref": "#/definitions/BundleId",
+          "description": "The identifier of the bundle to create the WorkSpace from. You can use the <a>DescribeWorkspaceBundles</a> operation to obtain a list of the bundles that are available."
+        },
+        "DirectoryId": {
+          "$ref": "#/definitions/DirectoryId",
+          "description": "The identifier of the AWS Directory Service directory to create the WorkSpace in. You can use the <a>DescribeWorkspaceDirectories</a> operation to obtain a list of the directories that are available."
+        },
+        "RootVolumeEncryptionEnabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Specifies whether the data stored on the root volume, or C: drive, is encrypted."
+        },
+        "Tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags of the WorkSpace request."
+        },
+        "UserName": {
+          "$ref": "#/definitions/UserName",
+          "description": "The username that the WorkSpace is assigned to. This username must exist in the AWS Directory Service directory specified by the <code>DirectoryId</code> member."
+        },
+        "UserVolumeEncryptionEnabled": {
+          "$ref": "#/definitions/BooleanObject",
+          "description": "Specifies whether the data stored on the user volume, or D: drive, is encrypted."
+        },
+        "VolumeEncryptionKey": {
+          "$ref": "#/definitions/VolumeEncryptionKey",
+          "description": "The KMS key used to encrypt data stored on your WorkSpace."
+        },
+        "WorkspaceProperties": {
+          "$ref": "#/definitions/WorkspaceProperties"
+        }
+      },
+      "required": [
+        "DirectoryId",
+        "UserName",
+        "BundleId"
+      ],
+      "type": "object"
+    },
+    "WorkspaceRequestList": {
+      "items": {
+        "$ref": "#/definitions/WorkspaceRequest"
+      },
+      "maxItems": 25,
+      "minItems": 1,
+      "type": "array"
+    },
+    "WorkspaceState": {
+      "enum": [
+        "PENDING",
+        "AVAILABLE",
+        "IMPAIRED",
+        "UNHEALTHY",
+        "REBOOTING",
+        "STARTING",
+        "REBUILDING",
+        "MAINTENANCE",
+        "TERMINATING",
+        "TERMINATED",
+        "SUSPENDED",
+        "STOPPING",
+        "STOPPED",
+        "ERROR"
+      ],
+      "type": "string"
+    }
+  }
+}

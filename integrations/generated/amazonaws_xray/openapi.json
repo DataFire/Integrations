@@ -1,0 +1,1361 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "xray.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": "AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those traces.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS X-Ray",
+    "version": "2016-04-12",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/xray-2016-04-12.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "xray",
+    "x-datafire": {
+      "name": "amazonaws_xray",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/xray/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/ServiceGraph": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result. Root services process incoming requests and make calls to downstream services. Root services are applications that use the AWS X-Ray SDK. Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL databases.",
+        "operationId": "GetServiceGraph",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetServiceGraphRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetServiceGraphResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    },
+    "/TelemetryRecords": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Used by the AWS X-Ray daemon to upload telemetry.",
+        "operationId": "PutTelemetryRecords",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutTelemetryRecordsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutTelemetryRecordsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    },
+    "/TraceGraph": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a service graph for one or more specific trace IDs.",
+        "operationId": "GetTraceGraph",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetTraceGraphRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTraceGraphResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    },
+    "/TraceSegments": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches. A segment document can be a completed segment, an in-progress segment, or an array of subsegments.",
+        "operationId": "PutTraceSegments",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutTraceSegmentsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutTraceSegmentsResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    },
+    "/TraceSummaries": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to <code>BatchGetTraces</code>.",
+        "operationId": "GetTraceSummaries",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetTraceSummariesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetTraceSummariesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    },
+    "/Traces": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a list of trace IDs.",
+        "operationId": "BatchGetTraces",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BatchGetTracesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BatchGetTracesResult"
+            }
+          },
+          "480": {
+            "description": "InvalidRequestException",
+            "schema": {
+              "$ref": "#/definitions/InvalidRequestException"
+            }
+          },
+          "481": {
+            "description": "ThrottledException",
+            "schema": {
+              "$ref": "#/definitions/ThrottledException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Alias": {
+      "description": "An alias for an edge.",
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The canonical name of the alias."
+        },
+        "Names": {
+          "$ref": "#/definitions/AliasNames",
+          "description": "A list of names for the alias, including the canonical name."
+        },
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "The type of the alias."
+        }
+      },
+      "type": "object"
+    },
+    "AliasList": {
+      "items": {
+        "$ref": "#/definitions/Alias"
+      },
+      "type": "array"
+    },
+    "AliasNames": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "AnnotationKey": {
+      "type": "string"
+    },
+    "AnnotationValue": {
+      "description": "Value of a segment annotation. Has one of three value types: Number, Boolean or String.",
+      "properties": {
+        "BooleanValue": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "Value for a Boolean annotation."
+        },
+        "NumberValue": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "Value for a Number annotation."
+        },
+        "StringValue": {
+          "$ref": "#/definitions/String",
+          "description": "Value for a String annotation."
+        }
+      },
+      "type": "object"
+    },
+    "Annotations": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/AnnotationKey"
+          },
+          "value": {
+            "$ref": "#/definitions/ValuesWithServiceIds"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "BackendConnectionErrors": {
+      "description": "",
+      "properties": {
+        "ConnectionRefusedCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "HTTPCode4XXCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "HTTPCode5XXCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "OtherCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "TimeoutCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "UnknownHostCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetTracesRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "TraceIds": {
+          "$ref": "#/definitions/TraceIdList",
+          "description": "Specify the trace IDs of requests for which to retrieve segments."
+        }
+      },
+      "required": [
+        "TraceIds"
+      ],
+      "type": "object"
+    },
+    "BatchGetTracesResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "Traces": {
+          "$ref": "#/definitions/TraceList",
+          "description": "Full traces for the specified requests."
+        },
+        "UnprocessedTraceIds": {
+          "$ref": "#/definitions/UnprocessedTraceIdList",
+          "description": "Trace IDs of requests that haven't been processed."
+        }
+      },
+      "type": "object"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "Edge": {
+      "description": "Information about a connection between two services.",
+      "properties": {
+        "Aliases": {
+          "$ref": "#/definitions/AliasList",
+          "description": "Aliases for the edge."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end time of the last segment on the edge."
+        },
+        "ReferenceId": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "Identifier of the edge. Unique within a service map."
+        },
+        "ResponseTimeHistogram": {
+          "$ref": "#/definitions/Histogram",
+          "description": "Histogram describing the prominence of response times on the edge."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of the first segment on the edge."
+        },
+        "SummaryStatistics": {
+          "$ref": "#/definitions/EdgeStatistics",
+          "description": "Response statistics for segments on the edge."
+        }
+      },
+      "type": "object"
+    },
+    "EdgeList": {
+      "items": {
+        "$ref": "#/definitions/Edge"
+      },
+      "type": "array"
+    },
+    "EdgeStatistics": {
+      "description": "Response statistics for an edge.",
+      "properties": {
+        "ErrorStatistics": {
+          "$ref": "#/definitions/ErrorStatistics",
+          "description": "Information about requests that failed with a 4xx Client Error status code."
+        },
+        "FaultStatistics": {
+          "$ref": "#/definitions/FaultStatistics",
+          "description": "Information about requests that failed with a 5xx Server Error status code."
+        },
+        "OkCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of requests that completed with a 2xx Success status code."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The total number of completed requests."
+        },
+        "TotalResponseTime": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The aggregate response time of completed requests."
+        }
+      },
+      "type": "object"
+    },
+    "ErrorStatistics": {
+      "description": "Information about requests that failed with a 4xx Client Error status code.",
+      "properties": {
+        "OtherCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of requests that failed with untracked 4xx Client Error status codes."
+        },
+        "ThrottleCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of requests that failed with a 419 throttling status code."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The total number of requests that failed with a 4xx Client Error status code."
+        }
+      },
+      "type": "object"
+    },
+    "FaultStatistics": {
+      "description": "Information about requests that failed with a 5xx Server Error status code.",
+      "properties": {
+        "OtherCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of requests that failed with untracked 5xx Server Error status codes."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The total number of requests that failed with a 5xx Server Error status code."
+        }
+      },
+      "type": "object"
+    },
+    "FilterExpression": {
+      "maxLength": 2000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "GetServiceGraphRequest": {
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end of the time frame for which to generate a graph."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start of the time frame for which to generate a graph."
+        }
+      },
+      "required": [
+        "StartTime",
+        "EndTime"
+      ],
+      "type": "object"
+    },
+    "GetServiceGraphResult": {
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end of the time frame for which the graph was generated."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "Services": {
+          "$ref": "#/definitions/ServiceList",
+          "description": "The services that have processed a traced request during the specified time frame."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start of the time frame for which the graph was generated."
+        }
+      },
+      "type": "object"
+    },
+    "GetTraceGraphRequest": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "TraceIds": {
+          "$ref": "#/definitions/TraceIdList",
+          "description": "Trace IDs of requests for which to generate a service graph."
+        }
+      },
+      "required": [
+        "TraceIds"
+      ],
+      "type": "object"
+    },
+    "GetTraceGraphResult": {
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Pagination token. Not used."
+        },
+        "Services": {
+          "$ref": "#/definitions/ServiceList",
+          "description": "The services that have processed one of the specified requests."
+        }
+      },
+      "type": "object"
+    },
+    "GetTraceSummariesRequest": {
+      "properties": {
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end of the time frame for which to retrieve traces."
+        },
+        "FilterExpression": {
+          "$ref": "#/definitions/FilterExpression",
+          "description": "Specify a filter expression to retrieve trace summaries for services or requests that meet certain requirements."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "Specify the pagination token returned by a previous request to retrieve the next page of results."
+        },
+        "Sampling": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "Set to <code>true</code> to get summaries for only a subset of available traces."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start of the time frame for which to retrieve traces."
+        }
+      },
+      "required": [
+        "StartTime",
+        "EndTime"
+      ],
+      "type": "object"
+    },
+    "GetTraceSummariesResult": {
+      "properties": {
+        "ApproximateTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of this page of results."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "If the requested time frame contained more than one page of results, you can use this token to retrieve the next page. The first page contains the most most recent results, closest to the end of the time frame."
+        },
+        "TraceSummaries": {
+          "$ref": "#/definitions/TraceSummaryList",
+          "description": "Trace IDs and metadata for traces that were found in the specified time frame."
+        },
+        "TracesProcessedCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of traces that were processed to get this set of summaries."
+        }
+      },
+      "type": "object"
+    },
+    "Histogram": {
+      "items": {
+        "$ref": "#/definitions/HistogramEntry"
+      },
+      "type": "array"
+    },
+    "HistogramEntry": {
+      "description": "An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.",
+      "properties": {
+        "Count": {
+          "$ref": "#/definitions/Integer",
+          "description": "The prevalence of the entry."
+        },
+        "Value": {
+          "$ref": "#/definitions/Double",
+          "description": "The value of the entry."
+        }
+      },
+      "type": "object"
+    },
+    "Http": {
+      "description": "Information about an HTTP request.",
+      "properties": {
+        "ClientIp": {
+          "$ref": "#/definitions/String",
+          "description": "The IP address of the requestor."
+        },
+        "HttpMethod": {
+          "$ref": "#/definitions/String",
+          "description": "The request method."
+        },
+        "HttpStatus": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "The response status."
+        },
+        "HttpURL": {
+          "$ref": "#/definitions/String",
+          "description": "The request URL."
+        },
+        "UserAgent": {
+          "$ref": "#/definitions/String",
+          "description": "The request's user agent string."
+        }
+      },
+      "type": "object"
+    },
+    "Integer": {
+      "type": "integer"
+    },
+    "InvalidRequestException": {
+      "description": "The request is missing required parameters or has invalid parameters.",
+      "properties": {},
+      "type": "object"
+    },
+    "NullableBoolean": {
+      "type": "boolean"
+    },
+    "NullableDouble": {
+      "format": "double",
+      "type": "number"
+    },
+    "NullableInteger": {
+      "type": "integer"
+    },
+    "NullableLong": {
+      "type": "integer"
+    },
+    "PutTelemetryRecordsRequest": {
+      "properties": {
+        "EC2InstanceId": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "Hostname": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "ResourceARN": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "TelemetryRecords": {
+          "$ref": "#/definitions/TelemetryRecordList",
+          "description": ""
+        }
+      },
+      "required": [
+        "TelemetryRecords"
+      ],
+      "type": "object"
+    },
+    "PutTelemetryRecordsResult": {
+      "properties": {},
+      "type": "object"
+    },
+    "PutTraceSegmentsRequest": {
+      "properties": {
+        "TraceSegmentDocuments": {
+          "$ref": "#/definitions/TraceSegmentDocumentList",
+          "description": "<p>A JSON document defining one or more segments or subsegments. Segments must include the following fields.</p> <p class=\"title\"> <b>Required Segment Document Fields</b> </p> <ul> <li> <p> <code>name</code> - The name of the service that handled the request.</p> </li> <li> <p> <code>id</code> - A 64-bit identifier for the segment, unique among segments in the same trace, in 16 hexadecimal digits.</p> </li> <li> <p> <code>trace_id</code> - A unique identifier that connects all segments and subsegments originating from a single client request.</p> </li> <li> <p> <code>start_time</code> - Time the segment or subsegment was created, in floating point seconds in epoch time, accurate to milliseconds. For example, <code>1480615200.010</code> or <code>1.480615200010E9</code>.</p> </li> <li> <p> <code>end_time</code> - Time the segment or subsegment was closed. For example, <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an <code>end_time</code> or <code>in_progress</code>.</p> </li> <li> <p> <code>in_progress</code> - Set to <code>true</code> instead of specifying an <code>end_time</code> to record that a segment has been started, but is not complete. Send an in progress segment when your application receives a request that will take a long time to serve, to trace the fact that the request was received. When the response is sent, send the complete segment to overwrite the in-progress segment.</p> </li> </ul> <p>A <code>trace_id</code> consists of three numbers separated by hyphens. For example, 1-58406520-a006649127e371903a2de979. This includes:</p> <p class=\"title\"> <b>Trace ID Format</b> </p> <ul> <li> <p>The version number, i.e. <code>1</code>.</p> </li> <li> <p>The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For example, 10:00AM December 2nd, 2016 PST in epoch time is <code>1480615200</code> seconds, or <code>58406520</code> in hexadecimal.</p> </li> <li> <p>A 96-bit identifier for the trace, globally unique, in 24 hexadecimal digits.</p> </li> </ul>"
+        }
+      },
+      "required": [
+        "TraceSegmentDocuments"
+      ],
+      "type": "object"
+    },
+    "PutTraceSegmentsResult": {
+      "properties": {
+        "UnprocessedTraceSegments": {
+          "$ref": "#/definitions/UnprocessedTraceSegmentList",
+          "description": "Segments that failed processing."
+        }
+      },
+      "type": "object"
+    },
+    "Segment": {
+      "description": "Information about a segment",
+      "properties": {
+        "Document": {
+          "$ref": "#/definitions/SegmentDocument",
+          "description": "The segment document."
+        },
+        "Id": {
+          "$ref": "#/definitions/SegmentId",
+          "description": "The segment's ID."
+        }
+      },
+      "type": "object"
+    },
+    "SegmentDocument": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "SegmentId": {
+      "maxLength": 16,
+      "minLength": 16,
+      "type": "string"
+    },
+    "SegmentList": {
+      "items": {
+        "$ref": "#/definitions/Segment"
+      },
+      "type": "array"
+    },
+    "Service": {
+      "description": "Information about an application that processed requests, users that made requests, or downstream services, resources and applications that an application used.",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/String",
+          "description": "Identifier of the AWS account in which the service runs."
+        },
+        "DurationHistogram": {
+          "$ref": "#/definitions/Histogram",
+          "description": "Histogram mapping the spread of trace durations"
+        },
+        "Edges": {
+          "$ref": "#/definitions/EdgeList",
+          "description": "Connections to downstream services."
+        },
+        "EndTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The end time of the last segment that the service generated."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The canonical name of the service."
+        },
+        "Names": {
+          "$ref": "#/definitions/ServiceNames",
+          "description": "A list of names for the service, including the canonical name."
+        },
+        "ReferenceId": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": "Identifier for the service. Unique within the service map."
+        },
+        "Root": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "Indicates that the service was the first service to process a request."
+        },
+        "StartTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The start time of the first segment that the service generated."
+        },
+        "State": {
+          "$ref": "#/definitions/String",
+          "description": "The service's state."
+        },
+        "SummaryStatistics": {
+          "$ref": "#/definitions/ServiceStatistics",
+          "description": "Aggregated statistics for the service."
+        },
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": "<p>The type of service.</p> <ul> <li> <p>AWS Resource - The type of an AWS resource. For example, <code>AWS::EC2::Instance</code> for a application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application used.</p> </li> <li> <p>AWS Service - The type of an AWS service. For example, <code>AWS::DynamoDB</code> for downstream calls to Amazon DynamoDB that didn't target a specific table.</p> </li> <li> <p> <code>client</code> - Represents the clients that sent requests to a root service.</p> </li> <li> <p> <code>remote</code> - A downstream service of indeterminate type.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "ServiceId": {
+      "description": "",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        },
+        "Names": {
+          "$ref": "#/definitions/ServiceNames",
+          "description": ""
+        },
+        "Type": {
+          "$ref": "#/definitions/String",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "ServiceIds": {
+      "items": {
+        "$ref": "#/definitions/ServiceId"
+      },
+      "type": "array"
+    },
+    "ServiceList": {
+      "items": {
+        "$ref": "#/definitions/Service"
+      },
+      "type": "array"
+    },
+    "ServiceNames": {
+      "items": {
+        "$ref": "#/definitions/String"
+      },
+      "type": "array"
+    },
+    "ServiceStatistics": {
+      "description": "Response statistics for a service.",
+      "properties": {
+        "ErrorStatistics": {
+          "$ref": "#/definitions/ErrorStatistics",
+          "description": "Information about requests that failed with a 4xx Client Error status code."
+        },
+        "FaultStatistics": {
+          "$ref": "#/definitions/FaultStatistics",
+          "description": "Information about requests that failed with a 5xx Server Error status code."
+        },
+        "OkCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The number of requests that completed with a 2xx Success status code."
+        },
+        "TotalCount": {
+          "$ref": "#/definitions/NullableLong",
+          "description": "The total number of completed requests."
+        },
+        "TotalResponseTime": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The aggregate response time of completed requests."
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "TelemetryRecord": {
+      "description": "",
+      "properties": {
+        "BackendConnectionErrors": {
+          "$ref": "#/definitions/BackendConnectionErrors",
+          "description": ""
+        },
+        "SegmentsReceivedCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "SegmentsRejectedCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "SegmentsSentCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "SegmentsSpilloverCount": {
+          "$ref": "#/definitions/NullableInteger",
+          "description": ""
+        },
+        "Timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": ""
+        }
+      },
+      "type": "object"
+    },
+    "TelemetryRecordList": {
+      "items": {
+        "$ref": "#/definitions/TelemetryRecord"
+      },
+      "type": "array"
+    },
+    "ThrottledException": {
+      "description": "The request exceeds the maximum number of requests per second.",
+      "properties": {},
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "Trace": {
+      "description": "A collection of segment documents with matching trace IDs.",
+      "properties": {
+        "Duration": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The length of time in seconds between the start time of the root segment and the end time of the last segment that completed."
+        },
+        "Id": {
+          "$ref": "#/definitions/TraceId",
+          "description": "The unique identifier for the request that generated the trace's segments and subsegments."
+        },
+        "Segments": {
+          "$ref": "#/definitions/SegmentList",
+          "description": "Segment documents for the segments and subsegments that comprise the trace."
+        }
+      },
+      "type": "object"
+    },
+    "TraceId": {
+      "maxLength": 35,
+      "minLength": 35,
+      "type": "string"
+    },
+    "TraceIdList": {
+      "items": {
+        "$ref": "#/definitions/TraceId"
+      },
+      "type": "array"
+    },
+    "TraceList": {
+      "items": {
+        "$ref": "#/definitions/Trace"
+      },
+      "type": "array"
+    },
+    "TraceSegmentDocument": {
+      "type": "string"
+    },
+    "TraceSegmentDocumentList": {
+      "items": {
+        "$ref": "#/definitions/TraceSegmentDocument"
+      },
+      "type": "array"
+    },
+    "TraceSummary": {
+      "description": "Metadata generated from the segment documents in a trace.",
+      "properties": {
+        "Annotations": {
+          "$ref": "#/definitions/Annotations",
+          "description": "Annotations from the trace's segment documents."
+        },
+        "Duration": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The length of time in seconds between the start time of the root segment and the end time of the last segment that completed."
+        },
+        "HasError": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "One or more of the segment documents has a 400 series error."
+        },
+        "HasFault": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "One or more of the segment documents has a 500 series error."
+        },
+        "HasThrottle": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "One or more of the segment documents has a 429 throttling error."
+        },
+        "Http": {
+          "$ref": "#/definitions/Http",
+          "description": "Information about the HTTP request served by the trace."
+        },
+        "Id": {
+          "$ref": "#/definitions/TraceId",
+          "description": "The unique identifier for the request that generated the trace's segments and subsegments."
+        },
+        "IsPartial": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "One or more of the segment documents is in progress."
+        },
+        "ResponseTime": {
+          "$ref": "#/definitions/NullableDouble",
+          "description": "The length of time in seconds between the start and end times of the root segment. If the service performs work asynchronously, the response time measures the time before the response is sent to the user, while the duration measures the amount of time before the last traced activity completes."
+        },
+        "ServiceIds": {
+          "$ref": "#/definitions/ServiceIds",
+          "description": "Service IDs from the trace's segment documents."
+        },
+        "Users": {
+          "$ref": "#/definitions/TraceUsers",
+          "description": "Users from the trace's segment documents."
+        }
+      },
+      "type": "object"
+    },
+    "TraceSummaryList": {
+      "items": {
+        "$ref": "#/definitions/TraceSummary"
+      },
+      "type": "array"
+    },
+    "TraceUser": {
+      "description": "Information about a user recorded in segment documents.",
+      "properties": {
+        "ServiceIds": {
+          "$ref": "#/definitions/ServiceIds",
+          "description": "Services that the user's request hit."
+        },
+        "UserName": {
+          "$ref": "#/definitions/String",
+          "description": "The user's name."
+        }
+      },
+      "type": "object"
+    },
+    "TraceUsers": {
+      "items": {
+        "$ref": "#/definitions/TraceUser"
+      },
+      "type": "array"
+    },
+    "UnprocessedTraceIdList": {
+      "items": {
+        "$ref": "#/definitions/TraceId"
+      },
+      "type": "array"
+    },
+    "UnprocessedTraceSegment": {
+      "description": "Information about a segment that failed processing.",
+      "properties": {
+        "ErrorCode": {
+          "$ref": "#/definitions/String",
+          "description": "The error that caused processing to fail."
+        },
+        "Id": {
+          "$ref": "#/definitions/String",
+          "description": "The segment's ID."
+        },
+        "Message": {
+          "$ref": "#/definitions/String",
+          "description": "The error message."
+        }
+      },
+      "type": "object"
+    },
+    "UnprocessedTraceSegmentList": {
+      "items": {
+        "$ref": "#/definitions/UnprocessedTraceSegment"
+      },
+      "type": "array"
+    },
+    "ValueWithServiceIds": {
+      "description": "Information about a segment annotation.",
+      "properties": {
+        "AnnotationValue": {
+          "$ref": "#/definitions/AnnotationValue",
+          "description": "Values of the annotation."
+        },
+        "ServiceIds": {
+          "$ref": "#/definitions/ServiceIds",
+          "description": "Services to which the annotation applies."
+        }
+      },
+      "type": "object"
+    },
+    "ValuesWithServiceIds": {
+      "items": {
+        "$ref": "#/definitions/ValueWithServiceIds"
+      },
+      "type": "array"
+    }
+  }
+}

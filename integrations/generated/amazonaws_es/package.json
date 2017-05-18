@@ -1,0 +1,23 @@
+{
+  "name": "@datafire/amazonaws_es",
+  "version": "2.0.0",
+  "main": "index.js",
+  "description": "DataFire integration for Amazon Elasticsearch Service",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://api.apis.guru/v2/specs/amazonaws.com/es/2015-01-01/swagger.json",
+    "type": "openapi"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

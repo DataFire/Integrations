@@ -1,0 +1,2623 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "states.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": "<fullname>AWS Step Functions</fullname> <p>AWS Step Functions is a web service that enables you to coordinate the components of distributed applications and microservices using visual workflows. You build applications from individual components that each perform a discrete function, or <i>task</i>, allowing you to scale and change applications quickly. Step Functions provides a graphical console to visualize the components of your application as a series of steps. It automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected, every time. Step Functions logs the state of each step, so when things do go wrong, you can diagnose and debug problems quickly.</p> <p>Step Functions manages the operations and underlying infrastructure for you to ensure your application is available at any scale. You can run tasks on the AWS cloud, on your own servers, or an any system that has access to AWS. Step Functions can be accessed and used with the Step Functions console, the AWS SDKs (included with your Beta release invitation email), or an HTTP API (the subject of this document).</p>",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Step Functions",
+    "version": "2016-11-23",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/states-2016-11-23.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "states",
+    "x-datafire": {
+      "name": "amazonaws_states",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/states/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates an activity.",
+        "operationId": "CreateActivity",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateActivityInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateActivityOutput"
+            }
+          },
+          "480": {
+            "description": "ActivityLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ActivityLimitExceeded"
+            }
+          },
+          "481": {
+            "description": "InvalidName",
+            "schema": {
+              "$ref": "#/definitions/InvalidName"
+            }
+          }
+        }
+      }
+    },
+    "/#CreateStateMachine": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Creates a state machine.",
+        "operationId": "CreateStateMachine",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateStateMachineInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateStateMachineOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          },
+          "481": {
+            "description": "InvalidDefinition",
+            "schema": {
+              "$ref": "#/definitions/InvalidDefinition"
+            }
+          },
+          "482": {
+            "description": "InvalidName",
+            "schema": {
+              "$ref": "#/definitions/InvalidName"
+            }
+          },
+          "483": {
+            "description": "StateMachineAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/StateMachineAlreadyExists"
+            }
+          },
+          "484": {
+            "description": "StateMachineDeleting",
+            "schema": {
+              "$ref": "#/definitions/StateMachineDeleting"
+            }
+          },
+          "485": {
+            "description": "StateMachineLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/StateMachineLimitExceeded"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteActivity": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes an activity.",
+        "operationId": "DeleteActivity",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteActivityInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteActivityOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    },
+    "/#DeleteStateMachine": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Deletes a state machine. This is an asynchronous operation-- it sets the state machine's status to \"DELETING\" and begins the delete process.",
+        "operationId": "DeleteStateMachine",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteStateMachineInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteStateMachineOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeActivity": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes an activity.",
+        "operationId": "DescribeActivity",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeActivityInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeActivityOutput"
+            }
+          },
+          "480": {
+            "description": "ActivityDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/ActivityDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeExecution": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes an execution.",
+        "operationId": "DescribeExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeExecutionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeExecutionOutput"
+            }
+          },
+          "480": {
+            "description": "ExecutionDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/ExecutionDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeStateMachine": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describes a state machine.",
+        "operationId": "DescribeStateMachine",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeStateMachineInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeStateMachineOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          },
+          "481": {
+            "description": "StateMachineDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/StateMachineDoesNotExist"
+            }
+          }
+        }
+      }
+    },
+    "/#GetActivityTask": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Used by workers to retrieve a task (with the specified activity ARN) scheduled for execution by a running state machine. This initiates a long poll, where the service holds the HTTP connection open and responds as soon as a task becomes available (i.e. an execution of a task of this type is needed.) The maximum time the service holds on to the request before responding is 60 seconds. If no task is available within 60 seconds, the poll will return an empty result, that is, the <code>taskToken</code> returned is an empty string.</p> <important> <p>Workers should set their client side socket timeout to at least 65 seconds (5 seconds higher than the maximum time the service may hold the poll request).</p> </important>",
+        "operationId": "GetActivityTask",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetActivityTaskInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetActivityTaskOutput"
+            }
+          },
+          "480": {
+            "description": "ActivityDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/ActivityDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "ActivityWorkerLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ActivityWorkerLimitExceeded"
+            }
+          },
+          "482": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    },
+    "/#GetExecutionHistory": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Returns the history of the specified execution as a list of events. By default, the results are returned in ascending order of the <code>timeStamp</code> of the events. Use the <code>reverseOrder</code> parameter to get the latest events first. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the <code>nextToken</code> returned by the previous call.",
+        "operationId": "GetExecutionHistory",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetExecutionHistoryInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetExecutionHistoryOutput"
+            }
+          },
+          "480": {
+            "description": "ExecutionDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/ExecutionDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          },
+          "482": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          }
+        }
+      }
+    },
+    "/#ListActivities": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the existing activities. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the <code>nextToken</code> returned by the previous call.",
+        "operationId": "ListActivities",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListActivitiesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListActivitiesOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          }
+        }
+      }
+    },
+    "/#ListExecutions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the executions of a state machine that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the <code>nextToken</code> returned by the previous call.",
+        "operationId": "ListExecutions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListExecutionsInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListExecutionsOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          },
+          "481": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          },
+          "482": {
+            "description": "StateMachineDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/StateMachineDoesNotExist"
+            }
+          }
+        }
+      }
+    },
+    "/#ListStateMachines": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Lists the existing state machines. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the <code>nextToken</code> returned by the previous call.",
+        "operationId": "ListStateMachines",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListStateMachinesInput"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "maxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "nextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ListStateMachinesOutput"
+            }
+          },
+          "480": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          }
+        }
+      }
+    },
+    "/#SendTaskFailure": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Used by workers to report that the task identified by the <code>taskToken</code> failed.",
+        "operationId": "SendTaskFailure",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendTaskFailureInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendTaskFailureOutput"
+            }
+          },
+          "480": {
+            "description": "TaskDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/TaskDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          },
+          "482": {
+            "description": "TaskTimedOut",
+            "schema": {
+              "$ref": "#/definitions/TaskTimedOut"
+            }
+          }
+        }
+      }
+    },
+    "/#SendTaskHeartbeat": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "<p>Used by workers to report to the service that the task represented by the specified <code>taskToken</code> is still making progress. This action resets the <code>Heartbeat</code> clock. The <code>Heartbeat</code> threshold is specified in the state machine's Amazon States Language definition. This action does not in itself create an event in the execution history. However, if the task times out, the execution history will contain an <code>ActivityTimedOut</code> event.</p> <note> <p>The <code>Timeout</code> of a task, defined in the state machine's Amazon States Language definition, is its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a> requests received.</p> </note> <note> <p>This operation is only useful for long-lived tasks to report the liveliness of the task.</p> </note>",
+        "operationId": "SendTaskHeartbeat",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendTaskHeartbeatInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendTaskHeartbeatOutput"
+            }
+          },
+          "480": {
+            "description": "TaskDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/TaskDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          },
+          "482": {
+            "description": "TaskTimedOut",
+            "schema": {
+              "$ref": "#/definitions/TaskTimedOut"
+            }
+          }
+        }
+      }
+    },
+    "/#SendTaskSuccess": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Used by workers to report that the task identified by the <code>taskToken</code> completed successfully.",
+        "operationId": "SendTaskSuccess",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendTaskSuccessInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SendTaskSuccessOutput"
+            }
+          },
+          "480": {
+            "description": "TaskDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/TaskDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidOutput",
+            "schema": {
+              "$ref": "#/definitions/InvalidOutput"
+            }
+          },
+          "482": {
+            "description": "InvalidToken",
+            "schema": {
+              "$ref": "#/definitions/InvalidToken"
+            }
+          },
+          "483": {
+            "description": "TaskTimedOut",
+            "schema": {
+              "$ref": "#/definitions/TaskTimedOut"
+            }
+          }
+        }
+      }
+    },
+    "/#StartExecution": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Starts a state machine execution.",
+        "operationId": "StartExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartExecutionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StartExecutionOutput"
+            }
+          },
+          "480": {
+            "description": "ExecutionLimitExceeded",
+            "schema": {
+              "$ref": "#/definitions/ExecutionLimitExceeded"
+            }
+          },
+          "481": {
+            "description": "ExecutionAlreadyExists",
+            "schema": {
+              "$ref": "#/definitions/ExecutionAlreadyExists"
+            }
+          },
+          "482": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          },
+          "483": {
+            "description": "InvalidExecutionInput",
+            "schema": {
+              "$ref": "#/definitions/InvalidExecutionInput"
+            }
+          },
+          "484": {
+            "description": "InvalidName",
+            "schema": {
+              "$ref": "#/definitions/InvalidName"
+            }
+          },
+          "485": {
+            "description": "StateMachineDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/StateMachineDoesNotExist"
+            }
+          },
+          "486": {
+            "description": "StateMachineDeleting",
+            "schema": {
+              "$ref": "#/definitions/StateMachineDeleting"
+            }
+          }
+        }
+      }
+    },
+    "/#StopExecution": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Stops an execution.",
+        "operationId": "StopExecution",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StopExecutionInput"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StopExecutionOutput"
+            }
+          },
+          "480": {
+            "description": "ExecutionDoesNotExist",
+            "schema": {
+              "$ref": "#/definitions/ExecutionDoesNotExist"
+            }
+          },
+          "481": {
+            "description": "InvalidArn",
+            "schema": {
+              "$ref": "#/definitions/InvalidArn"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ActivityDoesNotExist": {
+      "description": "The specified activity does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ActivityFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ActivityLimitExceeded": {
+      "description": "The maximum number of activities has been reached. Existing activities must be deleted before a new activity can be created.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ActivityList": {
+      "items": {
+        "$ref": "#/definitions/ActivityListItem"
+      },
+      "type": "array"
+    },
+    "ActivityListItem": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the activity."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the activity was created."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the activity."
+        }
+      },
+      "required": [
+        "activityArn",
+        "name",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "ActivityScheduleFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ActivityScheduledEventDetails": {
+      "properties": {
+        "heartbeatInSeconds": {
+          "$ref": "#/definitions/TimeoutInSeconds",
+          "description": "The maximum allowed duration between two heartbeats for the activity task."
+        },
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data input to the activity task."
+        },
+        "resource": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the scheduled activity."
+        },
+        "timeoutInSeconds": {
+          "$ref": "#/definitions/TimeoutInSeconds",
+          "description": "The maximum allowed duration of the activity task."
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "type": "object"
+    },
+    "ActivityStartedEventDetails": {
+      "properties": {
+        "workerName": {
+          "$ref": "#/definitions/Identity",
+          "description": "The name of the worker that the task was assigned to. These names are provided by the workers when calling <a>GetActivityTask</a>."
+        }
+      },
+      "type": "object"
+    },
+    "ActivitySucceededEventDetails": {
+      "properties": {
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data output by the activity task."
+        }
+      },
+      "type": "object"
+    },
+    "ActivityTimedOutEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the timeout."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ActivityWorkerLimitExceeded": {
+      "description": "The maximum number of workers concurrently polling for activity tasks has been reached.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Arn": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Cause": {
+      "maxLength": 32768,
+      "minLength": 0,
+      "type": "string"
+    },
+    "CreateActivityInput": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the activity to create. This name must be unique for your AWS account and region."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "CreateActivityOutput": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the created activity."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the activity was created."
+        }
+      },
+      "required": [
+        "activityArn",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "CreateStateMachineInput": {
+      "properties": {
+        "definition": {
+          "$ref": "#/definitions/Definition",
+          "description": "The Amazon States Language definition of the state machine."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the state machine. This name must be unique for your AWS account and region."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role to use for this state machine."
+        }
+      },
+      "required": [
+        "name",
+        "definition",
+        "roleArn"
+      ],
+      "type": "object"
+    },
+    "CreateStateMachineOutput": {
+      "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the state machine was created."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the created state machine."
+        }
+      },
+      "required": [
+        "stateMachineArn",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "Data": {
+      "maxLength": 32768,
+      "type": "string"
+    },
+    "Definition": {
+      "maxLength": 1048576,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeleteActivityInput": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the activity to delete."
+        }
+      },
+      "required": [
+        "activityArn"
+      ],
+      "type": "object"
+    },
+    "DeleteActivityOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteStateMachineInput": {
+      "properties": {
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the state machine to delete."
+        }
+      },
+      "required": [
+        "stateMachineArn"
+      ],
+      "type": "object"
+    },
+    "DeleteStateMachineOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeActivityInput": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the activity to describe."
+        }
+      },
+      "required": [
+        "activityArn"
+      ],
+      "type": "object"
+    },
+    "DescribeActivityOutput": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the activity."
+        },
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the activity was created."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the activity."
+        }
+      },
+      "required": [
+        "activityArn",
+        "name",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "DescribeExecutionInput": {
+      "properties": {
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the execution to describe."
+        }
+      },
+      "required": [
+        "executionArn"
+      ],
+      "type": "object"
+    },
+    "DescribeExecutionOutput": {
+      "properties": {
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the execution."
+        },
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON input data of the execution."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the execution."
+        },
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON output data of the execution."
+        },
+        "startDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the execution was started."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the executed stated machine."
+        },
+        "status": {
+          "$ref": "#/definitions/ExecutionStatus",
+          "description": "The current status of the execution."
+        },
+        "stopDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "If the execution has already ended, the date the execution stopped."
+        }
+      },
+      "required": [
+        "executionArn",
+        "stateMachineArn",
+        "status",
+        "startDate",
+        "input"
+      ],
+      "type": "object"
+    },
+    "DescribeStateMachineInput": {
+      "properties": {
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the state machine to describe."
+        }
+      },
+      "required": [
+        "stateMachineArn"
+      ],
+      "type": "object"
+    },
+    "DescribeStateMachineOutput": {
+      "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the state machine was created."
+        },
+        "definition": {
+          "$ref": "#/definitions/Definition",
+          "description": "The Amazon States Language definition of the state machine."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the state machine."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role used for executing this state machine."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the state machine."
+        },
+        "status": {
+          "$ref": "#/definitions/StateMachineStatus",
+          "description": "The current status of the state machine."
+        }
+      },
+      "required": [
+        "stateMachineArn",
+        "name",
+        "definition",
+        "roleArn",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "Error": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "EventId": {
+      "type": "integer"
+    },
+    "ExecutionAbortedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionAlreadyExists": {
+      "description": "An execution with the same name already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionDoesNotExist": {
+      "description": "The specified execution does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionLimitExceeded": {
+      "description": "The maximum number of running executions has been reached. Running executions must end or be stopped before a new execution can be started.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionList": {
+      "items": {
+        "$ref": "#/definitions/ExecutionListItem"
+      },
+      "type": "array"
+    },
+    "ExecutionListItem": {
+      "properties": {
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the execution."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the execution."
+        },
+        "startDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the execution started."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the executed state machine."
+        },
+        "status": {
+          "$ref": "#/definitions/ExecutionStatus",
+          "description": "The current status of the execution."
+        },
+        "stopDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "If the execution already ended, the date the execution stopped."
+        }
+      },
+      "required": [
+        "executionArn",
+        "stateMachineArn",
+        "name",
+        "status",
+        "startDate"
+      ],
+      "type": "object"
+    },
+    "ExecutionStartedEventDetails": {
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data input to the execution."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks."
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionStatus": {
+      "enum": [
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED",
+        "TIMED_OUT",
+        "ABORTED"
+      ],
+      "type": "string"
+    },
+    "ExecutionSucceededEventDetails": {
+      "properties": {
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data output by the execution."
+        }
+      },
+      "type": "object"
+    },
+    "ExecutionTimedOutEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the timeout."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "GetActivityTaskInput": {
+      "properties": {
+        "activityArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the activity to retrieve tasks from."
+        },
+        "workerName": {
+          "$ref": "#/definitions/Name",
+          "description": "An arbitrary name may be provided in order to identify the worker that the task is assigned to. This name will be used when it is logged in the execution history."
+        }
+      },
+      "required": [
+        "activityArn"
+      ],
+      "type": "object"
+    },
+    "GetActivityTaskOutput": {
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON input data for the task."
+        },
+        "taskToken": {
+          "$ref": "#/definitions/TaskToken",
+          "description": "A token that identifies the scheduled task. This token must be copied and included in subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or <a>SendTaskFailure</a> in order to report the progress or completion of the task."
+        }
+      },
+      "type": "object"
+    },
+    "GetExecutionHistoryInput": {
+      "properties": {
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the execution."
+        },
+        "maxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "<p>The maximum number of results that will be returned per call. <code>nextToken</code> can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000.</p> <p>This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.</p>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        },
+        "reverseOrder": {
+          "$ref": "#/definitions/ReverseOrder",
+          "description": "Lists events in descending order of their <code>timeStamp</code>."
+        }
+      },
+      "required": [
+        "executionArn"
+      ],
+      "type": "object"
+    },
+    "GetExecutionHistoryOutput": {
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/HistoryEventList",
+          "description": "The list of events that occurred in the execution."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "type": "object"
+    },
+    "HistoryEvent": {
+      "properties": {
+        "activityFailedEventDetails": {
+          "$ref": "#/definitions/ActivityFailedEventDetails"
+        },
+        "activityScheduleFailedEventDetails": {
+          "$ref": "#/definitions/ActivityScheduleFailedEventDetails"
+        },
+        "activityScheduledEventDetails": {
+          "$ref": "#/definitions/ActivityScheduledEventDetails"
+        },
+        "activityStartedEventDetails": {
+          "$ref": "#/definitions/ActivityStartedEventDetails"
+        },
+        "activitySucceededEventDetails": {
+          "$ref": "#/definitions/ActivitySucceededEventDetails"
+        },
+        "activityTimedOutEventDetails": {
+          "$ref": "#/definitions/ActivityTimedOutEventDetails"
+        },
+        "executionAbortedEventDetails": {
+          "$ref": "#/definitions/ExecutionAbortedEventDetails"
+        },
+        "executionFailedEventDetails": {
+          "$ref": "#/definitions/ExecutionFailedEventDetails"
+        },
+        "executionStartedEventDetails": {
+          "$ref": "#/definitions/ExecutionStartedEventDetails"
+        },
+        "executionSucceededEventDetails": {
+          "$ref": "#/definitions/ExecutionSucceededEventDetails"
+        },
+        "executionTimedOutEventDetails": {
+          "$ref": "#/definitions/ExecutionTimedOutEventDetails"
+        },
+        "id": {
+          "$ref": "#/definitions/EventId",
+          "description": "The id of the event. Events are numbered sequentially, starting at one."
+        },
+        "lambdaFunctionFailedEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionFailedEventDetails"
+        },
+        "lambdaFunctionScheduleFailedEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionScheduleFailedEventDetails"
+        },
+        "lambdaFunctionScheduledEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionScheduledEventDetails"
+        },
+        "lambdaFunctionStartFailedEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionStartFailedEventDetails"
+        },
+        "lambdaFunctionSucceededEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionSucceededEventDetails"
+        },
+        "lambdaFunctionTimedOutEventDetails": {
+          "$ref": "#/definitions/LambdaFunctionTimedOutEventDetails"
+        },
+        "previousEventId": {
+          "$ref": "#/definitions/EventId",
+          "description": "The id of the previous event."
+        },
+        "stateEnteredEventDetails": {
+          "$ref": "#/definitions/StateEnteredEventDetails"
+        },
+        "stateExitedEventDetails": {
+          "$ref": "#/definitions/StateExitedEventDetails"
+        },
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the event occured."
+        },
+        "type": {
+          "$ref": "#/definitions/HistoryEventType",
+          "description": "The type of the event."
+        }
+      },
+      "required": [
+        "timestamp",
+        "type",
+        "id"
+      ],
+      "type": "object"
+    },
+    "HistoryEventList": {
+      "items": {
+        "$ref": "#/definitions/HistoryEvent"
+      },
+      "type": "array"
+    },
+    "HistoryEventType": {
+      "enum": [
+        "ActivityFailed",
+        "ActivityScheduleFailed",
+        "ActivityScheduled",
+        "ActivityStarted",
+        "ActivitySucceeded",
+        "ActivityTimedOut",
+        "ChoiceStateEntered",
+        "ChoiceStateExited",
+        "ExecutionFailed",
+        "ExecutionStarted",
+        "ExecutionSucceeded",
+        "ExecutionAborted",
+        "ExecutionTimedOut",
+        "FailStateEntered",
+        "LambdaFunctionFailed",
+        "LambdaFunctionScheduleFailed",
+        "LambdaFunctionScheduled",
+        "LambdaFunctionStartFailed",
+        "LambdaFunctionStarted",
+        "LambdaFunctionSucceeded",
+        "LambdaFunctionTimedOut",
+        "SucceedStateEntered",
+        "SucceedStateExited",
+        "TaskStateEntered",
+        "TaskStateExited",
+        "PassStateEntered",
+        "PassStateExited",
+        "ParallelStateEntered",
+        "ParallelStateExited",
+        "WaitStateEntered",
+        "WaitStateExited"
+      ],
+      "type": "string"
+    },
+    "Identity": {
+      "maxLength": 256,
+      "type": "string"
+    },
+    "InvalidArn": {
+      "description": "The provided Amazon Resource Name (ARN) is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidDefinition": {
+      "description": "The provided Amazon States Language definition is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidExecutionInput": {
+      "description": "The provided JSON input data is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidName": {
+      "description": "The provided name is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidOutput": {
+      "description": "The provided JSON output data is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidToken": {
+      "description": "The provided token is invalid.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFunctionFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFunctionScheduleFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFunctionScheduledEventDetails": {
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data input to the lambda function."
+        },
+        "resource": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the scheduled lambda function."
+        },
+        "timeoutInSeconds": {
+          "$ref": "#/definitions/TimeoutInSeconds",
+          "description": "The maximum allowed duration of the lambda function."
+        }
+      },
+      "required": [
+        "resource"
+      ],
+      "type": "object"
+    },
+    "LambdaFunctionStartFailedEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFunctionSucceededEventDetails": {
+      "properties": {
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON data output by the lambda function."
+        }
+      },
+      "type": "object"
+    },
+    "LambdaFunctionTimedOutEventDetails": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the timeout."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "The error code of the failure."
+        }
+      },
+      "type": "object"
+    },
+    "ListActivitiesInput": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "<p>The maximum number of results that will be returned per call. <code>nextToken</code> can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000.</p> <p>This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.</p>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "ListActivitiesOutput": {
+      "properties": {
+        "activities": {
+          "$ref": "#/definitions/ActivityList",
+          "description": "The list of activities."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        }
+      },
+      "required": [
+        "activities"
+      ],
+      "type": "object"
+    },
+    "ListExecutionsInput": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "<p>The maximum number of results that will be returned per call. <code>nextToken</code> can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000.</p> <p>This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.</p>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the state machine whose executions will be listed."
+        },
+        "statusFilter": {
+          "$ref": "#/definitions/ExecutionStatus",
+          "description": "If specified, only list the executions whose current execution status matches the given filter."
+        }
+      },
+      "required": [
+        "stateMachineArn"
+      ],
+      "type": "object"
+    },
+    "ListExecutionsOutput": {
+      "properties": {
+        "executions": {
+          "$ref": "#/definitions/ExecutionList",
+          "description": "The list of matching executions."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        }
+      },
+      "required": [
+        "executions"
+      ],
+      "type": "object"
+    },
+    "ListStateMachinesInput": {
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "<p>The maximum number of results that will be returned per call. <code>nextToken</code> can be used to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000.</p> <p>This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.</p>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "ListStateMachinesOutput": {
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PageToken",
+          "description": "<p>If a <code>nextToken</code> is returned, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>nextToken</code>. Keep all other arguments unchanged.</p> <p>The configured <code>maxResults</code> determines how many results can be returned in a single call.</p>"
+        },
+        "stateMachines": {
+          "$ref": "#/definitions/StateMachineList"
+        }
+      },
+      "required": [
+        "stateMachines"
+      ],
+      "type": "object"
+    },
+    "Name": {
+      "maxLength": 80,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PageSize": {
+      "maximum": 1000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PageToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ReverseOrder": {
+      "type": "boolean"
+    },
+    "SendTaskFailureInput": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the failure."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "An arbitrary error code that identifies the cause of the failure."
+        },
+        "taskToken": {
+          "$ref": "#/definitions/TaskToken",
+          "description": "The token that represents this task. Task tokens are generated by the service when the tasks are assigned to a worker (see GetActivityTask::taskToken)."
+        }
+      },
+      "required": [
+        "taskToken"
+      ],
+      "type": "object"
+    },
+    "SendTaskFailureOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "SendTaskHeartbeatInput": {
+      "properties": {
+        "taskToken": {
+          "$ref": "#/definitions/TaskToken",
+          "description": "The token that represents this task. Task tokens are generated by the service when the tasks are assigned to a worker (see GetActivityTask::taskToken)."
+        }
+      },
+      "required": [
+        "taskToken"
+      ],
+      "type": "object"
+    },
+    "SendTaskHeartbeatOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "SendTaskSuccessInput": {
+      "properties": {
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON output of the task."
+        },
+        "taskToken": {
+          "$ref": "#/definitions/TaskToken",
+          "description": "The token that represents this task. Task tokens are generated by the service when the tasks are assigned to a worker (see GetActivityTask::taskToken)."
+        }
+      },
+      "required": [
+        "taskToken",
+        "output"
+      ],
+      "type": "object"
+    },
+    "SendTaskSuccessOutput": {
+      "properties": {},
+      "type": "object"
+    },
+    "StartExecutionInput": {
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON input data for the execution."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the execution. This name must be unique for your AWS account and region."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the state machine to execute."
+        }
+      },
+      "required": [
+        "stateMachineArn"
+      ],
+      "type": "object"
+    },
+    "StartExecutionOutput": {
+      "properties": {
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the execution."
+        },
+        "startDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the execution was started."
+        }
+      },
+      "required": [
+        "executionArn",
+        "startDate"
+      ],
+      "type": "object"
+    },
+    "StateEnteredEventDetails": {
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON input data to the state."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the state."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "StateExitedEventDetails": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the state."
+        },
+        "output": {
+          "$ref": "#/definitions/Data",
+          "description": "The JSON output data of the state."
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "StateMachineAlreadyExists": {
+      "description": "A state machine with the same name but a different definition or role ARN already exists.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "StateMachineDeleting": {
+      "description": "The specified state machine is being deleted.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "StateMachineDoesNotExist": {
+      "description": "The specified state machine does not exist.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "StateMachineLimitExceeded": {
+      "description": "The maximum number of state machines has been reached. Existing state machines must be deleted before a new state machine can be created.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "StateMachineList": {
+      "items": {
+        "$ref": "#/definitions/StateMachineListItem"
+      },
+      "type": "array"
+    },
+    "StateMachineListItem": {
+      "properties": {
+        "creationDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the state machine was created."
+        },
+        "name": {
+          "$ref": "#/definitions/Name",
+          "description": "The name of the state machine."
+        },
+        "stateMachineArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) that identifies the state machine."
+        }
+      },
+      "required": [
+        "stateMachineArn",
+        "name",
+        "creationDate"
+      ],
+      "type": "object"
+    },
+    "StateMachineStatus": {
+      "enum": [
+        "ACTIVE",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "StopExecutionInput": {
+      "properties": {
+        "cause": {
+          "$ref": "#/definitions/Cause",
+          "description": "A more detailed explanation of the cause of the termination."
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "An arbitrary error code that identifies the cause of the termination."
+        },
+        "executionArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The Amazon Resource Name (ARN) of the execution to stop."
+        }
+      },
+      "required": [
+        "executionArn"
+      ],
+      "type": "object"
+    },
+    "StopExecutionOutput": {
+      "properties": {
+        "stopDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date the execution was stopped."
+        }
+      },
+      "required": [
+        "stopDate"
+      ],
+      "type": "object"
+    },
+    "TaskDoesNotExist": {
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "TaskTimedOut": {
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "TaskToken": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TimeoutInSeconds": {
+      "type": "integer"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    }
+  }
+}

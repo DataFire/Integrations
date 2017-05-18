@@ -1,0 +1,2224 @@
+{
+  "id": "amazonaws_workdocs",
+  "title": "Amazon WorkDocs",
+  "description": "<p>The WorkDocs API is designed for the following use cases:</p> <ul> <li> <p>File Migration: File migration applications are supported for users who want to migrate their files from an on-premise or off-premise file system or service. Users can insert files into a user directory structure, as well as allow for basic metadata changes, such as modifications to the permissions of files.</p> </li> <li> <p>Security: Support security applications are supported for users who have additional security needs, such as anti-virus or data loss prevention. The APIs, in conjunction with Amazon CloudTrail, allow these applications to detect when changes occur in Amazon WorkDocs, so the application can take the necessary actions and replace the target file. The application can also choose to email the user if the target file violates the policy.</p> </li> <li> <p>eDiscovery/Analytics: General administrative applications are supported, such as eDiscovery and analytics. These applications can choose to mimic and/or record the actions in an Amazon WorkDocs site, in conjunction with Amazon CloudTrails, to replicate data for eDiscovery, backup, or analytical applications.</p> </li> </ul> <p>All Amazon WorkDocs APIs are Amazon authenticated, certificate-signed APIs. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.</p>",
+  "security": {
+    "amazonaws_workdocs": {
+      "integration": "amazonaws_workdocs",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "definitions": {
+    "AbortDocumentVersionUploadRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ActivateUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ActivateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object"
+    },
+    "AddResourcePermissionsRequest": {
+      "properties": {
+        "Principals": {
+          "$ref": "#/definitions/SharePrincipalList",
+          "description": "The users, groups, or organization being granted permission."
+        }
+      },
+      "required": [
+        "Principals"
+      ],
+      "type": "object"
+    },
+    "AddResourcePermissionsResponse": {
+      "properties": {
+        "ShareResults": {
+          "$ref": "#/definitions/ShareResultsList",
+          "description": "The share results."
+        }
+      },
+      "type": "object"
+    },
+    "ConcurrentModificationException": {
+      "description": "The resource hierarchy is changing.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "CreateFolderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the new folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        }
+      },
+      "required": [
+        "ParentFolderId"
+      ],
+      "type": "object"
+    },
+    "CreateFolderResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/FolderMetadata",
+          "description": "The metadata of the folder."
+        }
+      },
+      "type": "object"
+    },
+    "CreateNotificationSubscriptionRequest": {
+      "properties": {
+        "Endpoint": {
+          "$ref": "#/definitions/SubscriptionEndPointType",
+          "description": "The endpoint to receive the notifications. If the protocol is HTTPS, the endpoint is a URL that begins with \"https://\"."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/SubscriptionProtocolType",
+          "description": "The protocol to use. The supported value is https, which delivers JSON-encoded messasges using HTTPS POST."
+        },
+        "SubscriptionType": {
+          "$ref": "#/definitions/SubscriptionType",
+          "description": "The notification type."
+        }
+      },
+      "required": [
+        "Endpoint",
+        "Protocol",
+        "SubscriptionType"
+      ],
+      "type": "object"
+    },
+    "CreateNotificationSubscriptionResponse": {
+      "properties": {
+        "Subscription": {
+          "$ref": "#/definitions/Subscription",
+          "description": "The subscription."
+        }
+      },
+      "type": "object"
+    },
+    "CreateUserRequest": {
+      "properties": {
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "Password": {
+          "$ref": "#/definitions/PasswordType",
+          "description": "The password of the user."
+        },
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The amount of storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The login name of the user."
+        }
+      },
+      "required": [
+        "Username",
+        "GivenName",
+        "Surname",
+        "Password"
+      ],
+      "type": "object"
+    },
+    "CreateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object"
+    },
+    "DeactivateUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeactivatingLastSystemUserException": {
+      "description": "The last user in the organization is being deactivated.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteDocumentRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFolderContentsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteFolderRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteNotificationSubscriptionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteUserRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeDocumentVersionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeDocumentVersionsResponse": {
+      "properties": {
+        "DocumentVersions": {
+          "$ref": "#/definitions/DocumentVersionMetadataList",
+          "description": "The document versions."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeFolderContentsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeFolderContentsResponse": {
+      "properties": {
+        "Documents": {
+          "$ref": "#/definitions/DocumentMetadataList",
+          "description": "The documents in the specified folder."
+        },
+        "Folders": {
+          "$ref": "#/definitions/FolderMetadataList",
+          "description": "The sub-folders in the specified folder."
+        },
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeNotificationSubscriptionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeNotificationSubscriptionsResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "Subscriptions": {
+          "$ref": "#/definitions/SubscriptionList",
+          "description": "The subscriptions."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeResourcePermissionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeResourcePermissionsResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "Principals": {
+          "$ref": "#/definitions/PrincipalList",
+          "description": "The principals."
+        }
+      },
+      "type": "object"
+    },
+    "DescribeUsersRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeUsersResponse": {
+      "properties": {
+        "Marker": {
+          "$ref": "#/definitions/PageMarkerType",
+          "description": "The marker to use when requesting the next set of results. If there are no additional results, the string is empty."
+        },
+        "TotalNumberOfUsers": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The total number of users included in the results."
+        },
+        "Users": {
+          "$ref": "#/definitions/OrganizationUserList",
+          "description": "The users."
+        }
+      },
+      "type": "object"
+    },
+    "DocumentContentType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DocumentMetadata": {
+      "description": "Describes the document.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the document was created."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the document."
+        },
+        "LatestVersionMetadata": {
+          "$ref": "#/definitions/DocumentVersionMetadata",
+          "description": "The latest version of the document."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the document was updated."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state."
+        }
+      },
+      "type": "object"
+    },
+    "DocumentMetadataList": {
+      "items": {
+        "$ref": "#/definitions/DocumentMetadata"
+      },
+      "type": "array"
+    },
+    "DocumentSourceType": {
+      "enum": [
+        "ORIGINAL",
+        "WITH_COMMENTS"
+      ],
+      "type": "string"
+    },
+    "DocumentSourceUrlMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DocumentSourceType"
+          },
+          "value": {
+            "$ref": "#/definitions/UrlType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "DocumentStatusType": {
+      "enum": [
+        "INITIALIZED",
+        "ACTIVE"
+      ],
+      "type": "string"
+    },
+    "DocumentThumbnailType": {
+      "enum": [
+        "SMALL",
+        "SMALL_HQ",
+        "LARGE"
+      ],
+      "type": "string"
+    },
+    "DocumentThumbnailUrlMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/DocumentThumbnailType"
+          },
+          "value": {
+            "$ref": "#/definitions/UrlType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "DocumentVersionIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string"
+    },
+    "DocumentVersionMetadata": {
+      "description": "Describes a version of a document.",
+      "properties": {
+        "ContentCreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was originally created."
+        },
+        "ContentModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was modified."
+        },
+        "ContentType": {
+          "$ref": "#/definitions/DocumentContentType",
+          "description": "The content type of the document."
+        },
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the document was first uploaded."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/DocumentVersionIdType",
+          "description": "The ID of the version."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the document was last uploaded."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the version."
+        },
+        "Signature": {
+          "$ref": "#/definitions/HashType",
+          "description": "The signature of the document."
+        },
+        "Size": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the document, in bytes."
+        },
+        "Source": {
+          "$ref": "#/definitions/DocumentSourceUrlMap",
+          "description": "The source of the document."
+        },
+        "Status": {
+          "$ref": "#/definitions/DocumentStatusType",
+          "description": "The status of the document."
+        },
+        "Thumbnail": {
+          "$ref": "#/definitions/DocumentThumbnailUrlMap",
+          "description": "The thumbnail of the document."
+        }
+      },
+      "type": "object"
+    },
+    "DocumentVersionMetadataList": {
+      "items": {
+        "$ref": "#/definitions/DocumentVersionMetadata"
+      },
+      "type": "array"
+    },
+    "DocumentVersionStatus": {
+      "enum": [
+        "ACTIVE"
+      ],
+      "type": "string"
+    },
+    "EmailAddressType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}",
+      "type": "string"
+    },
+    "EntityAlreadyExistsException": {
+      "description": "The resource already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "EntityIdList": {
+      "items": {
+        "$ref": "#/definitions/IdType"
+      },
+      "type": "array"
+    },
+    "EntityNotExistsException": {
+      "description": "The resource does not exist.",
+      "properties": {
+        "EntityIds": {
+          "$ref": "#/definitions/EntityIdList"
+        },
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessageType": {
+      "type": "string"
+    },
+    "FailedDependencyException": {
+      "description": "The AWS Directory Service cannot reach an on-premises instance. Or a dependency under the control of the organization is failing, such as a connected active directory.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "FieldNamesType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w,]+",
+      "type": "string"
+    },
+    "FolderContentType": {
+      "enum": [
+        "ALL",
+        "DOCUMENT",
+        "FOLDER"
+      ],
+      "type": "string"
+    },
+    "FolderMetadata": {
+      "description": "Describes a folder.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the folder was created."
+        },
+        "CreatorId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the creator."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the folder."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the folder was updated."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the folder."
+        },
+        "Signature": {
+          "$ref": "#/definitions/HashType",
+          "description": "The unique identifier created from the subfolders and documents of the folder."
+        }
+      },
+      "type": "object"
+    },
+    "FolderMetadataList": {
+      "items": {
+        "$ref": "#/definitions/FolderMetadata"
+      },
+      "type": "array"
+    },
+    "GetDocumentPathRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetDocumentPathResponse": {
+      "properties": {
+        "Path": {
+          "$ref": "#/definitions/ResourcePath",
+          "description": "The path information."
+        }
+      },
+      "type": "object"
+    },
+    "GetDocumentRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetDocumentResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentMetadata",
+          "description": "The document object."
+        }
+      },
+      "type": "object"
+    },
+    "GetDocumentVersionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetDocumentVersionResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentVersionMetadata",
+          "description": "The version metadata."
+        }
+      },
+      "type": "object"
+    },
+    "GetFolderPathRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFolderPathResponse": {
+      "properties": {
+        "Path": {
+          "$ref": "#/definitions/ResourcePath",
+          "description": "The path information."
+        }
+      },
+      "type": "object"
+    },
+    "GetFolderRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "GetFolderResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/FolderMetadata",
+          "description": "The metadata of the folder."
+        }
+      },
+      "type": "object"
+    },
+    "HashType": {
+      "maxLength": 128,
+      "minLength": 0,
+      "pattern": "[&\\w+-.@]+",
+      "type": "string"
+    },
+    "HeaderNameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w-]+",
+      "type": "string"
+    },
+    "HeaderValueType": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "IdType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[&\\w+-.@]+",
+      "type": "string"
+    },
+    "IllegalUserStateException": {
+      "description": "The user is undergoing transfer of ownership.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "InitiateDocumentVersionUploadRequest": {
+      "properties": {
+        "ContentCreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was originally created."
+        },
+        "ContentModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time stamp when the content of the document was modified."
+        },
+        "ContentType": {
+          "$ref": "#/definitions/DocumentContentType",
+          "description": "The content type of the document."
+        },
+        "DocumentSizeInBytes": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The size of the document, in bytes."
+        },
+        "Id": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the document."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the document."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        }
+      },
+      "required": [
+        "ParentFolderId"
+      ],
+      "type": "object"
+    },
+    "InitiateDocumentVersionUploadResponse": {
+      "properties": {
+        "Metadata": {
+          "$ref": "#/definitions/DocumentMetadata",
+          "description": "The document metadata."
+        },
+        "UploadMetadata": {
+          "$ref": "#/definitions/UploadMetadata",
+          "description": "The upload metadata."
+        }
+      },
+      "type": "object"
+    },
+    "InvalidArgumentException": {
+      "description": "The pagination marker and/or limit fields are not valid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidOperationException": {
+      "description": "The operation is invalid.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "LimitExceededException": {
+      "description": "You've exceeded the maximum of 100,000 folders under the parent folder.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "LimitType": {
+      "maximum": 999,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "LocaleType": {
+      "enum": [
+        "en",
+        "fr",
+        "ko",
+        "de",
+        "es",
+        "ja",
+        "ru",
+        "zh_CN",
+        "zh_TW",
+        "pt_BR",
+        "default"
+      ],
+      "type": "string"
+    },
+    "MessageType": {
+      "format": "password",
+      "maxLength": 2048,
+      "minLength": 0,
+      "type": "string"
+    },
+    "OrderType": {
+      "enum": [
+        "ASCENDING",
+        "DESCENDING"
+      ],
+      "type": "string"
+    },
+    "OrganizationUserList": {
+      "items": {
+        "$ref": "#/definitions/User"
+      },
+      "type": "array"
+    },
+    "PageMarkerType": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PasswordType": {
+      "format": "password",
+      "maxLength": 32,
+      "minLength": 4,
+      "pattern": "[\\u0020-\\u00FF]+",
+      "type": "string"
+    },
+    "PermissionInfo": {
+      "description": "Describes the permissions.",
+      "properties": {
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/RolePermissionType",
+          "description": "The type of permissions."
+        }
+      },
+      "type": "object"
+    },
+    "PermissionInfoList": {
+      "items": {
+        "$ref": "#/definitions/PermissionInfo"
+      },
+      "type": "array"
+    },
+    "PositiveSizeType": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Principal": {
+      "description": "Describes a resource.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the resource."
+        },
+        "Roles": {
+          "$ref": "#/definitions/PermissionInfoList",
+          "description": "The permission information for the resource."
+        },
+        "Type": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The type of resource."
+        }
+      },
+      "type": "object"
+    },
+    "PrincipalList": {
+      "items": {
+        "$ref": "#/definitions/Principal"
+      },
+      "type": "array"
+    },
+    "PrincipalType": {
+      "enum": [
+        "USER",
+        "GROUP",
+        "INVITE",
+        "ANONYMOUS",
+        "ORGANIZATION"
+      ],
+      "type": "string"
+    },
+    "ProhibitedStateException": {
+      "description": "The specified document version is not in the INITIALIZED state.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "RemoveAllResourcePermissionsRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "RemoveResourcePermissionRequest": {
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceIdType": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "[\\w+-.@]+",
+      "type": "string"
+    },
+    "ResourceNameType": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[\\u0020-\\u202D\\u202F-\\uFFFF]+",
+      "type": "string"
+    },
+    "ResourcePath": {
+      "description": "Describes the path information of a resource.",
+      "properties": {
+        "Components": {
+          "$ref": "#/definitions/ResourcePathComponentList",
+          "description": "The components of the resource path."
+        }
+      },
+      "type": "object"
+    },
+    "ResourcePathComponent": {
+      "description": "Describes the resource path.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the resource path."
+        },
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the resource path."
+        }
+      },
+      "type": "object"
+    },
+    "ResourcePathComponentList": {
+      "items": {
+        "$ref": "#/definitions/ResourcePathComponent"
+      },
+      "type": "array"
+    },
+    "ResourceSortType": {
+      "enum": [
+        "DATE",
+        "NAME"
+      ],
+      "type": "string"
+    },
+    "ResourceStateType": {
+      "enum": [
+        "ACTIVE",
+        "RESTORING",
+        "RECYCLING",
+        "RECYCLED"
+      ],
+      "type": "string"
+    },
+    "RolePermissionType": {
+      "enum": [
+        "DIRECT",
+        "INHERITED"
+      ],
+      "type": "string"
+    },
+    "RoleType": {
+      "enum": [
+        "VIEWER",
+        "CONTRIBUTOR",
+        "OWNER",
+        "COOWNER"
+      ],
+      "type": "string"
+    },
+    "SearchQueryType": {
+      "format": "password",
+      "maxLength": 512,
+      "minLength": 1,
+      "pattern": "[\\u0020-\\uFFFF]+",
+      "type": "string"
+    },
+    "ServiceUnavailableException": {
+      "description": "One or more of the dependencies is unavailable.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "SharePrincipal": {
+      "description": "Describes the recipient type and ID, if available.",
+      "properties": {
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the recipient."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role of the recipient."
+        },
+        "Type": {
+          "$ref": "#/definitions/PrincipalType",
+          "description": "The type of the recipient."
+        }
+      },
+      "required": [
+        "Id",
+        "Type",
+        "Role"
+      ],
+      "type": "object"
+    },
+    "SharePrincipalList": {
+      "items": {
+        "$ref": "#/definitions/SharePrincipal"
+      },
+      "type": "array"
+    },
+    "ShareResult": {
+      "description": "Describes the share results of a resource.",
+      "properties": {
+        "PrincipalId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the principal."
+        },
+        "Role": {
+          "$ref": "#/definitions/RoleType",
+          "description": "The role."
+        },
+        "ShareId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the resource that was shared."
+        },
+        "Status": {
+          "$ref": "#/definitions/ShareStatusType",
+          "description": "The status."
+        },
+        "StatusMessage": {
+          "$ref": "#/definitions/MessageType",
+          "description": "The status message."
+        }
+      },
+      "type": "object"
+    },
+    "ShareResultsList": {
+      "items": {
+        "$ref": "#/definitions/ShareResult"
+      },
+      "type": "array"
+    },
+    "ShareStatusType": {
+      "enum": [
+        "SUCCESS",
+        "FAILURE"
+      ],
+      "type": "string"
+    },
+    "SignedHeaderMap": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/HeaderNameType"
+          },
+          "value": {
+            "$ref": "#/definitions/HeaderValueType"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "SizeType": {
+      "type": "integer"
+    },
+    "StorageLimitExceededException": {
+      "description": "The storage limit has been exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "StorageLimitWillExceedException": {
+      "description": "The storage limit will be exceeded.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "StorageRuleType": {
+      "description": "Describes the storage for a user.",
+      "properties": {
+        "StorageAllocatedInBytes": {
+          "$ref": "#/definitions/PositiveSizeType",
+          "description": "The amount of storage allocated, in bytes."
+        },
+        "StorageType": {
+          "$ref": "#/definitions/StorageType",
+          "description": "The type of storage."
+        }
+      },
+      "type": "object"
+    },
+    "StorageType": {
+      "enum": [
+        "UNLIMITED",
+        "QUOTA"
+      ],
+      "type": "string"
+    },
+    "Subscription": {
+      "description": "Describes a subscription.",
+      "properties": {
+        "EndPoint": {
+          "$ref": "#/definitions/SubscriptionEndPointType",
+          "description": "The endpoint of the subscription."
+        },
+        "Protocol": {
+          "$ref": "#/definitions/SubscriptionProtocolType",
+          "description": "The protocol of the subscription."
+        },
+        "SubscriptionId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the subscription."
+        }
+      },
+      "type": "object"
+    },
+    "SubscriptionEndPointType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SubscriptionList": {
+      "items": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "maxItems": 256,
+      "type": "array"
+    },
+    "SubscriptionProtocolType": {
+      "enum": [
+        "HTTPS"
+      ],
+      "type": "string"
+    },
+    "SubscriptionType": {
+      "enum": [
+        "ALL"
+      ],
+      "type": "string"
+    },
+    "TimeZoneIdType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TimestampType": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TooManySubscriptionsException": {
+      "description": "You've reached the limit on the number of subscriptions for the WorkDocs instance.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "UnauthorizedOperationException": {
+      "description": "The operation is not permitted.",
+      "properties": {},
+      "type": "object"
+    },
+    "UnauthorizedResourceAccessException": {
+      "description": "The caller does not have access to perform the action on the resource.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessageType"
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDocumentRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the document."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the document. Note that only ACTIVE and RECYCLED are supported."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDocumentVersionRequest": {
+      "properties": {
+        "VersionStatus": {
+          "$ref": "#/definitions/DocumentVersionStatus",
+          "description": "The status of the version."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateFolderRequest": {
+      "properties": {
+        "Name": {
+          "$ref": "#/definitions/ResourceNameType",
+          "description": "The name of the folder."
+        },
+        "ParentFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the parent folder."
+        },
+        "ResourceState": {
+          "$ref": "#/definitions/ResourceStateType",
+          "description": "The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted values from the API."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserRequest": {
+      "properties": {
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "Locale": {
+          "$ref": "#/definitions/LocaleType",
+          "description": "The locale of the user."
+        },
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The amount of storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/UserType",
+          "description": "The type of the user."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateUserResponse": {
+      "properties": {
+        "User": {
+          "$ref": "#/definitions/User",
+          "description": "The user information."
+        }
+      },
+      "type": "object"
+    },
+    "UploadMetadata": {
+      "description": "Describes the upload.",
+      "properties": {
+        "SignedHeaders": {
+          "$ref": "#/definitions/SignedHeaderMap",
+          "description": "The signed headers."
+        },
+        "UploadUrl": {
+          "$ref": "#/definitions/UrlType",
+          "description": "The URL of the upload."
+        }
+      },
+      "type": "object"
+    },
+    "UrlType": {
+      "format": "password",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "User": {
+      "description": "Describes a user.",
+      "properties": {
+        "CreatedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the user was created."
+        },
+        "EmailAddress": {
+          "$ref": "#/definitions/EmailAddressType",
+          "description": "The email address of the user."
+        },
+        "GivenName": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The given name of the user."
+        },
+        "Id": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the user."
+        },
+        "Locale": {
+          "$ref": "#/definitions/LocaleType",
+          "description": "The locale of the user."
+        },
+        "ModifiedTimestamp": {
+          "$ref": "#/definitions/TimestampType",
+          "description": "The time when the user was modified."
+        },
+        "OrganizationId": {
+          "$ref": "#/definitions/IdType",
+          "description": "The ID of the organization."
+        },
+        "RecycleBinFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the recycle bin folder."
+        },
+        "RootFolderId": {
+          "$ref": "#/definitions/ResourceIdType",
+          "description": "The ID of the root folder."
+        },
+        "Status": {
+          "$ref": "#/definitions/UserStatusType",
+          "description": "The status of the user."
+        },
+        "Storage": {
+          "$ref": "#/definitions/UserStorageMetadata",
+          "description": "The storage for the user."
+        },
+        "Surname": {
+          "$ref": "#/definitions/UserAttributeValueType",
+          "description": "The surname of the user."
+        },
+        "TimeZoneId": {
+          "$ref": "#/definitions/TimeZoneIdType",
+          "description": "The time zone ID of the user."
+        },
+        "Type": {
+          "$ref": "#/definitions/UserType",
+          "description": "The type of user."
+        },
+        "Username": {
+          "$ref": "#/definitions/UsernameType",
+          "description": "The login name of the user."
+        }
+      },
+      "type": "object"
+    },
+    "UserAttributeValueType": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "UserFilterType": {
+      "enum": [
+        "ALL",
+        "ACTIVE_PENDING"
+      ],
+      "type": "string"
+    },
+    "UserIdsType": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "pattern": "[&\\w+-.@, ]+",
+      "type": "string"
+    },
+    "UserSortType": {
+      "enum": [
+        "USER_NAME",
+        "FULL_NAME",
+        "STORAGE_LIMIT",
+        "USER_STATUS",
+        "STORAGE_USED"
+      ],
+      "type": "string"
+    },
+    "UserStatusType": {
+      "enum": [
+        "ACTIVE",
+        "INACTIVE",
+        "PENDING"
+      ],
+      "type": "string"
+    },
+    "UserStorageMetadata": {
+      "description": "Describes the storage for a user.",
+      "properties": {
+        "StorageRule": {
+          "$ref": "#/definitions/StorageRuleType",
+          "description": "The storage for a user."
+        },
+        "StorageUtilizedInBytes": {
+          "$ref": "#/definitions/SizeType",
+          "description": "The amount of storage utilized, in bytes."
+        }
+      },
+      "type": "object"
+    },
+    "UserType": {
+      "enum": [
+        "USER",
+        "ADMIN"
+      ],
+      "type": "string"
+    },
+    "UsernameType": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "[\\w\\-.]+(@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]+)?",
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "InitiateDocumentVersionUpload",
+      "title": "InitiateDocumentVersionUpload",
+      "description": "<p>Creates a new document object and version object.</p> <p>The client specifies the parent folder ID and name of the document to upload. The ID is optionally specified when creating a new version of an existing document. This is the first step to upload a document. Next, upload the document to the URL returned from the call, and then call <a>UpdateDocumentVersion</a>.</p> <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/InitiateDocumentVersionUploadRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/InitiateDocumentVersionUploadResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateDocument",
+      "title": "UpdateDocument",
+      "description": "Updates the specified attributes of the specified document. The user must have access to both the document and its parent folder, if applicable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateDocumentRequest"
+          },
+          "DocumentId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "GetDocumentPath",
+      "title": "GetDocumentPath",
+      "description": "<p>Retrieves the path information (the hierarchy from the root folder) for the requested document.</p> <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested document and only includes the IDs of the parent folders in the path. You can limit the maximum number of levels. You can also request the names of the parent folders.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetDocumentPathRequest"
+          },
+          "DocumentId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDocumentPathResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeDocumentVersions",
+      "title": "DescribeDocumentVersions",
+      "description": "<p>Retrieves the document versions for the specified document.</p> <p>By default, only active versions are returned.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeDocumentVersionsRequest"
+          },
+          "Limit": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "Marker": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "DocumentId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeDocumentVersionsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateDocumentVersion",
+      "title": "UpdateDocumentVersion",
+      "description": "<p>Changes the status of the document version to ACTIVE. </p> <p>Amazon WorkDocs also sets its document container to ACTIVE. This is the last step in a document upload, after the client uploads the document to an S3-presigned URL returned by <a>InitiateDocumentVersionUpload</a>. </p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateDocumentVersionRequest"
+          },
+          "DocumentId": {
+            "type": "string"
+          },
+          "VersionId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "CreateFolder",
+      "title": "CreateFolder",
+      "description": "Creates a folder with the specified name and parent folder.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateFolderRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateFolderResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateFolder",
+      "title": "UpdateFolder",
+      "description": "Updates the specified attributes of the specified folder. The user must have access to both the folder and its parent folder, if applicable.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateFolderRequest"
+          },
+          "FolderId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeFolderContents",
+      "title": "DescribeFolderContents",
+      "description": "<p>Describes the contents of the specified folder, including its documents and sub-folders.</p> <p>By default, Amazon WorkDocs returns the first 100 active document and folder metadata items. If there are more results, the response includes a marker that you can use to request the next set of results. You can also request initialized documents.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeFolderContentsRequest"
+          },
+          "Limit": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "Marker": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "FolderId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeFolderContentsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "GetFolderPath",
+      "title": "GetFolderPath",
+      "description": "<p>Retrieves the path information (the hierarchy from the root folder) for the specified folder.</p> <p>By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested folder and only includes the IDs of the parent folders in the path. You can limit the maximum number of levels. You can also request the parent folder names.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetFolderPathRequest"
+          },
+          "FolderId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetFolderPathResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeNotificationSubscriptions",
+      "title": "DescribeNotificationSubscriptions",
+      "description": "Lists the specified notification subscriptions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeNotificationSubscriptionsRequest"
+          },
+          "OrganizationId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeNotificationSubscriptionsResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeleteNotificationSubscription",
+      "title": "DeleteNotificationSubscription",
+      "description": "Deletes the specified subscription from the specified organization.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteNotificationSubscriptionRequest"
+          },
+          "OrganizationId": {
+            "type": "string"
+          },
+          "SubscriptionId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "RemoveAllResourcePermissions",
+      "title": "RemoveAllResourcePermissions",
+      "description": "Removes all the permissions from the specified resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveAllResourcePermissionsRequest"
+          },
+          "ResourceId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "RemoveResourcePermission",
+      "title": "RemoveResourcePermission",
+      "description": "Removes the permission for the specified principal from the specified resource.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveResourcePermissionRequest"
+          },
+          "ResourceId": {
+            "type": "string"
+          },
+          "PrincipalId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DescribeUsers",
+      "title": "DescribeUsers",
+      "description": "<p>Describes the specified users. You can describe all users or filter the results (for example, by status or organization).</p> <p>By default, Amazon WorkDocs returns the first 24 active or pending users. If there are more results, the response includes a marker that you can use to request the next set of results.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeUsersRequest"
+          },
+          "Limit": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "Marker": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeUsersResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "UpdateUser",
+      "title": "UpdateUser",
+      "description": "Updates the specified attributes of the specified user, and grants or revokes administrative privileges to the Amazon WorkDocs site.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateUserRequest"
+          },
+          "UserId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateUserResponse"
+      },
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    },
+    {
+      "id": "DeactivateUser",
+      "title": "DeactivateUser",
+      "description": "Deactivates the specified user, which revokes the user's access to Amazon WorkDocs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeactivateUserRequest"
+          },
+          "UserId": {
+            "type": "string"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_workdocs": {
+          "integration": "amazonaws_workdocs"
+        }
+      }
+    }
+  ]
+}

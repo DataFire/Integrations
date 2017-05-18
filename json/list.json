@@ -16,6 +16,1250 @@
       }
     }
   },
+  "amazonaws_acm": {
+    "id": "amazonaws_acm",
+    "title": "AWS Certificate Manager",
+    "description": "AWS Certificate Manager Welcome to the AWS Certificate Manager (ACM) API documentation. You can use ACM to manage SSL/TL...",
+    "security": {
+      "amazonaws_acm": {
+        "integration": "amazonaws_acm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_apigateway": {
+    "id": "amazonaws_apigateway",
+    "title": "Amazon API Gateway",
+    "description": "Amazon API Gateway Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application b...",
+    "security": {
+      "amazonaws_apigateway": {
+        "integration": "amazonaws_apigateway",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_appstream2": {
+    "id": "amazonaws_appstream2",
+    "title": "Amazon AppStream",
+    "description": "Amazon AppStream 2.0 API documentation for Amazon AppStream 2.0.",
+    "security": {
+      "amazonaws_appstream2": {
+        "integration": "amazonaws_appstream2",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_autoscaling": {
+    "id": "amazonaws_autoscaling",
+    "title": "Application Auto Scaling",
+    "description": "With Application Auto Scaling, you can automatically scale your AWS resources. The experience similar to that of Auto Sc...",
+    "security": {
+      "amazonaws_autoscaling": {
+        "integration": "amazonaws_autoscaling",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_batch": {
+    "id": "amazonaws_batch",
+    "title": "AWS Batch",
+    "description": "AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers,...",
+    "security": {
+      "amazonaws_batch": {
+        "integration": "amazonaws_batch",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_budgets": {
+    "id": "amazonaws_budgets",
+    "title": "AWS Budgets",
+    "description": "All public APIs for AWS Budgets",
+    "security": {
+      "amazonaws_budgets": {
+        "integration": "amazonaws_budgets",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_clouddirectory": {
+    "id": "amazonaws_clouddirectory",
+    "title": "Amazon CloudDirectory",
+    "description": "Amazon Cloud Directory Amazon Cloud Directory is a component of the AWS Directory Service that simplifies the developmen...",
+    "security": {
+      "amazonaws_clouddirectory": {
+        "integration": "amazonaws_clouddirectory",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudformation": {
+    "id": "amazonaws_cloudformation",
+    "title": "AWS CloudFormation",
+    "description": "AWS CloudFormation AWS CloudFormation allows you to create and manage AWS infrastructure deployments predictably and rep...",
+    "security": {
+      "amazonaws_cloudformation": {
+        "integration": "amazonaws_cloudformation",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudfront": {
+    "id": "amazonaws_cloudfront",
+    "title": "Amazon CloudFront",
+    "description": "Amazon CloudFront This is the Amazon CloudFront API Reference. This guide is for developers who need detailed informatio...",
+    "security": {
+      "amazonaws_cloudfront": {
+        "integration": "amazonaws_cloudfront",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudhsm": {
+    "id": "amazonaws_cloudhsm",
+    "title": "Amazon CloudHSM",
+    "description": "AWS CloudHSM Service",
+    "security": {
+      "amazonaws_cloudhsm": {
+        "integration": "amazonaws_cloudhsm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudsearch": {
+    "id": "amazonaws_cloudsearch",
+    "title": "Amazon CloudSearch",
+    "description": "Amazon CloudSearch Configuration Service You use the Amazon CloudSearch configuration service to create, configure, and ...",
+    "security": {
+      "amazonaws_cloudsearch": {
+        "integration": "amazonaws_cloudsearch",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudsearchdomain": {
+    "id": "amazonaws_cloudsearchdomain",
+    "title": "Amazon CloudSearch Domain",
+    "description": "You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents.  The endpoints ...",
+    "security": {
+      "amazonaws_cloudsearchdomain": {
+        "integration": "amazonaws_cloudsearchdomain",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cloudtrail": {
+    "id": "amazonaws_cloudtrail",
+    "title": "AWS CloudTrail",
+    "description": "AWS CloudTrail This is the CloudTrail API Reference. It provides descriptions of actions, data types, common parameters,...",
+    "security": {
+      "amazonaws_cloudtrail": {
+        "integration": "amazonaws_cloudtrail",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_codebuild": {
+    "id": "amazonaws_codebuild",
+    "title": "AWS CodeBuild",
+    "description": "AWS CodeBuild AWS CodeBuild is a fully managed build service in the cloud. AWS CodeBuild compiles your source code, runs...",
+    "security": {
+      "amazonaws_codebuild": {
+        "integration": "amazonaws_codebuild",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_codecommit": {
+    "id": "amazonaws_codecommit",
+    "title": "AWS CodeCommit",
+    "description": "AWS CodeCommit This is the AWS CodeCommit API Reference. This reference provides descriptions of the operations and data...",
+    "security": {
+      "amazonaws_codecommit": {
+        "integration": "amazonaws_codecommit",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_codedeploy": {
+    "id": "amazonaws_codedeploy",
+    "title": "AWS CodeDeploy",
+    "description": "AWS CodeDeploy  Overview  This reference guide provides descriptions of the AWS CodeDeploy APIs. For more information ab...",
+    "security": {
+      "amazonaws_codedeploy": {
+        "integration": "amazonaws_codedeploy",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_codepipeline": {
+    "id": "amazonaws_codepipeline",
+    "title": "AWS CodePipeline",
+    "description": "AWS CodePipeline  Overview  This is the AWS CodePipeline API Reference. This guide provides descriptions of the actions ...",
+    "security": {
+      "amazonaws_codepipeline": {
+        "integration": "amazonaws_codepipeline",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_codestar": {
+    "id": "amazonaws_codestar",
+    "title": "AWS CodeStar",
+    "description": "AWS CodeStar This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data...",
+    "security": {
+      "amazonaws_codestar": {
+        "integration": "amazonaws_codestar",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cognito_identity": {
+    "id": "amazonaws_cognito_identity",
+    "title": "Amazon Cognito Identity",
+    "description": "Amazon Cognito Amazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other un...",
+    "security": {
+      "amazonaws_cognito_identity": {
+        "integration": "amazonaws_cognito_identity",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cognito_idp": {
+    "id": "amazonaws_cognito_idp",
+    "title": "Amazon Cognito Identity Provider",
+    "description": "Using the Amazon Cognito Your User Pools API, you can create a user pool to manage directories and users. You can authen...",
+    "security": {
+      "amazonaws_cognito_idp": {
+        "integration": "amazonaws_cognito_idp",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cognito_sync": {
+    "id": "amazonaws_cognito_sync",
+    "title": "Amazon Cognito Sync",
+    "description": "Amazon Cognito Sync Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of a...",
+    "security": {
+      "amazonaws_cognito_sync": {
+        "integration": "amazonaws_cognito_sync",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_config": {
+    "id": "amazonaws_config",
+    "title": "AWS Config",
+    "description": "AWS Config AWS Config provides a way to keep track of the configurations of all the AWS resources associated with your A...",
+    "security": {
+      "amazonaws_config": {
+        "integration": "amazonaws_config",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_cur": {
+    "id": "amazonaws_cur",
+    "title": "AWS Cost and Usage Report Service",
+    "description": "All public APIs for AWS Cost and Usage Report service",
+    "security": {
+      "amazonaws_cur": {
+        "integration": "amazonaws_cur",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_data_iot": {
+    "id": "amazonaws_data_iot",
+    "title": "AWS IoT Data Plane",
+    "description": "AWS IoT AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, ac...",
+    "security": {
+      "amazonaws_data_iot": {
+        "integration": "amazonaws_data_iot",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_datapipeline": {
+    "id": "amazonaws_datapipeline",
+    "title": "AWS Data Pipeline",
+    "description": "AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details...",
+    "security": {
+      "amazonaws_datapipeline": {
+        "integration": "amazonaws_datapipeline",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_devicefarm": {
+    "id": "amazonaws_devicefarm",
+    "title": "AWS Device Farm",
+    "description": "AWS Device Farm is a service that enables mobile app developers to test Android, iOS, and Fire OS apps on physical phone...",
+    "security": {
+      "amazonaws_devicefarm": {
+        "integration": "amazonaws_devicefarm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_directconnect": {
+    "id": "amazonaws_directconnect",
+    "title": "AWS Direct Connect",
+    "description": "AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit...",
+    "security": {
+      "amazonaws_directconnect": {
+        "integration": "amazonaws_directconnect",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_discovery": {
+    "id": "amazonaws_discovery",
+    "title": "AWS Application Discovery Service",
+    "description": "AWS Application Discovery Service AWS Application Discovery Service helps you plan application migration projects by aut...",
+    "security": {
+      "amazonaws_discovery": {
+        "integration": "amazonaws_discovery",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_dms": {
+    "id": "amazonaws_dms",
+    "title": "AWS Database Migration Service",
+    "description": "AWS Database Migration Service AWS Database Migration Service (AWS DMS) can migrate your data to and from the most widel...",
+    "security": {
+      "amazonaws_dms": {
+        "integration": "amazonaws_dms",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_ds": {
+    "id": "amazonaws_ds",
+    "title": "AWS Directory Service",
+    "description": "AWS Directory Service AWS Directory Service is a web service that makes it easy for you to setup and run directories in ...",
+    "security": {
+      "amazonaws_ds": {
+        "integration": "amazonaws_ds",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_dynamodb": {
+    "id": "amazonaws_dynamodb",
+    "title": "Amazon DynamoDB",
+    "description": "Amazon DynamoDB Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance...",
+    "security": {
+      "amazonaws_dynamodb": {
+        "integration": "amazonaws_dynamodb",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_ec2": {
+    "id": "amazonaws_ec2",
+    "title": "Amazon Elastic Compute Cloud",
+    "description": "Amazon Elastic Compute Cloud Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in the Amaz...",
+    "security": {
+      "amazonaws_ec2": {
+        "integration": "amazonaws_ec2",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_ecr": {
+    "id": "amazonaws_ecr",
+    "title": "Amazon EC2 Container Registry",
+    "description": "Amazon EC2 Container Registry (Amazon ECR) is a managed AWS Docker registry service. Customers can use the familiar Dock...",
+    "security": {
+      "amazonaws_ecr": {
+        "integration": "amazonaws_ecr",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_ecs": {
+    "id": "amazonaws_ecs",
+    "title": "Amazon EC2 Container Service",
+    "description": "Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to...",
+    "security": {
+      "amazonaws_ecs": {
+        "integration": "amazonaws_ecs",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elasticache": {
+    "id": "amazonaws_elasticache",
+    "title": "Amazon ElastiCache",
+    "description": "Amazon ElastiCache Amazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed ...",
+    "security": {
+      "amazonaws_elasticache": {
+        "integration": "amazonaws_elasticache",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elasticbeanstalk": {
+    "id": "amazonaws_elasticbeanstalk",
+    "title": "AWS Elastic Beanstalk",
+    "description": "AWS Elastic Beanstalk AWS Elastic Beanstalk makes it easy for you to create, deploy, and manage scalable, fault-tolerant...",
+    "security": {
+      "amazonaws_elasticbeanstalk": {
+        "integration": "amazonaws_elasticbeanstalk",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elasticfilesystem": {
+    "id": "amazonaws_elasticfilesystem",
+    "title": "Amazon Elastic File System",
+    "description": "Amazon Elastic File System Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with A...",
+    "security": {
+      "amazonaws_elasticfilesystem": {
+        "integration": "amazonaws_elasticfilesystem",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elasticloadbalancing": {
+    "id": "amazonaws_elasticloadbalancing",
+    "title": "Elastic Load Balancing",
+    "description": "Elastic Load Balancing A load balancer distributes incoming traffic across targets, such as your EC2 instances. This ena...",
+    "security": {
+      "amazonaws_elasticloadbalancing": {
+        "integration": "amazonaws_elasticloadbalancing",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elasticmapreduce": {
+    "id": "amazonaws_elasticmapreduce",
+    "title": "Amazon Elastic MapReduce",
+    "description": "Amazon EMR is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop proc...",
+    "security": {
+      "amazonaws_elasticmapreduce": {
+        "integration": "amazonaws_elasticmapreduce",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_elastictranscoder": {
+    "id": "amazonaws_elastictranscoder",
+    "title": "Amazon Elastic Transcoder",
+    "description": "AWS Elastic Transcoder Service The AWS Elastic Transcoder Service.",
+    "security": {
+      "amazonaws_elastictranscoder": {
+        "integration": "amazonaws_elastictranscoder",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_email": {
+    "id": "amazonaws_email",
+    "title": "Amazon Simple Email Service",
+    "description": "Amazon Simple Email Service  This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation ...",
+    "security": {
+      "amazonaws_email": {
+        "integration": "amazonaws_email",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_entitlement_marketplace": {
+    "id": "amazonaws_entitlement_marketplace",
+    "title": "AWS Marketplace Entitlement Service",
+    "description": "AWS Marketplace Entitlement Service This reference provides descriptions of the AWS Marketplace Entitlement Service API....",
+    "security": {
+      "amazonaws_entitlement_marketplace": {
+        "integration": "amazonaws_entitlement_marketplace",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_es": {
+    "id": "amazonaws_es",
+    "title": "Amazon Elasticsearch Service",
+    "description": "Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch configuration API to create, configure, and mana...",
+    "security": {
+      "amazonaws_es": {
+        "integration": "amazonaws_es",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_events": {
+    "id": "amazonaws_events",
+    "title": "Amazon CloudWatch Events",
+    "description": "Amazon CloudWatch Events helps you to respond to state changes in your AWS resources. When your resources change state, ...",
+    "security": {
+      "amazonaws_events": {
+        "integration": "amazonaws_events",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_firehose": {
+    "id": "amazonaws_firehose",
+    "title": "Amazon Kinesis Firehose",
+    "description": "Amazon Kinesis Firehose API Reference Amazon Kinesis Firehose is a fully-managed service that delivers real-time streami...",
+    "security": {
+      "amazonaws_firehose": {
+        "integration": "amazonaws_firehose",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_gamelift": {
+    "id": "amazonaws_gamelift",
+    "title": "Amazon GameLift",
+    "description": "Amazon GameLift Service  Amazon GameLift is a managed service for developers who need a scalable, dedicated server solut...",
+    "security": {
+      "amazonaws_gamelift": {
+        "integration": "amazonaws_gamelift",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_glacier": {
+    "id": "amazonaws_glacier",
+    "title": "Amazon Glacier",
+    "description": "Amazon Glacier is a storage solution for \"cold data.\" Amazon Glacier is an extremely low-cost storage service that provi...",
+    "security": {
+      "amazonaws_glacier": {
+        "integration": "amazonaws_glacier",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_health": {
+    "id": "amazonaws_health",
+    "title": "AWS Health APIs and Notifications",
+    "description": "AWS Health The AWS Health API provides programmatic access to the AWS Health information that is presented in the AWS Pe...",
+    "security": {
+      "amazonaws_health": {
+        "integration": "amazonaws_health",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_iam": {
+    "id": "amazonaws_iam",
+    "title": "AWS Identity and Access Management",
+    "description": "AWS Identity and Access Management AWS Identity and Access Management (IAM) is a web service that you can use to manage ...",
+    "security": {
+      "amazonaws_iam": {
+        "integration": "amazonaws_iam",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_importexport": {
+    "id": "amazonaws_importexport",
+    "title": "AWS Import/Export",
+    "description": "AWS Import/Export Service AWS Import/Export accelerates transferring large amounts of data between the AWS cloud and por...",
+    "security": {
+      "amazonaws_importexport": {
+        "integration": "amazonaws_importexport",
+        "fields": {
+          "hmac": "Amazon Signature authorization v2"
+        }
+      }
+    }
+  },
+  "amazonaws_inspector": {
+    "id": "amazonaws_inspector",
+    "title": "Amazon Inspector",
+    "description": "Amazon Inspector Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential se...",
+    "security": {
+      "amazonaws_inspector": {
+        "integration": "amazonaws_inspector",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_iot": {
+    "id": "amazonaws_iot",
+    "title": "AWS IoT",
+    "description": "AWS IoT AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuat...",
+    "security": {
+      "amazonaws_iot": {
+        "integration": "amazonaws_iot",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_kinesis": {
+    "id": "amazonaws_kinesis",
+    "title": "Amazon Kinesis",
+    "description": "Amazon Kinesis Streams Service API Reference Amazon Kinesis Streams is a managed service that scales elastically for rea...",
+    "security": {
+      "amazonaws_kinesis": {
+        "integration": "amazonaws_kinesis",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_kinesisanalytics": {
+    "id": "amazonaws_kinesisanalytics",
+    "title": "Amazon Kinesis Analytics",
+    "security": {
+      "amazonaws_kinesisanalytics": {
+        "integration": "amazonaws_kinesisanalytics",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_kms": {
+    "id": "amazonaws_kms",
+    "title": "AWS Key Management Service",
+    "description": "AWS Key Management Service AWS Key Management Service (AWS KMS) is an encryption and key management web service. This gu...",
+    "security": {
+      "amazonaws_kms": {
+        "integration": "amazonaws_kms",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_lambda": {
+    "id": "amazonaws_lambda",
+    "title": "AWS Lambda",
+    "description": "AWS Lambda  Overview  This is the AWS Lambda API Reference. The AWS Lambda Developer Guide provides additional informati...",
+    "security": {
+      "amazonaws_lambda": {
+        "integration": "amazonaws_lambda",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_lightsail": {
+    "id": "amazonaws_lightsail",
+    "title": "Amazon Lightsail",
+    "description": "Amazon Lightsail is the easiest way to get started with AWS for developers who just need virtual private servers. Lights...",
+    "security": {
+      "amazonaws_lightsail": {
+        "integration": "amazonaws_lightsail",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_machinelearning": {
+    "id": "amazonaws_machinelearning",
+    "title": "Amazon Machine Learning",
+    "description": "Definition of the public APIs exposed by Amazon Machine Learning",
+    "security": {
+      "amazonaws_machinelearning": {
+        "integration": "amazonaws_machinelearning",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_marketplacecommerceanalytics": {
+    "id": "amazonaws_marketplacecommerceanalytics",
+    "title": "AWS Marketplace Commerce Analytics",
+    "description": "Provides AWS Marketplace business intelligence data on-demand.",
+    "security": {
+      "amazonaws_marketplacecommerceanalytics": {
+        "integration": "amazonaws_marketplacecommerceanalytics",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_metering_marketplace": {
+    "id": "amazonaws_metering_marketplace",
+    "title": "AWSMarketplace Metering",
+    "description": "AWS Marketplace Metering Service This reference provides descriptions of the low-level AWS Marketplace Metering Service ...",
+    "security": {
+      "amazonaws_metering_marketplace": {
+        "integration": "amazonaws_metering_marketplace",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_mobileanalytics": {
+    "id": "amazonaws_mobileanalytics",
+    "title": "Amazon Mobile Analytics",
+    "description": "Amazon Mobile Analytics is a service for collecting, visualizing, and understanding app usage data at scale.",
+    "security": {
+      "amazonaws_mobileanalytics": {
+        "integration": "amazonaws_mobileanalytics",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_models_lex": {
+    "id": "amazonaws_models_lex",
+    "title": "Amazon Lex Model Building Service",
+    "description": "Amazon Lex Build-Time Actions  Amazon Lex is an AWS service for building conversational voice and text interfaces. Use t...",
+    "security": {
+      "amazonaws_models_lex": {
+        "integration": "amazonaws_models_lex",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_monitoring": {
+    "id": "amazonaws_monitoring",
+    "title": "Amazon CloudWatch",
+    "description": "Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real-time. Yo...",
+    "security": {
+      "amazonaws_monitoring": {
+        "integration": "amazonaws_monitoring",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_mturk_requester": {
+    "id": "amazonaws_mturk_requester",
+    "title": "Amazon Mechanical Turk",
+    "description": "Amazon Mechanical Turk API Reference",
+    "security": {
+      "amazonaws_mturk_requester": {
+        "integration": "amazonaws_mturk_requester",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_opsworks": {
+    "id": "amazonaws_opsworks",
+    "title": "AWS OpsWorks",
+    "description": "AWS OpsWorks Welcome to the AWS OpsWorks Stacks API Reference. This guide provides descriptions, syntax, and usage examp...",
+    "security": {
+      "amazonaws_opsworks": {
+        "integration": "amazonaws_opsworks",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_opsworks_cm": {
+    "id": "amazonaws_opsworks_cm",
+    "title": "AWS OpsWorks for Chef Automate",
+    "description": "AWS OpsWorks for Chef Automate  AWS OpsWorks for Chef Automate is a service that runs and manages configuration manageme...",
+    "security": {
+      "amazonaws_opsworks_cm": {
+        "integration": "amazonaws_opsworks_cm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_organizations": {
+    "id": "amazonaws_organizations",
+    "title": "AWS Organizations",
+    "description": "AWS Organizations API Reference AWS Organizations is a web service that enables you to consolidate your multiple AWS acc...",
+    "security": {
+      "amazonaws_organizations": {
+        "integration": "amazonaws_organizations",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_pinpoint": {
+    "id": "amazonaws_pinpoint",
+    "title": "Amazon Pinpoint",
+    "security": {
+      "amazonaws_pinpoint": {
+        "integration": "amazonaws_pinpoint",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_polly": {
+    "id": "amazonaws_polly",
+    "title": "Amazon Polly",
+    "description": "Amazon Polly is a web service that makes it easy to synthesize speech from text. The Amazon Polly service provides API o...",
+    "security": {
+      "amazonaws_polly": {
+        "integration": "amazonaws_polly",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_rds": {
+    "id": "amazonaws_rds",
+    "title": "Amazon Relational Database Service",
+    "description": "Amazon Relational Database Service   Amazon Relational Database Service (Amazon RDS) is a web service that makes it easi...",
+    "security": {
+      "amazonaws_rds": {
+        "integration": "amazonaws_rds",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_redshift": {
+    "id": "amazonaws_redshift",
+    "title": "Amazon Redshift",
+    "description": "Amazon Redshift  Overview  This is an interface reference for Amazon Redshift. It contains documentation for one of the ...",
+    "security": {
+      "amazonaws_redshift": {
+        "integration": "amazonaws_redshift",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_rekognition": {
+    "id": "amazonaws_rekognition",
+    "title": "Amazon Rekognition",
+    "description": "This is the Amazon Rekognition API reference.",
+    "security": {
+      "amazonaws_rekognition": {
+        "integration": "amazonaws_rekognition",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_route53": {
+    "id": "amazonaws_route53",
+    "title": "Amazon Route 53",
+    "security": {
+      "amazonaws_route53": {
+        "integration": "amazonaws_route53",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_route53domains": {
+    "id": "amazonaws_route53domains",
+    "title": "Amazon Route 53 Domains",
+    "description": "Amazon Route 53 API actions let you register domain names and perform related operations.",
+    "security": {
+      "amazonaws_route53domains": {
+        "integration": "amazonaws_route53domains",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_runtime_lex": {
+    "id": "amazonaws_runtime_lex",
+    "title": "Amazon Lex Runtime Service",
+    "description": "Amazon Lex provides both build and runtime endpoints. Each endpoint provides a set of operations (API). Your conversatio...",
+    "security": {
+      "amazonaws_runtime_lex": {
+        "integration": "amazonaws_runtime_lex",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_s3": {
+    "id": "amazonaws_s3",
+    "title": "Amazon Simple Storage Service",
+    "security": {
+      "amazonaws_s3": {
+        "integration": "amazonaws_s3",
+        "fields": {
+          "hmac": "Amazon S3 signature"
+        }
+      }
+    }
+  },
+  "amazonaws_sdb": {
+    "id": "amazonaws_sdb",
+    "title": "Amazon SimpleDB",
+    "description": "Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By of...",
+    "security": {
+      "amazonaws_sdb": {
+        "integration": "amazonaws_sdb",
+        "fields": {
+          "hmac": "Amazon Signature authorization v2"
+        }
+      }
+    }
+  },
+  "amazonaws_servicecatalog": {
+    "id": "amazonaws_servicecatalog",
+    "title": "AWS Service Catalog",
+    "description": "AWS Service Catalog  Overview   AWS Service Catalog allows organizations to create and manage catalogs of IT services th...",
+    "security": {
+      "amazonaws_servicecatalog": {
+        "integration": "amazonaws_servicecatalog",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_shield": {
+    "id": "amazonaws_shield",
+    "title": "AWS Shield",
+    "description": "AWS Shield Advanced This is the AWS Shield Advanced API Reference. This guide is for developers who need detailed inform...",
+    "security": {
+      "amazonaws_shield": {
+        "integration": "amazonaws_shield",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_sms": {
+    "id": "amazonaws_sms",
+    "title": "AWS Server Migration Service",
+    "description": "Amazon Server Migration Service automates the process of migrating servers to EC2.",
+    "security": {
+      "amazonaws_sms": {
+        "integration": "amazonaws_sms",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_snowball": {
+    "id": "amazonaws_snowball",
+    "title": "Amazon Import/Export Snowball",
+    "description": "AWS Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data b...",
+    "security": {
+      "amazonaws_snowball": {
+        "integration": "amazonaws_snowball",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_sns": {
+    "id": "amazonaws_sns",
+    "title": "Amazon Simple Notification Service",
+    "description": "Amazon Simple Notification Service Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to ...",
+    "security": {
+      "amazonaws_sns": {
+        "integration": "amazonaws_sns",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_sqs": {
+    "id": "amazonaws_sqs",
+    "title": "Amazon Simple Queue Service",
+    "description": "Welcome to the Amazon Simple Queue Service API Reference. Amazon Simple Queue Service (Amazon SQS) is a reliable, highly...",
+    "security": {
+      "amazonaws_sqs": {
+        "integration": "amazonaws_sqs",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_ssm": {
+    "id": "amazonaws_ssm",
+    "title": "Amazon Simple Systems Manager (SSM)",
+    "description": "Amazon EC2 Systems Manager Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management...",
+    "security": {
+      "amazonaws_ssm": {
+        "integration": "amazonaws_ssm",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_states": {
+    "id": "amazonaws_states",
+    "title": "AWS Step Functions",
+    "description": "AWS Step Functions AWS Step Functions is a web service that enables you to coordinate the components of distributed appl...",
+    "security": {
+      "amazonaws_states": {
+        "integration": "amazonaws_states",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_storagegateway": {
+    "id": "amazonaws_storagegateway",
+    "title": "AWS Storage Gateway",
+    "description": "AWS Storage Gateway Service AWS Storage Gateway is the service that connects an on-premises software appliance with clou...",
+    "security": {
+      "amazonaws_storagegateway": {
+        "integration": "amazonaws_storagegateway",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_streams_dynamodb": {
+    "id": "amazonaws_streams_dynamodb",
+    "title": "Amazon DynamoDB Streams",
+    "description": "Amazon DynamoDB Amazon DynamoDB Streams provides API actions for accessing streams and processing stream records. To lea...",
+    "security": {
+      "amazonaws_streams_dynamodb": {
+        "integration": "amazonaws_streams_dynamodb",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_sts": {
+    "id": "amazonaws_sts",
+    "title": "AWS Security Token Service",
+    "description": "AWS Security Token Service The AWS Security Token Service (STS) is a web service that enables you to request temporary, ...",
+    "security": {
+      "amazonaws_sts": {
+        "integration": "amazonaws_sts",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_support": {
+    "id": "amazonaws_support",
+    "title": "AWS Support",
+    "description": "AWS Support The AWS Support API reference is intended for programmers who need detailed information about the AWS Suppor...",
+    "security": {
+      "amazonaws_support": {
+        "integration": "amazonaws_support",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_swf": {
+    "id": "amazonaws_swf",
+    "title": "Amazon Simple Workflow Service",
+    "description": "Amazon Simple Workflow Service The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that ...",
+    "security": {
+      "amazonaws_swf": {
+        "integration": "amazonaws_swf",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_tagging": {
+    "id": "amazonaws_tagging",
+    "title": "AWS Resource Groups Tagging API",
+    "description": "Resource Groups Tagging API This guide describes the API operations for the resource groups tagging. A tag is a label th...",
+    "security": {
+      "amazonaws_tagging": {
+        "integration": "amazonaws_tagging",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_waf": {
+    "id": "amazonaws_waf",
+    "title": "AWS WAF",
+    "description": "This is the AWS WAF API Reference for using AWS WAF with Amazon CloudFront. The AWS WAF actions and data types listed in...",
+    "security": {
+      "amazonaws_waf": {
+        "integration": "amazonaws_waf",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_waf_regional": {
+    "id": "amazonaws_waf_regional",
+    "title": "AWS WAF Regional",
+    "description": "This is the AWS WAF Regional API Reference for using AWS WAF with Elastic Load Balancing (ELB) Application Load Balancer...",
+    "security": {
+      "amazonaws_waf_regional": {
+        "integration": "amazonaws_waf_regional",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_workdocs": {
+    "id": "amazonaws_workdocs",
+    "title": "Amazon WorkDocs",
+    "description": "The WorkDocs API is designed for the following use cases:   File Migration: File migration applications are supported fo...",
+    "security": {
+      "amazonaws_workdocs": {
+        "integration": "amazonaws_workdocs",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_workspaces": {
+    "id": "amazonaws_workspaces",
+    "title": "Amazon WorkSpaces",
+    "description": "Amazon WorkSpaces Service This reference provides detailed information about the Amazon WorkSpaces operations.",
+    "security": {
+      "amazonaws_workspaces": {
+        "integration": "amazonaws_workspaces",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
+  "amazonaws_xray": {
+    "id": "amazonaws_xray",
+    "title": "AWS X-Ray",
+    "description": "AWS X-Ray provides APIs for managing debug traces and retrieving service maps and other data created by processing those...",
+    "security": {
+      "amazonaws_xray": {
+        "integration": "amazonaws_xray",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    }
+  },
   "apacta": {
     "id": "apacta",
     "title": "Apacta",
@@ -1590,6 +2834,59 @@
       }
     }
   },
+  "deutschebahn_betriebsstellen": {
+    "id": "deutschebahn_betriebsstellen",
+    "title": "Betriebsstellen",
+    "description": "This REST-API enables you to query station and stop infos",
+    "security": {
+      "deutschebahn_betriebsstellen": {
+        "integration": "deutschebahn_betriebsstellen",
+        "fields": {}
+      }
+    }
+  },
+  "deutschebahn_fahrplan": {
+    "id": "deutschebahn_fahrplan",
+    "title": "Fahrplan-Free",
+    "description": "A RESTful webservice to request a railway journey - FREE plan with restricted access (max. 10 requests per minute). Plea...",
+    "security": {}
+  },
+  "deutschebahn_fasta": {
+    "id": "deutschebahn_fasta",
+    "title": "FaSta-Station_Facilities_Status",
+    "description": "A RESTful webservice to retrieve data about the operational state of public elevators and escalators in german railway s...",
+    "security": {
+      "deutschebahn_fasta": {
+        "integration": "deutschebahn_fasta",
+        "fields": {
+          "UserSecurity": "API key"
+        }
+      }
+    }
+  },
+  "deutschebahn_flinkster": {
+    "id": "deutschebahn_flinkster",
+    "title": "Flinkster_API_NG",
+    "description": "This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Net...",
+    "security": {}
+  },
+  "deutschebahn_reisezentren": {
+    "id": "deutschebahn_reisezentren",
+    "title": "Reisezentren",
+    "description": "This REST-API enables you to query information about travel centers in Germany.",
+    "security": {
+      "deutschebahn_reisezentren": {
+        "integration": "deutschebahn_reisezentren",
+        "fields": {}
+      }
+    }
+  },
+  "deutschebahn_stada": {
+    "id": "deutschebahn_stada",
+    "title": "Stationsdatenbereitstellung",
+    "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger f...",
+    "security": {}
+  },
   "dweet": {
     "id": "dweet",
     "title": "dweet.io",
@@ -1743,6 +3040,18 @@
         }
       }
     }
+  },
+  "getgo_gototraining": {
+    "id": "getgo_gototraining",
+    "title": "GoToTraining",
+    "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
+    "security": {}
+  },
+  "getgo_gotowebinar": {
+    "id": "getgo_gotowebinar",
+    "title": "GoToWebinar",
+    "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct...",
+    "security": {}
   },
   "getsandbox": {
     "id": "getsandbox",
@@ -5593,6 +6902,38 @@
     "title": "Seldon",
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep...",
     "security": {}
+  },
+  "runscope": {
+    "id": "runscope",
+    "title": "Runscope",
+    "description": "Manage Runscope programmatically.",
+    "security": {
+      "runscope": {
+        "integration": "runscope",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)"
+        },
+        "oauth": {
+          "authorizationUrl": "https://www.runscope.com/signin/oauth/authorize",
+          "flow": "accessCode",
+          "scopes": {
+            "account:email": "Allows you to read the email addresses of user accounts.",
+            "api:read": "Default read access.",
+            "bucket:auth_token": "Allows you to read all bucket information, including Authenticated Buckets.",
+            "bucket:write": "Allows you to create new buckets on behalf of the user (up to their plan limit).",
+            "message:write": "Allows you to create new messages on behalf of the user (up to their plan limit).",
+            "team:read": "Allows you to read team details such as lists of team members and external service integrations.",
+            "test:read": "Allows you to read the details of API tests.",
+            "test:write": "Allows you to create, update and delete details of API tests."
+          },
+          "tokenUrl": "https://www.runscope.com/signin/oauth/access_token",
+          "type": "oauth2"
+        }
+      }
+    }
   },
   "schooldigger": {
     "id": "schooldigger",

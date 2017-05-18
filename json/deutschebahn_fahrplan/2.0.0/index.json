@@ -1,0 +1,290 @@
+{
+  "id": "deutschebahn_fahrplan",
+  "title": "Fahrplan-Free",
+  "description": "A RESTful webservice to request a railway journey - FREE plan with restricted access (max. 10 requests per minute). Please ignore the message in the API Console about the access token.\n\nRegister to use an less restricted version, which requires an access token.",
+  "security": {},
+  "definitions": {
+    "Board": {
+      "properties": {
+        "boardId": {
+          "description": "",
+          "type": "string"
+        },
+        "dateTime": {
+          "description": "",
+          "type": "string"
+        },
+        "detailsId": {
+          "description": "",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of train",
+          "type": "string"
+        },
+        "origin": {
+          "description": "",
+          "type": "string"
+        },
+        "stopId": {
+          "description": "",
+          "type": "string"
+        },
+        "stopName": {
+          "description": "",
+          "type": "string"
+        },
+        "track": {
+          "description": "",
+          "type": "string"
+        },
+        "type": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "boardId",
+        "stopId",
+        "stopName",
+        "dateTime",
+        "origin",
+        "track",
+        "detailsId"
+      ],
+      "type": "object"
+    },
+    "BoardResponse": {
+      "properties": {
+        "boards": {
+          "items": {
+            "$ref": "#/definitions/Board"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "boards"
+      ],
+      "type": "object"
+    },
+    "ErrorModel": {
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "internal_code": {
+          "type": "integer"
+        },
+        "internal_message": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "type": "object"
+    },
+    "JourneyResponse": {
+      "properties": {
+        "train_locs": {
+          "items": {
+            "$ref": "#/definitions/TrainLocation"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "train_locs"
+      ],
+      "type": "object"
+    },
+    "Location": {
+      "properties": {
+        "id": {
+          "description": "id of location (eva-number), example: 8000105",
+          "type": "string"
+        },
+        "lat": {
+          "description": "latitude, example: 50.107149",
+          "type": "number"
+        },
+        "lon": {
+          "description": "longitude, example: 8.663785",
+          "type": "number"
+        },
+        "name": {
+          "description": "Name of location, example: Frankfurt(Main)Hbf",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "lon",
+        "lat",
+        "id"
+      ],
+      "type": "object"
+    },
+    "LocationResponse": {
+      "properties": {
+        "locations": {
+          "items": {
+            "$ref": "#/definitions/Location"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "locations"
+      ],
+      "type": "object"
+    },
+    "TrainLocation": {
+      "properties": {
+        "arrTime": {
+          "description": "",
+          "type": "string"
+        },
+        "depTime": {
+          "description": "",
+          "type": "string"
+        },
+        "lat": {
+          "description": "",
+          "type": "number"
+        },
+        "lon": {
+          "description": "",
+          "type": "number"
+        },
+        "operator": {
+          "description": "",
+          "type": "string"
+        },
+        "stopId": {
+          "description": "",
+          "type": "string"
+        },
+        "stopName": {
+          "description": "",
+          "type": "string"
+        },
+        "train": {
+          "description": "",
+          "type": "string"
+        },
+        "type": {
+          "description": "",
+          "type": "string"
+        }
+      },
+      "required": [
+        "stopId",
+        "stopName",
+        "lat",
+        "lon",
+        "arrTime",
+        "depTime",
+        "train",
+        "type",
+        "operator"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "arrivalBoard.id.get",
+      "title": "arrivalBoard.id.get",
+      "description": "Get arrival board at a given location at a given daten and time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of location. Use attribute 'id' from the result of 'location'"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date and time in ISO-8601 format, yyyy-mm-ddThh:mm:ss, example: 2017-04-01 or 2017-04-01T10:30"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BoardResponse"
+      }
+    },
+    {
+      "id": "departureBoard.id.get",
+      "title": "departureBoard.id.get",
+      "description": "Get departure board at a given location at a given daten and time.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of a location. Use attribute 'id' from the result of 'location'"
+          },
+          "date": {
+            "type": "string",
+            "description": "Date and time in ISO-8601 format, yyyy-mm-ddThh:mm:ss, example: 2017-04-01 or 2017-04-01T10:30"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BoardResponse"
+      }
+    },
+    {
+      "id": "journeyDetails.id.get",
+      "title": "journeyDetails.id.get",
+      "description": "Retrieve details of a journey. The id of journey should come from an arrival board or a departure board.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Id of a journey. Use attribute 'detailsId' from the result of  'arrivalBoard' or 'departureBoard'"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/JourneyResponse"
+      }
+    },
+    {
+      "id": "location.name.get",
+      "title": "location.name.get",
+      "description": "Get information about locations matching the given name or name fragment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name or name fragment of a location"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LocationResponse"
+      }
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "mobileanalytics.amazonaws.com",
+  "basePath": "/",
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": "Amazon Mobile Analytics is a service for collecting, visualizing, and understanding app usage data at scale.",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "Amazon Mobile Analytics",
+    "version": "2014-06-05",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/mobileanalytics-2014-06-05.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "mobileanalytics",
+    "x-datafire": {
+      "name": "amazonaws_mobileanalytics",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/mobileanalytics/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/2014-06-05/events": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "The PutEvents operation records one or more events. You can have up to 1,500 unique custom events per app, any combination of up to 40 attributes and metrics per custom event, and any number of attribute or metric values.",
+        "operationId": "PutEvents",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutEventsInput"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "BadRequestException",
+            "schema": {
+              "$ref": "#/definitions/BadRequestException"
+            },
+            "x-aws-exception": true
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BadRequestException": {
+      "description": "An exception object returned when a request fails.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "A text description associated with the BadRequestException object."
+        }
+      },
+      "type": "object"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "Event": {
+      "description": "A JSON object representing a batch of unique event occurrences in your app.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/MapOfStringToString",
+          "description": "<p>A collection of key-value pairs that give additional context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "eventType": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A name signifying an event that occurred in your app. This is used for grouping and aggregating like events together for reporting purposes."
+        },
+        "metrics": {
+          "$ref": "#/definitions/MapOfStringToNumber",
+          "description": "<p>A collection of key-value pairs that gives additional, measurable context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "session": {
+          "$ref": "#/definitions/Session",
+          "description": "The session the event occured within. "
+        },
+        "timestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event occurred in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "version": {
+          "$ref": "#/definitions/String10Chars",
+          "description": "The version of the event."
+        }
+      },
+      "required": [
+        "eventType",
+        "timestamp"
+      ],
+      "type": "object"
+    },
+    "EventListDefinition": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array"
+    },
+    "ISO8601Timestamp": {
+      "type": "string"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MapOfStringToNumber": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/Double"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "MapOfStringToString": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/String0to1000Chars"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "PutEventsInput": {
+      "description": "A container for the data needed for a PutEvent operation",
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/EventListDefinition",
+          "description": "An array of Event JSON objects"
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "type": "object"
+    },
+    "Session": {
+      "description": "Describes the session. Session information is required on ALL events.",
+      "properties": {
+        "duration": {
+          "$ref": "#/definitions/Long",
+          "description": "The duration of the session."
+        },
+        "id": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A unique identifier for the session"
+        },
+        "startTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event started in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "stopTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event terminated in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "String0to1000Chars": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "String10Chars": {
+      "maxLength": 10,
+      "minLength": 1,
+      "type": "string"
+    },
+    "String50Chars": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string"
+    }
+  }
+}

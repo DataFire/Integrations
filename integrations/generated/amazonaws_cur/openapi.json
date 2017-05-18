@@ -1,0 +1,598 @@
+{
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "cur.amazonaws.com",
+  "basePath": "/",
+  "x-hasEquivalentPaths": true,
+  "info": {
+    "contact": {
+      "email": "mike.ralphson@gmail.com",
+      "name": "Mike Ralphson",
+      "url": "https://github.com/mermade/aws2openapi"
+    },
+    "description": "All public APIs for AWS Cost and Usage Report service",
+    "license": {
+      "name": "Apache 2.0 License",
+      "url": "http://www.apache.org/licenses/"
+    },
+    "termsOfService": "https://aws.amazon.com/service-terms/",
+    "title": "AWS Cost and Usage Report Service",
+    "version": "2017-01-06",
+    "x-apiClientRegistration": {
+      "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+    },
+    "x-apisguru-categories": [
+      "cloud"
+    ],
+    "x-logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "x-origin": [
+      {
+        "contentType": "application/json",
+        "converter": {
+          "url": "https://github.com/mermade/aws2openapi",
+          "version": "1.0.0"
+        },
+        "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cur-2017-01-06.normal.json",
+        "x-apisguru-direct": true
+      }
+    ],
+    "x-preferred": true,
+    "x-providerName": "amazonaws.com",
+    "x-release": "v4",
+    "x-serviceName": "cur",
+    "x-datafire": {
+      "name": "amazonaws_cur",
+      "type": "openapi"
+    }
+  },
+  "externalDocs": {
+    "description": "Amazon Web Services documentation",
+    "url": "https://aws.amazon.com/cur/"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "hmac": {
+      "description": "Amazon Signature authorization v4",
+      "in": "header",
+      "name": "Authorization",
+      "type": "apiKey",
+      "x-amazon-apigateway-authtype": "awsSigv4"
+    }
+  },
+  "security": [
+    {
+      "hmac": []
+    }
+  ],
+  "parameters": {
+    "Action": {
+      "in": "header",
+      "name": "Action",
+      "required": true,
+      "type": "string"
+    },
+    "Version": {
+      "in": "header",
+      "name": "Version",
+      "required": true,
+      "type": "string"
+    },
+    "X-Amz-Algorithm": {
+      "in": "header",
+      "name": "X-Amz-Algorithm",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Content-Sha256": {
+      "in": "header",
+      "name": "X-Amz-Content-Sha256",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Credential": {
+      "in": "header",
+      "name": "X-Amz-Credential",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Date": {
+      "in": "header",
+      "name": "X-Amz-Date",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Security-Token": {
+      "in": "header",
+      "name": "X-Amz-Security-Token",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-Signature": {
+      "in": "header",
+      "name": "X-Amz-Signature",
+      "required": false,
+      "type": "string"
+    },
+    "X-Amz-SignedHeaders": {
+      "in": "header",
+      "name": "X-Amz-SignedHeaders",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Delete a specified report definition",
+        "operationId": "DeleteReportDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeleteReportDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DeleteReportDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "481": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        }
+      }
+    },
+    "/#DescribeReportDefinitions": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Describe a list of report definitions owned by the account",
+        "operationId": "DescribeReportDefinitions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DescribeReportDefinitionsRequest"
+            }
+          },
+          {
+            "description": "Pagination limit",
+            "in": "query",
+            "name": "MaxResults",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Pagination token",
+            "in": "query",
+            "name": "NextToken",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/DescribeReportDefinitionsResponse"
+            }
+          },
+          "480": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          }
+        }
+      }
+    },
+    "/#PutReportDefinition": {
+      "parameters": [
+        {
+          "$ref": "#/parameters/Action"
+        },
+        {
+          "$ref": "#/parameters/Version"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Content-Sha256"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Date"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Algorithm"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Credential"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Security-Token"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-Signature"
+        },
+        {
+          "$ref": "#/parameters/X-Amz-SignedHeaders"
+        }
+      ],
+      "post": {
+        "description": "Create a new report definition",
+        "operationId": "PutReportDefinition",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutReportDefinitionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/PutReportDefinitionResponse"
+            }
+          },
+          "480": {
+            "description": "DuplicateReportNameException",
+            "schema": {
+              "$ref": "#/definitions/DuplicateReportNameException"
+            }
+          },
+          "481": {
+            "description": "ReportLimitReachedException",
+            "schema": {
+              "$ref": "#/definitions/ReportLimitReachedException"
+            }
+          },
+          "482": {
+            "description": "InternalErrorException",
+            "schema": {
+              "$ref": "#/definitions/InternalErrorException"
+            }
+          },
+          "483": {
+            "description": "ValidationException",
+            "schema": {
+              "$ref": "#/definitions/ValidationException"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AWSRegion": {
+      "description": "Region of customer S3 bucket.",
+      "enum": [
+        "us-east-1",
+        "us-west-1",
+        "us-west-2",
+        "eu-central-1",
+        "eu-west-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-northeast-1"
+      ],
+      "type": "string"
+    },
+    "AdditionalArtifact": {
+      "description": "Enable support for Redshift and/or QuickSight.",
+      "enum": [
+        "REDSHIFT",
+        "QUICKSIGHT"
+      ],
+      "type": "string"
+    },
+    "AdditionalArtifactList": {
+      "description": "A list of additional artifacts.",
+      "items": {
+        "$ref": "#/definitions/AdditionalArtifact"
+      },
+      "type": "array"
+    },
+    "CompressionFormat": {
+      "description": "Preferred compression format for report.",
+      "enum": [
+        "ZIP",
+        "GZIP"
+      ],
+      "type": "string"
+    },
+    "DeleteReportDefinitionRequest": {
+      "description": "Request of DeleteReportDefinition",
+      "properties": {
+        "ReportName": {
+          "$ref": "#/definitions/ReportName"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteReportDefinitionResponse": {
+      "description": "Response of DeleteReportDefinition",
+      "properties": {
+        "ResponseMessage": {
+          "$ref": "#/definitions/DeleteResponseMessage"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteResponseMessage": {
+      "description": "A message indicates if the deletion is successful.",
+      "type": "string"
+    },
+    "DescribeReportDefinitionsRequest": {
+      "description": "Request of DescribeReportDefinitions",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeReportDefinitionsResponse": {
+      "description": "Response of DescribeReportDefinitions",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "ReportDefinitions": {
+          "$ref": "#/definitions/ReportDefinitionList"
+        }
+      },
+      "type": "object"
+    },
+    "DuplicateReportNameException": {
+      "description": "This exception is thrown when putting a report preference with a name that already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "description": "A message to show the detail of the exception.",
+      "type": "string"
+    },
+    "GenericString": {
+      "description": "A generic string.",
+      "type": "string"
+    },
+    "InternalErrorException": {
+      "description": "This exception is thrown on a known dependency failure.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "description": "The max number of results returned by the operation.",
+      "maximum": 5,
+      "minimum": 5,
+      "type": "integer"
+    },
+    "PutReportDefinitionRequest": {
+      "description": "Request of PutReportDefinition",
+      "properties": {
+        "ReportDefinition": {
+          "$ref": "#/definitions/ReportDefinition"
+        }
+      },
+      "required": [
+        "ReportDefinition"
+      ],
+      "type": "object"
+    },
+    "PutReportDefinitionResponse": {
+      "description": "Response of PutReportDefinition",
+      "properties": {},
+      "type": "object"
+    },
+    "ReportDefinition": {
+      "description": "The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.",
+      "properties": {
+        "AdditionalArtifacts": {
+          "$ref": "#/definitions/AdditionalArtifactList"
+        },
+        "AdditionalSchemaElements": {
+          "$ref": "#/definitions/SchemaElementList"
+        },
+        "Compression": {
+          "$ref": "#/definitions/CompressionFormat"
+        },
+        "Format": {
+          "$ref": "#/definitions/ReportFormat"
+        },
+        "ReportName": {
+          "$ref": "#/definitions/ReportName"
+        },
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket"
+        },
+        "S3Prefix": {
+          "$ref": "#/definitions/S3Prefix"
+        },
+        "S3Region": {
+          "$ref": "#/definitions/AWSRegion"
+        },
+        "TimeUnit": {
+          "$ref": "#/definitions/TimeUnit"
+        }
+      },
+      "required": [
+        "ReportName",
+        "TimeUnit",
+        "Format",
+        "Compression",
+        "AdditionalSchemaElements",
+        "S3Bucket",
+        "S3Prefix",
+        "S3Region"
+      ],
+      "type": "object"
+    },
+    "ReportDefinitionList": {
+      "description": "A list of report definitions.",
+      "items": {
+        "$ref": "#/definitions/ReportDefinition"
+      },
+      "type": "array"
+    },
+    "ReportFormat": {
+      "description": "Preferred format for report.",
+      "enum": [
+        "textORcsv"
+      ],
+      "type": "string"
+    },
+    "ReportLimitReachedException": {
+      "description": "This exception is thrown when the number of report preference reaches max limit. The max number is 5.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ReportName": {
+      "description": "Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.",
+      "maxLength": 256,
+      "pattern": "[0-9A-Za-z!\\-_.*\\'()]+",
+      "type": "string"
+    },
+    "S3Bucket": {
+      "description": "Name of customer S3 bucket.",
+      "maxLength": 256,
+      "type": "string"
+    },
+    "S3Prefix": {
+      "description": "Preferred report path prefix. Limited to 256 characters.",
+      "maxLength": 256,
+      "pattern": "[0-9A-Za-z!\\-_.*\\'()/]*",
+      "type": "string"
+    },
+    "SchemaElement": {
+      "description": "Preference of including Resource IDs. You can include additional details about individual resource IDs in your report.",
+      "enum": [
+        "RESOURCES"
+      ],
+      "type": "string"
+    },
+    "SchemaElementList": {
+      "description": "A list of schema elements.",
+      "items": {
+        "$ref": "#/definitions/SchemaElement"
+      },
+      "type": "array"
+    },
+    "TimeUnit": {
+      "description": "The frequency on which report data are measured and displayed.",
+      "enum": [
+        "HOURLY",
+        "DAILY"
+      ],
+      "type": "string"
+    },
+    "ValidationException": {
+      "description": "This exception is thrown when providing an invalid input. eg. Put a report preference with an invalid report name, or Delete a report preference with an empty report name.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

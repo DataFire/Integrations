@@ -1,0 +1,209 @@
+{
+  "id": "amazonaws_mobileanalytics",
+  "title": "Amazon Mobile Analytics",
+  "description": "Amazon Mobile Analytics is a service for collecting, visualizing, and understanding app usage data at scale.",
+  "security": {
+    "amazonaws_mobileanalytics": {
+      "integration": "amazonaws_mobileanalytics",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "definitions": {
+    "BadRequestException": {
+      "description": "An exception object returned when a request fails.",
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/String",
+          "description": "A text description associated with the BadRequestException object."
+        }
+      },
+      "type": "object"
+    },
+    "Double": {
+      "format": "double",
+      "type": "number"
+    },
+    "Event": {
+      "description": "A JSON object representing a batch of unique event occurrences in your app.",
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/MapOfStringToString",
+          "description": "<p>A collection of key-value pairs that give additional context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "eventType": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A name signifying an event that occurred in your app. This is used for grouping and aggregating like events together for reporting purposes."
+        },
+        "metrics": {
+          "$ref": "#/definitions/MapOfStringToNumber",
+          "description": "<p>A collection of key-value pairs that gives additional, measurable context to the event. The key-value pairs are specified by the developer.</p> <p>This collection can be empty or the attribute object can be omitted.</p>"
+        },
+        "session": {
+          "$ref": "#/definitions/Session",
+          "description": "The session the event occured within. "
+        },
+        "timestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event occurred in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "version": {
+          "$ref": "#/definitions/String10Chars",
+          "description": "The version of the event."
+        }
+      },
+      "required": [
+        "eventType",
+        "timestamp"
+      ],
+      "type": "object"
+    },
+    "EventListDefinition": {
+      "items": {
+        "$ref": "#/definitions/Event"
+      },
+      "type": "array"
+    },
+    "ISO8601Timestamp": {
+      "type": "string"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "MapOfStringToNumber": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/Double"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "MapOfStringToString": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/String50Chars"
+          },
+          "value": {
+            "$ref": "#/definitions/String0to1000Chars"
+          }
+        },
+        "type": "object"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "PutEventsInput": {
+      "description": "A container for the data needed for a PutEvent operation",
+      "properties": {
+        "events": {
+          "$ref": "#/definitions/EventListDefinition",
+          "description": "An array of Event JSON objects"
+        }
+      },
+      "required": [
+        "events"
+      ],
+      "type": "object"
+    },
+    "Session": {
+      "description": "Describes the session. Session information is required on ALL events.",
+      "properties": {
+        "duration": {
+          "$ref": "#/definitions/Long",
+          "description": "The duration of the session."
+        },
+        "id": {
+          "$ref": "#/definitions/String50Chars",
+          "description": "A unique identifier for the session"
+        },
+        "startTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event started in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        },
+        "stopTimestamp": {
+          "$ref": "#/definitions/ISO8601Timestamp",
+          "description": "The time the event terminated in ISO 8601 standard date time format. For example, 2014-06-30T19:07:47.885Z"
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "String0to1000Chars": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "String10Chars": {
+      "maxLength": 10,
+      "minLength": 1,
+      "type": "string"
+    },
+    "String50Chars": {
+      "maxLength": 50,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "PutEvents",
+      "title": "PutEvents",
+      "description": "The PutEvents operation records one or more events. You can have up to 1,500 unique custom events per app, any combination of up to 40 attributes and metrics per custom event, and any number of attribute or metric values.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PutEventsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_mobileanalytics": {
+          "integration": "amazonaws_mobileanalytics"
+        }
+      }
+    }
+  ]
+}

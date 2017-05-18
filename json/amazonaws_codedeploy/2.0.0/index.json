@@ -1,0 +1,4509 @@
+{
+  "id": "amazonaws_codedeploy",
+  "title": "AWS CodeDeploy",
+  "description": "<fullname>AWS CodeDeploy</fullname> <p> <b>Overview</b> </p> <p>This reference guide provides descriptions of the AWS CodeDeploy APIs. For more information about AWS CodeDeploy, see the <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide\">AWS CodeDeploy User Guide</a>.</p> <p> <b>Using the APIs</b> </p> <p>You can use the AWS CodeDeploy APIs to work with the following:</p> <ul> <li> <p>Applications are unique identifiers used by AWS CodeDeploy to ensure the correct combinations of revisions, deployment configurations, and deployment groups are being referenced during deployments.</p> <p>You can use the AWS CodeDeploy APIs to create, delete, get, list, and update applications.</p> </li> <li> <p>Deployment configurations are sets of deployment rules and success and failure conditions used by AWS CodeDeploy during deployments.</p> <p>You can use the AWS CodeDeploy APIs to create, delete, get, and list deployment configurations.</p> </li> <li> <p>Deployment groups are groups of instances to which application revisions can be deployed.</p> <p>You can use the AWS CodeDeploy APIs to create, delete, get, list, and update deployment groups.</p> </li> <li> <p>Instances represent Amazon EC2 instances to which application revisions are deployed. Instances are identified by their Amazon EC2 tags or Auto Scaling group names. Instances belong to deployment groups.</p> <p>You can use the AWS CodeDeploy APIs to get and list instance.</p> </li> <li> <p>Deployments represent the process of deploying revisions to instances.</p> <p>You can use the AWS CodeDeploy APIs to create, get, list, and stop deployments.</p> </li> <li> <p>Application revisions are archive files stored in Amazon S3 buckets or GitHub repositories. These revisions contain source content (such as source code, web pages, executable files, and deployment scripts) along with an application specification (AppSpec) file. (The AppSpec file is unique to AWS CodeDeploy; it defines the deployment actions you want AWS CodeDeploy to execute.) For application revisions stored in Amazon S3 buckets, an application revision is uniquely identified by its Amazon S3 object key and its ETag, version, or both. For application revisions stored in GitHub repositories, an application revision is uniquely identified by its repository name and commit ID. Application revisions are deployed through deployment groups.</p> <p>You can use the AWS CodeDeploy APIs to get, list, and register application revisions.</p> </li> </ul>",
+  "security": {
+    "amazonaws_codedeploy": {
+      "integration": "amazonaws_codedeploy",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "definitions": {
+    "AddTagsToOnPremisesInstancesInput": {
+      "description": "Represents the input of, and adds tags to, an on-premises instance operation.",
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/InstanceNameList",
+          "description": "The names of the on-premises instances to which to add tags."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "<p>The tag key-value pairs to add to the on-premises instances.</p> <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.</p>"
+        }
+      },
+      "required": [
+        "tags",
+        "instanceNames"
+      ],
+      "type": "object"
+    },
+    "AdditionalDeploymentStatusInfo": {
+      "type": "string"
+    },
+    "Alarm": {
+      "description": "Information about an alarm.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/AlarmName",
+          "description": "The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms."
+        }
+      },
+      "type": "object"
+    },
+    "AlarmConfiguration": {
+      "description": "Information about alarms associated with the deployment group.",
+      "properties": {
+        "alarms": {
+          "$ref": "#/definitions/AlarmList",
+          "description": "A list of alarms configured for the deployment group. A maximum of 10 alarms can be added to a deployment group."
+        },
+        "enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the alarm configuration is enabled."
+        },
+        "ignorePollAlarmFailure": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</p> <ul> <li> <p>true: The deployment will proceed even if alarm status information can't be retrieved from Amazon CloudWatch.</p> </li> <li> <p>false: The deployment will stop if alarm status information can't be retrieved from Amazon CloudWatch.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "AlarmList": {
+      "items": {
+        "$ref": "#/definitions/Alarm"
+      },
+      "type": "array"
+    },
+    "AlarmName": {
+      "type": "string"
+    },
+    "AlarmsLimitExceededException": {
+      "description": "The maximum number of alarms for a deployment group (10) was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "ApplicationAlreadyExistsException": {
+      "description": "An application with the specified name already exists with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "ApplicationDoesNotExistException": {
+      "description": "The application does not exist with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "ApplicationId": {
+      "type": "string"
+    },
+    "ApplicationInfo": {
+      "description": "Information about an application.",
+      "properties": {
+        "applicationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "The application ID."
+        },
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application name."
+        },
+        "createTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the application was created."
+        },
+        "linkedToGitHub": {
+          "$ref": "#/definitions/Boolean",
+          "description": "True if the user has authenticated with GitHub for the specified application; otherwise, false."
+        }
+      },
+      "type": "object"
+    },
+    "ApplicationLimitExceededException": {
+      "description": "More applications were attempted to be created than are allowed.",
+      "properties": {},
+      "type": "object"
+    },
+    "ApplicationName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ApplicationNameRequiredException": {
+      "description": "The minimum number of required application names was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "ApplicationRevisionSortBy": {
+      "enum": [
+        "registerTime",
+        "firstUsedTime",
+        "lastUsedTime"
+      ],
+      "type": "string"
+    },
+    "ApplicationsInfoList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationInfo"
+      },
+      "type": "array"
+    },
+    "ApplicationsList": {
+      "items": {
+        "$ref": "#/definitions/ApplicationName"
+      },
+      "type": "array"
+    },
+    "AutoRollbackConfiguration": {
+      "description": "Information about a configuration for automatically rolling back to a previous version of an application revision when a deployment doesn't complete successfully.",
+      "properties": {
+        "enabled": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether a defined automatic rollback configuration is currently enabled."
+        },
+        "events": {
+          "$ref": "#/definitions/AutoRollbackEventsList",
+          "description": "The event type or types that trigger a rollback."
+        }
+      },
+      "type": "object"
+    },
+    "AutoRollbackEvent": {
+      "enum": [
+        "DEPLOYMENT_FAILURE",
+        "DEPLOYMENT_STOP_ON_ALARM",
+        "DEPLOYMENT_STOP_ON_REQUEST"
+      ],
+      "type": "string"
+    },
+    "AutoRollbackEventsList": {
+      "items": {
+        "$ref": "#/definitions/AutoRollbackEvent"
+      },
+      "type": "array"
+    },
+    "AutoScalingGroup": {
+      "description": "Information about an Auto Scaling group.",
+      "properties": {
+        "hook": {
+          "$ref": "#/definitions/AutoScalingGroupHook",
+          "description": "An Auto Scaling lifecycle event hook name."
+        },
+        "name": {
+          "$ref": "#/definitions/AutoScalingGroupName",
+          "description": "The Auto Scaling group name."
+        }
+      },
+      "type": "object"
+    },
+    "AutoScalingGroupHook": {
+      "type": "string"
+    },
+    "AutoScalingGroupList": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroup"
+      },
+      "type": "array"
+    },
+    "AutoScalingGroupName": {
+      "type": "string"
+    },
+    "AutoScalingGroupNameList": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroupName"
+      },
+      "type": "array"
+    },
+    "BatchGetApplicationRevisionsInput": {
+      "description": "Represents the input of a batch get application revisions operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application about which to get revision information."
+        },
+        "revisions": {
+          "$ref": "#/definitions/RevisionLocationList",
+          "description": "Information to get about the application revisions, including type and location."
+        }
+      },
+      "required": [
+        "applicationName",
+        "revisions"
+      ],
+      "type": "object"
+    },
+    "BatchGetApplicationRevisionsOutput": {
+      "description": "Represents the output of a batch get application revisions operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application that corresponds to the revisions."
+        },
+        "errorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Information about errors that may have occurred during the API call."
+        },
+        "revisions": {
+          "$ref": "#/definitions/RevisionInfoList",
+          "description": "Additional information about the revisions, including the type and location."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetApplicationsInput": {
+      "description": "Represents the input of a batch get applications operation.",
+      "properties": {
+        "applicationNames": {
+          "$ref": "#/definitions/ApplicationsList",
+          "description": "A list of application names separated by spaces."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetApplicationsOutput": {
+      "description": "Represents the output of a batch get applications operation.",
+      "properties": {
+        "applicationsInfo": {
+          "$ref": "#/definitions/ApplicationsInfoList",
+          "description": "Information about the applications."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetDeploymentGroupsInput": {
+      "description": "Represents the input of a batch get deployment groups operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "deploymentGroupNames": {
+          "$ref": "#/definitions/DeploymentGroupsList",
+          "description": "The deployment groups' names."
+        }
+      },
+      "required": [
+        "applicationName",
+        "deploymentGroupNames"
+      ],
+      "type": "object"
+    },
+    "BatchGetDeploymentGroupsOutput": {
+      "description": "Represents the output of a batch get deployment groups operation.",
+      "properties": {
+        "deploymentGroupsInfo": {
+          "$ref": "#/definitions/DeploymentGroupInfoList",
+          "description": "Information about the deployment groups."
+        },
+        "errorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Information about errors that may have occurred during the API call."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetDeploymentInstancesInput": {
+      "description": "Represents the input of a batch get deployment instances operation.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The unique ID of a deployment."
+        },
+        "instanceIds": {
+          "$ref": "#/definitions/InstancesList",
+          "description": "The unique IDs of instances in the deployment group."
+        }
+      },
+      "required": [
+        "deploymentId",
+        "instanceIds"
+      ],
+      "type": "object"
+    },
+    "BatchGetDeploymentInstancesOutput": {
+      "description": "Represents the output of a batch get deployment instance operation.",
+      "properties": {
+        "errorMessage": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Information about errors that may have occurred during the API call."
+        },
+        "instancesSummary": {
+          "$ref": "#/definitions/InstanceSummaryList",
+          "description": "Information about the instance."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetDeploymentsInput": {
+      "description": "Represents the input of a batch get deployments operation.",
+      "properties": {
+        "deploymentIds": {
+          "$ref": "#/definitions/DeploymentsList",
+          "description": "A list of deployment IDs, separated by spaces."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetDeploymentsOutput": {
+      "description": "Represents the output of a batch get deployments operation.",
+      "properties": {
+        "deploymentsInfo": {
+          "$ref": "#/definitions/DeploymentsInfoList",
+          "description": "Information about the deployments."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetOnPremisesInstancesInput": {
+      "description": "Represents the input of a batch get on-premises instances operation.",
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/InstanceNameList",
+          "description": "The names of the on-premises instances about which to get information."
+        }
+      },
+      "type": "object"
+    },
+    "BatchGetOnPremisesInstancesOutput": {
+      "description": "Represents the output of a batch get on-premises instances operation.",
+      "properties": {
+        "instanceInfos": {
+          "$ref": "#/definitions/InstanceInfoList",
+          "description": "Information about the on-premises instances."
+        }
+      },
+      "type": "object"
+    },
+    "BatchLimitExceededException": {
+      "description": "The maximum number of names or IDs allowed for this request (100) was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "BlueGreenDeploymentConfiguration": {
+      "description": "Information about blue/green deployment options for a deployment group.",
+      "properties": {
+        "deploymentReadyOption": {
+          "$ref": "#/definitions/DeploymentReadyOption",
+          "description": "Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment."
+        },
+        "greenFleetProvisioningOption": {
+          "$ref": "#/definitions/GreenFleetProvisioningOption",
+          "description": "Information about how instances are provisioned for a replacement environment in a blue/green deployment."
+        },
+        "terminateBlueInstancesOnDeploymentSuccess": {
+          "$ref": "#/definitions/BlueInstanceTerminationOption",
+          "description": "Information about whether to terminate instances in the original fleet during a blue/green deployment."
+        }
+      },
+      "type": "object"
+    },
+    "BlueInstanceTerminationOption": {
+      "description": "Information about whether instances in the original environment are terminated when a blue/green deployment is successful.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/InstanceAction",
+          "description": "<p>The action to take on instances in the original environment after a successful blue/green deployment.</p> <ul> <li> <p>TERMINATE: Instances are terminated after a specified wait time.</p> </li> <li> <p>KEEP_ALIVE: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.</p> </li> </ul>"
+        },
+        "terminationWaitTimeInMinutes": {
+          "$ref": "#/definitions/Duration",
+          "description": "The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BucketNameFilterRequiredException": {
+      "description": "A bucket name is required, but was not provided.",
+      "properties": {},
+      "type": "object"
+    },
+    "BundleType": {
+      "enum": [
+        "tar",
+        "tgz",
+        "zip"
+      ],
+      "type": "string"
+    },
+    "CommitId": {
+      "type": "string"
+    },
+    "ContinueDeploymentInput": {
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The deployment ID of the blue/green deployment for which you want to start rerouting traffic to the replacement environment."
+        }
+      },
+      "type": "object"
+    },
+    "CreateApplicationInput": {
+      "description": "Represents the input of a create application operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application. This name must be unique with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "CreateApplicationOutput": {
+      "description": "Represents the output of a create application operation.",
+      "properties": {
+        "applicationId": {
+          "$ref": "#/definitions/ApplicationId",
+          "description": "A unique application ID."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDeploymentConfigInput": {
+      "description": "Represents the input of a create deployment configuration operation.",
+      "properties": {
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The name of the deployment configuration to create."
+        },
+        "minimumHealthyHosts": {
+          "$ref": "#/definitions/MinimumHealthyHosts",
+          "description": "<p>The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.</p> <p>The type parameter takes either of the following values:</p> <ul> <li> <p>HOST_COUNT: The value parameter represents the minimum number of healthy instances as an absolute value.</p> </li> <li> <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy instances as a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.</p> </li> </ul> <p>The value parameter takes an integer.</p> <p>For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT and a value of 95.</p>"
+        }
+      },
+      "required": [
+        "deploymentConfigName"
+      ],
+      "type": "object"
+    },
+    "CreateDeploymentConfigOutput": {
+      "description": "Represents the output of a create deployment configuration operation.",
+      "properties": {
+        "deploymentConfigId": {
+          "$ref": "#/definitions/DeploymentConfigId",
+          "description": "A unique deployment configuration ID."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDeploymentGroupInput": {
+      "description": "Represents the input of a create deployment group operation.",
+      "properties": {
+        "alarmConfiguration": {
+          "$ref": "#/definitions/AlarmConfiguration",
+          "description": "Information to add about Amazon CloudWatch alarms when the deployment group is created. "
+        },
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "autoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration",
+          "description": "Configuration information for an automatic rollback that is added when a deployment group is created."
+        },
+        "autoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupNameList",
+          "description": "A list of associated Auto Scaling groups."
+        },
+        "blueGreenDeploymentConfiguration": {
+          "$ref": "#/definitions/BlueGreenDeploymentConfiguration",
+          "description": "Information about blue/green deployment options for a deployment group."
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "<p>If specified, the deployment configuration name can be either one of the predefined configurations provided with AWS CodeDeploy or a custom deployment configuration that you create by calling the create deployment configuration operation.</p> <p>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if a configuration isn't specified for the deployment or the deployment group.</p> <p>For more information about the predefined deployment configurations in AWS CodeDeploy, see see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html\">Working with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</p>"
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The name of a new deployment group for the specified application."
+        },
+        "deploymentStyle": {
+          "$ref": "#/definitions/DeploymentStyle",
+          "description": "Information about the type of deployment, standard or blue/green, that you want to run and whether to route deployment traffic behind a load balancer."
+        },
+        "ec2TagFilters": {
+          "$ref": "#/definitions/EC2TagFilterList",
+          "description": "The Amazon EC2 tags on which to filter."
+        },
+        "loadBalancerInfo": {
+          "$ref": "#/definitions/LoadBalancerInfo",
+          "description": "Information about the load balancer used in a blue/green deployment."
+        },
+        "onPremisesInstanceTagFilters": {
+          "$ref": "#/definitions/TagFilterList",
+          "description": "The on-premises instance tags on which to filter."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/Role",
+          "description": "A service role ARN that allows AWS CodeDeploy to act on the user's behalf when interacting with AWS services."
+        },
+        "triggerConfigurations": {
+          "$ref": "#/definitions/TriggerConfigList",
+          "description": "Information about triggers to create when the deployment group is created. For examples, see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html\">Create a Trigger for an AWS CodeDeploy Event</a> in the AWS CodeDeploy User Guide."
+        }
+      },
+      "required": [
+        "applicationName",
+        "deploymentGroupName",
+        "serviceRoleArn"
+      ],
+      "type": "object"
+    },
+    "CreateDeploymentGroupOutput": {
+      "description": "Represents the output of a create deployment group operation.",
+      "properties": {
+        "deploymentGroupId": {
+          "$ref": "#/definitions/DeploymentGroupId",
+          "description": "A unique deployment group ID."
+        }
+      },
+      "type": "object"
+    },
+    "CreateDeploymentInput": {
+      "description": "Represents the input of a create deployment operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "autoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration",
+          "description": "Configuration information for an automatic rollback that is added when a deployment is created."
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "<p>The name of a deployment configuration associated with the applicable IAM user or AWS account.</p> <p>If not specified, the value configured in the deployment group will be used as the default. If the deployment group does not have a deployment configuration associated with it, then CodeDeployDefault.OneAtATime will be used by default.</p>"
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The name of the deployment group."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A comment about the deployment."
+        },
+        "ignoreApplicationStopFailures": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>If set to true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event.</p> <p>If set to false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to fail to an instance, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.</p>"
+        },
+        "revision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "The type and location of the revision to deploy."
+        },
+        "targetInstances": {
+          "$ref": "#/definitions/TargetInstances",
+          "description": "Information about the instances that will belong to the replacement environment in a blue/green deployment."
+        },
+        "updateOutdatedInstancesOnly": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether to deploy to all instances or only to instances that are not running the latest application revision."
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "CreateDeploymentOutput": {
+      "description": "Represents the output of a create deployment operation.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "A unique deployment ID."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteApplicationInput": {
+      "description": "Represents the input of a delete application operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "DeleteDeploymentConfigInput": {
+      "description": "Represents the input of a delete deployment configuration operation.",
+      "properties": {
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The name of a deployment configuration associated with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "deploymentConfigName"
+      ],
+      "type": "object"
+    },
+    "DeleteDeploymentGroupInput": {
+      "description": "Represents the input of a delete deployment group operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The name of an existing deployment group for the specified application."
+        }
+      },
+      "required": [
+        "applicationName",
+        "deploymentGroupName"
+      ],
+      "type": "object"
+    },
+    "DeleteDeploymentGroupOutput": {
+      "description": "Represents the output of a delete deployment group operation.",
+      "properties": {
+        "hooksNotCleanedUp": {
+          "$ref": "#/definitions/AutoScalingGroupList",
+          "description": "If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentAlreadyCompletedException": {
+      "description": "The deployment is already complete.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigAlreadyExistsException": {
+      "description": "A deployment configuration with the specified name already exists with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigDoesNotExistException": {
+      "description": "The deployment configuration does not exist with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigId": {
+      "type": "string"
+    },
+    "DeploymentConfigInUseException": {
+      "description": "The deployment configuration is still in use.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigInfo": {
+      "description": "Information about a deployment configuration.",
+      "properties": {
+        "createTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the deployment configuration was created."
+        },
+        "deploymentConfigId": {
+          "$ref": "#/definitions/DeploymentConfigId",
+          "description": "The deployment configuration ID."
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The deployment configuration name."
+        },
+        "minimumHealthyHosts": {
+          "$ref": "#/definitions/MinimumHealthyHosts",
+          "description": "Information about the number or percentage of minimum healthy instance."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentConfigLimitExceededException": {
+      "description": "The deployment configurations limit was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeploymentConfigNameRequiredException": {
+      "description": "The deployment configuration name was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentConfigsList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentConfigName"
+      },
+      "type": "array"
+    },
+    "DeploymentCreator": {
+      "enum": [
+        "user",
+        "autoscaling",
+        "codeDeployRollback"
+      ],
+      "type": "string"
+    },
+    "DeploymentDoesNotExistException": {
+      "description": "The deployment does not exist with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentGroupAlreadyExistsException": {
+      "description": "A deployment group with the specified name already exists with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentGroupDoesNotExistException": {
+      "description": "The named deployment group does not exist with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentGroupId": {
+      "type": "string"
+    },
+    "DeploymentGroupInfo": {
+      "description": "Information about a deployment group.",
+      "properties": {
+        "alarmConfiguration": {
+          "$ref": "#/definitions/AlarmConfiguration",
+          "description": "A list of alarms associated with the deployment group."
+        },
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application name."
+        },
+        "autoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration",
+          "description": "Information about the automatic rollback configuration associated with the deployment group."
+        },
+        "autoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupList",
+          "description": "A list of associated Auto Scaling groups."
+        },
+        "blueGreenDeploymentConfiguration": {
+          "$ref": "#/definitions/BlueGreenDeploymentConfiguration",
+          "description": "Information about blue/green deployment options for a deployment group."
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The deployment configuration name."
+        },
+        "deploymentGroupId": {
+          "$ref": "#/definitions/DeploymentGroupId",
+          "description": "The deployment group ID."
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The deployment group name."
+        },
+        "deploymentStyle": {
+          "$ref": "#/definitions/DeploymentStyle",
+          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+        },
+        "ec2TagFilters": {
+          "$ref": "#/definitions/EC2TagFilterList",
+          "description": "The Amazon EC2 tags on which to filter."
+        },
+        "loadBalancerInfo": {
+          "$ref": "#/definitions/LoadBalancerInfo",
+          "description": "Information about the load balancer to use in a blue/green deployment."
+        },
+        "onPremisesInstanceTagFilters": {
+          "$ref": "#/definitions/TagFilterList",
+          "description": "The on-premises instance tags on which to filter."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/Role",
+          "description": "A service role ARN."
+        },
+        "targetRevision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the deployment group's target revision, including type and location."
+        },
+        "triggerConfigurations": {
+          "$ref": "#/definitions/TriggerConfigList",
+          "description": "Information about triggers associated with the deployment group."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentGroupInfoList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentGroupInfo"
+      },
+      "type": "array"
+    },
+    "DeploymentGroupLimitExceededException": {
+      "description": " The deployment groups limit was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentGroupName": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "DeploymentGroupNameRequiredException": {
+      "description": "The deployment group name was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentGroupsList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentGroupName"
+      },
+      "type": "array"
+    },
+    "DeploymentId": {
+      "type": "string"
+    },
+    "DeploymentIdRequiredException": {
+      "description": "At least one deployment ID must be specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentInfo": {
+      "description": "Information about a deployment.",
+      "properties": {
+        "additionalDeploymentStatusInfo": {
+          "$ref": "#/definitions/AdditionalDeploymentStatusInfo",
+          "description": "Provides information about the results of a deployment, such as whether instances in the original environment in a blue/green deployment were not terminated."
+        },
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application name."
+        },
+        "autoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration",
+          "description": "Information about the automatic rollback configuration associated with the deployment."
+        },
+        "blueGreenDeploymentConfiguration": {
+          "$ref": "#/definitions/BlueGreenDeploymentConfiguration",
+          "description": "Information about blue/green deployment options for this deployment."
+        },
+        "completeTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the deployment was complete."
+        },
+        "createTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the deployment was created."
+        },
+        "creator": {
+          "$ref": "#/definitions/DeploymentCreator",
+          "description": "<p>The means by which the deployment was created:</p> <ul> <li> <p>user: A user created the deployment.</p> </li> <li> <p>autoscaling: Auto Scaling created the deployment.</p> </li> <li> <p>codeDeployRollback: A rollback process created the deployment.</p> </li> </ul>"
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The deployment configuration name."
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The deployment group name."
+        },
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The deployment ID."
+        },
+        "deploymentOverview": {
+          "$ref": "#/definitions/DeploymentOverview",
+          "description": "A summary of the deployment status of the instances in the deployment."
+        },
+        "deploymentStyle": {
+          "$ref": "#/definitions/DeploymentStyle",
+          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A comment about the deployment."
+        },
+        "errorInformation": {
+          "$ref": "#/definitions/ErrorInformation",
+          "description": "Information about any error associated with this deployment."
+        },
+        "ignoreApplicationStopFailures": {
+          "$ref": "#/definitions/Boolean",
+          "description": "<p>If true, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will not be considered to have failed at that point and will continue on to the BeforeInstall deployment lifecycle event.</p> <p>If false or not specified, then if the deployment causes the ApplicationStop deployment lifecycle event to an instance to fail, the deployment to that instance will stop, and the deployment to that instance will be considered to have failed.</p>"
+        },
+        "instanceTerminationWaitTimeStarted": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether the wait period set for the termination of instances in the original environment has started. Status is 'false' if the KEEP_ALIVE option is specified; otherwise, 'true' as soon as the termination wait period starts."
+        },
+        "loadBalancerInfo": {
+          "$ref": "#/definitions/LoadBalancerInfo",
+          "description": "Information about the load balancer used in this blue/green deployment."
+        },
+        "revision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the location of stored application artifacts and the service from which to retrieve them."
+        },
+        "rollbackInfo": {
+          "$ref": "#/definitions/RollbackInfo",
+          "description": "Information about a deployment rollback."
+        },
+        "startTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "<p>A timestamp indicating when the deployment was deployed to the deployment group.</p> <p>In some cases, the reported value of the start time may be later than the complete time. This is due to differences in the clock settings of back-end servers that participate in the deployment process.</p>"
+        },
+        "status": {
+          "$ref": "#/definitions/DeploymentStatus",
+          "description": "The current state of the deployment as a whole."
+        },
+        "targetInstances": {
+          "$ref": "#/definitions/TargetInstances",
+          "description": "Information about the instances that belong to the replacement environment in a blue/green deployment."
+        },
+        "updateOutdatedInstancesOnly": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Indicates whether only instances that are not running the latest application revision are to be deployed to."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentIsNotInReadyStateException": {
+      "description": "The deployment does not have a status of Ready and can't continue yet.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentLimitExceededException": {
+      "description": "The number of allowed deployments was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentNotStartedException": {
+      "description": "The specified deployment has not started.",
+      "properties": {},
+      "type": "object"
+    },
+    "DeploymentOption": {
+      "enum": [
+        "WITH_TRAFFIC_CONTROL",
+        "WITHOUT_TRAFFIC_CONTROL"
+      ],
+      "type": "string"
+    },
+    "DeploymentOverview": {
+      "description": "Information about the deployment status of the instances in the deployment.",
+      "properties": {
+        "Failed": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in the deployment in a failed state."
+        },
+        "InProgress": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in which the deployment is in progress."
+        },
+        "Pending": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in the deployment in a pending state."
+        },
+        "Ready": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in a replacement environment ready to receive traffic in a blue/green deployment."
+        },
+        "Skipped": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in the deployment in a skipped state."
+        },
+        "Succeeded": {
+          "$ref": "#/definitions/InstanceCount",
+          "description": "The number of instances in the deployment to which revisions have been successfully deployed."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentReadyAction": {
+      "enum": [
+        "CONTINUE_DEPLOYMENT",
+        "STOP_DEPLOYMENT"
+      ],
+      "type": "string"
+    },
+    "DeploymentReadyOption": {
+      "description": "Information about how traffic is rerouted to instances in a replacement environment in a blue/green deployment.",
+      "properties": {
+        "actionOnTimeout": {
+          "$ref": "#/definitions/DeploymentReadyAction",
+          "description": "<p>Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.</p> <ul> <li> <p>CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.</p> </li> <li> <p>STOP_DEPLOYMENT: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.</p> </li> </ul>"
+        },
+        "waitTimeInMinutes": {
+          "$ref": "#/definitions/Duration",
+          "description": "The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout"
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentStatus": {
+      "enum": [
+        "Created",
+        "Queued",
+        "InProgress",
+        "Succeeded",
+        "Failed",
+        "Stopped",
+        "Ready"
+      ],
+      "type": "string"
+    },
+    "DeploymentStatusList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentStatus"
+      },
+      "type": "array"
+    },
+    "DeploymentStyle": {
+      "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer.",
+      "properties": {
+        "deploymentOption": {
+          "$ref": "#/definitions/DeploymentOption",
+          "description": "Indicates whether to route deployment traffic behind a load balancer."
+        },
+        "deploymentType": {
+          "$ref": "#/definitions/DeploymentType",
+          "description": "Indicates whether to run a standard deployment or a blue/green deployment."
+        }
+      },
+      "type": "object"
+    },
+    "DeploymentType": {
+      "enum": [
+        "IN_PLACE",
+        "BLUE_GREEN"
+      ],
+      "type": "string"
+    },
+    "DeploymentsInfoList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentInfo"
+      },
+      "type": "array"
+    },
+    "DeploymentsList": {
+      "items": {
+        "$ref": "#/definitions/DeploymentId"
+      },
+      "type": "array"
+    },
+    "DeregisterOnPremisesInstanceInput": {
+      "description": "Represents the input of a deregister on-premises instance operation.",
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/InstanceName",
+          "description": "The name of the on-premises instance to deregister."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "DescriptionTooLongException": {
+      "description": "The description is too long.",
+      "properties": {},
+      "type": "object"
+    },
+    "Diagnostics": {
+      "description": "Diagnostic information about executable scripts that are part of a deployment.",
+      "properties": {
+        "errorCode": {
+          "$ref": "#/definitions/LifecycleErrorCode",
+          "description": "<p>The associated error code:</p> <ul> <li> <p>Success: The specified script ran.</p> </li> <li> <p>ScriptMissing: The specified script was not found in the specified location.</p> </li> <li> <p>ScriptNotExecutable: The specified script is not a recognized executable file type.</p> </li> <li> <p>ScriptTimedOut: The specified script did not finish running in the specified time period.</p> </li> <li> <p>ScriptFailed: The specified script failed to run as expected.</p> </li> <li> <p>UnknownError: The specified script did not run for an unknown reason.</p> </li> </ul>"
+        },
+        "logTail": {
+          "$ref": "#/definitions/LogTail",
+          "description": "<p>The last portion of the diagnostic log.</p> <p>If available, AWS CodeDeploy returns up to the last 4 KB of the diagnostic log.</p>"
+        },
+        "message": {
+          "$ref": "#/definitions/LifecycleMessage",
+          "description": "The message associated with the error."
+        },
+        "scriptName": {
+          "$ref": "#/definitions/ScriptName",
+          "description": "The name of the script."
+        }
+      },
+      "type": "object"
+    },
+    "Duration": {
+      "type": "integer"
+    },
+    "EC2TagFilter": {
+      "description": "Information about a tag filter.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/Key",
+          "description": "The tag filter key."
+        },
+        "Type": {
+          "$ref": "#/definitions/EC2TagFilterType",
+          "description": "<p>The tag filter type:</p> <ul> <li> <p>KEY_ONLY: Key only.</p> </li> <li> <p>VALUE_ONLY: Value only.</p> </li> <li> <p>KEY_AND_VALUE: Key and value.</p> </li> </ul>"
+        },
+        "Value": {
+          "$ref": "#/definitions/Value",
+          "description": "The tag filter value."
+        }
+      },
+      "type": "object"
+    },
+    "EC2TagFilterList": {
+      "items": {
+        "$ref": "#/definitions/EC2TagFilter"
+      },
+      "type": "array"
+    },
+    "EC2TagFilterType": {
+      "enum": [
+        "KEY_ONLY",
+        "VALUE_ONLY",
+        "KEY_AND_VALUE"
+      ],
+      "type": "string"
+    },
+    "ELBInfo": {
+      "description": "Information about a load balancer in Elastic Load Balancing to use in a blue/green deployment.",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/ELBName",
+          "description": "The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment."
+        }
+      },
+      "type": "object"
+    },
+    "ELBInfoList": {
+      "items": {
+        "$ref": "#/definitions/ELBInfo"
+      },
+      "type": "array"
+    },
+    "ELBName": {
+      "type": "string"
+    },
+    "ETag": {
+      "type": "string"
+    },
+    "ErrorCode": {
+      "enum": [
+        "DEPLOYMENT_GROUP_MISSING",
+        "APPLICATION_MISSING",
+        "REVISION_MISSING",
+        "IAM_ROLE_MISSING",
+        "IAM_ROLE_PERMISSIONS",
+        "NO_EC2_SUBSCRIPTION",
+        "OVER_MAX_INSTANCES",
+        "NO_INSTANCES",
+        "TIMEOUT",
+        "HEALTH_CONSTRAINTS_INVALID",
+        "HEALTH_CONSTRAINTS",
+        "INTERNAL_ERROR",
+        "THROTTLED",
+        "ALARM_ACTIVE",
+        "AGENT_ISSUE",
+        "AUTO_SCALING_IAM_ROLE_PERMISSIONS",
+        "AUTO_SCALING_CONFIGURATION",
+        "MANUAL_STOP"
+      ],
+      "type": "string"
+    },
+    "ErrorInformation": {
+      "description": "Information about a deployment error.",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ErrorCode",
+          "description": "<p>For information about additional error codes, see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html\">Error Codes for AWS CodeDeploy</a> in the <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide\">AWS CodeDeploy User Guide</a>.</p> <p>The error code:</p> <ul> <li> <p>APPLICATION_MISSING: The application was missing. This error code will most likely be raised if the application is deleted after the deployment is created but before it is started.</p> </li> <li> <p>DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code will most likely be raised if the deployment group is deleted after the deployment is created but before it is started.</p> </li> <li> <p>HEALTH_CONSTRAINTS: The deployment failed on too many instances to be successfully deployed within the instance health constraints specified.</p> </li> <li> <p>HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed within the instance health constraints specified.</p> </li> <li> <p>IAM_ROLE_MISSING: The service role cannot be accessed.</p> </li> <li> <p>IAM_ROLE_PERMISSIONS: The service role does not have the correct permissions.</p> </li> <li> <p>INTERNAL_ERROR: There was an internal error.</p> </li> <li> <p>NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.</p> </li> <li> <p>NO_INSTANCES: No instance were specified, or no instance can be found.</p> </li> <li> <p>OVER_MAX_INSTANCES: The maximum number of instance was exceeded.</p> </li> <li> <p>THROTTLED: The operation was throttled because the calling account exceeded the throttling limits of one or more AWS services.</p> </li> <li> <p>TIMEOUT: The deployment has timed out.</p> </li> <li> <p>REVISION_MISSING: The revision ID was missing. This error code will most likely be raised if the revision is deleted after the deployment is created but before it is started.</p> </li> </ul>"
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "An accompanying error message."
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "type": "string"
+    },
+    "GenericRevisionInfo": {
+      "description": "Information about an application revision.",
+      "properties": {
+        "deploymentGroups": {
+          "$ref": "#/definitions/DeploymentGroupsList",
+          "description": "The deployment groups for which this is the current target revision."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A comment about the revision."
+        },
+        "firstUsedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "When the revision was first used by AWS CodeDeploy."
+        },
+        "lastUsedTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "When the revision was last used by AWS CodeDeploy."
+        },
+        "registerTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "When the revision was registered with AWS CodeDeploy."
+        }
+      },
+      "type": "object"
+    },
+    "GetApplicationInput": {
+      "description": "Represents the input of a get application operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "GetApplicationOutput": {
+      "description": "Represents the output of a get application operation.",
+      "properties": {
+        "application": {
+          "$ref": "#/definitions/ApplicationInfo",
+          "description": "Information about the application."
+        }
+      },
+      "type": "object"
+    },
+    "GetApplicationRevisionInput": {
+      "description": "Represents the input of a get application revision operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application that corresponds to the revision."
+        },
+        "revision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the application revision to get, including type and location."
+        }
+      },
+      "required": [
+        "applicationName",
+        "revision"
+      ],
+      "type": "object"
+    },
+    "GetApplicationRevisionOutput": {
+      "description": "Represents the output of a get application revision operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of the application that corresponds to the revision."
+        },
+        "revision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Additional information about the revision, including type and location."
+        },
+        "revisionInfo": {
+          "$ref": "#/definitions/GenericRevisionInfo",
+          "description": "General information about the revision."
+        }
+      },
+      "type": "object"
+    },
+    "GetDeploymentConfigInput": {
+      "description": "Represents the input of a get deployment configuration operation.",
+      "properties": {
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The name of a deployment configuration associated with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "deploymentConfigName"
+      ],
+      "type": "object"
+    },
+    "GetDeploymentConfigOutput": {
+      "description": "Represents the output of a get deployment configuration operation.",
+      "properties": {
+        "deploymentConfigInfo": {
+          "$ref": "#/definitions/DeploymentConfigInfo",
+          "description": "Information about the deployment configuration."
+        }
+      },
+      "type": "object"
+    },
+    "GetDeploymentGroupInput": {
+      "description": "Represents the input of a get deployment group operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The name of an existing deployment group for the specified application."
+        }
+      },
+      "required": [
+        "applicationName",
+        "deploymentGroupName"
+      ],
+      "type": "object"
+    },
+    "GetDeploymentGroupOutput": {
+      "description": "Represents the output of a get deployment group operation.",
+      "properties": {
+        "deploymentGroupInfo": {
+          "$ref": "#/definitions/DeploymentGroupInfo",
+          "description": "Information about the deployment group."
+        }
+      },
+      "type": "object"
+    },
+    "GetDeploymentInput": {
+      "description": "Represents the input of a get deployment operation.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "A deployment ID associated with the applicable IAM user or AWS account."
+        }
+      },
+      "required": [
+        "deploymentId"
+      ],
+      "type": "object"
+    },
+    "GetDeploymentInstanceInput": {
+      "description": "Represents the input of a get deployment instance operation.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The unique ID of a deployment."
+        },
+        "instanceId": {
+          "$ref": "#/definitions/InstanceId",
+          "description": "The unique ID of an instance in the deployment group."
+        }
+      },
+      "required": [
+        "deploymentId",
+        "instanceId"
+      ],
+      "type": "object"
+    },
+    "GetDeploymentInstanceOutput": {
+      "description": "Represents the output of a get deployment instance operation.",
+      "properties": {
+        "instanceSummary": {
+          "$ref": "#/definitions/InstanceSummary",
+          "description": "Information about the instance."
+        }
+      },
+      "type": "object"
+    },
+    "GetDeploymentOutput": {
+      "description": "Represents the output of a get deployment operation.",
+      "properties": {
+        "deploymentInfo": {
+          "$ref": "#/definitions/DeploymentInfo",
+          "description": "Information about the deployment."
+        }
+      },
+      "type": "object"
+    },
+    "GetOnPremisesInstanceInput": {
+      "description": "Represents the input of a get on-premises instance operation.",
+      "properties": {
+        "instanceName": {
+          "$ref": "#/definitions/InstanceName",
+          "description": "The name of the on-premises instance about which to get information."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object"
+    },
+    "GetOnPremisesInstanceOutput": {
+      "description": "Represents the output of a get on-premises instance operation.",
+      "properties": {
+        "instanceInfo": {
+          "$ref": "#/definitions/InstanceInfo",
+          "description": "Information about the on-premises instance."
+        }
+      },
+      "type": "object"
+    },
+    "GitHubLocation": {
+      "description": "Information about the location of application artifacts stored in GitHub.",
+      "properties": {
+        "commitId": {
+          "$ref": "#/definitions/CommitId",
+          "description": "The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the application revision."
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "description": "<p>The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision. </p> <p>Specified as account/repository.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "GreenFleetProvisioningAction": {
+      "enum": [
+        "DISCOVER_EXISTING",
+        "COPY_AUTO_SCALING_GROUP"
+      ],
+      "type": "string"
+    },
+    "GreenFleetProvisioningOption": {
+      "description": "Information about the instances that belong to the replacement environment in a blue/green deployment.",
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/GreenFleetProvisioningAction",
+          "description": "<p>The method used to add instances to a replacement environment.</p> <ul> <li> <p>DISCOVER_EXISTING: Use instances that already exist or will be created manually.</p> </li> <li> <p>COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling group.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "IamArnRequiredException": {
+      "description": "No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.",
+      "properties": {},
+      "type": "object"
+    },
+    "IamSessionArn": {
+      "type": "string"
+    },
+    "IamSessionArnAlreadyRegisteredException": {
+      "description": "The request included an IAM session ARN that has already been used to register a different instance.",
+      "properties": {},
+      "type": "object"
+    },
+    "IamUserArn": {
+      "type": "string"
+    },
+    "IamUserArnAlreadyRegisteredException": {
+      "description": "The specified IAM user ARN is already registered with an on-premises instance.",
+      "properties": {},
+      "type": "object"
+    },
+    "IamUserArnRequiredException": {
+      "description": "An IAM user ARN was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceAction": {
+      "enum": [
+        "TERMINATE",
+        "KEEP_ALIVE"
+      ],
+      "type": "string"
+    },
+    "InstanceArn": {
+      "type": "string"
+    },
+    "InstanceCount": {
+      "type": "integer"
+    },
+    "InstanceDoesNotExistException": {
+      "description": "The specified instance does not exist in the deployment group.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceId": {
+      "type": "string"
+    },
+    "InstanceIdRequiredException": {
+      "description": "The instance ID was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceInfo": {
+      "description": "Information about an on-premises instance.",
+      "properties": {
+        "deregisterTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "If the on-premises instance was deregistered, the time at which the on-premises instance was deregistered."
+        },
+        "iamSessionArn": {
+          "$ref": "#/definitions/IamSessionArn",
+          "description": "The ARN of the IAM session associated with the on-premises instance."
+        },
+        "iamUserArn": {
+          "$ref": "#/definitions/IamUserArn",
+          "description": "The IAM user ARN associated with the on-premises instance."
+        },
+        "instanceArn": {
+          "$ref": "#/definitions/InstanceArn",
+          "description": "The ARN of the on-premises instance."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/InstanceName",
+          "description": "The name of the on-premises instance."
+        },
+        "registerTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the on-premises instance was registered."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tags currently associated with the on-premises instance."
+        }
+      },
+      "type": "object"
+    },
+    "InstanceInfoList": {
+      "items": {
+        "$ref": "#/definitions/InstanceInfo"
+      },
+      "type": "array"
+    },
+    "InstanceLimitExceededException": {
+      "description": "The maximum number of allowed on-premises instances in a single call was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceName": {
+      "type": "string"
+    },
+    "InstanceNameAlreadyRegisteredException": {
+      "description": "The specified on-premises instance name is already registered.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceNameList": {
+      "items": {
+        "$ref": "#/definitions/InstanceName"
+      },
+      "type": "array"
+    },
+    "InstanceNameRequiredException": {
+      "description": "An on-premises instance name was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceNotRegisteredException": {
+      "description": "The specified on-premises instance is not registered.",
+      "properties": {},
+      "type": "object"
+    },
+    "InstanceStatus": {
+      "enum": [
+        "Pending",
+        "InProgress",
+        "Succeeded",
+        "Failed",
+        "Skipped",
+        "Unknown",
+        "Ready"
+      ],
+      "type": "string"
+    },
+    "InstanceStatusList": {
+      "items": {
+        "$ref": "#/definitions/InstanceStatus"
+      },
+      "type": "array"
+    },
+    "InstanceSummary": {
+      "description": "Information about an instance in a deployment.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The deployment ID."
+        },
+        "instanceId": {
+          "$ref": "#/definitions/InstanceId",
+          "description": "The instance ID."
+        },
+        "instanceType": {
+          "$ref": "#/definitions/InstanceType",
+          "description": "<p>Information about which environment an instance belongs to in a blue/green deployment.</p> <ul> <li> <p>BLUE: The instance is part of the original environment.</p> </li> <li> <p>GREEN: The instance is part of the replacement environment.</p> </li> </ul>"
+        },
+        "lastUpdatedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the instance information was last updated."
+        },
+        "lifecycleEvents": {
+          "$ref": "#/definitions/LifecycleEventList",
+          "description": "A list of lifecycle events for this instance."
+        },
+        "status": {
+          "$ref": "#/definitions/InstanceStatus",
+          "description": "<p>The deployment status for this instance:</p> <ul> <li> <p>Pending: The deployment is pending for this instance.</p> </li> <li> <p>In Progress: The deployment is in progress for this instance.</p> </li> <li> <p>Succeeded: The deployment has succeeded for this instance.</p> </li> <li> <p>Failed: The deployment has failed for this instance.</p> </li> <li> <p>Skipped: The deployment has been skipped for this instance.</p> </li> <li> <p>Unknown: The deployment status is unknown for this instance.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "InstanceSummaryList": {
+      "items": {
+        "$ref": "#/definitions/InstanceSummary"
+      },
+      "type": "array"
+    },
+    "InstanceType": {
+      "enum": [
+        "Blue",
+        "Green"
+      ],
+      "type": "string"
+    },
+    "InstanceTypeList": {
+      "items": {
+        "$ref": "#/definitions/InstanceType"
+      },
+      "type": "array"
+    },
+    "InstancesList": {
+      "items": {
+        "$ref": "#/definitions/InstanceId"
+      },
+      "type": "array"
+    },
+    "InvalidAlarmConfigException": {
+      "description": "<p>The format of the alarm configuration is invalid. Possible causes include:</p> <ul> <li> <p>The alarm list is null.</p> </li> <li> <p>The alarm object is null.</p> </li> <li> <p>The alarm name is empty or null or exceeds the 255 character limit.</p> </li> <li> <p>Two alarms with the same name have been specified.</p> </li> <li> <p>The alarm configuration is enabled but the alarm list is empty.</p> </li> </ul>",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidApplicationNameException": {
+      "description": "The application name was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidAutoRollbackConfigException": {
+      "description": "The automatic rollback configuration was specified in an invalid format. For example, automatic rollback is enabled but an invalid triggering event type or no event types were listed.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidAutoScalingGroupException": {
+      "description": "The Auto Scaling group was specified in an invalid format or does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidBlueGreenDeploymentConfigurationException": {
+      "description": "The configuration for the blue/green deployment group was provided in an invalid format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidBucketNameFilterException": {
+      "description": "The bucket name either doesn't exist or was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeployedStateFilterException": {
+      "description": "The deployed state filter was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeploymentConfigNameException": {
+      "description": "The deployment configuration name was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeploymentGroupNameException": {
+      "description": "The deployment group name was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeploymentIdException": {
+      "description": "At least one of the deployment IDs was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeploymentStatusException": {
+      "description": "The specified deployment status doesn't exist or cannot be determined.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidDeploymentStyleException": {
+      "description": "An invalid deployment style was specified. Valid deployment types include \"IN_PLACE\" and \"BLUE_GREEN\". Valid deployment options for blue/green deployments include \"WITH_TRAFFIC_CONTROL\" and \"WITHOUT_TRAFFIC_CONTROL\".",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidEC2TagException": {
+      "description": "The tag was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidIamSessionArnException": {
+      "description": "The IAM session ARN was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidIamUserArnException": {
+      "description": "The IAM user ARN was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidInstanceNameException": {
+      "description": "The specified on-premises instance name was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidInstanceStatusException": {
+      "description": "The specified instance status does not exist.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidInstanceTypeException": {
+      "description": "An invalid instance type was specified for instances in a blue/green deployment. Valid values include \"Blue\" for an original environment and \"Green\" for a replacement environment.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidKeyPrefixFilterException": {
+      "description": "The specified key prefix filter was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidLoadBalancerInfoException": {
+      "description": "An invalid load balancer name, or no load balancer name, was specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidMinimumHealthyHostValueException": {
+      "description": "The minimum healthy instance value was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidNextTokenException": {
+      "description": "The next token was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidOperationException": {
+      "description": "An invalid operation was detected.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRegistrationStatusException": {
+      "description": "The registration status was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRevisionException": {
+      "description": "The revision was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidRoleException": {
+      "description": "The service role ARN was specified in an invalid format. Or, if an Auto Scaling group was specified, the specified service role does not grant the appropriate permissions to Auto Scaling.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidSortByException": {
+      "description": "The column name to sort by is either not present or was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidSortOrderException": {
+      "description": "The sort order was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTagException": {
+      "description": "The specified tag was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTagFilterException": {
+      "description": "The specified tag filter was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTargetInstancesException": {
+      "description": "<p>The target instance configuration is invalid. Possible causes include:</p> <ul> <li> <p>Configuration data for target instances was entered for an in-place deployment.</p> </li> <li> <p>The limit of 10 tags for a tag type was exceeded.</p> </li> <li> <p>The combined length of the tag names exceeded the limit. </p> </li> <li> <p>A specified tag is not currently applied to any instances.</p> </li> </ul>",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTimeRangeException": {
+      "description": "The specified time range was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidTriggerConfigException": {
+      "description": "The trigger was specified in an invalid format.",
+      "properties": {},
+      "type": "object"
+    },
+    "Key": {
+      "type": "string"
+    },
+    "LifecycleErrorCode": {
+      "enum": [
+        "Success",
+        "ScriptMissing",
+        "ScriptNotExecutable",
+        "ScriptTimedOut",
+        "ScriptFailed",
+        "UnknownError"
+      ],
+      "type": "string"
+    },
+    "LifecycleEvent": {
+      "description": "Information about a deployment lifecycle event.",
+      "properties": {
+        "diagnostics": {
+          "$ref": "#/definitions/Diagnostics",
+          "description": "Diagnostic information about the deployment lifecycle event."
+        },
+        "endTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the deployment lifecycle event ended."
+        },
+        "lifecycleEventName": {
+          "$ref": "#/definitions/LifecycleEventName",
+          "description": "The deployment lifecycle event name, such as ApplicationStop, BeforeInstall, AfterInstall, ApplicationStart, or ValidateService."
+        },
+        "startTime": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "A timestamp indicating when the deployment lifecycle event started."
+        },
+        "status": {
+          "$ref": "#/definitions/LifecycleEventStatus",
+          "description": "<p>The deployment lifecycle event status:</p> <ul> <li> <p>Pending: The deployment lifecycle event is pending.</p> </li> <li> <p>InProgress: The deployment lifecycle event is in progress.</p> </li> <li> <p>Succeeded: The deployment lifecycle event ran successfully.</p> </li> <li> <p>Failed: The deployment lifecycle event has failed.</p> </li> <li> <p>Skipped: The deployment lifecycle event has been skipped.</p> </li> <li> <p>Unknown: The deployment lifecycle event is unknown.</p> </li> </ul>"
+        }
+      },
+      "type": "object"
+    },
+    "LifecycleEventList": {
+      "items": {
+        "$ref": "#/definitions/LifecycleEvent"
+      },
+      "type": "array"
+    },
+    "LifecycleEventName": {
+      "type": "string"
+    },
+    "LifecycleEventStatus": {
+      "enum": [
+        "Pending",
+        "InProgress",
+        "Succeeded",
+        "Failed",
+        "Skipped",
+        "Unknown"
+      ],
+      "type": "string"
+    },
+    "LifecycleHookLimitExceededException": {
+      "description": "The limit for lifecycle hooks was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "LifecycleMessage": {
+      "type": "string"
+    },
+    "ListApplicationRevisionsInput": {
+      "description": "Represents the input of a list application revisions operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "deployed": {
+          "$ref": "#/definitions/ListStateFilterAction",
+          "description": "<p>Whether to list revisions based on whether the revision is the target revision of an deployment group:</p> <ul> <li> <p>include: List revisions that are target revisions of a deployment group.</p> </li> <li> <p>exclude: Do not list revisions that are target revisions of a deployment group.</p> </li> <li> <p>ignore: List all revisions.</p> </li> </ul>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list application revisions call. It can be used to return the next set of applications in the list."
+        },
+        "s3Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "<p>An Amazon S3 bucket name to limit the search for revisions.</p> <p>If set to null, all of the user's buckets will be searched.</p>"
+        },
+        "s3KeyPrefix": {
+          "$ref": "#/definitions/S3Key",
+          "description": "A key prefix for the set of Amazon S3 objects to limit the search for revisions."
+        },
+        "sortBy": {
+          "$ref": "#/definitions/ApplicationRevisionSortBy",
+          "description": "<p>The column name to use to sort the list results:</p> <ul> <li> <p>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</p> </li> <li> <p>firstUsedTime: Sort by the time the revisions were first used in a deployment.</p> </li> <li> <p>lastUsedTime: Sort by the time the revisions were last used in a deployment.</p> </li> </ul> <p>If not specified or set to null, the results will be returned in an arbitrary order.</p>"
+        },
+        "sortOrder": {
+          "$ref": "#/definitions/SortOrder",
+          "description": "<p>The order in which to sort the list results:</p> <ul> <li> <p>ascending: ascending order.</p> </li> <li> <p>descending: descending order.</p> </li> </ul> <p>If not specified, the results will be sorted in ascending order.</p> <p>If set to null, the results will be sorted in an arbitrary order.</p>"
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "ListApplicationRevisionsOutput": {
+      "description": "Represents the output of a list application revisions operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier will also be returned. It can be used in a subsequent list application revisions call to return the next set of application revisions in the list."
+        },
+        "revisions": {
+          "$ref": "#/definitions/RevisionLocationList",
+          "description": "A list of locations that contain the matching revisions."
+        }
+      },
+      "type": "object"
+    },
+    "ListApplicationsInput": {
+      "description": "Represents the input of a list applications operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list applications call. It can be used to return the next set of applications in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListApplicationsOutput": {
+      "description": "Represents the output of a list applications operation.",
+      "properties": {
+        "applications": {
+          "$ref": "#/definitions/ApplicationsList",
+          "description": "A list of application names."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list applications call to return the next set of applications, will also be returned. in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentConfigsInput": {
+      "description": "Represents the input of a list deployment configurations operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list deployment configurations call. It can be used to return the next set of deployment configurations in the list. "
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentConfigsOutput": {
+      "description": "Represents the output of a list deployment configurations operation.",
+      "properties": {
+        "deploymentConfigsList": {
+          "$ref": "#/definitions/DeploymentConfigsList",
+          "description": "A list of deployment configurations, including built-in configurations such as CodeDeployDefault.OneAtATime."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment configurations call to return the next set of deployment configurations in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentGroupsInput": {
+      "description": "Represents the input of a list deployment groups operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list."
+        }
+      },
+      "required": [
+        "applicationName"
+      ],
+      "type": "object"
+    },
+    "ListDeploymentGroupsOutput": {
+      "description": "Represents the output of a list deployment groups operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application name."
+        },
+        "deploymentGroups": {
+          "$ref": "#/definitions/DeploymentGroupsList",
+          "description": "A list of corresponding deployment group names."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentInstancesInput": {
+      "description": "Represents the input of a list deployment instances operation.",
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The unique ID of a deployment."
+        },
+        "instanceStatusFilter": {
+          "$ref": "#/definitions/InstanceStatusList",
+          "description": "<p>A subset of instances to list by status:</p> <ul> <li> <p>Pending: Include those instance with pending deployments.</p> </li> <li> <p>InProgress: Include those instance where deployments are still in progress.</p> </li> <li> <p>Succeeded: Include those instances with successful deployments.</p> </li> <li> <p>Failed: Include those instance with failed deployments.</p> </li> <li> <p>Skipped: Include those instance with skipped deployments.</p> </li> <li> <p>Unknown: Include those instance with deployments in an unknown state.</p> </li> </ul>"
+        },
+        "instanceTypeFilter": {
+          "$ref": "#/definitions/InstanceTypeList",
+          "description": "The set of instances in a blue/green deployment, either those in the original environment (\"BLUE\") or those in the replacement environment (\"GREEN\"), for which you want to view instance information."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list deployment instances call. It can be used to return the next set of deployment instances in the list."
+        }
+      },
+      "required": [
+        "deploymentId"
+      ],
+      "type": "object"
+    },
+    "ListDeploymentInstancesOutput": {
+      "description": "Represents the output of a list deployment instances operation.",
+      "properties": {
+        "instancesList": {
+          "$ref": "#/definitions/InstancesList",
+          "description": "A list of instance IDs."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment instances call to return the next set of deployment instances in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentsInput": {
+      "description": "Represents the input of a list deployments operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "createTimeRange": {
+          "$ref": "#/definitions/TimeRange",
+          "description": "A time range (start and end) for returning a subset of the list of deployments."
+        },
+        "deploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The name of an existing deployment group for the specified application."
+        },
+        "includeOnlyStatuses": {
+          "$ref": "#/definitions/DeploymentStatusList",
+          "description": "<p>A subset of deployments to list by status:</p> <ul> <li> <p>Created: Include created deployments in the resulting list.</p> </li> <li> <p>Queued: Include queued deployments in the resulting list.</p> </li> <li> <p>In Progress: Include in-progress deployments in the resulting list.</p> </li> <li> <p>Succeeded: Include successful deployments in the resulting list.</p> </li> <li> <p>Failed: Include failed deployments in the resulting list.</p> </li> <li> <p>Stopped: Include stopped deployments in the resulting list.</p> </li> </ul>"
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list deployments call. It can be used to return the next set of deployments in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListDeploymentsOutput": {
+      "description": "Represents the output of a list deployments operation.",
+      "properties": {
+        "deployments": {
+          "$ref": "#/definitions/DeploymentsList",
+          "description": "A list of deployment IDs."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployments call to return the next set of deployments in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListOnPremisesInstancesInput": {
+      "description": "Represents the input of a list on-premises instances operation.",
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "An identifier returned from the previous list on-premises instances call. It can be used to return the next set of on-premises instances in the list."
+        },
+        "registrationStatus": {
+          "$ref": "#/definitions/RegistrationStatus",
+          "description": "<p>The registration status of the on-premises instances:</p> <ul> <li> <p>Deregistered: Include deregistered on-premises instances in the resulting list.</p> </li> <li> <p>Registered: Include registered on-premises instances in the resulting list.</p> </li> </ul>"
+        },
+        "tagFilters": {
+          "$ref": "#/definitions/TagFilterList",
+          "description": "The on-premises instance tags that will be used to restrict the corresponding on-premises instance names returned."
+        }
+      },
+      "type": "object"
+    },
+    "ListOnPremisesInstancesOutput": {
+      "description": "Represents the output of list on-premises instances operation.",
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/InstanceNameList",
+          "description": "The list of matching on-premises instance names."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/NextToken",
+          "description": "If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list on-premises instances call to return the next set of on-premises instances in the list."
+        }
+      },
+      "type": "object"
+    },
+    "ListStateFilterAction": {
+      "enum": [
+        "include",
+        "exclude",
+        "ignore"
+      ],
+      "type": "string"
+    },
+    "LoadBalancerInfo": {
+      "description": "Information about the load balancer used in a blue/green deployment.",
+      "properties": {
+        "elbInfoList": {
+          "$ref": "#/definitions/ELBInfoList",
+          "description": "An array containing information about the load balancer in Elastic Load Balancing to use in a blue/green deployment."
+        }
+      },
+      "type": "object"
+    },
+    "LogTail": {
+      "type": "string"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "MinimumHealthyHosts": {
+      "description": "Information about minimum healthy instance.",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/MinimumHealthyHostsType",
+          "description": "<p>The minimum healthy instance type:</p> <ul> <li> <p>HOST_COUNT: The minimum number of healthy instance as an absolute value.</p> </li> <li> <p>FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.</p> </li> </ul> <p>In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment will be successful if six or more instances are deployed to successfully; otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment will be successful if four or more instance are deployed to successfully; otherwise, the deployment fails.</p> <note> <p>In a call to the get deployment configuration operation, CodeDeployDefault.OneAtATime will return a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy will try to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment still succeeds.</p> </note>"
+        },
+        "value": {
+          "$ref": "#/definitions/MinimumHealthyHostsValue",
+          "description": "The minimum healthy instance value."
+        }
+      },
+      "type": "object"
+    },
+    "MinimumHealthyHostsType": {
+      "enum": [
+        "HOST_COUNT",
+        "FLEET_PERCENT"
+      ],
+      "type": "string"
+    },
+    "MinimumHealthyHostsValue": {
+      "type": "integer"
+    },
+    "MultipleIamArnsProvidedException": {
+      "description": "Both an IAM user ARN and an IAM session ARN were included in the request. Use only one ARN type.",
+      "properties": {},
+      "type": "object"
+    },
+    "NextToken": {
+      "type": "string"
+    },
+    "NullableBoolean": {
+      "type": "boolean"
+    },
+    "RegisterApplicationRevisionInput": {
+      "description": "Represents the input of a register application revision operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account."
+        },
+        "description": {
+          "$ref": "#/definitions/Description",
+          "description": "A comment about the revision."
+        },
+        "revision": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the application revision to register, including type and location."
+        }
+      },
+      "required": [
+        "applicationName",
+        "revision"
+      ],
+      "type": "object"
+    },
+    "RegisterOnPremisesInstanceInput": {
+      "description": "Represents the input of the register on-premises instance operation.",
+      "properties": {
+        "iamSessionArn": {
+          "$ref": "#/definitions/IamSessionArn",
+          "description": "The ARN of the IAM session to associate with the on-premises instance."
+        },
+        "iamUserArn": {
+          "$ref": "#/definitions/IamUserArn",
+          "description": "The ARN of the IAM user to associate with the on-premises instance."
+        },
+        "instanceName": {
+          "$ref": "#/definitions/InstanceName",
+          "description": "The name of the on-premises instance to register."
+        }
+      },
+      "required": [
+        "instanceName"
+      ],
+      "type": "object"
+    },
+    "RegistrationStatus": {
+      "enum": [
+        "Registered",
+        "Deregistered"
+      ],
+      "type": "string"
+    },
+    "RemoveTagsFromOnPremisesInstancesInput": {
+      "description": "Represents the input of a remove tags from on-premises instances operation.",
+      "properties": {
+        "instanceNames": {
+          "$ref": "#/definitions/InstanceNameList",
+          "description": "The names of the on-premises instances from which to remove tags."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "The tag key-value pairs to remove from the on-premises instances."
+        }
+      },
+      "required": [
+        "tags",
+        "instanceNames"
+      ],
+      "type": "object"
+    },
+    "Repository": {
+      "type": "string"
+    },
+    "RevisionDoesNotExistException": {
+      "description": "The named revision does not exist with the applicable IAM user or AWS account.",
+      "properties": {},
+      "type": "object"
+    },
+    "RevisionInfo": {
+      "description": "Information about an application revision.",
+      "properties": {
+        "genericRevisionInfo": {
+          "$ref": "#/definitions/GenericRevisionInfo",
+          "description": "Information about an application revision, including usage details and associated deployment groups."
+        },
+        "revisionLocation": {
+          "$ref": "#/definitions/RevisionLocation",
+          "description": "Information about the location and type of an application revision."
+        }
+      },
+      "type": "object"
+    },
+    "RevisionInfoList": {
+      "items": {
+        "$ref": "#/definitions/RevisionInfo"
+      },
+      "type": "array"
+    },
+    "RevisionLocation": {
+      "description": "Information about the location of an application revision.",
+      "properties": {
+        "gitHubLocation": {
+          "$ref": "#/definitions/GitHubLocation",
+          "description": "Information about the location of application artifacts stored in GitHub."
+        },
+        "revisionType": {
+          "$ref": "#/definitions/RevisionLocationType",
+          "description": "<p>The type of application revision:</p> <ul> <li> <p>S3: An application revision stored in Amazon S3.</p> </li> <li> <p>GitHub: An application revision stored in GitHub.</p> </li> </ul>"
+        },
+        "s3Location": {
+          "$ref": "#/definitions/S3Location",
+          "description": "Information about the location of application artifacts stored in Amazon S3. "
+        }
+      },
+      "type": "object"
+    },
+    "RevisionLocationList": {
+      "items": {
+        "$ref": "#/definitions/RevisionLocation"
+      },
+      "type": "array"
+    },
+    "RevisionLocationType": {
+      "enum": [
+        "S3",
+        "GitHub"
+      ],
+      "type": "string"
+    },
+    "RevisionRequiredException": {
+      "description": "The revision ID was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "Role": {
+      "type": "string"
+    },
+    "RoleRequiredException": {
+      "description": "The role ID was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "RollbackInfo": {
+      "description": "Information about a deployment rollback.",
+      "properties": {
+        "rollbackDeploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The ID of the deployment rollback."
+        },
+        "rollbackMessage": {
+          "$ref": "#/definitions/Description",
+          "description": "Information describing the status of a deployment rollback; for example, whether the deployment can't be rolled back, is in progress, failed, or succeeded. "
+        },
+        "rollbackTriggeringDeploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The deployment ID of the deployment that was underway and triggered a rollback deployment because it failed or was stopped."
+        }
+      },
+      "type": "object"
+    },
+    "S3Bucket": {
+      "type": "string"
+    },
+    "S3Key": {
+      "type": "string"
+    },
+    "S3Location": {
+      "description": "Information about the location of application artifacts stored in Amazon S3.",
+      "properties": {
+        "bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "The name of the Amazon S3 bucket where the application revision is stored."
+        },
+        "bundleType": {
+          "$ref": "#/definitions/BundleType",
+          "description": "<p>The file type of the application revision. Must be one of the following:</p> <ul> <li> <p>tar: A tar archive file.</p> </li> <li> <p>tgz: A compressed tar archive file.</p> </li> <li> <p>zip: A zip archive file.</p> </li> </ul>"
+        },
+        "eTag": {
+          "$ref": "#/definitions/ETag",
+          "description": "<p>The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.</p> <p>If the ETag is not specified as an input parameter, ETag validation of the object will be skipped.</p>"
+        },
+        "key": {
+          "$ref": "#/definitions/S3Key",
+          "description": "The name of the Amazon S3 object that represents the bundled artifacts for the application revision."
+        },
+        "version": {
+          "$ref": "#/definitions/VersionId",
+          "description": "<p>A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.</p> <p>If the version is not specified, the system will use the most recent version by default.</p>"
+        }
+      },
+      "type": "object"
+    },
+    "ScriptName": {
+      "type": "string"
+    },
+    "SkipWaitTimeForInstanceTerminationInput": {
+      "properties": {
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The ID of the blue/green deployment for which you want to skip the instance termination wait time."
+        }
+      },
+      "type": "object"
+    },
+    "SortOrder": {
+      "enum": [
+        "ascending",
+        "descending"
+      ],
+      "type": "string"
+    },
+    "StopDeploymentInput": {
+      "description": "Represents the input of a stop deployment operation.",
+      "properties": {
+        "autoRollbackEnabled": {
+          "$ref": "#/definitions/NullableBoolean",
+          "description": "Indicates, when a deployment is stopped, whether instances that have been updated should be rolled back to the previous version of the application revision."
+        },
+        "deploymentId": {
+          "$ref": "#/definitions/DeploymentId",
+          "description": "The unique ID of a deployment."
+        }
+      },
+      "required": [
+        "deploymentId"
+      ],
+      "type": "object"
+    },
+    "StopDeploymentOutput": {
+      "description": "Represents the output of a stop deployment operation.",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/StopStatus",
+          "description": "<p>The status of the stop deployment operation:</p> <ul> <li> <p>Pending: The stop operation is pending.</p> </li> <li> <p>Succeeded: The stop operation was successful.</p> </li> </ul>"
+        },
+        "statusMessage": {
+          "$ref": "#/definitions/Message",
+          "description": "An accompanying status message."
+        }
+      },
+      "type": "object"
+    },
+    "StopStatus": {
+      "enum": [
+        "Pending",
+        "Succeeded"
+      ],
+      "type": "string"
+    },
+    "Tag": {
+      "description": "Information about a tag.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/Key",
+          "description": "The tag's key."
+        },
+        "Value": {
+          "$ref": "#/definitions/Value",
+          "description": "The tag's value."
+        }
+      },
+      "type": "object"
+    },
+    "TagFilter": {
+      "description": "Information about an on-premises instance tag filter.",
+      "properties": {
+        "Key": {
+          "$ref": "#/definitions/Key",
+          "description": "The on-premises instance tag filter key."
+        },
+        "Type": {
+          "$ref": "#/definitions/TagFilterType",
+          "description": "<p>The on-premises instance tag filter type:</p> <ul> <li> <p>KEY_ONLY: Key only.</p> </li> <li> <p>VALUE_ONLY: Value only.</p> </li> <li> <p>KEY_AND_VALUE: Key and value.</p> </li> </ul>"
+        },
+        "Value": {
+          "$ref": "#/definitions/Value",
+          "description": "The on-premises instance tag filter value."
+        }
+      },
+      "type": "object"
+    },
+    "TagFilterList": {
+      "items": {
+        "$ref": "#/definitions/TagFilter"
+      },
+      "type": "array"
+    },
+    "TagFilterType": {
+      "enum": [
+        "KEY_ONLY",
+        "VALUE_ONLY",
+        "KEY_AND_VALUE"
+      ],
+      "type": "string"
+    },
+    "TagLimitExceededException": {
+      "description": "The maximum allowed number of tags was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array"
+    },
+    "TagRequiredException": {
+      "description": "A tag was not specified.",
+      "properties": {},
+      "type": "object"
+    },
+    "TargetInstances": {
+      "description": "Information about the instances to be used in the replacement environment in a blue/green deployment.",
+      "properties": {
+        "autoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupNameList",
+          "description": "The names of one or more Auto Scaling groups to identify a replacement environment for a blue/green deployment."
+        },
+        "tagFilters": {
+          "$ref": "#/definitions/EC2TagFilterList",
+          "description": "The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement environment for a blue/green deployment."
+        }
+      },
+      "type": "object"
+    },
+    "TimeRange": {
+      "description": "Information about a time range.",
+      "properties": {
+        "end": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "<p>The end time of the time range.</p> <note> <p>Specify null to leave the end time open-ended.</p> </note>"
+        },
+        "start": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "<p>The start time of the time range.</p> <note> <p>Specify null to leave the start time open-ended.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TriggerConfig": {
+      "description": "Information about notification triggers for the deployment group.",
+      "properties": {
+        "triggerEvents": {
+          "$ref": "#/definitions/TriggerEventTypeList",
+          "description": "The event type or types for which notifications are triggered."
+        },
+        "triggerName": {
+          "$ref": "#/definitions/TriggerName",
+          "description": "The name of the notification trigger."
+        },
+        "triggerTargetArn": {
+          "$ref": "#/definitions/TriggerTargetArn",
+          "description": "The ARN of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent."
+        }
+      },
+      "type": "object"
+    },
+    "TriggerConfigList": {
+      "items": {
+        "$ref": "#/definitions/TriggerConfig"
+      },
+      "type": "array"
+    },
+    "TriggerEventType": {
+      "enum": [
+        "DeploymentStart",
+        "DeploymentSuccess",
+        "DeploymentFailure",
+        "DeploymentStop",
+        "DeploymentRollback",
+        "DeploymentReady",
+        "InstanceStart",
+        "InstanceSuccess",
+        "InstanceFailure",
+        "InstanceReady"
+      ],
+      "type": "string"
+    },
+    "TriggerEventTypeList": {
+      "items": {
+        "$ref": "#/definitions/TriggerEventType"
+      },
+      "type": "array"
+    },
+    "TriggerName": {
+      "type": "string"
+    },
+    "TriggerTargetArn": {
+      "type": "string"
+    },
+    "TriggerTargetsLimitExceededException": {
+      "description": "The maximum allowed number of triggers was exceeded.",
+      "properties": {},
+      "type": "object"
+    },
+    "UnsupportedActionForDeploymentTypeException": {
+      "description": "A call was submitted that is not supported for the specified deployment type.",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateApplicationInput": {
+      "description": "Represents the input of an update application operation.",
+      "properties": {
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The current name of the application you want to change."
+        },
+        "newApplicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The new name to give the application."
+        }
+      },
+      "type": "object"
+    },
+    "UpdateDeploymentGroupInput": {
+      "description": "Represents the input of an update deployment group operation.",
+      "properties": {
+        "alarmConfiguration": {
+          "$ref": "#/definitions/AlarmConfiguration",
+          "description": "Information to add or change about Amazon CloudWatch alarms when the deployment group is updated. "
+        },
+        "applicationName": {
+          "$ref": "#/definitions/ApplicationName",
+          "description": "The application name corresponding to the deployment group to update."
+        },
+        "autoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration",
+          "description": "Information for an automatic rollback configuration that is added or changed when a deployment group is updated."
+        },
+        "autoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupNameList",
+          "description": "The replacement list of Auto Scaling groups to be included in the deployment group, if you want to change them. To keep the Auto Scaling groups, enter their names. To remove Auto Scaling groups, do not enter any Auto Scaling group names."
+        },
+        "blueGreenDeploymentConfiguration": {
+          "$ref": "#/definitions/BlueGreenDeploymentConfiguration",
+          "description": "Information about blue/green deployment options for a deployment group."
+        },
+        "currentDeploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The current name of the deployment group."
+        },
+        "deploymentConfigName": {
+          "$ref": "#/definitions/DeploymentConfigName",
+          "description": "The replacement deployment configuration name to use, if you want to change it."
+        },
+        "deploymentStyle": {
+          "$ref": "#/definitions/DeploymentStyle",
+          "description": "Information about the type of deployment, either standard or blue/green, you want to run and whether to route deployment traffic behind a load balancer."
+        },
+        "ec2TagFilters": {
+          "$ref": "#/definitions/EC2TagFilterList",
+          "description": "The replacement set of Amazon EC2 tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names."
+        },
+        "loadBalancerInfo": {
+          "$ref": "#/definitions/LoadBalancerInfo",
+          "description": "Information about the load balancer used in a blue/green deployment."
+        },
+        "newDeploymentGroupName": {
+          "$ref": "#/definitions/DeploymentGroupName",
+          "description": "The new name of the deployment group, if you want to change it."
+        },
+        "onPremisesInstanceTagFilters": {
+          "$ref": "#/definitions/TagFilterList",
+          "description": "The replacement set of on-premises instance tags on which to filter, if you want to change them. To keep the existing tags, enter their names. To remove tags, do not enter any tag names."
+        },
+        "serviceRoleArn": {
+          "$ref": "#/definitions/Role",
+          "description": "A replacement ARN for the service role, if you want to change it."
+        },
+        "triggerConfigurations": {
+          "$ref": "#/definitions/TriggerConfigList",
+          "description": "Information about triggers to change when the deployment group is updated. For examples, see <a href=\"http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html\">Modify Triggers in an AWS CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide."
+        }
+      },
+      "required": [
+        "applicationName",
+        "currentDeploymentGroupName"
+      ],
+      "type": "object"
+    },
+    "UpdateDeploymentGroupOutput": {
+      "description": "Represents the output of an update deployment group operation.",
+      "properties": {
+        "hooksNotCleanedUp": {
+          "$ref": "#/definitions/AutoScalingGroupList",
+          "description": "If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the AWS account. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the AWS account."
+        }
+      },
+      "type": "object"
+    },
+    "Value": {
+      "type": "string"
+    },
+    "VersionId": {
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddTagsToOnPremisesInstances",
+      "title": "AddTagsToOnPremisesInstances",
+      "description": "Adds tags to on-premises instances.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AddTagsToOnPremisesInstancesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetApplicationRevisions",
+      "title": "BatchGetApplicationRevisions",
+      "description": "Gets information about one or more application revisions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetApplicationRevisionsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetApplicationRevisionsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetApplications",
+      "title": "BatchGetApplications",
+      "description": "Gets information about one or more applications.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetApplicationsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetApplicationsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetDeploymentGroups",
+      "title": "BatchGetDeploymentGroups",
+      "description": "Gets information about one or more deployment groups.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetDeploymentGroupsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetDeploymentGroupsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetDeploymentInstances",
+      "title": "BatchGetDeploymentInstances",
+      "description": "Gets information about one or more instance that are part of a deployment group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetDeploymentInstancesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetDeploymentInstancesOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetDeployments",
+      "title": "BatchGetDeployments",
+      "description": "Gets information about one or more deployments.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetDeploymentsInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetDeploymentsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "BatchGetOnPremisesInstances",
+      "title": "BatchGetOnPremisesInstances",
+      "description": "Gets information about one or more on-premises instances.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/BatchGetOnPremisesInstancesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BatchGetOnPremisesInstancesOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ContinueDeployment",
+      "title": "ContinueDeployment",
+      "description": "Starts the process of rerouting traffic from instances in the original environment to instances in thereplacement environment without waiting for a specified wait time to elapse. (Traffic rerouting, which is achieved by registering instances in the replacement environment with the load balancer, can start as soon as all instances have a status of Ready.) ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ContinueDeploymentInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "CreateApplication",
+      "title": "CreateApplication",
+      "description": "Creates an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateApplicationInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateApplicationOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "CreateDeployment",
+      "title": "CreateDeployment",
+      "description": "Deploys an application revision through the specified deployment group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateDeploymentInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDeploymentOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "CreateDeploymentConfig",
+      "title": "CreateDeploymentConfig",
+      "description": "Creates a deployment configuration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateDeploymentConfigInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDeploymentConfigOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "CreateDeploymentGroup",
+      "title": "CreateDeploymentGroup",
+      "description": "Creates a deployment group to which application revisions will be deployed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateDeploymentGroupInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateDeploymentGroupOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "DeleteApplication",
+      "title": "DeleteApplication",
+      "description": "Deletes an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteApplicationInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "DeleteDeploymentConfig",
+      "title": "DeleteDeploymentConfig",
+      "description": "<p>Deletes a deployment configuration.</p> <note> <p>A deployment configuration cannot be deleted if it is currently in use. Predefined configurations cannot be deleted.</p> </note>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteDeploymentConfigInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "DeleteDeploymentGroup",
+      "title": "DeleteDeploymentGroup",
+      "description": "Deletes a deployment group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteDeploymentGroupInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteDeploymentGroupOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "DeregisterOnPremisesInstance",
+      "title": "DeregisterOnPremisesInstance",
+      "description": "Deregisters an on-premises instance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeregisterOnPremisesInstanceInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetApplication",
+      "title": "GetApplication",
+      "description": "Gets information about an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetApplicationInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetApplicationOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetApplicationRevision",
+      "title": "GetApplicationRevision",
+      "description": "Gets information about an application revision.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetApplicationRevisionInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetApplicationRevisionOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetDeployment",
+      "title": "GetDeployment",
+      "description": "Gets information about a deployment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetDeploymentInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeploymentOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetDeploymentConfig",
+      "title": "GetDeploymentConfig",
+      "description": "Gets information about a deployment configuration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetDeploymentConfigInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeploymentConfigOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetDeploymentGroup",
+      "title": "GetDeploymentGroup",
+      "description": "Gets information about a deployment group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetDeploymentGroupInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeploymentGroupOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetDeploymentInstance",
+      "title": "GetDeploymentInstance",
+      "description": "Gets information about an instance as part of a deployment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetDeploymentInstanceInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetDeploymentInstanceOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "GetOnPremisesInstance",
+      "title": "GetOnPremisesInstance",
+      "description": "Gets information about an on-premises instance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetOnPremisesInstanceInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetOnPremisesInstanceOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListApplicationRevisions",
+      "title": "ListApplicationRevisions",
+      "description": "Lists information about revisions for an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListApplicationRevisionsInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListApplicationRevisionsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListApplications",
+      "title": "ListApplications",
+      "description": "Lists the applications registered with the applicable IAM user or AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListApplicationsInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListApplicationsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListDeploymentConfigs",
+      "title": "ListDeploymentConfigs",
+      "description": "Lists the deployment configurations with the applicable IAM user or AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListDeploymentConfigsInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeploymentConfigsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListDeploymentGroups",
+      "title": "ListDeploymentGroups",
+      "description": "Lists the deployment groups for an application registered with the applicable IAM user or AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListDeploymentGroupsInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeploymentGroupsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListDeploymentInstances",
+      "title": "ListDeploymentInstances",
+      "description": "Lists the instance for a deployment associated with the applicable IAM user or AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListDeploymentInstancesInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeploymentInstancesOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListDeployments",
+      "title": "ListDeployments",
+      "description": "Lists the deployments in a deployment group for an application registered with the applicable IAM user or AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListDeploymentsInput"
+          },
+          "nextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListDeploymentsOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "ListOnPremisesInstances",
+      "title": "ListOnPremisesInstances",
+      "description": "<p>Gets a list of names for one or more on-premises instances.</p> <p>Unless otherwise specified, both registered and deregistered on-premises instance names will be listed. To list only registered or deregistered on-premises instance names, use the registration status parameter.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListOnPremisesInstancesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListOnPremisesInstancesOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "RegisterApplicationRevision",
+      "title": "RegisterApplicationRevision",
+      "description": "Registers with AWS CodeDeploy a revision for the specified application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RegisterApplicationRevisionInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "RegisterOnPremisesInstance",
+      "title": "RegisterOnPremisesInstance",
+      "description": "<p>Registers an on-premises instance.</p> <note> <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p> </note>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RegisterOnPremisesInstanceInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "RemoveTagsFromOnPremisesInstances",
+      "title": "RemoveTagsFromOnPremisesInstances",
+      "description": "Removes one or more tags from one or more on-premises instances.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveTagsFromOnPremisesInstancesInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "SkipWaitTimeForInstanceTermination",
+      "title": "SkipWaitTimeForInstanceTermination",
+      "description": "In a blue/green deployment, overrides any specified wait time and starts terminating instances immediately after the traffic routing is completed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SkipWaitTimeForInstanceTerminationInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "StopDeployment",
+      "title": "StopDeployment",
+      "description": "Attempts to stop an ongoing deployment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StopDeploymentInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StopDeploymentOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "UpdateApplication",
+      "title": "UpdateApplication",
+      "description": "Changes the name of an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateApplicationInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    },
+    {
+      "id": "UpdateDeploymentGroup",
+      "title": "UpdateDeploymentGroup",
+      "description": "Changes information about a deployment group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateDeploymentGroupInput"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateDeploymentGroupOutput"
+      },
+      "security": {
+        "amazonaws_codedeploy": {
+          "integration": "amazonaws_codedeploy"
+        }
+      }
+    }
+  ]
+}

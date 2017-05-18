@@ -1,0 +1,185 @@
+{
+  "id": "deutschebahn_reisezentren",
+  "title": "Reisezentren",
+  "description": "This REST-API enables you to query information about travel centers in Germany.",
+  "security": {
+    "deutschebahn_reisezentren": {
+      "integration": "deutschebahn_reisezentren",
+      "fields": {}
+    }
+  },
+  "definitions": {
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OpeningTime": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "TravelCenter": {
+      "properties": {
+        "address": {
+          "description": "Street address of travel center",
+          "type": "string"
+        },
+        "city": {
+          "description": "City of travel center",
+          "type": "string"
+        },
+        "id": {
+          "description": "Identifying number",
+          "type": "integer"
+        },
+        "lat": {
+          "description": "Latitude of travel center location",
+          "type": "number"
+        },
+        "lon": {
+          "description": "Longitude of travel center location",
+          "type": "number"
+        },
+        "name": {
+          "description": "Name of travel center",
+          "type": "string"
+        },
+        "openingTimes": {
+          "description": "Opening times of the travel center, ordered by week day",
+          "properties": {
+            "fri": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "mon": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "sat": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "sun": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "thu": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "tue": {
+              "$ref": "#/definitions/OpeningTime"
+            },
+            "wed": {
+              "$ref": "#/definitions/OpeningTime"
+            }
+          },
+          "type": "object"
+        },
+        "postCode": {
+          "description": "Post code of travel center",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of travel center",
+          "enum": [
+            "Reisezentrum",
+            "Mobility Center"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TravelCenterList": {
+      "items": {
+        "$ref": "#/definitions/TravelCenter"
+      },
+      "type": "array"
+    }
+  },
+  "actions": [
+    {
+      "id": "reisezentren.get",
+      "title": "reisezentren.get",
+      "description": "Get all station infos",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "A station name or part of it"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TravelCenterList"
+      },
+      "security": {
+        "deutschebahn_reisezentren": {
+          "integration": "deutschebahn_reisezentren"
+        }
+      }
+    },
+    {
+      "id": "reisezentren.loc.lat.lon.get",
+      "title": "reisezentren.loc.lat.lon.get",
+      "description": "Get information about a station near a location",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude"
+          },
+          "lon": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TravelCenter"
+      },
+      "security": {
+        "deutschebahn_reisezentren": {
+          "integration": "deutschebahn_reisezentren"
+        }
+      }
+    },
+    {
+      "id": "reisezentren.id.get",
+      "title": "reisezentren.id.get",
+      "description": "Get information about a specific station",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Station id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TravelCenter"
+      },
+      "security": {
+        "deutschebahn_reisezentren": {
+          "integration": "deutschebahn_reisezentren"
+        }
+      }
+    }
+  ]
+}
