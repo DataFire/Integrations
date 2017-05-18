@@ -3,6 +3,7 @@
   "title": "Oxford Dictionaries",
   "description": "",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png",
   "definitions": {
     "ArrayOfRelatedEntries": {
       "description": "A list of written or spoken words",

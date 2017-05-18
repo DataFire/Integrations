@@ -28,6 +28,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
   "definitions": {
     "AffineTransform": {
       "description": "AffineTransform uses a 3x3 matrix with an implied last row of [ 0 0 1 ]\nto transform source coordinates (x,y) into destination coordinates (x', y')\naccording to:\n\n      x'  x  =   shear_y  scale_y  translate_y  \n      1  [ 1 ]\n\nAfter transformation,\n\n     x' = scale_x * x + shear_x * y + translate_x;\n     y' = scale_y * y + shear_y * x + translate_y;\n\nThis message is therefore composed of these six matrix elements.",

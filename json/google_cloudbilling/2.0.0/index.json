@@ -23,6 +23,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
   "definitions": {
     "BillingAccount": {
       "description": "A billing account in [Google Cloud\nConsole](https://console.cloud.google.com/). You can assign a billing account\nto one or more projects.",

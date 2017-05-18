@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
   "definitions": {
     "AgentConfigurationStatus": {
       "description": "Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.",

@@ -3,6 +3,7 @@
   "title": "hetras Booking API Version 0",
   "description": "",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif",
   "definitions": {
     "AcceptedGuaranteeTypes": {
       "properties": {

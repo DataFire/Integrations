@@ -23,6 +23,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg",
   "definitions": {
     "Address": {
       "description": "OIDC Address structure",

@@ -3,6 +3,7 @@
   "title": "Active Documentation for /v1",
   "description": "Our active docs provide the ability to test out your account and to see the responses to your queries. The services are RESTful, and are accessed using standard HTTP methods over a secure HTTPS channel. Requests and responses are currently sent in JSON format, and have a base URL of /v1.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png",
   "definitions": {
     "Topups": {
       "properties": {

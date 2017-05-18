@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png",
   "definitions": {
     "RestResponse": {
       "properties": {

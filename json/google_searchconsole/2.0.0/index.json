@@ -3,6 +3,7 @@
   "title": "Google Search Console URL Testing Tools",
   "description": "Provides tools for running validation tests against single URLs",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
   "definitions": {
     "BlockedResource": {
       "description": "Blocked resource.",

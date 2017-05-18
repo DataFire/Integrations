@@ -3,6 +3,7 @@
   "title": "CognitiveServicesManagementClient",
   "description": "Cognitive Services Management Client",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
   "definitions": {
     "CognitiveServicesAccount": {
       "description": "Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.",

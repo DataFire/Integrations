@@ -19,6 +19,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png",
   "definitions": {
     "Account": {
       "properties": {

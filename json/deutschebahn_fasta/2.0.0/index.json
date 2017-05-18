@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
   "definitions": {
     "disruption": {
       "description": "A disruption contains information associated with a facility that is temporarily not available.",

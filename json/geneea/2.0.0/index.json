@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png",
   "definitions": {
     "EntitiesResponse": {
       "description": "Response for the named-entity recognition",

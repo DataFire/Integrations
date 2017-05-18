@@ -20,6 +20,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png",
   "definitions": {
     "access_tokens": {
       "items": {

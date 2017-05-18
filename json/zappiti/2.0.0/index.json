@@ -3,6 +3,7 @@
   "title": "Zappiti Player",
   "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png",
   "definitions": {
     "CheckZappitiServiceRequest": {
       "properties": {

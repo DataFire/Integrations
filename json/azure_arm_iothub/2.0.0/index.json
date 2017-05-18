@@ -3,6 +3,7 @@
   "title": "iotHubClient",
   "description": "Use this API to manage the IoT hubs in your subscription.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
   "definitions": {
     "CloudToDeviceProperties": {
       "description": "The IoT hub cloud-to-device messaging properties.",

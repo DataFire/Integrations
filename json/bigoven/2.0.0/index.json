@@ -12,6 +12,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png",
   "definitions": {
     "API2.Controllers.GroceryListController.DepartmentModel": {
       "properties": {

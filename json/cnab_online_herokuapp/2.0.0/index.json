@@ -3,6 +3,7 @@
   "title": "Cnab Online",
   "description": "Processe arquivos de retorno CNAB",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png",
   "definitions": {
     "Error": {
       "properties": {

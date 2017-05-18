@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png",
   "definitions": {
     "listing": {
       "description": "The result format for listings",

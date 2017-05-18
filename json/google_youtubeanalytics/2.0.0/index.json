@@ -27,6 +27,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png",
   "definitions": {
     "Group": {
       "properties": {

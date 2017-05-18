@@ -3,6 +3,7 @@
   "title": "Moon by Ai Weiwei & Olafur Eliasson",
   "description": "Turn nothing into something – make a drawing, make a mark.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png",
   "actions": [
     {
       "id": "api.hashtags.get",

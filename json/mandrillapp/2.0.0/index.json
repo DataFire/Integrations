@@ -8,6 +8,7 @@
       "fields": {}
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png",
   "definitions": {
     "api_key": {
       "properties": {

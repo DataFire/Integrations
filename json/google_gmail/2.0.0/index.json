@@ -32,6 +32,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png",
   "definitions": {
     "AutoForwarding": {
       "description": "Auto-forwarding settings for an account.",

@@ -23,6 +23,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png",
   "definitions": {
     "Administrator": {
       "description": "This represents an enterprise admin who can manage the enterprise in the managed Google Play store.",

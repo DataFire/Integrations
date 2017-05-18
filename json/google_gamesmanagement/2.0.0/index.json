@@ -24,6 +24,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png",
   "definitions": {
     "AchievementResetAllResponse": {
       "description": "This is a JSON template for achievement reset all response.",

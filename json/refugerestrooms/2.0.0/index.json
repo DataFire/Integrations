@@ -3,6 +3,7 @@
   "title": "Refuge Restrooms",
   "description": "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconforming individuals.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png",
   "actions": [
     {
       "id": "v1.restrooms.json.get",

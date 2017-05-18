@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png",
   "definitions": {
     "Acquisition": {
       "properties": {

@@ -11,6 +11,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg",
   "definitions": {
     "AccidentDetail": {
       "properties": {

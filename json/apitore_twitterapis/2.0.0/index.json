@@ -3,6 +3,7 @@
   "title": "Twitter APIs",
   "description": "Call Twitter APIs.<BR />[Endpoint] https://api.apitore.com/api/23",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg",
   "definitions": {
     "TweetEntity": {
       "properties": {

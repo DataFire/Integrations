@@ -2,7 +2,8 @@
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
     "title": "Authentiq",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
   },
   "amadeus": {
     "id": "amadeus",
@@ -14,7 +15,8 @@
           "apikey": "API Key provided for your account, to identify you for API access. Make sure to keep this API key secret."
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png"
   },
   "amazonaws_acm": {
     "id": "amazonaws_acm",
@@ -27,7 +29,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -40,7 +43,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -53,7 +57,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -66,7 +71,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -79,7 +85,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -92,7 +99,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -105,7 +113,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -118,7 +127,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -131,7 +141,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -144,7 +155,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -157,7 +169,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -170,7 +183,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -183,7 +197,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -196,7 +211,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -209,7 +225,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -222,7 +239,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -235,7 +253,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -248,7 +267,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -261,7 +281,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -274,7 +295,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -287,7 +309,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -300,7 +323,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -313,7 +337,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -326,7 +351,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -339,7 +365,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -352,7 +379,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -365,7 +393,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -378,7 +407,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -391,7 +421,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -404,7 +435,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -417,7 +449,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -430,7 +463,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -443,7 +477,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -456,7 +491,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -469,7 +505,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -482,7 +519,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -495,7 +533,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -508,7 +547,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -521,7 +561,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -534,7 +575,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -547,7 +589,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -560,7 +603,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -573,7 +617,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -586,7 +631,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -599,7 +645,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -612,7 +659,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -625,7 +673,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -638,7 +687,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -651,7 +701,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -664,7 +715,8 @@
           "hmac": "Amazon Signature authorization v2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -677,7 +729,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -690,7 +743,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -703,7 +757,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -715,7 +770,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -728,7 +784,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -741,7 +798,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -754,7 +812,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -767,7 +826,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -780,7 +840,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -793,7 +854,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -806,7 +868,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -819,7 +882,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -832,7 +896,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -845,7 +910,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -858,7 +924,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -871,7 +938,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -884,7 +952,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -896,7 +965,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -909,7 +979,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -922,7 +993,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -935,7 +1007,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -948,7 +1021,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -960,7 +1034,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -973,7 +1048,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -986,7 +1062,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -998,7 +1075,8 @@
           "hmac": "Amazon S3 signature"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -1011,7 +1089,8 @@
           "hmac": "Amazon Signature authorization v2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -1024,7 +1103,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -1037,7 +1117,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -1050,7 +1131,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -1063,7 +1145,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -1076,7 +1159,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -1089,7 +1173,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -1102,7 +1187,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -1115,7 +1201,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -1128,7 +1215,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -1141,7 +1229,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -1154,7 +1243,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -1167,7 +1257,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -1180,7 +1271,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -1193,7 +1285,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -1206,7 +1299,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -1219,7 +1313,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -1232,7 +1327,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -1245,7 +1341,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -1258,7 +1355,8 @@
           "hmac": "Amazon Signature authorization v4"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
   "apacta": {
     "id": "apacta",
@@ -1272,7 +1370,8 @@
           "api_key": "Uses the user's API token found from within the control panel in \"settings\" -> \"additional settings\""
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png"
   },
   "apimatic": {
     "id": "apimatic",
@@ -1287,187 +1386,218 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
   },
   "apis_guru": {
     "id": "apis_guru",
     "title": "APIs.guru",
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
   },
   "apitore_2chmatomefeedsapis": {
     "id": "apitore_2chmatomefeedsapis",
     "title": "2ch matome feeds APIs",
     "description": "Various 2ch matome feeds.[Endpoint] https://api.apitore.com/api/29",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
   },
   "apitore_certificatefeedsapis": {
     "id": "apitore_certificatefeedsapis",
     "title": "Certificate feeds APIs",
     "description": "Various certificate feeds.[Endpoint] https://api.apitore.com/api/31",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg"
   },
   "apitore_designfeedsapis": {
     "id": "apitore_designfeedsapis",
     "title": "Design feeds APIs",
     "description": "Various design feeds.[Endpoint] https://api.apitore.com/api/32",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg"
   },
   "apitore_documentfrequencyapis": {
     "id": "apitore_documentfrequencyapis",
     "title": "Document frequency APIs",
     "description": "Document frequency of Wikipedia.[Endpoint] https://api.apitore.com/api/16",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_16.jpg"
   },
   "apitore_gamefeedsapis": {
     "id": "apitore_gamefeedsapis",
     "title": "Game feeds APIs",
     "description": "Various game feeds.[Endpoint] https://api.apitore.com/api/33",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg"
   },
   "apitore_kuromojiapis": {
     "id": "apitore_kuromojiapis",
     "title": "Kuromoji APIs",
     "description": "Kuromoji: japanese morphological analyzer.[Endpoint] https://api.apitore.com/api/7",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg"
   },
   "apitore_languagedetectionapis": {
     "id": "apitore_languagedetectionapis",
     "title": "Language Detection APIs",
     "description": "Language detection.[Endpoint] https://api.apitore.com/api/22",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg"
   },
   "apitore_newsfeedsapis": {
     "id": "apitore_newsfeedsapis",
     "title": "News feeds APIs",
     "description": "Various news feeds.[Endpoint] https://api.apitore.com/api/34",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg"
   },
   "apitore_pioneerblogfeedsapis": {
     "id": "apitore_pioneerblogfeedsapis",
     "title": "Pioneer blog feeds APIs",
     "description": "Various blog feeds.[Endpoint] https://api.apitore.com/api/30",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg"
   },
   "apitore_rss2jsonapis": {
     "id": "apitore_rss2jsonapis",
     "title": "RSS2JSON APIs",
     "description": "Rss to Json.[Endpoint] https://api.apitore.com/api/28",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg"
   },
   "apitore_sentencepieceapis_wikipedia_": {
     "id": "apitore_sentencepieceapis_wikipedia_",
     "title": "SentencePiece APIs (wikipedia)",
     "description": "SentencePiece tokenizer (wikipedia).[Endpoint] https://api.apitore.com/api/37",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_37.jpg"
   },
   "apitore_sentenceseparatorapis": {
     "id": "apitore_sentenceseparatorapis",
     "title": "Sentence separator APIs",
     "description": "Simple sentence separator.[Endpoint] https://api.apitore.com/api/17",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_17.jpg"
   },
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
     "title": "Sentiment APIs",
     "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg"
   },
   "apitore_synonymapis": {
     "id": "apitore_synonymapis",
     "title": "Synonym APIs",
     "description": "Return synonymous words. (equal to \"word2vec distance\")[Endpoint] https://api.apitore.com/api/9",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg"
   },
   "apitore_techfeedsapis": {
     "id": "apitore_techfeedsapis",
     "title": "Tech feeds APIs",
     "description": "Various tech feeds.[Endpoint] https://api.apitore.com/api/35",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg"
   },
   "apitore_text2labelbytfidfapis": {
     "id": "apitore_text2labelbytfidfapis",
     "title": "Text2Label by tfidf APIs",
     "description": "Text to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/18",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
   },
   "apitore_text2labelbywordvectorapis": {
     "id": "apitore_text2labelbywordvectorapis",
     "title": "Text2Label by word vector APIs",
     "description": "Text to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/19",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg"
   },
   "apitore_travelfeedsapis": {
     "id": "apitore_travelfeedsapis",
     "title": "Travel feeds APIs",
     "description": "Various travel feeds.[Endpoint] https://api.apitore.com/api/36",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_36.jpg"
   },
   "apitore_tweetsummarizationapis": {
     "id": "apitore_tweetsummarizationapis",
     "title": "Tweet summarization APIs",
     "description": "Tweet summarization.[Endpoint] https://api.apitore.com/api/27",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_27.jpg"
   },
   "apitore_twitterapis": {
     "id": "apitore_twitterapis",
     "title": "Twitter APIs",
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg"
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion",
     "title": "Twitter APIs with Word2Vec query expansion",
     "description": "Call Twitter APIs with word2vec query expansion.[Endpoint] https://api.apitore.com/api/24",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg"
   },
   "apitore_url2hrefapis": {
     "id": "apitore_url2hrefapis",
     "title": "Url2Href APIs",
     "description": "Url to Href links.[Endpoint] https://api.apitore.com/api/14",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg"
   },
   "apitore_url2htmlapis": {
     "id": "apitore_url2htmlapis",
     "title": "Url2Html APIs",
     "description": "Url to Html.[Endpoint] https://api.apitore.com/api/12",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg"
   },
   "apitore_url2labelbytfidfapis": {
     "id": "apitore_url2labelbytfidfapis",
     "title": "Url2Label by tfidf APIs",
     "description": "Url to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/20",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg"
   },
   "apitore_url2labelbywordvectorapis": {
     "id": "apitore_url2labelbywordvectorapis",
     "title": "Url2Label by word vector APIs",
     "description": "Url to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/21",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg"
   },
   "apitore_url2srcapis": {
     "id": "apitore_url2srcapis",
     "title": "Url2Src APIs",
     "description": "Url to Image src urls.[Endpoint] https://api.apitore.com/api/15",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
   },
   "apitore_url2textapis": {
     "id": "apitore_url2textapis",
     "title": "Url2Text APIs",
     "description": "Url to Text.[Endpoint] https://api.apitore.com/api/13",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_13.jpg"
   },
   "apitore_word2vecapis": {
     "id": "apitore_word2vecapis",
     "title": "Word2Vec APIs",
     "description": "Word2Vec.[Endpoint] https://api.apitore.com/api/8",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_8.jpg"
   },
   "apitore_wordstovectorsapis": {
     "id": "apitore_wordstovectorsapis",
     "title": "Words to Vectors APIs",
     "description": "Word to vectors.[Endpoint] https://api.apitore.com/api/10",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg"
   },
   "appveyor": {
     "id": "appveyor",
@@ -1480,7 +1610,8 @@
           "apiToken": "API token can be acquired from https://ci.appveyor.com/api-token\nThis value must be passed to the server in the `Authorization` header as `\"Bearer <token>\"`.  Since [bearer token authentication support is not explicitly supported in OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/issues/583), client code will vary.  Clients created with [swagger-codegen](https://github.com/swagger-api/swagger-codegen) should set `apiKeyPrefix` to `\"Bearer\"` and set `apiKey` to the token.  Other clients may need to set `apiKey` to the string `\"Bearer <token>\"`.\nNote that this should be [fixed in OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification/pull/807)), whenever that becomes available and supported."
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
   },
   "authentiq": {
     "id": "authentiq",
@@ -1506,7 +1637,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
   },
   "azure_arm_advisor": {
     "id": "azure_arm_advisor",
@@ -1531,7 +1663,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_analysisservices": {
     "id": "azure_arm_analysisservices",
@@ -1556,7 +1689,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_apimanagement": {
     "id": "azure_arm_apimanagement",
@@ -1581,7 +1715,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_appinsights": {
     "id": "azure_arm_appinsights",
@@ -1606,7 +1741,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_authorization": {
     "id": "azure_arm_authorization",
@@ -1631,7 +1767,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_batch": {
     "id": "azure_arm_batch",
@@ -1655,7 +1792,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_billing": {
     "id": "azure_arm_billing",
@@ -1680,7 +1818,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_cdn": {
     "id": "azure_arm_cdn",
@@ -1705,18 +1844,21 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_cognitiveservices": {
     "id": "azure_arm_cognitiveservices",
     "title": "CognitiveServicesManagementClient",
     "description": "Cognitive Services Management Client",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_commerce": {
     "id": "azure_arm_commerce",
     "title": "UsageManagementClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_compute": {
     "id": "azure_arm_compute",
@@ -1741,19 +1883,22 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_compute_containerservice": {
     "id": "azure_arm_compute_containerservice",
     "title": "ContainerServiceClient",
     "description": "The Container Service Client.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_compute_disk": {
     "id": "azure_arm_compute_disk",
     "title": "DiskResourceProviderClient",
     "description": "The Disk Resource Provider Client.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_consumption": {
     "id": "azure_arm_consumption",
@@ -1778,12 +1923,14 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_containerregistry": {
     "id": "azure_arm_containerregistry",
     "title": "ContainerRegistryManagementClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
@@ -1808,13 +1955,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_dns": {
     "id": "azure_arm_dns",
     "title": "DnsManagementClient",
     "description": "The DNS Management Client.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_documentdb": {
     "id": "azure_arm_documentdb",
@@ -1839,7 +1988,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_eventhub": {
     "id": "azure_arm_eventhub",
@@ -1864,30 +2014,35 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
     "title": "InsightsManagementClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_intune": {
     "id": "azure_arm_intune",
     "title": "IntuneResourceManagementClient",
     "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_iothub": {
     "id": "azure_arm_iothub",
     "title": "iotHubClient",
     "description": "Use this API to manage the IoT hubs in your subscription.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_keyvault": {
     "id": "azure_arm_keyvault",
     "title": "KeyVaultManagementClient",
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_logic": {
     "id": "azure_arm_logic",
@@ -1912,19 +2067,22 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_machinelearning_commitmentplans": {
     "id": "azure_arm_machinelearning_commitmentplans",
     "title": "Azure ML Commitment Plans Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment As...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_machinelearning_webservices": {
     "id": "azure_arm_machinelearning_webservices",
     "title": "Azure ML Web Services Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following opera...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_mediaservices": {
     "id": "azure_arm_mediaservices",
@@ -1949,7 +2107,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_mobileengagement": {
     "id": "azure_arm_mobileengagement",
@@ -1974,7 +2133,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_monitor": {
     "id": "azure_arm_monitor",
@@ -1998,7 +2158,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_network": {
     "id": "azure_arm_network",
@@ -2023,7 +2184,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_notificationhubs": {
     "id": "azure_arm_notificationhubs",
@@ -2048,7 +2210,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_operationalinsights": {
     "id": "azure_arm_operationalinsights",
@@ -2073,13 +2236,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_powerbiembedded": {
     "id": "azure_arm_powerbiembedded",
     "title": "Power BI Embedded Management Client",
     "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_recoveryservicesbackup": {
     "id": "azure_arm_recoveryservicesbackup",
@@ -2103,7 +2268,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_redis": {
     "id": "azure_arm_redis",
@@ -2128,7 +2294,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_relay": {
     "id": "azure_arm_relay",
@@ -2153,7 +2320,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_resourcehealth": {
     "id": "azure_arm_resourcehealth",
@@ -2178,12 +2346,14 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_scheduler": {
     "id": "azure_arm_scheduler",
     "title": "SchedulerManagementClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_search": {
     "id": "azure_arm_search",
@@ -2208,7 +2378,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_servermanagement": {
     "id": "azure_arm_servermanagement",
@@ -2233,7 +2404,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_service_map": {
     "id": "azure_arm_service_map",
@@ -2258,7 +2430,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_servicebus": {
     "id": "azure_arm_servicebus",
@@ -2283,7 +2456,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_servicefabric": {
     "id": "azure_arm_servicefabric",
@@ -2307,19 +2481,22 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
     "title": "Azure SQL Database",
     "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, el...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_storage": {
     "id": "azure_arm_storage",
     "title": "StorageManagement",
     "description": "The Azure Storage Management API.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_storageimportexport": {
     "id": "azure_arm_storageimportexport",
@@ -2344,7 +2521,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_storsimple8000series": {
     "id": "azure_arm_storsimple8000series",
@@ -2368,12 +2546,14 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
     "title": "TrafficManagerManagementClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
@@ -2398,12 +2578,14 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_insights": {
     "id": "azure_insights",
     "title": "InsightsClient",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "azure_monitor": {
     "id": "azure_monitor",
@@ -2427,7 +2609,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "bbc": {
     "id": "bbc",
@@ -2440,7 +2623,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
   },
   "bbc_rss": {
     "id": "bbc_rss",
@@ -2460,19 +2644,22 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
   },
   "bclaws_ca_bclaws": {
     "id": "bclaws_ca_bclaws",
     "title": "BC Laws",
     "description": "BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "beanstream": {
     "id": "beanstream",
     "title": "Beanstream Payments",
     "description": "https://www.beanstream.com/api/v1",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
   },
   "beezup": {
     "id": "beezup",
@@ -2485,7 +2672,8 @@
           "api_key": "the api subscription key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_25665430.png"
   },
   "bigoven": {
     "id": "bigoven",
@@ -2500,13 +2688,15 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png"
   },
   "bikewise": {
     "id": "bikewise",
     "title": "BikeWise API v2",
     "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico"
   },
   "bitbucket": {
     "id": "bitbucket",
@@ -2556,13 +2746,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg"
   },
   "bluemix_containers": {
     "id": "bluemix_containers",
     "title": "IBM Containers",
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_823529626819432448_wykDHAof_400x400.jpg"
   },
   "botify": {
     "id": "botify",
@@ -2575,7 +2767,8 @@
           "DjangoRestToken": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png"
   },
   "brandlovers": {
     "id": "brandlovers",
@@ -2588,7 +2781,8 @@
           "authorization": "Authorization token. The Authorization token can be found in your Admin console."
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png"
   },
   "browshot": {
     "id": "browshot",
@@ -2601,7 +2795,8 @@
           "apiKeyQuery": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cdn.browshot.com_static_images_logo.png"
   },
   "bufferapp": {
     "id": "bufferapp",
@@ -2625,13 +2820,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png"
   },
   "cambase": {
     "id": "cambase",
     "title": "Cambase.io",
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cdn.cambase.io_assets_logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg"
   },
   "cenit": {
     "id": "cenit",
@@ -2645,7 +2842,8 @@
           "X-User-Access-Token": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png"
   },
   "channel4": {
     "id": "channel4",
@@ -2658,7 +2856,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
   },
   "circleci": {
     "id": "circleci",
@@ -2671,7 +2870,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
   },
   "cisco": {
     "id": "cisco",
@@ -2702,31 +2902,36 @@
     "id": "citrix_gotoassistseeit",
     "title": "GoToAssist Seeit",
     "description": "Allows you to integrate GoToAssist Seeit into your own solutions.General notes:GoToAssist Seeit sessions are identified ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
   "citrix_gotomeeting": {
     "id": "citrix_gotomeeting",
     "title": "GoToMeeting",
     "description": "The GoToMeeting API provides seamless integration of GoToMeeting provisioning and meeting management into your existing ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
   "citrix_gototraining": {
     "id": "citrix_gototraining",
     "title": "GoToTraining",
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
   "citrix_gotowebinar": {
     "id": "citrix_gotowebinar",
     "title": "GoToWebinar",
     "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
   "citrix_scim": {
     "id": "citrix_scim",
     "title": "SCIM",
     "description": "The SCIM API lets you manage users in your organization. You can then automate the provisioning of product licenses for ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
   "citycontext": {
     "id": "citycontext",
@@ -2745,7 +2950,8 @@
     "id": "clarify",
     "title": "Clarify",
     "description": "The API to Search and Understand Audio & Video Data.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png"
   },
   "clickmeter": {
     "id": "clickmeter",
@@ -2758,19 +2964,22 @@
           "api_key": "API Key Authentication"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg"
   },
   "cloud_gov": {
     "id": "cloud_gov",
     "title": "Discovery Market Research",
     "description": "This API drives the Discovery Market Research Tool.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif"
   },
   "cnab_online_herokuapp": {
     "id": "cnab_online_herokuapp",
     "title": "Cnab Online",
     "description": "Processe arquivos de retorno CNAB",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
   },
   "cnn_rss": {
     "id": "cnn_rss",
@@ -2781,7 +2990,8 @@
     "id": "consumerfinance_gov",
     "title": "The Consumer Financial Protection Bureau",
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
   },
   "core_ac_uk": {
     "id": "core_ac_uk",
@@ -2794,19 +3004,22 @@
           "apiKey": "Your Api Key. Also accepts apiKey as a header"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png"
   },
   "cybertaxonomy_eu": {
     "id": "cybertaxonomy_eu",
     "title": "EU BON UTIS",
     "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg"
   },
   "data2crm": {
     "id": "data2crm",
     "title": "Data2CRM.API",
     "description": "Make use of our in-depth documentation to get more information about the various functions of the service. Those willing...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png"
   },
   "data_gov": {
     "id": "data_gov",
@@ -2819,7 +3032,8 @@
           "api_key": "API Key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png"
   },
   "datumbox": {
     "id": "datumbox",
@@ -2832,7 +3046,8 @@
           "apiKey": "Your API Key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png"
   },
   "deutschebahn_betriebsstellen": {
     "id": "deutschebahn_betriebsstellen",
@@ -2843,13 +3058,15 @@
         "integration": "deutschebahn_betriebsstellen",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "deutschebahn_fahrplan": {
     "id": "deutschebahn_fahrplan",
     "title": "Fahrplan-Free",
     "description": "A RESTful webservice to request a railway journey - FREE plan with restricted access (max. 10 requests per minute). Plea...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "deutschebahn_fasta": {
     "id": "deutschebahn_fasta",
@@ -2862,13 +3079,15 @@
           "UserSecurity": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "deutschebahn_flinkster": {
     "id": "deutschebahn_flinkster",
     "title": "Flinkster_API_NG",
     "description": "This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Net...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "deutschebahn_reisezentren": {
     "id": "deutschebahn_reisezentren",
@@ -2879,13 +3098,15 @@
         "integration": "deutschebahn_reisezentren",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "deutschebahn_stada": {
     "id": "deutschebahn_stada",
     "title": "Stationsdatenbereitstellung",
     "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger f...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
   },
   "dweet": {
     "id": "dweet",
@@ -2897,67 +3118,78 @@
     "id": "epa_gov_air",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Air Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_case": {
     "id": "epa_gov_case",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Enforcement Case Search",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_cwa": {
     "id": "epa_gov_cwa",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_dfr": {
     "id": "epa_gov_dfr",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Detailed Facility Report (DFR)",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_echo": {
     "id": "epa_gov_echo",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - All Data",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_eff": {
     "id": "epa_gov_eff",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Effluent Charting and Reporting",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_rcra": {
     "id": "epa_gov_rcra",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Resource Conservation and Recovery Act ",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "epa_gov_sdw": {
     "id": "epa_gov_sdw",
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
   "europeana_eu": {
     "id": "europeana_eu",
     "title": "Europeana",
     "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png"
   },
   "exavault": {
     "id": "exavault",
     "title": "ExaVault",
     "description": "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own appli...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png"
   },
   "firebrowse": {
     "id": "firebrowse",
     "title": "FireBrowse Beta API",
     "description": "A simple and elegant way to explore cancer data",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png"
   },
   "flat": {
     "id": "flat",
@@ -2987,7 +3219,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg"
   },
   "furkot": {
     "id": "furkot",
@@ -3012,7 +3245,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cdn.furkot.com_img_furkot-banner-black-4x1.svg"
   },
   "geneea": {
     "id": "geneea",
@@ -3025,7 +3259,8 @@
           "user_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png"
   },
   "geodesystems": {
     "id": "geodesystems",
@@ -3039,7 +3274,8 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_geodesystems.com_repository_images_geodesystems.png"
   },
   "getgo_gototraining": {
     "id": "getgo_gototraining",
@@ -3064,7 +3300,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
   },
   "gettyimages": {
     "id": "gettyimages",
@@ -3077,7 +3314,8 @@
           "Api-Key": "Provide your API key."
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg"
   },
   "github": {
     "id": "github",
@@ -3122,7 +3360,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
   },
   "gitlab": {
     "id": "gitlab",
@@ -3136,13 +3375,15 @@
           "private_token_query": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
   },
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
     "title": "Accelerated Mobile Pages (AMP) URL",
     "description": "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_adexchangebuyer": {
     "id": "google_adexchangebuyer",
@@ -3168,7 +3409,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
   },
   "google_adexchangebuyer2": {
     "id": "google_adexchangebuyer2",
@@ -3194,7 +3436,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_adexchangeseller": {
     "id": "google_adexchangeseller",
@@ -3221,7 +3464,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
   },
   "google_admin": {
     "id": "google_admin",
@@ -3248,7 +3492,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
   },
   "google_adsense": {
     "id": "google_adsense",
@@ -3275,7 +3520,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_adsensehost": {
     "id": "google_adsensehost",
@@ -3301,7 +3547,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_analytics": {
     "id": "google_analytics",
@@ -3332,7 +3579,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png"
   },
   "google_analyticsreporting": {
     "id": "google_analyticsreporting",
@@ -3359,13 +3607,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_androiddeviceprovisioning": {
     "id": "google_androiddeviceprovisioning",
     "title": "Android Device Provisioning Partner",
     "description": "Android Device Provisioning Partner API",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_androidenterprise": {
     "id": "google_androidenterprise",
@@ -3391,7 +3641,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
   },
   "google_androidpublisher": {
     "id": "google_androidpublisher",
@@ -3417,7 +3668,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
   },
   "google_appengine": {
     "id": "google_appengine",
@@ -3445,7 +3697,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_appsactivity": {
     "id": "google_appsactivity",
@@ -3475,7 +3728,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_appstate": {
     "id": "google_appstate",
@@ -3501,7 +3755,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_bigquery": {
     "id": "google_bigquery",
@@ -3533,7 +3788,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_blogger": {
     "id": "google_blogger",
@@ -3560,7 +3816,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png"
   },
   "google_books": {
     "id": "google_books",
@@ -3586,7 +3843,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
   },
   "google_calendar": {
     "id": "google_calendar",
@@ -3613,13 +3871,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png"
   },
   "google_civicinfo": {
     "id": "google_civicinfo",
     "title": "Google Civic Information",
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S....",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_classroom": {
     "id": "google_classroom",
@@ -3656,7 +3916,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_cloudbilling": {
     "id": "google_cloudbilling",
@@ -3682,7 +3943,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_cloudbuild": {
     "id": "google_cloudbuild",
@@ -3708,7 +3970,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_clouddebugger": {
     "id": "google_clouddebugger",
@@ -3735,7 +3998,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_clouderrorreporting": {
     "id": "google_clouderrorreporting",
@@ -3761,7 +4025,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_cloudfunctions": {
     "id": "google_cloudfunctions",
@@ -3787,7 +4052,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_cloudkms": {
     "id": "google_cloudkms",
@@ -3813,7 +4079,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_cloudmonitoring": {
     "id": "google_cloudmonitoring",
@@ -3840,7 +4107,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_cloudresourcemanager": {
     "id": "google_cloudresourcemanager",
@@ -3867,7 +4135,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_cloudtrace": {
     "id": "google_cloudtrace",
@@ -3895,7 +4164,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_clouduseraccounts": {
     "id": "google_clouduseraccounts",
@@ -3924,7 +4194,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_compute": {
     "id": "google_compute",
@@ -3955,7 +4226,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_consumersurveys": {
     "id": "google_consumersurveys",
@@ -3983,7 +4255,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_container": {
     "id": "google_container",
@@ -4009,7 +4282,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_content": {
     "id": "google_content",
@@ -4035,13 +4309,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_customsearch": {
     "id": "google_customsearch",
     "title": "CustomSearch",
     "description": "Lets you search over a website or collection of websites",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_dataflow": {
     "id": "google_dataflow",
@@ -4069,7 +4345,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_dataproc": {
     "id": "google_dataproc",
@@ -4095,7 +4372,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_datastore": {
     "id": "google_datastore",
@@ -4122,7 +4400,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_deploymentmanager": {
     "id": "google_deploymentmanager",
@@ -4151,7 +4430,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_dfareporting": {
     "id": "google_dfareporting",
@@ -4179,13 +4459,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_discovery": {
     "id": "google_discovery",
     "title": "APIs Discovery Service",
     "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_dlp": {
     "id": "google_dlp",
@@ -4211,7 +4493,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_dns": {
     "id": "google_dns",
@@ -4240,13 +4523,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_doubleclickbidmanager": {
     "id": "google_doubleclickbidmanager",
     "title": "DoubleClick Bid Manager",
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
   },
   "google_doubleclicksearch": {
     "id": "google_doubleclicksearch",
@@ -4272,7 +4557,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
   },
   "google_drive": {
     "id": "google_drive",
@@ -4305,7 +4591,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png"
   },
   "google_firebasedynamiclinks": {
     "id": "google_firebasedynamiclinks",
@@ -4331,7 +4618,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_firebaserules": {
     "id": "google_firebaserules",
@@ -4359,7 +4647,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_fitness": {
     "id": "google_fitness",
@@ -4402,7 +4691,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_fusiontables": {
     "id": "google_fusiontables",
@@ -4429,7 +4719,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_games": {
     "id": "google_games",
@@ -4457,7 +4748,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
   },
   "google_gamesconfiguration": {
     "id": "google_gamesconfiguration",
@@ -4483,7 +4775,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
   },
   "google_gamesmanagement": {
     "id": "google_gamesmanagement",
@@ -4510,7 +4803,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
   },
   "google_genomics": {
     "id": "google_genomics",
@@ -4540,7 +4834,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_gmail": {
     "id": "google_gmail",
@@ -4575,7 +4870,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
@@ -4601,7 +4897,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_groupssettings": {
     "id": "google_groupssettings",
@@ -4627,7 +4924,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_iam": {
     "id": "google_iam",
@@ -4653,7 +4951,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_identitytoolkit": {
     "id": "google_identitytoolkit",
@@ -4680,13 +4979,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_kgsearch": {
     "id": "google_kgsearch",
     "title": "Knowledge Graph Search",
     "description": "Searches the Google Knowledge Graph for entities.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_language": {
     "id": "google_language",
@@ -4712,7 +5013,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_licensing": {
     "id": "google_licensing",
@@ -4738,7 +5040,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_logging": {
     "id": "google_logging",
@@ -4768,7 +5071,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_manufacturers": {
     "id": "google_manufacturers",
@@ -4794,7 +5098,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_mirror": {
     "id": "google_mirror",
@@ -4821,7 +5126,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_ml": {
     "id": "google_ml",
@@ -4847,7 +5153,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_monitoring": {
     "id": "google_monitoring",
@@ -4876,7 +5183,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_oauth2": {
     "id": "google_oauth2",
@@ -4905,19 +5213,22 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_pagespeedonline": {
     "id": "google_pagespeedonline",
     "title": "PageSpeed Insights",
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_partners": {
     "id": "google_partners",
     "title": "Google Partners",
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_people": {
     "id": "google_people",
@@ -4951,7 +5262,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_playmoviespartner": {
     "id": "google_playmoviespartner",
@@ -4977,7 +5289,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_plus": {
     "id": "google_plus",
@@ -5006,7 +5319,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
   },
   "google_plusdomains": {
     "id": "google_plusdomains",
@@ -5041,7 +5355,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
   },
   "google_prediction": {
     "id": "google_prediction",
@@ -5071,7 +5386,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_icons_feature_predictionapi-64.png"
   },
   "google_proximitybeacon": {
     "id": "google_proximitybeacon",
@@ -5097,7 +5413,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_pubsub": {
     "id": "google_pubsub",
@@ -5124,13 +5441,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_qpxexpress": {
     "id": "google_qpxexpress",
     "title": "QPX Express",
     "description": "Finds the least expensive flights between an origin and a destination.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_replicapool": {
     "id": "google_replicapool",
@@ -5159,7 +5478,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_replicapoolupdater": {
     "id": "google_replicapoolupdater",
@@ -5188,7 +5508,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_reseller": {
     "id": "google_reseller",
@@ -5215,7 +5536,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
   },
   "google_resourceviews": {
     "id": "google_resourceviews",
@@ -5246,7 +5568,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_runtimeconfig": {
     "id": "google_runtimeconfig",
@@ -5273,13 +5596,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_safebrowsing": {
     "id": "google_safebrowsing",
     "title": "Google Safe Browsing",
     "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_script": {
     "id": "google_script",
@@ -5315,13 +5640,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
   },
   "google_searchconsole": {
     "id": "google_searchconsole",
     "title": "Google Search Console URL Testing Tools",
     "description": "Provides tools for running validation tests against single URLs",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_servicecontrol": {
     "id": "google_servicecontrol",
@@ -5348,7 +5675,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_servicemanagement": {
     "id": "google_servicemanagement",
@@ -5377,7 +5705,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_serviceuser": {
     "id": "google_serviceuser",
@@ -5405,7 +5734,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_sheets": {
     "id": "google_sheets",
@@ -5434,7 +5764,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_siteverification": {
     "id": "google_siteverification",
@@ -5461,7 +5792,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_slides": {
     "id": "google_slides",
@@ -5492,7 +5824,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_sourcerepo": {
     "id": "google_sourcerepo",
@@ -5518,7 +5851,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_spanner": {
     "id": "google_spanner",
@@ -5544,13 +5878,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_spectrum": {
     "id": "google_spectrum",
     "title": "Google Spectrum Database",
     "description": "API for spectrum-management functions.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_speech": {
     "id": "google_speech",
@@ -5576,7 +5912,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_sqladmin": {
     "id": "google_sqladmin",
@@ -5603,7 +5940,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_storage": {
     "id": "google_storage",
@@ -5633,7 +5971,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png"
   },
   "google_storagetransfer": {
     "id": "google_storagetransfer",
@@ -5659,7 +5998,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_supportcases": {
     "id": "google_supportcases",
@@ -5687,7 +6027,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_surveys": {
     "id": "google_surveys",
@@ -5715,7 +6056,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_tagmanager": {
     "id": "google_tagmanager",
@@ -5747,7 +6089,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_taskqueue": {
     "id": "google_taskqueue",
@@ -5774,7 +6117,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_tasks": {
     "id": "google_tasks",
@@ -5801,7 +6145,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_toolresults": {
     "id": "google_toolresults",
@@ -5827,7 +6172,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_tracing": {
     "id": "google_tracing",
@@ -5855,13 +6201,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_translate": {
     "id": "google_translate",
     "title": "Translate",
     "description": "Translates text from one language to another.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
   "google_urlshortener": {
     "id": "google_urlshortener",
@@ -5887,7 +6235,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_vision": {
     "id": "google_vision",
@@ -5913,13 +6262,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_webfonts": {
     "id": "google_webfonts",
     "title": "Google Fonts Developer",
     "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (includi...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_webmasters": {
     "id": "google_webmasters",
@@ -5946,7 +6297,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "google_youtube": {
     "id": "google_youtube",
@@ -5977,7 +6329,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
   },
   "google_youtubeanalytics": {
     "id": "google_youtubeanalytics",
@@ -6007,7 +6360,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
   },
   "google_youtubereporting": {
     "id": "google_youtubereporting",
@@ -6034,7 +6388,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
   "gov_bc_ca_bcdc": {
     "id": "gov_bc_ca_bcdc",
@@ -6078,13 +6433,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_bcgnws": {
     "id": "gov_bc_ca_bcgnws",
     "title": "BC Geographical Names Web Service -",
     "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, in...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_geocoder": {
     "id": "gov_bc_ca_geocoder",
@@ -6097,25 +6454,29 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_geomark": {
     "id": "gov_bc_ca_geomark",
     "title": "GeoMark Web Service",
     "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_jobposting": {
     "id": "gov_bc_ca_jobposting",
     "title": "WorkBC Job Posting",
     "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_open511": {
     "id": "gov_bc_ca_open511",
     "title": "DriveBC's Open511",
     "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (tra...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "gov_bc_ca_router": {
     "id": "gov_bc_ca_router",
@@ -6128,7 +6489,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
   "graphhopper": {
     "id": "graphhopper",
@@ -6141,7 +6503,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png"
   },
   "hacker_news": {
     "id": "hacker_news",
@@ -6157,29 +6520,34 @@
         "integration": "healthcare_gov",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
   },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
     "title": "hetras Booking API Version 0",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
   },
   "hetras_certification_hotel": {
     "id": "hetras_certification_hotel",
     "title": "hetras Hotel API Version 0",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
   },
   "hhs_gov": {
     "id": "hhs_gov",
     "title": "HHS Media Services",
     "description": "",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.hhs.gov_sites_all_themes_project_h_css_images_hhs_logo.png"
   },
   "idtbeyond": {
     "id": "idtbeyond",
     "title": "Active Documentation for /v1",
     "description": "Our active docs provide the ability to test out your account and to see the responses to your queries. The services are ...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png"
   },
   "ijenko": {
     "id": "ijenko",
@@ -6192,7 +6560,8 @@
           "Token in query": "Token in query"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
   },
   "import_data": {
     "id": "import_data",
@@ -6204,7 +6573,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
   },
   "import_extraction": {
     "id": "import_extraction",
@@ -6216,7 +6586,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
   },
   "import_rss": {
     "id": "import_rss",
@@ -6228,7 +6599,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
   },
   "import_run": {
     "id": "import_run",
@@ -6240,7 +6612,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
   },
   "import_schedule": {
     "id": "import_schedule",
@@ -6252,7 +6625,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
   },
   "inboxroute": {
     "id": "inboxroute",
@@ -6265,13 +6639,15 @@
           "mqApiKey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png"
   },
   "infermedica": {
     "id": "infermedica",
     "title": "Infermedica",
     "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png"
   },
   "instagram": {
     "id": "instagram",
@@ -6301,7 +6677,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg"
   },
   "jirafe": {
     "id": "jirafe",
@@ -6326,12 +6703,14 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
   },
   "learnifier": {
     "id": "learnifier",
     "title": "Learnifier",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png"
   },
   "lyft": {
     "id": "lyft",
@@ -6356,13 +6735,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg"
   },
   "magick_nu": {
     "id": "magick_nu",
     "title": "Tradeworks",
     "description": "Authentication is required to access all methods of the API. Enter username and password.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png"
   },
   "mandrillapp": {
     "id": "mandrillapp",
@@ -6373,7 +6754,8 @@
         "integration": "mandrillapp",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
   },
   "medium": {
     "id": "medium",
@@ -6403,13 +6785,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png"
   },
   "moonmoonmoonmoon": {
     "id": "moonmoonmoonmoon",
     "title": "Moon by Ai Weiwei & Olafur Eliasson",
     "description": "Turn nothing into something – make a drawing, make a mark.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png"
   },
   "motaword": {
     "id": "motaword",
@@ -6431,7 +6815,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png"
   },
   "mozilla_kinto": {
     "id": "mozilla_kinto",
@@ -6444,19 +6829,22 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png"
   },
   "nativeads": {
     "id": "nativeads",
     "title": "Native Ads Publisher",
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
   },
   "nba": {
     "id": "nba",
     "title": "NBA Stats",
     "description": "The destination for current and historic NBA statistics.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg"
   },
   "neowsapp": {
     "id": "neowsapp",
@@ -6492,7 +6880,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png"
   },
   "netlicensing": {
     "id": "netlicensing",
@@ -6507,7 +6896,8 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
   },
   "neutrinoapi": {
     "id": "neutrinoapi",
@@ -6521,7 +6911,8 @@
           "user-id": "Your user ID"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png"
   },
   "npr_rss": {
     "id": "npr_rss",
@@ -6539,7 +6930,8 @@
           "api_key": "API Key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
   },
   "nrel_transportation_incentives_laws": {
     "id": "nrel_transportation_incentives_laws",
@@ -6552,13 +6944,15 @@
           "api_key": "API Key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
   },
   "nsidc": {
     "id": "nsidc",
     "title": "NSIDC Web Service Documentation Index",
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg"
   },
   "nytimes_article_search": {
     "id": "nytimes_article_search",
@@ -6571,7 +6965,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_books_api": {
     "id": "nytimes_books_api",
@@ -6584,7 +6979,8 @@
           "api-key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_community": {
     "id": "nytimes_community",
@@ -6597,7 +6993,8 @@
           "api-key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_geo_api": {
     "id": "nytimes_geo_api",
@@ -6610,7 +7007,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_most_popular_api": {
     "id": "nytimes_most_popular_api",
@@ -6623,7 +7021,8 @@
           "api-key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_movie_reviews": {
     "id": "nytimes_movie_reviews",
@@ -6636,7 +7035,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_rss": {
     "id": "nytimes_rss",
@@ -6654,7 +7054,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_times_tags": {
     "id": "nytimes_times_tags",
@@ -6667,7 +7068,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_timeswire": {
     "id": "nytimes_timeswire",
@@ -6680,7 +7082,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "nytimes_top_stories": {
     "id": "nytimes_top_stories",
@@ -6693,7 +7096,8 @@
           "apikey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
   "oceandrivers": {
     "id": "oceandrivers",
@@ -6710,19 +7114,22 @@
         "integration": "omdbapi",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_raw.githubusercontent.com_Mermade_open_api_specifications_master_OMDb_OMDb.png"
   },
   "openapi_converter_herokuapp": {
     "id": "openapi_converter_herokuapp",
     "title": "Swagger2OpenAPI Converter",
     "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png"
   },
   "opencagedata": {
     "id": "opencagedata",
     "title": "OpenCage Geocoder",
     "description": "Worldwide forward and reverse geocoding",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
   },
   "orghunter": {
     "id": "orghunter",
@@ -6735,7 +7142,8 @@
           "user_key": "Your API access key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg"
   },
   "owler": {
     "id": "owler",
@@ -6748,12 +7156,14 @@
           "user_key": "API Access Key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png"
   },
   "oxforddictionaries": {
     "id": "oxforddictionaries",
     "title": "Oxford Dictionaries",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png"
   },
   "pandorabots": {
     "id": "pandorabots",
@@ -6778,13 +7188,15 @@
     "id": "patientview",
     "title": "PatientView",
     "description": "The recommended REST API endpoints to be used when integrating with PatientView",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
   },
   "peel_ci": {
     "id": "peel_ci",
     "title": "Peel Tune-in API",
     "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtag...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg"
   },
   "posty": {
     "id": "posty",
@@ -6803,7 +7215,8 @@
           "basket_token": "Basket assigned secure token"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg"
   },
   "rebilly": {
     "id": "rebilly",
@@ -6819,7 +7232,8 @@
           "RebAuth": "Only for the Tokens resource.\nThe REB-AUTH value is created in this way\nGenerate a Nonce (random string), and a Timestamp (unix timestamp)\nConcatenate the values of ApiUser, Nonce, and Timestamp (in that order).\nUse that value as the input data when you calculate the <a href=\"http://tools.ietf.org/html/rfc2104\">HMAC-SHA1</a> with your secret key, called the signature.\nForming the four data points into a JSON object.\n\n```json\n{\n  \"REB-APIUSER\": \"abcdefg\",\n  \"REB-NONCE\": \"adfsjtreitou345fgkdafgj\",\n  \"REB-TIMESTAMP\": \"1382591345\",\n  \"REB-SIGNATURE\": \"a234fc95460401cfg09c9d09\"\n}\n```\n\nThen base64 encode that JSON object. This is the final value of the REB-AUTH HTTP header\n"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
   },
   "reddit_rss": {
     "id": "reddit_rss",
@@ -6830,7 +7244,8 @@
     "id": "refugerestrooms",
     "title": "Refuge Restrooms",
     "description": "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconformi...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png"
   },
   "reverb": {
     "id": "reverb",
@@ -6869,7 +7284,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
   },
   "ritc": {
     "id": "ritc",
@@ -6882,7 +7298,8 @@
           "Authorization": "HTTP Basic Authentication/API Key. Basic Auth requires a username and a password. For the username, use a valid API key. Ritc accepts the API key as both plaintext and base64 encoded. Remember that you must append a colon after the api key in order to avoid being prompted for a password. The format is Base64encode(api-key:)"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
   },
   "rottentomatoes": {
     "id": "rottentomatoes",
@@ -6895,13 +7312,15 @@
           "key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_staticv2.rottentomatoes.com_static_images_logos_rtlogo.png"
   },
   "rummblelabs": {
     "id": "rummblelabs",
     "title": "Seldon",
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
   },
   "runscope": {
     "id": "runscope",
@@ -6933,7 +7352,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png"
   },
   "schooldigger": {
     "id": "schooldigger",
@@ -6951,7 +7371,8 @@
     "id": "semantria",
     "title": "Semantria",
     "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
   },
   "sendgrid": {
     "id": "sendgrid",
@@ -6963,7 +7384,8 @@
           "Authorization": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png"
   },
   "simplyrets": {
     "id": "simplyrets",
@@ -7042,13 +7464,15 @@
           "name": "token"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png"
   },
   "slideroom": {
     "id": "slideroom",
     "title": "SlideRoom API V2",
     "description": "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png"
   },
   "smart_me": {
     "id": "smart_me",
@@ -7062,7 +7486,8 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
   },
   "solarvps": {
     "id": "solarvps",
@@ -7075,13 +7500,15 @@
           "apiKey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
   },
   "spectrocoin": {
     "id": "spectrocoin",
     "title": "SpectroCoin Merchant",
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg"
   },
   "spotify": {
     "id": "spotify",
@@ -7155,7 +7582,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
   },
   "stackexchange": {
     "id": "stackexchange",
@@ -7178,7 +7606,8 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
   },
   "statsocial": {
     "id": "statsocial",
@@ -7191,13 +7620,15 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg"
   },
   "swagger_generator": {
     "id": "swagger_generator",
     "title": "Swagger Generator",
     "description": "This is an online swagger codegen server.  You can find out more at https://github.com/swagger-api/swagger-codegen or on...",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
   },
   "swaggerhub": {
     "id": "swaggerhub",
@@ -7210,13 +7641,15 @@
           "TokenSecured": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg"
   },
   "t213_vg": {
     "id": "t213_vg",
     "title": "Magento Enterprise",
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
   },
   "taxamo": {
     "id": "taxamo",
@@ -7229,7 +7662,8 @@
           "apiKey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_i.imgur.com_C7ouKJt.png"
   },
   "tfl_gov_uk": {
     "id": "tfl_gov_uk",
@@ -7243,13 +7677,15 @@
           "appId": "Application ID"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg"
   },
   "thenounproject": {
     "id": "thenounproject",
     "title": "The Noun Project",
     "description": "Icons for Everything",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
   },
   "thetvdb": {
     "id": "thetvdb",
@@ -7262,7 +7698,8 @@
           "jwtToken": "JWT token prefixed with \"Bearer \""
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png"
   },
   "traccar": {
     "id": "traccar",
@@ -7276,7 +7713,8 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
   },
   "trello": {
     "id": "trello",
@@ -7290,7 +7728,8 @@
           "api_token": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
   },
   "twilio": {
     "id": "twilio",
@@ -7304,13 +7743,15 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg"
   },
   "uebermaps": {
     "id": "uebermaps",
     "title": "uebermaps API endpoints",
     "description": "Enable people to store spots on public and private maps",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
   },
   "vatapi": {
     "id": "vatapi",
@@ -7323,19 +7764,22 @@
           "apikey": "Enter your API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
   },
   "versioneye": {
     "id": "versioneye",
     "title": "Available API endpoints",
     "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
   },
   "vestorly": {
     "id": "vestorly",
     "title": "Vestorly",
     "description": "Vestorly Developers API",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png"
   },
   "visagecloud": {
     "id": "visagecloud",
@@ -7348,18 +7792,21 @@
           "accessKey": "The accessKey provided by VisageCloud"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png"
   },
   "waag": {
     "id": "waag",
     "title": "CitySDK Linked Data",
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
   },
   "watchful_li": {
     "id": "watchful_li",
     "title": "watchful.li",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg"
   },
   "wavecell": {
     "id": "wavecell",
@@ -7373,7 +7820,8 @@
           "password": "Your password"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_766560979630952448_XIUTg1a4.jpg"
   },
   "wikimedia": {
     "id": "wikimedia",
@@ -7386,7 +7834,8 @@
           "mediawiki_auth": "Checks permissions using MW api"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png"
   },
   "windows_arm_graphrbac": {
     "id": "windows_arm_graphrbac",
@@ -7411,13 +7860,15 @@
           "type": "oauth2"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "windows_batch": {
     "id": "windows_batch",
     "title": "BatchService",
     "description": "A client for issuing REST requests to the Azure Batch service.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
   "winning_email": {
     "id": "winning_email",
@@ -7430,7 +7881,8 @@
           "internalApiKey": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
   },
   "wordnik": {
     "id": "wordnik",
@@ -7443,7 +7895,8 @@
           "api_key": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png"
   },
   "xkcd": {
     "id": "xkcd",
@@ -7454,19 +7907,22 @@
         "integration": "xkcd",
         "fields": {}
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
   },
   "yunbi": {
     "id": "yunbi",
     "title": "Yunbi",
     "description": "Professional Cloud Trading Platform for Digital Assets",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
   },
   "zappiti": {
     "id": "zappiti",
     "title": "Zappiti Player",
     "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
-    "security": {}
+    "security": {},
+    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png"
   },
   "zoomconnect": {
     "id": "zoomconnect",
@@ -7480,7 +7936,8 @@
           "token": "API key"
         }
       }
-    }
+    },
+    "logoURL": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
   },
   "http": {
     "id": "http",

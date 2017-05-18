@@ -3,6 +3,7 @@
   "title": "BC Geographical Names Web Service -",
   "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, including name status and details about the corresponding geographic feature.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
   "actions": [
     {
       "id": "featureCategories.get",

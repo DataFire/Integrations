@@ -3,6 +3,7 @@
   "title": "Url2Label by tfidf APIs",
   "description": "Url to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/20",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg",
   "definitions": {
     "LabelEntity": {
       "properties": {

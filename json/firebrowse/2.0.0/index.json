@@ -3,6 +3,7 @@
   "title": "FireBrowse Beta API",
   "description": "A simple and elegant way to explore cancer data",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png",
   "actions": [
     {
       "id": "All",

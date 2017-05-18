@@ -27,6 +27,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png",
   "definitions": {
     "NADashboardData": {
       "properties": {

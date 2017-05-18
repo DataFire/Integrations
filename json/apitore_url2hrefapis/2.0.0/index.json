@@ -3,6 +3,7 @@
   "title": "Url2Href APIs",
   "description": "Url to Href links.<BR />[Endpoint] https://api.apitore.com/api/14",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg",
   "definitions": {
     "LinkResponseEntity": {
       "properties": {

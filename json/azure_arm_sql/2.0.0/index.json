@@ -3,6 +3,7 @@
   "title": "Azure SQL Database",
   "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
   "definitions": {
     "ProxyResource": {
       "allOf": [

@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png",
   "definitions": {
     "ErrorModel": {
       "properties": {

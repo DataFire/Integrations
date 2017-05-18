@@ -3,6 +3,7 @@
   "title": "Stationsdatenbereitstellung",
   "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger file.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
   "definitions": {
     "Address": {
       "properties": {

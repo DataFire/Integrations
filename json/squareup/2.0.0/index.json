@@ -36,6 +36,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png",
   "definitions": {
     "Address": {
       "description": "Represents a physical address.",

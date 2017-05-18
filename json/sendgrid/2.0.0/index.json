@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png",
   "definitions": {
     "advanced_stats_clicks": {
       "properties": {

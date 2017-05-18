@@ -11,6 +11,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png",
   "definitions": {
     "ApiError": {
       "allOf": [

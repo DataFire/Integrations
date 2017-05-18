@@ -11,6 +11,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png",
   "definitions": {
     "City": {
       "properties": {

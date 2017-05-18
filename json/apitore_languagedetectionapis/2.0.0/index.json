@@ -3,6 +3,7 @@
   "title": "Language Detection APIs",
   "description": "Language detection.<BR />[Endpoint] https://api.apitore.com/api/22",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg",
   "definitions": {
     "LanguageEntity": {
       "properties": {

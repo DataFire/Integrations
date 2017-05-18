@@ -27,6 +27,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg",
   "definitions": {
     "ClassRoles": {
       "description": "User's Class Role (for Edu users only)",

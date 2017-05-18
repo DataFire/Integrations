@@ -3,6 +3,7 @@
   "title": "The Consumer Financial Protection Bureau",
   "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png",
   "definitions": {
     "QueryResponse": {
       "description": "Response to a slice query.",

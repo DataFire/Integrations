@@ -10,6 +10,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png",
   "actions": [
     {
       "id": "AdultContentDetection",

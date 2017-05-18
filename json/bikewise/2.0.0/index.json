@@ -3,6 +3,7 @@
   "title": "BikeWise API v2",
   "description": "<p>This is an API for accessing information about bicycling related incidents. You can find the source code on <a href=\"https://github.com/bikeindex/bikewise\">GitHub</a>.</p>\n",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico",
   "actions": [
     {
       "id": "v2.incidents.get",

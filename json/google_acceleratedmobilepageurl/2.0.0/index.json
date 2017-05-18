@@ -3,6 +3,7 @@
   "title": "Accelerated Mobile Pages (AMP) URL",
   "description": "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for given public URL(s).\n",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
   "definitions": {
     "AmpUrl": {
       "description": "AMP URL response for a requested URL.",

@@ -3,6 +3,7 @@
   "title": "Translate",
   "description": "Translates text from one language to another.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
   "definitions": {
     "DetectionsListResponse": {
       "properties": {

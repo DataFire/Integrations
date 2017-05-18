@@ -3,6 +3,7 @@
   "title": "Native Ads Publisher",
   "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\n",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png",
   "definitions": {
     "authResponse": {
       "properties": {

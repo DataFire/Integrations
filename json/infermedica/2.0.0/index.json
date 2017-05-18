@@ -3,6 +3,7 @@
   "title": "Infermedica",
   "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png",
   "definitions": {
     "Choice": {
       "properties": {

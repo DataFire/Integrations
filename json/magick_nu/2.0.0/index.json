@@ -3,6 +3,7 @@
   "title": "Tradeworks",
   "description": "Authentication is required to access all methods of the API. Enter username and password.\n                Credentials are automatically set as you type.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png",
   "definitions": {
     "TradingAccount": {
       "properties": {

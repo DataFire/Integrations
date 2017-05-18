@@ -27,6 +27,7 @@
       }
     }
   },
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png",
   "definitions": {
     "Bucket": {
       "description": "A bucket.",

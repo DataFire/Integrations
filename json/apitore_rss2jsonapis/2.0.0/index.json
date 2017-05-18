@@ -3,6 +3,7 @@
   "title": "RSS2JSON APIs",
   "description": "Rss to Json.<BR />[Endpoint] https://api.apitore.com/api/28",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg",
   "definitions": {
     "SyndEntryEntity": {
       "properties": {

@@ -3,6 +3,7 @@
   "title": "News feeds APIs",
   "description": "Various news feeds.<BR />[Endpoint] https://api.apitore.com/api/34",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg",
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

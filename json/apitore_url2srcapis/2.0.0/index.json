@@ -3,6 +3,7 @@
   "title": "Url2Src APIs",
   "description": "Url to Image src urls.<BR />[Endpoint] https://api.apitore.com/api/15",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg",
   "definitions": {
     "LinkResponseEntity": {
       "properties": {

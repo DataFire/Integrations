@@ -3,6 +3,7 @@
   "title": "Available API endpoints",
   "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
   "security": {},
+  "logoURL": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png",
   "actions": [
     {
       "id": "getFacebookPing",
