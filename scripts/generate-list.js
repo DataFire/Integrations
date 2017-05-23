@@ -47,6 +47,7 @@ function addDirToList(dir) {
     };
     let details = Object.assign({}, list[name]);
     list[name].description = truncateDescription(list[name].description);
+    list[name].actionCount = integ.allActions.length;
 
     details.actions = integ.allActions.map(action => {
       details.definitions = details.definitions || action.inputSchema.definitions;
