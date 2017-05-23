@@ -3,7 +3,10 @@
   "title": "Swagger2OpenAPI Converter",
   "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png",
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png"
+  },
   "actions": [
     {
       "id": "getBadge",

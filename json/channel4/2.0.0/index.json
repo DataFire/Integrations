@@ -10,7 +10,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif",
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
+  },
   "definitions": {
     "ContentTypeType": {
       "additionalProperties": false,

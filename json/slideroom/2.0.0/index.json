@@ -3,7 +3,10 @@
   "title": "SlideRoom API V2",
   "description": "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png",
+  "logo": {
+    "backgroundColor": "#000000",
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png"
+  },
   "definitions": {
     "ExportResultV2": {
       "properties": {

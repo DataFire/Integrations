@@ -3,7 +3,9 @@
   "title": "Tech feeds APIs",
   "description": "Various tech feeds.<BR />[Endpoint] https://api.apitore.com/api/35",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg"
+  },
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

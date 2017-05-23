@@ -3,7 +3,9 @@
   "title": "Text2Label by tfidf APIs",
   "description": "Text to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/18",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
+  },
   "definitions": {
     "LabelEntity": {
       "properties": {

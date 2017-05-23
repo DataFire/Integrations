@@ -3,7 +3,9 @@
   "title": "Sentiment APIs",
   "description": "Japanese sentiment analyzer.<BR />[Endpoint] https://api.apitore.com/api/11",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg"
+  },
   "definitions": {
     "SentimentEntity": {
       "properties": {

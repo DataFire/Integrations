@@ -36,7 +36,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
+  },
   "definitions": {},
   "actions": [
     {

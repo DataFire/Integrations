@@ -3,7 +3,9 @@
   "title": "uebermaps API endpoints",
   "description": "Enable people to store spots on public and private maps",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
+  },
   "definitions": {
     "Attachment": {
       "properties": {

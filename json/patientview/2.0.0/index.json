@@ -3,7 +3,9 @@
   "title": "PatientView",
   "description": "The recommended REST API endpoints to be used when integrating with PatientView",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
+  },
   "definitions": {
     "ApiKey": {
       "properties": {

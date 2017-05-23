@@ -3,7 +3,9 @@
   "title": "IntuneResourceManagementClient",
   "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+  },
   "definitions": {
     "AndroidMAMPolicy": {
       "allOf": [

@@ -3,7 +3,9 @@
   "title": "Url2Label by word vector APIs",
   "description": "Url to label by word2vec of contents.<BR />[Endpoint] https://api.apitore.com/api/21",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg"
+  },
   "definitions": {
     "LabelEntity": {
       "properties": {

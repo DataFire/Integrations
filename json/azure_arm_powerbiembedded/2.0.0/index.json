@@ -3,7 +3,9 @@
   "title": "Power BI Embedded Management Client",
   "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+  },
   "definitions": {
     "AzureSku": {
       "properties": {

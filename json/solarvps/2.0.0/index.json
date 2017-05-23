@@ -10,7 +10,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
+  },
   "actions": [
     {
       "id": "contacts.get",

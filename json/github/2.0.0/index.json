@@ -42,7 +42,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
+  },
   "definitions": {
     "asset": {
       "properties": {

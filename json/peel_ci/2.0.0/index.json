@@ -3,7 +3,9 @@
   "title": "Peel Tune-in API",
   "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtags in real time and to generate direct tune-in URLs.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg"
+  },
   "actions": [
     {
       "id": "getRelatedHashtags",

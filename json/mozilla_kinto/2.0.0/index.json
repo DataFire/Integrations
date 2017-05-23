@@ -11,7 +11,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png",
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png"
+  },
   "actions": [
     {
       "id": "server_info",

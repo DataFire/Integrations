@@ -24,7 +24,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+  },
   "definitions": {
     "Activities": {
       "description": "JSON template for a collection of activites.",

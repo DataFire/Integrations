@@ -13,7 +13,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg",
+  "logo": {
+    "backgroundColor": "#0033A0",
+    "url": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
+  },
   "definitions": {
     "A1Gateway": {
       "allOf": [

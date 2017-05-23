@@ -22,7 +22,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png",
+  "logo": {
+    "backgroundColor": "#4BC9C5",
+    "url": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
+  },
   "definitions": {
     "Address": {},
     "Attribute": {

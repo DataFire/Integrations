@@ -30,7 +30,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png"
+  },
   "definitions": {
     "About": {
       "description": "Information about the user, the user's Drive, and system capabilities.",

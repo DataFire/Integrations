@@ -10,7 +10,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg"
+  },
   "definitions": {
     "18_24": {
       "properties": {

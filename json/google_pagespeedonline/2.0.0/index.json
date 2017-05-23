@@ -3,7 +3,9 @@
   "title": "PageSpeed Insights",
   "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+  },
   "definitions": {
     "PagespeedApiFormatStringV2": {
       "properties": {

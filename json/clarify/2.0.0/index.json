@@ -3,7 +3,10 @@
   "title": "Clarify",
   "description": "The API to Search and Understand Audio & Video Data.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png",
+  "logo": {
+    "backgroundColor": "#65A8B5",
+    "url": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png"
+  },
   "definitions": {
     "Bundle": {
       "$ref": "#/definitions/object",

@@ -3,7 +3,9 @@
   "title": "Europeana",
   "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything from the simplest search to a complex query using facetList such as dates, geotags and permissions. For more help and information, head to our comprehensive <a href=\"http://labs.europeana.eu/api/\">online documentation</a>.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png"
+  },
   "definitions": {
     "AtomLink": {
       "properties": {

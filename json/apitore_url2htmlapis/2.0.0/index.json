@@ -3,7 +3,9 @@
   "title": "Url2Html APIs",
   "description": "Url to Html.<BR />[Endpoint] https://api.apitore.com/api/12",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg"
+  },
   "definitions": {
     "TextResponseEntity": {
       "properties": {

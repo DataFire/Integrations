@@ -10,7 +10,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+  "logo": {
+    "backgroundColor": "#F6248E",
+    "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+  },
   "definitions": {
     "APIError": {
       "properties": {

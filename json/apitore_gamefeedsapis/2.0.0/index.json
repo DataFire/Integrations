@@ -3,7 +3,9 @@
   "title": "Game feeds APIs",
   "description": "Various game feeds.<BR />[Endpoint] https://api.apitore.com/api/33",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg"
+  },
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

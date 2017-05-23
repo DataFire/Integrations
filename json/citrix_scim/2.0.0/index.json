@@ -3,7 +3,10 @@
   "title": "SCIM",
   "description": "The SCIM API lets you manage users in your organization. You can then automate the provisioning of product licenses for these users, and they can use your company's Single Sign-On solution through an Identity Provider.",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+  "logo": {
+    "backgroundColor": "#5F6166",
+    "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+  },
   "definitions": {
     "AuthenticationSchemes": {
       "description": "Specifies supported Authentication Scheme properties",

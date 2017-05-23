@@ -10,7 +10,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png",
+  "logo": {
+    "backgroundColor": "#0079C5",
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+  },
   "actions": [
     {
       "id": "project",

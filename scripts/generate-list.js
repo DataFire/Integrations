@@ -43,7 +43,7 @@ function addDirToList(dir) {
       title: integ.title,
       description: integ.description,
       security: integ.security,
-      logoURL: integ.logoURL,
+      logo: integ.logo,
     };
     let details = Object.assign({}, list[name]);
     list[name].description = truncateDescription(list[name].description);

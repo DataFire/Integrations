@@ -3,7 +3,9 @@
   "title": "The Noun Project",
   "description": "Icons for Everything",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
+  },
   "actions": [
     {
       "id": "getCollectionById",

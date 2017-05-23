@@ -3,7 +3,9 @@
   "title": "Twitter APIs with Word2Vec query expansion",
   "description": "Call Twitter APIs with word2vec query expansion.<BR />[Endpoint] https://api.apitore.com/api/24",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg"
+  },
   "definitions": {
     "TweetEntity": {
       "properties": {

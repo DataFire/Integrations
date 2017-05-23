@@ -3,7 +3,9 @@
   "title": "Beanstream Payments",
   "description": "https://www.beanstream.com/api/v1",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
+  },
   "definitions": {
     "Address": {
       "properties": {

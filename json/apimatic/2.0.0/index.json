@@ -12,7 +12,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg",
+  "logo": {
+    "backgroundColor": "#2a313a",
+    "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
+  },
   "actions": [
     {
       "id": "ConvertAPI",

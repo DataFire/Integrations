@@ -3,7 +3,9 @@
   "title": "Words to Vectors APIs",
   "description": "Word to vectors.<BR />[Endpoint] https://api.apitore.com/api/10",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg"
+  },
   "definitions": {
     "WordVectorResponseEntity": {
       "properties": {

@@ -24,7 +24,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+  },
   "definitions": {
     "Cohort": {
       "description": "Defines a cohort. A cohort is a group of users who share a common\ncharacteristic. For example, all users with the same acquisition date\nbelong to the same cohort.",

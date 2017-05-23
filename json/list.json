@@ -3,7 +3,10 @@
     "id": "6_dot_authentiqio_appspot",
     "title": "Authentiq",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg",
+    "logo": {
+      "backgroundColor": "#F26641",
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
+    },
     "actionCount": 14
   },
   "amadeus": {
@@ -17,7 +20,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png"
+    },
     "actionCount": 23
   },
   "amazonaws_acm": {
@@ -32,7 +37,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 10
   },
   "amazonaws_apigateway": {
@@ -47,7 +55,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 47
   },
   "amazonaws_appstream2": {
@@ -62,7 +73,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 18
   },
   "amazonaws_autoscaling": {
@@ -77,7 +91,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 7
   },
   "amazonaws_batch": {
@@ -92,7 +109,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 16
   },
   "amazonaws_budgets": {
@@ -107,7 +127,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 13
   },
   "amazonaws_clouddirectory": {
@@ -122,7 +145,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 47
   },
   "amazonaws_cloudformation": {
@@ -137,7 +163,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 26
   },
   "amazonaws_cloudfront": {
@@ -152,7 +181,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_cloudhsm": {
@@ -167,7 +199,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 20
   },
   "amazonaws_cloudsearch": {
@@ -182,7 +217,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 24
   },
   "amazonaws_cloudsearchdomain": {
@@ -197,7 +235,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 3
   },
   "amazonaws_cloudtrail": {
@@ -212,7 +253,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 14
   },
   "amazonaws_codebuild": {
@@ -227,7 +271,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 11
   },
   "amazonaws_codecommit": {
@@ -242,7 +289,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_codedeploy": {
@@ -257,7 +307,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 37
   },
   "amazonaws_codepipeline": {
@@ -272,7 +325,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 26
   },
   "amazonaws_codestar": {
@@ -287,7 +343,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 15
   },
   "amazonaws_cognito_identity": {
@@ -302,7 +361,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 18
   },
   "amazonaws_cognito_idp": {
@@ -317,7 +379,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 65
   },
   "amazonaws_cognito_sync": {
@@ -332,7 +397,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 12
   },
   "amazonaws_config": {
@@ -347,7 +415,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 26
   },
   "amazonaws_cur": {
@@ -362,7 +433,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 3
   },
   "amazonaws_data_iot": {
@@ -377,7 +451,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 2
   },
   "amazonaws_datapipeline": {
@@ -392,7 +469,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 19
   },
   "amazonaws_devicefarm": {
@@ -407,7 +487,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 49
   },
   "amazonaws_directconnect": {
@@ -422,7 +505,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 37
   },
   "amazonaws_discovery": {
@@ -437,7 +523,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 19
   },
   "amazonaws_dms": {
@@ -452,7 +541,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 33
   },
   "amazonaws_ds": {
@@ -467,7 +559,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 38
   },
   "amazonaws_dynamodb": {
@@ -482,7 +577,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 19
   },
   "amazonaws_ec2": {
@@ -497,7 +595,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 228
   },
   "amazonaws_ecr": {
@@ -512,7 +613,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_ecs": {
@@ -527,7 +631,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 31
   },
   "amazonaws_elasticache": {
@@ -542,7 +649,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 39
   },
   "amazonaws_elasticbeanstalk": {
@@ -557,7 +667,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 41
   },
   "amazonaws_elasticfilesystem": {
@@ -572,7 +685,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 8
   },
   "amazonaws_elasticloadbalancing": {
@@ -587,7 +703,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 31
   },
   "amazonaws_elasticmapreduce": {
@@ -602,7 +721,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 27
   },
   "amazonaws_elastictranscoder": {
@@ -617,7 +739,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 11
   },
   "amazonaws_email": {
@@ -632,7 +757,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 49
   },
   "amazonaws_entitlement_marketplace": {
@@ -647,7 +775,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 1
   },
   "amazonaws_es": {
@@ -662,7 +793,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 11
   },
   "amazonaws_events": {
@@ -677,7 +811,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 12
   },
   "amazonaws_firehose": {
@@ -692,7 +829,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 7
   },
   "amazonaws_gamelift": {
@@ -707,7 +847,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 47
   },
   "amazonaws_glacier": {
@@ -722,7 +865,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 18
   },
   "amazonaws_health": {
@@ -737,7 +883,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 6
   },
   "amazonaws_iam": {
@@ -752,7 +901,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 120
   },
   "amazonaws_importexport": {
@@ -767,7 +919,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 6
   },
   "amazonaws_inspector": {
@@ -782,7 +937,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 32
   },
   "amazonaws_iot": {
@@ -797,7 +955,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 34
   },
   "amazonaws_kinesis": {
@@ -812,7 +973,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 19
   },
   "amazonaws_kinesisanalytics": {
@@ -826,7 +990,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 13
   },
   "amazonaws_kms": {
@@ -841,7 +1008,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 35
   },
   "amazonaws_lambda": {
@@ -856,7 +1026,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 16
   },
   "amazonaws_lightsail": {
@@ -871,7 +1044,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 47
   },
   "amazonaws_machinelearning": {
@@ -886,7 +1062,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 28
   },
   "amazonaws_marketplacecommerceanalytics": {
@@ -901,7 +1080,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 2
   },
   "amazonaws_metering_marketplace": {
@@ -916,7 +1098,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 3
   },
   "amazonaws_mobileanalytics": {
@@ -931,7 +1116,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 1
   },
   "amazonaws_models_lex": {
@@ -946,7 +1134,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 29
   },
   "amazonaws_monitoring": {
@@ -961,7 +1152,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 11
   },
   "amazonaws_mturk_requester": {
@@ -976,7 +1170,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 39
   },
   "amazonaws_opsworks": {
@@ -991,7 +1188,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 70
   },
   "amazonaws_opsworks_cm": {
@@ -1006,7 +1206,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 15
   },
   "amazonaws_organizations": {
@@ -1021,7 +1224,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 39
   },
   "amazonaws_pinpoint": {
@@ -1035,7 +1241,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 18
   },
   "amazonaws_polly": {
@@ -1050,7 +1259,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 4
   },
   "amazonaws_rds": {
@@ -1065,7 +1277,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 87
   },
   "amazonaws_redshift": {
@@ -1080,7 +1295,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 63
   },
   "amazonaws_rekognition": {
@@ -1095,7 +1313,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 12
   },
   "amazonaws_route53": {
@@ -1109,7 +1330,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 35
   },
   "amazonaws_route53domains": {
@@ -1124,7 +1348,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 23
   },
   "amazonaws_runtime_lex": {
@@ -1139,7 +1366,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 2
   },
   "amazonaws_s3": {
@@ -1153,7 +1383,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 66
   },
   "amazonaws_sdb": {
@@ -1168,7 +1401,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 10
   },
   "amazonaws_servicecatalog": {
@@ -1183,7 +1419,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 43
   },
   "amazonaws_shield": {
@@ -1198,7 +1437,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 9
   },
   "amazonaws_sms": {
@@ -1213,7 +1455,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 11
   },
   "amazonaws_snowball": {
@@ -1228,7 +1473,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_sns": {
@@ -1243,7 +1491,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 30
   },
   "amazonaws_sqs": {
@@ -1258,7 +1509,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_ssm": {
@@ -1273,7 +1527,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 80
   },
   "amazonaws_states": {
@@ -1288,7 +1545,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 17
   },
   "amazonaws_storagegateway": {
@@ -1303,7 +1563,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 62
   },
   "amazonaws_streams_dynamodb": {
@@ -1318,7 +1581,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 4
   },
   "amazonaws_sts": {
@@ -1333,7 +1599,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 7
   },
   "amazonaws_support": {
@@ -1348,7 +1617,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 14
   },
   "amazonaws_swf": {
@@ -1363,7 +1635,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 31
   },
   "amazonaws_tagging": {
@@ -1378,7 +1653,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 5
   },
   "amazonaws_waf": {
@@ -1393,7 +1671,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 38
   },
   "amazonaws_waf_regional": {
@@ -1408,7 +1689,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 42
   },
   "amazonaws_workdocs": {
@@ -1423,7 +1707,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 16
   },
   "amazonaws_workspaces": {
@@ -1438,7 +1725,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 14
   },
   "amazonaws_xray": {
@@ -1453,7 +1743,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
     "actionCount": 6
   },
   "apacta": {
@@ -1469,7 +1762,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png"
+    },
     "actionCount": 123
   },
   "apimatic": {
@@ -1486,7 +1782,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg",
+    "logo": {
+      "backgroundColor": "#2a313a",
+      "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
+    },
     "actionCount": 1
   },
   "apis_guru": {
@@ -1494,7 +1793,9 @@
     "title": "APIs.guru",
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
+    },
     "actionCount": 2
   },
   "apitore_2chmatomefeedsapis": {
@@ -1502,7 +1803,9 @@
     "title": "2ch matome feeds APIs",
     "description": "Various 2ch matome feeds.[Endpoint] https://api.apitore.com/api/29",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
+    },
     "actionCount": 1
   },
   "apitore_certificatefeedsapis": {
@@ -1510,7 +1813,9 @@
     "title": "Certificate feeds APIs",
     "description": "Various certificate feeds.[Endpoint] https://api.apitore.com/api/31",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg"
+    },
     "actionCount": 1
   },
   "apitore_designfeedsapis": {
@@ -1518,7 +1823,9 @@
     "title": "Design feeds APIs",
     "description": "Various design feeds.[Endpoint] https://api.apitore.com/api/32",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg"
+    },
     "actionCount": 1
   },
   "apitore_documentfrequencyapis": {
@@ -1526,7 +1833,9 @@
     "title": "Document frequency APIs",
     "description": "Document frequency of Wikipedia.[Endpoint] https://api.apitore.com/api/16",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_16.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_16.jpg"
+    },
     "actionCount": 1
   },
   "apitore_gamefeedsapis": {
@@ -1534,7 +1843,9 @@
     "title": "Game feeds APIs",
     "description": "Various game feeds.[Endpoint] https://api.apitore.com/api/33",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg"
+    },
     "actionCount": 1
   },
   "apitore_kuromojiapis": {
@@ -1542,7 +1853,9 @@
     "title": "Kuromoji APIs",
     "description": "Kuromoji: japanese morphological analyzer.[Endpoint] https://api.apitore.com/api/7",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg"
+    },
     "actionCount": 2
   },
   "apitore_languagedetectionapis": {
@@ -1550,7 +1863,9 @@
     "title": "Language Detection APIs",
     "description": "Language detection.[Endpoint] https://api.apitore.com/api/22",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg"
+    },
     "actionCount": 2
   },
   "apitore_newsfeedsapis": {
@@ -1558,7 +1873,9 @@
     "title": "News feeds APIs",
     "description": "Various news feeds.[Endpoint] https://api.apitore.com/api/34",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg"
+    },
     "actionCount": 1
   },
   "apitore_pioneerblogfeedsapis": {
@@ -1566,7 +1883,9 @@
     "title": "Pioneer blog feeds APIs",
     "description": "Various blog feeds.[Endpoint] https://api.apitore.com/api/30",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg"
+    },
     "actionCount": 1
   },
   "apitore_rss2jsonapis": {
@@ -1574,7 +1893,9 @@
     "title": "RSS2JSON APIs",
     "description": "Rss to Json.[Endpoint] https://api.apitore.com/api/28",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg"
+    },
     "actionCount": 1
   },
   "apitore_sentencepieceapis_wikipedia_": {
@@ -1582,7 +1903,9 @@
     "title": "SentencePiece APIs (wikipedia)",
     "description": "SentencePiece tokenizer (wikipedia).[Endpoint] https://api.apitore.com/api/37",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_37.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_37.jpg"
+    },
     "actionCount": 2
   },
   "apitore_sentenceseparatorapis": {
@@ -1590,7 +1913,9 @@
     "title": "Sentence separator APIs",
     "description": "Simple sentence separator.[Endpoint] https://api.apitore.com/api/17",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_17.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_17.jpg"
+    },
     "actionCount": 1
   },
   "apitore_sentimentapis": {
@@ -1598,7 +1923,9 @@
     "title": "Sentiment APIs",
     "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg"
+    },
     "actionCount": 1
   },
   "apitore_synonymapis": {
@@ -1606,7 +1933,9 @@
     "title": "Synonym APIs",
     "description": "Return synonymous words. (equal to \"word2vec distance\")[Endpoint] https://api.apitore.com/api/9",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg"
+    },
     "actionCount": 1
   },
   "apitore_techfeedsapis": {
@@ -1614,7 +1943,9 @@
     "title": "Tech feeds APIs",
     "description": "Various tech feeds.[Endpoint] https://api.apitore.com/api/35",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg"
+    },
     "actionCount": 1
   },
   "apitore_text2labelbytfidfapis": {
@@ -1622,7 +1953,9 @@
     "title": "Text2Label by tfidf APIs",
     "description": "Text to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/18",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
+    },
     "actionCount": 1
   },
   "apitore_text2labelbywordvectorapis": {
@@ -1630,7 +1963,9 @@
     "title": "Text2Label by word vector APIs",
     "description": "Text to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/19",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg"
+    },
     "actionCount": 1
   },
   "apitore_travelfeedsapis": {
@@ -1638,7 +1973,9 @@
     "title": "Travel feeds APIs",
     "description": "Various travel feeds.[Endpoint] https://api.apitore.com/api/36",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_36.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_36.jpg"
+    },
     "actionCount": 1
   },
   "apitore_tweetsummarizationapis": {
@@ -1646,7 +1983,9 @@
     "title": "Tweet summarization APIs",
     "description": "Tweet summarization.[Endpoint] https://api.apitore.com/api/27",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_27.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_27.jpg"
+    },
     "actionCount": 1
   },
   "apitore_twitterapis": {
@@ -1654,7 +1993,9 @@
     "title": "Twitter APIs",
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg"
+    },
     "actionCount": 3
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
@@ -1662,7 +2003,9 @@
     "title": "Twitter APIs with Word2Vec query expansion",
     "description": "Call Twitter APIs with word2vec query expansion.[Endpoint] https://api.apitore.com/api/24",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2hrefapis": {
@@ -1670,7 +2013,9 @@
     "title": "Url2Href APIs",
     "description": "Url to Href links.[Endpoint] https://api.apitore.com/api/14",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2htmlapis": {
@@ -1678,7 +2023,9 @@
     "title": "Url2Html APIs",
     "description": "Url to Html.[Endpoint] https://api.apitore.com/api/12",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2labelbytfidfapis": {
@@ -1686,7 +2033,9 @@
     "title": "Url2Label by tfidf APIs",
     "description": "Url to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/20",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2labelbywordvectorapis": {
@@ -1694,7 +2043,9 @@
     "title": "Url2Label by word vector APIs",
     "description": "Url to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/21",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2srcapis": {
@@ -1702,7 +2053,9 @@
     "title": "Url2Src APIs",
     "description": "Url to Image src urls.[Endpoint] https://api.apitore.com/api/15",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
+    },
     "actionCount": 1
   },
   "apitore_url2textapis": {
@@ -1710,7 +2063,9 @@
     "title": "Url2Text APIs",
     "description": "Url to Text.[Endpoint] https://api.apitore.com/api/13",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_13.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_13.jpg"
+    },
     "actionCount": 1
   },
   "apitore_word2vecapis": {
@@ -1718,7 +2073,9 @@
     "title": "Word2Vec APIs",
     "description": "Word2Vec.[Endpoint] https://api.apitore.com/api/8",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_8.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_8.jpg"
+    },
     "actionCount": 5
   },
   "apitore_wordstovectorsapis": {
@@ -1726,7 +2083,9 @@
     "title": "Words to Vectors APIs",
     "description": "Word to vectors.[Endpoint] https://api.apitore.com/api/10",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg"
+    },
     "actionCount": 1
   },
   "appveyor": {
@@ -1741,7 +2100,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
+    },
     "actionCount": 45
   },
   "authentiq": {
@@ -1769,7 +2130,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg",
+    "logo": {
+      "backgroundColor": "#F26641",
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
+    },
     "actionCount": 9
   },
   "azure_arm_advisor": {
@@ -1796,7 +2160,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 9
   },
   "azure_arm_analysisservices": {
@@ -1823,7 +2189,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 8
   },
   "azure_arm_apimanagement": {
@@ -1850,7 +2218,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 99
   },
   "azure_arm_appinsights": {
@@ -1877,7 +2247,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 1
   },
   "azure_arm_authorization": {
@@ -1904,7 +2276,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 20
   },
   "azure_arm_batch": {
@@ -1930,7 +2304,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 19
   },
   "azure_arm_billing": {
@@ -1957,7 +2333,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 4
   },
   "azure_arm_cdn": {
@@ -1984,7 +2362,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 32
   },
   "azure_arm_cognitiveservices": {
@@ -1992,14 +2372,18 @@
     "title": "CognitiveServicesManagementClient",
     "description": "Cognitive Services Management Client",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 9
   },
   "azure_arm_commerce": {
     "id": "azure_arm_commerce",
     "title": "UsageManagementClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 2
   },
   "azure_arm_compute": {
@@ -2026,7 +2410,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 54
   },
   "azure_arm_compute_containerservice": {
@@ -2034,7 +2420,9 @@
     "title": "ContainerServiceClient",
     "description": "The Container Service Client.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 5
   },
   "azure_arm_compute_disk": {
@@ -2042,7 +2430,9 @@
     "title": "DiskResourceProviderClient",
     "description": "The Disk Resource Provider Client.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 16
   },
   "azure_arm_consumption": {
@@ -2069,14 +2459,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 2
   },
   "azure_arm_containerregistry": {
     "id": "azure_arm_containerregistry",
     "title": "ContainerRegistryManagementClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 9
   },
   "azure_arm_devtestlabs": {
@@ -2103,7 +2497,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 52
   },
   "azure_arm_dns": {
@@ -2111,7 +2507,9 @@
     "title": "DnsManagementClient",
     "description": "The DNS Management Client.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 11
   },
   "azure_arm_documentdb": {
@@ -2138,7 +2536,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 12
   },
   "azure_arm_eventhub": {
@@ -2165,14 +2565,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 28
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
     "title": "InsightsManagementClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 4
   },
   "azure_arm_intune": {
@@ -2180,7 +2584,9 @@
     "title": "IntuneResourceManagementClient",
     "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 33
   },
   "azure_arm_iothub": {
@@ -2188,7 +2594,9 @@
     "title": "iotHubClient",
     "description": "Use this API to manage the IoT hubs in your subscription.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 19
   },
   "azure_arm_keyvault": {
@@ -2196,7 +2604,9 @@
     "title": "KeyVaultManagementClient",
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 5
   },
   "azure_arm_logic": {
@@ -2223,7 +2633,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 59
   },
   "azure_arm_machinelearning_commitmentplans": {
@@ -2231,7 +2643,9 @@
     "title": "Azure ML Commitment Plans Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment As...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 10
   },
   "azure_arm_machinelearning_webservices": {
@@ -2239,7 +2653,9 @@
     "title": "Azure ML Web Services Management Client",
     "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following opera...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 7
   },
   "azure_arm_mediaservices": {
@@ -2266,7 +2682,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 9
   },
   "azure_arm_mobileengagement": {
@@ -2293,7 +2711,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 37
   },
   "azure_arm_monitor": {
@@ -2319,7 +2739,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 4
   },
   "azure_arm_network": {
@@ -2346,7 +2768,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 97
   },
   "azure_arm_notificationhubs": {
@@ -2373,7 +2797,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 25
   },
   "azure_arm_operationalinsights": {
@@ -2400,7 +2826,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 13
   },
   "azure_arm_powerbiembedded": {
@@ -2408,7 +2836,9 @@
     "title": "Power BI Embedded Management Client",
     "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 12
   },
   "azure_arm_recoveryservicesbackup": {
@@ -2434,7 +2864,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 33
   },
   "azure_arm_redis": {
@@ -2461,7 +2893,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 8
   },
   "azure_arm_relay": {
@@ -2488,7 +2922,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 34
   },
   "azure_arm_resourcehealth": {
@@ -2515,14 +2951,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 5
   },
   "azure_arm_scheduler": {
     "id": "azure_arm_scheduler",
     "title": "SchedulerManagementClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 15
   },
   "azure_arm_search": {
@@ -2549,7 +2989,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 10
   },
   "azure_arm_servermanagement": {
@@ -2576,7 +3018,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 25
   },
   "azure_arm_service_map": {
@@ -2603,7 +3047,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 25
   },
   "azure_arm_servicebus": {
@@ -2630,7 +3076,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 38
   },
   "azure_arm_servicefabric": {
@@ -2656,7 +3104,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 8
   },
   "azure_arm_sql": {
@@ -2664,7 +3114,9 @@
     "title": "Azure SQL Database",
     "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, el...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 1
   },
   "azure_arm_storage": {
@@ -2672,7 +3124,9 @@
     "title": "StorageManagement",
     "description": "The Azure Storage Management API.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 12
   },
   "azure_arm_storageimportexport": {
@@ -2699,7 +3153,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 11
   },
   "azure_arm_storsimple8000series": {
@@ -2725,14 +3181,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 22
   },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
     "title": "TrafficManagerManagementClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 11
   },
   "azure_arm_web": {
@@ -2759,14 +3219,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 295
   },
   "azure_insights": {
     "id": "azure_insights",
     "title": "InsightsClient",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 1
   },
   "azure_monitor": {
@@ -2792,7 +3256,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 1
   },
   "bbc": {
@@ -2807,7 +3273,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
+    },
     "actionCount": 25
   },
   "bbc_rss": {
@@ -2830,7 +3298,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
+    },
     "actionCount": 30
   },
   "bclaws_ca_bclaws": {
@@ -2838,7 +3309,9 @@
     "title": "BC Laws",
     "description": "BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 7
   },
   "beanstream": {
@@ -2846,7 +3319,9 @@
     "title": "Beanstream Payments",
     "description": "https://www.beanstream.com/api/v1",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
+    },
     "actionCount": 15
   },
   "beezup": {
@@ -2861,7 +3336,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_25665430.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_25665430.png"
+    },
     "actionCount": 17
   },
   "bigoven": {
@@ -2878,7 +3356,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png"
+    },
     "actionCount": 47
   },
   "bikewise": {
@@ -2886,7 +3366,9 @@
     "title": "BikeWise API v2",
     "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico"
+    },
     "actionCount": 4
   },
   "bitbucket": {
@@ -2938,7 +3420,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg"
+    },
     "actionCount": 181
   },
   "bluemix_containers": {
@@ -2946,7 +3430,9 @@
     "title": "IBM Containers",
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_823529626819432448_wykDHAof_400x400.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_823529626819432448_wykDHAof_400x400.jpg"
+    },
     "actionCount": 47
   },
   "botify": {
@@ -2961,7 +3447,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png",
+    "logo": {
+      "backgroundColor": "#1A1A1A",
+      "url": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png"
+    },
     "actionCount": 26
   },
   "brandlovers": {
@@ -2976,7 +3465,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png",
+    "logo": {
+      "backgroundColor": "#E34056",
+      "url": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png"
+    },
     "actionCount": 36
   },
   "browshot": {
@@ -2991,7 +3483,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cdn.browshot.com_static_images_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cdn.browshot.com_static_images_logo.png"
+    },
     "actionCount": 17
   },
   "bufferapp": {
@@ -3017,7 +3511,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png"
+    },
     "actionCount": 18
   },
   "cambase": {
@@ -3025,7 +3521,9 @@
     "title": "Cambase.io",
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cdn.cambase.io_assets_logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_cdn.cambase.io_assets_logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg"
+    },
     "actionCount": 17
   },
   "cenit": {
@@ -3041,7 +3539,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png"
+    },
     "actionCount": 40
   },
   "channel4": {
@@ -3056,7 +3556,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
+    },
     "actionCount": 68
   },
   "circleci": {
@@ -3071,7 +3574,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
+    },
     "actionCount": 22
   },
   "cisco": {
@@ -3105,7 +3610,10 @@
     "title": "GoToAssist Seeit",
     "description": "Allows you to integrate GoToAssist Seeit into your own solutions.General notes:GoToAssist Seeit sessions are identified ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+    "logo": {
+      "backgroundColor": "#5F6166",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+    },
     "actionCount": 3
   },
   "citrix_gotomeeting": {
@@ -3113,7 +3621,10 @@
     "title": "GoToMeeting",
     "description": "The GoToMeeting API provides seamless integration of GoToMeeting provisioning and meeting management into your existing ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+    "logo": {
+      "backgroundColor": "#5F6166",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+    },
     "actionCount": 26
   },
   "citrix_gototraining": {
@@ -3121,7 +3632,10 @@
     "title": "GoToTraining",
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+    "logo": {
+      "backgroundColor": "#5F6166",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+    },
     "actionCount": 22
   },
   "citrix_gotowebinar": {
@@ -3129,7 +3643,10 @@
     "title": "GoToWebinar",
     "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+    "logo": {
+      "backgroundColor": "#5F6166",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+    },
     "actionCount": 38
   },
   "citrix_scim": {
@@ -3137,7 +3654,10 @@
     "title": "SCIM",
     "description": "The SCIM API lets you manage users in your organization. You can then automate the provisioning of product licenses for ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png",
+    "logo": {
+      "backgroundColor": "#5F6166",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+    },
     "actionCount": 17
   },
   "citycontext": {
@@ -3159,7 +3679,10 @@
     "title": "Clarify",
     "description": "The API to Search and Understand Audio & Video Data.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png",
+    "logo": {
+      "backgroundColor": "#65A8B5",
+      "url": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png"
+    },
     "actionCount": 21
   },
   "clickmeter": {
@@ -3174,7 +3697,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg"
+    },
     "actionCount": 108
   },
   "cloud_gov": {
@@ -3182,7 +3707,9 @@
     "title": "Discovery Market Research",
     "description": "This API drives the Discovery Market Research Tool.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif"
+    },
     "actionCount": 5
   },
   "cnab_online_herokuapp": {
@@ -3190,7 +3717,10 @@
     "title": "Cnab Online",
     "description": "Processe arquivos de retorno CNAB",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
+    },
     "actionCount": 4
   },
   "cnn_rss": {
@@ -3204,7 +3734,9 @@
     "title": "The Consumer Financial Protection Bureau",
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
+    },
     "actionCount": 6
   },
   "core_ac_uk": {
@@ -3219,7 +3751,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png"
+    },
     "actionCount": 17
   },
   "cybertaxonomy_eu": {
@@ -3227,7 +3761,9 @@
     "title": "EU BON UTIS",
     "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg"
+    },
     "actionCount": 2
   },
   "data2crm": {
@@ -3235,7 +3771,10 @@
     "title": "Data2CRM.API",
     "description": "Make use of our in-depth documentation to get more information about the various functions of the service. Those willing...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png",
+    "logo": {
+      "backgroundColor": "#3089CF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png"
+    },
     "actionCount": 95
   },
   "data_gov": {
@@ -3250,7 +3789,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png"
+    },
     "actionCount": 3
   },
   "datumbox": {
@@ -3265,7 +3806,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png"
+    },
     "actionCount": 14
   },
   "deutschebahn_betriebsstellen": {
@@ -3278,7 +3821,10 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 2
   },
   "deutschebahn_fahrplan": {
@@ -3286,7 +3832,10 @@
     "title": "Fahrplan-Free",
     "description": "A RESTful webservice to request a railway journey - FREE plan with restricted access (max. 10 requests per minute). Plea...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 4
   },
   "deutschebahn_fasta": {
@@ -3301,7 +3850,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 5
   },
   "deutschebahn_flinkster": {
@@ -3309,7 +3861,10 @@
     "title": "Flinkster_API_NG",
     "description": "This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Net...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 10
   },
   "deutschebahn_reisezentren": {
@@ -3322,7 +3877,10 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 3
   },
   "deutschebahn_stada": {
@@ -3330,7 +3888,10 @@
     "title": "Stationsdatenbereitstellung",
     "description": "The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger f...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    },
     "actionCount": 4
   },
   "dweet": {
@@ -3345,7 +3906,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Air Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 8
   },
   "epa_gov_case": {
@@ -3353,7 +3917,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Enforcement Case Search",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 8
   },
   "epa_gov_cwa": {
@@ -3361,7 +3928,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Clean Water Act (CWA) Rest Services",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 18
   },
   "epa_gov_dfr": {
@@ -3369,7 +3939,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Detailed Facility Report (DFR)",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 34
   },
   "epa_gov_echo": {
@@ -3377,7 +3950,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - All Data",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 8
   },
   "epa_gov_eff": {
@@ -3385,7 +3961,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Effluent Charting and Reporting",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 4
   },
   "epa_gov_rcra": {
@@ -3393,7 +3972,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Resource Conservation and Recovery Act ",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 8
   },
   "epa_gov_sdw": {
@@ -3401,7 +3983,10 @@
     "title": "U.S. EPA Enforcement and Compliance History Online (ECHO) - Safe Drinking Water Act",
     "description": "Enforcement and Compliance History Online (ECHO) is a tool developed and maintained by EPA's Office of Enforcement and C...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    },
     "actionCount": 4
   },
   "europeana_eu": {
@@ -3409,7 +3994,9 @@
     "title": "Europeana",
     "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png"
+    },
     "actionCount": 13
   },
   "exavault": {
@@ -3417,7 +4004,10 @@
     "title": "ExaVault",
     "description": "ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own appli...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png",
+    "logo": {
+      "backgroundColor": "#222222",
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png"
+    },
     "actionCount": 35
   },
   "firebrowse": {
@@ -3425,7 +4015,9 @@
     "title": "FireBrowse Beta API",
     "description": "A simple and elegant way to explore cancer data",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png"
+    },
     "actionCount": 30
   },
   "flat": {
@@ -3457,7 +4049,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg"
+    },
     "actionCount": 24
   },
   "furkot": {
@@ -3484,7 +4078,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cdn.furkot.com_img_furkot-banner-black-4x1.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cdn.furkot.com_img_furkot-banner-black-4x1.svg"
+    },
     "actionCount": 2
   },
   "geneea": {
@@ -3499,7 +4095,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png"
+    },
     "actionCount": 11
   },
   "geodesystems": {
@@ -3515,7 +4113,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_geodesystems.com_repository_images_geodesystems.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_geodesystems.com_repository_images_geodesystems.png"
+    },
     "actionCount": 228
   },
   "getgo_gototraining": {
@@ -3544,7 +4144,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png",
+    "logo": {
+      "backgroundColor": "#161924",
+      "url": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
+    },
     "actionCount": 9
   },
   "gettyimages": {
@@ -3559,7 +4162,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg"
+    },
     "actionCount": 40
   },
   "github": {
@@ -3606,7 +4211,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
+    },
     "actionCount": 244
   },
   "gitlab": {
@@ -3622,7 +4229,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
+    },
     "actionCount": 358
   },
   "google_acceleratedmobilepageurl": {
@@ -3630,7 +4240,9 @@
     "title": "Accelerated Mobile Pages (AMP) URL",
     "description": "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_adexchangebuyer": {
@@ -3658,7 +4270,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+    },
     "actionCount": 38
   },
   "google_adexchangebuyer2": {
@@ -3686,7 +4300,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 19
   },
   "google_adexchangeseller": {
@@ -3715,7 +4331,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+    },
     "actionCount": 14
   },
   "google_admin": {
@@ -3744,7 +4362,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+    },
     "actionCount": 5
   },
   "google_adsense": {
@@ -3773,7 +4393,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 38
   },
   "google_adsensehost": {
@@ -3801,7 +4423,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 26
   },
   "google_analytics": {
@@ -3834,7 +4458,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png"
+    },
     "actionCount": 85
   },
   "google_analyticsreporting": {
@@ -3863,7 +4489,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_androiddeviceprovisioning": {
@@ -3871,7 +4499,9 @@
     "title": "Android Device Provisioning Partner",
     "description": "Android Device Provisioning Partner API",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 7
   },
   "google_androidenterprise": {
@@ -3899,7 +4529,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
+    },
     "actionCount": 77
   },
   "google_androidpublisher": {
@@ -3927,7 +4559,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
+    },
     "actionCount": 57
   },
   "google_appengine": {
@@ -3957,7 +4591,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 4
   },
   "google_appsactivity": {
@@ -3989,7 +4625,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_appstate": {
@@ -4017,7 +4655,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 5
   },
   "google_bigquery": {
@@ -4051,7 +4691,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 21
   },
   "google_blogger": {
@@ -4080,7 +4722,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png"
+    },
     "actionCount": 33
   },
   "google_books": {
@@ -4108,7 +4752,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
+    },
     "actionCount": 48
   },
   "google_calendar": {
@@ -4137,7 +4783,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png"
+    },
     "actionCount": 37
   },
   "google_civicinfo": {
@@ -4145,7 +4793,9 @@
     "title": "Google Civic Information",
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S....",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 5
   },
   "google_classroom": {
@@ -4184,7 +4834,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 42
   },
   "google_cloudbilling": {
@@ -4212,7 +4864,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 5
   },
   "google_cloudbuild": {
@@ -4240,7 +4894,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 11
   },
   "google_clouddebugger": {
@@ -4269,7 +4925,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 8
   },
   "google_clouderrorreporting": {
@@ -4297,7 +4955,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_cloudfunctions": {
@@ -4325,7 +4985,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 7
   },
   "google_cloudkms": {
@@ -4353,7 +5015,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 17
   },
   "google_cloudmonitoring": {
@@ -4382,7 +5046,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 6
   },
   "google_cloudresourcemanager": {
@@ -4411,7 +5077,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 24
   },
   "google_cloudtrace": {
@@ -4441,7 +5109,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 3
   },
   "google_clouduseraccounts": {
@@ -4472,7 +5142,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 23
   },
   "google_compute": {
@@ -4505,7 +5177,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 261
   },
   "google_consumersurveys": {
@@ -4535,7 +5209,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 11
   },
   "google_container": {
@@ -4563,7 +5239,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 18
   },
   "google_content": {
@@ -4591,7 +5269,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 57
   },
   "google_customsearch": {
@@ -4599,7 +5279,9 @@
     "title": "CustomSearch",
     "description": "Lets you search over a website or collection of websites",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_dataflow": {
@@ -4629,7 +5311,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 28
   },
   "google_dataproc": {
@@ -4657,7 +5341,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 15
   },
   "google_datastore": {
@@ -4686,7 +5372,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 6
   },
   "google_deploymentmanager": {
@@ -4717,7 +5405,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 18
   },
   "google_dfareporting": {
@@ -4747,7 +5437,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 204
   },
   "google_discovery": {
@@ -4755,7 +5447,9 @@
     "title": "APIs Discovery Service",
     "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 2
   },
   "google_dlp": {
@@ -4783,7 +5477,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 9
   },
   "google_dns": {
@@ -4814,7 +5510,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 9
   },
   "google_doubleclickbidmanager": {
@@ -4822,7 +5520,9 @@
     "title": "DoubleClick Bid Manager",
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+    },
     "actionCount": 9
   },
   "google_doubleclicksearch": {
@@ -4850,7 +5550,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+    },
     "actionCount": 10
   },
   "google_drive": {
@@ -4885,7 +5587,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png"
+    },
     "actionCount": 39
   },
   "google_firebasedynamiclinks": {
@@ -4913,7 +5617,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_firebaserules": {
@@ -4943,7 +5649,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 8
   },
   "google_fitness": {
@@ -4988,7 +5696,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 13
   },
   "google_fusiontables": {
@@ -5017,7 +5727,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 33
   },
   "google_games": {
@@ -5047,7 +5759,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+    },
     "actionCount": 53
   },
   "google_gamesconfiguration": {
@@ -5075,7 +5789,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+    },
     "actionCount": 13
   },
   "google_gamesmanagement": {
@@ -5104,7 +5820,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+    },
     "actionCount": 27
   },
   "google_genomics": {
@@ -5136,7 +5854,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 53
   },
   "google_gmail": {
@@ -5173,7 +5893,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png"
+    },
     "actionCount": 63
   },
   "google_groupsmigration": {
@@ -5201,7 +5923,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_groupssettings": {
@@ -5229,7 +5953,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 3
   },
   "google_iam": {
@@ -5257,7 +5983,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 13
   },
   "google_identitytoolkit": {
@@ -5286,7 +6014,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 17
   },
   "google_kgsearch": {
@@ -5294,7 +6024,9 @@
     "title": "Knowledge Graph Search",
     "description": "Searches the Google Knowledge Graph for entities.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_language": {
@@ -5322,7 +6054,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 4
   },
   "google_licensing": {
@@ -5350,7 +6084,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 7
   },
   "google_logging": {
@@ -5382,7 +6118,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 15
   },
   "google_manufacturers": {
@@ -5410,7 +6148,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 2
   },
   "google_mirror": {
@@ -5439,7 +6179,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 24
   },
   "google_ml": {
@@ -5467,7 +6209,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 13
   },
   "google_monitoring": {
@@ -5498,7 +6242,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 12
   },
   "google_oauth2": {
@@ -5529,7 +6275,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 4
   },
   "google_pagespeedonline": {
@@ -5537,7 +6285,9 @@
     "title": "PageSpeed Insights",
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_partners": {
@@ -5545,7 +6295,9 @@
     "title": "Google Partners",
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 18
   },
   "google_people": {
@@ -5581,7 +6333,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 3
   },
   "google_playmoviespartner": {
@@ -5609,7 +6363,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_plus": {
@@ -5640,7 +6396,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
+    },
     "actionCount": 9
   },
   "google_plusdomains": {
@@ -5677,7 +6435,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
+    },
     "actionCount": 20
   },
   "google_prediction": {
@@ -5709,7 +6469,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_icons_feature_predictionapi-64.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_icons_feature_predictionapi-64.png"
+    },
     "actionCount": 8
   },
   "google_proximitybeacon": {
@@ -5737,7 +6499,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 17
   },
   "google_pubsub": {
@@ -5766,7 +6530,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 16
   },
   "google_qpxexpress": {
@@ -5774,7 +6540,9 @@
     "title": "QPX Express",
     "description": "Finds the least expensive flights between an origin and a destination.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_replicapool": {
@@ -5805,7 +6573,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 12
   },
   "google_replicapoolupdater": {
@@ -5836,7 +6606,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 10
   },
   "google_reseller": {
@@ -5865,7 +6637,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+    },
     "actionCount": 17
   },
   "google_resourceviews": {
@@ -5898,7 +6672,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 11
   },
   "google_runtimeconfig": {
@@ -5927,7 +6703,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 3
   },
   "google_safebrowsing": {
@@ -5935,7 +6713,9 @@
     "title": "Google Safe Browsing",
     "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_script": {
@@ -5973,7 +6753,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
+    },
     "actionCount": 1
   },
   "google_searchconsole": {
@@ -5981,7 +6763,9 @@
     "title": "Google Search Console URL Testing Tools",
     "description": "Provides tools for running validation tests against single URLs",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_servicecontrol": {
@@ -6010,7 +6794,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_servicemanagement": {
@@ -6041,7 +6827,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 21
   },
   "google_serviceuser": {
@@ -6071,7 +6859,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 4
   },
   "google_sheets": {
@@ -6102,7 +6892,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 11
   },
   "google_siteverification": {
@@ -6131,7 +6923,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 7
   },
   "google_slides": {
@@ -6164,7 +6958,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 5
   },
   "google_sourcerepo": {
@@ -6192,7 +6988,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 7
   },
   "google_spanner": {
@@ -6220,7 +7018,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 23
   },
   "google_spectrum": {
@@ -6228,7 +7028,9 @@
     "title": "Google Spectrum Database",
     "description": "API for spectrum-management functions.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_speech": {
@@ -6256,7 +7058,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 6
   },
   "google_sqladmin": {
@@ -6285,7 +7089,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 40
   },
   "google_storage": {
@@ -6317,7 +7123,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png"
+    },
     "actionCount": 46
   },
   "google_storagetransfer": {
@@ -6345,7 +7153,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 10
   },
   "google_supportcases": {
@@ -6375,7 +7185,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 163
   },
   "google_surveys": {
@@ -6405,7 +7217,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 11
   },
   "google_tagmanager": {
@@ -6439,7 +7253,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 50
   },
   "google_taskqueue": {
@@ -6468,7 +7284,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 8
   },
   "google_tasks": {
@@ -6497,7 +7315,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 14
   },
   "google_toolresults": {
@@ -6525,7 +7345,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 22
   },
   "google_tracing": {
@@ -6555,7 +7377,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 4
   },
   "google_translate": {
@@ -6563,7 +7387,9 @@
     "title": "Translate",
     "description": "Translates text from one language to another.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    },
     "actionCount": 3
   },
   "google_urlshortener": {
@@ -6591,7 +7417,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 3
   },
   "google_vision": {
@@ -6619,7 +7447,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_webfonts": {
@@ -6627,7 +7457,9 @@
     "title": "Google Fonts Developer",
     "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (includi...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 1
   },
   "google_webmasters": {
@@ -6656,7 +7488,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 13
   },
   "google_youtube": {
@@ -6689,7 +7523,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
+    },
     "actionCount": 72
   },
   "google_youtubeanalytics": {
@@ -6721,7 +7557,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
+    },
     "actionCount": 8
   },
   "google_youtubereporting": {
@@ -6750,7 +7588,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    },
     "actionCount": 8
   },
   "gov_bc_ca_bcdc": {
@@ -6796,7 +7636,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 22
   },
   "gov_bc_ca_bcgnws": {
@@ -6804,7 +7646,9 @@
     "title": "BC Geographical Names Web Service -",
     "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, in...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 14
   },
   "gov_bc_ca_geocoder": {
@@ -6819,7 +7663,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 14
   },
   "gov_bc_ca_geomark": {
@@ -6827,7 +7673,9 @@
     "title": "GeoMark Web Service",
     "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 7
   },
   "gov_bc_ca_jobposting": {
@@ -6835,7 +7683,9 @@
     "title": "WorkBC Job Posting",
     "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 4
   },
   "gov_bc_ca_open511": {
@@ -6843,7 +7693,9 @@
     "title": "DriveBC's Open511",
     "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (tra...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 4
   },
   "gov_bc_ca_router": {
@@ -6858,7 +7710,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+    },
     "actionCount": 4
   },
   "graphhopper": {
@@ -6873,7 +7727,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png"
+    },
     "actionCount": 2
   },
   "hacker_news": {
@@ -6892,21 +7748,27 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
+    },
     "actionCount": 16
   },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
     "title": "hetras Booking API Version 0",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
+    },
     "actionCount": 15
   },
   "hetras_certification_hotel": {
     "id": "hetras_certification_hotel",
     "title": "hetras Hotel API Version 0",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
+    },
     "actionCount": 19
   },
   "hhs_gov": {
@@ -6914,7 +7776,10 @@
     "title": "HHS Media Services",
     "description": "",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.hhs.gov_sites_all_themes_project_h_css_images_hhs_logo.png",
+    "logo": {
+      "backgroundColor": "#185394",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.hhs.gov_sites_all_themes_project_h_css_images_hhs_logo.png"
+    },
     "actionCount": 32
   },
   "idtbeyond": {
@@ -6922,7 +7787,10 @@
     "title": "Active Documentation for /v1",
     "description": "Our active docs provide the ability to test out your account and to see the responses to your queries. The services are ...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png",
+    "logo": {
+      "backgroundColor": "#222222",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png"
+    },
     "actionCount": 15
   },
   "ijenko": {
@@ -6937,7 +7805,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico",
+    "logo": {
+      "backgroundColor": "#383D41",
+      "url": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
+    },
     "actionCount": 67
   },
   "import_data": {
@@ -6951,7 +7822,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+    "logo": {
+      "backgroundColor": "#F6248E",
+      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    },
     "actionCount": 2
   },
   "import_extraction": {
@@ -6965,7 +7839,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+    "logo": {
+      "backgroundColor": "#F6248E",
+      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    },
     "actionCount": 1
   },
   "import_rss": {
@@ -6979,7 +7856,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+    "logo": {
+      "backgroundColor": "#F6248E",
+      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    },
     "actionCount": 1
   },
   "import_run": {
@@ -6993,7 +7873,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+    "logo": {
+      "backgroundColor": "#F6248E",
+      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    },
     "actionCount": 2
   },
   "import_schedule": {
@@ -7007,7 +7890,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg",
+    "logo": {
+      "backgroundColor": "#F6248E",
+      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    },
     "actionCount": 4
   },
   "inboxroute": {
@@ -7022,7 +7908,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png"
+    },
     "actionCount": 8
   },
   "infermedica": {
@@ -7030,7 +7918,10 @@
     "title": "Infermedica",
     "description": "Empower your healthcare services with intelligent diagnostic insights of Infermedica API.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png",
+    "logo": {
+      "backgroundColor": "#1576D1",
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png"
+    },
     "actionCount": 9
   },
   "instagram": {
@@ -7062,7 +7953,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg"
+    },
     "actionCount": 27
   },
   "jirafe": {
@@ -7089,14 +7982,20 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png",
+    "logo": {
+      "backgroundColor": "#4BC9C5",
+      "url": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
+    },
     "actionCount": 6
   },
   "learnifier": {
     "id": "learnifier",
     "title": "Learnifier",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png",
+    "logo": {
+      "backgroundColor": "#000000",
+      "url": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png"
+    },
     "actionCount": 34
   },
   "lyft": {
@@ -7123,7 +8022,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg"
+    },
     "actionCount": 16
   },
   "magick_nu": {
@@ -7131,7 +8032,9 @@
     "title": "Tradeworks",
     "description": "Authentication is required to access all methods of the API. Enter username and password.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png"
+    },
     "actionCount": 6
   },
   "mandrillapp": {
@@ -7144,7 +8047,9 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
+    },
     "actionCount": 90
   },
   "medium": {
@@ -7176,7 +8081,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png"
+    },
     "actionCount": 5
   },
   "moonmoonmoonmoon": {
@@ -7184,7 +8091,10 @@
     "title": "Moon by Ai Weiwei & Olafur Eliasson",
     "description": "Turn nothing into something – make a drawing, make a mark.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png",
+    "logo": {
+      "backgroundColor": "#000000",
+      "url": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png"
+    },
     "actionCount": 2
   },
   "motaword": {
@@ -7208,7 +8118,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png"
+    },
     "actionCount": 43
   },
   "mozilla_kinto": {
@@ -7223,7 +8135,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png"
+    },
     "actionCount": 17
   },
   "nativeads": {
@@ -7231,7 +8146,9 @@
     "title": "Native Ads Publisher",
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
+    },
     "actionCount": 4
   },
   "nba": {
@@ -7239,7 +8156,9 @@
     "title": "NBA Stats",
     "description": "The destination for current and historic NBA statistics.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg"
+    },
     "actionCount": 91
   },
   "neowsapp": {
@@ -7278,7 +8197,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png"
+    },
     "actionCount": 19
   },
   "netlicensing": {
@@ -7295,7 +8216,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
+    },
     "actionCount": 39
   },
   "neutrinoapi": {
@@ -7311,7 +8234,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png"
+    },
     "actionCount": 25
   },
   "npr_rss": {
@@ -7332,7 +8258,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png",
+    "logo": {
+      "backgroundColor": "#0079C5",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+    },
     "actionCount": 2
   },
   "nrel_transportation_incentives_laws": {
@@ -7347,7 +8276,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png",
+    "logo": {
+      "backgroundColor": "#0079C5",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+    },
     "actionCount": 4
   },
   "nsidc": {
@@ -7355,7 +8287,9 @@
     "title": "NSIDC Web Service Documentation Index",
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg"
+    },
     "actionCount": 4
   },
   "nytimes_article_search": {
@@ -7370,7 +8304,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 1
   },
   "nytimes_books_api": {
@@ -7385,7 +8321,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 6
   },
   "nytimes_community": {
@@ -7400,7 +8338,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 4
   },
   "nytimes_geo_api": {
@@ -7415,7 +8355,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 1
   },
   "nytimes_most_popular_api": {
@@ -7430,7 +8372,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 3
   },
   "nytimes_movie_reviews": {
@@ -7445,7 +8389,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 3
   },
   "nytimes_rss": {
@@ -7466,7 +8412,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 2
   },
   "nytimes_times_tags": {
@@ -7481,7 +8429,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 1
   },
   "nytimes_timeswire": {
@@ -7496,7 +8446,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 3
   },
   "nytimes_top_stories": {
@@ -7511,7 +8463,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    },
     "actionCount": 1
   },
   "oceandrivers": {
@@ -7531,7 +8485,10 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_raw.githubusercontent.com_Mermade_open_api_specifications_master_OMDb_OMDb.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/http_raw.githubusercontent.com_Mermade_open_api_specifications_master_OMDb_OMDb.png"
+    },
     "actionCount": 1
   },
   "openapi_converter_herokuapp": {
@@ -7539,7 +8496,10 @@
     "title": "Swagger2OpenAPI Converter",
     "description": "Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png"
+    },
     "actionCount": 6
   },
   "opencagedata": {
@@ -7547,7 +8507,9 @@
     "title": "OpenCage Geocoder",
     "description": "Worldwide forward and reverse geocoding",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
+    },
     "actionCount": 1
   },
   "orghunter": {
@@ -7562,7 +8524,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg"
+    },
     "actionCount": 6
   },
   "owler": {
@@ -7577,14 +8541,18 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png"
+    },
     "actionCount": 11
   },
   "oxforddictionaries": {
     "id": "oxforddictionaries",
     "title": "Oxford Dictionaries",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png"
+    },
     "actionCount": 27
   },
   "pandorabots": {
@@ -7613,7 +8581,9 @@
     "title": "PatientView",
     "description": "The recommended REST API endpoints to be used when integrating with PatientView",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
+    },
     "actionCount": 15
   },
   "peel_ci": {
@@ -7621,7 +8591,9 @@
     "title": "Peel Tune-in API",
     "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtag...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg"
+    },
     "actionCount": 5
   },
   "posty": {
@@ -7643,7 +8615,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg"
+    },
     "actionCount": 9
   },
   "rebilly": {
@@ -7661,7 +8635,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg",
+    "logo": {
+      "backgroundColor": "#0033A0",
+      "url": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
+    },
     "actionCount": 233
   },
   "reddit_rss": {
@@ -7675,7 +8652,10 @@
     "title": "Refuge Restrooms",
     "description": "REFUGE is a web application that seeks to provide safe restroom access for transgender, intersex, and gender nonconformi...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png",
+    "logo": {
+      "backgroundColor": "#4C4C4C",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png"
+    },
     "actionCount": 4
   },
   "reverb": {
@@ -7716,7 +8696,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
+    },
     "actionCount": 161
   },
   "ritc": {
@@ -7731,7 +8713,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
+    },
     "actionCount": 66
   },
   "rottentomatoes": {
@@ -7746,7 +8730,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_staticv2.rottentomatoes.com_static_images_logos_rtlogo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_staticv2.rottentomatoes.com_static_images_logos_rtlogo.png"
+    },
     "actionCount": 18
   },
   "rummblelabs": {
@@ -7754,7 +8740,9 @@
     "title": "Seldon",
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
+    },
     "actionCount": 15
   },
   "runscope": {
@@ -7788,7 +8776,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png"
+    },
     "actionCount": 25
   },
   "schooldigger": {
@@ -7810,7 +8801,9 @@
     "title": "Semantria",
     "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
+    },
     "actionCount": 41
   },
   "sendgrid": {
@@ -7824,7 +8817,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png"
+    },
     "actionCount": 231
   },
   "simplyrets": {
@@ -7906,7 +8901,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png"
+    },
     "actionCount": 30
   },
   "slideroom": {
@@ -7914,7 +8911,10 @@
     "title": "SlideRoom API V2",
     "description": "SlideRoom provides a RESTful API for exporting data out of your organization's SlideRoom account.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png",
+    "logo": {
+      "backgroundColor": "#000000",
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png"
+    },
     "actionCount": 11
   },
   "smart_me": {
@@ -7930,7 +8930,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
+    },
     "actionCount": 23
   },
   "solarvps": {
@@ -7945,7 +8947,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
+    },
     "actionCount": 20
   },
   "spectrocoin": {
@@ -7953,7 +8957,9 @@
     "title": "SpectroCoin Merchant",
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg"
+    },
     "actionCount": 1
   },
   "spotify": {
@@ -8030,7 +9036,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
+    },
     "actionCount": 16
   },
   "stackexchange": {
@@ -8055,7 +9063,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
+    },
     "actionCount": 124
   },
   "statsocial": {
@@ -8070,7 +9080,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg"
+    },
     "actionCount": 17
   },
   "swagger_generator": {
@@ -8078,7 +9090,10 @@
     "title": "Swagger Generator",
     "description": "This is an online swagger codegen server.  You can find out more at https://github.com/swagger-api/swagger-codegen or on...",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png",
+    "logo": {
+      "backgroundColor": "#98C600",
+      "url": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
+    },
     "actionCount": 7
   },
   "swaggerhub": {
@@ -8093,7 +9108,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg"
+    },
     "actionCount": 69
   },
   "t213_vg": {
@@ -8101,7 +9118,9 @@
     "title": "Magento Enterprise",
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
+    },
     "actionCount": 355
   },
   "taxamo": {
@@ -8116,7 +9135,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_i.imgur.com_C7ouKJt.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_i.imgur.com_C7ouKJt.png"
+    },
     "actionCount": 36
   },
   "tfl_gov_uk": {
@@ -8132,7 +9153,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg"
+    },
     "actionCount": 78
   },
   "thenounproject": {
@@ -8140,7 +9163,9 @@
     "title": "The Noun Project",
     "description": "Icons for Everything",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
+    },
     "actionCount": 13
   },
   "thetvdb": {
@@ -8155,7 +9180,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png"
+    },
     "actionCount": 30
   },
   "traccar": {
@@ -8171,7 +9198,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
+    },
     "actionCount": 55
   },
   "trello": {
@@ -8187,7 +9216,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
+    },
     "actionCount": 324
   },
   "twilio": {
@@ -8203,7 +9234,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg"
+    },
     "actionCount": 116
   },
   "uebermaps": {
@@ -8211,7 +9244,9 @@
     "title": "uebermaps API endpoints",
     "description": "Enable people to store spots on public and private maps",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
+    },
     "actionCount": 54
   },
   "vatapi": {
@@ -8226,7 +9261,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
+    },
     "actionCount": 10
   },
   "versioneye": {
@@ -8234,7 +9271,9 @@
     "title": "Available API endpoints",
     "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
+    },
     "actionCount": 44
   },
   "vestorly": {
@@ -8242,7 +9281,10 @@
     "title": "Vestorly",
     "description": "Vestorly Developers API",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png",
+    "logo": {
+      "backgroundColor": "#252832",
+      "url": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png"
+    },
     "actionCount": 33
   },
   "visagecloud": {
@@ -8257,7 +9299,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png"
+    },
     "actionCount": 18
   },
   "waag": {
@@ -8265,14 +9309,19 @@
     "title": "CitySDK Linked Data",
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
+    },
     "actionCount": 47
   },
   "watchful_li": {
     "id": "watchful_li",
     "title": "watchful.li",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg",
+    "logo": {
+      "backgroundColor": "#1B4E65",
+      "url": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg"
+    },
     "actionCount": 61
   },
   "wavecell": {
@@ -8288,7 +9337,10 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_766560979630952448_XIUTg1a4.jpg",
+    "logo": {
+      "backgroundColor": "#050917",
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_766560979630952448_XIUTg1a4.jpg"
+    },
     "actionCount": 4
   },
   "wikimedia": {
@@ -8303,7 +9355,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png"
+    },
     "actionCount": 10
   },
   "windows_arm_graphrbac": {
@@ -8330,7 +9384,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 34
   },
   "windows_batch": {
@@ -8338,7 +9394,9 @@
     "title": "BatchService",
     "description": "A client for issuing REST requests to the Azure Batch service.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    },
     "actionCount": 74
   },
   "winning_email": {
@@ -8353,7 +9411,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
+    },
     "actionCount": 3
   },
   "wordnik": {
@@ -8368,7 +9428,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png"
+    },
     "actionCount": 28
   },
   "xkcd": {
@@ -8381,7 +9443,9 @@
         "fields": {}
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
+    },
     "actionCount": 2
   },
   "yunbi": {
@@ -8389,7 +9453,9 @@
     "title": "Yunbi",
     "description": "Professional Cloud Trading Platform for Digital Assets",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
+    },
     "actionCount": 23
   },
   "zappiti": {
@@ -8397,7 +9463,10 @@
     "title": "Zappiti Player",
     "description": "Move your app forward with the Zappiti Player API. Use http://your-player-ip:8990/ as base URL for your requests.",
     "security": {},
-    "logoURL": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png",
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png"
+    },
     "actionCount": 6
   },
   "zoomconnect": {
@@ -8413,7 +9482,9 @@
         }
       }
     },
-    "logoURL": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png",
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
+    },
     "actionCount": 44
   },
   "http": {

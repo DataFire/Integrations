@@ -3,7 +3,9 @@
   "title": "Pioneer blog feeds APIs",
   "description": "Various blog feeds.<BR />[Endpoint] https://api.apitore.com/api/30",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg"
+  },
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

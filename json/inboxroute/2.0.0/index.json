@@ -10,7 +10,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png"
+  },
   "definitions": {
     "Contact": {
       "properties": {

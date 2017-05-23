@@ -29,7 +29,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png",
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png"
+  },
   "definitions": {
     "Account": {
       "properties": {

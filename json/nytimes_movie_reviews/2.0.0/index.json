@@ -10,7 +10,9 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+  },
   "definitions": {
     "Critic": {
       "properties": {

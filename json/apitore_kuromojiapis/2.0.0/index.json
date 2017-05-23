@@ -3,7 +3,9 @@
   "title": "Kuromoji APIs",
   "description": "Kuromoji: japanese morphological analyzer.<BR />[Endpoint] https://api.apitore.com/api/7",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg"
+  },
   "definitions": {
     "TokenEntity": {
       "properties": {

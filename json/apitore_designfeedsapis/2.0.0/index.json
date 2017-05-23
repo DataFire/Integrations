@@ -3,7 +3,9 @@
   "title": "Design feeds APIs",
   "description": "Various design feeds.<BR />[Endpoint] https://api.apitore.com/api/32",
   "security": {},
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg"
+  },
   "definitions": {
     "FeedEntryEntity": {
       "properties": {

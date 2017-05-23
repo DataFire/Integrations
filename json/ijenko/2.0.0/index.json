@@ -11,7 +11,10 @@
       }
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico",
+  "logo": {
+    "backgroundColor": "#383D41",
+    "url": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
+  },
   "definitions": {
     "AccountId": {
       "description": "Unique identifier of the *Account*",

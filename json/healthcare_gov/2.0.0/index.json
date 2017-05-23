@@ -8,7 +8,9 @@
       "fields": {}
     }
   },
-  "logoURL": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png",
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
+  },
   "definitions": {
     "articlesList": {
       "properties": {
