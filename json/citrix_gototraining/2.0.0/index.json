@@ -7,6 +7,7 @@
     "backgroundColor": "#5F6166",
     "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
   },
+  "tags": [],
   "definitions": {
     "Attendance": {
       "description": "Describes the times the attendee joined and left a part of a training session.",

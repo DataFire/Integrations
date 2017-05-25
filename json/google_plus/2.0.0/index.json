@@ -29,6 +29,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
   },
+  "tags": [
+    "social",
+    "google"
+  ],
   "definitions": {
     "Acl": {
       "properties": {

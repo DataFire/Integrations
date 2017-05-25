@@ -11,6 +11,7 @@
       }
     }
   },
+  "tags": [],
   "definitions": {
     "Agent": {
       "description": "SimplyRETS Agent Api",

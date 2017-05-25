@@ -25,6 +25,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
+  "tags": [
+    "analytics",
+    "azure"
+  ],
   "definitions": {
     "CoreSummary": {
       "description": "The core summary of a search.",

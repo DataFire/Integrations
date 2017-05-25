@@ -6,6 +6,12 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
   },
+  "tags": [
+    "developer tools",
+    "cloud",
+    "security",
+    "azure"
+  ],
   "definitions": {
     "AccessPolicyEntry": {
       "description": "An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.",

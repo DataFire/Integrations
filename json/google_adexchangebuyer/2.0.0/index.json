@@ -26,6 +26,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
   },
+  "tags": [
+    "google"
+  ],
   "definitions": {
     "Account": {
       "description": "Configuration data for an Ad Exchange buyer account.",

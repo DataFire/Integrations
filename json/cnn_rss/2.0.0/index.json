@@ -3,6 +3,7 @@
   "title": "rss.cnn.com",
   "description": "",
   "security": {},
+  "tags": [],
   "actions": [
     {
       "id": "topStories",

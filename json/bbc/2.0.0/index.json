@@ -13,6 +13,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
   },
+  "tags": [
+    "media",
+    "open data"
+  ],
   "definitions": {
     "ErrorModel": {
       "properties": {

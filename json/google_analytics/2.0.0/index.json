@@ -31,6 +31,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png"
   },
+  "tags": [
+    "analytics",
+    "google"
+  ],
   "definitions": {
     "Account": {
       "description": "JSON template for Analytics account entry.",

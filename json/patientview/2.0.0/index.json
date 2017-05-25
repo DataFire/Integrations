@@ -6,6 +6,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
   },
+  "tags": [],
   "definitions": {
     "ApiKey": {
       "properties": {

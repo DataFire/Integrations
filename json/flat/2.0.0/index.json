@@ -30,6 +30,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg"
   },
+  "tags": [
+    "media",
+    "collaboration"
+  ],
   "definitions": {
     "ClassRoles": {
       "description": "User's Class Role (for Edu users only)",

@@ -14,6 +14,10 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
   "definitions": {
     "AlarmIdentifier": {
       "description": "A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether this health check is healthy.",

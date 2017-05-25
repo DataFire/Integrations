@@ -13,6 +13,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
   },
+  "tags": [],
   "definitions": {
     "AccessRightName": {
       "enum": [

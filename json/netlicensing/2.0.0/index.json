@@ -15,6 +15,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
   },
+  "tags": [],
   "definitions": {
     "License": {
       "properties": {

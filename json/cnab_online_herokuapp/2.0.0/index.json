@@ -7,6 +7,9 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
   },
+  "tags": [
+    "financial"
+  ],
   "definitions": {
     "Error": {
       "properties": {

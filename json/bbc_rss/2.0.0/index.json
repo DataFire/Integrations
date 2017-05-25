@@ -3,6 +3,7 @@
   "title": "feeds.bbci.co.uk",
   "description": "",
   "security": {},
+  "tags": [],
   "actions": [
     {
       "id": "topStories",

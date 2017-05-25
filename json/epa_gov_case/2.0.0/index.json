@@ -7,6 +7,9 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
   },
+  "tags": [
+    "open data"
+  ],
   "definitions": {
     "crs0_Cases": {
       "description": "A summary of the violation(s), environmental problem(s), and a description of the cause of action.",

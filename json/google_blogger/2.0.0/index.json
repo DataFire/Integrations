@@ -27,6 +27,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png"
   },
+  "tags": [
+    "social",
+    "google"
+  ],
   "definitions": {
     "Blog": {
       "properties": {

@@ -13,6 +13,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
   },
+  "tags": [],
   "definitions": {
     "Convert_Price": {
       "properties": {

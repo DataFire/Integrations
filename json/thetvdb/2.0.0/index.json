@@ -13,6 +13,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png"
   },
+  "tags": [
+    "media",
+    "open data"
+  ],
   "definitions": {
     "Auth": {
       "properties": {

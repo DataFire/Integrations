@@ -14,6 +14,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
   },
+  "tags": [],
   "definitions": {
     "AccessTokenToPut": {
       "description": "Container Class for the Put action of an Access Token",

@@ -15,6 +15,9 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
   },
+  "tags": [
+    "developer tools"
+  ],
   "definitions": {
     "AccessRequester": {
       "description": "This feature was introduced in GitLab 8.11.",

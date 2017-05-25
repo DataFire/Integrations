@@ -7,6 +7,9 @@
     "backgroundColor": "#222222",
     "url": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png"
   },
+  "tags": [
+    "storage"
+  ],
   "definitions": {
     "Account": {
       "properties": {

@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png"
   },
+  "tags": [
+    "open data"
+  ],
   "actions": [
     {
       "id": "All",

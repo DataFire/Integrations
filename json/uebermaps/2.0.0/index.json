@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
   },
+  "tags": [
+    "location"
+  ],
   "definitions": {
     "Attachment": {
       "properties": {

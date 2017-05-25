@@ -7,6 +7,9 @@
     "backgroundColor": "#000000",
     "url": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png"
   },
+  "tags": [
+    "education"
+  ],
   "definitions": {
     "ActivationError": {
       "properties": {

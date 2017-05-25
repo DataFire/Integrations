@@ -14,6 +14,10 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
   "definitions": {
     "AddHeaderAction": {
       "description": "<p>When included in a receipt rule, this action adds a header to the received email.</p> <p>For information about adding a header using a receipt rule, see the <a href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html\">Amazon SES Developer Guide</a>.</p>",

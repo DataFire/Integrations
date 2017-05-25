@@ -7,6 +7,7 @@
     "backgroundColor": "#000000",
     "url": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png"
   },
+  "tags": [],
   "actions": [
     {
       "id": "api.hashtags.get",

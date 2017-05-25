@@ -6,6 +6,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
   },
+  "tags": [],
   "definitions": {
     "QueryResponse": {
       "description": "Response to a slice query.",

@@ -29,6 +29,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
   },
+  "tags": [
+    "google"
+  ],
   "definitions": {
     "Change": {
       "description": "An atomic update to a collection of ResourceRecordSets.",

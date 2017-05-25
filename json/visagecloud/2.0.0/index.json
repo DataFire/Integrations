@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png"
   },
+  "tags": [
+    "search"
+  ],
   "definitions": {
     "RestResponse": {
       "properties": {

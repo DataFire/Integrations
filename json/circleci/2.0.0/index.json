@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
   },
+  "tags": [
+    "developer tools"
+  ],
   "definitions": {
     "Artifact": {
       "properties": {

@@ -26,6 +26,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
   },
+  "tags": [
+    "google"
+  ],
   "definitions": {
     "Annotation": {
       "properties": {

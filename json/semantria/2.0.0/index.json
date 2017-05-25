@@ -6,6 +6,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
   },
+  "tags": [
+    "social",
+    "text"
+  ],
   "definitions": {
     "Attribute": {
       "properties": {

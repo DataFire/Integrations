@@ -7,6 +7,10 @@
     "backgroundColor": "#98C600",
     "url": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
   },
+  "tags": [
+    "developer tools",
+    "tools"
+  ],
   "definitions": {
     "AuthorizationValue": {
       "properties": {

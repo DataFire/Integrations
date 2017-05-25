@@ -13,6 +13,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg"
   },
+  "tags": [],
   "actions": [
     {
       "id": "v1.categories.post",

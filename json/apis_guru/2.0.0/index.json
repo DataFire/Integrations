@@ -6,6 +6,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
   },
+  "tags": [
+    "open data",
+    "developer tools"
+  ],
   "actions": [
     {
       "id": "listAPIs",

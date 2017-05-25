@@ -3,6 +3,7 @@
   "title": "www.reddit.com",
   "description": "",
   "security": {},
+  "tags": [],
   "definitions": {
     "Feed": {
       "type": "object",

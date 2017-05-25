@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg"
   },
+  "tags": [
+    "open data"
+  ],
   "definitions": {
     "AtomisedName": {
       "properties": {

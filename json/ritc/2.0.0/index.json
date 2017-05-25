@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
   },
+  "tags": [
+    "cloud"
+  ],
   "definitions": {
     "Action": {
       "properties": {

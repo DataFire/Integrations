@@ -30,6 +30,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png"
   },
+  "tags": [
+    "media",
+    "social"
+  ],
   "definitions": {
     "Contibutor": {
       "description": "Contibutor",

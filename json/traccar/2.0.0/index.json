@@ -14,6 +14,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
   },
+  "tags": [
+    "location"
+  ],
   "definitions": {
     "AttributeAlias": {
       "properties": {

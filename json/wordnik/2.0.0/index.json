@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png"
   },
+  "tags": [
+    "text"
+  ],
   "definitions": {
     "ApiTokenStatus": {
       "properties": {

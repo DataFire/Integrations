@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
   },
+  "tags": [
+    "financial"
+  ],
   "actions": [
     {
       "id": "v2.addresses.address.json.get",

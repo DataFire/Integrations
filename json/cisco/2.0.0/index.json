@@ -22,6 +22,9 @@
       }
     }
   },
+  "tags": [
+    "security"
+  ],
   "actions": [
     {
       "id": "security.advisories.cvrf.advisory.advisory_id.get",

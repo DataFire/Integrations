@@ -14,6 +14,9 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
   },
+  "tags": [
+    "media"
+  ],
   "definitions": {
     "ContentTypeType": {
       "additionalProperties": false,

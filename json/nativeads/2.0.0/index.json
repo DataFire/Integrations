@@ -6,6 +6,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
   },
+  "tags": [],
   "definitions": {
     "authResponse": {
       "properties": {

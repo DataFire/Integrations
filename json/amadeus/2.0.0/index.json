@@ -13,6 +13,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png"
   },
+  "tags": [],
   "definitions": {
     "Address": {
       "description": "An object to describe a postal address.",

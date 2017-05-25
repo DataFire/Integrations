@@ -6,6 +6,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg"
   },
+  "tags": [
+    "media",
+    "open data"
+  ],
   "actions": [
     {
       "id": "allstarballotpredictor.get",

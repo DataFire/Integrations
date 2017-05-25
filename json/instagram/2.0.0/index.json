@@ -30,6 +30,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg"
   },
+  "tags": [
+    "social",
+    "media"
+  ],
   "definitions": {
     "CaptionData": {
       "properties": {

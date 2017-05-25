@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
   },
+  "tags": [
+    "ecommerce"
+  ],
   "definitions": {
     "bundle-data-bundle-option-extension-interface": {
       "description": "ExtensionInterface class for @see \\Magento\\Bundle\\Api\\Data\\BundleOptionInterface",

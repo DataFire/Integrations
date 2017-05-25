@@ -25,6 +25,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg"
   },
+  "tags": [
+    "location"
+  ],
   "definitions": {
     "ApiError": {
       "description": "Details about why a request failed, such as missing or invalid parameters",

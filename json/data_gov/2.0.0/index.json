@@ -13,6 +13,7 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png"
   },
+  "tags": [],
   "actions": [
     {
       "id": "docket",

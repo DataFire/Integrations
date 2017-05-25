@@ -6,6 +6,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
   },
+  "tags": [
+    "open data",
+    "search"
+  ],
   "actions": [
     {
       "id": "getFacebookPing",

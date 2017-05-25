@@ -3,6 +3,7 @@
   "title": "rss.nytimes.com",
   "description": "",
   "security": {},
+  "tags": [],
   "actions": [
     {
       "id": "homePage",

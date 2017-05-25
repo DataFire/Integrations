@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
   },
+  "tags": [
+    "machine learning"
+  ],
   "definitions": {
     "Action": {
       "properties": {

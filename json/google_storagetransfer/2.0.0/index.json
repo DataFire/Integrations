@@ -26,6 +26,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
   },
+  "tags": [
+    "storage",
+    "google"
+  ],
   "definitions": {
     "AwsAccessKey": {
       "description": "AWS access key (see\n[AWS Security Credentials](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)).",

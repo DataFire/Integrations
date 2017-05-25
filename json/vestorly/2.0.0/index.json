@@ -7,6 +7,9 @@
     "backgroundColor": "#252832",
     "url": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png"
   },
+  "tags": [
+    "marketing"
+  ],
   "definitions": {
     "Advisor": {
       "properties": {

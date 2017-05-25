@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico"
   },
+  "tags": [
+    "open data"
+  ],
   "actions": [
     {
       "id": "v2.incidents.get",

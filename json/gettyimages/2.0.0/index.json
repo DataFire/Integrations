@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg"
   },
+  "tags": [
+    "media"
+  ],
   "definitions": {
     "AddBoardAssetsResult": {
       "properties": {

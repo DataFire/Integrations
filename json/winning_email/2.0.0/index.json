@@ -13,6 +13,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
   },
+  "tags": [
+    "email",
+    "marketing"
+  ],
   "definitions": {
     "ErrorModel": {
       "properties": {

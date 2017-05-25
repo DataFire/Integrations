@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg"
   },
+  "tags": [
+    "developer tools"
+  ],
   "definitions": {
     "AccessToken": {
       "properties": {

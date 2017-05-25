@@ -3,6 +3,7 @@
   "title": "www.npr.org",
   "description": "",
   "security": {},
+  "tags": [],
   "actions": [
     {
       "id": "news",

@@ -14,6 +14,10 @@
     "backgroundColor": "#1A1A1A",
     "url": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png"
   },
+  "tags": [
+    "analytics",
+    "tools"
+  ],
   "definitions": {
     "AdvancedExportStatus": {
       "properties": {

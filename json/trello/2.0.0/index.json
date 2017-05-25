@@ -14,6 +14,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
   },
+  "tags": [
+    "collaboration"
+  ],
   "definitions": {
     "actions": {
       "properties": {

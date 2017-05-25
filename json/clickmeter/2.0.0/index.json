@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg"
   },
+  "tags": [
+    "marketing"
+  ],
   "definitions": {
     "Api.Core.Dto.Accounting.ConversionOptions": {
       "properties": {

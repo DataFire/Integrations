@@ -7,6 +7,7 @@
       "backgroundColor": "#F26641",
       "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
     },
+    "tags": [],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -24,6 +25,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png"
     },
+    "tags": [],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -43,6 +45,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -62,6 +68,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -81,6 +91,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -100,6 +114,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -119,6 +137,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -138,6 +160,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -157,6 +183,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -176,6 +206,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -195,6 +229,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -214,6 +252,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 20,
     "latestVersion": "2.0.0"
   },
@@ -233,6 +275,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 24,
     "latestVersion": "2.0.0"
   },
@@ -252,6 +298,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -271,6 +321,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -290,6 +344,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -309,6 +367,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -328,6 +390,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 37,
     "latestVersion": "2.0.0"
   },
@@ -347,6 +413,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -366,6 +436,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -385,6 +459,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -404,6 +482,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 65,
     "latestVersion": "2.0.0"
   },
@@ -423,6 +505,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -442,6 +528,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -461,6 +551,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -480,6 +574,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -499,6 +597,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -518,6 +620,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 49,
     "latestVersion": "2.0.0"
   },
@@ -537,6 +643,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 37,
     "latestVersion": "2.0.0"
   },
@@ -556,6 +666,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -575,6 +689,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -594,6 +712,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -613,6 +735,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -632,6 +758,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 228,
     "latestVersion": "2.0.0"
   },
@@ -651,6 +781,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -670,6 +804,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 31,
     "latestVersion": "2.0.0"
   },
@@ -689,6 +827,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 39,
     "latestVersion": "2.0.0"
   },
@@ -708,6 +850,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 41,
     "latestVersion": "2.0.0"
   },
@@ -727,6 +873,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -746,6 +896,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 31,
     "latestVersion": "2.0.0"
   },
@@ -765,6 +919,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 27,
     "latestVersion": "2.0.0"
   },
@@ -784,6 +942,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -803,6 +965,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 49,
     "latestVersion": "2.0.0"
   },
@@ -822,6 +988,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -841,6 +1011,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -860,6 +1034,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -879,6 +1057,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -898,6 +1080,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -917,6 +1103,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -936,6 +1126,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -955,6 +1149,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 120,
     "latestVersion": "2.0.0"
   },
@@ -974,6 +1172,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -993,6 +1195,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 32,
     "latestVersion": "2.0.0"
   },
@@ -1012,6 +1218,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 34,
     "latestVersion": "2.0.0"
   },
@@ -1031,6 +1241,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -1049,6 +1263,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -1068,6 +1286,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 35,
     "latestVersion": "2.0.0"
   },
@@ -1087,6 +1309,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -1106,6 +1332,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -1125,6 +1355,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 28,
     "latestVersion": "2.0.0"
   },
@@ -1144,6 +1378,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -1163,6 +1401,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -1182,6 +1424,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1201,6 +1447,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 29,
     "latestVersion": "2.0.0"
   },
@@ -1220,6 +1470,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -1239,6 +1493,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 39,
     "latestVersion": "2.0.0"
   },
@@ -1258,6 +1516,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 70,
     "latestVersion": "2.0.0"
   },
@@ -1277,6 +1539,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -1296,6 +1562,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 39,
     "latestVersion": "2.0.0"
   },
@@ -1314,6 +1584,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -1333,6 +1607,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -1352,6 +1630,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 87,
     "latestVersion": "2.0.0"
   },
@@ -1371,6 +1653,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 63,
     "latestVersion": "2.0.0"
   },
@@ -1390,6 +1676,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -1408,6 +1698,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 35,
     "latestVersion": "2.0.0"
   },
@@ -1427,6 +1721,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -1446,6 +1744,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -1464,6 +1766,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 66,
     "latestVersion": "2.0.0"
   },
@@ -1483,6 +1789,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -1502,6 +1812,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 43,
     "latestVersion": "2.0.0"
   },
@@ -1521,6 +1835,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -1540,6 +1858,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -1559,6 +1881,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -1578,6 +1904,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 30,
     "latestVersion": "2.0.0"
   },
@@ -1597,6 +1927,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -1616,6 +1950,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 80,
     "latestVersion": "2.0.0"
   },
@@ -1635,6 +1973,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -1654,6 +1996,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 62,
     "latestVersion": "2.0.0"
   },
@@ -1673,6 +2019,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -1692,6 +2042,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -1711,6 +2065,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -1730,6 +2088,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 31,
     "latestVersion": "2.0.0"
   },
@@ -1749,6 +2111,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -1768,6 +2134,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -1787,6 +2157,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 42,
     "latestVersion": "2.0.0"
   },
@@ -1806,6 +2180,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -1825,6 +2203,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -1844,6 +2226,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
     },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -1864,6 +2250,7 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png"
     },
+    "tags": [],
     "actionCount": 123,
     "latestVersion": "2.0.0"
   },
@@ -1885,6 +2272,10 @@
       "backgroundColor": "#2a313a",
       "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
     },
+    "tags": [
+      "developer tools",
+      "tools"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1896,6 +2287,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
     },
+    "tags": [
+      "open data",
+      "developer tools"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -1907,6 +2302,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1918,6 +2314,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1929,6 +2326,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1940,6 +2338,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_16.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1951,6 +2350,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1962,6 +2362,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg"
     },
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -1973,6 +2374,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg"
     },
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -1984,6 +2386,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -1995,6 +2398,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2006,6 +2410,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2017,6 +2422,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_37.jpg"
     },
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -2028,6 +2434,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_17.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2039,6 +2446,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2050,6 +2460,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2061,6 +2472,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2072,6 +2484,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2083,6 +2496,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2094,6 +2508,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_36.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2105,6 +2520,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_27.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2116,6 +2532,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg"
     },
+    "tags": [],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -2127,6 +2544,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2138,6 +2556,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2149,6 +2568,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2160,6 +2580,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2171,6 +2592,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2182,6 +2604,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2193,6 +2616,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_13.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2204,6 +2628,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_8.jpg"
     },
+    "tags": [],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -2215,6 +2640,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg"
     },
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2233,6 +2659,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
     },
+    "tags": [],
     "actionCount": 45,
     "latestVersion": "2.0.0"
   },
@@ -2265,6 +2692,7 @@
       "backgroundColor": "#F26641",
       "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
     },
+    "tags": [],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -2295,6 +2723,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -2325,6 +2757,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -2355,6 +2791,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 99,
     "latestVersion": "2.0.0"
   },
@@ -2385,6 +2825,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -2415,6 +2859,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 20,
     "latestVersion": "2.0.0"
   },
@@ -2444,6 +2892,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -2474,6 +2926,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -2504,6 +2960,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "hosting",
+      "azure"
+    ],
     "actionCount": 32,
     "latestVersion": "2.0.0"
   },
@@ -2515,6 +2976,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "machine learning",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -2525,6 +2991,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "ecommerce",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -2555,6 +3026,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 54,
     "latestVersion": "2.0.0"
   },
@@ -2566,6 +3041,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -2577,6 +3056,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -2607,6 +3090,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -2617,6 +3104,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -2647,6 +3138,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "developer tools",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 52,
     "latestVersion": "2.0.0"
   },
@@ -2658,6 +3154,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "hosting",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -2688,6 +3189,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -2718,6 +3223,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 28,
     "latestVersion": "2.0.0"
   },
@@ -2728,6 +3237,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -2739,6 +3252,12 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "enterprise",
+      "cloud",
+      "collaboration",
+      "azure"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -2750,6 +3269,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "iot",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -2761,6 +3285,12 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "developer tools",
+      "cloud",
+      "security",
+      "azure"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -2791,6 +3321,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "developer tools",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 59,
     "latestVersion": "2.0.0"
   },
@@ -2802,6 +3337,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "machine learning",
+      "azure"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -2813,6 +3352,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "machine learning",
+      "azure"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -2843,6 +3386,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "media",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -2873,6 +3421,12 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "analytics",
+      "marketing",
+      "cloud",
+      "azure"
+    ],
     "actionCount": 37,
     "latestVersion": "2.0.0"
   },
@@ -2902,6 +3456,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -2932,6 +3490,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 97,
     "latestVersion": "2.0.0"
   },
@@ -2962,6 +3524,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -2992,6 +3558,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "analytics",
+      "azure"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -3003,6 +3573,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -3032,6 +3606,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "storage",
+      "azure"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -3062,6 +3640,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -3092,6 +3674,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 34,
     "latestVersion": "2.0.0"
   },
@@ -3122,6 +3708,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -3132,6 +3722,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "time management",
+      "azure"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -3162,6 +3756,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "search",
+      "azure"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -3192,6 +3790,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "developer tools",
+      "azure"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -3222,6 +3824,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -3252,6 +3858,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -3281,6 +3891,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -3292,6 +3906,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "enterprise",
+      "azure"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -3303,6 +3921,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "storage",
+      "azure"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -3333,6 +3955,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "storage",
+      "azure"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -3362,6 +3988,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -3372,6 +4002,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -3402,6 +4036,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 295,
     "latestVersion": "2.0.0"
   },
@@ -3412,6 +4050,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -3441,6 +4083,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [
+      "cloud",
+      "azure"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -3459,6 +4105,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -3466,6 +4116,7 @@
     "id": "bbc_rss",
     "title": "feeds.bbci.co.uk",
     "security": {},
+    "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -3487,6 +4138,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 30,
     "latestVersion": "2.0.0"
   },
@@ -3498,6 +4152,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -3509,6 +4166,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
     },
+    "tags": [
+      "payment",
+      "financial",
+      "ecommerce"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -3528,6 +4190,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_25665430.png"
     },
+    "tags": [
+      "ecommerce"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -3548,6 +4213,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png"
     },
+    "tags": [],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -3559,6 +4225,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -3614,6 +4283,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg"
     },
+    "tags": [
+      "developer tools",
+      "collaboration"
+    ],
     "actionCount": 181,
     "latestVersion": "2.0.0"
   },
@@ -3625,6 +4298,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_823529626819432448_wykDHAof_400x400.jpg"
     },
+    "tags": [],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -3644,6 +4318,10 @@
       "backgroundColor": "#1A1A1A",
       "url": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png"
     },
+    "tags": [
+      "analytics",
+      "tools"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -3663,6 +4341,9 @@
       "backgroundColor": "#E34056",
       "url": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png"
     },
+    "tags": [
+      "ecommerce"
+    ],
     "actionCount": 36,
     "latestVersion": "2.0.0"
   },
@@ -3681,6 +4362,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cdn.browshot.com_static_images_logo.png"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -3710,6 +4394,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png"
     },
+    "tags": [
+      "social",
+      "marketing"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -3721,6 +4409,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_cdn.cambase.io_assets_logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg"
     },
+    "tags": [],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -3740,6 +4429,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png"
     },
+    "tags": [],
     "actionCount": 40,
     "latestVersion": "2.0.0"
   },
@@ -3759,6 +4449,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 68,
     "latestVersion": "2.0.0"
   },
@@ -3777,6 +4470,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -3804,6 +4500,9 @@
         }
       }
     },
+    "tags": [
+      "security"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -3816,6 +4515,9 @@
       "backgroundColor": "#5F6166",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
     },
+    "tags": [
+      "support"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -3828,6 +4530,9 @@
       "backgroundColor": "#5F6166",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
     },
+    "tags": [
+      "collaboration"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -3840,6 +4545,7 @@
       "backgroundColor": "#5F6166",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
     },
+    "tags": [],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -3852,6 +4558,9 @@
       "backgroundColor": "#5F6166",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
     },
+    "tags": [
+      "marketing"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -3864,6 +4573,7 @@
       "backgroundColor": "#5F6166",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
     },
+    "tags": [],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -3879,6 +4589,9 @@
         }
       }
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -3891,6 +4604,9 @@
       "backgroundColor": "#65A8B5",
       "url": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png"
     },
+    "tags": [
+      "search"
+    ],
     "actionCount": 21,
     "latestVersion": "2.0.0"
   },
@@ -3909,6 +4625,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg"
     },
+    "tags": [
+      "marketing"
+    ],
     "actionCount": 108,
     "latestVersion": "2.0.0"
   },
@@ -3920,6 +4639,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -3932,6 +4654,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
     },
+    "tags": [
+      "financial"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -3939,6 +4664,7 @@
     "id": "cnn_rss",
     "title": "rss.cnn.com",
     "security": {},
+    "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -3950,6 +4676,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
     },
+    "tags": [],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -3968,6 +4695,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -3979,6 +4709,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -3991,6 +4724,7 @@
       "backgroundColor": "#3089CF",
       "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png"
     },
+    "tags": [],
     "actionCount": 95,
     "latestVersion": "2.0.0"
   },
@@ -4009,6 +4743,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png"
     },
+    "tags": [],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -4027,6 +4762,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png"
     },
+    "tags": [
+      "machine learning",
+      "text"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -4044,6 +4783,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -4056,6 +4798,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -4075,6 +4820,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -4087,6 +4835,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -4104,6 +4855,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -4116,6 +4870,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -4124,6 +4881,9 @@
     "title": "dweet.io",
     "description": "Dweet.io allows users to share data from mobile, tablets, and pcs, and them to other devices and accounts across social ...",
     "security": {},
+    "tags": [
+      "iot"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -4136,6 +4896,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -4148,6 +4911,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -4160,6 +4926,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -4172,6 +4941,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 34,
     "latestVersion": "2.0.0"
   },
@@ -4184,6 +4956,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -4196,6 +4971,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -4208,6 +4986,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -4220,6 +5001,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -4231,6 +5015,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -4243,6 +5030,9 @@
       "backgroundColor": "#222222",
       "url": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png"
     },
+    "tags": [
+      "storage"
+    ],
     "actionCount": 35,
     "latestVersion": "2.0.0"
   },
@@ -4254,6 +5044,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 30,
     "latestVersion": "2.0.0"
   },
@@ -4289,6 +5082,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg"
     },
+    "tags": [
+      "media",
+      "collaboration"
+    ],
     "actionCount": 24,
     "latestVersion": "2.0.0"
   },
@@ -4319,6 +5116,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cdn.furkot.com_img_furkot-banner-black-4x1.svg"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -4337,6 +5137,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png"
     },
+    "tags": [
+      "text"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -4356,6 +5159,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_geodesystems.com_repository_images_geodesystems.png"
     },
+    "tags": [],
     "actionCount": 228,
     "latestVersion": "2.0.0"
   },
@@ -4364,6 +5168,7 @@
     "title": "GoToTraining",
     "description": "The GoToTraining API enables developers to use the stable and robust GoToTraining functionality as the basis for online ...",
     "security": {},
+    "tags": [],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -4372,6 +5177,7 @@
     "title": "GoToWebinar",
     "description": "The GoToWebinar API provides seamless integration of webinar registrant and attendee data into your existing infrastruct...",
     "security": {},
+    "tags": [],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -4391,6 +5197,9 @@
       "backgroundColor": "#161924",
       "url": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -4409,6 +5218,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 40,
     "latestVersion": "2.0.0"
   },
@@ -4459,6 +5271,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
     },
+    "tags": [
+      "collaboration",
+      "developer tools"
+    ],
     "actionCount": 244,
     "latestVersion": "2.0.0"
   },
@@ -4479,6 +5295,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 358,
     "latestVersion": "2.0.0"
   },
@@ -4490,6 +5309,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -4521,6 +5343,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -4552,6 +5377,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -4584,6 +5412,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -4616,6 +5447,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
     },
+    "tags": [
+      "analytics",
+      "google"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -4648,6 +5483,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 38,
     "latestVersion": "2.0.0"
   },
@@ -4679,6 +5517,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 26,
     "latestVersion": "2.0.0"
   },
@@ -4715,6 +5556,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png"
     },
+    "tags": [
+      "analytics",
+      "google"
+    ],
     "actionCount": 85,
     "latestVersion": "2.0.0"
   },
@@ -4747,6 +5592,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -4758,6 +5606,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -4789,6 +5640,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 77,
     "latestVersion": "2.0.0"
   },
@@ -4820,6 +5674,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
     },
+    "tags": [
+      "developer tools",
+      "google"
+    ],
     "actionCount": 57,
     "latestVersion": "2.0.0"
   },
@@ -4853,6 +5711,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -4888,6 +5749,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -4919,6 +5783,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -4956,6 +5823,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "search",
+      "google"
+    ],
     "actionCount": 21,
     "latestVersion": "2.0.0"
   },
@@ -4988,6 +5859,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png"
     },
+    "tags": [
+      "social",
+      "google"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -5019,6 +5894,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 48,
     "latestVersion": "2.0.0"
   },
@@ -5051,6 +5929,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png"
     },
+    "tags": [
+      "time management",
+      "google"
+    ],
     "actionCount": 37,
     "latestVersion": "2.0.0"
   },
@@ -5062,6 +5944,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -5104,6 +5989,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "education",
+      "google"
+    ],
     "actionCount": 42,
     "latestVersion": "2.0.0"
   },
@@ -5135,6 +6024,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -5166,6 +6058,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -5198,6 +6093,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -5229,6 +6127,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -5260,6 +6161,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -5291,6 +6195,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "security",
+      "google"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -5323,6 +6231,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -5355,6 +6266,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 24,
     "latestVersion": "2.0.0"
   },
@@ -5388,6 +6302,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -5422,6 +6339,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -5458,6 +6378,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 261,
     "latestVersion": "2.0.0"
   },
@@ -5491,6 +6414,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -5522,6 +6448,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -5553,6 +6482,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "ecommerce",
+      "google"
+    ],
     "actionCount": 57,
     "latestVersion": "2.0.0"
   },
@@ -5564,6 +6497,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "search",
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -5597,6 +6534,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 28,
     "latestVersion": "2.0.0"
   },
@@ -5628,6 +6568,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -5660,6 +6603,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "storage",
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -5694,6 +6641,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -5727,6 +6677,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 204,
     "latestVersion": "2.0.0"
   },
@@ -5738,6 +6691,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -5769,6 +6725,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -5803,6 +6762,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -5814,6 +6776,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -5845,6 +6810,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -5883,6 +6851,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png"
     },
+    "tags": [
+      "storage",
+      "google"
+    ],
     "actionCount": 39,
     "latestVersion": "2.0.0"
   },
@@ -5914,6 +6886,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -5947,6 +6922,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -5995,6 +6973,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -6027,6 +7008,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -6060,6 +7044,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 53,
     "latestVersion": "2.0.0"
   },
@@ -6091,6 +7078,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -6123,6 +7113,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 27,
     "latestVersion": "2.0.0"
   },
@@ -6158,6 +7151,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 53,
     "latestVersion": "2.0.0"
   },
@@ -6198,6 +7194,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png"
     },
+    "tags": [
+      "email",
+      "google"
+    ],
     "actionCount": 63,
     "latestVersion": "2.0.0"
   },
@@ -6229,6 +7229,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -6260,6 +7263,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -6291,6 +7297,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -6323,6 +7332,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -6334,6 +7346,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -6365,6 +7380,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "text",
+      "google"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -6396,6 +7415,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "enterprise",
+      "google"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -6431,6 +7454,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -6462,6 +7488,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -6494,6 +7523,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 24,
     "latestVersion": "2.0.0"
   },
@@ -6525,6 +7557,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "machine learning",
+      "google"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -6559,6 +7595,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -6593,6 +7632,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -6604,6 +7646,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "tools",
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -6615,6 +7661,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -6654,6 +7703,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -6685,6 +7737,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -6719,6 +7774,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
     },
+    "tags": [
+      "social",
+      "google"
+    ],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -6759,6 +7818,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 20,
     "latestVersion": "2.0.0"
   },
@@ -6794,6 +7856,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_icons_feature_predictionapi-64.png"
     },
+    "tags": [
+      "prediction",
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -6825,6 +7891,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -6857,6 +7926,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "messaging",
+      "google"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -6868,6 +7941,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -6902,6 +7978,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 12,
     "latestVersion": "2.0.0"
   },
@@ -6936,6 +8015,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -6968,6 +8050,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
     },
+    "tags": [
+      "enterprise",
+      "google"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -7004,6 +8090,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -7036,6 +8125,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -7047,6 +8139,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "security",
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -7088,6 +8184,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -7099,6 +8198,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "search",
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -7131,6 +8234,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -7165,6 +8271,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 21,
     "latestVersion": "2.0.0"
   },
@@ -7198,6 +8307,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -7232,6 +8344,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -7264,6 +8379,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -7300,6 +8418,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -7331,6 +8452,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -7362,6 +8486,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -7373,6 +8500,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -7404,6 +8534,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -7436,6 +8569,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 40,
     "latestVersion": "2.0.0"
   },
@@ -7471,6 +8607,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png"
     },
+    "tags": [
+      "storage",
+      "google"
+    ],
     "actionCount": 46,
     "latestVersion": "2.0.0"
   },
@@ -7502,6 +8642,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "storage",
+      "google"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -7535,6 +8679,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 163,
     "latestVersion": "2.0.0"
   },
@@ -7568,6 +8715,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -7605,6 +8755,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 50,
     "latestVersion": "2.0.0"
   },
@@ -7637,6 +8790,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -7669,6 +8825,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "time management",
+      "google"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -7700,6 +8860,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -7733,6 +8896,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -7744,6 +8910,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
     },
+    "tags": [
+      "text",
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -7775,6 +8945,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "tools",
+      "google"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -7806,6 +8980,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -7817,6 +8994,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -7849,6 +9029,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -7885,6 +9068,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
     },
+    "tags": [
+      "google"
+    ],
     "actionCount": 72,
     "latestVersion": "2.0.0"
   },
@@ -7920,6 +9106,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
     },
+    "tags": [
+      "analytics",
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -7952,6 +9142,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
     },
+    "tags": [
+      "analytics",
+      "google"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -8001,6 +9195,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 22,
     "latestVersion": "2.0.0"
   },
@@ -8012,6 +9209,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -8030,6 +9230,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 14,
     "latestVersion": "2.0.0"
   },
@@ -8041,6 +9244,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -8052,6 +9258,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8063,6 +9272,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8081,6 +9293,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8099,6 +9314,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8107,6 +9325,7 @@
     "title": "Hacker News",
     "description": "Hacker News is a social news website focusing on computer science and entrepreneurship",
     "security": {},
+    "tags": [],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -8122,6 +9341,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -8132,6 +9354,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
     },
+    "tags": [],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -8142,6 +9365,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
     },
+    "tags": [],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -8154,6 +9378,9 @@
       "backgroundColor": "#185394",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.hhs.gov_sites_all_themes_project_h_css_images_hhs_logo.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 32,
     "latestVersion": "2.0.0"
   },
@@ -8166,6 +9393,9 @@
       "backgroundColor": "#222222",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png"
     },
+    "tags": [
+      "telecom"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -8185,6 +9415,9 @@
       "backgroundColor": "#383D41",
       "url": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
     },
+    "tags": [
+      "iot"
+    ],
     "actionCount": 67,
     "latestVersion": "2.0.0"
   },
@@ -8203,6 +9436,9 @@
       "backgroundColor": "#F6248E",
       "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8221,6 +9457,9 @@
       "backgroundColor": "#F6248E",
       "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8239,6 +9478,9 @@
       "backgroundColor": "#F6248E",
       "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8257,6 +9499,9 @@
       "backgroundColor": "#F6248E",
       "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8275,6 +9520,9 @@
       "backgroundColor": "#F6248E",
       "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
     },
+    "tags": [
+      "tools"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8293,6 +9541,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png"
     },
+    "tags": [
+      "email",
+      "marketing"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -8305,6 +9557,7 @@
       "backgroundColor": "#1576D1",
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png"
     },
+    "tags": [],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -8340,6 +9593,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg"
     },
+    "tags": [
+      "social",
+      "media"
+    ],
     "actionCount": 27,
     "latestVersion": "2.0.0"
   },
@@ -8371,6 +9628,9 @@
       "backgroundColor": "#4BC9C5",
       "url": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
     },
+    "tags": [
+      "marketing"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -8382,6 +9642,9 @@
       "backgroundColor": "#000000",
       "url": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png"
     },
+    "tags": [
+      "education"
+    ],
     "actionCount": 34,
     "latestVersion": "2.0.0"
   },
@@ -8412,6 +9675,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -8423,6 +9689,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png"
     },
+    "tags": [
+      "financial"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -8439,6 +9708,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
     },
+    "tags": [
+      "email",
+      "marketing"
+    ],
     "actionCount": 90,
     "latestVersion": "2.0.0"
   },
@@ -8474,6 +9747,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png"
     },
+    "tags": [
+      "media",
+      "social"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -8486,6 +9763,7 @@
       "backgroundColor": "#000000",
       "url": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png"
     },
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8513,6 +9791,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png"
     },
+    "tags": [],
     "actionCount": 43,
     "latestVersion": "2.0.0"
   },
@@ -8532,6 +9811,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png"
     },
+    "tags": [
+      "cloud"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -8543,6 +9825,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
     },
+    "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8554,6 +9837,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 91,
     "latestVersion": "2.0.0"
   },
@@ -8562,6 +9849,9 @@
     "title": "NeoWs - (Near Earth Object Web Service)",
     "description": "A web service for near earth objects. All the data is from the  NASA JPL Asteroid team. ",
     "security": {},
+    "tags": [
+      "open data"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -8597,6 +9887,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png"
     },
+    "tags": [
+      "iot"
+    ],
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
@@ -8617,6 +9910,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
     },
+    "tags": [],
     "actionCount": 39,
     "latestVersion": "2.0.0"
   },
@@ -8637,6 +9931,13 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png"
     },
+    "tags": [
+      "email",
+      "messaging",
+      "telecom",
+      "location",
+      "text"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -8644,6 +9945,7 @@
     "id": "npr_rss",
     "title": "www.npr.org",
     "security": {},
+    "tags": [],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8663,6 +9965,9 @@
       "backgroundColor": "#0079C5",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8682,6 +9987,9 @@
       "backgroundColor": "#0079C5",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8693,6 +10001,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8711,6 +10022,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "search"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8729,6 +10044,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -8747,6 +10066,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -8765,6 +10088,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8783,6 +10110,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -8801,6 +10132,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -8808,6 +10143,7 @@
     "id": "nytimes_rss",
     "title": "rss.nytimes.com",
     "security": {},
+    "tags": [],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -8826,6 +10162,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -8844,6 +10184,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8862,6 +10206,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -8880,6 +10228,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8888,6 +10240,9 @@
     "title": "ODWeather",
     "description": "This is the api to access the ODWeather API information",
     "security": {},
+    "tags": [
+      "open data"
+    ],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -8905,6 +10260,10 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/http_raw.githubusercontent.com_Mermade_open_api_specifications_master_OMDb_OMDb.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8917,6 +10276,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -8928,6 +10290,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -8946,6 +10311,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg"
     },
+    "tags": [],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -8964,6 +10330,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png"
     },
+    "tags": [
+      "search"
+    ],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -8974,6 +10343,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png"
     },
+    "tags": [
+      "text"
+    ],
     "actionCount": 27,
     "latestVersion": "2.0.0"
   },
@@ -8989,6 +10361,7 @@
         }
       }
     },
+    "tags": [],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -8997,6 +10370,10 @@
     "title": "PasswordUtility.Web",
     "description": "Validate and generate passwords using open source tools",
     "security": {},
+    "tags": [
+      "security",
+      "tools"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -9008,6 +10385,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
     },
+    "tags": [],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -9019,6 +10397,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 5,
     "latestVersion": "2.0.0"
   },
@@ -9027,6 +10408,9 @@
     "title": "posty_API",
     "description": "The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Post...",
     "security": {},
+    "tags": [
+      "email"
+    ],
     "actionCount": 28,
     "latestVersion": "2.0.0"
   },
@@ -9045,6 +10429,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg"
     },
+    "tags": [],
     "actionCount": 9,
     "latestVersion": "2.0.0"
   },
@@ -9067,6 +10452,10 @@
       "backgroundColor": "#0033A0",
       "url": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
     },
+    "tags": [
+      "payment",
+      "ecommerce"
+    ],
     "actionCount": 233,
     "latestVersion": "2.0.0"
   },
@@ -9074,6 +10463,7 @@
     "id": "reddit_rss",
     "title": "www.reddit.com",
     "security": {},
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -9086,6 +10476,9 @@
       "backgroundColor": "#4C4C4C",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -9130,6 +10523,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
     },
+    "tags": [
+      "ecommerce"
+    ],
     "actionCount": 161,
     "latestVersion": "2.0.0"
   },
@@ -9148,6 +10544,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
     },
+    "tags": [
+      "cloud"
+    ],
     "actionCount": 66,
     "latestVersion": "2.0.0"
   },
@@ -9166,6 +10565,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_staticv2.rottentomatoes.com_static_images_logos_rtlogo.png"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -9177,6 +10579,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
     },
+    "tags": [
+      "machine learning"
+    ],
     "actionCount": 15,
     "latestVersion": "2.0.0"
   },
@@ -9215,6 +10620,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 25,
     "latestVersion": "2.0.0"
   },
@@ -9223,6 +10631,10 @@
     "title": "SchoolDigger API V1",
     "description": "Get detailed data on over 120,000 schools and 18,500 districts in the U.S.",
     "security": {},
+    "tags": [
+      "open data",
+      "education"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -9231,6 +10643,10 @@
     "title": "Scrape Website Email API",
     "description": "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.",
     "security": {},
+    "tags": [
+      "email",
+      "tools"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -9242,6 +10658,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
     },
+    "tags": [
+      "social",
+      "text"
+    ],
     "actionCount": 41,
     "latestVersion": "2.0.0"
   },
@@ -9259,6 +10679,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png"
     },
+    "tags": [
+      "email",
+      "marketing"
+    ],
     "actionCount": 231,
     "latestVersion": "2.0.0"
   },
@@ -9275,6 +10699,7 @@
         }
       }
     },
+    "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -9345,6 +10770,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png"
     },
+    "tags": [
+      "collaboration",
+      "messaging"
+    ],
     "actionCount": 30,
     "latestVersion": "2.0.0"
   },
@@ -9357,6 +10786,7 @@
       "backgroundColor": "#000000",
       "url": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png"
     },
+    "tags": [],
     "actionCount": 11,
     "latestVersion": "2.0.0"
   },
@@ -9376,6 +10806,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
     },
+    "tags": [],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -9394,6 +10825,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
     },
+    "tags": [],
     "actionCount": 20,
     "latestVersion": "2.0.0"
   },
@@ -9405,6 +10837,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg"
     },
+    "tags": [
+      "ecommerce",
+      "financial",
+      "payment"
+    ],
     "actionCount": 1,
     "latestVersion": "2.0.0"
   },
@@ -9442,6 +10879,9 @@
         }
       }
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 37,
     "latestVersion": "2.0.0"
   },
@@ -9486,6 +10926,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
     },
+    "tags": [
+      "payment"
+    ],
     "actionCount": 16,
     "latestVersion": "2.0.0"
   },
@@ -9514,6 +10957,11 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
     },
+    "tags": [
+      "collaboration",
+      "developer tools",
+      "support"
+    ],
     "actionCount": 124,
     "latestVersion": "2.0.0"
   },
@@ -9532,6 +10980,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg"
     },
+    "tags": [
+      "social",
+      "marketing"
+    ],
     "actionCount": 17,
     "latestVersion": "2.0.0"
   },
@@ -9544,6 +10996,10 @@
       "backgroundColor": "#98C600",
       "url": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
     },
+    "tags": [
+      "developer tools",
+      "tools"
+    ],
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
@@ -9562,6 +11018,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg"
     },
+    "tags": [
+      "developer tools"
+    ],
     "actionCount": 69,
     "latestVersion": "2.0.0"
   },
@@ -9573,6 +11032,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
     },
+    "tags": [
+      "ecommerce"
+    ],
     "actionCount": 355,
     "latestVersion": "2.0.0"
   },
@@ -9591,6 +11053,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_i.imgur.com_C7ouKJt.png"
     },
+    "tags": [
+      "payment"
+    ],
     "actionCount": 36,
     "latestVersion": "2.0.0"
   },
@@ -9610,6 +11075,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg"
     },
+    "tags": [
+      "location",
+      "open data"
+    ],
     "actionCount": 78,
     "latestVersion": "2.0.0"
   },
@@ -9621,6 +11090,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
     },
+    "tags": [],
     "actionCount": 13,
     "latestVersion": "2.0.0"
   },
@@ -9639,6 +11109,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png"
     },
+    "tags": [
+      "media",
+      "open data"
+    ],
     "actionCount": 30,
     "latestVersion": "2.0.0"
   },
@@ -9658,6 +11132,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 55,
     "latestVersion": "2.0.0"
   },
@@ -9677,6 +11154,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
     },
+    "tags": [
+      "collaboration"
+    ],
     "actionCount": 324,
     "latestVersion": "2.0.0"
   },
@@ -9696,6 +11176,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg"
     },
+    "tags": [
+      "telecom",
+      "messaging"
+    ],
     "actionCount": 116,
     "latestVersion": "2.0.0"
   },
@@ -9707,6 +11191,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
     },
+    "tags": [
+      "location"
+    ],
     "actionCount": 54,
     "latestVersion": "2.0.0"
   },
@@ -9725,6 +11212,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
     },
+    "tags": [],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -9736,6 +11224,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
     },
+    "tags": [
+      "open data",
+      "search"
+    ],
     "actionCount": 44,
     "latestVersion": "2.0.0"
   },
@@ -9748,6 +11240,9 @@
       "backgroundColor": "#252832",
       "url": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png"
     },
+    "tags": [
+      "marketing"
+    ],
     "actionCount": 33,
     "latestVersion": "2.0.0"
   },
@@ -9766,6 +11261,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png"
     },
+    "tags": [
+      "search"
+    ],
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
@@ -9777,6 +11275,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
     },
+    "tags": [
+      "open data"
+    ],
     "actionCount": 47,
     "latestVersion": "2.0.0"
   },
@@ -9788,6 +11289,7 @@
       "backgroundColor": "#1B4E65",
       "url": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg"
     },
+    "tags": [],
     "actionCount": 61,
     "latestVersion": "2.0.0"
   },
@@ -9808,6 +11310,9 @@
       "backgroundColor": "#050917",
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_766560979630952448_XIUTg1a4.jpg"
     },
+    "tags": [
+      "messaging"
+    ],
     "actionCount": 4,
     "latestVersion": "2.0.0"
   },
@@ -9826,6 +11331,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 10,
     "latestVersion": "2.0.0"
   },
@@ -9856,6 +11364,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [],
     "actionCount": 34,
     "latestVersion": "2.0.0"
   },
@@ -9867,6 +11376,7 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
     },
+    "tags": [],
     "actionCount": 74,
     "latestVersion": "2.0.0"
   },
@@ -9885,6 +11395,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
     },
+    "tags": [
+      "email",
+      "marketing"
+    ],
     "actionCount": 3,
     "latestVersion": "2.0.0"
   },
@@ -9903,6 +11417,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png"
     },
+    "tags": [
+      "text"
+    ],
     "actionCount": 28,
     "latestVersion": "2.0.0"
   },
@@ -9919,6 +11436,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
     },
+    "tags": [
+      "media"
+    ],
     "actionCount": 2,
     "latestVersion": "2.0.0"
   },
@@ -9930,6 +11450,9 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
     },
+    "tags": [
+      "financial"
+    ],
     "actionCount": 23,
     "latestVersion": "2.0.0"
   },
@@ -9942,6 +11465,9 @@
       "backgroundColor": "#FFFFFF",
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png"
     },
+    "tags": [
+      "entertainment"
+    ],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   },
@@ -9961,6 +11487,10 @@
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
     },
+    "tags": [
+      "messaging",
+      "marketing"
+    ],
     "actionCount": 44,
     "latestVersion": "2.0.0"
   },
@@ -9969,6 +11499,7 @@
     "title": "HTTP",
     "description": "Make HTTP calls",
     "security": {},
+    "tags": [],
     "actionCount": 8,
     "latestVersion": "2.0.0"
   },
@@ -9984,6 +11515,7 @@
         }
       }
     },
+    "tags": [],
     "actionCount": 6,
     "latestVersion": "2.0.0"
   }

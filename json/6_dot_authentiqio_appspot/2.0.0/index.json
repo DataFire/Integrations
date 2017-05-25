@@ -7,6 +7,7 @@
     "backgroundColor": "#F26641",
     "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
   },
+  "tags": [],
   "definitions": {
     "AuthentiqID": {
       "description": "Authentiq ID in JWT format, self-signed.\n",

@@ -44,6 +44,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
   },
+  "tags": [
+    "open data"
+  ],
   "actions": [
     {
       "id": "action.organization_activity_list.get",

@@ -23,6 +23,11 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
   },
+  "tags": [
+    "collaboration",
+    "developer tools",
+    "support"
+  ],
   "definitions": {
     "access_tokens": {
       "items": {

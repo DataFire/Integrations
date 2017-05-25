@@ -26,6 +26,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
   },
+  "tags": [
+    "developer tools",
+    "google"
+  ],
   "definitions": {
     "Apk": {
       "properties": {

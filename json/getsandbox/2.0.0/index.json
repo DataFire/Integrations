@@ -14,6 +14,9 @@
     "backgroundColor": "#161924",
     "url": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
   },
+  "tags": [
+    "developer tools"
+  ],
   "definitions": {
     "ActivityMessage": {
       "properties": {

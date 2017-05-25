@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
   },
+  "tags": [
+    "open data"
+  ],
   "actions": [
     {
       "id": "layers.get",

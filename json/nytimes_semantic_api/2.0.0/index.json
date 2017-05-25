@@ -13,6 +13,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
   },
+  "tags": [
+    "media",
+    "open data"
+  ],
   "definitions": {
     "Concept": {
       "properties": {

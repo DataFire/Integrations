@@ -14,6 +14,10 @@
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
   },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
   "definitions": {
     "AcceptLanguage": {
       "type": "string"

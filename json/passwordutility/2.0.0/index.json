@@ -3,6 +3,10 @@
   "title": "PasswordUtility.Web",
   "description": "Validate and generate passwords using open source tools",
   "security": {},
+  "tags": [
+    "security",
+    "tools"
+  ],
   "definitions": {
     "Object": {
       "properties": {},

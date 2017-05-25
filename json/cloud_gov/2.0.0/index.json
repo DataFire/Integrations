@@ -6,6 +6,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif"
   },
+  "tags": [
+    "open data"
+  ],
   "actions": [
     {
       "id": "List_Contracts",

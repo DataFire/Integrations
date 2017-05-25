@@ -11,6 +11,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
   },
+  "tags": [
+    "media"
+  ],
   "definitions": {
     "comic": {
       "properties": {

@@ -3,6 +3,7 @@
   "title": "HTTP",
   "description": "Make HTTP calls",
   "security": {},
+  "tags": [],
   "actions": [
     {
       "id": "request",

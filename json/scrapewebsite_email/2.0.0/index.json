@@ -3,6 +3,10 @@
   "title": "Scrape Website Email API",
   "description": "ScrapeWebsiteEmail is a service that exposes an api to fetch e-mails from a website.",
   "security": {},
+  "tags": [
+    "email",
+    "tools"
+  ],
   "actions": [
     {
       "id": "v1.ping.json.get",

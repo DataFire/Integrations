@@ -33,6 +33,9 @@
       }
     }
   },
+  "tags": [
+    "media"
+  ],
   "definitions": {
     "album": {
       "properties": {

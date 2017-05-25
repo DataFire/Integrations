@@ -36,6 +36,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
   },
+  "tags": [
+    "google"
+  ],
   "definitions": {
     "ExecutionError": {
       "description": "An object that provides information about the nature of an error in the Apps\nScript Execution API. If an\n`run` call succeeds but the\nscript function (or Apps Script itself) throws an exception, the response\nbody's `error` field contains a\n`Status` object. The `Status` object's `details` field\ncontains an array with a single one of these `ExecutionError` objects.",

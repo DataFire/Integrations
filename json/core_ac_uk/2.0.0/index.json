@@ -13,6 +13,9 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png"
   },
+  "tags": [
+    "open data"
+  ],
   "definitions": {
     "Article": {
       "properties": {

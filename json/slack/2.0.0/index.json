@@ -65,6 +65,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png"
   },
+  "tags": [
+    "collaboration",
+    "messaging"
+  ],
   "definitions": {
     "channalsInfo": {
       "properties": {

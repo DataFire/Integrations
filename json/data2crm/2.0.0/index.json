@@ -7,6 +7,7 @@
     "backgroundColor": "#3089CF",
     "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png"
   },
+  "tags": [],
   "definitions": {
     "Account": {
       "properties": {

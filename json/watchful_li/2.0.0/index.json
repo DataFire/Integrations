@@ -7,6 +7,7 @@
     "backgroundColor": "#1B4E65",
     "url": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg"
   },
+  "tags": [],
   "definitions": {
     "Audit": {
       "properties": {

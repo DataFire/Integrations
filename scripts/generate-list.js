@@ -37,14 +37,23 @@ function addDirToList(dir) {
     let packageName = require.resolve(path.join(dir, name));
     let integ = require(packageName);
     let package = require(path.join(dir, name, 'package.json'));
+    let openapiFile = path.join(dir, name, 'openapi.json');
+    let openapi = {info: {}};
+    if (fs.existsSync(openapiFile)) {
+      openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
+    }
     if (list[name]) throw new Error("Duplicate name " + name);
     list[name] = {
       id: name,
       title: integ.title,
       description: integ.description,
       security: integ.security,
-      logo: integ.logo,
+      logo: openapi.info['x-logo'],
+      tags: (openapi.info['x-apisguru-categories'] || []).map(t => t.replace(/_/g, ' ')),
     };
+    if (name.indexOf('google_') === 0) list[name].tags.push('google');
+    if (name.indexOf('amazonaws_') === 0) list[name].tags.push('aws');
+    if (name.indexOf('azure_') === 0) list[name].tags.push('azure');
     let details = Object.assign({}, list[name]);
     list[name].description = truncateDescription(list[name].description);
     list[name].actionCount = integ.allActions.length;

@@ -24,6 +24,10 @@
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png"
   },
+  "tags": [
+    "social",
+    "marketing"
+  ],
   "definitions": {
     "configuration": {
       "properties": {
