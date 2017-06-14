@@ -9,7 +9,9 @@ module.exports = (args, callback=()=>{}) => {
   args.name = args.name.toLowerCase().replace(/\W+/g, '_');
   args.destination = DESTINATION;
   let type = TYPES.filter(t => args[t])[0];
-  datafire.commands.integrate(args).then(spec => {
+  function writeIntegrationFiles() {
+    console.log('Writing', args.name);
+    let spec = require(path.join(args.destination, args.name, 'openapi.json'));
     let pkg = JSON.parse(JSON.stringify(require('../package-template.json')))
     let packageFile = path.join(args.destination, args.name, 'package.json');
     pkg.name = '@datafire/' + args.name;
@@ -19,7 +21,14 @@ module.exports = (args, callback=()=>{}) => {
     pkg.datafire.type = type;
     fs.writeFileSync(packageFile, JSON.stringify(pkg, null, 2));
     callback();
-  })
+  }
+  if (process.env.NO_UPDATE && fs.existsSync(path.join(args.destination, args.name))) {
+    callback();
+  } else {
+    datafire.commands.integrate(args).then(spec => {
+      writeIntegrationFiles();
+    })
+  }
 }
 
 if (require.main === module) {
