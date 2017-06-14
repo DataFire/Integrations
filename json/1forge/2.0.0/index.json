@@ -1,0 +1,39 @@
+{
+  "id": "1forge",
+  "title": "1Forge Finance APIs",
+  "description": "API Program description",
+  "security": {},
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/http_1forge.com_logo.png"
+  },
+  "tags": [
+    "financial"
+  ],
+  "actions": [
+    {
+      "id": "quotes.get",
+      "title": "quotes.get",
+      "description": "Get quotes",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "symbols.get",
+      "title": "symbols.get",
+      "description": "Symbol List",
+      "inputSchema": {},
+      "outputSchema": {
+        "example": [
+          "EURUSD",
+          "GBPJPY",
+          "AUDUSD"
+        ],
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    }
+  ]
+}
