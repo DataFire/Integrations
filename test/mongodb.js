@@ -18,7 +18,8 @@ let context = new datafire.Context({
 });
 
 describe('MongoDB Integration', () => {
-  before(done => {
+  before(function(done) {
+    this.timeout(5000)
     mongoServer.start(done);
   })
   after(() => mongoServer.stop());
