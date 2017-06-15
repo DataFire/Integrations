@@ -2357,7 +2357,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddIpRoutesResult"
@@ -2406,7 +2411,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddTagsToResourceResult"
@@ -2455,7 +2465,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelSchemaExtensionResult"
@@ -2504,7 +2519,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectDirectoryResult"
@@ -2553,7 +2573,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateAliasResult"
@@ -2602,7 +2627,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateComputerResult"
@@ -2651,7 +2681,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateConditionalForwarderResult"
@@ -2700,7 +2735,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateDirectoryResult"
@@ -2749,7 +2789,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateMicrosoftADResult"
@@ -2798,7 +2843,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateSnapshotResult"
@@ -2847,7 +2897,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateTrustResult"
@@ -2896,7 +2951,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteConditionalForwarderResult"
@@ -2945,7 +3005,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteDirectoryResult"
@@ -2994,7 +3059,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteSnapshotResult"
@@ -3043,7 +3113,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteTrustResult"
@@ -3092,7 +3167,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeregisterEventTopicResult"
@@ -3141,7 +3221,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeConditionalForwardersResult"
@@ -3190,7 +3275,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeDirectoriesResult"
@@ -3239,7 +3329,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeEventTopicsResult"
@@ -3288,7 +3383,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeSnapshotsResult"
@@ -3337,7 +3437,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeTrustsResult"
@@ -3386,7 +3491,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DisableRadiusResult"
@@ -3435,7 +3545,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DisableSsoResult"
@@ -3484,7 +3599,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EnableRadiusResult"
@@ -3533,7 +3653,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EnableSsoResult"
@@ -3582,7 +3707,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDirectoryLimitsResult"
@@ -3631,7 +3761,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetSnapshotLimitsResult"
@@ -3680,7 +3815,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListIpRoutesResult"
@@ -3729,7 +3869,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSchemaExtensionsResult"
@@ -3778,7 +3923,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTagsForResourceResult"
@@ -3827,7 +3977,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterEventTopicResult"
@@ -3876,7 +4031,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemoveIpRoutesResult"
@@ -3925,7 +4085,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemoveTagsFromResourceResult"
@@ -3974,7 +4139,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreFromSnapshotResult"
@@ -4023,7 +4193,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartSchemaExtensionResult"
@@ -4072,7 +4247,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateConditionalForwarderResult"
@@ -4121,7 +4301,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateRadiusResult"
@@ -4170,7 +4355,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyTrustResult"

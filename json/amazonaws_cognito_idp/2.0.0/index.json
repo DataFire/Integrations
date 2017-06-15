@@ -3683,7 +3683,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddCustomAttributesResponse"
@@ -3732,7 +3737,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3779,7 +3789,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminConfirmSignUpResponse"
@@ -3828,7 +3843,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminCreateUserResponse"
@@ -3877,7 +3897,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3924,7 +3949,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminDeleteUserAttributesResponse"
@@ -3973,7 +4003,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminDisableUserResponse"
@@ -4022,7 +4057,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminEnableUserResponse"
@@ -4071,7 +4111,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4118,7 +4163,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminGetDeviceResponse"
@@ -4167,7 +4217,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminGetUserResponse"
@@ -4216,7 +4271,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminInitiateAuthResponse"
@@ -4265,7 +4325,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminListDevicesResponse"
@@ -4314,7 +4379,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminListGroupsForUserResponse"
@@ -4363,7 +4433,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4410,7 +4485,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminResetUserPasswordResponse"
@@ -4459,7 +4539,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminRespondToAuthChallengeResponse"
@@ -4508,7 +4593,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminSetUserSettingsResponse"
@@ -4557,7 +4647,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUpdateDeviceStatusResponse"
@@ -4606,7 +4701,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUpdateUserAttributesResponse"
@@ -4655,7 +4755,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUserGlobalSignOutResponse"
@@ -4704,7 +4809,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ChangePasswordResponse"
@@ -4753,7 +4863,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConfirmDeviceResponse"
@@ -4802,7 +4917,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConfirmForgotPasswordResponse"
@@ -4851,7 +4971,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConfirmSignUpResponse"
@@ -4900,7 +5025,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateGroupResponse"
@@ -4949,7 +5079,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateUserImportJobResponse"
@@ -4998,7 +5133,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateUserPoolResponse"
@@ -5047,7 +5187,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateUserPoolClientResponse"
@@ -5096,7 +5241,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5143,7 +5293,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5190,7 +5345,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteUserAttributesResponse"
@@ -5239,7 +5399,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5286,7 +5451,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5333,7 +5503,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeUserImportJobResponse"
@@ -5382,7 +5557,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeUserPoolResponse"
@@ -5431,7 +5611,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeUserPoolClientResponse"
@@ -5480,7 +5665,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5527,7 +5717,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ForgotPasswordResponse"
@@ -5576,7 +5771,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetCSVHeaderResponse"
@@ -5625,7 +5825,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDeviceResponse"
@@ -5674,7 +5879,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetGroupResponse"
@@ -5723,7 +5933,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetUserResponse"
@@ -5772,7 +5987,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetUserAttributeVerificationCodeResponse"
@@ -5821,7 +6041,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalSignOutResponse"
@@ -5870,7 +6095,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InitiateAuthResponse"
@@ -5919,7 +6149,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDevicesResponse"
@@ -5968,7 +6203,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGroupsResponse"
@@ -6017,7 +6257,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUserImportJobsResponse"
@@ -6066,7 +6311,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUserPoolClientsResponse"
@@ -6115,7 +6365,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUserPoolsResponse"
@@ -6164,7 +6419,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUsersResponse"
@@ -6213,7 +6473,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUsersInGroupResponse"
@@ -6262,7 +6527,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResendConfirmationCodeResponse"
@@ -6311,7 +6581,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RespondToAuthChallengeResponse"
@@ -6360,7 +6635,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SetUserSettingsResponse"
@@ -6409,7 +6689,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SignUpResponse"
@@ -6458,7 +6743,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartUserImportJobResponse"
@@ -6507,7 +6797,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopUserImportJobResponse"
@@ -6556,7 +6851,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateDeviceStatusResponse"
@@ -6605,7 +6905,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateGroupResponse"
@@ -6654,7 +6959,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateUserAttributesResponse"
@@ -6703,7 +7013,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateUserPoolResponse"
@@ -6752,7 +7067,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateUserPoolClientResponse"
@@ -6801,7 +7121,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifyUserAttributeResponse"

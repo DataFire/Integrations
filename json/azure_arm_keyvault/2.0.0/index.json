@@ -329,7 +329,12 @@
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VaultListResult"
@@ -359,7 +364,13 @@
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "vaultName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {}
     },
@@ -387,7 +398,13 @@
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "vaultName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Vault"
@@ -421,7 +438,14 @@
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "vaultName",
+          "api-version",
+          "parameters",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Vault"
@@ -458,7 +482,12 @@
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "$filter",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceListResult"

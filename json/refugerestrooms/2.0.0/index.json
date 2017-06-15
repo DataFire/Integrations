@@ -90,7 +90,12 @@
             "description": "Year"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "day",
+          "month",
+          "year"
+        ]
       },
       "outputSchema": {}
     },
@@ -132,7 +137,11 @@
             "description": "longitude"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lng"
+        ]
       },
       "outputSchema": {}
     },
@@ -168,7 +177,10 @@
             "description": "Your search query."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {}
     }

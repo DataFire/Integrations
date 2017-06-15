@@ -3662,7 +3662,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateDevicePoolResult"
@@ -3711,7 +3716,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateNetworkProfileResult"
@@ -3760,7 +3770,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateProjectResult"
@@ -3809,7 +3824,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateRemoteAccessSessionResult"
@@ -3858,7 +3878,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateUploadResult"
@@ -3907,7 +3932,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteDevicePoolResult"
@@ -3956,7 +3986,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteNetworkProfileResult"
@@ -4005,7 +4040,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteProjectResult"
@@ -4054,7 +4094,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteRemoteAccessSessionResult"
@@ -4103,7 +4148,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteRunResult"
@@ -4152,7 +4202,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteUploadResult"
@@ -4201,7 +4256,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAccountSettingsResult"
@@ -4250,7 +4310,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDeviceResult"
@@ -4299,7 +4364,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDevicePoolResult"
@@ -4348,7 +4418,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDevicePoolCompatibilityResult"
@@ -4397,7 +4472,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetJobResult"
@@ -4446,7 +4526,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetNetworkProfileResult"
@@ -4499,7 +4584,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOfferingStatusResult"
@@ -4548,7 +4638,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProjectResult"
@@ -4597,7 +4692,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetRemoteAccessSessionResult"
@@ -4646,7 +4746,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetRunResult"
@@ -4695,7 +4800,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetSuiteResult"
@@ -4744,7 +4854,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTestResult"
@@ -4793,7 +4908,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetUploadResult"
@@ -4842,7 +4962,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InstallToRemoteAccessSessionResult"
@@ -4895,7 +5020,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListArtifactsResult"
@@ -4948,7 +5078,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDevicePoolsResult"
@@ -5001,7 +5136,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDevicesResult"
@@ -5054,7 +5194,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResult"
@@ -5103,7 +5248,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListNetworkProfilesResult"
@@ -5152,7 +5302,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOfferingPromotionsResult"
@@ -5205,7 +5360,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOfferingTransactionsResult"
@@ -5258,7 +5418,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOfferingsResult"
@@ -5311,7 +5476,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListProjectsResult"
@@ -5360,7 +5530,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRemoteAccessSessionsResult"
@@ -5413,7 +5588,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRunsResult"
@@ -5466,7 +5646,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSamplesResult"
@@ -5519,7 +5704,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSuitesResult"
@@ -5572,7 +5762,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTestsResult"
@@ -5625,7 +5820,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUniqueProblemsResult"
@@ -5678,7 +5878,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUploadsResult"
@@ -5727,7 +5932,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PurchaseOfferingResult"
@@ -5776,7 +5986,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RenewOfferingResult"
@@ -5825,7 +6040,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScheduleRunResult"
@@ -5874,7 +6094,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopRemoteAccessSessionResult"
@@ -5923,7 +6148,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopRunResult"
@@ -5972,7 +6202,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateDevicePoolResult"
@@ -6021,7 +6256,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateNetworkProfileResult"
@@ -6070,7 +6310,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateProjectResult"

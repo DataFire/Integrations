@@ -306,7 +306,11 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccountListResult"
@@ -332,7 +336,12 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccountListResult"
@@ -365,7 +374,13 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {}
     },
@@ -396,7 +411,13 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccount"
@@ -432,7 +453,14 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "body",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccount"
@@ -468,7 +496,14 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccount"
@@ -501,7 +536,13 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccountKeys"
@@ -537,7 +578,14 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "body",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccountKeys"
@@ -570,7 +618,13 @@
             "description": "Azure Subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CognitiveServicesAccountEnumerateSkusResult"

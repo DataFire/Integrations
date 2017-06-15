@@ -240,7 +240,10 @@
             "$ref": "#/definitions/BulkSmsRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BulkSmsResponse"
@@ -265,7 +268,10 @@
             "$ref": "#/definitions/BulkSmsRequestCompact"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BulkSmsResponse"
@@ -290,7 +296,10 @@
             "$ref": "#/definitions/SmsRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subAccountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SmsResponse"

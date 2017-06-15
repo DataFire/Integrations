@@ -35,7 +35,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -50,7 +53,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -65,7 +71,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -80,7 +89,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -95,7 +107,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -110,7 +125,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -125,7 +143,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -143,7 +164,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
       },
       "outputSchema": {}
     },
@@ -161,7 +186,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
       },
       "outputSchema": {}
     },
@@ -179,7 +208,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
       },
       "outputSchema": {}
     },
@@ -197,7 +230,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
       },
       "outputSchema": {}
     },
@@ -212,7 +249,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -227,7 +267,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -242,7 +285,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -257,7 +303,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -275,7 +324,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "cdk_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -290,7 +343,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -305,7 +361,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "entity"
+        ]
       },
       "outputSchema": {}
     },
@@ -320,7 +379,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "entity"
+        ]
       },
       "outputSchema": {}
     },
@@ -338,7 +400,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "entity",
+          "attribute"
+        ]
       },
       "outputSchema": {}
     },
@@ -353,7 +419,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cetype"
+        ]
       },
       "outputSchema": {}
     },
@@ -371,7 +440,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cetype",
+          "attribute"
+        ]
       },
       "outputSchema": {}
     },
@@ -428,7 +501,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -443,7 +519,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -458,7 +537,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -473,7 +555,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -491,7 +576,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -509,7 +598,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -527,7 +620,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -545,7 +642,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -563,7 +664,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
       },
       "outputSchema": {}
     },
@@ -592,7 +697,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {}
     },
@@ -607,7 +715,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {}
     },
@@ -622,7 +733,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {}
     },
@@ -637,7 +751,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {}
     },
@@ -664,7 +781,11 @@
             "description": "Login password."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "password"
+        ]
       },
       "outputSchema": {}
     }

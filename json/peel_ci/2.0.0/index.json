@@ -26,7 +26,10 @@
             "description": "Time window in seconds (default is 2 hours)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "showID"
+        ]
       },
       "outputSchema": {}
     },
@@ -99,7 +102,10 @@
             "description": "Unique ID for a show"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "showID"
+        ]
       },
       "outputSchema": {}
     }

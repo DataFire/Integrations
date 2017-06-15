@@ -149,7 +149,11 @@
             "description": "Numof summarization tweets."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TwitterSummarizeResponseEntity"

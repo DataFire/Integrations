@@ -485,7 +485,10 @@
             "description": "Station ID (Bahnhofsnummer)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResult"
@@ -531,7 +534,10 @@
             "description": "id of the 3-S-Zentrale."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResult"

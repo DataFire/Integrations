@@ -127,7 +127,11 @@
             "description": "verification code sent by email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "phone"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -150,7 +154,10 @@
             "$ref": "#/definitions/AuthentiqID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -182,7 +189,11 @@
             "description": "revokation secret"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PK",
+          "secret"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -206,7 +217,10 @@
             "description": "Public Signing Key - Authentiq ID (43 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PK"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -238,7 +252,10 @@
             "description": "Public Signing Key - Authentiq ID (43 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PK"
+        ]
       },
       "outputSchema": {}
     },
@@ -257,7 +274,11 @@
             "$ref": "#/definitions/AuthentiqID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PK",
+          "body"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -284,7 +305,11 @@
             "$ref": "#/definitions/AuthentiqID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PK",
+          "body"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -311,7 +336,11 @@
             "description": "URI App will connect to"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "callback"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -338,7 +367,10 @@
             "description": "test only mode, using test issuer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -366,7 +398,10 @@
             "description": "Job ID (20 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -390,7 +425,10 @@
             "description": "Job ID (20 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -421,7 +459,10 @@
             "description": "Job ID (20 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job"
+        ]
       },
       "outputSchema": {}
     },
@@ -437,7 +478,10 @@
             "description": "Job ID (20 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -461,7 +505,10 @@
             "description": "Job ID (20 chars)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job"
+        ]
       },
       "outputSchema": {
         "properties": {

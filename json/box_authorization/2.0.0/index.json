@@ -55,7 +55,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "response_type",
+          "client_id",
+          "redirect_uri",
+          "state"
+        ]
       },
       "outputSchema": {}
     }

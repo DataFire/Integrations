@@ -1910,7 +1910,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1957,7 +1962,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2004,7 +2014,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2051,7 +2066,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteEvaluationResultsResponse"
@@ -2100,7 +2120,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeliverConfigSnapshotResponse"
@@ -2149,7 +2174,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeComplianceByConfigRuleResponse"
@@ -2198,7 +2228,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeComplianceByResourceResponse"
@@ -2247,7 +2282,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeConfigRuleEvaluationStatusResponse"
@@ -2296,7 +2336,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeConfigRulesResponse"
@@ -2345,7 +2390,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeConfigurationRecorderStatusResponse"
@@ -2394,7 +2444,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeConfigurationRecordersResponse"
@@ -2443,7 +2498,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeDeliveryChannelStatusResponse"
@@ -2492,7 +2552,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeDeliveryChannelsResponse"
@@ -2541,7 +2606,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetComplianceDetailsByConfigRuleResponse"
@@ -2590,7 +2660,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetComplianceDetailsByResourceResponse"
@@ -2636,7 +2711,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetComplianceSummaryByConfigRuleResponse"
@@ -2685,7 +2764,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetComplianceSummaryByResourceTypeResponse"
@@ -2742,7 +2826,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetResourceConfigHistoryResponse"
@@ -2791,7 +2880,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDiscoveredResourcesResponse"
@@ -2840,7 +2934,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2887,7 +2986,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2934,7 +3038,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2981,7 +3090,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutEvaluationsResponse"
@@ -3030,7 +3144,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartConfigRulesEvaluationResponse"
@@ -3079,7 +3198,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3126,7 +3250,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {

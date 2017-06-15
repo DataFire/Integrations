@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -977,6 +978,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_servicecontrol": {
+          "integration": "google_servicecontrol"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_servicecontrol": {
+          "integration": "google_servicecontrol"
+        }
+      }
+    },
+    {
       "id": "services.allocateQuota",
       "title": "services.allocateQuota",
       "description": "Attempts to allocate quota for the specified consumer. It should be called\nbefore the operation is executed.\n\nThis method requires the `servicemanagement.services.quota`\npermission on the specified service. For more information, see\n[Google Cloud IAM](https://cloud.google.com/iam).\n\n**NOTE:** the client code **must** fail-open if the server returns one\nof the following quota errors:\n-   `PROJECT_STATUS_UNAVAILABLE`\n-   `SERVICE_STATUS_UNAVAILABLE`\n-   `BILLING_STATUS_UNAVAILABLE`\n-   `QUOTA_SYSTEM_UNAVAILABLE`\n\nThe server may inject above errors to prohibit any hard dependency\non the quota system.",
@@ -1052,7 +1124,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AllocateQuotaResponse"
@@ -1139,7 +1214,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckResponse"
@@ -1226,7 +1304,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EndReconciliationResponse"
@@ -1313,7 +1394,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReleaseQuotaResponse"
@@ -1400,7 +1484,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportResponse"
@@ -1487,7 +1574,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serviceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartReconciliationResponse"

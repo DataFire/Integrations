@@ -357,7 +357,12 @@
             "description": "It uniquely identifies Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "$filter",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceRateCardInfo"
@@ -405,7 +410,13 @@
             "description": "It uniquely identifies Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reportedStartTime",
+          "reportedEndTime",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageAggregationListResult"

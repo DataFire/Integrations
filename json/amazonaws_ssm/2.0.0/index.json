@@ -6969,7 +6969,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddTagsToResourceResult"
@@ -7018,7 +7023,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelCommandResult"
@@ -7067,7 +7077,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateActivationResult"
@@ -7116,7 +7131,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateAssociationResult"
@@ -7165,7 +7185,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateAssociationBatchResult"
@@ -7214,7 +7239,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateDocumentResult"
@@ -7263,7 +7293,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateMaintenanceWindowResult"
@@ -7312,7 +7347,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreatePatchBaselineResult"
@@ -7361,7 +7401,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteActivationResult"
@@ -7410,7 +7455,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteAssociationResult"
@@ -7459,7 +7509,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteDocumentResult"
@@ -7508,7 +7563,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteMaintenanceWindowResult"
@@ -7557,7 +7617,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteParameterResult"
@@ -7606,7 +7671,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeletePatchBaselineResult"
@@ -7655,7 +7725,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeregisterManagedInstanceResult"
@@ -7704,7 +7779,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeregisterPatchBaselineForPatchGroupResult"
@@ -7753,7 +7833,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeregisterTargetFromMaintenanceWindowResult"
@@ -7802,7 +7887,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeregisterTaskFromMaintenanceWindowResult"
@@ -7859,7 +7949,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeActivationsResult"
@@ -7908,7 +8003,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeAssociationResult"
@@ -7957,7 +8057,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeAutomationExecutionsResult"
@@ -8006,7 +8111,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeAvailablePatchesResult"
@@ -8055,7 +8165,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeDocumentResult"
@@ -8104,7 +8219,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeDocumentPermissionResponse"
@@ -8153,7 +8273,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeEffectiveInstanceAssociationsResult"
@@ -8202,7 +8327,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeEffectivePatchesForPatchBaselineResult"
@@ -8251,7 +8381,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeInstanceAssociationsStatusResult"
@@ -8308,7 +8443,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeInstanceInformationResult"
@@ -8357,7 +8497,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeInstancePatchStatesResult"
@@ -8406,7 +8551,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeInstancePatchStatesForPatchGroupResult"
@@ -8455,7 +8605,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeInstancePatchesResult"
@@ -8504,7 +8659,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTaskInvocationsResult"
@@ -8553,7 +8713,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTasksResult"
@@ -8602,7 +8767,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowExecutionsResult"
@@ -8651,7 +8821,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowTargetsResult"
@@ -8700,7 +8875,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowTasksResult"
@@ -8749,7 +8929,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMaintenanceWindowsResult"
@@ -8798,7 +8983,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeParametersResult"
@@ -8847,7 +9037,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribePatchBaselinesResult"
@@ -8896,7 +9091,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribePatchGroupStateResult"
@@ -8945,7 +9145,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribePatchGroupsResult"
@@ -8994,7 +9199,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAutomationExecutionResult"
@@ -9043,7 +9253,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetCommandInvocationResult"
@@ -9092,7 +9307,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDefaultPatchBaselineResult"
@@ -9141,7 +9361,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDeployablePatchSnapshotForInstanceResult"
@@ -9190,7 +9415,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDocumentResult"
@@ -9239,7 +9469,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetInventoryResult"
@@ -9288,7 +9523,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetInventorySchemaResult"
@@ -9337,7 +9577,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetMaintenanceWindowResult"
@@ -9386,7 +9631,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetMaintenanceWindowExecutionResult"
@@ -9435,7 +9685,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetMaintenanceWindowExecutionTaskResult"
@@ -9484,7 +9739,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetParameterHistoryResult"
@@ -9533,7 +9793,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetParametersResult"
@@ -9582,7 +9847,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPatchBaselineResult"
@@ -9631,7 +9901,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPatchBaselineForPatchGroupResult"
@@ -9688,7 +9963,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAssociationsResult"
@@ -9745,7 +10025,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCommandInvocationsResult"
@@ -9802,7 +10087,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCommandsResult"
@@ -9851,7 +10141,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDocumentVersionsResult"
@@ -9908,7 +10203,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDocumentsResult"
@@ -9957,7 +10257,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInventoryEntriesResult"
@@ -10006,7 +10311,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTagsForResourceResult"
@@ -10055,7 +10365,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModifyDocumentPermissionResponse"
@@ -10104,7 +10419,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutInventoryResult"
@@ -10153,7 +10473,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutParameterResult"
@@ -10202,7 +10527,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterDefaultPatchBaselineResult"
@@ -10251,7 +10581,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterPatchBaselineForPatchGroupResult"
@@ -10300,7 +10635,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterTargetWithMaintenanceWindowResult"
@@ -10349,7 +10689,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegisterTaskWithMaintenanceWindowResult"
@@ -10398,7 +10743,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemoveTagsFromResourceResult"
@@ -10447,7 +10797,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendCommandResult"
@@ -10496,7 +10851,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartAutomationExecutionResult"
@@ -10545,7 +10905,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopAutomationExecutionResult"
@@ -10594,7 +10959,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateAssociationResult"
@@ -10643,7 +11013,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateAssociationStatusResult"
@@ -10692,7 +11067,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateDocumentResult"
@@ -10741,7 +11121,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateDocumentDefaultVersionResult"
@@ -10790,7 +11175,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateMaintenanceWindowResult"
@@ -10839,7 +11229,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateManagedInstanceRoleResult"
@@ -10888,7 +11283,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdatePatchBaselineResult"

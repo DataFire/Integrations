@@ -395,7 +395,10 @@
             "description": "Unique 16 characters ID of the contact list"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "listid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -419,7 +422,10 @@
             "$ref": "#/definitions/ContactListUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "listid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -440,7 +446,10 @@
             "description": "Unique 16 characters ID of the contact"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contactid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -464,7 +473,11 @@
             "$ref": "#/definitions/ContactUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contactid",
+          "contact"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -488,7 +501,11 @@
             "$ref": "#/definitions/SubscriptionRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "listid",
+          "subscription"
+        ]
       },
       "outputSchema": {},
       "security": {

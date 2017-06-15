@@ -106,7 +106,10 @@
             "$ref": "#/definitions/Action"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -164,7 +167,10 @@
             "$ref": "#/definitions/Item"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -183,7 +189,10 @@
             "$ref": "#/definitions/Item"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -226,7 +235,10 @@
             "description": "get all attributes for item"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
       },
       "outputSchema": {}
     },
@@ -262,7 +274,14 @@
             "description": "time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user",
+          "item",
+          "type",
+          "jsonpCallback"
+        ]
       },
       "outputSchema": {}
     },
@@ -307,7 +326,12 @@
             "description": "JSONP callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user",
+          "jsonpCallback"
+        ]
       },
       "outputSchema": {}
     },
@@ -327,7 +351,11 @@
             "description": "consumer secret"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "consumer_secret"
+        ]
       },
       "outputSchema": {}
     },
@@ -377,7 +405,10 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -396,7 +427,10 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -420,7 +454,10 @@
             "description": "get all attributes for user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {}
     },
@@ -448,7 +485,10 @@
             "description": "limit number of actions returned"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {}
     },
@@ -484,7 +524,10 @@
             "description": "override default algorithms with specified algorithms"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {}
     }

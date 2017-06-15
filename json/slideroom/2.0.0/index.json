@@ -77,7 +77,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "name"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -106,7 +110,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {
@@ -148,7 +155,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "data"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -329,7 +340,11 @@
             "description": "The name of the attribute to be deleted."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "name"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -347,7 +362,10 @@
             "description": "The ID of the application."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationId"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {
@@ -378,7 +396,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "data"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -487,7 +509,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RequestApplicationExportResultV2"
@@ -506,7 +531,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExportResultV2"

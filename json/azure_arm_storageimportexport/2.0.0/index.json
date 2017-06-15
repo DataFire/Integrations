@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.windows-ppe.net/common/oauth2/authorize",
@@ -727,7 +728,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationsListResult"
@@ -764,7 +769,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "locationName",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
@@ -797,7 +807,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SupportedOperationsListResult"
@@ -844,7 +858,12 @@
             "description": "Can be used to restrict the results to certain conditions. The following possible values can be used with $filter: 1) $filter=type eq '{type}'; 2) $filter=trackingnumber eq '{trackingnumber}'; 3) $filter=state eq '{state}'; 4) Logical and combination of the above, for example: $filter=type eq 'Import' and state eq 'Transferring'. Valid values for type are Import and Export. Valid values for state are Creating, Shipping, Received, Transferring, Packaging, Closed, and Completed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobListResult"
@@ -895,7 +914,13 @@
             "description": "Can be used to restrict the results to certain conditions. The following possible values can be used with $filter: 1) $filter=type eq '{type}'; 2) $filter=trackingnumber eq '{trackingnumber}'; 3) $filter=state eq '{state}'; 4) Logical and combination of the above, for example: $filter=type eq 'Import' and state eq 'Transferring'. Valid values for type are Import and Export. Valid values for state are Creating, Shipping, Received, Transferring, Packaging, Closed, and Completed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobListResult"
@@ -940,7 +965,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobName",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -983,7 +1015,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobName",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -1031,7 +1070,15 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobName",
+          "jobProperties",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -1079,7 +1126,15 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobName",
+          "jobProperties",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -1124,7 +1179,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobName",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BitLockerKeysListResult"
@@ -1168,7 +1230,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "MoveJobsParameters",
+          "api-version",
+          "Accept-Language"
+        ]
       },
       "outputSchema": {},
       "security": {

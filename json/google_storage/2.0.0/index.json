@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -901,6 +902,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_storage": {
+          "integration": "google_storage"
+        }
+      }
+    },
+    {
       "id": "buckets.list",
       "title": "buckets.list",
       "description": "Retrieves a list of buckets for a given project.",
@@ -964,7 +1036,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Buckets"
@@ -1052,7 +1127,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -1114,7 +1192,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1182,7 +1263,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -1278,7 +1362,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -1374,7 +1461,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -1428,7 +1518,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControls"
@@ -1485,7 +1578,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
@@ -1543,7 +1639,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1599,7 +1699,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
@@ -1660,7 +1764,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
@@ -1721,7 +1829,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BucketAccessControl"
@@ -1783,7 +1895,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControls"
@@ -1840,7 +1955,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -1898,7 +2016,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1954,7 +2076,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -2015,7 +2141,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -2076,7 +2206,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -2130,7 +2264,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2187,7 +2324,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2245,7 +2385,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "permissions"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
@@ -2299,7 +2443,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notifications"
@@ -2356,7 +2503,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
@@ -2414,7 +2564,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "notification"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2470,7 +2624,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "notification"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
@@ -2553,7 +2711,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Objects"
@@ -2654,7 +2815,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -2740,7 +2904,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
@@ -2818,7 +2985,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2902,7 +3073,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3003,7 +3178,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3104,7 +3283,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3166,7 +3349,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControls"
@@ -3231,7 +3418,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -3297,7 +3488,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object",
+          "entity"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3361,7 +3557,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -3430,7 +3631,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -3499,7 +3705,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object",
+          "entity"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectAccessControl"
@@ -3561,7 +3772,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -3626,7 +3841,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -3692,7 +3911,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket",
+          "object",
+          "permissions"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
@@ -3773,7 +3997,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "destinationBucket",
+          "destinationObject"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3898,7 +4126,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sourceBucket",
+          "sourceObject",
+          "destinationBucket",
+          "destinationObject"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -4031,7 +4265,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sourceBucket",
+          "sourceObject",
+          "destinationBucket",
+          "destinationObject"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RewriteResponse"
@@ -4139,7 +4379,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"

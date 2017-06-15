@@ -550,7 +550,11 @@
             "description": "The key of the multi-user account"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "accountKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -576,7 +580,11 @@
             "description": "The key of the training organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -605,7 +613,12 @@
             "$ref": "#/definitions/TrainingReqCreate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -633,7 +646,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -659,7 +677,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Training"
@@ -687,7 +710,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -718,7 +746,13 @@
             "$ref": "#/definitions/TrainingNameDescription"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -744,7 +778,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -778,7 +817,13 @@
             "$ref": "#/definitions/TrainingOrganizers"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -804,7 +849,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -838,7 +888,13 @@
             "$ref": "#/definitions/RegistrantReqCreate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistrantCreated"
@@ -871,7 +927,13 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -902,7 +964,13 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Registrant"
@@ -933,7 +1001,13 @@
             "$ref": "#/definitions/RegistrationSettings"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -959,7 +1033,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -990,7 +1069,13 @@
             "$ref": "#/definitions/TrainingTimes"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotifiedParties"
@@ -1016,7 +1101,12 @@
             "$ref": "#/definitions/DateTimeRange"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1047,7 +1137,12 @@
             "description": "The key of the training session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1078,7 +1173,12 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1104,7 +1204,11 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordingsListForTraining"
@@ -1132,7 +1236,12 @@
             "description": "the unique id of the recording"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "trainingKey",
+          "recordingId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1153,7 +1262,11 @@
             "description": "The key of the training"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "trainingKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostUrl"

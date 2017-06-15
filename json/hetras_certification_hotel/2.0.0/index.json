@@ -1635,7 +1635,11 @@
             "description": "Application key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1664,7 +1668,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Hotel"
@@ -1728,7 +1737,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CodesListResponse"
@@ -1759,7 +1773,13 @@
             "description": "The code identifier you want to see details for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CodeFullEntry"
@@ -1845,7 +1865,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RateplansListResponse"
@@ -1913,7 +1938,12 @@
             "description": "Return all rateplans having at least one of the specified services included"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TotalCountResponse"
@@ -1944,7 +1974,13 @@
             "description": "The code of the rateplan you want to see details for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtendedRateplanEntry"
@@ -2010,7 +2046,15 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RatesResponse"
@@ -2054,7 +2098,16 @@
             "description": "Defines the first business day you would like to get rates for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode",
+          "patchRequest",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -2095,7 +2148,15 @@
             "description": "Defines the first business day you would like to get rates for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TotalCountResponse"
@@ -2131,7 +2192,14 @@
             "description": "The business day you want to get the rate setup for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode",
+          "businessDay"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RateResponse"
@@ -2170,7 +2238,15 @@
             "$ref": "#/definitions/JsonPatchDocument[RatePatchRequest]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "rateplanCode",
+          "businessDay",
+          "patchRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -2197,7 +2273,12 @@
             "description": "The hotel id the room type belongs to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2231,7 +2312,13 @@
             "description": "The code of the room type you want to see details for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoomType"
@@ -2308,7 +2395,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoomListResponse"
@@ -2367,7 +2459,12 @@
             "description": "Return result only for rooms having at least one of the specified locations. You can provide a comma seperated list of \r\n            location codes."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TotalCountResponse"
@@ -2447,7 +2544,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoomListResponse"
@@ -2478,7 +2582,13 @@
             "description": "The room number you want to see details for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "roomNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Room"
@@ -2512,7 +2622,14 @@
             "$ref": "#/definitions/JsonPatchDocument[RoomPatchRequest]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "roomNumber",
+          "patchRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"

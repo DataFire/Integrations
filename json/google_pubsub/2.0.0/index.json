@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -353,6 +354,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_pubsub": {
+          "integration": "google_pubsub"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_pubsub": {
+          "integration": "google_pubsub"
+        }
+      }
+    },
+    {
       "id": "projects.topics.create",
       "title": "projects.topics.create",
       "description": "Creates the given topic with the given name.",
@@ -428,7 +500,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Topic"
@@ -520,7 +595,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSubscriptionsResponse"
@@ -612,7 +690,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTopicsResponse"
@@ -696,7 +777,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -783,7 +867,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -870,7 +957,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
@@ -954,7 +1044,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1038,7 +1131,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -1125,7 +1221,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1212,7 +1311,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1299,7 +1401,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1386,7 +1491,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PullResponse"
@@ -1470,7 +1578,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1554,7 +1665,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Topic"
@@ -1646,7 +1760,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTopicSubscriptionsResponse"
@@ -1733,7 +1850,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PublishResponse"

@@ -1255,7 +1255,12 @@
             "description": "The date for which you wish to see programming information"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "yyyy",
+          "mm",
+          "dd"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1408,7 +1413,10 @@
             "description": "The letter of the alphabet for which you seek associated Channel 4 programmes"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_letter"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1451,7 +1459,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_letter",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1528,7 +1540,10 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1605,7 +1620,10 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1682,7 +1700,10 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1759,7 +1780,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1798,7 +1822,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1841,7 +1868,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1880,7 +1911,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1923,7 +1957,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -1962,7 +2000,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2005,7 +2046,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2056,7 +2101,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2107,7 +2156,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2162,7 +2215,12 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2213,7 +2271,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2268,7 +2330,12 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2319,7 +2386,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2374,7 +2445,12 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2429,7 +2505,12 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2480,7 +2561,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2535,7 +2620,12 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "channel",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2574,7 +2664,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2613,7 +2706,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2656,7 +2752,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2695,7 +2795,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2738,7 +2841,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2777,7 +2884,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2820,7 +2930,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2863,7 +2977,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2902,7 +3020,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2945,7 +3066,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -2988,7 +3113,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3027,7 +3156,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3070,7 +3202,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3109,7 +3245,10 @@
             "description": "The name of the category for which you seek associated Channel 4 programmes. (For a full list of categories, please see http://api.channel4.com/pmlsd/categories.atom?apikey=xxxxxxxxxxxxxxxxxxxxxxxx)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3152,7 +3291,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3191,7 +3334,10 @@
             "description": "Web safe title for the collection."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3230,7 +3376,10 @@
             "description": "Web safe title for the collection."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3269,7 +3418,10 @@
             "description": "Web safe title for the collection."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3308,7 +3460,10 @@
             "description": "Web safe title for the collection."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3385,7 +3540,10 @@
             "description": "The category websafe_title to filter the coming soon programmes on TV."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3424,7 +3582,10 @@
             "description": "The websafe programme identifier for the episode for which you seek on-demand content"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programme-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3463,7 +3624,10 @@
             "description": "The programme name to look for, minimum length: 2 chars.Looking for programme names with special chars might be URL encoded."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3506,7 +3670,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3545,7 +3713,10 @@
             "description": "The programme name to look for, minimum length: 2 chars.Looking for programme names with special chars might be URL encoded."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3588,7 +3759,11 @@
             "description": "Page number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "pageno"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3635,7 +3810,12 @@
             "description": "The date for which you wish to see programming information. Note the schedule days start from 6am and run until 6am on the next calendar day."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "yyyy",
+          "mm",
+          "dd"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3694,7 +3874,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "yyyy",
+          "mm",
+          "dd",
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3733,7 +3919,10 @@
             "description": "The title of the programme for which you seek associated data"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3772,7 +3961,10 @@
             "description": "The title of the programme for which you seek on-demand content"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3811,7 +4003,10 @@
             "description": "Title of the programme for which you seek EPG information"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3850,7 +4045,10 @@
             "description": "The title of the programme for which you seek episode-guide information"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3893,7 +4091,11 @@
             "description": "Unique enumerated identifier of the series within its brand"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title",
+          "series_number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3940,7 +4142,12 @@
             "description": "Unique enumerated identifier of the episode within its series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title",
+          "series_number",
+          "episode_number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -3979,7 +4186,10 @@
             "description": "Title of brand to which clips belong"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -4022,7 +4232,11 @@
             "description": "Unique identifier of series to which clips belong"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title",
+          "series_number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -4069,7 +4283,12 @@
             "description": "Unique identifier of episode to which clips belong"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title",
+          "series_number",
+          "episode_number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"
@@ -4112,7 +4331,11 @@
             "description": "Asset id for this clip"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "brand-web-safe-title",
+          "clip-asset-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/atom"

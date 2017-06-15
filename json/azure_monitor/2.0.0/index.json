@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -134,7 +135,11 @@
             "description": "The filter to apply on the operation.<br>**WARNING**: $filter not documented since the operation will be deprecated in the next release."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageMetricCollection"

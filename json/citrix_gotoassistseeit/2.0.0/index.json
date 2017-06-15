@@ -252,7 +252,10 @@
             "description": "Optional sort criteria, i.e. field name to sort by, optionally followed by a comma and the sort order (asc or desc). Every field available in the session details can be used as sort criteria. If not specified, result is sorted ascending by sessionCreateTime"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PagedSessionDetails"
@@ -270,7 +273,10 @@
             "description": "Access Token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -293,7 +299,11 @@
             "description": "the uuid returned when creating the session."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SessionDetails"

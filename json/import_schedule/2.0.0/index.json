@@ -235,7 +235,10 @@
             "$ref": "#/definitions/ScheduleRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Schedule Request Body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
@@ -258,7 +261,10 @@
             "description": "the id of the extractor with a schedule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extractorId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -279,7 +285,10 @@
             "description": "the id of the extractor with a schedule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extractorId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"

@@ -1386,7 +1386,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1436,7 +1442,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PurchaseProvisionedCapacityOutput"
@@ -1496,7 +1508,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListVaultsOutput"
@@ -1551,7 +1569,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeVaultOutput"
@@ -1606,7 +1631,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1659,7 +1691,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArchiveCreationOutput"
@@ -1717,7 +1756,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "archiveId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1778,7 +1825,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsOutput"
@@ -1836,7 +1890,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "jobId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlacierJobDescription"
@@ -1894,7 +1956,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "jobId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetJobOutputOutput"
@@ -1949,7 +2019,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InitiateVaultLockOutput"
@@ -2007,7 +2084,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "lockId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2068,7 +2153,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListMultipartUploadsOutput"
@@ -2126,7 +2218,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "uploadId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UploadMultipartPartOutput"
@@ -2181,7 +2281,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2234,7 +2341,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTagsForVaultOutput"
@@ -2289,7 +2403,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2342,7 +2463,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountId",
+          "vaultName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {

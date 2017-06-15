@@ -2779,7 +2779,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -4244,7 +4247,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/air6_FeatureCollection"
@@ -4270,7 +4276,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "p_qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -4329,7 +4338,11 @@
             "description": "Identifier for the service."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid",
+          "p_id"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",
@@ -4389,7 +4402,10 @@
             "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",

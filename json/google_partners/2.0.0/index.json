@@ -2482,7 +2482,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetCompanyResponse"
@@ -2564,7 +2567,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "companyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateLeadResponse"
@@ -2684,7 +2690,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "examType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExamToken"
@@ -3661,7 +3670,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -3768,7 +3780,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3878,7 +3893,10 @@
             "description": "OAuth access token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CompanyRelation"

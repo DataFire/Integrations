@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://cloudsso.cisco.com/as/token.oauth2",
@@ -39,7 +40,10 @@
             "description": "advisory ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "advisory_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -73,7 +77,10 @@
             "description": "CVE Identifier (i.e., CVE-YYYY-NNNN)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cve_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -95,7 +102,10 @@
             "description": "An absolute number to obtain the latest security advisories."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -117,7 +127,10 @@
             "description": "An product name to obtain security advisories that matches given product name."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "product"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -145,7 +158,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -181,7 +197,12 @@
             "format": "date"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -217,7 +238,12 @@
             "format": "date"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -239,7 +265,10 @@
             "description": "The four digit year."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "year"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -261,7 +290,10 @@
             "description": "IOS version to obtain security advisories"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -283,7 +315,10 @@
             "description": "IOS version to obtain security advisories"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -305,7 +340,10 @@
             "description": "advisory ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "advisory_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -339,7 +377,10 @@
             "description": "CVE Identifier (i.e., CVE-YYYY-NNNN)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cve_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -361,7 +402,10 @@
             "description": "The latest OVAL definitions (absolute number)."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -383,7 +427,10 @@
             "description": "An product name to obtain security advisories that matches given product name."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "product"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -411,7 +458,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -447,7 +497,12 @@
             "format": "date"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -483,7 +538,12 @@
             "format": "date"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {},
       "security": {

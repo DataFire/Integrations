@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -439,7 +440,11 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountListResult"
@@ -470,7 +475,12 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "locationName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchLocationQuota"
@@ -502,7 +512,12 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountListResult"
@@ -541,7 +556,13 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -578,7 +599,13 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
@@ -620,7 +647,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
@@ -662,7 +696,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccount"
@@ -706,7 +747,13 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListApplicationsResult"
@@ -749,7 +796,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -790,7 +844,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
@@ -836,7 +897,15 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -880,7 +949,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
@@ -927,7 +1003,15 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -972,7 +1056,15 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationPackage"
@@ -1019,7 +1111,15 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationPackage"
@@ -1069,7 +1169,16 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "applicationId",
+          "version",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1106,7 +1215,13 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountKeys"
@@ -1148,7 +1263,14 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchAccountKeys"
@@ -1187,7 +1309,13 @@
             "description": "A unique identifier of a Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {

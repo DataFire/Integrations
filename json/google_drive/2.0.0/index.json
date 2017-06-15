@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -1291,6 +1292,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_drive": {
+          "integration": "google_drive"
+        }
+      }
+    },
+    {
       "id": "about.get",
       "title": "about.get",
       "description": "Gets information about the user, the user's Drive, and system capabilities.",
@@ -1420,7 +1492,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageToken"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ChangeList"
@@ -1572,7 +1647,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageToken"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
@@ -1973,7 +2051,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2033,7 +2114,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -2114,7 +2198,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -2186,7 +2273,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
@@ -2243,7 +2333,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2301,7 +2394,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2361,7 +2458,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2422,7 +2523,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2494,7 +2599,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReplyList"
@@ -2555,7 +2664,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
@@ -2617,7 +2730,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId",
+          "replyId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2681,7 +2799,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId",
+          "replyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
@@ -2746,7 +2869,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "commentId",
+          "replyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reply"
@@ -2819,7 +2947,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -2877,7 +3008,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "mimeType"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2943,7 +3078,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionList"
@@ -3016,7 +3154,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
@@ -3078,7 +3219,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "permissionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3138,7 +3283,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "permissionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
@@ -3211,7 +3360,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "permissionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"
@@ -3275,7 +3428,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RevisionList"
@@ -3333,7 +3489,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "revisionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3393,7 +3553,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "revisionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Revision"
@@ -3454,7 +3618,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId",
+          "revisionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Revision"
@@ -3519,7 +3687,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Channel"
@@ -3639,7 +3810,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "requestId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"
@@ -3693,7 +3867,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamDriveId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3745,7 +3922,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamDriveId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"
@@ -3802,7 +3982,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamDriveId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TeamDrive"

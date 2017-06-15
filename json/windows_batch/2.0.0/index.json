@@ -4213,7 +4213,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationListResult"
@@ -4254,7 +4257,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationSummary"
@@ -4306,7 +4313,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateListResult"
@@ -4346,7 +4356,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "certificate",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4389,7 +4403,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thumbprintAlgorithm",
+          "thumbprint",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4436,7 +4455,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thumbprintAlgorithm",
+          "thumbprint",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
@@ -4481,7 +4505,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thumbprintAlgorithm",
+          "thumbprint",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4535,7 +4564,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJobListResult"
@@ -4575,7 +4607,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "job",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4632,7 +4668,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4697,7 +4737,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJob"
@@ -4759,7 +4803,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "jobPatchParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4819,7 +4868,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "jobUpdateParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4861,7 +4915,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskCollection",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskAddCollectionResult"
@@ -4923,7 +4982,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "jobDisableParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -4980,7 +5044,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5034,7 +5102,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJobListPreparationAndReleaseTaskStatusResult"
@@ -5094,7 +5166,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudTaskListResult"
@@ -5138,7 +5214,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "task",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5199,7 +5280,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5268,7 +5354,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudTask"
@@ -5334,7 +5425,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "taskUpdateParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5392,7 +5489,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NodeFileListResult"
@@ -5445,7 +5547,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5506,7 +5614,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -5565,7 +5679,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5626,7 +5746,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5673,7 +5798,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudTaskListSubtasksResult"
@@ -5736,7 +5866,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "taskId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5796,7 +5931,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5850,7 +5989,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJobScheduleListResult"
@@ -5890,7 +6032,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cloudJobSchedule",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -5947,7 +6093,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6012,7 +6162,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJobSchedule"
@@ -6071,7 +6225,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6131,7 +6289,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "jobSchedulePatchParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6191,7 +6354,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "jobScheduleUpdateParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6248,7 +6416,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6305,7 +6477,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6363,7 +6539,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudJobListResult"
@@ -6422,7 +6602,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobScheduleId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6457,7 +6641,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobStatistics"
@@ -6494,7 +6681,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PoolStatistics"
@@ -6542,7 +6732,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountListNodeAgentSkusResult"
@@ -6598,7 +6791,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudPoolListResult"
@@ -6638,7 +6834,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6695,7 +6895,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6760,7 +6964,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CloudPool"
@@ -6819,7 +7027,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6879,7 +7091,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolPatchParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6918,7 +7135,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -6978,7 +7199,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolEnableAutoScaleParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7020,7 +7246,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolEvaluateAutoScaleParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AutoScaleRun"
@@ -7076,7 +7307,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ComputeNodeListResult"
@@ -7125,7 +7360,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ComputeNode"
@@ -7173,7 +7413,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7216,7 +7461,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7274,7 +7524,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NodeFileListResult"
@@ -7327,7 +7582,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7388,7 +7649,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -7447,7 +7714,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "filePath",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7490,7 +7763,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -7538,7 +7816,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7584,7 +7867,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7627,7 +7915,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ComputeNodeGetRemoteLoginSettingsResult"
@@ -7675,7 +7968,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "user",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7722,7 +8021,13 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "userName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7772,7 +8077,14 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeId",
+          "userName",
+          "nodeUpdateUserParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7832,7 +8144,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "nodeRemoveParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7892,7 +8209,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolResizeParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7949,7 +8271,11 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -7991,7 +8317,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolUpdatePropertiesParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -8051,7 +8382,12 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "poolId",
+          "poolUpgradeOSParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -8107,7 +8443,10 @@
             "description": "Client API Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PoolListUsageMetricsResult"

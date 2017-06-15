@@ -2392,7 +2392,17 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "letter",
+          "rights",
+          "page",
+          "per_page",
+          "initial_child_count",
+          "sort",
+          "sort_direction",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2417,7 +2427,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2446,7 +2459,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "lang"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2510,7 +2527,15 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "lang",
+          "rights",
+          "availability",
+          "page",
+          "per_page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2564,7 +2589,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2620,7 +2651,15 @@
             "description": "The number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "lang",
+          "rights",
+          "availability",
+          "page",
+          "per_page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2649,7 +2688,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2712,7 +2754,14 @@
             "description": "Time to return results from, e.g. -3h"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "lang",
+          "rights",
+          "availability",
+          "per_page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2770,7 +2819,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2826,7 +2881,15 @@
             "description": "The number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "lang",
+          "rights",
+          "availability",
+          "page",
+          "per_page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2876,7 +2939,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "date",
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2913,7 +2983,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2958,7 +3033,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -2995,7 +3075,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3032,7 +3117,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3069,7 +3159,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3116,7 +3211,14 @@
             "description": "The number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability",
+          "page",
+          "per_page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3183,7 +3285,16 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rights",
+          "page",
+          "per_page",
+          "initial_child_count",
+          "sort",
+          "sort_direction",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3256,7 +3367,17 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "page",
+          "per_page",
+          "initial_child_count",
+          "sort",
+          "sort_direction",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3306,7 +3427,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3349,7 +3475,13 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability",
+          "initial_child_count"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3392,7 +3524,13 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid",
+          "rights",
+          "availability",
+          "initial_child_count"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3417,7 +3555,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3472,7 +3613,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3518,7 +3665,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "lang",
+          "rights",
+          "availability"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3546,7 +3699,10 @@
             "description": "The BBC-id cookie value"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "identity_cookie"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3570,7 +3726,10 @@
             "description": "The BBC-id cookie value"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "identity_cookie"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"
@@ -3589,7 +3748,10 @@
             "description": "The BBC-id cookie value"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "identity_cookie"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ibl"

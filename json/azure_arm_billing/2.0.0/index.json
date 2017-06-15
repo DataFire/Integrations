@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -213,7 +214,10 @@
             "description": "Version of the API to be used with the client request. The current version is 2017-02-27-preview."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
@@ -258,7 +262,11 @@
             "description": "Version of the API to be used with the client request. The current version is 2017-02-27-preview."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InvoicesListResult"
@@ -285,7 +293,11 @@
             "description": "Version of the API to be used with the client request. The current version is 2017-02-27-preview."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -316,7 +328,12 @@
             "description": "Version of the API to be used with the client request. The current version is 2017-02-27-preview."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "invoiceName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"

@@ -828,6 +828,9 @@
           "FileSystemId": {
             "type": "string"
           },
+          "FileSystemId_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -856,7 +859,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FileSystemId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -878,6 +887,9 @@
           "FileSystemId": {
             "type": "string"
           },
+          "FileSystemId_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -906,7 +918,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FileSystemId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -953,7 +971,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeFileSystemsResponse"
@@ -975,6 +998,9 @@
             "$ref": "#/definitions/DeleteFileSystemRequest"
           },
           "FileSystemId": {
+            "type": "string"
+          },
+          "FileSystemId_query": {
             "type": "string"
           },
           "Action": {
@@ -1005,7 +1031,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FileSystemId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1052,7 +1084,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeMountTargetsResponse"
@@ -1076,6 +1113,9 @@
           "MountTargetId": {
             "type": "string"
           },
+          "MountTargetId_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1104,7 +1144,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "MountTargetId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1126,6 +1172,9 @@
           "MountTargetId": {
             "type": "string"
           },
+          "MountTargetId_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1154,7 +1203,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "MountTargetId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1176,6 +1231,9 @@
           "FileSystemId": {
             "type": "string"
           },
+          "FileSystemId_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1204,7 +1262,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FileSystemId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DescribeTagsResponse"

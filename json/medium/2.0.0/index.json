@@ -10,7 +10,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://medium.com/m/oauth/authorize",
@@ -364,6 +365,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "medium": {
+          "integration": "medium"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "medium": {
+          "integration": "medium"
+        }
+      }
+    },
+    {
       "id": "me.get",
       "title": "me.get",
       "description": "Returns details of the user who has granted permission to the application.",
@@ -389,7 +461,10 @@
             "description": "A unique identifier for the publication."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "publicationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ContibutorResponse"
@@ -415,7 +490,11 @@
             "$ref": "#/definitions/Post"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "publicationId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PostDetails"
@@ -441,7 +520,11 @@
             "$ref": "#/definitions/Post"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PostDetails"
@@ -464,7 +547,10 @@
             "description": "A unique identifier for the user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicationResponse"

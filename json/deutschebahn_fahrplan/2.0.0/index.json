@@ -229,7 +229,11 @@
             "description": "Date and time in ISO-8601 format, yyyy-mm-ddThh:mm:ss, example: 2017-04-01 or 2017-04-01T10:30"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoardResponse"
@@ -251,7 +255,11 @@
             "description": "Date and time in ISO-8601 format, yyyy-mm-ddThh:mm:ss, example: 2017-04-01 or 2017-04-01T10:30"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoardResponse"
@@ -269,7 +277,10 @@
             "description": "Id of a journey. Use attribute 'detailsId' from the result of  'arrivalBoard' or 'departureBoard'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JourneyResponse"
@@ -287,7 +298,10 @@
             "description": "Name or name fragment of a location"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationResponse"

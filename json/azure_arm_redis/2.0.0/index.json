@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -351,7 +352,11 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListResult"
@@ -382,7 +387,12 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListResult"
@@ -417,7 +427,13 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -450,7 +466,13 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisResource"
@@ -488,7 +510,14 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisResourceWithAccessKey"
@@ -526,7 +555,14 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -559,7 +595,13 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListKeysResult"
@@ -597,7 +639,14 @@
             "description": "Gets subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RedisListKeysResult"

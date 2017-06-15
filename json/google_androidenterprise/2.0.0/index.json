@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -1280,6 +1281,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_androidenterprise": {
+          "integration": "google_androidenterprise"
+        }
+      }
+    },
+    {
       "id": "enterprises.list",
       "title": "enterprises.list",
       "description": "Looks up an enterprise by domain name. This is only supported for enterprises created via the Google-initiated creation flow. Lookup of the id is not needed for enterprises created via the EMM-initiated flow since the EMM learns the enterprise ID in the callback specified in the Enterprises.generateSignupUrl call.",
@@ -1322,7 +1394,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterprisesListResponse"
@@ -1379,7 +1454,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
@@ -1552,7 +1630,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
@@ -1724,7 +1805,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1776,7 +1860,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Enterprise"
@@ -1833,7 +1920,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterpriseAccount"
@@ -1890,7 +1980,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdministratorWebToken"
@@ -1944,7 +2037,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicensesListResponse"
@@ -2002,7 +2098,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "groupLicenseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicense"
@@ -2060,7 +2160,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "groupLicenseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupLicenseUsersListResponse"
@@ -2134,7 +2238,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsListResponse"
@@ -2196,7 +2303,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -2258,7 +2369,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppRestrictionsSchema"
@@ -2319,7 +2434,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2379,7 +2498,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsGenerateApprovalUrlResponse"
@@ -2437,7 +2560,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductPermissions"
@@ -2495,7 +2622,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "productId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2547,7 +2678,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EnterprisesSendTestPushNotificationResponse"
@@ -2609,7 +2743,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccount"
@@ -2663,7 +2800,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKeysListResponse"
@@ -2720,7 +2860,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceAccountKey"
@@ -2778,7 +2921,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "keyId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2830,7 +2977,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayout"
@@ -2887,7 +3037,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayout"
@@ -2941,7 +3094,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayoutPagesListResponse"
@@ -2998,7 +3154,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
@@ -3056,7 +3215,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3112,7 +3275,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
@@ -3173,7 +3340,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
@@ -3234,7 +3405,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StorePage"
@@ -3292,7 +3467,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreLayoutClustersListResponse"
@@ -3353,7 +3532,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
@@ -3415,7 +3598,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId",
+          "clusterId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3475,7 +3663,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId",
+          "clusterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
@@ -3540,7 +3733,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId",
+          "clusterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
@@ -3605,7 +3803,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "pageId",
+          "clusterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StoreCluster"
@@ -3659,7 +3862,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3715,7 +3921,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersListResponse"
@@ -3772,7 +3982,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -3830,7 +4043,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3886,7 +4103,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -3947,7 +4168,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -4008,7 +4233,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -4066,7 +4295,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
@@ -4124,7 +4357,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductSet"
@@ -4185,7 +4422,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductSet"
@@ -4243,7 +4484,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicesListResponse"
@@ -4305,7 +4550,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -4367,7 +4617,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InstallsListResponse"
@@ -4433,7 +4688,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "installId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4497,7 +4758,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "installId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
@@ -4566,7 +4833,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "installId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
@@ -4635,7 +4908,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "installId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Install"
@@ -4697,7 +4976,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfigurationsForDeviceListResponse"
@@ -4763,7 +5047,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "managedConfigurationForDeviceId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4827,7 +5117,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "managedConfigurationForDeviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -4896,7 +5192,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "managedConfigurationForDeviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -4965,7 +5267,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId",
+          "managedConfigurationForDeviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -5027,7 +5335,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceState"
@@ -5092,7 +5405,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceState"
@@ -5150,7 +5468,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntitlementsListResponse"
@@ -5212,7 +5534,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "entitlementId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5272,7 +5599,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "entitlementId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
@@ -5341,7 +5673,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "entitlementId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
@@ -5410,7 +5747,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "entitlementId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Entitlement"
@@ -5468,7 +5810,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfigurationsForUserListResponse"
@@ -5530,7 +5876,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "managedConfigurationForUserId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5590,7 +5941,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "managedConfigurationForUserId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -5655,7 +6011,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "managedConfigurationForUserId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -5720,7 +6081,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId",
+          "managedConfigurationForUserId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedConfiguration"
@@ -5778,7 +6144,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5834,7 +6204,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "enterpriseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserToken"
@@ -5892,7 +6266,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permissionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Permission"

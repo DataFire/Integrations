@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -5233,7 +5234,10 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5259,7 +5263,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "requestMessage",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5282,7 +5290,10 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControlCollection"
@@ -5309,7 +5320,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sourceControlType",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControl"
@@ -5339,7 +5354,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sourceControlType",
+          "requestMessage",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SourceControl"
@@ -5366,7 +5386,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCollection"
@@ -5396,7 +5420,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "certificateOrder",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5426,7 +5455,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "identifier",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainAvailablilityCheckResult"
@@ -5453,7 +5487,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainCollection"
@@ -5480,7 +5518,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainControlCenterSsoRequest"
@@ -5510,7 +5552,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NameIdentifierCollection"
@@ -5537,7 +5584,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TopLevelDomainCollection"
@@ -5568,7 +5619,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TopLevelDomain"
@@ -5602,7 +5658,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "agreementOption",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TldLegalAgreementCollection"
@@ -5632,7 +5694,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domainRegistrationInput",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5659,7 +5726,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateCollection"
@@ -5689,7 +5760,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceNameAvailability"
@@ -5716,7 +5792,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileServiceCollection"
@@ -5751,7 +5831,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GeoRegionCollection"
@@ -5778,7 +5862,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
@@ -5809,7 +5897,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5840,7 +5933,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5867,7 +5965,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedHostingEnvironmentCollection"
@@ -5894,7 +5996,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5921,7 +6027,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5951,7 +6061,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "requestMessage",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5986,7 +6101,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -6020,7 +6139,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -6047,7 +6170,11 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -6080,7 +6207,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "moveResourceEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6109,7 +6242,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCollection"
@@ -6144,7 +6282,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "certificateOrderName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificateCollection"
@@ -6183,7 +6327,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "certificateOrderName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6222,7 +6373,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "certificateOrderName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
@@ -6264,7 +6422,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "certificateOrderName",
+          "name",
+          "keyVaultCertificate",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
@@ -6306,7 +6472,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "certificateOrderName",
+          "name",
+          "keyVaultCertificate",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrderCertificate"
@@ -6341,7 +6515,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6376,7 +6556,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
@@ -6414,7 +6600,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "certificateDistinguishedName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
@@ -6452,7 +6645,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "certificateDistinguishedName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateOrder"
@@ -6490,7 +6690,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "reissueCertificateOrderRequest",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6528,7 +6735,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "renewCertificateOrderRequest",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6563,7 +6777,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6598,7 +6818,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -6636,7 +6862,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -6674,7 +6906,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6705,7 +6943,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainCollection"
@@ -6744,7 +6987,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "domainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6779,7 +7028,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "domainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
@@ -6817,7 +7072,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "domainName",
+          "domain",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
@@ -6855,7 +7117,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "domainName",
+          "domain",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
@@ -6894,7 +7163,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "domainName",
+          "operationId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Domain"
@@ -6938,7 +7214,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "environmentName",
+          "lastId",
+          "batchSize",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6969,7 +7253,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CertificateCollection"
@@ -7004,7 +7293,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -7039,7 +7334,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
@@ -7077,7 +7378,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "certificateEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
@@ -7115,7 +7423,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "certificateEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Certificate"
@@ -7146,7 +7461,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileServiceCollection"
@@ -7181,7 +7501,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -7216,7 +7542,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicMobileService"
@@ -7247,7 +7579,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -7285,7 +7622,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -7320,7 +7663,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
@@ -7358,7 +7707,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "csrEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
@@ -7396,7 +7752,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "csrEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Csr"
@@ -7435,7 +7798,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeletedSiteCollection"
@@ -7466,7 +7834,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
@@ -7505,7 +7878,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -7540,7 +7919,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
@@ -7578,7 +7963,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "hostingEnvironmentEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
@@ -7613,7 +8005,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StampCapacityCollection"
@@ -7648,7 +8046,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressResponse"
@@ -7683,7 +8087,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -7725,7 +8135,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "diagnosticsName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentDiagnostics"
@@ -7760,7 +8177,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinition"
@@ -7803,7 +8226,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -7838,7 +8267,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPoolCollection"
@@ -7873,7 +8308,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
@@ -7911,7 +8352,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "multiRolePoolEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
@@ -7950,7 +8398,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "instance",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -7993,7 +8448,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "instance",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8028,7 +8490,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
@@ -8083,7 +8551,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -8118,7 +8592,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SkuInfoCollection"
@@ -8153,7 +8633,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageCollection"
@@ -8188,7 +8674,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8227,7 +8719,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "operationId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8262,7 +8761,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8297,7 +8802,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -8332,7 +8843,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -8371,7 +8888,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -8406,7 +8929,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -8445,7 +8974,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
@@ -8480,7 +9015,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -8515,7 +9056,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPoolCollection"
@@ -8554,7 +9101,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
@@ -8596,7 +9150,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "workerPoolEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkerPool"
@@ -8639,7 +9201,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "instance",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8690,7 +9260,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "instance",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8729,7 +9307,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
@@ -8776,7 +9361,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -8815,7 +9407,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SkuInfoCollection"
@@ -8854,7 +9453,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerPoolName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsageCollection"
@@ -8885,7 +9491,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironmentCollection"
@@ -8924,7 +9535,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -8959,7 +9576,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagedHostingEnvironment"
@@ -8997,7 +9620,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "ManagedHostingEnvironmentEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostingEnvironment"
@@ -9032,7 +9662,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddressResponse"
@@ -9071,7 +9707,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "operationId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -9106,7 +9749,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -9145,7 +9794,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -9180,7 +9835,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -9211,7 +9872,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmCollection"
@@ -9246,7 +9912,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -9281,7 +9953,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
@@ -9323,7 +10001,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "serverFarmEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
@@ -9358,7 +10043,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
@@ -9401,7 +10092,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -9440,7 +10137,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "operationId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerFarmWithRichSku"
@@ -9479,7 +10183,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -9526,7 +10236,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -9561,7 +10277,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9603,7 +10325,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -9646,7 +10375,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -9692,7 +10429,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -9731,7 +10477,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9777,7 +10530,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "routeName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -9820,7 +10581,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "routeName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9869,7 +10638,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "routeName",
+          "route",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetRoute"
@@ -9915,7 +10693,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "routeName",
+          "route",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetRoute"
@@ -9954,7 +10741,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "workerName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -9997,7 +10791,12 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -10048,7 +10847,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -10087,7 +10892,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -10141,7 +10952,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -10179,7 +10997,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -10217,7 +11042,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -10252,7 +11084,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItemCollection"
@@ -10290,7 +11128,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreRequest"
@@ -10329,7 +11174,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -10368,7 +11220,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -10410,7 +11269,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -10452,7 +11319,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreResponse"
@@ -10490,7 +11365,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "appSettings",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -10525,7 +11407,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -10563,7 +11451,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteAuthSettings",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
@@ -10598,7 +11493,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
@@ -10636,7 +11537,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
@@ -10671,7 +11579,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
@@ -10709,7 +11623,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "connectionStrings",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
@@ -10744,7 +11665,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
@@ -10779,7 +11706,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
@@ -10817,7 +11750,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteLogsConfig",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
@@ -10855,7 +11795,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "metadata",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -10890,7 +11837,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -10925,7 +11878,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -10960,7 +11919,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotConfigNamesResource"
@@ -10998,7 +11963,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotConfigNames",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotConfigNamesResource"
@@ -11033,7 +12005,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -11071,7 +12049,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteConfig",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -11109,7 +12094,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteConfig",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -11144,7 +12136,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
@@ -11183,7 +12181,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -11222,7 +12227,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -11264,7 +12276,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "deployment",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -11299,7 +12319,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBindingCollection"
@@ -11338,7 +12364,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "hostName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -11377,7 +12410,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "hostName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
@@ -11419,7 +12459,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "hostName",
+          "hostNameBinding",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
@@ -11454,7 +12502,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -11493,7 +12547,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -11532,7 +12593,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -11574,7 +12642,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -11616,7 +12692,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -11651,7 +12735,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteInstanceCollection"
@@ -11690,7 +12780,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
@@ -11733,7 +12830,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -11776,7 +12881,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -11822,7 +12935,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "instanceId",
+          "deployment",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -11857,7 +12979,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCloneability"
@@ -11892,7 +13020,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
@@ -11935,7 +13069,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -11974,7 +13114,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "view",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkFeatures"
@@ -12009,7 +13156,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12048,7 +13201,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "operationId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12081,7 +13241,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12117,7 +13283,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12153,7 +13326,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12192,7 +13372,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "premierAddOn",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12230,7 +13418,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "options",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -12268,7 +13463,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "recoveryEntity",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -12303,7 +13505,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12346,7 +13554,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12385,7 +13599,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCollection"
@@ -12440,7 +13660,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12483,7 +13710,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -12541,7 +13775,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -12583,7 +13825,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -12625,7 +13875,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -12664,7 +13922,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItemCollection"
@@ -12706,7 +13971,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreRequest"
@@ -12749,7 +14022,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -12792,7 +14073,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -12838,7 +14127,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "request",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupItem"
@@ -12884,7 +14182,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "backupId",
+          "request",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreResponse"
@@ -12926,7 +14233,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "appSettings",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -12965,7 +14280,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -13007,7 +14329,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteAuthSettings",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
@@ -13046,7 +14376,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteAuthSettings"
@@ -13088,7 +14425,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "request",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
@@ -13127,7 +14472,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupRequest"
@@ -13169,7 +14521,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "connectionStrings",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
@@ -13208,7 +14568,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionStringDictionary"
@@ -13247,7 +14614,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
@@ -13289,7 +14663,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteLogsConfig",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteLogsConfig"
@@ -13331,7 +14713,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "metadata",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -13370,7 +14760,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StringDictionary"
@@ -13409,7 +14806,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -13448,7 +14852,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -13490,7 +14901,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteConfig",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -13532,7 +14951,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteConfig",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteConfig"
@@ -13571,7 +14998,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
@@ -13614,7 +15048,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -13657,7 +15099,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -13703,7 +15153,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "deployment",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -13742,7 +15201,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBindingCollection"
@@ -13785,7 +15251,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "hostName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -13828,7 +15302,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "hostName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
@@ -13874,7 +15356,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "hostName",
+          "hostNameBinding",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostNameBinding"
@@ -13913,7 +15404,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -13956,7 +15454,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -13999,7 +15505,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -14045,7 +15559,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -14091,7 +15614,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "entityName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelayServiceConnectionEntity"
@@ -14130,7 +15662,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteInstanceCollection"
@@ -14173,7 +15712,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentCollection"
@@ -14220,7 +15767,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14267,7 +15823,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "instanceId",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -14317,7 +15882,17 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "id",
+          "slot",
+          "instanceId",
+          "deployment",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -14356,7 +15931,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteCloneability"
@@ -14395,7 +15977,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricDefinitionCollection"
@@ -14442,7 +16031,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceMetricCollection"
@@ -14485,7 +16081,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "view",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NetworkFeatures"
@@ -14524,7 +16128,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14567,7 +16178,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "operationId",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14603,7 +16222,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14642,7 +16268,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14681,7 +16315,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14723,7 +16365,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "premierAddOnName",
+          "premierAddOn",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14765,7 +16416,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "options",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -14807,7 +16466,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "recoveryEntity",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -14846,7 +16513,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14893,7 +16567,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -14935,7 +16616,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotDifferenceCollection"
@@ -14977,7 +16666,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15016,7 +16713,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15055,7 +16759,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15094,7 +16805,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15136,7 +16854,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteSourceControl",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15178,7 +16904,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteSourceControl",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15217,7 +16951,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15256,7 +16997,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15292,7 +17040,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15335,7 +17090,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
@@ -15374,7 +17136,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -15420,7 +17189,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15463,7 +17240,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -15509,7 +17294,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -15555,7 +17349,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -15602,7 +17405,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15652,7 +17464,17 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -15702,7 +17524,17 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "connectionEnvelope",
+          "slot",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -15740,7 +17572,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SlotDifferenceCollection"
@@ -15778,7 +17617,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "slotSwapEntity",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15813,7 +17659,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15848,7 +17700,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -15883,7 +17741,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15921,7 +17785,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteSourceControl",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15959,7 +17830,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "siteSourceControl",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SiteSourceControl"
@@ -15994,7 +17872,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -16029,7 +17913,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -16062,7 +17952,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -16101,7 +17997,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CsmUsageQuotaCollection"
@@ -16136,7 +18038,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16178,7 +18086,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -16217,7 +18132,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -16259,7 +18181,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -16301,7 +18231,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetInfo"
@@ -16344,7 +18282,15 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -16390,7 +18336,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -16436,7 +18391,16 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "name",
+          "vnetName",
+          "gatewayName",
+          "connectionEnvelope",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VnetGateway"
@@ -16479,7 +18443,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "siteName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16530,7 +18500,13 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "siteName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16572,7 +18548,14 @@
             "description": "API Version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "siteName",
+          "name",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecommendationRule"

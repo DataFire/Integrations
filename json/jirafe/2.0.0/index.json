@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://account.jirafe.com/oauth2/auth_token",
@@ -631,6 +632,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "jirafe": {
+          "integration": "jirafe"
+        }
+      }
+    },
+    {
       "id": "postBatch",
       "title": "postBatch",
       "description": "Send a batch for the given site",
@@ -645,7 +717,11 @@
             "$ref": "#/definitions/Batch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -669,7 +745,11 @@
             "$ref": "#/definitions/Cart"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -693,7 +773,11 @@
             "$ref": "#/definitions/Category"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -717,7 +801,11 @@
             "$ref": "#/definitions/Customer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -741,7 +829,11 @@
             "$ref": "#/definitions/OrderCancelled"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -765,7 +857,11 @@
             "$ref": "#/definitions/Product"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {

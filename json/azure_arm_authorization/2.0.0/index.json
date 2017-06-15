@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -391,7 +392,10 @@
             "description": "Specifies whether to expand the values."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProviderOperationsMetadataListResult"
@@ -422,7 +426,11 @@
             "description": "Specifies whether to expand the values."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceProviderNamespace",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProviderOperationsMetadata"
@@ -449,7 +457,11 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClassicAdministratorListResult"
@@ -480,7 +492,11 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
@@ -515,7 +531,12 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
@@ -546,7 +567,12 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionGetResult"
@@ -593,7 +619,16 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "resourceProviderNamespace",
+          "parentResourcePath",
+          "resourceType",
+          "resourceName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PermissionGetResult"
@@ -644,7 +679,16 @@
             "description": "The ID of the target subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "resourceProviderNamespace",
+          "parentResourcePath",
+          "resourceType",
+          "resourceName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
@@ -671,7 +715,11 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -698,7 +746,11 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -728,7 +780,12 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleAssignmentId",
+          "parameters",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -755,7 +812,11 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleDefinitionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
@@ -786,7 +847,11 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignmentListResult"
@@ -817,7 +882,12 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -848,7 +918,12 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -882,7 +957,13 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleAssignmentName",
+          "parameters",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleAssignment"
@@ -913,7 +994,11 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinitionListResult"
@@ -944,7 +1029,12 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
@@ -975,7 +1065,12 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"
@@ -1009,7 +1104,13 @@
             "description": "The API version to use for this operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scope",
+          "roleDefinitionId",
+          "roleDefinition",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleDefinition"

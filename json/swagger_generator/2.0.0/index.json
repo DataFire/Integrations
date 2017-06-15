@@ -166,7 +166,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "language"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {
@@ -230,7 +233,11 @@
             "$ref": "#/definitions/GeneratorInput"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "language",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseCode"
@@ -247,7 +254,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -305,7 +315,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "framework"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {
@@ -357,7 +370,11 @@
             "$ref": "#/definitions/GeneratorInput"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "framework",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseCode"

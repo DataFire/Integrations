@@ -162,7 +162,14 @@
             "description": "The name of the database from which to retrieve available restore points."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "serverName",
+          "databaseName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestorePointListResult"

@@ -542,7 +542,10 @@
             "description": "Comma separated list of TCGA participants, identified by barcodes such as TCGA-GF-A4EO, denoting samples to exclude from computation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "gene"
+        ]
       },
       "outputSchema": {}
     },
@@ -943,7 +946,10 @@
             "description": "Enter a single TCGA barcode, of any form: e.g. TCGA-GF-A4EO-06 or TCGA-EL-A3D5-01A-22D-A202-08"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TCGA_Barcode"
+        ]
       },
       "outputSchema": {}
     },
@@ -968,7 +974,10 @@
             "description": "Narrow search to one or more TCGA sample type codes."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ]
       },
       "outputSchema": {}
     },
@@ -993,7 +1002,10 @@
             "description": "TCGA sample type short letter code(s) (e.g. TP, NB, etc.). "
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "short_letter_code"
+        ]
       },
       "outputSchema": {}
     },

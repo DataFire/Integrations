@@ -326,7 +326,11 @@
             "description": "The formula to check"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "q"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -348,7 +352,10 @@
             "minLength": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hash"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -379,7 +386,11 @@
             "minLength": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "hash"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -440,7 +451,14 @@
             "description": "The timestamp of the last hour/day/month to include, in YYYYMMDDHH format. In hourly and daily granularities this value is inclusive, in the monthly granularity this value is exclusive."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "access-site",
+          "granularity",
+          "start",
+          "end"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pagecounts-project"
@@ -513,7 +531,15 @@
             "description": "The timestamp of the last hour/day/month to include, in YYYYMMDDHH format"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "access",
+          "agent",
+          "granularity",
+          "start",
+          "end"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-project"
@@ -576,7 +602,16 @@
             "description": "The date of the last day to include, in YYYYMMDD format"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "access",
+          "agent",
+          "article",
+          "granularity",
+          "start",
+          "end"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-article"
@@ -621,7 +656,14 @@
             "description": "The day of the date for which to retrieve top articles, in DD format."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "access",
+          "year",
+          "month",
+          "day"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pageview-tops"
@@ -669,7 +711,14 @@
             "description": "The timestamp of the last day/month to include, in YYYYMMDD format"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "access-site",
+          "granularity",
+          "start",
+          "end"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/unique-devices"

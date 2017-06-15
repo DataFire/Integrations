@@ -21,7 +21,10 @@
             "description": "Collection id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -53,7 +56,10 @@
             "description": "Number of results of limit length to displace or skip over"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -69,7 +75,10 @@
             "description": "Collection slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
       },
       "outputSchema": {}
     },
@@ -100,7 +109,10 @@
             "description": "Number of results of limit length to displace or skip over"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
       },
       "outputSchema": {}
     },
@@ -147,7 +159,10 @@
             "description": "Icon id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -163,7 +178,10 @@
             "description": "Icon term"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
       },
       "outputSchema": {}
     },
@@ -229,7 +247,10 @@
             "description": "Number of results of limit length to displace or skip over"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
       },
       "outputSchema": {}
     },
@@ -253,7 +274,10 @@
             "description": "User id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -274,7 +298,11 @@
             "description": "Collection slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "slug"
+        ]
       },
       "outputSchema": {}
     },
@@ -305,7 +333,10 @@
             "description": "Number of results of limit length to displace or skip over"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {}
     }

@@ -6246,7 +6246,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6268,7 +6271,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6290,7 +6296,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6312,7 +6321,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6334,7 +6346,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6356,7 +6371,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6378,7 +6396,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6400,7 +6421,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "mbid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"
@@ -6422,7 +6446,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/nitro"

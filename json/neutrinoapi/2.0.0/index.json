@@ -1124,7 +1124,10 @@
             "description": "The character to use to censor out the bad words found"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BadWordFilterResponse"
@@ -1157,7 +1160,10 @@
             "description": "Pass in a customers remote IP address. The API will then determine the country of the IP address and match it against the BIN country. This feature is designed for fraud prevention and detection checks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bin-number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BinLookupResponse"
@@ -1188,7 +1194,11 @@
             "description": "Add links on source code keywords to the relevant language documentation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content",
+          "type"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1226,7 +1236,12 @@
             "description": "The type to convert to"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from-value",
+          "from-type",
+          "to-type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConvertResponse"
@@ -1259,7 +1274,10 @@
             "description": "Automatically attempt to fix typos in the address"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EmailValidateResponse"
@@ -1300,7 +1318,10 @@
             "description": "If no matches are found for the given address, start performing a recursive fuzzy search until a geolocation is found. We use a combination of approximate string matching and data cleansing to find possible location matches"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "address"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GeocodeAddressResponse"
@@ -1339,7 +1360,11 @@
             "description": "The language to display results in, available languages are: de, en, es, fr, it, pt, ru"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GeocodeReverseResponse"
@@ -1372,7 +1397,10 @@
             "description": "ISO 2-letter country code, assume numbers are based in this country. If not set numbers are assumed to be in international format (with or without the leading + sign)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HlrLookupResponse"
@@ -1401,7 +1429,10 @@
             "description": "An IPv4 address or a domain name. If you supply a domain name it will be checked against the URI DNSBL list"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "host"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HostReputationResponse"
@@ -1428,7 +1459,11 @@
             "description": "The level of sanitization, possible values are: plain-text, simple-text, basic-html, basic-html-with-images, advanced-html"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content",
+          "output-type"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1470,7 +1505,11 @@
             "description": "The base URL to replace into realive links"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content",
+          "tag"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HtmlExtractResponse"
@@ -1576,7 +1615,10 @@
             "description": "If rendering to an image format (PNG or JPG) use this image height (in pixels). The default is automatic which dynamically sets the image height based on the content"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1614,7 +1656,12 @@
             "description": "The output image format, can be either png or jpg"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "image-url",
+          "width",
+          "height"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1665,7 +1712,11 @@
             "description": "If set resize the resulting image to this height (preserving aspect ratio)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "image-url",
+          "watermark-url"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1695,7 +1746,10 @@
             "description": "An IPv4 address"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IpBlocklistResponse"
@@ -1728,7 +1782,10 @@
             "description": "Do a reverse DNS (PTR) lookup. This option can add extra delay to the request so only use it if you need it"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IpInfoResponse"
@@ -1758,7 +1815,10 @@
             "description": "IPv4 or IPv6 address"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IpProbeResponse"
@@ -1791,7 +1851,11 @@
             "description": "A URL to a valid audio file. Accepted audio formats are: MP3, WAV, OGG"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "audio-url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PhonePlaybackResponse"
@@ -1828,7 +1892,10 @@
             "description": "Pass in a users IP address and we will assume numbers are based in the country of the IP address"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PhoneValidateResponse"
@@ -1880,7 +1947,10 @@
             "description": "The language to playback the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PhoneVerifyResponse"
@@ -1921,7 +1991,10 @@
             "description": "The QR code background color (you should always use a light color for this)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1969,7 +2042,10 @@
             "description": "The language to send the verification code in, available languages are: de - German, en - English, es - Spanish, fr - Fench, it - Italian, pt - Portuguese, ru - Russian"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SmsVerifyResponse"
@@ -2002,7 +2078,11 @@
             "description": "If this URL responds with html, text, json or xml then return the response. This option is useful if you want to perform further processing on the URL content"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "fetch-content"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlInfoResponse"
@@ -2031,7 +2111,10 @@
             "description": "A user-agent string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-agent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAgentInfoResponse"
@@ -2061,7 +2144,10 @@
             "description": "The security code to verify"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "security-code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VerifySecurityCodeResponse"

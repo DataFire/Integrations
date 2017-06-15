@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://stackexchange.com/oauth",
@@ -2598,7 +2599,10 @@
             "description": "All API responses are JSON, we do support JSONP with the callback query parameter.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accessTokens"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
@@ -2635,7 +2639,10 @@
             "description": "All API responses are JSON, we do support JSONP with the callback query parameter.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accessTokens"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
@@ -2703,7 +2710,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -2775,7 +2785,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -2846,7 +2860,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -2883,7 +2901,10 @@
             "description": "All API responses are JSON, we do support JSONP with the callback query parameter.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accessTokens"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/access_tokens"
@@ -2954,7 +2975,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3024,7 +3048,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3069,7 +3096,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3139,7 +3169,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3211,7 +3244,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3260,7 +3297,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -3327,7 +3368,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -3398,7 +3442,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -3435,7 +3483,11 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3473,7 +3525,11 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/created_comment"
@@ -3531,7 +3587,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3572,7 +3631,10 @@
             "description": "Unix date."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -3631,7 +3693,10 @@
             "description": "String list (semicolon delimited)."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "filters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/filters"
@@ -3730,7 +3795,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/info_object"
@@ -3799,7 +3867,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
@@ -3867,7 +3938,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -3971,7 +4045,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -4038,7 +4115,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -4108,7 +4188,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "toId",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -4177,7 +4261,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4214,7 +4301,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
@@ -4255,7 +4345,10 @@
             "description": "Unix date."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
@@ -4322,7 +4415,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -4395,7 +4491,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -4432,7 +4531,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -4469,7 +4571,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
@@ -4537,7 +4642,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4605,7 +4713,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4673,7 +4784,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4741,7 +4855,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4809,7 +4926,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -4840,7 +4960,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_changes"
@@ -4877,7 +5000,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
@@ -4914,7 +5040,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
@@ -4982,7 +5111,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
@@ -5050,7 +5182,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -5122,7 +5257,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -5198,7 +5337,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -5243,7 +5386,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user_timeline_objects"
@@ -5280,7 +5426,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
@@ -5317,7 +5466,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
@@ -5354,7 +5506,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/write_permissions"
@@ -5494,7 +5649,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/posts"
@@ -5566,7 +5724,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/posts"
@@ -5637,7 +5799,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -5686,7 +5852,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/revisions"
@@ -5758,7 +5928,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
@@ -5798,7 +5972,11 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/created_comment"
@@ -5835,7 +6013,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
@@ -5911,7 +6092,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -5983,7 +6167,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6055,7 +6242,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6127,7 +6317,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6199,7 +6392,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6271,7 +6468,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -6342,7 +6543,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -6415,7 +6620,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6488,7 +6697,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6537,7 +6750,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/question_timeline_events"
@@ -6586,7 +6803,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/revisions"
@@ -6666,7 +6887,10 @@
             "description": "String list (semicolon delimited)."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6799,7 +7023,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6879,7 +7106,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -6983,7 +7213,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
@@ -7055,7 +7288,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
@@ -7126,7 +7363,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -7197,7 +7437,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -7268,7 +7511,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -7336,7 +7582,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_synonyms"
@@ -7377,7 +7626,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -7449,7 +7702,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -7490,7 +7747,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -7562,7 +7823,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_synonyms"
@@ -7603,7 +7868,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_wikis"
@@ -7650,7 +7919,12 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "period",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_score_objects"
@@ -7697,7 +7971,12 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "period",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag_score_objects"
@@ -7769,7 +8048,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -7838,7 +8120,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -7907,7 +8192,10 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -7980,7 +8268,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -8052,7 +8344,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -8089,7 +8385,10 @@
             "description": "All API responses are JSON, we do support JSONP with the callback query parameter.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/network_users"
@@ -8162,7 +8461,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/badges"
@@ -8233,7 +8536,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -8307,7 +8614,12 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "toid",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -8380,7 +8692,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8451,7 +8767,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -8488,7 +8808,10 @@
             "description": "All API responses are JSON, we do support JSONP with the callback query parameter.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/account_merge"
@@ -8560,7 +8883,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8632,7 +8959,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8704,7 +9035,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8776,7 +9111,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8848,7 +9187,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -8897,7 +9240,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_changes"
@@ -8938,7 +9285,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
@@ -9010,7 +9361,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suggested-edits"
@@ -9082,7 +9437,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -9131,7 +9490,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user_timeline_objects"
@@ -9171,7 +9534,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
@@ -9215,7 +9582,11 @@
             "description": "Unix date."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/inbox_items"
@@ -9255,7 +9626,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -9295,7 +9670,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -9335,7 +9714,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/privileges"
@@ -9375,7 +9758,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reputation_history"
@@ -9450,7 +9837,12 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/answers"
@@ -9525,7 +9917,12 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tags",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questions"
@@ -9565,7 +9962,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
@@ -9605,7 +10006,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/top_tag_objects"
@@ -9645,7 +10050,11 @@
             "description": "Each of these methods operates on a single site at a time, identified by the site parameter. This parameter can be the full domain name (ie. \"stackoverflow.com\"), or a short form identified by api_site_parameter on the site object.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "site"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/write_permissions"

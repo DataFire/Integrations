@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -1286,6 +1287,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_spanner": {
+          "integration": "google_spanner"
+        }
+      }
+    },
+    {
       "id": "projects.instances.databases.dropDatabase",
       "title": "projects.instances.databases.dropDatabase",
       "description": "Drops (aka deletes) a Cloud Spanner database.",
@@ -1358,7 +1430,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "database"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1442,7 +1517,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "database"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDatabaseDdlResponse"
@@ -1529,7 +1607,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "database"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1613,7 +1694,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "database"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -1697,7 +1781,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1781,7 +1868,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InstanceConfig"
@@ -1868,7 +1958,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1952,7 +2045,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2044,7 +2140,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDatabasesResponse"
@@ -2131,7 +2230,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2223,7 +2325,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInstanceConfigsResponse"
@@ -2319,7 +2424,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListInstancesResponse"
@@ -2406,7 +2514,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2493,7 +2604,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2580,7 +2694,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2667,7 +2784,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"
@@ -2754,7 +2874,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
@@ -2841,7 +2964,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitResponse"
@@ -2928,7 +3054,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResultSet"
@@ -3015,7 +3144,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PartialResultSet"
@@ -3102,7 +3234,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResultSet"
@@ -3189,7 +3324,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3276,7 +3414,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PartialResultSet"

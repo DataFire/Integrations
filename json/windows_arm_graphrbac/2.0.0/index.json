@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -801,7 +802,11 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationListResult"
@@ -831,7 +836,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
@@ -862,7 +872,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -891,7 +906,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Application"
@@ -925,7 +945,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -954,7 +980,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/KeyCredentialListResult"
@@ -988,7 +1019,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1017,7 +1054,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PasswordCredentialListResult"
@@ -1051,7 +1093,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1079,7 +1127,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectsResult"
@@ -1110,7 +1163,11 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupListResult"
@@ -1140,7 +1197,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ADGroup"
@@ -1171,7 +1233,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1203,7 +1270,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1236,7 +1309,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "memberObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1265,7 +1344,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ADGroup"
@@ -1299,7 +1383,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupGetMemberGroupsResult"
@@ -1330,7 +1420,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectsResult"
@@ -1360,7 +1455,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckGroupMembershipResult"
@@ -1387,7 +1487,11 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AADObject"
@@ -1418,7 +1522,11 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipalListResult"
@@ -1448,7 +1556,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipal"
@@ -1479,7 +1592,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1508,7 +1626,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServicePrincipal"
@@ -1539,7 +1662,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/KeyCredentialListResult"
@@ -1573,7 +1701,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1602,7 +1736,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PasswordCredentialListResult"
@@ -1636,7 +1775,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1665,7 +1810,11 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserListResult"
@@ -1695,7 +1844,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1729,7 +1883,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserGetMemberGroupsResult"
@@ -1760,7 +1920,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1789,7 +1954,12 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1823,7 +1993,13 @@
             "description": "The tenant ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
       },
       "outputSchema": {},
       "security": {

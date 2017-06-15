@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -2199,6 +2200,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_books": {
+          "integration": "google_books"
+        }
+      }
+    },
+    {
       "id": "cloudloading.addBook",
       "title": "cloudloading.addBook",
       "description": "",
@@ -2309,7 +2381,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2417,7 +2492,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cpksver"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2536,7 +2614,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeIds",
+          "cpksver"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DownloadAccesses"
@@ -2615,7 +2697,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "volumeId",
+          "nonce",
+          "cpksver"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RequestAccess"
@@ -2697,7 +2785,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "nonce",
+          "cpksver"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
@@ -2978,7 +3071,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "layerIds",
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationsSummary"
@@ -3036,7 +3133,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3095,7 +3195,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
@@ -3210,7 +3313,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelf"
@@ -3281,7 +3387,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf",
+          "volumeId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3337,7 +3447,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3401,7 +3514,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf",
+          "volumeId",
+          "volumePosition"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3468,7 +3586,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf",
+          "volumeId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3554,7 +3676,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shelf"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
@@ -3616,7 +3741,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadingPosition"
@@ -3702,7 +3830,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "timestamp",
+          "position"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3762,7 +3895,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notification_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
@@ -4257,7 +4393,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "series_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Series"
@@ -4319,7 +4458,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "series_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Seriesmembership"
@@ -4377,7 +4519,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelves"
@@ -4439,7 +4584,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "shelf"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bookshelf"
@@ -4515,7 +4664,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "shelf"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
@@ -4655,7 +4808,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
@@ -4878,7 +5034,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rating",
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BooksVolumesRecommendedRateResponse"
@@ -5039,7 +5199,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volume"
@@ -5118,7 +5281,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumes"
@@ -5230,7 +5396,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "layerId",
+          "contentVersion"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumeannotations"
@@ -5300,7 +5471,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "layerId",
+          "annotationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Volumeannotation"
@@ -5405,7 +5581,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "layerId",
+          "contentVersion"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotationsdata"
@@ -5496,7 +5677,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "layerId",
+          "annotationDataId",
+          "contentVersion"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotationdata"
@@ -5568,7 +5755,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Layersummaries"
@@ -5634,7 +5824,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "volumeId",
+          "summaryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Layersummary"

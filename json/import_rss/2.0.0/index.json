@@ -222,7 +222,10 @@
             "description": "The id of the extractor to start get the crawl run data"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extractorId"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {

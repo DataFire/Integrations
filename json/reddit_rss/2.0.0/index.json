@@ -75,7 +75,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subreddit"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Feed"

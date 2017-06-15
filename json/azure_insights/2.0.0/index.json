@@ -152,7 +152,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetricCollection"

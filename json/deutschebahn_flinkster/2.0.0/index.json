@@ -766,7 +766,10 @@
             "description": "Expand Provider"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "areaUID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AreaJO"
@@ -847,7 +850,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CategoryJO"
@@ -871,7 +877,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID",
+          "categoryUID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CategoryJO"
@@ -888,7 +898,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "providernetworkUID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RentalObjectJO"
@@ -911,7 +924,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rentalObjectUID",
+          "providernetworkUID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RentalObjectJO"
@@ -928,7 +945,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RentalObjectJO"
@@ -945,7 +965,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RentalObjectJO"

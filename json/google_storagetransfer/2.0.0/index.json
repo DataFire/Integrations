@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -610,6 +611,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_storagetransfer": {
+          "integration": "google_storagetransfer"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_storagetransfer": {
+          "integration": "google_storagetransfer"
+        }
+      }
+    },
+    {
       "id": "googleServiceAccounts.get",
       "title": "googleServiceAccounts.get",
       "description": "Returns the Google service account that is used by Storage Transfer\nService to access buckets in the project where transfers\nrun or in other projects. Each Google service account is associated\nwith one Google Cloud Platform Console project. Users\nshould add this service account to the Google Cloud Storage bucket\nACLs to grant access to Storage Transfer Service. This service\naccount is created and owned by Storage Transfer Service and can\nonly be used by Storage Transfer Service.",
@@ -682,7 +754,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GoogleServiceAccount"
@@ -951,7 +1026,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TransferJob"
@@ -1038,7 +1116,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TransferJob"
@@ -1122,7 +1203,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1218,7 +1302,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOperationsResponse"
@@ -1302,7 +1389,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1389,7 +1479,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1476,7 +1569,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"

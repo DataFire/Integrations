@@ -242,7 +242,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -329,7 +333,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -416,7 +424,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
       },
       "outputSchema": {
         "properties": {

@@ -305,7 +305,10 @@
             "description": "detailed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "end_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NearEarthObjectList"
@@ -371,7 +374,10 @@
             "description": "ID of Near Earth Object - (ex: 3729835)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "asteroid_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NearEarthObject"

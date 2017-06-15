@@ -579,7 +579,10 @@
             "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -626,7 +629,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",

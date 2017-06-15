@@ -144,7 +144,10 @@
             "description": "Station or stop abbrevation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "abbrev"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Station"

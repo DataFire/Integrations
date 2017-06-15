@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -1495,7 +1496,14 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "clientGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroup"
@@ -1559,7 +1567,14 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "clientGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroupMembersCollection"
@@ -1616,7 +1631,14 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "clientGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClientGroupMembersCount"
@@ -1660,7 +1682,14 @@
             "$ref": "#/definitions/MapRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MapResponse"
@@ -1701,7 +1730,13 @@
             "description": "API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroupCollection"
@@ -1745,7 +1780,14 @@
             "$ref": "#/definitions/MachineGroup"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineGroup"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
@@ -1792,7 +1834,14 @@
             "minLength": 36
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineGroupName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1837,7 +1886,14 @@
             "minLength": 36
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
@@ -1887,7 +1943,15 @@
             "$ref": "#/definitions/MachineGroup"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineGroupName",
+          "machineGroup"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroup"
@@ -1954,7 +2018,13 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineCollection"
@@ -2006,7 +2076,14 @@
             "description": "UTC date and time specifying a time instance relative to which to evaluate the machine resource. When not specified, the service uses DateTime.UtcNow."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Machine"
@@ -2063,7 +2140,14 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
@@ -2120,7 +2204,14 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
@@ -2167,7 +2258,14 @@
             "minLength": 3
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachineGroupCollection"
@@ -2224,7 +2322,14 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PortCollection"
@@ -2287,7 +2392,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "portName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Port"
@@ -2350,7 +2463,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "portName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProcessCollection"
@@ -2413,7 +2534,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "portName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
@@ -2476,7 +2605,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "portName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
@@ -2542,7 +2679,14 @@
             "description": "UTC date and time specifying a time instance relative to which to evaluate all process resource. Only applies when `live=false`. When not specified, the service uses DateTime.UtcNow."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProcessCollection"
@@ -2600,7 +2744,15 @@
             "description": "UTC date and time specifying a time instance relative to which to evaluate a resource. When not specified, the service uses DateTime.UtcNow."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "processName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Process"
@@ -2663,7 +2815,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "processName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PortCollection"
@@ -2726,7 +2886,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "processName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConnectionCollection"
@@ -2789,7 +2957,15 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version",
+          "machineName",
+          "processName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Liveness"
@@ -2840,7 +3016,13 @@
             "description": "UTC date and time specifying the end time of an interval. When not specified the service uses DateTime.UtcNow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MachinesSummary"

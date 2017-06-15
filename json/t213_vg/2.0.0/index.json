@@ -9320,7 +9320,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "addressId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -9350,7 +9353,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-attribute-metadata-interface"
@@ -9390,7 +9396,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "formCode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9422,7 +9431,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-attribute-metadata-interface"
@@ -9462,7 +9474,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "formCode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9533,7 +9548,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "optionId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -9553,7 +9571,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productSku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9587,7 +9608,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -9618,7 +9643,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -9635,7 +9664,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9658,7 +9690,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -9678,7 +9714,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/bundle-data-option-interface"
@@ -9701,7 +9741,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId",
+          "childSku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -9731,7 +9776,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "giftCardCode"
+        ]
       },
       "outputSchema": {
         "type": "number"
@@ -9759,7 +9808,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -9779,7 +9831,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "giftCardCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -9905,7 +9961,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "giftCardCode"
+        ]
       },
       "outputSchema": {
         "type": "number"
@@ -9981,7 +10040,10 @@
             "description": "The coupon code data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "couponCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10101,7 +10163,10 @@
             "description": "The item ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-message-data-message-interface"
@@ -10130,7 +10195,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10175,7 +10243,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "giftCardCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10234,7 +10305,10 @@
             "description": "The item ID of the item to be removed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10262,7 +10336,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-item-interface"
@@ -10552,7 +10629,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-interface"
@@ -10586,7 +10666,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10604,7 +10687,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-address-interface"
@@ -10636,7 +10722,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Address ID.",
@@ -10655,7 +10744,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10673,7 +10765,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "The coupon code data.",
@@ -10696,7 +10791,11 @@
             "description": "The coupon code data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "couponCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10724,7 +10823,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods",
@@ -10758,7 +10860,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods.",
@@ -10780,7 +10885,10 @@
             "description": "The shopping cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-message-data-message-interface"
@@ -10809,7 +10917,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10831,7 +10942,11 @@
             "description": "The item ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-message-data-message-interface"
@@ -10864,7 +10979,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10892,7 +11011,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10912,7 +11034,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "giftCardCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10930,7 +11056,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Array of items.",
@@ -10956,7 +11085,11 @@
             "description": "The item ID of the item to be removed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -10987,7 +11120,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-item-interface"
@@ -11013,7 +11150,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Order ID.",
@@ -11032,7 +11172,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Array of payment methods.",
@@ -11054,7 +11197,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-payment-interface"
@@ -11083,7 +11229,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "redirect url or error message.",
@@ -11112,7 +11261,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/checkout-data-payment-details-interface"
@@ -11130,7 +11282,10 @@
             "description": "The shopping cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods.",
@@ -11152,7 +11307,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-totals-interface"
@@ -11180,7 +11338,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-totals-interface"
@@ -11197,7 +11358,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "quoteId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-card-account-data-gift-card-account-interface"
@@ -11225,7 +11389,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "quoteId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-item-interface"
@@ -11338,7 +11505,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-category-attribute-interface"
@@ -11355,7 +11525,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -11375,7 +11548,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "description": "Will returned True if deleted",
@@ -11396,7 +11572,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-category-interface"
@@ -11427,7 +11606,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -11444,7 +11626,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -11475,7 +11660,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if assigned",
@@ -11504,7 +11692,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if assigned",
@@ -11525,7 +11716,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "categoryId",
+          "sku"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if products successfully deleted",
@@ -11554,7 +11749,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-category-interface"
@@ -11644,7 +11842,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "blockId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -11662,7 +11863,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "blockId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cms-data-block-interface"
@@ -11690,7 +11894,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cms-data-block-interface"
@@ -11791,7 +11998,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cms-data-page-interface"
@@ -11808,7 +12018,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -11826,7 +12039,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cms-data-page-interface"
@@ -11892,7 +12108,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -11909,7 +12128,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -11932,7 +12154,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "childSku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -11960,7 +12186,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -11977,7 +12206,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -12000,7 +12232,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -12020,7 +12256,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/configurable-product-data-option-interface"
@@ -12051,7 +12291,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -12240,7 +12484,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "couponId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -12258,7 +12505,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "couponId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-rule-data-coupon-interface"
@@ -12286,7 +12536,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "couponId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-rule-data-coupon-interface"
@@ -12363,7 +12616,10 @@
             "description": "The credit memo ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-creditmemo-interface"
@@ -12381,7 +12637,10 @@
             "description": "The credit memo ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -12399,7 +12658,10 @@
             "description": "The credit memo ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-creditmemo-comment-search-result-interface"
@@ -12427,7 +12689,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-creditmemo-comment-interface"
@@ -12445,7 +12710,10 @@
             "description": "The credit memo ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -12555,7 +12823,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "storeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-group-interface"
@@ -12617,7 +12888,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -12635,7 +12909,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-group-interface"
@@ -12663,7 +12940,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-group-interface"
@@ -12680,7 +12960,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -12731,7 +13014,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "addressId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-address-interface"
@@ -13044,7 +13330,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -13062,7 +13351,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-customer-interface"
@@ -13079,7 +13371,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-address-interface"
@@ -13097,7 +13392,10 @@
             "description": "The customer ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "description": "Cart ID.",
@@ -13115,7 +13413,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -13135,7 +13436,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId",
+          "resetPasswordLinkToken"
+        ]
       },
       "outputSchema": {
         "description": "True if the token is valid",
@@ -13153,7 +13458,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13170,7 +13478,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "customerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-address-interface"
@@ -13198,7 +13509,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-customer-interface"
@@ -13229,7 +13543,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-customer-interface"
@@ -13258,7 +13575,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "countryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/directory-data-country-information-interface"
@@ -13365,7 +13685,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13382,7 +13705,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/eav-data-attribute-set-interface"
@@ -13410,7 +13736,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/eav-data-attribute-set-interface"
@@ -13503,7 +13832,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13523,7 +13855,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
@@ -13554,7 +13889,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wrappingId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
@@ -13614,7 +13952,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-interface"
@@ -13648,7 +13989,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13666,7 +14010,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-address-interface"
@@ -13695,7 +14042,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Address ID.",
@@ -13736,7 +14086,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-totals-interface"
@@ -13754,7 +14107,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13772,7 +14128,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "The coupon code data.",
@@ -13795,7 +14154,11 @@
             "description": "The coupon code data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "couponCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13823,7 +14186,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods",
@@ -13845,7 +14211,10 @@
             "description": "The shopping cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-message-data-message-interface"
@@ -13874,7 +14243,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13896,7 +14268,11 @@
             "description": "The item ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gift-message-data-message-interface"
@@ -13929,7 +14305,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -13947,7 +14327,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Array of items.",
@@ -13979,7 +14362,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-item-interface"
@@ -14001,7 +14387,11 @@
             "description": "The item ID of the item to be removed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -14032,7 +14422,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-cart-item-interface"
@@ -14058,7 +14452,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Order ID.",
@@ -14076,7 +14473,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/checkout-data-payment-details-interface"
@@ -14111,7 +14511,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Order ID.",
@@ -14130,7 +14533,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Array of payment methods.",
@@ -14152,7 +14558,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-payment-interface"
@@ -14181,7 +14590,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Payment method ID.",
@@ -14217,7 +14629,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Order ID.",
@@ -14246,7 +14661,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/checkout-data-payment-details-interface"
@@ -14264,7 +14682,10 @@
             "description": "The shopping cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods.",
@@ -14286,7 +14707,10 @@
             "description": "The cart ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-totals-interface"
@@ -14314,7 +14738,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/quote-data-totals-interface"
@@ -14344,7 +14771,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "An array of shipping methods.",
@@ -14457,7 +14887,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoiceId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -14576,7 +15009,10 @@
             "description": "The invoice ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-invoice-interface"
@@ -14593,7 +15029,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -14611,7 +15050,10 @@
             "description": "The invoice ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-invoice-comment-search-result-interface"
@@ -14629,7 +15071,10 @@
             "description": "The invoice ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -14647,7 +15092,10 @@
             "description": "The invoice ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -14702,7 +15150,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orderId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -14742,7 +15193,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orderId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -14794,7 +15248,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orderId"
+        ]
       },
       "outputSchema": {
         "description": "Id of created Shipment.",
@@ -14959,7 +15416,10 @@
             "description": "The order item ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-order-item-interface"
@@ -14977,7 +15437,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-order-interface"
@@ -14995,7 +15458,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15013,7 +15479,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-order-status-history-search-result-interface"
@@ -15042,7 +15511,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15060,7 +15532,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15078,7 +15553,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15096,7 +15574,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "description": "Order status.",
@@ -15115,7 +15596,10 @@
             "description": "The order ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15143,7 +15627,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-order-address-interface"
@@ -15381,7 +15868,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15443,7 +15933,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15460,7 +15953,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/eav-data-attribute-set-interface"
@@ -15488,7 +15984,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/eav-data-attribute-set-interface"
@@ -15505,7 +16004,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -15528,7 +16030,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId",
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15556,7 +16062,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/eav-data-attribute-group-interface"
@@ -15658,7 +16167,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15675,7 +16187,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-attribute-interface"
@@ -15703,7 +16218,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-attribute-interface"
@@ -15720,7 +16238,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -15751,7 +16272,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15771,7 +16295,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15788,7 +16316,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15805,7 +16336,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -15834,7 +16368,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -15854,7 +16391,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeSetName"
+        ]
       },
       "outputSchema": {
         "description": "list of media attributes",
@@ -15926,7 +16466,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "optionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-custom-option-interface"
@@ -15969,7 +16512,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productSku",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -15986,7 +16533,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "description": "Will returned True if deleted",
@@ -16013,7 +16563,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-interface"
@@ -16044,7 +16597,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-interface"
@@ -16061,7 +16617,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16095,7 +16654,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -16112,7 +16674,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16146,7 +16711,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -16180,7 +16748,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -16214,7 +16786,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "integer"
@@ -16235,7 +16811,11 @@
             "description": "'all' can be used to specify 'ALL GROUPS'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "customerGroupId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16262,7 +16842,12 @@
             "type": "number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "customerGroupId",
+          "qty"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16289,7 +16874,13 @@
             "type": "number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "customerGroupId",
+          "price",
+          "qty"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16320,7 +16911,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16348,7 +16942,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16368,7 +16965,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16394,7 +16995,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "type",
+          "linkedProductSku"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16411,7 +17017,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16442,7 +17051,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "description": "gallery entry ID",
@@ -16463,7 +17075,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "entryId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16483,7 +17099,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "entryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-attribute-media-gallery-entry-interface"
@@ -16514,7 +17134,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "entryId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16531,7 +17155,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16554,7 +17181,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16574,7 +17205,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "optionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-data-product-custom-option-interface"
@@ -16602,7 +17237,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if website successfully assigned to product",
@@ -16631,7 +17269,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if website successfully assigned to product",
@@ -16652,7 +17293,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "websiteId"
+        ]
       },
       "outputSchema": {
         "description": "will returned True if website successfully unassigned from product",
@@ -16754,7 +17399,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16771,7 +17419,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/rma-data-rma-interface"
@@ -16799,7 +17450,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/rma-data-rma-interface"
@@ -16816,7 +17470,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/rma-data-comment-search-result-interface"
@@ -16844,7 +17501,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16861,7 +17521,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -16878,7 +17541,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/rma-data-track-search-result-interface"
@@ -16906,7 +17572,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16926,7 +17595,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "trackId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -16979,7 +17652,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "formCode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -16999,7 +17675,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attributeCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/customer-data-attribute-metadata-interface"
@@ -17098,7 +17777,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ruleId"
+        ]
       },
       "outputSchema": {
         "description": "true on success",
@@ -17116,7 +17798,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ruleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-rule-data-rule-interface"
@@ -17144,7 +17829,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ruleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-rule-data-rule-interface"
@@ -17266,7 +17954,10 @@
             "description": "The shipment track ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -17284,7 +17975,10 @@
             "description": "The shipment ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-shipment-interface"
@@ -17302,7 +17996,10 @@
             "description": "The shipment ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-shipment-comment-search-result-interface"
@@ -17330,7 +18027,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-shipment-comment-interface"
@@ -17348,7 +18048,10 @@
             "description": "The shipment ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -17366,7 +18069,10 @@
             "description": "The shipment label ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "description": "Shipment label.",
@@ -17438,7 +18144,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "scopeId",
+          "qty"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-inventory-data-stock-status-collection-interface"
@@ -17458,7 +18168,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productSku"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-inventory-data-stock-item-interface"
@@ -17478,7 +18191,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productSku"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/catalog-inventory-data-stock-status-interface"
@@ -17639,7 +18355,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "classId"
+        ]
       },
       "outputSchema": {
         "description": "id for the newly created Tax class",
@@ -17657,7 +18376,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "taxClassId"
+        ]
       },
       "outputSchema": {
         "description": "True if the tax class was deleted, false otherwise",
@@ -17675,7 +18397,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "taxClassId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tax-data-tax-class-interface"
@@ -17793,7 +18518,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rateId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -17810,7 +18538,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rateId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tax-data-tax-rate-interface"
@@ -17928,7 +18659,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ruleId"
+        ]
       },
       "outputSchema": {
         "type": "boolean"
@@ -17945,7 +18679,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ruleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tax-data-tax-rule-interface"
@@ -18008,7 +18745,10 @@
             "description": "The transaction ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/sales-data-transaction-interface"
@@ -18043,7 +18783,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "cartId"
+        ]
       },
       "outputSchema": {
         "description": "Order ID.",

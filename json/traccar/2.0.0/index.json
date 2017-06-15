@@ -594,7 +594,10 @@
             "$ref": "#/definitions/AttributeAlias"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributeAlias"
@@ -616,7 +619,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -639,7 +645,11 @@
             "$ref": "#/definitions/AttributeAlias"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributeAlias"
@@ -694,7 +704,10 @@
             "$ref": "#/definitions/Calendar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
@@ -716,7 +729,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -739,7 +755,11 @@
             "$ref": "#/definitions/Calendar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Calendar"
@@ -761,7 +781,10 @@
             "$ref": "#/definitions/Command"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Command"
@@ -783,7 +806,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -841,7 +867,10 @@
             "$ref": "#/definitions/Device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -863,7 +892,10 @@
             "$ref": "#/definitions/DeviceGeofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -883,7 +915,10 @@
             "$ref": "#/definitions/DeviceGeofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceGeofence"
@@ -905,7 +940,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -928,7 +966,11 @@
             "$ref": "#/definitions/Device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -953,7 +995,11 @@
             "$ref": "#/definitions/DeviceTotalDistance"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -973,7 +1019,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
@@ -1038,7 +1087,10 @@
             "$ref": "#/definitions/Geofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Geofence"
@@ -1060,7 +1112,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1083,7 +1138,11 @@
             "$ref": "#/definitions/Geofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Geofence"
@@ -1138,7 +1197,10 @@
             "$ref": "#/definitions/Group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -1160,7 +1222,10 @@
             "$ref": "#/definitions/GroupGeofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1180,7 +1245,10 @@
             "$ref": "#/definitions/GroupGeofence"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupGeofence"
@@ -1202,7 +1270,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1225,7 +1296,11 @@
             "$ref": "#/definitions/Group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -1247,7 +1322,10 @@
             "$ref": "#/definitions/CalendarPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1267,7 +1345,10 @@
             "$ref": "#/definitions/CalendarPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CalendarPermission"
@@ -1289,7 +1370,10 @@
             "$ref": "#/definitions/DevicePermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1309,7 +1393,10 @@
             "$ref": "#/definitions/DevicePermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicePermission"
@@ -1331,7 +1418,10 @@
             "$ref": "#/definitions/GeofencePermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1351,7 +1441,10 @@
             "$ref": "#/definitions/GeofencePermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GeofencePermission"
@@ -1373,7 +1466,10 @@
             "$ref": "#/definitions/GroupPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1393,7 +1489,10 @@
             "$ref": "#/definitions/GroupPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupPermission"
@@ -1415,7 +1514,10 @@
             "$ref": "#/definitions/UserPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1435,7 +1537,10 @@
             "$ref": "#/definitions/UserPermission"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPermission"
@@ -1517,7 +1622,11 @@
             "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1555,7 +1664,11 @@
             "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1593,7 +1706,11 @@
             "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1631,7 +1748,11 @@
             "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1670,7 +1791,10 @@
             "$ref": "#/definitions/Server"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Server"
@@ -1733,7 +1857,11 @@
             "format": "password"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1762,7 +1890,11 @@
             "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1816,7 +1948,10 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1871,7 +2006,10 @@
             "$ref": "#/definitions/Notification"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
@@ -1893,7 +2031,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1916,7 +2057,11 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"

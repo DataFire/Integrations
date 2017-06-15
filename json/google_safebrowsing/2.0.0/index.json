@@ -702,7 +702,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "encodedRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FindFullHashesResponse"
@@ -789,7 +792,10 @@
             "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "encodedRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FetchThreatListUpdatesResponse"

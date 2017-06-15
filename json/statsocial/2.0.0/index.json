@@ -544,7 +544,10 @@
             "description": "User application key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Application_Status"
@@ -579,7 +582,11 @@
             "description": "Sample report indicator"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash",
+          "sample"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Success"
@@ -614,7 +621,11 @@
             "description": "Sample report indicator"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash",
+          "sample"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Success"
@@ -641,7 +652,10 @@
             "description": "Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upload_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Create"
@@ -668,7 +682,10 @@
             "description": "Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upload_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Create"
@@ -691,7 +708,10 @@
             "description": "Name of the report"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Generate"
@@ -714,7 +734,10 @@
             "description": "Name of the report"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Generate"
@@ -741,7 +764,11 @@
             "description": "List of twitter ids, separated by commas, to be inserted into report. Ids must be enclosed with brackets ie. [177490485] or [177490485,23423434]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upload_hash",
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Insert"
@@ -768,7 +795,11 @@
             "description": "List of twitter ids, separated by commas, to be inserted into report. Ids must be enclosed with brackets ie. [177490485] or [177490485,23423434]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upload_hash",
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Custom_Insert"
@@ -791,7 +822,10 @@
             "description": "Unique report hash"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Dates"
@@ -814,7 +848,10 @@
             "description": "Unique report hash"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Dates"
@@ -837,7 +874,10 @@
             "description": "Unique hash belonging to report"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Status"
@@ -860,7 +900,10 @@
             "description": "Unique hash belonging to report"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report_Status"
@@ -899,7 +942,13 @@
             "description": "Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_name",
+          "start_date",
+          "end_date",
+          "terms"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Create_Tweet"
@@ -938,7 +987,13 @@
             "description": "Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "report_name",
+          "start_date",
+          "end_date",
+          "terms"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Create_Tweet"

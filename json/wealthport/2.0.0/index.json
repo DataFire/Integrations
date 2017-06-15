@@ -472,7 +472,10 @@
             "description": "Folder ID of the Folder to delete, including any Sources contained"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -493,7 +496,10 @@
             "description": "Folder ID of the Folder to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Existing_Folder"
@@ -519,7 +525,10 @@
             "description": "Folder ID of the Folder to update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -540,7 +549,10 @@
             "description": "Folder ID of the Folder to delete all Sources from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -561,7 +573,10 @@
             "description": "Folder ID of the Folder to retrieve its Sources from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Existing_Source"
@@ -584,7 +599,10 @@
             "description": "Job ID of the job to retrieve its result"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -607,7 +625,10 @@
             "description": "Job ID of the job to retrieve its status"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -673,7 +694,10 @@
             "description": "Order ID of the order to delete"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -694,7 +718,10 @@
             "description": "Order ID of the order to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Existing_Order"
@@ -720,7 +747,10 @@
             "description": "Order ID of the order to update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -741,7 +771,10 @@
             "description": "Order ID of the order to submit for processing"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -779,7 +812,10 @@
             "description": "Recipe ID of the recipe to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Existing_Recipe"
@@ -802,7 +838,10 @@
             "description": "Recipe ID of the recipe whose instructions to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -828,7 +867,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -908,7 +950,10 @@
             "description": "Encoding of the source file"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -931,7 +976,10 @@
             "description": "Source ID of the Source to delete"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -952,7 +1000,10 @@
             "description": "Source ID of the source to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Existing_Source"
@@ -978,7 +1029,10 @@
             "description": "Source ID of Source to update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -999,7 +1053,10 @@
             "description": "Source ID of file to download"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"

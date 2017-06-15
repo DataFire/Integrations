@@ -30,7 +30,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -51,7 +54,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -76,7 +82,11 @@
             "description": "The second text. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "original",
+          "copy"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -97,7 +107,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -118,7 +131,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -145,7 +161,11 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "n",
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -166,7 +186,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -187,7 +210,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -208,7 +234,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -229,7 +258,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -250,7 +282,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -271,7 +306,10 @@
             "description": "The HTML source of the webpage."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -292,7 +330,10 @@
             "description": "The text that you want to analyze. It should not contain HTML tags."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -313,7 +354,10 @@
             "description": "The text of the tweet that we evaluate."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
       },
       "outputSchema": {},
       "security": {

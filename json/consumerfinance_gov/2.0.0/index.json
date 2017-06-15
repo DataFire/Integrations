@@ -51,7 +51,10 @@
             "description": "Name of concept"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "concept"
+        ]
       },
       "outputSchema": {}
     },
@@ -95,7 +98,10 @@
             "description": "JavaScript callback to invoke. Only useful with JSONP requests."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "slice"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResponse"
@@ -113,7 +119,10 @@
             "description": "Name of slice"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "slice"
+        ]
       },
       "outputSchema": {}
     },
@@ -129,7 +138,10 @@
             "description": "Name of dataset"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "dataset"
+        ]
       },
       "outputSchema": {}
     }

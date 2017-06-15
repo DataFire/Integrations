@@ -76,7 +76,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -103,7 +106,10 @@
             "description": "the name of the branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -119,7 +125,10 @@
             "description": "encoded repo name with optional branch info."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -143,7 +152,10 @@
             "description": "the project file (default is Gemfile)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -249,7 +261,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -265,7 +280,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -281,7 +299,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -310,7 +331,10 @@
             "description": "Specify page for paging"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {}
     },
@@ -326,7 +350,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sha"
+        ]
       },
       "outputSchema": {}
     },
@@ -350,7 +377,11 @@
             "description": "\"Version string\""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -370,7 +401,11 @@
             "description": "Package specifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -390,7 +425,11 @@
             "description": "Package specifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -410,7 +449,11 @@
             "description": " Package product key. "
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -435,7 +478,11 @@
             "description": "Page for paging"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -455,7 +502,11 @@
             "description": "\"Encoded product key, replace all `/` and `.`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -491,7 +542,14 @@
             "description": " you wanna say anyting important to this license? "
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key",
+          "prod_version",
+          "license_name",
+          "license_source"
+        ]
       },
       "outputSchema": {}
     },
@@ -515,7 +573,12 @@
             "description": " product version "
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key",
+          "prod_version"
+        ]
       },
       "outputSchema": {}
     },
@@ -574,7 +637,10 @@
             "description": "If 'true' this project will not show up in the UI and gets removed later."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "upload"
+        ]
       },
       "outputSchema": {}
     },
@@ -598,7 +664,12 @@
             "description": "Project ID of the child"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id",
+          "artifact_id",
+          "child_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -618,7 +689,11 @@
             "description": "Project ID of the child"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent_id",
+          "child_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -638,7 +713,11 @@
             "description": "Project ID of the child"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent_id",
+          "child_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -654,7 +733,10 @@
             "description": "Delete project with given project ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -670,7 +752,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -690,7 +775,11 @@
             "description": "Project file - [maven.pom, Gemfile ...]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_key",
+          "project_file"
+        ]
       },
       "outputSchema": {}
     },
@@ -706,7 +795,10 @@
             "description": "Project ID or project_key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -739,7 +831,10 @@
             "description": "Desc sort by value"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "language"
+        ]
       },
       "outputSchema": {}
     },
@@ -776,7 +871,10 @@
             "description": "your personal token for API."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key"
+        ]
       },
       "outputSchema": {}
     },
@@ -796,7 +894,11 @@
             "description": "password"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {}
     },
@@ -812,7 +914,10 @@
             "description": "username"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {}
     },
@@ -833,7 +938,10 @@
             "description": "pagination number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {}
     },
@@ -854,7 +962,10 @@
             "description": "Pagination number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {}
     }

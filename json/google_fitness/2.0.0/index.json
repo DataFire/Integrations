@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -603,6 +604,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_fitness": {
+          "integration": "google_fitness"
+        }
+      }
+    },
+    {
       "id": "users.dataSources.list",
       "title": "users.dataSources.list",
       "description": "Lists all data sources that are visible to the developer, using the OAuth scopes provided. The list is not exhaustive; the user may have private data sources that are only visible to other developers, or calls using other scopes.",
@@ -649,7 +721,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDataSourcesResponse"
@@ -706,7 +781,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
@@ -764,7 +842,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
@@ -822,7 +904,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
@@ -883,7 +969,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
@@ -944,7 +1034,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DataSource"
@@ -1014,7 +1108,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId",
+          "datasetId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1082,7 +1181,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -1151,7 +1255,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "dataSourceId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -1208,7 +1317,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AggregateResponse"
@@ -1278,7 +1390,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSessionsResponse"
@@ -1340,7 +1455,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "sessionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1403,7 +1522,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "sessionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"

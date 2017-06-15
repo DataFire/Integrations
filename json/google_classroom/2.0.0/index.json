@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -1003,6 +1004,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_classroom": {
+          "integration": "google_classroom"
+        }
+      }
+    },
+    {
       "id": "courses.list",
       "title": "courses.list",
       "description": "Returns a list of courses that the requesting user is permitted to view,\nrestricted to those that match the request.\n\nThis method returns the following error codes:\n\n* `PERMISSION_DENIED` for access errors.\n* `INVALID_ARGUMENT` if the query argument is malformed.\n* `NOT_FOUND` if any users specified in the query arguments do not exist.",
@@ -1272,7 +1344,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCourseAliasesResponse"
@@ -1359,7 +1434,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseAlias"
@@ -1447,7 +1525,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "alias"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1547,7 +1629,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCourseWorkResponse"
@@ -1634,7 +1719,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
@@ -1747,7 +1835,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStudentSubmissionsResponse"
@@ -1839,7 +1931,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
@@ -1938,7 +2035,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
@@ -2033,7 +2135,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StudentSubmission"
@@ -2128,7 +2235,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2223,7 +2335,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2318,7 +2435,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "courseWorkId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2406,7 +2528,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2494,7 +2620,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
@@ -2589,7 +2719,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CourseWork"
@@ -2681,7 +2815,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListStudentsResponse"
@@ -2772,7 +2909,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Student"
@@ -2860,7 +3000,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2948,7 +3092,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Student"
@@ -3040,7 +3188,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTeachersResponse"
@@ -3127,7 +3278,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Teacher"
@@ -3215,7 +3369,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3303,7 +3461,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "courseId",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Teacher"
@@ -3387,7 +3549,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3471,7 +3636,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
@@ -3562,7 +3730,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
@@ -3649,7 +3820,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Course"
@@ -3918,7 +4092,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -4002,7 +4179,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invitation"
@@ -4086,7 +4266,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -4186,7 +4369,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGuardianInvitationsResponse"
@@ -4273,7 +4459,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
@@ -4361,7 +4550,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId",
+          "invitationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
@@ -4456,7 +4649,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId",
+          "invitationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GuardianInvitation"
@@ -4552,7 +4749,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListGuardiansResponse"
@@ -4640,7 +4840,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId",
+          "guardianId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -4728,7 +4932,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "studentId",
+          "guardianId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Guardian"
@@ -4812,7 +5020,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserProfile"

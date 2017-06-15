@@ -3039,7 +3039,10 @@
             "description": "IP address."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/locateGivenIPOut"
@@ -3082,7 +3085,12 @@
             "description": "Which date should be used for FX."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "country_code",
+          "start_month",
+          "end_month"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getDomesticSummaryReportOut"
@@ -3141,7 +3149,12 @@
             "description": "Output format. 'xml', 'csv' and 'lff' (only for Ireland) values are accepted as well"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "end_month",
+          "start_month",
+          "eu_country_code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getEuViesReportOut"
@@ -3222,7 +3235,10 @@
             "description": "Take only refunds issued at or after the date. Format: yyyy-MM-dd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getRefundsOut"
@@ -3261,7 +3277,10 @@
             "description": "Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "quarter"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementSummaryOut"
@@ -3320,7 +3339,10 @@
             "description": "Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "quarter"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementOut"
@@ -3347,7 +3369,11 @@
             "description": "Date to in yyyy-MM format."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementStatsByCountryOut"
@@ -3374,7 +3400,11 @@
             "description": "Date to in yyyy-MM format."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getSettlementStatsByTaxationTypeOut"
@@ -3405,7 +3435,12 @@
             "description": "Date to in yyyy-MM format."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "interval",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getDailySettlementStatsOut"
@@ -3436,7 +3471,11 @@
             "description": "Interval. Accepted values are 'day', 'week' and 'month'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionsStatsOut"
@@ -3467,7 +3506,11 @@
             "description": "Date to in yyyy-MM format."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionsStatsByCountryOut"
@@ -3546,7 +3589,10 @@
             "description": "If the transaction is in a country supported by Taxamo, but the tax is not calculated due to merchant settings or EU B2B transaction for example."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "currency_code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/calculateSimpleTaxOut"
@@ -3568,7 +3614,10 @@
             "$ref": "#/definitions/calculateTaxIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/calculateTaxOut"
@@ -3625,7 +3674,10 @@
             "description": "Tax number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tax_number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/validateTaxNumberOut"
@@ -3737,7 +3789,10 @@
             "$ref": "#/definitions/createTransactionIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/createTransactionOut"
@@ -3760,7 +3815,10 @@
             "description": "Transaction key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cancelTransactionOut"
@@ -3783,7 +3841,10 @@
             "description": "Transaction key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/getTransactionOut"
@@ -3809,7 +3870,11 @@
             "$ref": "#/definitions/updateTransactionIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/updateTransactionOut"
@@ -3835,7 +3900,11 @@
             "$ref": "#/definitions/confirmTransactionIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/confirmTransactionOut"
@@ -3865,7 +3934,12 @@
             "$ref": "#/definitions/emailRefundIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "refund_note_number",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/emailRefundOut"
@@ -3891,7 +3965,11 @@
             "$ref": "#/definitions/emailInvoiceIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/emailInvoiceOut"
@@ -3922,7 +4000,10 @@
             "description": "Transaction key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/listPaymentsOut"
@@ -3948,7 +4029,11 @@
             "$ref": "#/definitions/createPaymentIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/createPaymentOut"
@@ -3971,7 +4056,10 @@
             "description": "Transaction key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/capturePaymentOut"
@@ -3994,7 +4082,10 @@
             "description": "Transaction key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/listRefundsOut"
@@ -4020,7 +4111,11 @@
             "$ref": "#/definitions/createRefundIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/createRefundOut"
@@ -4046,7 +4141,11 @@
             "$ref": "#/definitions/unconfirmTransactionIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/unconfirmTransactionOut"
@@ -4068,7 +4167,10 @@
             "$ref": "#/definitions/createSMSTokenIn"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "input"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/createSMSTokenOut"
@@ -4091,7 +4193,10 @@
             "description": "Provided token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/verifySMSTokenOut"

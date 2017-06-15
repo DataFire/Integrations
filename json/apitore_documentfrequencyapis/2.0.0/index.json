@@ -64,7 +64,11 @@
             "description": "word"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DocumentFrequencyResponseEntity"

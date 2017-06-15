@@ -431,7 +431,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Result"

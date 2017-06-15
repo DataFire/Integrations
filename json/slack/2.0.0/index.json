@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://slack.com/oauth/authorize",
@@ -1531,6 +1532,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "slack": {
+          "integration": "slack"
+        }
+      }
+    },
+    {
       "id": "authTest",
       "title": "authTest",
       "description": "Checks authentication and tells you who you are.",
@@ -1542,7 +1614,10 @@
             "description": "Authentication token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
@@ -1583,7 +1658,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
@@ -1606,7 +1684,10 @@
             "description": "Channel to fetch history for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/searchAll"
@@ -1633,7 +1714,11 @@
             "description": "User to invite to channel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsInvite"
@@ -1656,7 +1741,10 @@
             "description": "Name of channel to join"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsInvite"
@@ -1679,7 +1767,10 @@
             "description": "Channel to fetch history for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
@@ -1732,7 +1823,11 @@
             "description": "Timestamp of the most recently seen message."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "ts"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
@@ -1759,7 +1854,11 @@
             "description": "The new purpose"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "purpose"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/purpose"
@@ -1786,7 +1885,11 @@
             "description": "The new topic"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/topic"
@@ -1813,7 +1916,11 @@
             "description": "Timestamp of the most recently seen message."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "ts"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/chatOk"
@@ -1868,7 +1975,11 @@
             "description": "Structured message attachments."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/chatOk"
@@ -1899,7 +2010,12 @@
             "description": "Timestamp of the most recently seen message."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "text",
+          "ts"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/chatUpdate"
@@ -1944,7 +2060,10 @@
             "description": "Page number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/fileObj"
@@ -1992,7 +2111,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/files"
@@ -2083,7 +2205,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
@@ -2136,7 +2261,11 @@
             "description": "Timestamp of the most recently seen message."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "ts"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
@@ -2163,7 +2292,11 @@
             "description": "The new purpose"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "purpose"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/purpose"
@@ -2190,7 +2323,11 @@
             "description": "The new topic"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "topic"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/topic"
@@ -2231,7 +2368,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/channelsHistory"
@@ -2272,7 +2412,11 @@
             "description": "Timestamp of the most recently seen message."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "ts"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ok"
@@ -2323,7 +2467,10 @@
             "description": "Page number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/searchAll"
@@ -2374,7 +2521,10 @@
             "description": "Page number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/searchFiles"
@@ -2425,7 +2575,10 @@
             "description": "Page number of results to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/searchMessages"

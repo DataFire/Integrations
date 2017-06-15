@@ -688,7 +688,11 @@
             "$ref": "#/definitions/Request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobId"
@@ -715,7 +719,11 @@
             "description": "Request solution with jobId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"

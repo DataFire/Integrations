@@ -116,7 +116,11 @@
             "description": "Application KEY you would like to use"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key"
+        ]
       },
       "outputSchema": {}
     },
@@ -144,7 +148,13 @@
             "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {}
     },
@@ -172,7 +182,13 @@
             "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {}
     },
@@ -200,7 +216,13 @@
             "description": "The mobile number you would like to validate. '5521983115555'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "country_code",
+          "mobile_number"
+        ]
       },
       "outputSchema": {}
     },
@@ -220,7 +242,11 @@
             "description": "Application KEY you would like to use"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key"
+        ]
       },
       "outputSchema": {}
     },
@@ -240,7 +266,11 @@
             "description": "Application KEY you would like to use"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key"
+        ]
       },
       "outputSchema": {}
     },
@@ -260,7 +290,11 @@
             "description": "Application KEY you would like to use"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key"
+        ]
       },
       "outputSchema": {}
     },
@@ -296,7 +330,15 @@
             "description": "The currency code (ISO 4217) on the product you are querying. 'USD'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "country_code",
+          "carrier_code",
+          "amount",
+          "currency_code"
+        ]
       },
       "outputSchema": {}
     },
@@ -319,7 +361,12 @@
             "$ref": "#/definitions/Topups"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -342,7 +389,12 @@
             "$ref": "#/definitions/TopupsReports"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -370,7 +422,13 @@
             "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {}
     },
@@ -398,7 +456,13 @@
             "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {}
     },
@@ -426,7 +490,13 @@
             "description": "The ending date of the search IN YYYY-MM-DD format (America/New_York timezone). '2016-01-28'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {}
     },
@@ -449,7 +519,12 @@
             "$ref": "#/definitions/TopupsReversal"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -469,7 +544,11 @@
             "description": "Application KEY you would like to use"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "x-idt-beyond-app-id",
+          "x-idt-beyond-app-key"
+        ]
       },
       "outputSchema": {}
     }

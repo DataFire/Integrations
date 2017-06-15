@@ -556,7 +556,10 @@
             "description": " Without a filter, all groups are returned. The filter parameter must be a properly formed SCIM filter using the operator \"eq\" (equals), \"sw\" (starts with), or \"co\" (contains). The filter works for the displayName attribute. Sorting and pagination are supported. For example, GET /Groups?filter=displayName%20eq%20%22Engineering%22&sortBy=displayName&sortOrder=ascending&count=50&startIndex=51"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupCollection"
@@ -577,7 +580,11 @@
             "$ref": "#/definitions/GroupDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -600,7 +607,11 @@
             "description": "The key of the group to query. The group must be in the organization domain"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -621,7 +632,11 @@
             "description": "The key of the group to query. The group must be in the organization domain"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -647,7 +662,12 @@
             "$ref": "#/definitions/GroupDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -673,7 +693,12 @@
             "$ref": "#/definitions/GroupDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -691,7 +716,10 @@
             "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceSchema"
@@ -709,7 +737,10 @@
             "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceProviderConfigs"
@@ -731,7 +762,10 @@
             "description": " Without a filter, all users in a user domain are returned. The filter parameter must be a properly formed SCIM filter using either the operator eq (equals) or the operator sw (starts with). The filter works for userName, displayName, name.givenName, and name.familyName attributes. For example, /Users?filter=name.familyName%20eq%20%%22Smith%22"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserCollection"
@@ -752,7 +786,11 @@
             "$ref": "#/definitions/UserDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -770,7 +808,10 @@
             "description": "Access token prefixed with 'Bearer ', e.g. 'Bearer 123456abcdef'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -791,7 +832,11 @@
             "$ref": "#/definitions/UserDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -812,7 +857,11 @@
             "$ref": "#/definitions/UserDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -835,7 +884,11 @@
             "description": "The key of the user to query. The user must be in the organization domain"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -856,7 +909,11 @@
             "description": "The key of the user to query. The user must be in the organization domain"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -882,7 +939,12 @@
             "$ref": "#/definitions/UserDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -908,7 +970,12 @@
             "$ref": "#/definitions/UserDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "userKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"

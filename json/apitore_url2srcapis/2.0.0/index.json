@@ -61,7 +61,11 @@
             "description": "URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LinkResponseEntity"

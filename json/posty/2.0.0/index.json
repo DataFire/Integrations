@@ -32,7 +32,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -47,7 +50,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -62,7 +68,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -77,7 +86,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -92,7 +104,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -110,7 +125,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -128,7 +147,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -146,7 +169,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -161,7 +188,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -176,7 +206,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -194,7 +227,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -212,7 +249,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -230,7 +271,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -248,7 +293,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -266,7 +315,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -287,7 +340,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -308,7 +366,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -329,7 +392,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -359,7 +427,10 @@
             "description": "Resource name of mounted API"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {}
     },
@@ -388,7 +459,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -403,7 +477,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
       },
       "outputSchema": {}
     },
@@ -418,7 +495,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
       },
       "outputSchema": {}
     }

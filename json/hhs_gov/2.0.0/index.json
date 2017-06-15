@@ -1407,7 +1407,10 @@
             "description": "The search query supplied by the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Resources"
@@ -1457,7 +1460,10 @@
             "description": "The id of the record to look up"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Campaigns"
@@ -1490,7 +1496,10 @@
             "description": "The name of the property to which sorting will be applied"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -1513,7 +1522,10 @@
             "description": "Method used to render an html request. Accepts one: [mv, list, feed]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -1563,7 +1575,10 @@
             "description": "The id of the language to look up"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Languages"
@@ -1903,7 +1918,10 @@
             "description": "The offset of the records set to return for pagination."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -1922,7 +1940,10 @@
             "description": "The id of the record to look up"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -1945,7 +1966,10 @@
             "description": "The method that called this method"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1998,7 +2022,10 @@
             "description": "Method used to render an html request. Accepts one: [mv, list, feed]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EmbedCode"
@@ -2017,7 +2044,10 @@
             "description": "The id of the media to get a preview for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -2036,7 +2066,10 @@
             "description": "The ID of the media item to 'like'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ratings"
@@ -2069,7 +2102,10 @@
             "description": "Which field to sort the records by."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -2133,7 +2169,10 @@
             "description": "If content is a video, related items will be shown at the end of playback."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SyndicatedMediaItems"
@@ -2152,7 +2191,10 @@
             "description": "The id of the media to get a thumbnail for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2171,7 +2213,10 @@
             "description": "The id of the video to show meta data for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/YoutubeMetadata"
@@ -2230,7 +2275,10 @@
             "description": "The id of the source to look up"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sources"
@@ -2253,7 +2301,10 @@
             "description": "Method used to render an html request. Accepts one: [mv, list, feed]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -2343,7 +2394,10 @@
             "description": "The id of the record to look up"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -2376,7 +2430,10 @@
             "description": "The name of the property to which sorting will be applied"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -2409,7 +2466,10 @@
             "description": "The name of the property to which sorting will be applied"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -2432,7 +2492,10 @@
             "description": "Method used to render an html request. Accepts one: [mv, list, feed]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"
@@ -2455,7 +2518,10 @@
             "description": "Method used to render an html request. Accepts one: [mv, list, feed]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaItems"

@@ -227,7 +227,12 @@
             "$ref": "#/definitions/RegistryNameCheckRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "registryNameCheckRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryNameStatus"
@@ -249,7 +254,11 @@
             "description": "The Microsoft Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryListResult"
@@ -275,7 +284,12 @@
             "description": "The name of the resource group to which the container registry belongs."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryListResult"
@@ -305,7 +319,13 @@
             "description": "The name of the container registry."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName"
+        ]
       },
       "outputSchema": {}
     },
@@ -333,7 +353,13 @@
             "description": "The name of the container registry."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Registry"
@@ -366,7 +392,14 @@
             "$ref": "#/definitions/RegistryUpdateParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName",
+          "registryUpdateParameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Registry"
@@ -399,7 +432,14 @@
             "$ref": "#/definitions/Registry"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName",
+          "registry"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Registry"
@@ -429,7 +469,13 @@
             "description": "The name of the container registry."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryCredentials"
@@ -459,7 +505,13 @@
             "description": "The name of the container registry."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "registryName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryCredentials"

@@ -2168,7 +2168,10 @@
             "description": "Boolean to include or not all airports, no matter their traffic rank. False by default, to only display relevant airports."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2198,7 +2201,11 @@
             "description": "Longitude location to be at the center of your search circle."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2265,7 +2272,12 @@
             "description": "Specifies the type of vehicle to be rented. If selected, the results set will include only vehicles that match these type descriptions. The enumerations above correspond to ACRISS Pseudo Codes, and you may also provide an ACRISS pseudo code directly. If specifying a vehicle-specific ACRISS code, you may provide this parameter up to 3 times."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "pick_up",
+          "drop_off"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CarSearchResponse"
@@ -2337,7 +2349,14 @@
             "description": "Specifies the type of vehicle to be rented. If selected, the results set will include only vehicles that match these type descriptions. The enumerations above correspond to ACRISS Pseudo Codes, and you may also provide an ACRISS pseudo code directly. If specifying a vehicle-specific ACRISS code, you may provide this parameter up to 3 times."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude",
+          "radius",
+          "pick_up",
+          "drop_off"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CarSearchResponse"
@@ -2404,7 +2423,12 @@
             "description": "Setting this to true will show mobile web deeplinks "
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin",
+          "destination",
+          "departure_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AffiliateSearchResponse"
@@ -2455,7 +2479,11 @@
             "description": "Specifies the granularity of results to be found. DAY is the default when one-way is true finds a result for departure date in the date range. STAY is the default otherwise and finds all round trip permutations for this route withim the given date range. DESTINATION finds one result, only the cheapest price for this route over the provided date range. WEEK finds the cheapest result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin",
+          "destination"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtremeSearchResponse"
@@ -2507,7 +2535,10 @@
             "description": "Specifies the granularity of results to be found. DESTINATION is the default and finds one result per city. COUNTRY finds one result per country, DAY finds on result for every day in the date range, WEEK finds one result for every week in the date range. Note that specifying a small granularity but a large search scope may result in a huge output. For some very large outputs, the API may refuse to provide a result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtremeSearchResponse"
@@ -2591,7 +2622,12 @@
             "description": "The number of results to display. This will not be strictly interpreted but used as a guideline to display a useful number of results. By default, the number of results is dynamically determined. A maximum of 250 results will be displayed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin",
+          "destination",
+          "departure_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LowFareSearchResponse"
@@ -2658,7 +2694,12 @@
             "description": "Hotel <a href=\"hotels-api-supported-amenities-filter\">amenities filter</a> to search narrow down hotels with certain amenities. For example&colon; amenity=POOL. (Note: multiple amenities can be used in searches: amenity=PARKING&amenity=RESTAURANT&amenity=PETS_ALLOWED).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "check_in",
+          "check_out"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
@@ -2725,7 +2766,13 @@
             "description": "Hotel <a href=\"hotels-api-supported-amenities-filter\">amenities filter</a> to search narrow down hotels with certain amenities. For example&colon; amenity=POOL. (Note: multiple amenities can be used in searches: amenity=PARKING&amenity=RESTAURANT&amenity=PETS_ALLOWED).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "south_west_corner",
+          "north_east_corner",
+          "check_in",
+          "check_out"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
@@ -2796,7 +2843,14 @@
             "description": "Hotel <a href=\"hotels-api-supported-amenities-filter\">amenities filter</a> to search narrow down hotels with certain amenities. For example&colon; amenity=POOL. (Note: multiple amenities can be used in searches: amenity=PARKING&amenity=RESTAURANT&amenity=PETS_ALLOWED).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude",
+          "radius",
+          "check_in",
+          "check_out"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelSearchResponse"
@@ -2843,7 +2897,12 @@
             "description": "This option if enabled will return hotel names and addresses even if rooms are sold out (closed properties)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "property_code",
+          "check_in",
+          "check_out"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HotelPropertyResponse"
@@ -2866,7 +2925,10 @@
             "description": "IATA location code for which further information is required"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationResponse"
@@ -2949,7 +3011,12 @@
             "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude",
+          "radius"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PointsOfInterestResponse"
@@ -3024,7 +3091,10 @@
             "description": "The maximum number of points of interest to return in the results set. This is a range from 1 to 100"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "city_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PointsOfInterestResponse"
@@ -3047,7 +3117,10 @@
             "description": "Station ID for which further information is required."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RailStationResponse"
@@ -3070,7 +3143,10 @@
             "description": "Search term that should represent some part of a station name. Not case sensitive, may be blank."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3104,7 +3180,12 @@
             "description": "The date or range of dates on which you would like to depart from the origin station to go to the destination."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin",
+          "destination",
+          "departure_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExtensiveTrainSearchResponse"
@@ -3132,7 +3213,11 @@
             "description": "The date on which you would like to depart from the origin station to go to the destination."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "origin",
+          "departure_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TrainScheduleSearchResponse"
@@ -3167,7 +3252,11 @@
             "description": "The maximum number of destinations to return for each period. Destinations are ordered by dates and number of travelers. The maximum number of destinations per period returned is 50"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "period",
+          "origin"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3201,7 +3290,11 @@
             "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of travelers. The maximum number of destinations returned is 50"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "period",
+          "origin"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TopDestinationsSearchResponse"
@@ -3240,7 +3333,12 @@
             "description": "The maximum number of destinations to return in the results set. Destinations are ordered by number of searches. The maximum number of destinations returned is 50"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "period",
+          "origin",
+          "country"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TopSearchesSearchResponse"
@@ -3271,7 +3369,11 @@
             "description": "Indicates the Amadeus system from which this record should be retrieved."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "record_locator",
+          "last_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelRecordResponse"

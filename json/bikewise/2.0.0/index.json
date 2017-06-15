@@ -83,7 +83,10 @@
             "description": "<p>Incident ID</p>\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },

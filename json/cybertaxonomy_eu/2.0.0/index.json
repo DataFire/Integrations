@@ -361,7 +361,10 @@
             "description": "The maximum of milliseconds to wait for responses from any of the providers. If the timeout is exceeded the service will jut return the resonses that have been received so far. The default timeout is 0 ms (wait for ever)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TnrMsg"

@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -3211,6 +3212,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_dataflow": {
+          "integration": "google_dataflow"
+        }
+      }
+    },
+    {
       "id": "projects.workerMessages",
       "title": "projects.workerMessages",
       "description": "Send a worker_message to the service.",
@@ -3286,7 +3358,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendWorkerMessagesResponse"
@@ -3402,7 +3477,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResponse"
@@ -3507,7 +3585,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -3609,7 +3690,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -3704,7 +3789,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -3795,7 +3884,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDebugConfigResponse"
@@ -3886,7 +3979,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendDebugCaptureResponse"
@@ -4006,7 +4103,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobMessagesResponse"
@@ -4102,7 +4203,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobMetrics"
@@ -4193,7 +4298,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaseWorkItemResponse"
@@ -4284,7 +4393,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportWorkItemStatusResponse"
@@ -4375,7 +4488,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendWorkerMessagesResponse"
@@ -4491,7 +4608,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsResponse"
@@ -4596,7 +4717,11 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -4698,7 +4823,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -4793,7 +4923,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -4888,7 +5023,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetDebugConfigResponse"
@@ -4983,7 +5123,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId",
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendDebugCaptureResponse"
@@ -5103,7 +5248,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobMessagesResponse"
@@ -5199,7 +5349,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobMetrics"
@@ -5294,7 +5449,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeaseWorkItemResponse"
@@ -5389,7 +5549,12 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "location",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReportWorkItemStatusResponse"
@@ -5480,7 +5645,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -5579,7 +5748,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTemplateResponse"
@@ -5678,7 +5851,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location",
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LaunchTemplateResponse"
@@ -5765,7 +5942,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -5864,7 +6044,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTemplateResponse"
@@ -5963,7 +6146,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LaunchTemplateResponse"

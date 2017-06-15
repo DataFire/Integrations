@@ -212,7 +212,10 @@
             "description": "The basket name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -233,7 +236,10 @@
             "description": "The basket name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Config"
@@ -259,7 +265,10 @@
             "$ref": "#/definitions/Config"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"
@@ -285,7 +294,11 @@
             "$ref": "#/definitions/Config"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "config"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -306,7 +319,10 @@
             "description": "The basket name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -349,7 +365,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Requests"
@@ -387,7 +406,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "method"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -428,7 +451,12 @@
             "$ref": "#/definitions/Response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "method",
+          "response"
+        ]
       },
       "outputSchema": {},
       "security": {

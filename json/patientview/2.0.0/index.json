@@ -1431,7 +1431,10 @@
             "description": "token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {}
     },
@@ -1447,7 +1450,10 @@
             "description": "token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1466,7 +1472,10 @@
             "description": "userId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1543,7 +1552,12 @@
             "description": "identifierId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "groupId",
+          "identifierId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PatientManagement"
@@ -1575,7 +1589,12 @@
             "$ref": "#/definitions/PatientManagement"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "groupId",
+          "identifierId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1605,7 +1624,12 @@
             "$ref": "#/definitions/PatientManagement"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "groupId",
+          "identifierId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1622,7 +1646,10 @@
             "description": "userId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1664,7 +1691,14 @@
             "description": "orderDirection"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "code",
+          "limit",
+          "offset",
+          "orderDirection"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FhirObservationPage"
@@ -1687,7 +1721,11 @@
             "description": "code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "code"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1714,7 +1752,11 @@
             "description": "code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "code"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1737,7 +1779,10 @@
             "description": "userId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "items": {

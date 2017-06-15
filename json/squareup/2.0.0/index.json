@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://connect.squareup.com/oauth2/authorize?<PARAMETERS>",
@@ -3163,6 +3164,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
       "id": "ListCustomers",
       "title": "ListCustomers",
       "description": "Lists a business's customers.",
@@ -3178,7 +3250,10 @@
             "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCustomersResponse"
@@ -3204,7 +3279,11 @@
             "$ref": "#/definitions/CreateCustomerRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCustomerResponse"
@@ -3231,7 +3310,11 @@
             "description": "The ID of the customer to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "customer_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteCustomerResponse"
@@ -3258,7 +3341,11 @@
             "description": "The ID of the customer to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "customer_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveCustomerResponse"
@@ -3288,7 +3375,12 @@
             "$ref": "#/definitions/UpdateCustomerRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "customer_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateCustomerResponse"
@@ -3318,7 +3410,12 @@
             "$ref": "#/definitions/CreateCustomerCardRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "customer_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCustomerCardResponse"
@@ -3349,7 +3446,12 @@
             "description": "The ID of the card on file to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "customer_id",
+          "card_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteCustomerCardResponse"
@@ -3372,7 +3474,10 @@
             "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLocationsResponse"
@@ -3402,7 +3507,12 @@
             "$ref": "#/definitions/CreateCheckoutRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateCheckoutResponse"
@@ -3449,7 +3559,11 @@
             "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListRefundsResponse"
@@ -3496,7 +3610,11 @@
             "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTransactionsResponse"
@@ -3526,7 +3644,12 @@
             "$ref": "#/definitions/ChargeRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ChargeResponse"
@@ -3557,7 +3680,12 @@
             "description": "The ID of the transaction to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "transaction_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveTransactionResponse"
@@ -3588,7 +3716,12 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "transaction_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CaptureTransactionResponse"
@@ -3622,7 +3755,13 @@
             "$ref": "#/definitions/CreateRefundRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "transaction_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateRefundResponse"
@@ -3653,7 +3792,12 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "location_id",
+          "transaction_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VoidTransactionResponse"

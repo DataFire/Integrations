@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://account.box.com/api/oauth2/authorize",
@@ -2486,6 +2487,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "box_content": {
+          "integration": "box_content"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "box_content": {
+          "integration": "box_content"
+        }
+      }
+    },
+    {
       "id": "getPendingCollaborations",
       "title": "getPendingCollaborations",
       "description": "Used to retrieve all pending collaboration invites for this user.",
@@ -2504,7 +2576,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollaborationList"
@@ -2526,7 +2601,10 @@
             "$ref": "#/definitions/Collaboration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Collaboration"
@@ -2548,7 +2626,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COLLAB_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2579,7 +2660,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COLLAB_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Collaboration"
@@ -2604,7 +2688,11 @@
             "$ref": "#/definitions/Collaboration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COLLAB_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Collaboration"
@@ -2653,7 +2741,10 @@
             "description": "The offset at which to begin the response. An offset of value of 0 will start at the beginning of the folder-listing. Offset of 2 would start at the 2nd record, not the second page. Note: If there are hidden items in your previous response, your next offset should be = offset + limit, not the # of records you received back."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COLLECTION_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ItemReferenceList"
@@ -2679,7 +2770,10 @@
             "$ref": "#/definitions/Comment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2701,7 +2795,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COMMENT_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2725,7 +2822,10 @@
             "description": "Attribute(s) to include in the response."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COMMENT_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2754,7 +2854,11 @@
             "$ref": "#/definitions/Comment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "COMMENT_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2776,7 +2880,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2796,7 +2903,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicePinner"
@@ -2830,7 +2940,10 @@
             "description": "Default is \"asc\". Valid values are asc, desc. Case in-sensitive, ASC/DESC works just fine."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ENTERPRISE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicePinnerList"
@@ -2921,7 +3034,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "policy_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileVersionLegalHoldList"
@@ -2943,7 +3059,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileVersionLegalHold"
@@ -3024,7 +3143,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_VERSION_RETENTION_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileVersionRetention"
@@ -3046,7 +3168,10 @@
             "$ref": "#/definitions/BoxFile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3070,7 +3195,10 @@
             "description": "The etag of the file. This is in the ‘etag’ field of the file object."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3094,7 +3222,10 @@
             "description": "Attribute(s) to include in the response."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3119,7 +3250,11 @@
             "$ref": "#/definitions/BoxFile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3148,7 +3283,11 @@
             "description": "The etag of the file can be included as an ‘If-Match’ header to prevent race conditions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3184,7 +3323,10 @@
             "description": "The item at which to begin the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollaborationList"
@@ -3210,7 +3352,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
@@ -3244,7 +3389,10 @@
             "description": "The shared link for this item. Format should be shared_link=SHARED_LINK"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3267,7 +3415,11 @@
             "$ref": "#/definitions/CopyFile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3289,7 +3441,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataList"
@@ -3317,7 +3472,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "SCOPE",
+          "TEMPLATE"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3343,7 +3503,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "SCOPE",
+          "TEMPLATE"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3374,7 +3539,13 @@
             "$ref": "#/definitions/Metadata"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "SCOPE",
+          "TEMPLATE",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3405,7 +3576,13 @@
             "$ref": "#/definitions/UpdateMetadata"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "SCOPE",
+          "TEMPLATE",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3431,7 +3608,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskList"
@@ -3477,7 +3657,11 @@
             "description": "The maximum width of the thumbnail"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "EXTENSION"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3499,7 +3683,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3519,7 +3706,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BoxFile"
@@ -3545,7 +3735,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileVersionList"
@@ -3570,7 +3763,11 @@
             "$ref": "#/definitions/Reference"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileVersion"
@@ -3599,7 +3796,11 @@
             "description": "The etag of the file. This is in the ‘etag’ field of the file object."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "VERSION_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3619,7 +3820,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -3641,7 +3845,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -3666,7 +3873,11 @@
             "$ref": "#/definitions/Watermark"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -3692,7 +3903,10 @@
             "$ref": "#/definitions/Folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -3757,7 +3971,10 @@
             "description": "This is in the ‘etag’ field of the folder object."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3781,7 +3998,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -3810,7 +4030,11 @@
             "$ref": "#/definitions/Folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -3843,7 +4067,11 @@
             "description": "This is in the ‘etag’ field of the folder object."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -3879,7 +4107,10 @@
             "description": "The item at which to begin the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollaborationList"
@@ -3908,7 +4139,11 @@
             "$ref": "#/definitions/Folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -3943,7 +4178,10 @@
             "description": "The offset at which to begin the response. An offset of value of 0 will start at the beginning of the folder-listing. Note: If there are hidden items in your previous response, your next offset should be = offset + limit, not the # of records you received back. The default is 0."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ItemReferenceList"
@@ -3965,7 +4203,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataList"
@@ -3993,7 +4234,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "SCOPE",
+          "TEMPLATE"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4019,7 +4265,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "SCOPE",
+          "TEMPLATE"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -4050,7 +4301,13 @@
             "$ref": "#/definitions/Metadata"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "SCOPE",
+          "TEMPLATE",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -4081,7 +4338,13 @@
             "$ref": "#/definitions/UpdateMetadata"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "SCOPE",
+          "TEMPLATE",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -4103,7 +4366,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4127,7 +4393,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -4149,7 +4418,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -4171,7 +4443,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -4196,7 +4471,11 @@
             "$ref": "#/definitions/Watermark"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FOLDER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Watermark"
@@ -4222,7 +4501,10 @@
             "$ref": "#/definitions/GroupMembership"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupMembership"
@@ -4244,7 +4526,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_MEMBERSHIP_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4268,7 +4553,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_MEMBERSHIP_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupMembership"
@@ -4297,7 +4585,11 @@
             "$ref": "#/definitions/GroupMembership"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_MEMBERSHIP_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupMembership"
@@ -4359,7 +4651,10 @@
             "$ref": "#/definitions/Group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -4381,7 +4676,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4405,7 +4703,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -4434,7 +4735,11 @@
             "$ref": "#/definitions/Group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -4470,7 +4775,10 @@
             "description": "The item at which to begin the response."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollaborationList"
@@ -4506,7 +4814,10 @@
             "description": "The item at which to begin the response."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GROUP_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupMembershipList"
@@ -4532,7 +4843,10 @@
             "$ref": "#/definitions/InviteUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invite"
@@ -4558,7 +4872,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "INVITE_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invite"
@@ -4615,7 +4932,10 @@
             "$ref": "#/definitions/LegalHoldPolicy"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LegalHoldPolicy"
@@ -4637,7 +4957,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4657,7 +4980,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LegalHoldPolicy"
@@ -4682,7 +5008,11 @@
             "$ref": "#/definitions/LegalHoldPolicy"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LegalHoldPolicy"
@@ -4704,7 +5034,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LegalHoldPolicyAssignmentList"
@@ -4726,7 +5059,10 @@
             "$ref": "#/definitions/CreateLegalHoldPolicyAssignment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LegalHoldPolicyAssignment"
@@ -4748,7 +5084,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ASSIGNMENT_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4768,7 +5107,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ASSIGNMENT_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4788,7 +5130,10 @@
             "$ref": "#/definitions/MetadataTemplate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataTemplate"
@@ -4810,7 +5155,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SCOPE"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataTemplateList"
@@ -4835,7 +5183,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SCOPE",
+          "TEMPLATE"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataTemplate"
@@ -4863,7 +5215,12 @@
             "$ref": "#/definitions/UpdateMetadataTemplate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SCOPE",
+          "TEMPLATE",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MetadataTemplate"
@@ -4923,7 +5280,10 @@
             "$ref": "#/definitions/RetentionPolicy"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicy"
@@ -4945,7 +5305,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "POLICY_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicy"
@@ -4970,7 +5333,11 @@
             "$ref": "#/definitions/RetentionPolicy"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "POLICY_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicy"
@@ -5000,7 +5367,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "POLICY_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicyAssignmentList"
@@ -5022,7 +5392,10 @@
             "$ref": "#/definitions/CreateRetentionPolicyAssignment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicyAssignment"
@@ -5044,7 +5417,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "RETENTION_POLICY_ASSIGNMENT_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetentionPolicyAssignment"
@@ -5129,7 +5505,10 @@
             "description": "The search result at which to start the response. The default is 0."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ObjectList"
@@ -5152,7 +5531,10 @@
             "description": "The usage is 'BoxApi: shared_link=SHARED_LINK&shared_link_password=SHARED_LINK_PASSWORD'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "BoxApi"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -5174,7 +5556,10 @@
             "$ref": "#/definitions/CreateTaskAssignment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskAssignment"
@@ -5196,7 +5581,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ASSIGNMENT_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5220,7 +5608,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ASSIGNMENT_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskAssignment"
@@ -5245,7 +5636,11 @@
             "$ref": "#/definitions/TaskAssignment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ASSIGNMENT_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskAssignment"
@@ -5267,7 +5662,10 @@
             "$ref": "#/definitions/Task"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
@@ -5289,7 +5687,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5313,7 +5714,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
@@ -5342,7 +5746,11 @@
             "$ref": "#/definitions/Task"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
@@ -5368,7 +5776,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TASK_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskAssignmentList"
@@ -5443,7 +5854,10 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5497,7 +5911,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5521,7 +5938,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5550,7 +5970,11 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -5572,7 +5996,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EmailAliasList"
@@ -5597,7 +6024,11 @@
             "$ref": "#/definitions/EmailAlias"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EmailAlias"
@@ -5622,7 +6053,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID",
+          "EMAIL_ALIAS_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5655,7 +6090,12 @@
             "$ref": "#/definitions/Folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID",
+          "FOLDER_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Folder"
@@ -5691,7 +6131,10 @@
             "description": "The item at which to begin the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "USER_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupMembershipList"
@@ -5713,7 +6156,10 @@
             "$ref": "#/definitions/WebLink"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebLink"
@@ -5735,7 +6181,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEB_LINK_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5759,7 +6208,10 @@
             "description": "Attribute(s) to include in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEB_LINK_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebLink"
@@ -5788,7 +6240,11 @@
             "$ref": "#/definitions/WebLink"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEB_LINK_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebLink"
@@ -5841,7 +6297,10 @@
             "$ref": "#/definitions/Webhook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webhook"
@@ -5863,7 +6322,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEBHOOK_ID"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5883,7 +6345,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEBHOOK_ID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webhook"
@@ -5908,7 +6373,11 @@
             "$ref": "#/definitions/Webhook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WEBHOOK_ID",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webhook"

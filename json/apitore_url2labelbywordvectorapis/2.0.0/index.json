@@ -93,7 +93,11 @@
             "description": "num [max 10, default 1]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LabelResponseEntity"

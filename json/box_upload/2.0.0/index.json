@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://account.box.com/api/oauth2/authorize",
@@ -539,6 +540,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "box_upload": {
+          "integration": "box_upload"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "box_upload": {
+          "integration": "box_upload"
+        }
+      }
+    },
+    {
       "id": "uploadFile",
       "title": "uploadFile",
       "description": "Use the Uploads API to allow users to add a new file.",
@@ -554,7 +626,11 @@
             "description": "File attributes"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file",
+          "attributes"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileList"
@@ -588,7 +664,11 @@
             "description": "File to upload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "FILE_ID",
+          "file"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FileList"

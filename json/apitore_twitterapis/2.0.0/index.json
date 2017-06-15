@@ -160,7 +160,10 @@
             "description": "Numof requests. Return up to 200 x iter tweets."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TwitterResponseEntity"
@@ -193,7 +196,10 @@
             "description": "Numof requests. Return up to 200 x iter tweets."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TwitterResponseEntity"
@@ -230,7 +236,11 @@
             "description": "Numof search requests. Return up to 100 x iter tweets."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TwitterResponseEntity"

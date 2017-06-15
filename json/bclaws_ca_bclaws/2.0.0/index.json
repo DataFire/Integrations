@@ -33,7 +33,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId"
+        ]
       },
       "outputSchema": {}
     },
@@ -64,7 +67,11 @@
             "description": "The document identification code for an index or directory"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "civixDocumentId"
+        ]
       },
       "outputSchema": {}
     },
@@ -99,7 +106,12 @@
             "description": "The document identification code for an index or directory"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "civixIndexId",
+          "civixDocumentId"
+        ]
       },
       "outputSchema": {}
     },
@@ -138,7 +150,13 @@
             "description": "The text to search for within the document"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "civixIndexId",
+          "civixDocumentId",
+          "searchString"
+        ]
       },
       "outputSchema": {}
     },
@@ -173,7 +191,12 @@
             "description": "The document identification code for an index or directory"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "civixIndexId",
+          "civixDocumentId"
+        ]
       },
       "outputSchema": {}
     },
@@ -212,7 +235,13 @@
             "description": "The text to search for within the document"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "civixIndexId",
+          "civixDocumentId",
+          "searchString"
+        ]
       },
       "outputSchema": {}
     },
@@ -259,7 +288,15 @@
             "description": "length of fragment snippets (< 200)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "aspectId",
+          "q",
+          "s",
+          "e",
+          "nFrag",
+          "lFrag"
+        ]
       },
       "outputSchema": {}
     }

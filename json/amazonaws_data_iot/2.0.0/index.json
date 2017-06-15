@@ -254,7 +254,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "thingName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateThingShadowResponse"
@@ -306,7 +312,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "topic",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {

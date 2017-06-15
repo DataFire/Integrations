@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -696,6 +697,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_fusiontables": {
+          "integration": "google_fusiontables"
+        }
+      }
+    },
+    {
       "id": "query.sqlGet",
       "title": "query.sqlGet",
       "description": "Executes a SQL statement which can be any of \n- SELECT\n- SHOW\n- DESCRIBE",
@@ -747,7 +819,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sql"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sqlresponse"
@@ -810,7 +885,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sql"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sqlresponse"
@@ -993,7 +1071,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -1048,7 +1129,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1101,7 +1185,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -1163,7 +1250,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -1225,7 +1315,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -1289,7 +1382,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ColumnList"
@@ -1347,7 +1443,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
@@ -1406,7 +1505,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "columnId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1463,7 +1566,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "columnId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
@@ -1525,7 +1632,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "columnId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
@@ -1587,7 +1698,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "columnId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Column"
@@ -1646,7 +1761,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -1721,7 +1839,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Import"
@@ -1796,7 +1917,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
@@ -1860,7 +1984,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSettingList"
@@ -1918,7 +2045,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
@@ -1977,7 +2107,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "styleId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2034,7 +2168,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "styleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
@@ -2096,7 +2234,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "styleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
@@ -2158,7 +2300,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "styleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleSetting"
@@ -2226,7 +2372,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TaskList"
@@ -2285,7 +2434,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "taskId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2342,7 +2495,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "taskId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Task"
@@ -2406,7 +2563,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TemplateList"
@@ -2464,7 +2624,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2523,7 +2686,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "templateId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2580,7 +2747,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "templateId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2642,7 +2813,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "templateId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2704,7 +2879,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tableId",
+          "templateId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"

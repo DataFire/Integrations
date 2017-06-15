@@ -21,7 +21,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "address"
+        ]
       },
       "outputSchema": {}
     },
@@ -37,7 +40,10 @@
             "description": "Crowdsale plan key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -64,7 +70,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "txid"
+        ]
       },
       "outputSchema": {}
     },
@@ -92,7 +104,13 @@
             "description": "The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "currency"
+        ]
       },
       "outputSchema": {}
     },
@@ -127,7 +145,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature"
+        ]
       },
       "outputSchema": {}
     },
@@ -147,7 +170,10 @@
             "description": "Limit the number of returned price levels. Default to 300."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -175,7 +201,10 @@
             "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -207,7 +236,11 @@
             "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market",
+          "trade_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -238,7 +271,12 @@
             "description": "The signature of your request payload, generated using your secret key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature"
+        ]
       },
       "outputSchema": {}
     },
@@ -266,7 +304,13 @@
             "description": "Unique order id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -294,7 +338,13 @@
             "description": "Unique order id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -318,7 +368,10 @@
             "description": "Limit the number of returned buy orders. Default to 20."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -362,7 +415,13 @@
             "description": "If set, returned orders will be sorted in specific order, default to 'asc'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -405,7 +464,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "market",
+          "side",
+          "volume"
+        ]
       },
       "outputSchema": {}
     },
@@ -433,7 +500,12 @@
             "description": "If present, only sell orders (asks) or buy orders (bids) will be canncelled."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature"
+        ]
       },
       "outputSchema": {}
     },
@@ -479,7 +551,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "market",
+          "orders",
+          "orders[side]",
+          "orders[volume]"
+        ]
       },
       "outputSchema": {}
     },
@@ -502,7 +583,10 @@
             "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -545,7 +629,10 @@
             "description": "If set, returned trades will be sorted in specific order, default to 'desc'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -593,7 +680,13 @@
             "description": "If set, returned trades will be sorted in specific order, default to 'desc'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "market"
+        ]
       },
       "outputSchema": {}
     },
@@ -629,7 +722,14 @@
             "description": "Withdraw Memo"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_key",
+          "tonce",
+          "signature",
+          "amount",
+          "id"
+        ]
       },
       "outputSchema": {}
     }

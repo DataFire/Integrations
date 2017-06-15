@@ -10,7 +10,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://instagram.com/oauth/authorize/",
@@ -734,7 +735,10 @@
             "description": "Return media before this `min_id`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geo-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaListResponse"
@@ -806,7 +810,10 @@
             "description": "The location ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LocationInfoResponse"
@@ -847,7 +854,10 @@
             "description": "Return media after this `max_id`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaListResponse"
@@ -905,7 +915,11 @@
             "description": "Default is 1km (distance=1000), max distance is 5km."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lng"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaSearchResponse"
@@ -928,7 +942,10 @@
             "description": "The short code of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "shortcode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaEntryResponse"
@@ -951,7 +968,10 @@
             "description": "The ID of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaEntryResponse"
@@ -974,7 +994,10 @@
             "description": "The ID of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentsResponse"
@@ -1001,7 +1024,11 @@
             "description": "Text to post as a comment on the media object as specified in `media-id`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StatusResponse"
@@ -1028,7 +1055,11 @@
             "description": "The ID of the comment entry."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id",
+          "comment-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StatusResponse"
@@ -1051,7 +1082,10 @@
             "description": "The ID of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StatusResponse"
@@ -1074,7 +1108,10 @@
             "description": "The ID of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersInfoResponse"
@@ -1097,7 +1134,10 @@
             "description": "The ID of the media resource."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "media-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StatusResponse"
@@ -1120,7 +1160,10 @@
             "description": "A valid tag name without a leading \\#. (eg. snowy, nofilter)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TagSearchResponse"
@@ -1143,7 +1186,10 @@
             "description": "The tag name."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tag-name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TagInfoResponse"
@@ -1178,7 +1224,10 @@
             "description": "Return media after this `max_tag_id`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tag-name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TagMediaListResponse"
@@ -1205,7 +1254,10 @@
             "description": "Number of users to return."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersInfoResponse"
@@ -1306,7 +1358,10 @@
             "description": "The ID of a user to get information about, or **self** to retrieve information about authenticated user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserResponse"
@@ -1329,7 +1384,10 @@
             "description": "The ID of a user, or **self** to retrieve information about authenticated user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersPagingResponse"
@@ -1352,7 +1410,10 @@
             "description": "The ID of a user, or **self** to retrieve information about authenticated user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersPagingResponse"
@@ -1397,7 +1458,10 @@
             "description": "Return media earlier than this `max_id`."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaListResponse"
@@ -1420,7 +1484,10 @@
             "description": "The ID of a user to get information about."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelationshipResponse"
@@ -1455,7 +1522,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user-id",
+          "action"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RelationshipPostResponse"

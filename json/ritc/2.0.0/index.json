@@ -1068,7 +1068,10 @@
             "$ref": "#/definitions/Action59"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Action Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionShortResponse"
@@ -1091,7 +1094,10 @@
             "description": "Id of action"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "action_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1112,7 +1118,10 @@
             "description": "Id of action_id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "action_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1141,7 +1150,11 @@
             "$ref": "#/definitions/Action59"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "Action Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionShortResponse"
@@ -1177,7 +1190,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "message"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -1230,7 +1246,10 @@
             "$ref": "#/definitions/App"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppResponse"
@@ -1270,7 +1289,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1300,7 +1322,11 @@
             "description": "Id of User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1330,7 +1356,11 @@
             "description": "Id of User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppChannelResponse"
@@ -1369,7 +1399,10 @@
             "$ref": "#/definitions/AppExternalCredentials"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App_External_Credentials Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppExternalCredentialsResponse"
@@ -1392,7 +1425,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1413,7 +1449,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1442,7 +1481,11 @@
             "$ref": "#/definitions/AppExternalCredentials"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "App_External_Credentials Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppExternalCredentialsResponse"
@@ -1472,7 +1515,10 @@
             "description": "Do not continue with remaining rules after a rule fires"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id_list"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1530,7 +1576,10 @@
             "description": "Id of App"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1551,7 +1600,10 @@
             "description": "Id of App"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1580,7 +1632,11 @@
             "$ref": "#/definitions/App"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "App Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppResponse"
@@ -1619,7 +1675,10 @@
             "$ref": "#/definitions/Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Channel Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelResponse"
@@ -1659,7 +1718,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1680,7 +1742,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1709,7 +1774,11 @@
             "$ref": "#/definitions/Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "Channel Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ChannelResponse"
@@ -1732,7 +1801,10 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1761,7 +1833,11 @@
             "$ref": "#/definitions/Function7"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "Channel Function Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionResponse"
@@ -1788,7 +1864,11 @@
             "description": "Id of Channel Function"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "function_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1813,7 +1893,10 @@
             "$ref": "#/definitions/Org"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Org Object"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1872,7 +1955,10 @@
             "$ref": "#/definitions/Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Rule Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleFullResponse"
@@ -1895,7 +1981,10 @@
             "description": "Id of rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1916,7 +2005,10 @@
             "description": "Id of rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1945,7 +2037,11 @@
             "$ref": "#/definitions/Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "Rule Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleFullResponse"
@@ -1971,7 +2067,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -2010,7 +2109,10 @@
             "$ref": "#/definitions/Trigger54"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Trigger Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerShortResponse"
@@ -2033,7 +2135,10 @@
             "description": "Id of Trigger"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "trigger_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2054,7 +2159,10 @@
             "description": "Id of Trigger"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "trigger_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2083,7 +2191,11 @@
             "$ref": "#/definitions/Trigger54"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "trigger_id",
+          "Trigger Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerShortResponse"
@@ -2122,7 +2234,10 @@
             "$ref": "#/definitions/AppUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App User Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppUserResponse"
@@ -2161,7 +2276,10 @@
             "$ref": "#/definitions/AdminUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Admin_User Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUserResponse"
@@ -2184,7 +2302,10 @@
             "description": "Id of Admin_User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2205,7 +2326,10 @@
             "description": "Id of Admin_User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2234,7 +2358,11 @@
             "$ref": "#/definitions/AdminUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "Admin_User Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdminUserResponse"
@@ -2261,7 +2389,11 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2287,7 +2419,10 @@
             "description": "Id of user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2308,7 +2443,10 @@
             "description": "Id of App User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2337,7 +2475,11 @@
             "$ref": "#/definitions/AppUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "App User Object"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppUserResponse"
@@ -2360,7 +2502,10 @@
             "description": "Id of user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2389,7 +2534,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserChannel"
@@ -2416,7 +2565,11 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2441,7 +2594,11 @@
             "description": "Id of Channel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2467,7 +2624,10 @@
             "description": "Id of user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2497,7 +2657,11 @@
             "description": "Id of Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2522,7 +2686,11 @@
             "description": "Id of Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2552,7 +2720,11 @@
             "description": "Id of Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleShortResponse"
@@ -2579,7 +2751,11 @@
             "description": "Id of Rule"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "type": "object"

@@ -1298,7 +1298,11 @@
             "description": "User's password"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthResponse"
@@ -1320,7 +1324,11 @@
             "description": "Array containing paths of the files or folders to check"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExistingResourcesResponse"
@@ -1346,7 +1354,12 @@
             "description": "Remote destination path to copy files/folders to"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths",
+          "destinationPath"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModifiedResourcesResponse"
@@ -1372,7 +1385,12 @@
             "description": "Where to create the folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "folderName",
+          "path"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1414,7 +1432,15 @@
             "description": "Email addresses to send notification to. If not specified, sends to owner by default."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "type",
+          "path",
+          "action",
+          "usernames",
+          "sendEmail"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1496,7 +1522,14 @@
             "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "type",
+          "name",
+          "filePaths",
+          "accessMode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1558,7 +1591,17 @@
             "description": "If true, send a user email upon creation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "username",
+          "destinationFolder",
+          "email",
+          "password",
+          "role",
+          "permissions",
+          "timeZone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1581,7 +1624,11 @@
             "description": "ID of the Notification to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1603,7 +1650,11 @@
             "description": "Array containing paths of the files or folder to delete"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeletedResourcesResponse"
@@ -1626,7 +1677,11 @@
             "description": "ID of the Share to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1648,7 +1703,11 @@
             "description": "Name of the subaccount user to delete"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -1666,7 +1725,10 @@
             "description": "Access token required to make the API call"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountResponse"
@@ -1684,7 +1746,10 @@
             "description": "Access token required to make the API call"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserResponse"
@@ -1710,7 +1775,11 @@
             "description": "The name of the file to be downloaded"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlResponse"
@@ -1754,7 +1823,10 @@
             "description": "Number of logs to return. Can be used for pagination."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogResponse"
@@ -1776,7 +1848,11 @@
             "description": "The remote file path"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "path"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourcePropertiesResponse"
@@ -1799,7 +1875,11 @@
             "description": "ID of the Notification"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationResponse"
@@ -1817,7 +1897,10 @@
             "description": "Access token required to make the API call"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationActivityResponse"
@@ -1851,7 +1934,11 @@
             "description": "Filter by the provided search terms."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationsResponse"
@@ -1899,7 +1986,15 @@
             "description": "Regex string. If not null, perform a search with specified pattern"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "path",
+          "sortBy",
+          "sortOrder",
+          "offset",
+          "limit"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceResponse"
@@ -1921,7 +2016,11 @@
             "description": "Array containing paths of the files or folder to get"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourcePropertiesResponse"
@@ -1944,7 +2043,11 @@
             "description": "ID of the requested Share"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShareResponse"
@@ -1967,7 +2070,11 @@
             "description": "ID of the Share"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShareActivityResponse"
@@ -2015,7 +2122,10 @@
             "description": "Maximum number of elements to return or 0 if no limit."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SharesResponse"
@@ -2050,7 +2160,12 @@
             "description": "True if upload resume is supported, false if it isn't"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "fileSize",
+          "destinationPath"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlResponse"
@@ -2072,7 +2187,11 @@
             "description": "Name of the subaccount user to get"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserResponse"
@@ -2098,7 +2217,12 @@
             "description": "sort order, i.e. 'asc' or 'desc'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "sortBy",
+          "sortOrder"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UsersResponse"
@@ -2116,7 +2240,10 @@
             "description": "Access token required to make the API call"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -2142,7 +2269,12 @@
             "description": "Remote destination path to move files/folders to"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePaths",
+          "destinationPath"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModifiedResourcesResponse"
@@ -2183,7 +2315,12 @@
             "description": "Page number for the document"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "path",
+          "size"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PreviewFileResponse"
@@ -2209,7 +2346,12 @@
             "description": "The new name of the file or folder"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "filePath",
+          "newName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -2252,7 +2394,11 @@
             "description": "Set to true if the user should be notified by email when the notification is triggered."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -2335,7 +2481,11 @@
             "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -2394,7 +2544,11 @@
             "description": "A CSV string of user permissions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"
@@ -2416,7 +2570,11 @@
             "description": "Username to check"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailableUserResponse"

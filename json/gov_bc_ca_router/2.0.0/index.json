@@ -72,7 +72,11 @@
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "points"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -136,7 +140,11 @@
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "points"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -203,7 +211,12 @@
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "fromPoints",
+          "toPoints"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -267,7 +280,11 @@
             "description": "Route description (e.g., Shortest route from 1002 Johnson St, Victoria to 1105 Royal Ave,New Westminster)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "points"
+        ]
       },
       "outputSchema": {},
       "security": {

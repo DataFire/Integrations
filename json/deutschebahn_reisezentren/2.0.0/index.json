@@ -154,7 +154,11 @@
             "description": "Longitude"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelCenter"
@@ -177,7 +181,10 @@
             "description": "Station id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelCenter"

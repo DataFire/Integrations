@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -2041,6 +2042,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_genomics": {
+          "integration": "google_genomics"
+        }
+      }
+    },
+    {
       "id": "annotations.create",
       "title": "annotations.create",
       "description": "Creates a new annotation. Caller must have WRITE permission\nfor the associated annotation set.\n\nThe following fields are required:\n\n* annotationSetId\n* referenceName or\n  referenceId\n\n### Transcripts\n\nFor annotations of type TRANSCRIPT, the following fields of\ntranscript must be provided:\n\n* exons.start\n* exons.end\n\nAll other fields may be optionally specified, unless documented as being\nserver-generated (for example, the `id` field). The annotated\nrange must be no longer than 100Mbp (mega base pairs). See the\nAnnotation resource\nfor additional restrictions on each field.",
@@ -2285,7 +2357,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2369,7 +2444,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
@@ -2460,7 +2538,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Annotation"
@@ -2802,7 +2883,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2886,7 +2970,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationSet"
@@ -2977,7 +3064,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "annotationSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AnnotationSet"
@@ -3233,7 +3323,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "callSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3317,7 +3410,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "callSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CallSet"
@@ -3408,7 +3504,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "callSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CallSet"
@@ -3673,7 +3772,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -3757,7 +3859,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -3848,7 +3953,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -3935,7 +4043,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -4105,7 +4216,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "readGroupSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -4189,7 +4303,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "readGroupSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadGroupSet"
@@ -4280,7 +4397,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "readGroupSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReadGroupSet"
@@ -4388,7 +4508,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "readGroupSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCoverageBucketsResponse"
@@ -4475,7 +4598,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "readGroupSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -4817,7 +4943,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "referenceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reference"
@@ -4917,7 +5046,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "referenceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBasesResponse"
@@ -5087,7 +5219,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "referenceSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReferenceSet"
@@ -5343,7 +5478,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -5427,7 +5565,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variant"
@@ -5518,7 +5659,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variant"
@@ -5946,7 +6090,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -6030,7 +6177,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VariantSet"
@@ -6121,7 +6271,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VariantSet"
@@ -6208,7 +6361,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "variantSetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -6292,7 +6448,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -6379,7 +6538,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -6466,7 +6628,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -6553,7 +6718,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -6640,7 +6808,10 @@
             "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"

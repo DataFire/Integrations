@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://github.com/login/oauth/authorize",
@@ -8550,6 +8551,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "github": {
+          "integration": "github"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "github": {
+          "integration": "github"
+        }
+      }
+    },
+    {
       "id": "emojis.get",
       "title": "emojis.get",
       "description": "Lists all the emojis available to use on GitHub.",
@@ -8764,7 +8836,10 @@
             "$ref": "#/definitions/postGist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gist"
@@ -8899,7 +8974,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8940,7 +9018,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gist"
@@ -8986,7 +9067,11 @@
             "$ref": "#/definitions/patchGist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gist"
@@ -9032,7 +9117,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comments"
@@ -9078,7 +9166,11 @@
             "$ref": "#/definitions/commentBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comment"
@@ -9125,7 +9217,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "commentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9170,7 +9266,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comment"
@@ -9220,7 +9320,12 @@
             "$ref": "#/definitions/comment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "commentId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comment"
@@ -9263,7 +9368,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9304,7 +9412,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9345,7 +9456,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9386,7 +9500,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9471,7 +9588,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gitignore-lang"
@@ -9554,7 +9674,14 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "filter",
+          "state",
+          "labels",
+          "sort",
+          "direction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issues"
@@ -9611,7 +9738,13 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "keyword",
+          "state",
+          "owner",
+          "repository"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-issues-by-keyword"
@@ -9679,7 +9812,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "keyword"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-repositories-by-keyword"
@@ -9722,7 +9858,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-user-by-email"
@@ -9786,7 +9925,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "keyword"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-users-by-keyword"
@@ -9828,7 +9970,10 @@
             "$ref": "#/definitions/markdown"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9958,7 +10103,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -10057,7 +10206,10 @@
             "$ref": "#/definitions/notificationMarkRead"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10098,7 +10250,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -10141,7 +10296,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10182,7 +10340,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10223,7 +10384,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subscription"
@@ -10269,7 +10433,11 @@
             "$ref": "#/definitions/putSubscription"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subscription"
@@ -10312,7 +10480,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/organization"
@@ -10358,7 +10529,11 @@
             "$ref": "#/definitions/patchOrg"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/organization"
@@ -10404,7 +10579,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -10491,7 +10669,15 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "filter",
+          "state",
+          "labels",
+          "sort",
+          "direction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issues"
@@ -10537,7 +10723,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -10584,7 +10773,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10629,7 +10822,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10673,7 +10870,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -10720,7 +10920,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10765,7 +10969,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10810,7 +11018,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10865,7 +11077,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repos"
@@ -10911,7 +11126,11 @@
             "$ref": "#/definitions/postRepo"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repos"
@@ -10957,7 +11176,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/teams"
@@ -11003,7 +11225,11 @@
             "$ref": "#/definitions/orgTeamsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "org",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/team"
@@ -11092,7 +11318,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11137,7 +11367,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repo"
@@ -11187,7 +11421,12 @@
             "$ref": "#/definitions/repoEdit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repo"
@@ -11237,7 +11476,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/assignees"
@@ -11288,7 +11531,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "assignee"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11336,7 +11584,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/branches"
@@ -11387,7 +11639,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/branch"
@@ -11437,7 +11694,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -11488,7 +11749,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "user"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11537,7 +11803,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "user"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11586,7 +11857,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "user"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11634,7 +11910,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repoComments"
@@ -11685,7 +11965,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11734,7 +12019,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitComments"
@@ -11788,7 +12078,13 @@
             "$ref": "#/definitions/commentBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitComments"
@@ -11858,7 +12154,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commits"
@@ -11911,7 +12211,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/refStatus"
@@ -11962,7 +12267,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commit"
@@ -12016,7 +12326,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repoComments"
@@ -12070,7 +12385,13 @@
             "$ref": "#/definitions/commitBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitComments"
@@ -12123,7 +12444,13 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "baseId",
+          "headId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/compare-commits"
@@ -12176,7 +12503,13 @@
             "$ref": "#/definitions/deleteFileBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "path",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/deleteFile"
@@ -12203,6 +12536,9 @@
             "description": "Name of repository."
           },
           "path": {
+            "type": "string"
+          },
+          "path_query": {
             "type": "string",
             "description": "The content path."
           },
@@ -12231,7 +12567,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "path"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contents-path"
@@ -12284,7 +12625,13 @@
             "$ref": "#/definitions/createFileBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "path",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/createFile"
@@ -12338,7 +12685,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "anon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contributors"
@@ -12388,7 +12740,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repo-deployments"
@@ -12438,7 +12794,12 @@
             "$ref": "#/definitions/deployment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/deployment-resp"
@@ -12492,7 +12853,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/deployment-statuses"
@@ -12546,7 +12912,13 @@
             "$ref": "#/definitions/deployment-statuses-create"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12594,7 +12966,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/downloads"
@@ -12645,7 +13021,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "downloadId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12694,7 +13075,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "downloadId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/downloads"
@@ -12744,7 +13130,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -12802,7 +13192,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/forks"
@@ -12852,7 +13246,12 @@
             "$ref": "#/definitions/forkBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/fork"
@@ -12902,7 +13301,12 @@
             "$ref": "#/definitions/blob"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/blobs"
@@ -12953,7 +13357,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/blob"
@@ -13003,7 +13412,12 @@
             "$ref": "#/definitions/repoCommitBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gitCommit"
@@ -13054,7 +13468,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repoCommit"
@@ -13104,7 +13523,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/refs"
@@ -13154,7 +13577,12 @@
             "$ref": "#/definitions/refsBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/headBranch"
@@ -13204,7 +13632,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13252,7 +13685,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/headBranch"
@@ -13305,7 +13743,13 @@
             "$ref": "#/definitions/gitRefPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/headBranch"
@@ -13355,7 +13799,12 @@
             "$ref": "#/definitions/tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -13405,7 +13854,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag"
@@ -13455,7 +13909,12 @@
             "$ref": "#/definitions/tree"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/trees"
@@ -13510,7 +13969,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "shaCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tree"
@@ -13560,7 +14024,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/hook"
@@ -13610,7 +14078,12 @@
             "$ref": "#/definitions/hookBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/hook"
@@ -13661,7 +14134,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "hookId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13710,7 +14188,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "hookId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/hook"
@@ -13764,7 +14247,13 @@
             "$ref": "#/definitions/hookBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "hookId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/hook"
@@ -13815,7 +14304,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "hookId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13904,7 +14398,16 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "filter",
+          "state",
+          "labels",
+          "sort",
+          "direction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issues"
@@ -13954,7 +14457,12 @@
             "$ref": "#/definitions/issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -14020,7 +14528,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComments"
@@ -14071,7 +14583,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14120,7 +14637,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComment"
@@ -14174,7 +14696,13 @@
             "$ref": "#/definitions/commentBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComment"
@@ -14224,7 +14752,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -14275,7 +14807,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "eventId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/event"
@@ -14326,7 +14863,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -14380,7 +14922,13 @@
             "$ref": "#/definitions/issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -14434,7 +14982,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComments"
@@ -14488,7 +15041,13 @@
             "$ref": "#/definitions/commentBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComment"
@@ -14542,7 +15101,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/events"
@@ -14593,7 +15157,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14645,7 +15214,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/labels"
@@ -14699,7 +15273,13 @@
             "$ref": "#/definitions/emailsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/label"
@@ -14753,7 +15333,13 @@
             "$ref": "#/definitions/emailsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/label"
@@ -14808,7 +15394,13 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14856,7 +15448,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/keys"
@@ -14906,7 +15502,12 @@
             "$ref": "#/definitions/user-keys-post"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-keys-keyId"
@@ -14957,7 +15558,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "keyId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15006,7 +15612,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "keyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-keys-keyId"
@@ -15056,7 +15667,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/labels"
@@ -15106,7 +15721,12 @@
             "$ref": "#/definitions/emailsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/label"
@@ -15157,7 +15777,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15206,7 +15831,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/label"
@@ -15260,7 +15890,13 @@
             "$ref": "#/definitions/emailsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "name",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/label"
@@ -15310,7 +15946,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/languages"
@@ -15360,7 +16000,12 @@
             "$ref": "#/definitions/mergesBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/mergesSuccessful"
@@ -15430,7 +16075,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
@@ -15480,7 +16129,12 @@
             "$ref": "#/definitions/milestoneUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
@@ -15531,7 +16185,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15580,7 +16239,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
@@ -15634,7 +16298,13 @@
             "$ref": "#/definitions/milestoneUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
@@ -15688,7 +16358,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/labels"
@@ -15750,7 +16425,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -15800,7 +16479,12 @@
             "$ref": "#/definitions/notificationMarkRead"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15864,7 +16548,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pulls"
@@ -15914,7 +16602,12 @@
             "$ref": "#/definitions/pullsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pulls"
@@ -15980,7 +16673,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issuesComments"
@@ -16031,7 +16728,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -16080,7 +16782,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullsComment"
@@ -16134,7 +16841,13 @@
             "$ref": "#/definitions/commentBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "commentId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullsComment"
@@ -16185,7 +16898,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullRequest"
@@ -16239,7 +16957,13 @@
             "$ref": "#/definitions/pullUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repo"
@@ -16293,7 +17017,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullsComment"
@@ -16347,7 +17076,13 @@
             "$ref": "#/definitions/pullsCommentPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullsComment"
@@ -16401,7 +17136,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commits"
@@ -16455,7 +17195,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pulls"
@@ -16506,7 +17251,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -16558,7 +17308,13 @@
             "$ref": "#/definitions/mergePullBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "number",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/merge"
@@ -16609,7 +17365,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contents-path"
@@ -16659,7 +17419,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/releases"
@@ -16709,7 +17473,12 @@
             "$ref": "#/definitions/release-create"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/release"
@@ -16759,7 +17528,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -16807,7 +17581,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/asset"
@@ -16860,7 +17639,13 @@
             "$ref": "#/definitions/assetPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/asset"
@@ -16910,7 +17695,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -16958,7 +17748,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/release"
@@ -17011,7 +17806,13 @@
             "$ref": "#/definitions/release-create"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/release"
@@ -17064,7 +17865,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/assets"
@@ -17114,7 +17920,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -17161,7 +17971,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/codeFrequencyStats"
@@ -17208,7 +18022,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitActivityStats"
@@ -17258,7 +18076,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contributorsStats"
@@ -17305,7 +18127,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/participationStats"
@@ -17352,7 +18178,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/codeFrequencyStats"
@@ -17403,7 +18233,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ref"
@@ -17457,7 +18292,13 @@
             "$ref": "#/definitions/headBranch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "ref",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ref"
@@ -17507,7 +18348,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -17554,7 +18399,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -17599,7 +18448,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subscribition"
@@ -17649,7 +18502,12 @@
             "$ref": "#/definitions/subscribitionBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subscribition"
@@ -17699,7 +18557,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tags"
@@ -17749,7 +18611,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/teams"
@@ -17799,7 +18665,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -17857,7 +18727,13 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo",
+          "archive_format",
+          "path"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -17962,7 +18838,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-code"
@@ -18025,7 +18904,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-issues"
@@ -18088,7 +18970,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-repositories"
@@ -18151,7 +19036,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search-users"
@@ -18194,7 +19082,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18235,7 +19126,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/team"
@@ -18281,7 +19175,11 @@
             "$ref": "#/definitions/editTeam"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/team"
@@ -18327,7 +19225,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -18374,7 +19275,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18419,7 +19324,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18464,7 +19373,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18509,7 +19422,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18554,7 +19471,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/teamMembership"
@@ -18601,7 +19522,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/teamMembership"
@@ -18647,7 +19572,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/teamRepos"
@@ -18698,7 +19626,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "org",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18747,7 +19680,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18796,7 +19734,12 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId",
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -18878,7 +19821,10 @@
             "$ref": "#/definitions/user-update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
@@ -18920,7 +19866,10 @@
             "$ref": "#/definitions/user-emails"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19005,7 +19954,10 @@
             "$ref": "#/definitions/emailsPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19133,7 +20085,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19174,7 +20129,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19215,7 +20173,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19296,7 +20257,14 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "filter",
+          "state",
+          "labels",
+          "sort",
+          "direction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issues"
@@ -19383,7 +20351,10 @@
             "$ref": "#/definitions/user-keys-post"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-keys-keyId"
@@ -19426,7 +20397,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "keyId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19467,7 +20441,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "keyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-keys-keyId"
@@ -19610,7 +20587,10 @@
             "$ref": "#/definitions/postRepo"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repos"
@@ -19711,7 +20691,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19756,7 +20740,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19801,7 +20789,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19891,7 +20883,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19936,7 +20932,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -19981,7 +20981,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "repo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20116,7 +21120,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -20162,7 +21169,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20206,7 +21216,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "org"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20250,7 +21264,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/users"
@@ -20297,7 +21314,11 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "targetUser"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20345,7 +21366,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gists"
@@ -20391,7 +21415,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gitignore"
@@ -20437,7 +21464,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/gitignore"
@@ -20483,7 +21513,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20524,7 +21557,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20579,7 +21615,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repos"
@@ -20622,7 +21661,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -20666,7 +21708,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {

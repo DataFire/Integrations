@@ -3169,7 +3169,10 @@
             "description": "The year for which to filter the accidents on."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "year"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3226,7 +3229,10 @@
             "description": "The search term e.g. \"St. James\""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3252,7 +3258,10 @@
             "description": "A bike point id (a list of ids can be obtained from the above BikePoint call)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Place"
@@ -3315,7 +3324,11 @@
             "description": "Twenty Four Seven Only"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3451,7 +3464,11 @@
             "description": "A boolean to indicate whether to optimize journeys using walking"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ItineraryResult"
@@ -3559,7 +3576,10 @@
             "description": "A comma-separated list of modes e.g. tube,dlr"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3585,7 +3605,10 @@
             "description": "A comma-separated list of modes e.g. tube,dlr"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3615,7 +3638,10 @@
             "description": "A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3645,7 +3671,10 @@
             "description": "Include details of the disruptions that are causing the line status including the affected stops and routes"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3708,7 +3737,10 @@
             "description": "A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteSearchResponse"
@@ -3732,7 +3764,10 @@
             "description": "The level of severity (eg: a number from 0 to 14)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "severity"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3758,7 +3793,10 @@
             "description": "A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3788,7 +3826,11 @@
             "description": "A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stopPointId",
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3827,7 +3869,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stopPointId",
+          "ids",
+          "direction"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3853,7 +3900,10 @@
             "description": "A comma-separated list of line ids e.g. victoria,circle,N133. Max. approx. 20 ids."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3883,7 +3933,10 @@
             "description": "A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3913,7 +3966,10 @@
             "description": "Include details of the disruptions that are causing the line status including the affected stops and routes"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3963,7 +4019,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "startDate",
+          "endDate",
+          "StartDate",
+          "EndDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4006,7 +4069,11 @@
             "description": "That excludes crowding from line disruptions. Can be true or false."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "direction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RouteSequence"
@@ -4029,7 +4096,10 @@
             "description": "A single line id e.g. victoria"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4059,7 +4129,11 @@
             "description": "A single line id e.g. victoria"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fromStopPointId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TimetableResponse"
@@ -4090,7 +4164,12 @@
             "description": "The destination stations's Naptan code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fromStopPointId",
+          "id",
+          "toStopPointId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TimetableResponse"
@@ -4135,7 +4214,10 @@
             "description": "A number of arrivals to return for each stop, -1 to return all available."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "mode"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4178,7 +4260,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CarParkOccupancy"
@@ -4229,7 +4314,13 @@
             "format": "double"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bbBoxpoints.swLat",
+          "bbBoxpoints.swLon",
+          "bbBoxpoints.neLat",
+          "bbBoxpoints.neLon"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4261,7 +4352,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "postcode",
+          "Postcode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -4322,7 +4417,10 @@
             "description": "An optional parameter to limit the results to active records only (Currently only the 'VariableMessageSign' place type is supported)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "types"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4352,7 +4450,10 @@
             "description": "Defaults to false. If true child places e.g. individual charging stations at a charge point while be included, otherwise just the URLs of any child places will be returned"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4398,7 +4499,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "lat",
+          "lon",
+          "location.lat",
+          "location.lon",
+          "Lat",
+          "Lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -4456,7 +4566,19 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "z",
+          "type",
+          "width",
+          "height",
+          "lat",
+          "lon",
+          "location.lat",
+          "location.lon",
+          "Lat",
+          "Lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -4534,7 +4656,10 @@
             "description": "Optional, defaults to false. When true, removes every property/node except for id, point, severity, severityDescription, startDate, endDate, corridor details, location and comments."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "disruptionIds"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoadDisruption"
@@ -4563,7 +4688,11 @@
             "description": "Optional, The end time to filter on."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -4586,7 +4715,10 @@
             "description": "Comma-separated list of road identifiers e.g. \"A406, A2\" (a full list of supported road identifiers can be found at the /Road/ endpoint)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4628,7 +4760,10 @@
             "description": "Optional, defaults to true. When true, always includes disruptions that have road closures, regardless of the severity filter. When false, the severity filter works as normal."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4662,7 +4797,10 @@
             "format": "date-time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4688,7 +4826,10 @@
             "description": "The search query"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
@@ -4711,7 +4852,10 @@
             "description": "The search query"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
@@ -4814,7 +4958,12 @@
             "format": "double"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stopTypes",
+          "location.lat",
+          "location.lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopPointsResponse"
@@ -4893,7 +5042,10 @@
             "description": "The data set page to return. Page 1 equates to the first 1000 stop points, page 2 equates to 1001-2000 etc. Must be entered for bus mode as data set is too large."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StopPointsResponse"
@@ -4920,7 +5072,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "modes"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4967,7 +5122,10 @@
             "description": "If true, returns results including HUBs."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
@@ -5011,7 +5169,10 @@
             "description": "If true, returns results including HUBs."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchResponse"
@@ -5042,7 +5203,10 @@
             "description": "The modes which the lines are relevant to (all if empty)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5072,7 +5236,10 @@
             "description": "If set to \"web\", a 302 redirect to relevant website bus stop page is returned. Valid values are : web. All other values are ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5095,7 +5262,10 @@
             "description": "A comma-separated list of the types to return. Max. approx. 12 types. \r\n            A list of valid stop types can be obtained from the StopPoint/meta/stoptypes endpoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "types"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5125,7 +5295,10 @@
             "description": "Include the crowding data (static). To Filter further use: /StopPoint/{ids}/Crowding/{line}"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5163,7 +5336,10 @@
             "description": "Specify true to associate all disruptions with parent stop point. (Only applicable when getFamily is true)."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5189,7 +5365,10 @@
             "description": "A StopPoint id (station naptan code e.g. 940GZZLUASL, you can use /StopPoint/Search/{query} endpoint to find a stop point id from a station name)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5223,7 +5402,11 @@
             "description": "A comma-separated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "lineId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5262,7 +5445,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "line",
+          "direction"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5296,7 +5484,11 @@
             "description": "Optional line id filter e.g. victoria"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "toStopPointId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -5323,7 +5515,10 @@
             "description": "A comma-separated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5349,7 +5544,10 @@
             "description": "stopPointId is required to get the taxi ranks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stopPointId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5438,7 +5636,23 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "z",
+          "pinLat",
+          "pinLon",
+          "mapCenterLat",
+          "mapCenterLon",
+          "scenarioTitle",
+          "timeOfDayId",
+          "modeId",
+          "width",
+          "height",
+          "direction",
+          "travelTimeInterval",
+          "compareType",
+          "compareValue"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5518,7 +5732,21 @@
             "description": "The total minutes between the travel time bands"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "z",
+          "pinLat",
+          "pinLon",
+          "mapCenterLat",
+          "mapCenterLon",
+          "scenarioTitle",
+          "timeOfDayId",
+          "modeId",
+          "width",
+          "height",
+          "direction",
+          "travelTimeInterval"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5541,7 +5769,10 @@
             "description": "The Vehicle Registration Mark"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "vrm"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EmissionsSurchargeVehicle"
@@ -5564,7 +5795,10 @@
             "description": "A comma-separated list of vehicle ids e.g. LX58CFV,LX11AZB,LX58CFE. Max approx. 25 ids."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {

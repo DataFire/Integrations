@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -464,6 +465,77 @@
     }
   },
   "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_proximitybeacon": {
+          "integration": "google_proximitybeacon"
+        }
+      }
+    },
     {
       "id": "beaconinfo.getforobserved",
       "title": "beaconinfo.getforobserved",
@@ -986,7 +1058,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "attachmentName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1074,7 +1149,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1162,7 +1240,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Beacon"
@@ -1253,7 +1334,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Beacon"
@@ -1345,7 +1429,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBeaconAttachmentsResponse"
@@ -1436,7 +1523,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BeaconAttachment"
@@ -1528,7 +1618,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteAttachmentsResponse"
@@ -1633,7 +1726,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDiagnosticsResponse"
@@ -1721,7 +1817,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1809,7 +1908,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1897,7 +1999,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "beaconName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1988,7 +2093,10 @@
             "description": "OAuth 2.0 token for the current user."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "namespaceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Namespace"

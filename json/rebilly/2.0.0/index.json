@@ -9673,7 +9673,10 @@
             "$ref": "#/definitions/ThreeDSecure"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ThreeDSecure"
@@ -9696,7 +9699,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ThreeDSecure"
@@ -9719,7 +9725,10 @@
             "description": "The token string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9775,7 +9784,10 @@
             "$ref": "#/definitions/ApiKey"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
@@ -9798,7 +9810,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9819,7 +9834,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
@@ -9845,7 +9863,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiKey"
@@ -9923,7 +9945,10 @@
             "$ref": "#/definitions/Attachment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
@@ -9946,7 +9971,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9967,7 +9995,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
@@ -9993,7 +10024,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Attachment"
@@ -10032,7 +10067,10 @@
             "$ref": "#/definitions/AuthenticationOptions"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationOptions"
@@ -10090,7 +10128,10 @@
             "$ref": "#/definitions/AuthenticationToken"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
@@ -10113,7 +10154,10 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10134,7 +10178,10 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
@@ -10192,7 +10239,10 @@
             "$ref": "#/definitions/BankAccount"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
@@ -10215,7 +10265,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
@@ -10241,7 +10294,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
@@ -10264,7 +10321,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BankAccount"
@@ -10322,7 +10382,10 @@
             "$ref": "#/definitions/Blacklist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
@@ -10345,7 +10408,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10366,7 +10432,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
@@ -10392,7 +10461,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Blacklist"
@@ -10450,7 +10523,10 @@
             "$ref": "#/definitions/CheckoutPage"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
@@ -10473,7 +10549,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10494,7 +10573,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
@@ -10520,7 +10602,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckoutPage"
@@ -10578,7 +10664,10 @@
             "$ref": "#/definitions/Contact"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
@@ -10601,7 +10690,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
@@ -10627,7 +10719,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Contact"
@@ -10701,7 +10797,10 @@
             "$ref": "#/definitions/Coupon"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
@@ -10775,7 +10874,10 @@
             "$ref": "#/definitions/CouponRedemption"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CouponRedemption"
@@ -10798,7 +10900,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CouponRedemption"
@@ -10821,7 +10926,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10842,7 +10950,10 @@
             "description": "The Coupon's redemption code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "redemptionCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
@@ -10868,7 +10979,11 @@
             "description": "The Coupon's redemption code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "redemptionCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Coupon"
@@ -10890,7 +11005,10 @@
             "$ref": "#/definitions/SmtpCredential"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SmtpCredential"
@@ -10913,7 +11031,10 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SmtpCredential"
@@ -10935,7 +11056,10 @@
             "$ref": "#/definitions/WebhookCredential"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebhookCredential"
@@ -10958,7 +11082,10 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hash"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebhookCredential"
@@ -11016,7 +11143,10 @@
             "$ref": "#/definitions/Credential"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
@@ -11039,7 +11169,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11060,7 +11193,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
@@ -11086,7 +11222,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Credential"
@@ -11144,7 +11284,10 @@
             "$ref": "#/definitions/CustomEvent"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
@@ -11167,7 +11310,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11188,7 +11334,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
@@ -11214,7 +11363,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
@@ -11237,7 +11390,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
@@ -11263,7 +11419,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
@@ -11317,7 +11477,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -11356,7 +11519,11 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetHistoryItem"
@@ -11392,7 +11559,11 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetVersion"
@@ -11424,7 +11595,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "description": "The list of custom fields",
@@ -11464,7 +11638,11 @@
             "description": "The custom field's identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource",
+          "name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11498,7 +11676,11 @@
             "description": "The custom field's identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomField"
@@ -11537,7 +11719,12 @@
             "description": "The custom field's identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "resource",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomField"
@@ -11623,7 +11810,10 @@
             "$ref": "#/definitions/Customer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
@@ -11646,7 +11836,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
@@ -11672,7 +11865,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Customer"
@@ -11695,7 +11892,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11716,7 +11916,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -11742,7 +11945,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -11800,7 +12007,10 @@
             "$ref": "#/definitions/Dispute"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
@@ -11823,7 +12033,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
@@ -11849,7 +12062,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dispute"
@@ -11889,7 +12106,10 @@
             "description": "The event type"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "eventType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SystemEvent"
@@ -11912,7 +12132,10 @@
             "description": "The event type"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "eventType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
@@ -11938,7 +12161,11 @@
             "description": "The event type"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "eventType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSet"
@@ -11992,7 +12219,10 @@
             "description": "The event type"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "eventType"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -12031,7 +12261,11 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "eventType",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetHistoryItem"
@@ -12067,7 +12301,11 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "eventType",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RuleSetVersion"
@@ -12151,7 +12389,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -12174,7 +12415,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12195,7 +12439,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -12221,7 +12468,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/File"
@@ -12244,7 +12495,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "readOnly": true,
@@ -12276,7 +12530,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "extension"
+        ]
       },
       "outputSchema": {
         "readOnly": true,
@@ -12299,7 +12557,10 @@
             "$ref": "#/definitions/Email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12355,7 +12616,10 @@
             "$ref": "#/definitions/GatewayAccount"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
@@ -12378,7 +12642,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12399,7 +12666,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
@@ -12425,7 +12695,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
@@ -12451,7 +12725,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GatewayAccount"
@@ -12517,7 +12795,10 @@
             "$ref": "#/definitions/Invoice"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12548,7 +12829,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12574,7 +12858,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12597,7 +12885,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12623,7 +12914,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12657,7 +12952,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -12686,7 +12984,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InvoiceItem"
@@ -12709,7 +13011,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12730,7 +13035,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -12756,7 +13064,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -12779,7 +13091,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Invoice"
@@ -12837,7 +13152,10 @@
             "$ref": "#/definitions/Layout"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
@@ -12860,7 +13178,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12881,7 +13202,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
@@ -12907,7 +13231,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Layout"
@@ -12977,7 +13305,10 @@
             "$ref": "#/definitions/List"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -13000,7 +13331,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13021,7 +13355,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -13047,7 +13384,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -13075,7 +13416,11 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -13133,7 +13478,10 @@
             "$ref": "#/definitions/Note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -13156,7 +13504,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -13182,7 +13533,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -13240,7 +13595,10 @@
             "$ref": "#/definitions/Organization"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
@@ -13263,7 +13621,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13284,7 +13645,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
@@ -13310,7 +13674,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Organization"
@@ -13368,7 +13736,10 @@
             "$ref": "#/definitions/ResetPasswordToken"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResetPasswordToken"
@@ -13391,7 +13762,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13412,7 +13786,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResetPasswordToken"
@@ -13470,7 +13847,10 @@
             "$ref": "#/definitions/PaymentCard"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
@@ -13528,7 +13908,10 @@
             "$ref": "#/definitions/PaymentCardMigrationRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCardMigrationResponse"
@@ -13551,7 +13934,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
@@ -13577,7 +13963,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
@@ -13626,7 +14016,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
@@ -13649,7 +14043,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentCard"
@@ -13715,7 +14112,10 @@
             "$ref": "#/definitions/Payment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -13741,7 +14141,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
@@ -13767,7 +14170,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -13828,7 +14235,10 @@
             "$ref": "#/definitions/Plan"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
@@ -13851,7 +14261,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13872,7 +14285,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
@@ -13898,7 +14314,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Plan"
@@ -13920,7 +14340,10 @@
             "$ref": "#/definitions/SendTestEmail"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendTestEmail"
@@ -13942,7 +14365,10 @@
             "$ref": "#/definitions/SendPreviewWebhook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SendPreviewWebhook"
@@ -13964,7 +14390,10 @@
             "$ref": "#/definitions/GlobalWebhook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14020,7 +14449,10 @@
             "$ref": "#/definitions/Product"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -14043,7 +14475,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14064,7 +14499,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -14090,7 +14528,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -14126,7 +14568,10 @@
             "$ref": "#/definitions/Profile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -14185,7 +14630,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14206,7 +14654,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomEvent"
@@ -14265,7 +14716,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
@@ -14291,7 +14745,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
@@ -14314,7 +14772,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Payment"
@@ -14372,7 +14833,10 @@
             "$ref": "#/definitions/Session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -14395,7 +14859,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14416,7 +14883,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -14442,7 +14912,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -14500,7 +14974,10 @@
             "$ref": "#/definitions/ShippingZone"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
@@ -14523,7 +15000,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14544,7 +15024,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
@@ -14570,7 +15053,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingZone"
@@ -14592,7 +15079,10 @@
             "$ref": "#/definitions/Signin"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Session"
@@ -14609,7 +15099,10 @@
             "$ref": "#/definitions/Signup"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -14684,7 +15177,10 @@
             "$ref": "#/definitions/Subscription"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -14707,7 +15203,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -14733,7 +15232,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -14759,7 +15262,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -14782,7 +15289,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14803,7 +15313,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -14829,7 +15342,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -14855,7 +15372,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -14930,7 +15451,10 @@
             "$ref": "#/definitions/PaymentToken"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
@@ -14953,7 +15477,10 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
@@ -14979,7 +15506,11 @@
             "description": "The token identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentToken"
@@ -15046,7 +15577,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApiTracking"
@@ -15141,7 +15675,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SubscriptionTracking"
@@ -15200,7 +15737,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhookTracking"
@@ -15275,7 +15815,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
@@ -15298,7 +15841,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TransactionGatewayLog"
@@ -15321,7 +15867,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15342,7 +15891,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -15368,7 +15920,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LeadSource"
@@ -15394,7 +15950,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
@@ -15452,7 +16012,10 @@
             "$ref": "#/definitions/User"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15478,7 +16041,11 @@
             "description": "The token string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15501,7 +16068,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15522,7 +16092,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15548,7 +16121,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15574,7 +16151,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15597,7 +16178,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -15655,7 +16239,10 @@
             "$ref": "#/definitions/GlobalWebhook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
@@ -15678,7 +16265,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
@@ -15704,7 +16294,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlobalWebhook"
@@ -15770,7 +16364,10 @@
             "$ref": "#/definitions/Website"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
@@ -15793,7 +16390,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15814,7 +16414,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
@@ -15840,7 +16443,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Website"
@@ -15863,7 +16470,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -15884,7 +16494,10 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhook"
@@ -15910,7 +16523,11 @@
             "description": "The resource identifier string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebsiteWebhook"

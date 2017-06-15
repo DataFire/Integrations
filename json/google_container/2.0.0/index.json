@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -739,6 +740,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_container": {
+          "integration": "google_container"
+        }
+      }
+    },
+    {
       "id": "projects.zones.clusters.list",
       "title": "projects.zones.clusters.list",
       "description": "Lists all clusters owned by a project in either the specified zone or all\nzones.",
@@ -815,7 +887,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListClustersResponse"
@@ -906,7 +982,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -998,7 +1078,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1090,7 +1175,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Cluster"
@@ -1185,7 +1275,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1280,7 +1375,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1372,7 +1472,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListNodePoolsResponse"
@@ -1467,7 +1572,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1563,7 +1673,13 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "nodePoolId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1659,7 +1775,13 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "nodePoolId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NodePool"
@@ -1758,7 +1880,13 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "nodePoolId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1857,7 +1985,13 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "nodePoolId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1952,7 +2086,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2047,7 +2186,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clusterId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2135,7 +2279,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListOperationsResponse"
@@ -2227,7 +2375,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "operationId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2322,7 +2475,12 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "operationId",
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -2410,7 +2568,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "zone"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServerConfig"

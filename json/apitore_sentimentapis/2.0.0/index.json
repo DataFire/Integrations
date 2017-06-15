@@ -91,7 +91,11 @@
             "description": "text"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SentimentResponseEntity"

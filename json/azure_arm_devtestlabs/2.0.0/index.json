@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -1700,7 +1701,11 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Lab]"
@@ -1744,7 +1749,12 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Lab]"
@@ -1792,7 +1802,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[ArtifactSource]"
@@ -1844,7 +1860,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "artifactSourceName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Artifact]"
@@ -1887,7 +1910,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "artifactSourceName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Artifact"
@@ -1933,7 +1964,16 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "artifactSourceName",
+          "name",
+          "generateArmTemplateRequest",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArmTemplateInfo"
@@ -1972,7 +2012,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2009,7 +2056,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
@@ -2051,7 +2105,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "artifactSource",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
@@ -2093,7 +2155,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "artifactSource",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArtifactSource"
@@ -2132,7 +2202,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Cost"
@@ -2180,7 +2257,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[CustomImage]"
@@ -2219,7 +2302,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2256,7 +2346,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomImage"
@@ -2298,7 +2395,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "customImage",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomImage"
@@ -2346,7 +2451,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Formula]"
@@ -2385,7 +2496,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2422,7 +2540,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Formula"
@@ -2464,7 +2589,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "formula",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Formula"
@@ -2512,7 +2645,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[GalleryImage]"
@@ -2554,7 +2693,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "evaluatePoliciesRequest",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EvaluatePoliciesResponse"
@@ -2606,7 +2753,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "policySetName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Policy]"
@@ -2649,7 +2803,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "policySetName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2690,7 +2852,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "policySetName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2736,7 +2906,16 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "policySetName",
+          "name",
+          "policy",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2782,7 +2961,16 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "policySetName",
+          "name",
+          "policy",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2830,7 +3018,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[Schedule]"
@@ -2869,7 +3063,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2906,7 +3107,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
@@ -2948,7 +3156,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "schedule",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
@@ -2990,7 +3206,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "schedule",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Schedule"
@@ -3029,7 +3253,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3075,7 +3306,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[LabVirtualMachine]"
@@ -3114,7 +3351,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3151,7 +3395,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
@@ -3193,7 +3444,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "labVirtualMachine",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
@@ -3235,7 +3494,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "labVirtualMachine",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LabVirtualMachine"
@@ -3277,7 +3544,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "applyArtifactsRequest",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3314,7 +3589,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3351,7 +3633,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3397,7 +3686,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[VirtualNetwork]"
@@ -3436,7 +3731,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3473,7 +3775,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
@@ -3515,7 +3824,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "virtualNetwork",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
@@ -3557,7 +3874,15 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "labName",
+          "name",
+          "virtualNetwork",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VirtualNetwork"
@@ -3592,7 +3917,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3625,7 +3956,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
@@ -3663,7 +4000,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "lab",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
@@ -3701,7 +4045,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "lab",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Lab"
@@ -3739,7 +4090,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "labVirtualMachine",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3775,7 +4133,14 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "generateUploadUriParameter",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GenerateUploadUriResponse"
@@ -3810,7 +4175,13 @@
             "description": "Client API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResponseWithContinuation[LabVhd]"

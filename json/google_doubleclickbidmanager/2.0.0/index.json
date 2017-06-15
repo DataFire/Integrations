@@ -1383,7 +1383,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "queryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListReportsResponse"
@@ -1483,7 +1486,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "queryId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1530,7 +1536,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "queryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Query"
@@ -1582,7 +1591,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "queryId"
+        ]
       },
       "outputSchema": {}
     },

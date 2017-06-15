@@ -517,7 +517,10 @@
             "$ref": "#/definitions/CreateSandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
@@ -540,7 +543,10 @@
             "description": "Name of the Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -561,7 +567,10 @@
             "description": "Name of the Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
@@ -587,7 +596,11 @@
             "$ref": "#/definitions/Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
@@ -610,7 +623,10 @@
             "description": "Name of the Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Sandbox"
@@ -633,7 +649,10 @@
             "description": "Name of the Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -654,7 +673,10 @@
             "description": "Name of the Sandbox"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
       },
       "outputSchema": {},
       "security": {

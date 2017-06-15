@@ -364,7 +364,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "metadataOwnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceMetadata"
@@ -443,7 +447,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "partnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCustomersResponse"
@@ -525,7 +532,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "partnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClaimDeviceResponse"
@@ -607,7 +617,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "partnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FindDevicesByDeviceIdentifierResponse"
@@ -689,7 +702,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "partnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FindDevicesByOwnerResponse"
@@ -771,7 +787,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "partnerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -850,7 +869,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"

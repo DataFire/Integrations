@@ -937,7 +937,10 @@
             "description": "The end date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with start_date. If start_date and end_date are not specified, the service will return the last three years of data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "p_id"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -984,7 +987,10 @@
             "description": "JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "p_id"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",
@@ -1032,7 +1038,10 @@
             "description": "The end date (mm/dd/yyyy) for the date range of interest. Must be used in conjunction with start_date. If start_date and end_date are not specified, the service will return the last three years of data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "p_id"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",

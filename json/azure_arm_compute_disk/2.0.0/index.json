@@ -535,7 +535,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskList"
@@ -557,7 +561,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SnapshotList"
@@ -583,7 +591,12 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DiskList"
@@ -613,7 +626,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
@@ -643,7 +662,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Disk"
@@ -676,7 +701,14 @@
             "$ref": "#/definitions/DiskUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version",
+          "disk"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Disk"
@@ -709,7 +741,14 @@
             "$ref": "#/definitions/Disk"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version",
+          "disk"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Disk"
@@ -742,7 +781,14 @@
             "$ref": "#/definitions/GrantAccessData"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version",
+          "grantAccessData"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessUri"
@@ -772,7 +818,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "diskName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
@@ -798,7 +850,12 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SnapshotList"
@@ -828,7 +885,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"
@@ -858,7 +921,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Snapshot"
@@ -891,7 +960,14 @@
             "$ref": "#/definitions/SnapshotUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version",
+          "snapshot"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Snapshot"
@@ -924,7 +1000,14 @@
             "$ref": "#/definitions/Snapshot"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version",
+          "snapshot"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Snapshot"
@@ -957,7 +1040,14 @@
             "$ref": "#/definitions/GrantAccessData"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version",
+          "grantAccessData"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessUri"
@@ -987,7 +1077,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "snapshotName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatusResponse"

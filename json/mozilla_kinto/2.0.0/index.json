@@ -164,7 +164,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "BatchPayloadSchema"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -436,7 +439,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -528,7 +534,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "collection_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -578,7 +588,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "collection_id",
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -642,7 +657,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -755,7 +774,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -813,7 +835,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucket_id",
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -888,7 +914,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -975,7 +1004,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_ver:\\d+",
+          "metrics:.*",
+          "prefix",
+          "application_guid",
+          "application_ver"
+        ]
       },
       "outputSchema": {},
       "security": {

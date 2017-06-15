@@ -317,7 +317,12 @@
             "description": "Precedes the search term string. Used in a Search Query. Except for &lt;specific_concept_name&gt;, Search Query will take the required parameters listed above (&lt;concept_type&gt;, &lt;concept_uri&gt;, &lt;article_uri&gt;) as an optional_parameter in addition to the query=&lt;query_term&gt;."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "concept-type",
+          "specific-concept",
+          "query"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -377,7 +382,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "properties": {

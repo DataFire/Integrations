@@ -226,7 +226,11 @@
             "description": "url"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extractorId",
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResponse"

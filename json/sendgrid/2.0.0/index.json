@@ -3077,7 +3077,10 @@
             "description": "The ID of the whitelisted IP address that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3098,7 +3101,10 @@
             "description": "The ID of the whitelisted IP address that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3308,7 +3314,10 @@
             "description": "The ID of the alert you would like to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "alert_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3333,7 +3342,10 @@
             "description": "The ID of the alert you would like to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "alert_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3417,7 +3429,10 @@
             "description": "The ID of the alert you would like to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "alert_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3583,7 +3598,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -3605,7 +3623,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3647,7 +3668,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/api_key_name_id"
@@ -3690,7 +3714,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/api_key_name_id_scopes"
@@ -3816,7 +3843,10 @@
             "description": "The id of the suppression group you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -3839,7 +3869,10 @@
             "description": "The id of the suppression group you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3919,7 +3952,10 @@
             "description": "The id of the suppression group you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/suppression_group"
@@ -3942,7 +3978,10 @@
             "description": "The id of the unsubscribe group that you are adding suppressions to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "description": "The list of email addresses belonging to the given suppression group.",
@@ -3990,7 +4029,10 @@
             "description": "The id of the unsubscribe group that you are adding suppressions to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4047,7 +4089,10 @@
             "description": "The ID of the suppression group that you would like to search."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4086,7 +4131,11 @@
             "description": "The email address that you want to remove from the suppression group."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group_id",
+          "email"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4200,7 +4249,10 @@
             "description": "The email address of the global suppression you want to retrieve. Or, if you want to check if an email address is on the global suppressions list, enter that email address here."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4221,7 +4273,10 @@
             "description": "The email address of the global suppression you want to retrieve. Or, if you want to check if an email address is on the global suppressions list, enter that email address here."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4254,7 +4309,10 @@
             "description": "The email address that you want to search suppression groups for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4343,7 +4401,10 @@
             "description": "The browsers to get statistics for. You can include up to 10 different browsers by including this parameter multiple times."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -4502,7 +4563,10 @@
             "description": "The ID of the campaign that you would like to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -4525,7 +4589,10 @@
             "description": "The ID of the campaign that you would like to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4643,7 +4710,10 @@
             "description": "The ID of the campaign that you would like to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/campaign_response"
@@ -4665,7 +4735,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -4687,7 +4760,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4735,7 +4811,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4793,7 +4872,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4838,7 +4920,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4890,7 +4975,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "campaign_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4994,7 +5082,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date",
+          "categories"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5053,7 +5145,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/category_stats"
@@ -5089,7 +5184,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5138,7 +5236,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date",
+          "client_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -5238,7 +5340,10 @@
             "description": "The ID of the custom field that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "custom_field_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/global:ErrorResponse"
@@ -5261,7 +5366,10 @@
             "description": "The ID of the custom field that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "custom_field_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_custom_field_with_id"
@@ -5388,7 +5496,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -5406,11 +5517,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "list_id_query": {
+            "type": "integer",
+            "description": "The ID of the list to retrieve."
+          },
           "list_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_list"
@@ -5429,7 +5547,8 @@
         "type": "object",
         "properties": {
           "list_id": {
-            "type": "string"
+            "type": "integer",
+            "description": "The ID of the list you are updating."
           },
           "body": {
             "example": {
@@ -5446,9 +5565,16 @@
             ],
             "title": "Update a List request",
             "type": "object"
+          },
+          "list_id_path": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id",
+          "list_id_path"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -5476,10 +5602,18 @@
           },
           "list_id": {
             "type": "integer",
+            "description": "The ID of the list whose recipients you are requesting."
+          },
+          "list_id_path": {
+            "type": "integer",
             "description": "The id of the list of recipients you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id",
+          "list_id_path"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5520,7 +5654,10 @@
             "description": "The id of the list of recipients you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -5540,14 +5677,28 @@
         "properties": {
           "list_id": {
             "type": "integer",
-            "description": "The ID of the list that you want to add the recipient to."
+            "description": "The ID of the list you are taking this recipient away from."
           },
           "recipient_id": {
+            "type": "integer",
+            "description": "The ID of the recipient to take off the list."
+          },
+          "list_id_path": {
+            "type": "integer",
+            "description": "The ID of the list that you want to add the recipient to."
+          },
+          "recipient_id_path": {
             "type": "string",
             "description": "The ID of the recipient you are adding to the list."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id",
+          "recipient_id",
+          "list_id_path",
+          "recipient_id_path"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -5574,7 +5725,11 @@
             "description": "The ID of the recipient you are adding to the list."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "list_id",
+          "recipient_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -5847,7 +6002,10 @@
             "description": "The ID of the recipient that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipient_id"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -5870,7 +6028,10 @@
             "description": "The ID of the recipient that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipient_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_recipient"
@@ -5893,7 +6054,10 @@
             "description": "The ID of the recipient for whom you are retrieving lists."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipient_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6029,7 +6193,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "segment_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -6048,10 +6215,18 @@
         "type": "object",
         "properties": {
           "segment_id": {
+            "type": "integer",
+            "description": "The ID of the segment you want to request."
+          },
+          "segment_id_path": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "segment_id",
+          "segment_id_path"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_segments"
@@ -6069,8 +6244,9 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "segment_id": {
-            "type": "string"
+          "segment_id_query": {
+            "type": "string",
+            "description": "The ID of the segment you are updating."
           },
           "body": {
             "example": {
@@ -6105,9 +6281,15 @@
               "name"
             ],
             "type": "object"
+          },
+          "segment_id": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "segment_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/contactdb_segments"
@@ -6136,7 +6318,10 @@
             "description": "The ID of the segment from which you want to retrieve recipients."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "segment_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6187,7 +6372,10 @@
             "description": "The starting date of the statistics to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -6242,7 +6430,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -6460,7 +6651,10 @@
             "description": "The name of the IP pool that you want to retrieve the IP addresses from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool_name"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -6483,7 +6677,10 @@
             "description": "The name of the IP pool that you want to retrieve the IP addresses from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool_name"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6536,7 +6733,10 @@
             "description": "The name of the IP pool that you want to retrieve the IP addresses from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_pool"
@@ -6571,7 +6771,10 @@
             "description": "The name of the IP pool that you want to add an IP address to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool_name"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6625,7 +6828,11 @@
             "description": "The IP address that you are removing."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pool_name",
+          "ip"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -6696,7 +6903,10 @@
             "description": "The IP address that you want to remove from warmup mode."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip_address"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -6719,7 +6929,10 @@
             "description": "The IP address that you want to remove from warmup mode."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip_address"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_warmup_response"
@@ -6742,7 +6955,10 @@
             "description": "The IP address you are retrieving the IP pools for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ip_address"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6826,7 +7042,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "batch_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/mail_batch_id"
@@ -7937,7 +8156,10 @@
             "description": "The mail box providers to get statistics for. You can include up to 10 by including this parameter multiple times."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -8242,7 +8464,10 @@
             "description": "The ID of the sender identity that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sender_id"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -8266,7 +8491,10 @@
             "description": "The ID of the sender identity that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sender_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/senderID"
@@ -8365,7 +8593,10 @@
             "description": "The ID of the sender identity that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sender_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/senderID"
@@ -8388,7 +8619,10 @@
             "description": "The ID of the sender identity for which you would like to resend a verification email."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sender_id"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -8433,7 +8667,10 @@
             "description": "The end date of the statistics to retrieve. Defaults to today. Must follow format YYYY-MM-DD."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -8714,7 +8951,11 @@
             "description": "The end date of the statistics to retrieve. Defaults to today."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subusers",
+          "start_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/stats"
@@ -8761,7 +9002,10 @@
             "description": "Optional beginning point in the list to retrieve from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subuser_stats"
@@ -8812,7 +9056,10 @@
             "description": "The metric that you want to sort by.  Must be a single metric."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/category_stats"
@@ -8834,7 +9081,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -8869,7 +9119,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -8903,7 +9156,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -8936,7 +9192,10 @@
             "description": "The name of the subuser for which to retrieve monitor settings."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -8960,7 +9219,10 @@
             "description": "The name of the subuser for which to retrieve monitor settings."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
@@ -8990,7 +9252,10 @@
             "description": "The name of the subuser for which to retrieve monitor settings."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
@@ -9020,7 +9285,10 @@
             "description": "The name of the subuser for which to retrieve monitor settings."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/monitor"
@@ -9066,7 +9334,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "subuser_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/subuser_stats"
@@ -9197,7 +9469,10 @@
             "description": "The blocked email address that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9218,7 +9493,10 @@
             "description": "The blocked email address that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9320,7 +9598,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9364,7 +9645,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email_address",
+          "email"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -9386,7 +9671,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9530,7 +9818,10 @@
             "description": "The specific email address of the invalid email entry that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9551,7 +9842,10 @@
             "description": "The specific email address of the invalid email entry that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9596,7 +9890,10 @@
             "description": "The email address of a specific spam report that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9617,7 +9914,10 @@
             "description": "The email address of a specific spam report that you want to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -9875,7 +10175,10 @@
             "description": "The id of the transactional template you want to edit."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9896,7 +10199,10 @@
             "description": "The id of the transactional template you want to edit."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/transactional_template"
@@ -9932,7 +10238,10 @@
             "description": "The id of the transactional template you want to edit."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/transactional_template"
@@ -9965,7 +10274,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -10007,7 +10319,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id",
+          "version_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10030,7 +10346,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id",
+          "version_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -10104,7 +10424,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id",
+          "version_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -10146,7 +10470,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "template_id",
+          "version_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -10841,7 +11169,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "batch_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -10863,7 +11194,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "batch_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -10908,7 +11242,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "batch_id"
+        ]
       },
       "outputSchema": {
         "type": "null"
@@ -11223,7 +11560,10 @@
             "description": "The hostname associated with the specific inbound parse setting that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hostname"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11244,7 +11584,10 @@
             "description": "The hostname associated with the specific inbound parse setting that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hostname"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/parse-setting"
@@ -11275,7 +11618,10 @@
             "description": "The hostname associated with the specific inbound parse setting that you want to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "hostname"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/parse-setting"
@@ -11319,7 +11665,10 @@
             "description": "The end date of the statistics you want to retrieve. Must be in the format YYYY-MM-DD"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_date"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -11676,7 +12025,10 @@
             "description": "The id of the domain whitelabel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11697,7 +12049,10 @@
             "description": "The id of the domain whitelabel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel::domain"
@@ -11739,7 +12094,10 @@
             "description": "The id of the domain whitelabel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -11787,7 +12145,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
@@ -11824,7 +12185,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
@@ -11849,7 +12213,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ip"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelabel:domain_spf"
@@ -11871,7 +12239,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -12049,7 +12420,10 @@
             "description": "The id of the IP whitelabel that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "object"
@@ -12072,7 +12446,10 @@
             "description": "The id of the IP whitelabel that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_whitelabel"
@@ -12094,7 +12471,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -12281,7 +12661,10 @@
             "description": "The username of the subuser account that you want to disassociate a link whitelabel from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12302,7 +12685,10 @@
             "description": "The username of the subuser to retrieve associated link whitelabels for."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
@@ -12325,7 +12711,10 @@
             "description": "The id of the link whitelabel that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12346,7 +12735,10 @@
             "description": "The id of the link whitelabel that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
@@ -12385,7 +12777,10 @@
             "description": "The id of the link whitelabel that you want to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"
@@ -12408,7 +12803,10 @@
             "description": "The id of the link whitelabel that you want to validate."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -12521,7 +12919,10 @@
             "description": "The id of the link whitelabel you want to associate."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "link_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/link_whitelabel"

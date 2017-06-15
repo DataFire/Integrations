@@ -457,7 +457,10 @@
             "$ref": "#/definitions/Audit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audit"
@@ -486,7 +489,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -510,7 +516,10 @@
             "description": "Fields to return separate by comas: name,id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audit"
@@ -600,7 +609,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -620,7 +632,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -640,7 +655,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -678,7 +696,10 @@
             "$ref": "#/definitions/Feedback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audit"
@@ -823,7 +844,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {}
     },
@@ -859,7 +883,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -877,7 +904,10 @@
             "description": "ZIP package"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
@@ -934,7 +964,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reports"
@@ -991,7 +1024,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Reports"
@@ -1104,7 +1140,10 @@
             "$ref": "#/definitions/PostSite"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1133,7 +1172,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1157,7 +1199,10 @@
             "description": "Fields to return separate by comas: name,id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1180,7 +1225,11 @@
             "$ref": "#/definitions/PostSite"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1220,7 +1269,10 @@
             "description": "ORDER by this field"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audits"
@@ -1240,7 +1292,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audit"
@@ -1260,7 +1315,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1280,7 +1338,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1298,7 +1359,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1316,7 +1380,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1336,7 +1403,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1376,7 +1446,10 @@
             "description": "ORDER by this field"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Extension"
@@ -1401,7 +1474,11 @@
             "description": "URL to install the extension from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "url"
+        ]
       },
       "outputSchema": {}
     },
@@ -1468,7 +1545,10 @@
             "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Log"
@@ -1491,7 +1571,11 @@
             "$ref": "#/definitions/PostLog"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Log"
@@ -1511,7 +1595,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Monitor"
@@ -1531,7 +1618,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Monitor"
@@ -1551,7 +1641,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1608,7 +1701,10 @@
             "description": "ORDER by this field"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
@@ -1631,7 +1727,11 @@
             "$ref": "#/definitions/Tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -1651,7 +1751,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1671,7 +1774,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Uptime"
@@ -1691,7 +1797,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Log"
@@ -1711,7 +1820,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Log"
@@ -1737,7 +1849,10 @@
             "$ref": "#/definitions/SsoUsers"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SsoUsers"
@@ -1757,7 +1872,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1781,7 +1899,10 @@
             "description": "Fields to return separate by comas: name,id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SsoUsers"
@@ -1804,7 +1925,11 @@
             "$ref": "#/definitions/SsoUsers"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SsoUsers"
@@ -1875,7 +2000,10 @@
             "$ref": "#/definitions/Tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
@@ -1904,7 +2032,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1928,7 +2059,10 @@
             "description": "Fields to return separate by comas: name,id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
@@ -1951,7 +2085,11 @@
             "$ref": "#/definitions/Tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tag"
@@ -2038,7 +2176,10 @@
             "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Site"
@@ -2083,7 +2224,10 @@
             "description": "Fields to return separate by commas: name,id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Version"

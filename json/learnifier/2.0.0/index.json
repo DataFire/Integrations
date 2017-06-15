@@ -1065,7 +1065,10 @@
             "description": "The external id of the organization unit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrgUnit"
@@ -1084,7 +1087,10 @@
             "description": "The external id of the participation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Participation"
@@ -1103,7 +1109,10 @@
             "description": "The external id of the organization unit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -1122,7 +1131,10 @@
             "description": "The external id of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "extid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1153,7 +1165,10 @@
             "description": "ID of group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "groupid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1182,7 +1197,10 @@
             "$ref": "#/definitions/AddOrganizationUnit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddOrganizationUnitResponse"
@@ -1200,7 +1218,10 @@
             "description": "Id of the organization unit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrgUnit"
@@ -1220,7 +1241,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "orgid"
+        ]
       },
       "outputSchema": {}
     },
@@ -1236,7 +1261,10 @@
             "description": "Id of the organization unit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1260,7 +1288,11 @@
             "$ref": "#/definitions/AddProject"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -1282,7 +1314,11 @@
             "description": "Id of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid"
+        ]
       },
       "outputSchema": {}
     },
@@ -1302,7 +1338,11 @@
             "description": "Id of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -1327,7 +1367,12 @@
             "$ref": "#/definitions/UpdateProject"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -1349,7 +1394,11 @@
             "description": "Id of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1377,7 +1426,12 @@
             "$ref": "#/definitions/AddParticipant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1401,7 +1455,12 @@
             "description": "Participant id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid",
+          "participantId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1425,7 +1484,12 @@
             "description": "Id of the participant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid",
+          "participantId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1449,7 +1513,12 @@
             "description": "Id of the participant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid",
+          "participantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LoginLink"
@@ -1471,7 +1540,11 @@
             "description": "Id of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "projectid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1493,7 +1566,10 @@
             "description": "ID of organization"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1518,7 +1594,11 @@
             "description": "ID of organization"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "orgid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1545,7 +1625,11 @@
             "description": "ID of group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "groupid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserGroup"
@@ -1569,7 +1653,11 @@
             "description": "ID of group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "groupid"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1599,7 +1687,12 @@
             "description": "ID of group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "orgid",
+          "groupid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserId"
@@ -1628,7 +1721,12 @@
             "description": "UUID of user to remove from group."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "orgid",
+          "groupid",
+          "uuid"
+        ]
       },
       "outputSchema": {}
     },
@@ -1673,7 +1771,10 @@
             "$ref": "#/definitions/AddUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddUserResponse"
@@ -1691,7 +1792,10 @@
             "description": "A user id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1713,7 +1817,11 @@
             "$ref": "#/definitions/AddUser"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userid",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1732,7 +1840,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userid",
+          "APIKEY"
+        ]
       },
       "outputSchema": {}
     },
@@ -1749,7 +1861,10 @@
             "description": "A user id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserParticipationInfo"

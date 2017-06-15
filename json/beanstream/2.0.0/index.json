@@ -1091,7 +1091,10 @@
             "description": "The transaction id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Transaction"
@@ -1113,7 +1116,10 @@
             "$ref": "#/definitions/PaymentRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentResponse"
@@ -1135,7 +1141,11 @@
             "$ref": "#/definitions/Return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transId",
+          "return"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentResponse"
@@ -1157,7 +1167,11 @@
             "$ref": "#/definitions/Void"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transId",
+          "void"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentResponse"
@@ -1174,7 +1188,10 @@
             "$ref": "#/definitions/CreateProfileBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "createProfileBody"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"
@@ -1192,7 +1209,10 @@
             "description": "The profile id. (aka CustomerCode)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"
@@ -1210,7 +1230,10 @@
             "description": "The profile id. (aka CustomerCode)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaymentProfile"
@@ -1231,7 +1254,11 @@
             "$ref": "#/definitions/UpdateProfileBody"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId",
+          "updateProfileBody"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"
@@ -1249,7 +1276,10 @@
             "description": "The profile id. (aka CustomerCode)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileGetCards"
@@ -1270,7 +1300,11 @@
             "$ref": "#/definitions/ProfileCard"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId",
+          "card"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"
@@ -1293,7 +1327,11 @@
             "description": "The card id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId",
+          "cardId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"
@@ -1319,7 +1357,12 @@
             "$ref": "#/definitions/ProfileCard"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "profileId",
+          "cardId",
+          "card"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileResponse"

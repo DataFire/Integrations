@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -357,7 +358,12 @@
             "$ref": "#/definitions/CheckNameAvailabilityInput"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "CheckNameAvailabilityInput"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityOutput"
@@ -388,7 +394,12 @@
             "description": "Name of the resource group within the Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaServiceCollection"
@@ -426,7 +437,13 @@
             "minLength": 3
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -462,7 +479,13 @@
             "minLength": 3
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
@@ -503,7 +526,14 @@
             "$ref": "#/definitions/MediaService"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName",
+          "MediaService"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
@@ -544,7 +574,14 @@
             "$ref": "#/definitions/MediaService"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName",
+          "MediaService"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MediaService"
@@ -582,7 +619,13 @@
             "minLength": 3
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ServiceKeys"
@@ -623,7 +666,14 @@
             "$ref": "#/definitions/RegenerateKeyInput"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName",
+          "RegenerateKeyInput"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegenerateKeyOutput"
@@ -664,7 +714,14 @@
             "$ref": "#/definitions/SyncStorageKeysInput"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "mediaServiceName",
+          "SyncStorageKeysInput"
+        ]
       },
       "outputSchema": {},
       "security": {

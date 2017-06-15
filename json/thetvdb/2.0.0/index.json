@@ -806,7 +806,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EpisodeRecordData"
@@ -843,7 +846,10 @@
             "description": "ID of the language"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Language"
@@ -865,7 +871,10 @@
             "$ref": "#/definitions/Auth"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authentication string"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"
@@ -959,7 +968,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesData"
@@ -987,7 +999,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1009,7 +1024,10 @@
             "description": "ID of the series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesActors"
@@ -1037,7 +1055,10 @@
             "description": "Page of results to fetch. Defaults to page 1 if not provided."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodes"
@@ -1093,7 +1114,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesQuery"
@@ -1117,7 +1141,10 @@
             "description": "ID of the series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesQueryParams"
@@ -1141,7 +1168,10 @@
             "description": "ID of the series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesEpisodesSummary"
@@ -1173,7 +1203,11 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "keys"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesData"
@@ -1201,7 +1235,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FilterKeys"
@@ -1229,7 +1266,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImagesCounts"
@@ -1269,7 +1309,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImageQueryResults"
@@ -1297,7 +1340,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SeriesImagesQueryParams"
@@ -1328,7 +1374,10 @@
             "description": "Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fromTime"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateData"
@@ -1394,7 +1443,10 @@
             "description": "ID of the series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserFavoritesData"
@@ -1418,7 +1470,10 @@
             "description": "ID of the series"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserFavoritesData"
@@ -1502,7 +1557,11 @@
             "description": "ID of the ratings record that you wish to modify"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemType",
+          "itemId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsDataNoLinksEmptyArray"
@@ -1536,7 +1595,12 @@
             "description": "The updated rating number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemType",
+          "itemId",
+          "itemRating"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserRatingsDataNoLinks"

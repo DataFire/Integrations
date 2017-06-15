@@ -678,7 +678,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -719,7 +729,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -760,7 +780,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -801,7 +831,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -842,7 +882,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -883,7 +933,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DomainMetadataResult"
@@ -926,7 +986,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAttributesResult"
@@ -977,7 +1047,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListDomainsResult"
@@ -1020,7 +1100,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1065,7 +1155,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SelectResult"

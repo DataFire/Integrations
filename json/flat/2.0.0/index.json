@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://flat.io/auth/oauth",
@@ -1134,6 +1135,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "flat": {
+          "integration": "flat"
+        }
+      }
+    },
+    {
       "id": "getGroupScores",
       "title": "getGroupScores",
       "description": "Get the list of scores shared with a group.\n",
@@ -1149,7 +1221,10 @@
             "description": "Filter the score forked from the score id `parent`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "group"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1183,7 +1258,10 @@
             "$ref": "#/definitions/ScoreCreation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
@@ -1206,7 +1284,10 @@
             "description": "Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1231,7 +1312,10 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
@@ -1257,7 +1341,10 @@
             "$ref": "#/definitions/ScoreModification"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
@@ -1284,7 +1371,10 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1313,7 +1403,11 @@
             "$ref": "#/definitions/ScoreCollaboratorCreation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreCollaborator"
@@ -1340,7 +1434,11 @@
             "description": "Unique identifier of a **collaborator permission**, or unique identifier of a **User**, or unique identifier of a **Group**\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "collaborator"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1369,7 +1467,11 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "collaborator"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreCollaborator"
@@ -1396,7 +1498,10 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1429,7 +1534,11 @@
             "$ref": "#/definitions/ScoreCommentCreation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreComment"
@@ -1460,7 +1569,11 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "comment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1492,7 +1605,12 @@
             "$ref": "#/definitions/ScoreCommentUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "comment",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreComment"
@@ -1523,7 +1641,11 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "comment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1552,7 +1674,11 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "comment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1580,7 +1706,11 @@
             "$ref": "#/definitions/ScoreFork"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreDetails"
@@ -1607,7 +1737,10 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1636,7 +1769,11 @@
             "$ref": "#/definitions/ScoreRevisionCreation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreRevision"
@@ -1667,7 +1804,11 @@
             "description": "This sharing key must be specified to access to a score with a `privacy` mode set to `privateLink` and the current user is not a collaborator of the document.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "revision"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScoreRevision"
@@ -1714,7 +1855,12 @@
             "description": "An optional a set of parts to be exported. This parameter must be\nspecified with a list of integers. For example \"1,2,5\".\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "score",
+          "revision",
+          "format"
+        ]
       },
       "outputSchema": {
         "format": "binary",
@@ -1733,7 +1879,10 @@
             "description": "This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
@@ -1760,7 +1909,10 @@
             "description": "Return only the identifiers of the scores"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1790,7 +1942,10 @@
             "description": "Filter the score forked from the score id `parent`"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {

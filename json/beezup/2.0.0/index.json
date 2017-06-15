@@ -2091,7 +2091,10 @@
             "$ref": "#/definitions/saveAutomaticTransitionRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2123,7 +2126,12 @@
             "$ref": "#/definitions/changeOrderListRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "changeOrderType",
+          "userName",
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2143,7 +2151,10 @@
             "$ref": "#/definitions/clearMerchantOrderInfoListRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2163,7 +2174,10 @@
             "$ref": "#/definitions/setMerchantOrderInfoListRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2193,7 +2207,11 @@
             "minimum": 25
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageNumber",
+          "pageSize"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/orderExportations"
@@ -2222,7 +2240,11 @@
             "$ref": "#/definitions/exportOrderListRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2258,7 +2280,10 @@
             "$ref": "#/definitions/orderListRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Accept-Encoding"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/orderListFull"
@@ -2329,7 +2354,12 @@
             "description": "The order BeezUP identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/order"
@@ -2361,7 +2391,12 @@
             "description": "The order BeezUP identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2391,7 +2426,12 @@
             "description": "The order BeezUP identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2421,7 +2461,12 @@
             "description": "The order BeezUP identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/orderHistory"
@@ -2456,7 +2501,13 @@
             "$ref": "#/definitions/setMerchantOrderInfoRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId",
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2501,7 +2552,15 @@
             "$ref": "#/definitions/changeOrderRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "marketplaceTechnicalCode",
+          "accountId",
+          "beezUPOrderId",
+          "changeOrderType",
+          "userName",
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/changeOrderResponse"

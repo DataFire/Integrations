@@ -859,7 +859,11 @@
             "description": "The subscription identifier."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubDescriptionListResult"
@@ -884,7 +888,12 @@
             "$ref": "#/definitions/OperationInputs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "operationInputs"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubNameAvailabilityInfo"
@@ -910,7 +919,12 @@
             "description": "The name of the resource group that contains the IoT hubs."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubDescriptionListResult"
@@ -940,7 +954,13 @@
             "description": "The name of the IoT hub to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubDescription"
@@ -970,7 +990,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubDescription"
@@ -1003,7 +1029,14 @@
             "$ref": "#/definitions/IotHubDescription"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "iotHubDescription"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubDescription"
@@ -1037,7 +1070,14 @@
             "description": "The name of the shared access policy."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "keyName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessSignatureAuthorizationRule"
@@ -1067,7 +1107,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistryStatistics"
@@ -1101,7 +1147,14 @@
             "description": "The name of the Event Hub-compatible endpoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "eventHubEndpointName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubConsumerGroupsListResult"
@@ -1139,7 +1192,15 @@
             "description": "The name of the consumer group to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "eventHubEndpointName",
+          "name"
+        ]
       },
       "outputSchema": {}
     },
@@ -1175,7 +1236,15 @@
             "description": "The name of the consumer group to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "eventHubEndpointName",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubConsumerGroupInfo"
@@ -1213,7 +1282,15 @@
             "description": "The name of the consumer group to add."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "eventHubEndpointName",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EventHubConsumerGroupInfo"
@@ -1246,7 +1323,14 @@
             "$ref": "#/definitions/ExportDevicesRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "exportDevicesParameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResponse"
@@ -1279,7 +1363,14 @@
             "$ref": "#/definitions/ImportDevicesRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "importDevicesParameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResponse"
@@ -1309,7 +1400,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResponseListResult"
@@ -1343,7 +1440,14 @@
             "description": "The job identifier."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResponse"
@@ -1373,7 +1477,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleListResult"
@@ -1403,7 +1513,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubQuotaMetricInfoListResult"
@@ -1433,7 +1549,13 @@
             "description": "The name of the IoT hub."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId",
+          "resourceGroupName",
+          "resourceName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IotHubSkuDescriptionListResult"

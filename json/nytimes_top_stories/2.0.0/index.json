@@ -189,7 +189,11 @@
             "description": "The name of the function the API call results will be passed to. Required when using JSONP. This parameter has only one valid value per section. The format is {section_name}TopStoriesCallback.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "format"
+        ]
       },
       "outputSchema": {
         "properties": {

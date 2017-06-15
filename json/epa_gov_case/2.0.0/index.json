@@ -2178,7 +2178,10 @@
             "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -2233,7 +2236,10 @@
             "description": "Longitude of 2nd corner of box that bounds the resulting facilities. The latitude and longitude of both corners of the bounding box must be provided."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "description": "Service call container.",
@@ -2293,7 +2299,10 @@
             "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "description": "Service call container.",

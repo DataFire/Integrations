@@ -155,7 +155,10 @@
             "description": "The complete URL of a specific news item, URL-encoded or backslash-escaped"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -212,7 +215,11 @@
             "description": "Sets the starting point of the result set"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "section"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -273,7 +280,12 @@
             "description": "Sets the starting point of the result set"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "section",
+          "time-period"
+        ]
       },
       "outputSchema": {
         "properties": {

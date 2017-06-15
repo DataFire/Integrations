@@ -57,7 +57,10 @@
             "description": "The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -85,7 +88,10 @@
             "description": "How many records to retrieve at a time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -136,7 +142,11 @@
             "description": "The picture itself"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -163,7 +173,11 @@
             "description": "The ID of the analysis for which the data will be retrieved"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "analysisId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -186,7 +200,10 @@
             "description": "The secretKey or readOnlyKey provided by VisageCloud"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -213,7 +230,11 @@
             "description": "The id of the collection that will be removed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -240,7 +261,11 @@
             "description": "The id of the collection for which the data will be retrieved"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -267,7 +292,11 @@
             "description": "The name of the collection that will be created"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "collectionName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -298,7 +327,12 @@
             "description": "The collection that contains the profile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "profileId",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -333,7 +367,13 @@
             "description": "The collection that contains the profile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "faceHash",
+          "profileId",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -364,7 +404,12 @@
             "description": "The collection that contains the profile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "profileId",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -399,7 +444,13 @@
             "description": "The collection that contains the profile"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "faceHash",
+          "profileId",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -438,7 +489,11 @@
             "description": "Allows you to do finer filtering in face recognition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "collectionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -470,7 +525,11 @@
             "description": "How many frames to retrieve at a time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "streamId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -497,7 +556,11 @@
             "description": "The id of the stream that will be started"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -524,7 +587,11 @@
             "description": "The id of the stream that will be stopped"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -551,7 +618,11 @@
             "description": "The id of the stream that will be removed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"
@@ -607,7 +678,14 @@
             "description": "Boolean value indicating whether the stream is currently active or not"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "secretKey",
+          "name",
+          "url",
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestResponse"

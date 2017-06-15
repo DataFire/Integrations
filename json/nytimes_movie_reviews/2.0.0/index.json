@@ -145,7 +145,10 @@
             "description": "all | full-time | part-time | [reviewer-name]\n\nSpecify all to get all Times reviewers, or specify full-time or part-time to get that subset. Specify a reviewer's name to get details about a particular reviewer.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource-type"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -273,7 +276,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource-type"
+        ]
       },
       "outputSchema": {
         "properties": {

@@ -1980,7 +1980,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2037,7 +2042,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2069,7 +2079,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2102,7 +2118,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2135,7 +2156,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2168,7 +2195,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2201,7 +2233,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2230,7 +2268,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2259,7 +2302,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2292,7 +2340,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2325,7 +2378,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2358,7 +2417,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2391,7 +2455,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2424,7 +2494,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2457,7 +2532,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2490,7 +2571,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2523,7 +2609,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2555,7 +2647,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2588,7 +2686,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idAction",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2617,7 +2721,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "urls",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2645,7 +2754,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2822,7 +2936,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2854,7 +2973,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2939,7 +3064,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2972,7 +3102,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3001,7 +3136,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3082,7 +3222,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3115,7 +3260,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3212,7 +3363,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3265,7 +3422,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3297,7 +3459,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3329,7 +3497,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3366,7 +3540,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "tags",
+          "ixLastUpdate",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3398,7 +3579,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3427,7 +3614,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3459,7 +3651,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3491,7 +3689,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3523,7 +3727,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3555,7 +3765,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3587,7 +3803,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3619,7 +3841,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3651,7 +3879,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3688,7 +3922,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3720,7 +3959,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3757,7 +4002,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idLabel",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3802,7 +4053,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3834,7 +4090,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3867,7 +4129,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3896,7 +4164,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3937,7 +4210,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3969,7 +4247,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4002,7 +4286,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4035,7 +4325,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4071,7 +4367,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4156,7 +4459,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4189,7 +4498,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4222,7 +4536,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4263,7 +4583,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4304,7 +4629,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idMembership",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4340,7 +4671,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "idMembership",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4369,7 +4707,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4401,7 +4744,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4433,7 +4782,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4465,7 +4820,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4497,7 +4858,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4529,7 +4896,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4561,7 +4934,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4593,7 +4972,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4625,7 +5010,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4658,7 +5049,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4691,7 +5087,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4723,7 +5125,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4756,7 +5164,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "powerUp",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4788,7 +5202,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4820,7 +5240,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4852,7 +5278,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4884,7 +5316,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4916,7 +5354,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4948,7 +5392,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4980,7 +5430,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5012,7 +5468,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5044,7 +5506,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5076,7 +5544,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5109,7 +5583,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idBoard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5137,7 +5617,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5166,7 +5651,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5287,7 +5777,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5319,7 +5814,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5404,7 +5905,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5436,7 +5942,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5469,7 +5981,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idAction",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5505,7 +6023,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idAction",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5542,7 +6067,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5574,7 +6104,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5607,7 +6143,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idAttachment",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5644,7 +6186,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idAttachment",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5677,7 +6225,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5710,7 +6263,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5743,7 +6302,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5783,7 +6347,15 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklistCurrent",
+          "idCheckItem",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5819,7 +6391,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5856,7 +6435,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "idCheckItem",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5893,7 +6479,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "idCheckItem",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5933,7 +6526,15 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "idCheckItem",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5973,7 +6574,15 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "idCheckItem",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6013,7 +6622,15 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "idCheckItem",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6066,7 +6683,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6098,7 +6720,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6131,7 +6759,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6163,7 +6797,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6195,7 +6835,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6227,7 +6873,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6259,7 +6911,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6291,7 +6949,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6323,7 +6987,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6356,7 +7026,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idLabel",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6388,7 +7064,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6420,7 +7102,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6452,7 +7140,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6485,7 +7179,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6517,7 +7217,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6549,7 +7255,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6582,7 +7294,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "color",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6615,7 +7333,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6648,7 +7371,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6677,7 +7406,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6710,7 +7444,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6743,7 +7482,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6775,7 +7519,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6808,7 +7558,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6840,7 +7596,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6872,7 +7634,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6905,7 +7673,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6937,7 +7710,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6970,7 +7749,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idSticker",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7007,7 +7792,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idSticker",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7043,7 +7834,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "idSticker",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7075,7 +7873,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7108,7 +7912,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idCard",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7136,7 +7946,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7165,7 +7980,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7214,7 +8034,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7246,7 +8071,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7279,7 +8110,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7312,7 +8148,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7393,7 +8235,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7426,7 +8273,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7463,7 +8316,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7495,7 +8353,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7528,7 +8392,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "idCheckItem",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7565,7 +8435,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "idCheckItem",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7597,7 +8473,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7629,7 +8511,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7661,7 +8549,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7694,7 +8588,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idChecklist",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7722,7 +8622,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7751,7 +8656,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7784,7 +8694,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7816,7 +8731,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7849,7 +8770,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7882,7 +8808,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7914,7 +8846,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7946,7 +8884,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idLabel",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7974,7 +8918,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8023,7 +8972,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8055,7 +9009,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8140,7 +9100,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8169,7 +9134,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8202,7 +9172,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8235,7 +9210,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8316,7 +9297,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8348,7 +9334,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8381,7 +9373,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8413,7 +9411,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8445,7 +9449,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8477,7 +9487,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8509,7 +9525,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8541,7 +9563,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8573,7 +9601,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8606,7 +9640,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idList",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8843,7 +9883,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8875,7 +9920,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8960,7 +10011,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8992,7 +10048,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9024,7 +10086,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9056,7 +10124,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9089,7 +10163,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9121,7 +10200,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9154,7 +10239,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9191,7 +10282,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9227,7 +10324,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9256,7 +10360,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9288,7 +10397,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9321,7 +10436,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardStar",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9354,7 +10475,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardStar",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9390,7 +10517,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardStar",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9426,7 +10560,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardStar",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9462,7 +10603,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardStar",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9539,7 +10687,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9572,7 +10725,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9605,7 +10764,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9638,7 +10802,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9719,7 +10889,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9752,7 +10927,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9785,7 +10966,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9817,7 +11003,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9850,7 +11042,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9887,7 +11085,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9923,7 +11127,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idBoardBackground",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9956,7 +11167,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9988,7 +11204,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10025,7 +11247,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idCustomEmoji",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10058,7 +11286,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10090,7 +11323,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10123,7 +11362,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idCustomSticker",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10160,7 +11405,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idCustomSticker",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10197,7 +11448,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "tags",
+          "ixLastUpdate",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10229,7 +11487,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10261,7 +11525,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10334,7 +11604,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10367,7 +11642,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10399,7 +11680,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10440,7 +11727,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10473,7 +11765,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10506,7 +11804,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10539,7 +11842,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10571,7 +11880,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10603,7 +11918,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10635,7 +11956,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10664,7 +11991,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10696,7 +12028,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10729,7 +12067,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10762,7 +12106,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10798,7 +12148,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10834,7 +12191,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10870,7 +12234,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10906,7 +12277,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "idSavedSearch",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10939,7 +12317,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10971,7 +12354,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11004,7 +12393,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idMember",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11029,7 +12424,11 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11114,7 +12513,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11146,7 +12550,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11179,7 +12589,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11212,7 +12627,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11245,7 +12666,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11278,7 +12704,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11307,7 +12739,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11336,7 +12773,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11369,7 +12811,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11402,7 +12849,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11435,7 +12888,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11468,7 +12926,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11501,7 +12965,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11534,7 +13003,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11567,7 +13042,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11600,7 +13080,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11632,7 +13118,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11665,7 +13157,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idNotification",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11693,7 +13191,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11722,7 +13225,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11851,7 +13359,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11883,7 +13396,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11968,7 +13487,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12045,7 +13569,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12078,7 +13607,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12115,7 +13650,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "tags",
+          "ixLastUpdate",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12147,7 +13689,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12179,7 +13727,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12208,7 +13762,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12240,7 +13799,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12281,7 +13846,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12313,7 +13883,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12346,7 +13922,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "filter",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12379,7 +13961,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12415,7 +14003,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12448,7 +14043,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12533,7 +14134,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMember",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12569,7 +14176,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMember",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12602,7 +14216,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12635,7 +14254,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12676,7 +14301,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12717,7 +14347,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMembership",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12753,7 +14389,14 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "idMembership",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12785,7 +14428,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12814,7 +14463,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12846,7 +14500,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12878,7 +14538,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12910,7 +14576,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12942,7 +14614,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12974,7 +14652,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13006,7 +14690,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13039,7 +14729,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "value",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13071,7 +14767,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13103,7 +14805,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13135,7 +14843,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13168,7 +14882,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idOrg",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13273,7 +14993,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query",
+          "idOrganizations",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13318,7 +15044,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13346,7 +15077,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13371,7 +15107,11 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13403,7 +15143,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idSession",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13435,7 +15181,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idSession",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13453,14 +15205,23 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13478,7 +15239,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "fields": {
             "type": "string",
@@ -13491,9 +15252,18 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13511,7 +15281,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "fields": {
             "type": "string",
@@ -13520,9 +15290,18 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13540,7 +15319,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "field": {
             "type": "string",
@@ -13549,9 +15328,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "field",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13569,14 +15358,23 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13594,7 +15392,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "body": {
             "$ref": "#/definitions/tokens_webhooks"
@@ -13602,9 +15400,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "body",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13622,7 +15430,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "body": {
             "$ref": "#/definitions/tokens_webhooks"
@@ -13630,9 +15438,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "body",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13650,7 +15468,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "idWebhook": {
             "type": "string",
@@ -13659,9 +15477,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "idWebhook",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13679,7 +15507,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "idWebhook": {
             "type": "string",
@@ -13688,9 +15516,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "idWebhook",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13708,7 +15546,7 @@
         "properties": {
           "token": {
             "type": "string",
-            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
+            "description": "token"
           },
           "field": {
             "type": "string",
@@ -13717,9 +15555,19 @@
           "key": {
             "type": "string",
             "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
+          },
+          "token_query": {
+            "type": "string",
+            "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "field",
+          "key",
+          "token_query"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13748,7 +15596,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13776,7 +15629,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13804,7 +15662,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13833,7 +15696,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13862,7 +15730,12 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13894,7 +15767,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13926,7 +15805,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13958,7 +15843,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13990,7 +15881,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14022,7 +15919,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "body",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14055,7 +15958,13 @@
             "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "idWebhook",
+          "field",
+          "key",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {

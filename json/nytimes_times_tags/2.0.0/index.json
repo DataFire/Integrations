@@ -44,7 +44,10 @@
             "description": "Sets the maximum number of results"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "items": {

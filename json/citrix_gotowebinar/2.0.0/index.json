@@ -1700,7 +1700,13 @@
             "description": "The size of the page."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "accountKey",
+          "fromTime",
+          "toTime"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountWebinarsResponse"
@@ -1733,7 +1739,13 @@
             "description": "A required end of datetime range in ISO8601 UTC format, e.g. 2015-07-13T22:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "fromTime",
+          "toTime"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1769,7 +1781,13 @@
             "description": "A required end of datetime range in ISO8601 UTC format, e.g. 2015-07-13T22:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "fromTime",
+          "toTime"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1795,7 +1813,11 @@
             "description": "The key of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1821,7 +1843,11 @@
             "description": "The key of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1850,7 +1876,12 @@
             "$ref": "#/definitions/WebinarReqCreate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreatedWebinar"
@@ -1882,7 +1913,12 @@
             "description": "Indicates whether cancellation notice emails should be sent. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -1908,7 +1944,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebinarByKey"
@@ -1943,7 +1984,13 @@
             "$ref": "#/definitions/WebinarReqUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1969,7 +2016,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2000,7 +2052,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Audio"
@@ -2035,7 +2092,13 @@
             "$ref": "#/definitions/AudioUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -2061,7 +2124,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2098,7 +2166,13 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2138,7 +2212,13 @@
             "description": "By default only internal co-organizers (with a GoToWebinar account) can be deleted. If you want to use this call for external co-organizers you have to set this parameter to 'true'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "coorganizerKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2173,7 +2253,13 @@
             "description": "By default only internal co-organizers (with a GoToWebinar account) will retrieve the resent invitation email. If you want to use this call for external co-organizers you have to set this parameter to 'true'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "coorganizerKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2199,7 +2285,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2230,7 +2321,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2267,7 +2363,13 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2303,7 +2405,13 @@
             "description": "The key of the webinar panelist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "panelistKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2334,7 +2442,13 @@
             "description": "The key of the webinar panelist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "panelistKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2360,7 +2474,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "additionalProperties": {
@@ -2392,7 +2511,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2434,7 +2558,13 @@
             "$ref": "#/definitions/RegistrantFields"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistrantCreated"
@@ -2462,7 +2592,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistrationFields"
@@ -2495,7 +2630,13 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2526,7 +2667,13 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RegistrantDetailed"
@@ -2554,7 +2701,12 @@
             "description": "The key of the webinar"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2590,7 +2742,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2626,7 +2784,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2667,7 +2831,14 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Registrant"
@@ -2705,7 +2876,14 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2746,7 +2924,14 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2787,7 +2972,14 @@
             "description": "The key of the registrant"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey",
+          "registrantKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2823,7 +3015,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SessionPerformance"
@@ -2856,7 +3054,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2892,7 +3096,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2928,7 +3138,13 @@
             "description": "The key of the webinar session"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "webinarKey",
+          "sessionKey"
+        ]
       },
       "outputSchema": {
         "items": {

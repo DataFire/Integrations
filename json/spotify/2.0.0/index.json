@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.spotify.com/authorize",
@@ -1242,6 +1243,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "spotify": {
+          "integration": "spotify"
+        }
+      }
+    },
+    {
       "id": "albums.get",
       "title": "albums.get",
       "description": "[Get Several Albums](https://developer.spotify.com/web-api/get-several-albums/)\n",
@@ -1257,7 +1329,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1292,7 +1367,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/album"
@@ -1329,7 +1407,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/track-simple-page"
@@ -1352,7 +1433,10 @@
             "description": "A comma-separated list of IDs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1383,7 +1467,10 @@
             "description": "The Spotify ID for the artist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/artist"
@@ -1424,7 +1511,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/album-simple-page"
@@ -1447,7 +1537,10 @@
             "description": "The Spotify ID for the artist"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1482,7 +1575,11 @@
             "description": "The country (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "country"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1569,7 +1666,10 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/category"
@@ -1610,7 +1710,10 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "category_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1748,7 +1851,11 @@
             "description": "A comma-separated list of the artists or users ids"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "ids"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1782,7 +1889,10 @@
             "description": "The last artist ID retrieved from the previous request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-followed"
@@ -1813,7 +1923,11 @@
             "description": "A comma-separated list of the artists or users ids"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "ids"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1842,7 +1956,11 @@
             "description": "A comma-separated string of the artists or users ids."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1873,7 +1991,10 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1938,7 +2059,10 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1959,7 +2083,10 @@
             "description": "A comma-separated list of IDs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2004,7 +2131,11 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code).  If given, only items with content playable in that market will be returned."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/search"
@@ -2031,7 +2162,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2065,7 +2199,10 @@
             "description": "The market (an ISO 3166-1 alpha-2 country code)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/track"
@@ -2088,7 +2225,10 @@
             "description": "The user's Spotify user ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user-profile"
@@ -2125,7 +2265,10 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-simple-page"
@@ -2166,7 +2309,11 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist"
@@ -2205,7 +2352,11 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist"
@@ -2247,7 +2398,12 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2272,7 +2428,11 @@
             "description": "The Spotify playlist ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2305,7 +2465,12 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2334,7 +2499,12 @@
             "description": "A comma-separated list of users ids"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "ids"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2381,7 +2551,12 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"
@@ -2430,7 +2605,11 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-track-page"
@@ -2469,7 +2648,12 @@
             "description": "It is used to set specified media type."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "uris"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"
@@ -2512,7 +2696,12 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "playlist_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/playlist-snapshot"

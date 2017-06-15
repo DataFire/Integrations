@@ -670,7 +670,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestDescription"

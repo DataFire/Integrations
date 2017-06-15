@@ -121,7 +121,10 @@
             "description": "Page number [page x 10 feeds]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FeedResponseEntity"

@@ -201,7 +201,13 @@
             "description": "when true results are pretty printed. Useful for debugging."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "format",
+          "q",
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Response"

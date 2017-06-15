@@ -987,7 +987,12 @@
             "$ref": "#/definitions/CreateBatchAlertRequestPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AlertBatchResponse"
@@ -1013,7 +1018,12 @@
             "description": "The VictorOps uuid of the alert"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAlertResponse"
@@ -1035,7 +1045,11 @@
             "description": "Your API Key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActiveIncidentList"
@@ -1060,7 +1074,12 @@
             "$ref": "#/definitions/CreateIncidentRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreatedIncident"
@@ -1085,7 +1104,12 @@
             "$ref": "#/definitions/AckOrResolveRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AckOrResolveResponse"
@@ -1110,7 +1134,12 @@
             "$ref": "#/definitions/AckOrResolveByUserRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AckOrResolveResponse"
@@ -1135,7 +1164,12 @@
             "$ref": "#/definitions/AckOrResolveByUserRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AckOrResolveResponse"
@@ -1160,7 +1194,12 @@
             "$ref": "#/definitions/AckOrResolveRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AckOrResolveResponse"
@@ -1182,7 +1221,11 @@
             "description": "Your API Key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTeamResponse"
@@ -1207,7 +1250,12 @@
             "$ref": "#/definitions/AddTeamPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddTeamResponse"
@@ -1233,7 +1281,12 @@
             "description": "The VictorOps team to be deleted"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
       },
       "outputSchema": {}
     },
@@ -1257,7 +1310,12 @@
             "description": "The VictorOps team to fetch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddTeamResponse"
@@ -1286,7 +1344,13 @@
             "$ref": "#/definitions/AddTeamPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddTeamResponse"
@@ -1312,7 +1376,12 @@
             "description": "The VictorOps team to fetch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTeamMembersResponse"
@@ -1341,7 +1410,13 @@
             "$ref": "#/definitions/AddTeamMemberPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListTeamMembersResponse"
@@ -1374,7 +1449,14 @@
             "$ref": "#/definitions/RemoveTeamMemberPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team",
+          "user",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1416,7 +1498,12 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OnCallAndOverrides"
@@ -1445,7 +1532,13 @@
             "description": "The VictorOps team 'slug'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body",
+          "team"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TakeResult"
@@ -1467,7 +1560,11 @@
             "description": "Your API Key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListUserResponse"
@@ -1492,7 +1589,12 @@
             "$ref": "#/definitions/AddUserPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddUserResponse"
@@ -1521,7 +1623,13 @@
             "$ref": "#/definitions/DeleteUserPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1545,7 +1653,12 @@
             "description": "The VictorOps user to fetch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddUserResponse"
@@ -1574,7 +1687,13 @@
             "$ref": "#/definitions/AddUserPayload"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddUserResponse"
@@ -1600,7 +1719,12 @@
             "description": "The VictorOps user ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1646,7 +1770,12 @@
             "description": "The VictorOps user ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1679,7 +1808,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ContactDevice"
@@ -1709,7 +1844,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1745,7 +1886,14 @@
             "$ref": "#/definitions/ContactDeviceAdd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ContactDevice"
@@ -1771,7 +1919,12 @@
             "description": "The VictorOps user ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1803,7 +1956,13 @@
             "$ref": "#/definitions/ContactEmailAdd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -1833,7 +1992,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -1863,7 +2028,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1899,7 +2070,14 @@
             "$ref": "#/definitions/ContactEmailAdd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -1925,7 +2103,12 @@
             "description": "The VictorOps user ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1957,7 +2140,13 @@
             "$ref": "#/definitions/ContactPhoneAdd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -1987,7 +2176,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -2017,7 +2212,13 @@
             "description": "The unique contact identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2053,7 +2254,14 @@
             "$ref": "#/definitions/ContactPhoneAdd"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user",
+          "contactId",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserContact"
@@ -2097,7 +2305,12 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "user"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2159,7 +2372,11 @@
             "description": "The current phase of the incident \"resolved\", \"triggered\" or \"acknowledged\". Multiple values can be separated with commas."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2202,7 +2419,12 @@
             "description": "The VictorOps user ID. Return shift changes occurring during the interval specified for this user. Without this parameter, all relevant users (with respect to the specified interval) are returned"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key",
+          "team"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OnCallLog"
@@ -2265,7 +2487,11 @@
             "description": "The original routing of the incident"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "X-VO-Api-Id",
+          "X-VO-Api-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActiveIncidentList"

@@ -2518,7 +2518,10 @@
             "$ref": "#/definitions/EncryptRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2541,7 +2544,10 @@
             "description": "Build ID (`jobId` property of `BuildJob`)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "jobId"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -2558,7 +2564,10 @@
             "$ref": "#/definitions/BuildStartRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -2590,7 +2599,12 @@
             "description": "Build Version (`version` property of `Build`)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug",
+          "buildVersion"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2627,7 +2641,10 @@
             "$ref": "#/definitions/CollaboratorAddition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2647,7 +2664,10 @@
             "$ref": "#/definitions/CollaboratorUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2669,7 +2689,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2691,7 +2714,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccountRolesResults"
@@ -2713,7 +2739,10 @@
             "$ref": "#/definitions/DeploymentStartRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -2735,7 +2764,10 @@
             "$ref": "#/definitions/DeploymentCancellation"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2757,7 +2789,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deploymentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectDeployment"
@@ -2796,7 +2831,10 @@
             "$ref": "#/definitions/DeploymentEnvironmentAddition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
@@ -2818,7 +2856,10 @@
             "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
@@ -2842,7 +2883,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deploymentEnvironmentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2864,7 +2908,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deploymentEnvironmentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentDeploymentsResults"
@@ -2888,7 +2935,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deploymentEnvironmentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeploymentEnvironmentSettingsResults"
@@ -2927,7 +2977,10 @@
             "$ref": "#/definitions/ProjectAddition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -2949,7 +3002,10 @@
             "$ref": "#/definitions/ProjectWithConfiguration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3012,7 +3068,12 @@
             "minLength": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "badgeRepoProvider",
+          "repoAccountName",
+          "repoSlug"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -3054,7 +3115,10 @@
             "minLength": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "webhookId"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -3100,7 +3164,11 @@
             "description": "Build Branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "webhookId",
+          "buildBranch"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -3123,7 +3191,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3149,7 +3221,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectBuildResults"
@@ -3176,7 +3252,12 @@
             "description": "Build Branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug",
+          "buildBranch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectBuildResults"
@@ -3203,7 +3284,12 @@
             "description": "Build Version (`version` property of `Build`)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug",
+          "buildVersion"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectBuildResults"
@@ -3226,7 +3312,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3252,7 +3342,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectDeploymentsResults"
@@ -3295,7 +3389,12 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recordsNumber",
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHistory"
@@ -3318,7 +3417,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSettingsResults"
@@ -3349,7 +3452,12 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3375,7 +3483,11 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -3407,7 +3519,12 @@
             "description": "Project Slug"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "accountName",
+          "projectSlug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3444,7 +3561,10 @@
             "$ref": "#/definitions/RoleAddition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
@@ -3466,7 +3586,10 @@
             "$ref": "#/definitions/RoleWithGroups"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
@@ -3490,7 +3613,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3512,7 +3638,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "roleId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RoleWithGroups"
@@ -3551,7 +3680,10 @@
             "$ref": "#/definitions/UserAddition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3571,7 +3703,10 @@
             "$ref": "#/definitions/UserAccount"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3593,7 +3728,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3615,7 +3753,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserAccountRolesResults"

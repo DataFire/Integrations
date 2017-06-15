@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -598,6 +599,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_clouddebugger": {
+          "integration": "google_clouddebugger"
+        }
+      }
+    },
+    {
       "id": "controller.debuggees.register",
       "title": "controller.debuggees.register",
       "description": "Registers the debuggee with the controller service.\n\nAll agents attached to the same application should call this method with\nthe same request content to get back the same stable `debuggee_id`. Agents\nshould call this method again whenever `google.rpc.Code.NOT_FOUND` is\nreturned from any controller method.\n\nThis allows the controller service to disable the agent or recover from any\ndata loss. If the debuggee is disabled by the server, the response will\nhave `is_disabled` set to `true`.",
@@ -764,7 +836,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListActiveBreakpointsResponse"
@@ -855,7 +930,11 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateActiveBreakpointResponse"
@@ -1062,7 +1141,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBreakpointsResponse"
@@ -1153,7 +1235,10 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SetBreakpointResponse"
@@ -1245,7 +1330,11 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId",
+          "breakpointId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1337,7 +1426,11 @@
             "description": "Returns response with indentations and line breaks."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "debuggeeId",
+          "breakpointId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBreakpointResponse"

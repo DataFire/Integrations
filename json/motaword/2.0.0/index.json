@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "description": "OAuth2 authentication, Client Credentials flow.",
@@ -705,6 +706,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "motaword": {
+          "integration": "motaword"
+        }
+      }
+    },
+    {
       "id": "getEndpoints",
       "title": "getEndpoints",
       "description": "The root endpoint will provide you a JSON Swagger definition.\n",
@@ -761,7 +833,10 @@
             "description": "Glossary file. Currently supported formats: .xlsx, .tbx\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "glossary"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -874,7 +949,11 @@
             "description": "Optional. Only one glossary is supported at the moment."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "target_languages[]"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -901,7 +980,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -939,7 +1021,12 @@
             "description": "Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "source_language",
+          "target_languages[]"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -966,7 +1053,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -994,7 +1084,11 @@
             "description": "Language code. You can download the translation of only a specific language."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "language"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1034,7 +1128,10 @@
             "description": "Optional with corporate accounts. Not available for others."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1068,7 +1165,10 @@
             "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1096,7 +1196,10 @@
             "description": "This is the package tracking key provided in the response of a /package call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PackageStatus"
@@ -1128,7 +1231,11 @@
             "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "language"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Package"
@@ -1152,7 +1259,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Progress"
@@ -1182,7 +1292,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActivityList"
@@ -1211,7 +1324,11 @@
             "description": "Activity ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Activity"
@@ -1244,7 +1361,12 @@
             "description": "Comment text."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId",
+          "comment"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -1273,7 +1395,11 @@
             "description": "Activity ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "activityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
@@ -1303,7 +1429,10 @@
             "type": "integer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommentList"
@@ -1327,7 +1456,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DocumentList"
@@ -1355,7 +1487,11 @@
             "description": "You can add as many files as you want in documents[] parameter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documents[]"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
@@ -1384,7 +1520,11 @@
             "description": "Document ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1419,7 +1559,11 @@
             "description": "Document ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
@@ -1452,7 +1596,12 @@
             "description": "Single file data. The name is plural to provide a consistent naming convention."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId",
+          "documents"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
@@ -1481,7 +1630,11 @@
             "description": "Document ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "documentId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1505,7 +1658,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GlossaryList"
@@ -1533,7 +1689,11 @@
             "description": "You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaries"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
@@ -1562,7 +1722,11 @@
             "description": "Glossary ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1597,7 +1761,11 @@
             "description": "Glossary ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
@@ -1630,7 +1798,12 @@
             "description": "Single file data. The name is plural to provide a consistent naming convention."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId",
+          "glossaries"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Glossary"
@@ -1659,7 +1832,11 @@
             "description": "Glossary ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "glossaryId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1683,7 +1860,10 @@
             "description": "Project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuideList"
@@ -1711,7 +1891,11 @@
             "description": "You can add as many files as you want in styleguides[] parameter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleguides[]"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
@@ -1740,7 +1924,11 @@
             "description": "Style Guide ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1775,7 +1963,11 @@
             "description": "Style Guide ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
@@ -1808,7 +2000,12 @@
             "description": "Single file data. The name is plural to provide a consistent naming convention."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId",
+          "styleguides"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StyleGuide"
@@ -1837,7 +2034,11 @@
             "description": "Style Guide ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "styleGuideId"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -1874,7 +2075,10 @@
             "description": "Style guide file. Currently supported formats: .pdf, .docx, .txt\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "styleguide"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1907,7 +2111,11 @@
             "description": "HTTP Basic Authorization header."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "grant_type",
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Token"

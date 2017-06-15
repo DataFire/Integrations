@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -3370,6 +3371,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_analytics": {
+          "integration": "google_analytics"
+        }
+      }
+    },
+    {
       "id": "data.ga.get",
       "title": "data.ga.get",
       "description": "Returns Analytics data for a view (profile).",
@@ -3470,7 +3542,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "start-date",
+          "end-date",
+          "metrics"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GaData"
@@ -3566,7 +3644,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "start-date",
+          "end-date",
+          "metrics"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/McfData"
@@ -3640,7 +3724,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids",
+          "metrics"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RealtimeData"
@@ -3827,7 +3915,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
@@ -3884,7 +3975,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -3942,7 +4036,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "linkId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4001,7 +4099,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -4064,7 +4166,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filters"
@@ -4121,7 +4226,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
@@ -4179,7 +4287,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "filterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
@@ -4237,7 +4349,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "filterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
@@ -4298,7 +4414,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "filterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
@@ -4359,7 +4479,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "filterId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filter"
@@ -4422,7 +4546,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperties"
@@ -4479,7 +4606,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
@@ -4537,7 +4667,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
@@ -4598,7 +4732,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
@@ -4659,7 +4797,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Webproperty"
@@ -4727,7 +4869,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDataSources"
@@ -4792,7 +4938,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDataSourceId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4862,7 +5013,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Uploads"
@@ -4924,7 +5080,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDataSourceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Upload"
@@ -4990,7 +5151,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDataSourceId",
+          "uploadId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Upload"
@@ -5057,7 +5224,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimensions"
@@ -5118,7 +5289,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
@@ -5180,7 +5355,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDimensionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
@@ -5249,7 +5429,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDimensionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
@@ -5318,7 +5503,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customDimensionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDimension"
@@ -5385,7 +5575,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetrics"
@@ -5446,7 +5640,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
@@ -5508,7 +5706,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customMetricId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
@@ -5577,7 +5780,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customMetricId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
@@ -5646,7 +5854,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "customMetricId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomMetric"
@@ -5713,7 +5926,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLinks"
@@ -5774,7 +5991,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
@@ -5836,7 +6057,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "webPropertyAdWordsLinkId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5896,7 +6122,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "webPropertyAdWordsLinkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
@@ -5961,7 +6192,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "webPropertyAdWordsLinkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
@@ -6026,7 +6262,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "webPropertyAdWordsLinkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityAdWordsLink"
@@ -6093,7 +6334,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
@@ -6154,7 +6399,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -6216,7 +6465,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "linkId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6279,7 +6533,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -6346,7 +6605,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profiles"
@@ -6407,7 +6670,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -6469,7 +6736,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6529,7 +6801,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -6594,7 +6871,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -6659,7 +6941,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -6730,7 +7017,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLinks"
@@ -6795,7 +7087,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -6861,7 +7158,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6928,7 +7231,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EntityUserLink"
@@ -6999,7 +7308,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiments"
@@ -7064,7 +7378,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
@@ -7130,7 +7449,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "experimentId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7194,7 +7519,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "experimentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
@@ -7263,7 +7594,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "experimentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
@@ -7332,7 +7669,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "experimentId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Experiment"
@@ -7403,7 +7746,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Goals"
@@ -7468,7 +7816,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
@@ -7534,7 +7887,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "goalId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
@@ -7603,7 +7962,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "goalId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
@@ -7672,7 +8037,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "goalId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Goal"
@@ -7743,7 +8114,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLinks"
@@ -7808,7 +8184,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
@@ -7874,7 +8255,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7938,7 +8325,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
@@ -8007,7 +8400,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
@@ -8076,7 +8475,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "linkId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileFilterLink"
@@ -8147,7 +8552,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReports"
@@ -8212,7 +8622,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReport"
@@ -8278,7 +8693,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "unsampledReportId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8342,7 +8763,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "profileId",
+          "unsampledReportId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UnsampledReport"
@@ -8412,7 +8839,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudiences"
@@ -8473,7 +8904,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
@@ -8535,7 +8970,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "remarketingAudienceId",
+          "webPropertyId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8595,7 +9035,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "remarketingAudienceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
@@ -8660,7 +9105,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "remarketingAudienceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
@@ -8725,7 +9175,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "webPropertyId",
+          "remarketingAudienceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RemarketingAudience"
@@ -8841,7 +9296,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reportType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Columns"

@@ -1636,6 +1636,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1664,7 +1667,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InvokeAsyncResponse"
@@ -1721,7 +1730,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListEventSourceMappingsResponse"
@@ -1773,7 +1787,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "UUID",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EventSourceMappingConfiguration"
@@ -1822,7 +1842,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionConfiguration"
@@ -1879,7 +1904,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListFunctionsResponse"
@@ -1903,6 +1933,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1931,7 +1964,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetFunctionResponse"
@@ -1955,6 +1994,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -1983,7 +2025,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListAliasesResponse"
@@ -2010,6 +2058,9 @@
           "Name": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -2038,7 +2089,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Name",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AliasConfiguration"
@@ -2062,6 +2120,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -2090,7 +2151,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionConfiguration"
@@ -2114,6 +2181,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -2142,7 +2212,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionConfiguration"
@@ -2166,6 +2242,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -2194,7 +2273,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InvocationResponse"
@@ -2218,6 +2303,9 @@
           "FunctionName": {
             "type": "string"
           },
+          "FunctionName_query": {
+            "type": "string"
+          },
           "Action": {
             "type": "string"
           },
@@ -2246,7 +2334,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetPolicyResponse"
@@ -2268,6 +2362,9 @@
             "$ref": "#/definitions/RemovePermissionRequest"
           },
           "FunctionName": {
+            "type": "string"
+          },
+          "FunctionName_query": {
             "type": "string"
           },
           "StatementId": {
@@ -2301,7 +2398,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "StatementId",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2321,6 +2425,9 @@
             "$ref": "#/definitions/PublishVersionRequest"
           },
           "FunctionName": {
+            "type": "string"
+          },
+          "FunctionName_query": {
             "type": "string"
           },
           "Action": {
@@ -2351,7 +2458,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "FunctionName",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionConfiguration"
@@ -2400,7 +2513,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetAccountSettingsResponse"
@@ -2452,7 +2570,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "ARN",
+          "Action",
+          "Version"
+        ]
       },
       "outputSchema": {},
       "security": {

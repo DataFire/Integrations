@@ -710,7 +710,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CancelJobOutput"
@@ -753,7 +763,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateJobOutput"
@@ -796,7 +816,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetShippingLabelOutput"
@@ -839,7 +869,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetStatusOutput"
@@ -890,7 +930,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListJobsOutput"
@@ -933,7 +983,17 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "AWSAccessKeyId",
+          "Action",
+          "SignatureMethod",
+          "SignatureVersion",
+          "Timestamp",
+          "Version",
+          "Signature"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateJobOutput"

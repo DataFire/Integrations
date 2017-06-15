@@ -768,7 +768,11 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaginatedWebServicesList"
@@ -798,7 +802,12 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PaginatedWebServicesList"
@@ -828,7 +837,13 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "webServiceName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {}
     },
@@ -856,7 +871,13 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "webServiceName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebService"
@@ -889,7 +910,14 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "webServiceName",
+          "patchPayload",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebService"
@@ -922,7 +950,14 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "webServiceName",
+          "createOrUpdatePayload",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebService"
@@ -952,7 +987,13 @@
             "description": "The Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "webServiceName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WebServiceKeys"

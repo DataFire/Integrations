@@ -860,7 +860,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -880,7 +883,10 @@
             "description": "list of link relations to embed in the result bundle. Zero or more of: tracks, metadata, insights. List is space or comma separated single string or an array of strings"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bundle"
@@ -914,7 +920,10 @@
             "description": "Object version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ref_(of_Bundle)"
@@ -932,7 +941,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Insights"
@@ -961,7 +973,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "insight"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Insight"
@@ -983,7 +999,11 @@
             "description": "id of an insight"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "insight_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Insight"
@@ -1001,7 +1021,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1017,7 +1040,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -1043,7 +1069,11 @@
             "description": "Object version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ref"
@@ -1061,7 +1091,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1077,7 +1110,10 @@
             "description": "id of a bundle"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tracks"
@@ -1138,7 +1174,11 @@
             "description": "Object version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "media_url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ref_(of_Track)"
@@ -1164,7 +1204,11 @@
             "description": "Object version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "parts_complete"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ref"
@@ -1186,7 +1230,11 @@
             "description": "id of a track"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1206,7 +1254,11 @@
             "description": "id of a track"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Track"
@@ -1262,7 +1314,12 @@
             "description": "Object version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bundle_id",
+          "track_id",
+          "media_url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Ref_(of_Track)"
@@ -1307,7 +1364,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "interval",
+          "group_field"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BundleReport"
@@ -1352,7 +1413,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "interval"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BundleReport"

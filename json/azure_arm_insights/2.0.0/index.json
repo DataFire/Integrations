@@ -147,7 +147,11 @@
             "description": "The Azure subscription Id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogProfileCollection"
@@ -173,7 +177,12 @@
             "description": "The Azure subscription Id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "logProfileName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {}
     },
@@ -197,7 +206,12 @@
             "description": "The Azure subscription Id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "logProfileName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogProfileResource"
@@ -226,7 +240,13 @@
             "description": "The Azure subscription Id."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "logProfileName",
+          "api-version",
+          "parameters",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogProfileResource"

@@ -679,7 +679,10 @@
             "description": "Returns the records raw XML metadata from the original repository. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -734,7 +737,10 @@
             "description": "Returns the records raw XML metadata from the original repository. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArticleResponse"
@@ -757,7 +763,10 @@
             "description": "ID of article history that needs to be fetched"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -792,7 +801,10 @@
             "minimum": 10
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "coreId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArticleHistoryResponse"
@@ -845,7 +857,10 @@
             "description": "Whether to retrieve the raw XML metadata of the article. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -914,7 +929,10 @@
             "description": "Returns the records raw XML metadata from the original repository. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArticleSearchResponse"
@@ -970,7 +988,10 @@
             "description": "Whether to retrieve the raw XML metadata of the articles. The default value is false"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ArticleSimilarResponse"
@@ -995,7 +1016,10 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1021,7 +1045,10 @@
             "description": "ISSN identifier of journal that needs to be fetched."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "issn"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JournalResponse"
@@ -1046,7 +1073,10 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1086,7 +1116,10 @@
             "minimum": 10
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JournalSearchResponse"
@@ -1111,7 +1144,10 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1137,7 +1173,10 @@
             "description": "CORE repository ID of the article that needs to be fetched."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "repositoryId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepositoryResponse"
@@ -1162,7 +1201,10 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepositorySearchResponse"
@@ -1199,7 +1241,10 @@
             "minimum": 10
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepositorySearchResponse"
@@ -1224,7 +1269,10 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1264,7 +1312,10 @@
             "minimum": 10
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SearchAllResponse"

@@ -2781,7 +2781,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Blacklisted item IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -2800,7 +2804,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2827,7 +2834,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Blacklisted items",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2854,7 +2865,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Blacklisted items",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2884,7 +2899,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Category IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -2903,7 +2922,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2930,7 +2952,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Categories",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2957,7 +2983,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Categories",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2984,7 +3014,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Collection",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Collection"
@@ -3005,7 +3039,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollectionAnalyticData"
@@ -3030,7 +3067,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3053,7 +3094,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collection_id",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CollectionAnalyticData"
@@ -3076,7 +3121,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Configuration IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3091,7 +3140,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3114,7 +3166,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Configurations",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3137,7 +3193,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Configurations",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3164,7 +3224,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Document",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
@@ -3188,7 +3252,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Batch of Documents",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Document"
@@ -3209,7 +3277,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DocumentAnalyticData"
@@ -3234,7 +3305,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "document_id",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3257,7 +3332,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "document_id",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DocumentAnalyticData"
@@ -3274,7 +3353,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3293,7 +3375,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3320,7 +3405,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "User entities",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3347,7 +3436,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "User entities",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3371,7 +3464,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3401,7 +3497,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Sentiment phrase IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3420,7 +3520,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3447,7 +3550,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Sentiment phrases",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3474,7 +3581,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Sentiment phrases",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3504,7 +3615,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Query IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3523,7 +3638,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3550,7 +3668,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Queries",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3577,7 +3699,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Queries",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3605,7 +3731,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Statistic"
@@ -3622,7 +3751,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Status"
@@ -3639,7 +3771,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Subscription"
@@ -3666,7 +3801,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Taxonomy node IDs",
+          "content_type"
+        ]
       },
       "outputSchema": {}
     },
@@ -3685,7 +3824,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3712,7 +3854,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Taxonomy",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3739,7 +3885,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Taxonomy",
+          "content_type"
+        ]
       },
       "outputSchema": {
         "items": {

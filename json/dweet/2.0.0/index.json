@@ -31,7 +31,13 @@
             "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "who",
+          "thing",
+          "condition",
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -54,7 +60,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "content"
+        ]
       },
       "outputSchema": {}
     },
@@ -77,7 +87,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "content"
+        ]
       },
       "outputSchema": {}
     },
@@ -97,7 +111,11 @@
             "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -117,7 +135,10 @@
             "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing"
+        ]
       },
       "outputSchema": {}
     },
@@ -137,7 +158,10 @@
             "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing"
+        ]
       },
       "outputSchema": {}
     },
@@ -169,7 +193,12 @@
             "description": "Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "key",
+          "date"
+        ]
       },
       "outputSchema": {}
     },
@@ -201,7 +230,12 @@
             "description": "Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "key",
+          "date"
+        ]
       },
       "outputSchema": {}
     },
@@ -216,7 +250,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing"
+        ]
       },
       "outputSchema": {}
     },
@@ -240,7 +277,12 @@
             "description": "A valid dweet.io master key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "lock",
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -260,7 +302,11 @@
             "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -280,7 +326,11 @@
             "description": "A valid dweet.io master key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lock",
+          "key"
+        ]
       },
       "outputSchema": {}
     },
@@ -300,7 +350,11 @@
             "description": "A valid dweet.io master key."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "thing",
+          "key"
+        ]
       },
       "outputSchema": {}
     }

@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -284,7 +285,10 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationEntityListResult"
@@ -311,7 +315,11 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -341,7 +349,12 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "operationId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -378,7 +391,11 @@
             "description": "The page-continuation token to use with a paged version of this API."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceRecommendationBaseListResult"
@@ -405,7 +422,11 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -439,7 +460,12 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "recommendationId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceRecommendationBase"
@@ -474,7 +500,13 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "recommendationId",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -507,7 +539,13 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "recommendationId",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SuppressionContract"
@@ -545,7 +583,14 @@
             "description": "The version of the API to be used with the client request."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceUri",
+          "recommendationId",
+          "name",
+          "suppressionContract",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SuppressionContract"

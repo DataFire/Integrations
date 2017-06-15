@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -2737,7 +2738,13 @@
             "description": "The Skip Token filter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BackupEngineBaseResourceList"
@@ -2780,7 +2787,15 @@
             "description": "The operation ID used for this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "operationId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2821,7 +2836,15 @@
             "description": "The container name used for this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResource"
@@ -2868,7 +2891,16 @@
             "description": "The operation ID used for this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResource"
@@ -2915,7 +2947,16 @@
             "description": "The backup item to be deleted."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2964,7 +3005,16 @@
             "description": "expand eq {extendedinfo}. This filter enables you to choose (or filter) specific items in the list of backup items."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResource"
@@ -3014,7 +3064,17 @@
             "$ref": "#/definitions/ProtectedItemResource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "resourceProtectedItem"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3062,7 +3122,17 @@
             "$ref": "#/definitions/BackupRequestResource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "resourceBackupRequest"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3111,7 +3181,17 @@
             "description": "The OperationID used in this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResource"
@@ -3162,7 +3242,17 @@
             "description": "The OperationID used in this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
@@ -3213,7 +3303,16 @@
             "description": "startDate eq {yyyy-mm-dd hh:mm:ss PM} and endDate { yyyy-mm-dd hh:mm:ss PM}."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecoveryPointResourceList"
@@ -3264,7 +3363,17 @@
             "description": "The RecoveryPointID associated with this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "recoveryPointId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecoveryPointResource"
@@ -3318,7 +3427,18 @@
             "$ref": "#/definitions/ILRRequestResource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "recoveryPointId",
+          "resourceILRRequest"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3370,7 +3490,18 @@
             "$ref": "#/definitions/RestoreRequestResource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "recoveryPointId",
+          "resourceRestoreRequest"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3419,7 +3550,17 @@
             "description": "The string that identifies the recovery point. The iSCSI connection will be revoked for this protected data."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName",
+          "containerName",
+          "protectedItemName",
+          "recoveryPointId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3456,7 +3597,14 @@
             "description": "The fabric name associated with the container."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "fabricName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3497,7 +3645,13 @@
             "description": "The Skip Token filter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResourceList"
@@ -3536,7 +3690,14 @@
             "description": "The ID associated with the export job."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationResultInfoBaseResource"
@@ -3575,7 +3736,14 @@
             "description": "Name of the job associated with this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "jobName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobResource"
@@ -3614,7 +3782,14 @@
             "description": "Name of the job to cancel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "jobName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3655,7 +3830,15 @@
             "description": "OperationID associated with this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "jobName",
+          "operationId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3692,7 +3875,13 @@
             "description": "The OData filter options. status eq { InProgress , Completed , Failed , CompletedWithWarnings , Cancelled , Cancelling } and backupManagementType eq {AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql } and operation eq { ConfigureBackup , Backup , Restore , DisableBackup , DeleteBackupData } and jobId eq {guid} and startTime eq { yyyy-mm-dd hh:mm:ss PM } and endTime eq { yyyy-mm-dd hh:mm:ss PM }."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3729,7 +3918,14 @@
             "description": "The ID of the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "operationId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3766,7 +3962,14 @@
             "description": "The ID of the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
@@ -3805,7 +4008,13 @@
             "description": "The following equation can be used to filter the list of backup policies. backupManagementType eq {AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql}."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResourceList"
@@ -3844,7 +4053,14 @@
             "description": "The name of the backup policy to be deleted."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "policyName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3881,7 +4097,14 @@
             "description": "The backup policy name used in this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "policyName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
@@ -3923,7 +4146,15 @@
             "$ref": "#/definitions/ProtectionPolicyResource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "policyName",
+          "resourceProtectionPolicy"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
@@ -3966,7 +4197,15 @@
             "description": "The ID associated with this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "policyName",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionPolicyResource"
@@ -4009,7 +4248,15 @@
             "description": "The ID associated with this GET operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId",
+          "policyName",
+          "operationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationStatus"
@@ -4052,7 +4299,13 @@
             "description": "The Skip Token filter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkloadProtectableItemResourceList"
@@ -4095,7 +4348,13 @@
             "description": " The Skip Token filter."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectedItemResourceList"
@@ -4134,7 +4393,13 @@
             "description": "The following equation is used to sort or filter the containers registered to the vault. providerType eq {AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql} and status eq {Unknown, NotRegistered, Registered, Registering} and friendlyName eq {containername} and backupManagementType eq {AzureIaasVM, MAB, DPM, AzureBackupServer, AzureSql}."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "vaultName",
+          "resourceGroupName",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProtectionContainerResourceList"

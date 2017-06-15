@@ -3717,7 +3717,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ApplicationSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3740,7 +3744,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ApplicationSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/application"
@@ -3765,7 +3773,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ApplicationSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/application"
@@ -3787,7 +3799,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/applications"
@@ -3809,7 +3824,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3832,7 +3850,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConnectAppSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/authApp"
@@ -3854,7 +3876,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/authApps"
@@ -3882,7 +3907,11 @@
             "minLength": 2
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IsoCountryCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/availablePhoneNumbers"
@@ -3910,7 +3939,11 @@
             "minLength": 2
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IsoCountryCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/phoneMobileNumbers"
@@ -3938,7 +3971,11 @@
             "minLength": 2
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IsoCountryCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/phoneTollFreeNumbers"
@@ -3960,7 +3997,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/availablePhoneNumbers"
@@ -3985,7 +4025,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -4010,7 +4054,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/recordings"
@@ -4035,7 +4083,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/callInstance"
@@ -4060,7 +4112,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/callInstance"
@@ -4082,7 +4138,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/calls"
@@ -4104,7 +4163,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4130,7 +4192,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConferenceSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4156,7 +4223,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConferenceSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
@@ -4184,7 +4256,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConferenceSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
@@ -4209,7 +4286,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConferenceSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/participants"
@@ -4234,7 +4315,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConferenceSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/conference"
@@ -4256,7 +4341,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/conferences"
@@ -4281,7 +4369,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConnectAppSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApp"
@@ -4306,7 +4398,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ConnectAppSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApp"
@@ -4328,7 +4424,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/connectApps"
@@ -4350,7 +4449,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4370,7 +4472,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4390,7 +4495,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4410,7 +4518,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4430,7 +4541,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4450,7 +4564,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4473,7 +4590,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IncomingPhoneNumberSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4496,7 +4617,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IncomingPhoneNumberSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
@@ -4521,7 +4646,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IncomingPhoneNumberSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
@@ -4546,7 +4675,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IncomingPhoneNumberSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCall"
@@ -4568,7 +4701,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/incomingCalls"
@@ -4590,7 +4726,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4616,7 +4755,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "MessageSid",
+          "MediaSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/media"
@@ -4641,7 +4785,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "MessageSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/mediaList"
@@ -4666,7 +4814,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "MessageSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/message"
@@ -4688,7 +4840,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/messages"
@@ -4730,7 +4885,11 @@
             "description": "The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient's device. Other types are also accepted by the API. The media size limit is 5MB. If you wish to send more than one image in the message body, please provide multiple MediaUrls values in the POST request. You may include up to 10 MediaUrls per message.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "To"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4753,7 +4912,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "NotificationSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4776,7 +4939,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "NotificationSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notification"
@@ -4798,7 +4965,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/notifications"
@@ -4823,7 +4993,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "OutgoingCallerIdSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4846,7 +5020,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "OutgoingCallerIdSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/outgoingCallerId"
@@ -4871,7 +5049,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "OutgoingCallerIdSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/outgoingCallerId"
@@ -4896,7 +5078,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "OutgoingCallerIdSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4916,7 +5102,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/outCallerIds"
@@ -4938,7 +5127,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4961,7 +5153,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
@@ -4986,7 +5182,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
@@ -5014,7 +5214,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
@@ -5042,7 +5247,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid",
+          "CallSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/member"
@@ -5067,7 +5277,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/members"
@@ -5092,7 +5306,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5115,7 +5333,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/queue"
@@ -5140,7 +5362,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "QueueSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/queue"
@@ -5162,7 +5388,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/queues"
@@ -5184,7 +5413,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5207,7 +5439,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "RecordingSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/transcriptions"
@@ -5232,7 +5468,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "RecordingSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5255,7 +5495,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "RecordingSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5275,7 +5519,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/recordings"
@@ -5303,7 +5550,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid",
+          "CredentialSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5329,7 +5581,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid",
+          "CredentialSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credential"
@@ -5357,7 +5614,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid",
+          "CredentialSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credential"
@@ -5382,7 +5644,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credentials"
@@ -5407,7 +5673,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5430,7 +5700,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5453,7 +5727,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialList"
@@ -5478,7 +5756,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialList"
@@ -5500,7 +5782,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialLists"
@@ -5522,7 +5807,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5548,7 +5836,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid",
+          "CLSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5571,7 +5864,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/credentialListMappings"
@@ -5596,7 +5893,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5622,7 +5923,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid",
+          "ALSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5648,7 +5954,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid",
+          "ALSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
@@ -5673,7 +5984,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5696,7 +6011,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5719,7 +6038,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5742,7 +6065,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/domain"
@@ -5767,7 +6094,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "SipDomainSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/domain"
@@ -5789,7 +6120,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/domains"
@@ -5811,7 +6145,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5837,7 +6174,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid",
+          "IpAddressSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5863,7 +6205,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid",
+          "IpAddressSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddress"
@@ -5891,7 +6238,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid",
+          "IpAddressSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddress"
@@ -5916,7 +6268,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAddresses"
@@ -5941,7 +6297,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5964,7 +6324,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5987,7 +6351,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
@@ -6012,7 +6380,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "IpAccessControlListSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
@@ -6034,7 +6406,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6054,7 +6429,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ipAccessControlListMapping"
@@ -6079,7 +6457,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ShortCodeSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCode"
@@ -6104,7 +6486,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "ShortCodeSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCode"
@@ -6126,7 +6512,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/shortCodes"
@@ -6151,7 +6540,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "TranscriptionSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6174,7 +6567,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "TranscriptionSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/transcription"
@@ -6196,7 +6593,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/transcriptions"
@@ -6232,7 +6632,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "Subresource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/usageRecords"
@@ -6254,7 +6658,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/usageRecords"
@@ -6279,7 +6686,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "UsageTriggerSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6302,7 +6713,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "UsageTriggerSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTrigger"
@@ -6327,7 +6742,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid",
+          "UsageTriggerSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTrigger"
@@ -6349,7 +6768,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/usageTriggers"
@@ -6371,7 +6793,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6394,7 +6819,10 @@
             "minLength": 34
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/account"
@@ -6419,7 +6847,10 @@
             "minLength": 34
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/account"
@@ -6444,7 +6875,10 @@
             "minLength": 34
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "AccountSid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/account"

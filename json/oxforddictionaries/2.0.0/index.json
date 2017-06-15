@@ -1077,7 +1077,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -1136,7 +1141,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "target_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -1171,7 +1182,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SentencesResults",
@@ -1209,7 +1226,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1243,7 +1266,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Thesaurus",
@@ -1281,7 +1310,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1319,7 +1354,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1357,7 +1398,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1399,7 +1446,14 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "region",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1433,7 +1487,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Thesaurus",
@@ -1467,7 +1527,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Thesaurus",
@@ -1530,7 +1596,14 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "target_lang",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1572,7 +1645,14 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "filters",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RetrieveEntry",
@@ -1595,7 +1675,11 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filters",
@@ -1627,7 +1711,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "endpoint",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Filters",
@@ -1668,7 +1757,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -1706,7 +1800,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Lemmatron",
@@ -1748,7 +1848,14 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "word_id",
+          "filters",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Lemmatron",
@@ -1807,7 +1914,11 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Languages",
@@ -1848,7 +1959,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -1878,7 +1994,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Regions",
@@ -1919,7 +2040,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -1978,7 +2104,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_language",
+          "target_language",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UtilityLabels",
@@ -2036,7 +2168,12 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Wordlist",
@@ -2119,7 +2256,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "target_lang",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Wordlist",
@@ -2193,7 +2336,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "filters_advanced",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Wordlist",
@@ -2239,7 +2388,13 @@
             "description": "App Key Authentication Parameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "source_lang",
+          "filters_basic",
+          "app_id",
+          "app_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Wordlist",

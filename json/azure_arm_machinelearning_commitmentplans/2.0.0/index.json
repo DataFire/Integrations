@@ -382,7 +382,11 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentPlanListResult"
@@ -412,7 +416,12 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentPlanListResult"
@@ -442,7 +451,13 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -470,7 +485,13 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentPlan"
@@ -503,7 +524,14 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "patchPayload",
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentPlan"
@@ -536,7 +564,14 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "createOrUpdatePayload",
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentPlan"
@@ -570,7 +605,13 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentAssociationListResult"
@@ -604,7 +645,14 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "commitmentAssociationName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentAssociation"
@@ -641,7 +689,15 @@
             "$ref": "#/definitions/MoveCommitmentAssociationRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "commitmentAssociationName",
+          "api-version",
+          "movePayload"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitmentAssociation"
@@ -675,7 +731,13 @@
             "description": "The version of the Microsoft.MachineLearning resource provider API to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "commitmentPlanName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PlanUsageHistoryListResult"

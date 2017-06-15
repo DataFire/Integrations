@@ -226,7 +226,11 @@
             "description": "Native Ads Publisher password"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/authResponse"
@@ -264,7 +268,14 @@
             "description": "page number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reportsDailyResponse"
@@ -302,7 +313,14 @@
             "description": "page number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reportsWebsiteResponse"
@@ -340,7 +358,14 @@
             "description": "page number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "startDate",
+          "endDate",
+          "limit",
+          "page"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/reportsWidgetResponse"

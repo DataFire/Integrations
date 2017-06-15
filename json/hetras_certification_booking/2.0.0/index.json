@@ -3259,7 +3259,19 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "arrivalDate",
+          "departureDate",
+          "channelCode",
+          "adults",
+          "rooms",
+          "roomType",
+          "ratePlanCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Addons"
@@ -3321,7 +3333,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailabilityResponse"
@@ -3393,7 +3412,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BlocksResponse"
@@ -3447,7 +3470,11 @@
             "description": "Return all blocks that have related the specified comma-separated rate plans."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TotalCountResponse"
@@ -3473,7 +3500,12 @@
             "description": "Specifies the block code. The block code is composed of the hotel code, a dash and the block code \r\n            as shown in the hetras UI."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "blockCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BlockResponse"
@@ -3612,7 +3644,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BookingListResponse"
@@ -3641,7 +3677,12 @@
             "description": "Whether to send a confirmation email to the primary guest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "reservation"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BaseResponse"
@@ -3762,7 +3803,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TotalCountResponse"
@@ -3796,7 +3841,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "confirmationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReservationsResponse"
@@ -3835,7 +3885,13 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "confirmationId",
+          "reservationNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ReservationResponse"
@@ -3869,7 +3925,14 @@
             "$ref": "#/definitions/JsonPatchDocument[ReservationPatchableModel]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "confirmationId",
+          "reservationNumber",
+          "patchRequest"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -3903,7 +3966,13 @@
             "$ref": "#/definitions/AssignRoomCriteria"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "confirmationId",
+          "reservationNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AssignRoomResponse"
@@ -3934,7 +4003,13 @@
             "description": "Specifies the reservation number for the reservation to cancel."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "confirmationId",
+          "reservationNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CancellationResponse"
@@ -4001,7 +4076,15 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "from",
+          "to",
+          "channelCode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DailyRatesResponse"
@@ -4072,7 +4155,16 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "App-Id",
+          "App-Key",
+          "hotelId",
+          "arrivalDate",
+          "departureDate",
+          "channelCode",
+          "adults"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Rates"

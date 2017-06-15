@@ -1582,7 +1582,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "city_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1672,7 +1675,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clocking_record"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1729,7 +1735,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clocking_record_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1762,7 +1771,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clocking_record_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1793,7 +1805,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "clocking_record_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1849,7 +1864,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contact_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2034,7 +2052,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2067,7 +2088,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2098,7 +2122,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "contact_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2154,7 +2181,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "currency_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2190,7 +2220,11 @@
             "description": "Date formatted as Y-m-d (2016-06-28)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date_from",
+          "date_to"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2300,7 +2334,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2337,7 +2374,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2371,7 +2411,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2406,7 +2449,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2552,7 +2598,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2583,7 +2632,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2614,7 +2666,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2782,7 +2837,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2813,7 +2871,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2844,7 +2905,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "expense_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -2920,7 +2984,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_field_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3020,7 +3087,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_field_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3103,7 +3173,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_template_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3254,7 +3327,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3274,7 +3350,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3304,7 +3383,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "form_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3457,7 +3539,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3491,7 +3576,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3522,7 +3610,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_line_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3751,7 +3842,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3784,7 +3878,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3814,7 +3911,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "invoice_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3900,7 +4000,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3933,7 +4036,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3963,7 +4069,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -3996,7 +4105,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4066,7 +4178,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4120,7 +4235,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4162,7 +4280,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id",
+          "material_rental_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4196,7 +4318,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id",
+          "material_rental_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4262,7 +4388,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id",
+          "material_rental_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4304,7 +4434,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "material_id",
+          "material_rental_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4477,7 +4611,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "product_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4510,7 +4647,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "product_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4540,7 +4680,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "product_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4601,7 +4744,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_status_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4762,7 +4908,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4795,7 +4944,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4825,7 +4977,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4858,7 +5013,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4900,7 +5058,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4934,7 +5096,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -4970,7 +5136,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5001,7 +5171,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5041,7 +5214,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "file"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5083,7 +5260,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_file_id",
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5117,7 +5298,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "project_file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5153,7 +5338,11 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id",
+          "project_file_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5184,7 +5373,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5232,7 +5424,10 @@
             "type": "object"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5272,7 +5467,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5308,7 +5507,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5427,7 +5630,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5460,7 +5666,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5490,7 +5699,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "location_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5665,7 +5877,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5699,7 +5914,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5730,7 +5948,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5792,7 +6013,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_interval_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5914,7 +6138,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5948,7 +6175,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -5979,7 +6209,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6041,7 +6274,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_unit_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6100,7 +6336,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "time_entry_value_type_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6295,7 +6534,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6328,7 +6570,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6358,7 +6603,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6444,7 +6692,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wall_comment_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6479,7 +6730,10 @@
             "format": "uuid"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6568,7 +6822,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wall_post_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -6598,7 +6855,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wall_post_id"
+        ]
       },
       "outputSchema": {
         "properties": {

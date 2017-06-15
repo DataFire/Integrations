@@ -513,7 +513,11 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ZoneListResult"
@@ -544,7 +548,12 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ZoneListResult"
@@ -578,7 +587,13 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ZoneDeleteResult"
@@ -608,7 +623,13 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Zone"
@@ -649,7 +670,14 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Zone"
@@ -684,7 +712,13 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordSetListResult"
@@ -734,7 +768,14 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "recordType",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordSetListResult"
@@ -787,7 +828,15 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "relativeRecordSetName",
+          "recordType",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {}
     },
@@ -834,7 +883,15 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "relativeRecordSetName",
+          "recordType",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordSet"
@@ -890,7 +947,16 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "relativeRecordSetName",
+          "recordType",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordSet"
@@ -950,7 +1016,16 @@
             "description": "Specifies the Azure subscription ID, which uniquely identifies the Microsoft Azure subscription."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "zoneName",
+          "relativeRecordSetName",
+          "recordType",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RecordSet"

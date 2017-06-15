@@ -39,7 +39,10 @@
             "description": "Domain name you want to get records for"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -80,7 +83,15 @@
             "description": "Priority of DNS record"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "name",
+          "type",
+          "content",
+          "ttl",
+          "prio"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -105,7 +116,11 @@
             "description": "Id of the DNS Record"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -150,7 +165,11 @@
             "description": "Priority of the DNS record"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -183,7 +202,10 @@
             "description": "Domain to add to SolarVPS Distributed DNS"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -204,7 +226,10 @@
             "description": "Domain to delete from SolarVPS Distributed DNS"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -229,7 +254,11 @@
             "description": "Password used to login to SolarSystem"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -254,7 +283,11 @@
             "description": "Password used to login to SolarSystem"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -287,7 +320,10 @@
             "description": "Id of the pod you want to perform actions on"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "podId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -308,7 +344,10 @@
             "description": "Id of the pod you want to ping check"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "podId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -333,7 +372,11 @@
             "description": "Action to perform on selected pod"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "podId",
+          "action"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -398,7 +441,12 @@
             "description": "Message reply being sent"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "department",
+          "subject",
+          "contents"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -419,7 +467,10 @@
             "description": "TicketId you want to see"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ticketId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -444,7 +495,11 @@
             "description": "Message reply being sent"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ticketid",
+          "contents"
+        ]
       },
       "outputSchema": {},
       "security": {

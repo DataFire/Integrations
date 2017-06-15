@@ -208,7 +208,10 @@
             "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -272,7 +275,12 @@
             "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point",
+          "outputSRS"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -332,7 +340,11 @@
             "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -392,7 +404,11 @@
             "description": "The maximum degree an interesection can have to be included in results. A four-way stop has a degree of 4."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "bbox"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -440,7 +456,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "intersectionID",
+          "outputFormat"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -644,7 +664,10 @@
             "description": "The coordinates of a point (x,y) known to be inside the parcel containing a given address. See <a href=https://github.com/bcgov/api-specs/blob/master/geocoder/glossary.md#parcelPoint target=\"_blank\">parcelPoint</a>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -724,7 +747,11 @@
             "description": "If true, excludes sites that are units of a parent site"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -796,7 +823,11 @@
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -868,7 +899,11 @@
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "bbox"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -932,7 +967,11 @@
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "occupantID",
+          "outputFormat"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1008,7 +1047,11 @@
             "description": "If true, excludes sites that are units of a parent site"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1080,7 +1123,11 @@
             "description": "If true, excludes sites that are units of a parent site"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "point"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1152,7 +1199,11 @@
             "description": "If true, excludes sites that are units of a parent site"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "outputFormat",
+          "bbox"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1216,7 +1267,11 @@
             "description": "The distance to move the accessPoint away from the curb and towards the inside of the parcel (in metres). Ignored if locationDescriptor not set to accessPoint."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "siteID",
+          "outputFormat"
+        ]
       },
       "outputSchema": {},
       "security": {

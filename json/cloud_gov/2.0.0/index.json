@@ -43,7 +43,10 @@
             "description": "the page to start on. Results are paginated in increments of 100. Begins at page=1."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "duns"
+        ]
       },
       "outputSchema": {}
     },
@@ -74,7 +77,10 @@
             "description": "a nine digit DUNS number that uniquely identifies the vendor (required)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "duns"
+        ]
       },
       "outputSchema": {}
     },
@@ -100,7 +106,10 @@
             "description": "Choices are either oasis or oasissb. Will filter vendors by their presence in either the OASIS unrestricted vehicle or the OASIS Small Business vehicle."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "naics"
+        ]
       },
       "outputSchema": {}
     }

@@ -364,7 +364,13 @@
             "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber",
+          "licenseTemplateNumber",
+          "active",
+          "number"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -387,7 +393,10 @@
             "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -410,7 +419,10 @@
             "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -468,7 +480,10 @@
             "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -519,7 +534,11 @@
             "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productNumber",
+          "active"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -546,7 +565,10 @@
             "description": "Force object deletion and all descendants."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -569,7 +591,10 @@
             "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -603,7 +628,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -634,7 +662,10 @@
             "description": "Human-readable name for the auto-created licensee (will be set as custom Licensee property)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -719,7 +750,14 @@
             "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber",
+          "number",
+          "name",
+          "active",
+          "licenseType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -746,7 +784,10 @@
             "description": "Force object deletion and all descendants."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -769,7 +810,10 @@
             "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -837,7 +881,10 @@
             "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -877,7 +924,10 @@
             "description": "Payment method number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "paymentMethodNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -908,7 +958,10 @@
             "description": "The e-mail address of the PayPal account for which you are making the API calls."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "paymentMethodNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -972,7 +1025,12 @@
             "description": "Licensing information."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "active",
+          "name",
+          "version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -999,7 +1057,10 @@
             "description": "Force object deletion and all descendants."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1022,7 +1083,10 @@
             "description": "Unique number that identifies the product."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1073,7 +1137,10 @@
             "description": "Licensing information."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1148,7 +1215,13 @@
             "description": "License template. Mandatory for 'Try &amp; Buy' licensing model."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productNumber",
+          "active",
+          "name",
+          "licensingModel"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1175,7 +1248,10 @@
             "description": "Force object deletion and all descendants."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1198,7 +1274,10 @@
             "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1256,7 +1335,10 @@
             "description": "License template. Mandatory for 'Try &amp; Buy' licensing model."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1321,7 +1403,10 @@
             "description": "for <i>tokenType=SHOP</i> only; shop link title for cancel checkout process"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tokenType"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1344,7 +1429,10 @@
             "description": "Token number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tokenNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1367,7 +1455,10 @@
             "description": "Token number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tokenNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1440,7 +1531,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber",
+          "active",
+          "status",
+          "source"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1463,7 +1560,10 @@
             "description": "Unique number (across all products of a vendor) that identifies the transaction"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transactionNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"
@@ -1520,7 +1620,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "transactionNumber"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/netlicensing"

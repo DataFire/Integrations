@@ -35,7 +35,11 @@
             "description": "Docket ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "response_format",
+          "docketId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -68,7 +72,10 @@
             "description": "Federal Register Document Number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "response_format"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -261,7 +268,10 @@
             "description": "Document Subtype: Single or multiple document subtypes may be included.  Multiple values should be passed as follows: <code>docst=%20Certificate+of+Service%252BCorrespondence</code>"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "response_format"
+        ]
       },
       "outputSchema": {},
       "security": {

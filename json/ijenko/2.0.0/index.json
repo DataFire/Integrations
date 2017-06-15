@@ -2235,7 +2235,10 @@
             "$ref": "#/definitions/AuthChangePassword"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "changePasswordInfo"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2317,7 +2320,10 @@
             "description": "Identifier of the token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "tokenId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2367,7 +2373,10 @@
             "$ref": "#/definitions/UserNew"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userInfo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserCreated"
@@ -2390,7 +2399,10 @@
             "description": "Unique identifier of a *User*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2411,7 +2423,10 @@
             "description": "Unique identifier of a *User*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -2437,7 +2452,11 @@
             "$ref": "#/definitions/UserPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "userPatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2458,7 +2477,10 @@
             "description": "Unique identifier of a *User*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2484,7 +2506,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2506,7 +2532,10 @@
             "$ref": "#/definitions/AuthLogin"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "loginInfo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthTokens"
@@ -2523,7 +2552,10 @@
             "$ref": "#/definitions/AuthRefresh"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "refreshInfo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthTokens"
@@ -2540,7 +2572,10 @@
             "$ref": "#/definitions/AuthResetPassword"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resetPasswordInfo"
+        ]
       },
       "outputSchema": {}
     },
@@ -2568,7 +2603,10 @@
             "description": "Unique identifier of a *Device*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -2594,7 +2632,11 @@
             "$ref": "#/definitions/DevicePatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "devicePatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2618,7 +2660,11 @@
             "$ref": "#/definitions/FunctionalityNew"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "functionalityInfo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FunctionalityCreated"
@@ -2641,7 +2687,10 @@
             "description": "Unique identifier of a *Device*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2667,7 +2716,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2702,7 +2755,13 @@
             "$ref": "#/definitions/ActionArgs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "action",
+          "functionalities",
+          "arguments"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionMultiResult"
@@ -2725,7 +2784,10 @@
             "description": "Unique identifier of a *Device*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -2751,7 +2813,11 @@
             "$ref": "#/definitions/TagsPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "tagsPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -2774,7 +2840,10 @@
             "description": "Unique identifier of a *Functionality*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Functionality"
@@ -2800,7 +2869,11 @@
             "$ref": "#/definitions/FunctionalityPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "functionalityPatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2835,7 +2908,10 @@
             "description": "End of the interval. Default: now.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributesValues"
@@ -2862,7 +2938,11 @@
             "description": "Identifier of an *Attribute* inside a *Functionality*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "attributeName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AttributeValue"
@@ -2892,7 +2972,12 @@
             "$ref": "#/definitions/AnyJSON"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "attributeName",
+          "value"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2913,7 +2998,10 @@
             "description": "Unique identifier of a *Functionality*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2939,7 +3027,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -2969,7 +3061,12 @@
             "$ref": "#/definitions/ActionArgs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "action",
+          "arguments"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionResult"
@@ -2992,7 +3089,10 @@
             "description": "Unique identifier of a *Functionality*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -3018,7 +3118,11 @@
             "$ref": "#/definitions/TagsPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "tagsPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tags"
@@ -3054,7 +3158,10 @@
             "$ref": "#/definitions/UserMePatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "userPatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3075,7 +3182,10 @@
             "description": "Unique identifier of a *Notification*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3096,7 +3206,10 @@
             "description": "Unique identifier of a *Notification*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Notification"
@@ -3122,7 +3235,11 @@
             "$ref": "#/definitions/NotificationPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notificationId",
+          "notificationPatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3143,7 +3260,10 @@
             "description": "Unique identifier of a *Notification*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3169,7 +3289,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "notificationId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3222,7 +3346,10 @@
             "description": "Unique identifier of a *Place*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Place"
@@ -3248,7 +3375,11 @@
             "$ref": "#/definitions/PlacePatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "placePatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3273,7 +3404,10 @@
             "description": "Filter out buses that have no pairing window"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3304,7 +3438,11 @@
             "description": "Unique identifier of a *Bus*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "busId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BusPairing"
@@ -3334,7 +3472,12 @@
             "$ref": "#/definitions/BusPairing"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "busId",
+          "pairing"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BusPairing"
@@ -3366,7 +3509,10 @@
             "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3410,7 +3556,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "when",
+          "span"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityAutonomy"
@@ -3437,7 +3588,11 @@
             "description": "Names of the flows requested"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "flows"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityFlows"
@@ -3460,7 +3615,10 @@
             "description": "Unique identifier of a *Place*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricityFlowsSetup"
@@ -3500,7 +3658,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "when",
+          "span"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ElectricitySelfConsumption"
@@ -3537,7 +3700,10 @@
             "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3564,7 +3730,10 @@
             "description": "Unique identifier of a *Place*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3590,7 +3759,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3617,7 +3790,10 @@
             "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3647,7 +3823,11 @@
             "$ref": "#/definitions/NotificationNew"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "notification"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationCreated"
@@ -3674,7 +3854,10 @@
             "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3704,7 +3887,11 @@
             "$ref": "#/definitions/ProgramNew"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "programInfo"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProgramCreated"
@@ -3744,7 +3931,14 @@
             "$ref": "#/definitions/ActionArgs"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "action",
+          "devices",
+          "functionalities",
+          "arguments"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ActionMultiResult"
@@ -3767,7 +3961,10 @@
             "description": "Unique identifier of a *Program*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3788,7 +3985,10 @@
             "description": "Unique identifier of a *Program*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Program"
@@ -3814,7 +4014,11 @@
             "$ref": "#/definitions/ProgramPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "programPatch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3845,7 +4049,11 @@
             "description": "End of the interval. Default: now.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "from"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3872,7 +4080,10 @@
             "description": "Unique identifier of a *Program*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3898,7 +4109,11 @@
             "$ref": "#/definitions/MetadataPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "metadataPatch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -3921,7 +4136,10 @@
             "description": "Unique identifier of a *Program*."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
       },
       "outputSchema": {},
       "security": {

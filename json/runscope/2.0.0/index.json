@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://www.runscope.com/signin/oauth/authorize",
@@ -270,6 +271,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "runscope": {
+          "integration": "runscope"
+        }
+      }
+    },
+    {
       "id": "account.get",
       "title": "account.get",
       "description": "Information about the authorized account.",
@@ -324,7 +396,10 @@
             "$ref": "#/definitions/NewBucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "NewBucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -347,7 +422,10 @@
             "description": "Unique identifier for a bucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -368,7 +446,10 @@
             "description": "Unique identifier for a bucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -391,7 +472,10 @@
             "description": "Unique identifier for a bucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -415,7 +499,11 @@
             "$ref": "#/definitions/NewEnvironment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewEnvironment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -443,7 +531,12 @@
             "$ref": "#/definitions/NewEnvironment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "environmentId",
+          "ModifiedEnvironment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -476,7 +569,10 @@
             "description": "Only return messages before the given Unix timestamp"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -499,7 +595,10 @@
             "description": "Unique identifier for a bucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -534,7 +633,10 @@
             "description": "Only return messages before the given Unix timestamp"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -560,7 +662,11 @@
             "$ref": "#/definitions/NewMessage"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewMessage"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -587,7 +693,11 @@
             "description": "The unique identifier for this message"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "messageId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Bucket"
@@ -610,7 +720,10 @@
             "description": "Unique identifier for a bucket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -646,7 +759,11 @@
             "$ref": "#/definitions/NewTest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "NewTest"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -683,7 +800,11 @@
             "description": "Unique identifier for a test"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -708,7 +829,11 @@
             "description": "Unique identifier for a test"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -736,7 +861,12 @@
             "$ref": "#/definitions/NewEnvironment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "NewEnvironment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -768,7 +898,13 @@
             "$ref": "#/definitions/NewEnvironment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "environmentId",
+          "ModifiedEnvironment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -793,7 +929,11 @@
             "description": "Unique identifier for a test"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -821,7 +961,12 @@
             "$ref": "#/definitions/NewStep"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "NewStep"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -850,7 +995,12 @@
             "description": "Unique identifier for a test step"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "stepId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -882,7 +1032,13 @@
             "$ref": "#/definitions/NewStep"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bucketKey",
+          "testId",
+          "stepId",
+          "NewStep"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -903,7 +1059,10 @@
             "description": "Unique identifier for team"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -929,7 +1088,10 @@
             "description": "Unique identifier for team"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamId"
+        ]
       },
       "outputSchema": {
         "items": {

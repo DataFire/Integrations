@@ -2263,7 +2263,11 @@
             "description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AssetChanges"
@@ -2295,7 +2299,11 @@
             "description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "change-set-id",
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2322,7 +2330,10 @@
             "description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PartnerChannelList"
@@ -2352,7 +2363,11 @@
             "$ref": "#/definitions/RegisterAssetsRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "request"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2407,7 +2422,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/board_list"
@@ -2437,7 +2455,11 @@
             "description": "Provide a header to specify the language of result values."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "new_board",
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/board_created"
@@ -2468,7 +2490,11 @@
             "description": "Specify the board to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2497,7 +2523,11 @@
             "description": "Retrieve details for a specific board."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/board_detail"
@@ -2531,7 +2561,12 @@
             "description": "Specify the board to update."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "board_info",
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2564,7 +2599,12 @@
             "description": "List the assets to be removed from the board."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "board_id",
+          "asset_ids"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2601,7 +2641,12 @@
             "description": "Specify the board to add assets to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "board_assets",
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AddBoardAssetsResult"
@@ -2636,7 +2681,12 @@
             "description": "Specify the board to remove an asset from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "asset_id",
+          "board_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2669,7 +2719,12 @@
             "description": "Specify the board to add an asset to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "asset_id",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2700,7 +2755,11 @@
             "description": "Specify the board to retrieve comments from."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comment_list"
@@ -2734,7 +2793,12 @@
             "description": "Specify the board to add a comment to."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "comment",
+          "Authorization",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comment_created"
@@ -2769,7 +2833,12 @@
             "description": "Specify the comment to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "board_id",
+          "comment_id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2796,7 +2865,10 @@
             "description": "Specifies the language of result values."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/collections"
@@ -2885,7 +2957,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/downloads_response"
@@ -2948,7 +3023,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "download_details",
+          "Authorization",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -2988,7 +3068,11 @@
             "description": "Specifies the size to be downloaded."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -3051,7 +3135,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "download_details",
+          "Authorization",
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -3147,7 +3236,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/event"
@@ -3231,7 +3323,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/images_detail"
@@ -3315,7 +3410,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/images_detail"
@@ -3401,7 +3499,10 @@
             "description": "Specifies page size. Default is 30, maximum page_size is 100."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -3435,7 +3536,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsResult"
@@ -3478,7 +3582,10 @@
             "description": "Specifies page size. Default is 75, maximum page_size is 100."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PreviousAssetPurchases"
@@ -3521,7 +3628,10 @@
             "description": "Specifies page size. Default is 75, maximum page_size is 100."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PreviousPurchases"
@@ -5098,7 +5208,12 @@
             "description": "Authorization token required. Used for applying content access restrictions. Use one of the OAuth2 grants to auto-populate this value."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request",
+          "id",
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/report_usage_batch_response"
@@ -5168,7 +5283,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ids"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/videos_detail"
@@ -5238,7 +5356,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/video_detail"

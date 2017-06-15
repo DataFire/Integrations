@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "description": "OAuth 2.0 - Application Only Credentials",
@@ -1361,6 +1362,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "lyft": {
+          "integration": "lyft"
+        }
+      }
+    },
+    {
       "id": "GetCost",
       "title": "GetCost",
       "description": "Estimate the cost of taking a Lyft between two points.\n",
@@ -1397,7 +1469,11 @@
             "description": "Longitude of the ending location"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_lat",
+          "start_lng"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1435,7 +1511,11 @@
             "description": "Longitude of a location"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lng"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1492,7 +1572,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lng"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1553,7 +1637,10 @@
             "exclusiveMinimum": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "start_time"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1584,7 +1671,10 @@
             "$ref": "#/definitions/Ride"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RideRequest"
@@ -1607,7 +1697,10 @@
             "description": "The ID of the ride"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RideDetail"
@@ -1633,7 +1726,10 @@
             "$ref": "#/definitions/CancellationRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1657,7 +1753,11 @@
             "$ref": "#/definitions/Location"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Location"
@@ -1683,7 +1783,11 @@
             "$ref": "#/definitions/RatingRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1704,7 +1808,10 @@
             "description": "The ID of the ride"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RideReceipt"
@@ -1742,7 +1849,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lng"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1773,7 +1884,10 @@
             "$ref": "#/definitions/SandboxPrimetime"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1797,7 +1911,11 @@
             "$ref": "#/definitions/SandboxRideStatus"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SandboxRideUpdate"
@@ -1819,7 +1937,10 @@
             "$ref": "#/definitions/SandboxRideType"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "request"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SandboxRideType"
@@ -1849,7 +1970,11 @@
             "$ref": "#/definitions/SandboxDriverAvailability"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ride_type",
+          "request"
+        ]
       },
       "outputSchema": {},
       "security": {

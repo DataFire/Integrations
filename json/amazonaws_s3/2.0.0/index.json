@@ -3527,7 +3527,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3553,7 +3557,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3587,7 +3595,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListObjectsOutput"
@@ -3618,7 +3630,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteObjectOutput"
@@ -3649,7 +3666,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectOutput"
@@ -3680,7 +3702,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/HeadObjectOutput"
@@ -3719,7 +3746,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListPartsOutput"
@@ -3750,7 +3782,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutObjectOutput"
@@ -3781,7 +3818,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UploadPartOutput"
@@ -3812,7 +3854,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UploadPartCopyOutput"
@@ -3843,7 +3890,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectAclOutput"
@@ -3874,7 +3926,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutObjectAclOutput"
@@ -3905,7 +3962,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RestoreObjectOutput"
@@ -3936,7 +3998,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteObjectTaggingOutput"
@@ -3967,7 +4034,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectTaggingOutput"
@@ -3998,7 +4070,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PutObjectTaggingOutput"
@@ -4029,7 +4106,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetObjectTorrentOutput"
@@ -4060,7 +4142,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket",
+          "Key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CreateMultipartUploadOutput"
@@ -4088,7 +4175,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketAccelerateConfigurationOutput"
@@ -4116,7 +4207,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4142,7 +4237,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketAclOutput"
@@ -4170,7 +4269,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4196,7 +4299,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketAnalyticsConfigurationOutput"
@@ -4224,7 +4331,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBucketAnalyticsConfigurationsOutput"
@@ -4252,7 +4363,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4278,7 +4393,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketCorsOutput"
@@ -4306,7 +4425,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4332,7 +4455,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeleteObjectsOutput"
@@ -4360,7 +4487,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketInventoryConfigurationOutput"
@@ -4388,7 +4519,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBucketInventoryConfigurationsOutput"
@@ -4416,7 +4551,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4442,7 +4581,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketLifecycleOutput"
@@ -4470,7 +4613,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketLifecycleConfigurationOutput"
@@ -4498,7 +4645,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4524,7 +4675,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4558,7 +4713,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListObjectsV2Output"
@@ -4586,7 +4745,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketLocationOutput"
@@ -4614,7 +4777,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketLoggingOutput"
@@ -4642,7 +4809,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4668,7 +4839,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4694,7 +4869,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketMetricsConfigurationOutput"
@@ -4722,7 +4901,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListBucketMetricsConfigurationsOutput"
@@ -4750,7 +4933,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4776,7 +4963,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationConfigurationDeprecated"
@@ -4804,7 +4995,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationConfiguration"
@@ -4832,7 +5027,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4858,7 +5057,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4884,7 +5087,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4910,7 +5117,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketPolicyOutput"
@@ -4938,7 +5149,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4964,7 +5179,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4990,7 +5209,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketReplicationOutput"
@@ -5018,7 +5241,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5044,7 +5271,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketRequestPaymentOutput"
@@ -5072,7 +5303,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5098,7 +5333,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5124,7 +5363,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketTaggingOutput"
@@ -5152,7 +5395,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5190,7 +5437,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListMultipartUploadsOutput"
@@ -5218,7 +5469,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketVersioningOutput"
@@ -5246,7 +5501,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5284,7 +5543,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListObjectVersionsOutput"
@@ -5312,7 +5575,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5338,7 +5605,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetBucketWebsiteOutput"
@@ -5366,7 +5637,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Bucket"
+        ]
       },
       "outputSchema": {},
       "security": {

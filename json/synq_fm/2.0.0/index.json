@@ -145,7 +145,10 @@
             "description": "Additional metadata that will be associated with the video"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoObject"
@@ -166,7 +169,11 @@
             "description": "ID of the video to retrieve the metadata from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "video_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoObject"
@@ -187,7 +194,11 @@
             "description": "JavaScript code to be run over each video object, to determine what should be returend."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "filter"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -211,7 +222,11 @@
             "description": "The ID of the video you want to stream to. The video needs to have been previously created."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "video_id"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -251,7 +266,12 @@
             "description": "JavaScript code to execute on the video object."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "video_id",
+          "source"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VideoObject"
@@ -272,7 +292,11 @@
             "description": "The ID of the video you are going to upload into. The video needs to have been previously created."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "video_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UploadParameterObject"
@@ -297,7 +321,11 @@
             "description": "How long the uploader widget works for. Anything from '30 minutes' to '2 days'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "video_id"
+        ]
       },
       "outputSchema": {
         "properties": {

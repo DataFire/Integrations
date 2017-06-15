@@ -79,7 +79,10 @@
             "description": "If bufferMetres is specified, the number of line segments used in each quadrant to approximate the curve for round end-cap and join styles. Must be > 0."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkUrl"
+        ]
       },
       "outputSchema": {}
     },
@@ -235,7 +238,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkId",
+          "fileFormatExtension"
+        ]
       },
       "outputSchema": {}
     },
@@ -279,7 +286,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkId",
+          "fileFormatExtension"
+        ]
       },
       "outputSchema": {}
     },
@@ -323,7 +334,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkId",
+          "fileFormatExtension"
+        ]
       },
       "outputSchema": {}
     },
@@ -367,7 +382,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkId",
+          "fileFormatExtension"
+        ]
       },
       "outputSchema": {}
     },
@@ -411,7 +430,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "geomarkId",
+          "fileFormatExtension"
+        ]
       },
       "outputSchema": {}
     }

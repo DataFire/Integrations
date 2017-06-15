@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -609,6 +610,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_cloudkms": {
+          "integration": "google_cloudkms"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_cloudkms": {
+          "integration": "google_cloudkms"
+        }
+      }
+    },
+    {
       "id": "projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get",
       "title": "projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get",
       "description": "Returns metadata for a given CryptoKeyVersion.",
@@ -681,7 +753,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKeyVersion"
@@ -772,7 +847,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKeyVersion"
@@ -868,7 +946,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLocationsResponse"
@@ -955,7 +1036,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DecryptResponse"
@@ -1042,7 +1126,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKeyVersion"
@@ -1129,7 +1216,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EncryptResponse"
@@ -1216,7 +1306,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKeyVersion"
@@ -1303,7 +1396,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKey"
@@ -1395,7 +1491,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCryptoKeyVersionsResponse"
@@ -1482,7 +1581,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKeyVersion"
@@ -1574,7 +1676,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListCryptoKeysResponse"
@@ -1665,7 +1770,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CryptoKey"
@@ -1757,7 +1865,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListKeyRingsResponse"
@@ -1848,7 +1959,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/KeyRing"
@@ -1932,7 +2046,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2019,7 +2136,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -2106,7 +2226,10 @@
             "description": "OAuth bearer token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestIamPermissionsResponse"

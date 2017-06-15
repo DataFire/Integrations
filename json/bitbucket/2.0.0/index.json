@@ -12,7 +12,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://bitbucket.org/site/oauth2/authorize",
@@ -3513,6 +3514,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "bitbucket": {
+          "integration": "bitbucket"
+        }
+      }
+    },
+    {
       "id": "addon.delete",
       "title": "addon.delete",
       "description": "",
@@ -3565,7 +3637,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3587,7 +3662,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3609,7 +3687,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3631,7 +3712,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3653,7 +3737,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3675,7 +3762,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3697,7 +3787,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "linker_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -3733,7 +3826,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subject_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_hook_events"
@@ -3777,9 +3873,6 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "username": {
-            "type": "string"
-          },
           "role": {
             "type": "string",
             "description": "\nFilters the result based on the authenticated user's role on each repository.\n\n* **member**: returns repositories to which the user has explicit read access\n* **contributor**: returns repositories to which the user has explicit write access\n* **admin**: returns repositories to which the user has explicit administrator access\n* **owner**: returns all repositories owned by the current user\n",
@@ -3789,9 +3882,15 @@
               "member",
               "owner"
             ]
+          },
+          "username": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_repositories"
@@ -3816,7 +3915,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3839,7 +3942,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
@@ -3857,17 +3964,21 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "_body": {
+            "$ref": "#/definitions/repository"
+          },
           "username": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
-          },
-          "_body": {
-            "$ref": "#/definitions/repository"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
@@ -3885,17 +3996,21 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "_body": {
+            "$ref": "#/definitions/repository"
+          },
           "username": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
-          },
-          "_body": {
-            "$ref": "#/definitions/repository"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/repository"
@@ -3920,7 +4035,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_branchrestrictions"
@@ -3948,7 +4067,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
@@ -3966,17 +4090,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3992,17 +4121,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
@@ -4020,20 +4154,26 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "_body": {
             "$ref": "#/definitions/branchrestriction"
           },
           "username": {
             "type": "string"
           },
+          "id": {
+            "type": "string"
+          },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username",
+          "id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/branchrestriction"
@@ -4051,17 +4191,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "node": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "node": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4077,17 +4222,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "node": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "node": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/participant"
@@ -4105,17 +4255,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "node": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "node": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_commitstatuses"
@@ -4133,17 +4288,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "node": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "node": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
@@ -4161,20 +4321,26 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "username": {
+            "type": "string"
+          },
           "node": {
             "type": "string"
           },
           "key": {
             "type": "string"
           },
-          "username": {
-            "type": "string"
-          },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "key",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
@@ -4192,23 +4358,29 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "node": {
-            "type": "string"
-          },
-          "key": {
-            "type": "string"
-          },
           "_body": {
             "$ref": "#/definitions/commitstatus"
           },
           "username": {
             "type": "string"
           },
+          "node": {
+            "type": "string"
+          },
+          "key": {
+            "type": "string"
+          },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node",
+          "key",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commitstatus"
@@ -4226,17 +4398,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "revision": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "revision": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "revision",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/commit"
@@ -4264,7 +4441,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "sha",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4295,7 +4477,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "sha",
+          "comment_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4320,7 +4508,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4345,7 +4537,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4373,7 +4569,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "revision",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4401,7 +4602,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "revision",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4426,7 +4632,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_components"
@@ -4444,17 +4654,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "component_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "component_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "component_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/component"
@@ -4479,7 +4694,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4505,7 +4724,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "target_username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4533,7 +4757,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "target_username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4561,7 +4790,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "target_username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4597,7 +4831,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "spec",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4620,7 +4859,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4645,7 +4888,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4673,7 +4920,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "filename",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4701,7 +4953,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "filename",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -4726,7 +4983,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_repositories"
@@ -4751,7 +5012,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
@@ -4776,7 +5041,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -4794,17 +5063,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4820,17 +5094,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -4848,17 +5127,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -4883,7 +5167,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_issues"
@@ -4911,7 +5199,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -4939,7 +5232,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -4967,7 +5265,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/issue"
@@ -4985,17 +5288,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_issue_attachments"
@@ -5013,17 +5321,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5052,7 +5365,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "path",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5081,7 +5400,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "path",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5107,7 +5432,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5138,7 +5468,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "comment_id",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5156,17 +5492,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5184,17 +5525,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5212,17 +5558,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5240,17 +5591,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5268,17 +5624,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5296,17 +5657,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "issue_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "issue_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "issue_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -5331,7 +5697,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_milestones"
@@ -5349,17 +5719,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "milestone_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "milestone_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "milestone_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/milestone"
@@ -5387,7 +5762,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "spec",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5412,7 +5792,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipelines"
@@ -5442,7 +5826,12 @@
             "$ref": "#/definitions/pipeline"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline"
@@ -5473,7 +5862,12 @@
             "description": "The pipeline UUID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "pipeline_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline"
@@ -5504,7 +5898,12 @@
             "description": "The UUID of the pipeline."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "pipeline_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_steps"
@@ -5539,7 +5938,13 @@
             "description": "The UUID of the step."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "pipeline_uuid",
+          "step_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_step"
@@ -5574,7 +5979,13 @@
             "description": "The UUID of the step."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "pipeline_uuid",
+          "step_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5603,7 +6014,12 @@
             "description": "The UUID of the pipeline."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "pipeline_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5628,7 +6044,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipelines_config"
@@ -5658,7 +6078,12 @@
             "$ref": "#/definitions/pipelines_config"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipelines_config"
@@ -5685,7 +6110,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5710,7 +6139,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_ssh_key_pair"
@@ -5740,7 +6173,12 @@
             "$ref": "#/definitions/pipeline_ssh_key_pair"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_ssh_key_pair"
@@ -5767,7 +6205,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_known_hosts"
@@ -5797,7 +6239,12 @@
             "$ref": "#/definitions/pipeline_known_host"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
@@ -5828,7 +6275,12 @@
             "description": "The UUID of the known host to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "known_host_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5857,7 +6309,12 @@
             "description": "The UUID of the known host to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "known_host_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
@@ -5891,7 +6348,13 @@
             "$ref": "#/definitions/pipeline_known_host"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "known_host_uuid",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_known_host"
@@ -5918,7 +6381,11 @@
             "description": "The repository."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
@@ -5948,7 +6415,12 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -5979,7 +6451,12 @@
             "description": "The UUID of the variable to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6008,7 +6485,12 @@
             "description": "The UUID of the variable to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -6042,7 +6524,13 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug",
+          "variable_uuid",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -6060,12 +6548,6 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "username": {
-            "type": "string"
-          },
-          "repo_slug": {
-            "type": "string"
-          },
           "state": {
             "type": "string",
             "description": "Only return pull requests that are in this state. This parameter can be repeated.",
@@ -6075,9 +6557,19 @@
               "OPEN",
               "DECLINED"
             ]
+          },
+          "username": {
+            "type": "string"
+          },
+          "repo_slug": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pullrequests"
@@ -6095,17 +6587,21 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "_body": {
+            "$ref": "#/definitions/pullrequest"
+          },
           "username": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
-          },
-          "_body": {
-            "$ref": "#/definitions/pullrequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
@@ -6130,7 +6626,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6149,14 +6649,19 @@
           "username": {
             "type": "string"
           },
-          "repo_slug": {
+          "pull_request_id": {
             "type": "string"
           },
-          "pull_request_id": {
+          "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
@@ -6174,20 +6679,25 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "username": {
-            "type": "string"
+          "_body": {
+            "$ref": "#/definitions/pullrequest"
           },
-          "repo_slug": {
+          "username": {
             "type": "string"
           },
           "pull_request_id": {
             "type": "string"
           },
-          "_body": {
-            "$ref": "#/definitions/pullrequest"
+          "repo_slug": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
@@ -6208,14 +6718,19 @@
           "username": {
             "type": "string"
           },
-          "repo_slug": {
+          "pull_request_id": {
             "type": "string"
           },
-          "pull_request_id": {
+          "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6241,7 +6756,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6269,7 +6789,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6297,7 +6822,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6328,7 +6858,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "comment_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6356,7 +6892,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6384,7 +6925,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
@@ -6412,7 +6958,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6443,7 +6994,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pullrequest"
@@ -6471,7 +7027,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6489,17 +7050,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "pull_request_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "pull_request_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "pull_request_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_commitstatuses"
@@ -6524,7 +7090,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6549,7 +7119,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6577,7 +7151,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "name",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6604,7 +7183,11 @@
             "description": "\nThe repo slug for the repository.  This can either be the `repo_slug` of\nthe repository or the `UUID` of the repository (surrounded by\ncurly-braces (`{}`))\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6634,7 +7217,12 @@
             "description": "\nThe repo slug for the repository.  This can either be the `repo_slug` of\nthe repository or the `UUID` of the repository (surrounded by\ncurly-braces (`{}`))\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/tag"
@@ -6662,7 +7250,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "name",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6687,7 +7280,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_versions"
@@ -6705,17 +7302,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "version_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "version_id": {
             "type": "string"
           },
           "repo_slug": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "version_id",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/version"
@@ -6740,7 +7342,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "repo_slug"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -6793,7 +7399,10 @@
             "$ref": "#/definitions/snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -6824,7 +7433,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippets"
@@ -6849,7 +7461,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -6867,14 +7483,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6890,14 +7510,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -6915,14 +7539,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -6947,7 +7575,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippet_comments"
@@ -6975,7 +7607,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -7003,7 +7640,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "comment_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7029,7 +7671,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "comment_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet_comment"
@@ -7057,7 +7704,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "comment_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7080,7 +7732,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_snippet_commit"
@@ -7108,7 +7764,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id",
+          "revision"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet_commit"
@@ -7126,14 +7787,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7151,14 +7816,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7176,14 +7845,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7201,14 +7874,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7226,17 +7903,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
-            "type": "string"
-          },
           "username": {
             "type": "string"
           },
           "node_id": {
             "type": "string"
+          },
+          "encoded_id": {
+            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7252,17 +7934,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
           "node_id": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -7280,17 +7967,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "encoded_id": {
+          "username": {
             "type": "string"
           },
           "node_id": {
             "type": "string"
           },
-          "username": {
+          "encoded_id": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "node_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/snippet"
@@ -7321,7 +8013,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "path",
+          "node_id",
+          "encoded_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7341,17 +8039,22 @@
             "type": "string",
             "description": "When used, only one the diff of the specified file will be returned."
           },
+          "username": {
+            "type": "string"
+          },
           "encoded_id": {
             "type": "string"
           },
           "revision": {
             "type": "string"
-          },
-          "username": {
-            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id",
+          "revision"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7367,17 +8070,22 @@
       "inputSchema": {
         "type": "object",
         "properties": {
+          "username": {
+            "type": "string"
+          },
           "encoded_id": {
             "type": "string"
           },
           "revision": {
             "type": "string"
-          },
-          "username": {
-            "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "encoded_id",
+          "revision"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7429,7 +8137,10 @@
             "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_projects"
@@ -7455,7 +8166,11 @@
             "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "owner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
@@ -7482,7 +8197,11 @@
             "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "project_key"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7507,7 +8226,11 @@
             "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "project_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
@@ -7537,7 +8260,12 @@
             "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "_body",
+          "owner",
+          "project_key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/project"
@@ -7559,7 +8287,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/team"
@@ -7581,7 +8312,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7603,7 +8337,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -7625,7 +8362,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
@@ -7647,7 +8387,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -7665,14 +8408,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7688,14 +8435,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -7713,14 +8464,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -7742,7 +8497,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
@@ -7765,7 +8523,10 @@
             "description": "The account."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
@@ -7791,7 +8552,10 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -7818,7 +8582,11 @@
             "description": "The UUID of the variable to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7843,7 +8611,11 @@
             "description": "The UUID of the variable to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -7873,7 +8645,12 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -7895,7 +8672,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -7945,7 +8725,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"
@@ -7967,7 +8750,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/user"
@@ -7989,7 +8775,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -8011,7 +8800,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_users"
@@ -8033,7 +8825,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_webhook_subscriptions"
@@ -8055,7 +8850,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -8073,14 +8871,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8096,14 +8898,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -8121,14 +8927,18 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "uid": {
+          "username": {
             "type": "string"
           },
-          "username": {
+          "uid": {
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "uid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook_subscription"
@@ -8151,7 +8961,10 @@
             "description": "The account."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/paginated_pipeline_variables"
@@ -8177,7 +8990,10 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -8204,7 +9020,11 @@
             "description": "The UUID of the variable to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8229,7 +9049,11 @@
             "description": "The UUID of the variable to retrieve."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -8259,7 +9083,12 @@
             "$ref": "#/definitions/pipeline_variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "variable_uuid",
+          "_body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/pipeline_variable"
@@ -8281,7 +9110,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/error"

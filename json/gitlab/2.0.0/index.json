@@ -2699,7 +2699,31 @@
             "description": "Number of Git pushes after which 'git gc' is run."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "domain_blacklist",
+          "two_factor_grace_period",
+          "shared_runners_text",
+          "metrics_host",
+          "metrics_port",
+          "metrics_pool_size",
+          "metrics_timeout",
+          "metrics_method_call_threshold",
+          "metrics_sample_interval",
+          "metrics_packet_size",
+          "sidekiq_throttling_queus",
+          "sidekiq_throttling_factor",
+          "recaptcha_site_key",
+          "recaptcha_private_key",
+          "akismet_api_key",
+          "sentry_dsn",
+          "koding_url",
+          "plantuml_url",
+          "housekeeping_bitmaps_enabled",
+          "housekeeping_incremental_repack_period",
+          "housekeeping_full_repack_period",
+          "housekeeping_gc_period"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApplicationSetting"
@@ -2722,7 +2746,10 @@
             "description": "Content of .gitlab-ci.yml"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "content"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2769,7 +2796,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2806,7 +2836,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2843,7 +2876,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -2951,7 +2987,11 @@
             "description": "Allow users to request member access"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "path"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -3010,7 +3050,10 @@
             "description": "The ID of a group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3031,7 +3074,10 @@
             "description": "The ID of a group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupDetail"
@@ -3079,7 +3125,10 @@
             "description": "Allow users to request member access"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -3112,7 +3161,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
@@ -3135,7 +3187,10 @@
             "description": "The group ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
@@ -3163,7 +3218,11 @@
             "description": "The user ID of the access requester"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3194,7 +3253,11 @@
             "description": "A valid access level (defaults: `30`, developer access level)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -3260,7 +3323,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -3297,7 +3363,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -3335,7 +3404,12 @@
             "description": "Date string in the format YEAR-MONTH-DAY"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id",
+          "access_level"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -3363,7 +3437,11 @@
             "description": "The user ID of the member"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3389,7 +3467,11 @@
             "description": "The user ID of the member"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -3427,7 +3509,12 @@
             "description": "Date string in the format YEAR-MONTH-DAY"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id",
+          "access_level"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -3450,7 +3537,10 @@
             "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
@@ -3525,7 +3615,10 @@
             "description": "Enable/disable this notification"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
@@ -3599,7 +3692,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -3626,7 +3722,11 @@
             "description": "The ID or path of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "project_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupDetail"
@@ -3679,7 +3779,10 @@
             "description": "Do SSL verification when triggering the hook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
@@ -3703,7 +3806,10 @@
             "description": "The ID of the system hook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
@@ -3727,7 +3833,10 @@
             "description": "The ID of the system hook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Hook"
@@ -3899,7 +4008,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKeyWithUser"
@@ -3948,7 +4060,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
@@ -4251,7 +4366,10 @@
             "description": "URL from which the project is imported"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -4355,7 +4473,10 @@
             "description": "The ID or name of the namespace that the project will be forked into"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -4485,7 +4606,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -4665,7 +4789,11 @@
             "description": "URL from which the project is imported"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -4761,7 +4889,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4782,7 +4913,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectWithAccess"
@@ -4883,7 +5017,10 @@
             "description": "Only allow to merge if all discussions are resolved"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -4914,7 +5051,12 @@
             "description": "The unique token of trigger"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ref",
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TriggerRequest"
@@ -4947,7 +5089,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
@@ -4970,7 +5115,10 @@
             "description": "The project ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessRequester"
@@ -4998,7 +5146,11 @@
             "description": "The user ID of the access requester"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5029,7 +5181,11 @@
             "description": "A valid access level (defaults: `30`, developer access level)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -5052,7 +5208,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -5075,7 +5234,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Board"
@@ -5103,7 +5265,11 @@
             "description": "The ID of a board"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "board_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -5136,7 +5302,12 @@
             "description": "The ID of an existing label"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "board_id",
+          "label_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -5169,7 +5340,12 @@
             "description": "The ID of a board list"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "board_id",
+          "list_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -5202,7 +5378,12 @@
             "description": "The ID of a list"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "board_id",
+          "list_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -5240,7 +5421,13 @@
             "description": "The position of the list"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "board_id",
+          "list_id",
+          "position"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/List"
@@ -5284,7 +5471,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5315,7 +5505,12 @@
             "description": "The name for the build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ref_name",
+          "job"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5341,7 +5536,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5369,7 +5568,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5395,7 +5598,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5423,7 +5630,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5451,7 +5662,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5479,7 +5694,11 @@
             "description": "The ID of a Build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5507,7 +5726,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -5535,7 +5758,11 @@
             "description": "The ID of a build"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "build_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5556,7 +5783,10 @@
             "description": "The ID of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5587,7 +5817,12 @@
             "description": "The name of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5615,7 +5850,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5643,7 +5882,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5671,7 +5914,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5699,7 +5946,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -5732,7 +5983,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -5760,7 +6014,11 @@
             "description": "The deployment ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "deployment_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Deployment"
@@ -5793,7 +6051,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
@@ -5827,7 +6088,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
@@ -5855,7 +6120,11 @@
             "description": "The environment ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "environment_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
@@ -5894,7 +6163,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "environment_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Environment"
@@ -5927,7 +6200,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
@@ -5950,7 +6226,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5975,7 +6254,11 @@
             "description": "The ID of the project it was forked from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "forked_from_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6006,7 +6289,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
@@ -6073,7 +6359,11 @@
             "description": "Secret token to validate received payloads; this will not be returned in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
@@ -6101,7 +6391,11 @@
             "description": "The ID of the hook to delete"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "hook_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
@@ -6129,7 +6423,11 @@
             "description": "The ID of a project hook"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "hook_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
@@ -6201,7 +6499,12 @@
             "description": "Secret token to validate received payloads; this will not be returned in the response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "hook_id",
+          "url"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectHook"
@@ -6272,7 +6575,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -6335,7 +6641,11 @@
             "description": "Boolean parameter if the issue should be confidential"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -6363,7 +6673,11 @@
             "description": "The ID of a project issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6389,7 +6703,11 @@
             "description": "The ID of a project issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -6463,7 +6781,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -6495,7 +6817,12 @@
             "description": "The duration to be parsed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id",
+          "duration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6531,7 +6858,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6562,7 +6893,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6594,7 +6930,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6626,7 +6967,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6659,7 +7005,12 @@
             "description": "The ID of the new project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id",
+          "to_project_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -6700,7 +7051,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6735,7 +7091,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "issue_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6771,7 +7133,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "issue_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6807,7 +7175,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "issue_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -6835,7 +7209,11 @@
             "description": "The ID of a project issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6861,7 +7239,11 @@
             "description": "The ID of a project issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6891,7 +7273,12 @@
             "description": "The duration to be parsed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id",
+          "duration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6917,7 +7304,11 @@
             "description": "The ID of a project issue"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6943,7 +7334,11 @@
             "description": "The ID of an issuable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "issue_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
@@ -6981,7 +7376,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -7017,7 +7416,12 @@
             "description": "The creation date of the note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -7050,7 +7454,12 @@
             "description": "The ID of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -7083,7 +7492,12 @@
             "description": "The ID of the noteable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note_id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -7120,7 +7534,13 @@
             "description": "The content of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -7147,7 +7567,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -7174,7 +7598,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -7197,7 +7625,10 @@
             "description": "The ID of the project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7228,7 +7659,12 @@
             "description": "The name of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7256,7 +7692,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7284,7 +7724,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7312,7 +7756,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7340,7 +7788,11 @@
             "description": "The ID of the deploy key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -7367,7 +7819,11 @@
             "description": "The name of the label to be deleted"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7390,7 +7846,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7430,7 +7889,12 @@
             "description": "The priority of the label"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "color"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7474,7 +7938,11 @@
             "description": "The priority of the label"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7501,7 +7969,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7528,7 +8000,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Label"
@@ -7565,7 +8041,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -7603,7 +8082,12 @@
             "description": "Date string in the format YEAR-MONTH-DAY"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id",
+          "access_level"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -7631,7 +8115,11 @@
             "description": "The user ID of the member"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -7657,7 +8145,11 @@
             "description": "The user ID of the member"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -7695,7 +8187,12 @@
             "description": "Date string in the format YEAR-MONTH-DAY"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "user_id",
+          "access_level"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Member"
@@ -7723,7 +8220,11 @@
             "description": "The ID of a merge request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -7789,7 +8290,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -7816,7 +8321,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -7843,7 +8352,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestChanges"
@@ -7880,7 +8393,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -7917,7 +8434,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -7948,7 +8469,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -7975,7 +8501,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
@@ -8018,7 +8548,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8045,7 +8579,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8072,7 +8610,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8135,7 +8677,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8197,7 +8742,13 @@
             "description": "Remove source branch when merging"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "source_branch",
+          "target_branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8225,7 +8776,11 @@
             "description": "The ID of a merge request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8250,7 +8805,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8316,7 +8875,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8348,7 +8911,12 @@
             "description": "The duration to be parsed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id",
+          "duration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8384,7 +8952,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8415,7 +8987,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8447,7 +9024,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8479,7 +9061,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8506,7 +9093,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8533,7 +9124,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestChanges"
@@ -8570,7 +9165,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -8607,7 +9206,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -8638,7 +9241,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MRNote"
@@ -8665,7 +9273,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
@@ -8708,7 +9320,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -8749,7 +9365,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8784,7 +9405,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "merge_request_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8820,7 +9447,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "merge_request_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8856,7 +9489,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "merge_request_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -8884,7 +9523,11 @@
             "description": "The ID of a project merge_request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8910,7 +9553,11 @@
             "description": "The ID of a project merge_request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8940,7 +9587,12 @@
             "description": "The duration to be parsed"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id",
+          "duration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8966,7 +9618,11 @@
             "description": "The ID of a project merge_request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -8992,7 +9648,11 @@
             "description": "The ID of an issuable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
@@ -9020,7 +9680,11 @@
             "description": "The ID of a merge request"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestDiff"
@@ -9053,7 +9717,12 @@
             "description": "The ID of a merge request diff version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "merge_request_id",
+          "version_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequestDiffFull"
@@ -9091,7 +9760,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -9127,7 +9800,12 @@
             "description": "The creation date of the note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -9160,7 +9838,12 @@
             "description": "The ID of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -9193,7 +9876,12 @@
             "description": "The ID of the noteable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note_id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -9230,7 +9918,13 @@
             "description": "The content of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -9257,7 +9951,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -9284,7 +9982,11 @@
             "description": "The ID of a resource"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscribable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MergeRequest"
@@ -9330,7 +10032,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
@@ -9369,7 +10074,11 @@
             "description": "The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
@@ -9397,7 +10106,11 @@
             "description": "The ID of a project milestone"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "milestone_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
@@ -9449,7 +10162,11 @@
             "description": "The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "milestone_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Milestone"
@@ -9487,7 +10204,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "milestone_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Issue"
@@ -9510,7 +10231,10 @@
             "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
@@ -9585,7 +10309,10 @@
             "description": "Enable/disable this notification"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NotificationSetting"
@@ -9612,7 +10339,11 @@
             "description": "Reference"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
@@ -9654,7 +10385,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
@@ -9682,7 +10416,11 @@
             "description": "The pipeline ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "pipeline_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
@@ -9710,7 +10448,11 @@
             "description": "The pipeline ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "pipeline_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
@@ -9738,7 +10480,11 @@
             "description": "The pipeline ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "pipeline_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Pipeline"
@@ -9769,7 +10515,10 @@
             "description": "The archive format"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9798,7 +10547,12 @@
             "description": "The path to the file to display"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha",
+          "filepath"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9819,7 +10573,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
@@ -9850,7 +10607,12 @@
             "description": "Create branch from commit sha or existing branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch_name",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
@@ -9877,7 +10639,11 @@
             "description": "The name of the branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -9902,7 +10668,11 @@
             "description": "The name of the branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
@@ -9937,7 +10707,11 @@
             "description": "Flag if developers can merge to that branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
@@ -9964,7 +10738,11 @@
             "description": "The name of the branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoBranch"
@@ -10013,7 +10791,10 @@
             "description": "The file path"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
@@ -10056,7 +10837,13 @@
             "description": "Author name for commit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "branch_name",
+          "commit_message",
+          "actions"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommitDetail"
@@ -10083,7 +10870,11 @@
             "description": "A commit sha, or the name of a branch or tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommitDetail"
@@ -10114,7 +10905,12 @@
             "description": "The path to the file to display"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha",
+          "filepath"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10160,7 +10956,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -10191,7 +10991,12 @@
             "description": "The name of the branch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoCommit"
@@ -10228,7 +11033,11 @@
             "description": "A commit sha, or the name of a branch or tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitNote"
@@ -10276,7 +11085,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha",
+          "note",
+          "line",
+          "line_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitNote"
@@ -10303,7 +11119,11 @@
             "description": "A commit sha, or the name of a branch or tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10354,7 +11174,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitStatus"
@@ -10385,7 +11209,12 @@
             "description": "The commit, branch name, or tag name to stop comparison"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from",
+          "to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Compare"
@@ -10408,7 +11237,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Contributor"
@@ -10451,7 +11283,13 @@
             "description": "The name of the author"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file_path",
+          "branch_name",
+          "commit_message"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10480,7 +11318,12 @@
             "description": "The name of branch, tag, or commit"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file_path",
+          "ref"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10532,7 +11375,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file_path",
+          "branch_name",
+          "commit_message",
+          "content"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10584,7 +11434,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file_path",
+          "branch_name",
+          "commit_message",
+          "content"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10605,7 +11462,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10630,7 +11490,11 @@
             "description": "The commit, branch name, or tag name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10651,7 +11515,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
@@ -10690,7 +11557,12 @@
             "description": "Specifying release notes stored in the GitLab database"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag_name",
+          "ref"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
@@ -10717,7 +11589,11 @@
             "description": "The name of the tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag_name"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -10742,7 +11618,11 @@
             "description": "The name of the tag"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag_name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTag"
@@ -10773,7 +11653,12 @@
             "description": "Release notes with markdown support"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag_name",
+          "description"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
@@ -10804,7 +11689,12 @@
             "description": "Release notes with markdown support"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "tag_name",
+          "description"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Release"
@@ -10839,7 +11729,10 @@
             "description": "Used to get a recursive tree"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoTreeObject"
@@ -10883,7 +11776,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
@@ -10911,7 +11807,11 @@
             "description": "The ID of the runner"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "runner_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
@@ -10939,7 +11839,11 @@
             "description": "The ID of the runner"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "runner_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
@@ -10974,7 +11878,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11007,7 +11915,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11048,7 +11960,14 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "bamboo_url",
+          "build_key",
+          "username",
+          "password",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11093,7 +12012,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "new_issue_url",
+          "issues_url",
+          "project_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11130,7 +12055,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "project_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11167,7 +12097,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipients",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11204,7 +12138,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11249,7 +12187,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "new_issue_url",
+          "issues_url",
+          "project_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11294,7 +12238,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "drone_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11335,7 +12284,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipients",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11360,7 +12313,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "external_wiki_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11389,7 +12346,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11422,7 +12383,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11495,7 +12461,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11541,7 +12511,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipients",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11591,7 +12565,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "project_key",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11628,7 +12607,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "namespace",
+          "api_url",
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11688,7 +12673,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "webhook",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11713,7 +12702,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11738,7 +12731,11 @@
             "description": "The Mattermost token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11770,7 +12767,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipients",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11803,7 +12804,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11848,7 +12853,15 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api_key",
+          "user_key",
+          "priority",
+          "device",
+          "sound",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11889,7 +12902,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "new_issue_url",
+          "project_url",
+          "issues_url",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11957,7 +12976,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "webhook",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -11982,7 +13005,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12007,7 +13034,11 @@
             "description": "The Slack token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12048,7 +13079,14 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "teamcity_url",
+          "build_type",
+          "username",
+          "password",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12101,7 +13139,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "service_slug",
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12154,7 +13196,11 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "service_slug",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectService"
@@ -12198,7 +13244,12 @@
             "description": "Share expiration date"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "group_id",
+          "group_access"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectGroupLink"
@@ -12226,7 +13277,11 @@
             "description": "The ID of the group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "group_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12257,7 +13312,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
@@ -12302,7 +13360,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "file_name",
+          "code",
+          "visibility_level"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
@@ -12340,7 +13405,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -12376,7 +13445,12 @@
             "description": "The creation date of the note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -12409,7 +13483,12 @@
             "description": "The ID of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -12442,7 +13521,12 @@
             "description": "The ID of the noteable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "note_id",
+          "noteable_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -12479,7 +13563,13 @@
             "description": "The content of a note"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "noteable_id",
+          "note_id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Note"
@@ -12507,7 +13597,11 @@
             "description": "The ID of a project snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12533,7 +13627,11 @@
             "description": "The ID of a project snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
@@ -12583,7 +13681,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProjectSnippet"
@@ -12621,7 +13723,11 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12652,7 +13758,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12684,7 +13795,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12716,7 +13832,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12757,7 +13878,12 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12792,7 +13918,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "id",
+          "snippet_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12828,7 +13960,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "snippet_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12864,7 +14002,13 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "award_id",
+          "id",
+          "snippet_id",
+          "note_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AwardEmoji"
@@ -12892,7 +14036,11 @@
             "description": "The ID of a project snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "snippet_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -12913,7 +14061,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -12936,7 +14087,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -12994,7 +14148,12 @@
             "description": "A string label to differentiate this status from the status of other systems. Default: \"default\""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sha",
+          "state"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CommitStatus"
@@ -13027,7 +14186,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
@@ -13050,7 +14212,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
@@ -13077,7 +14242,11 @@
             "description": "The unique token of trigger"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
@@ -13104,7 +14273,11 @@
             "description": "The unique token of trigger"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Trigger"
@@ -13127,7 +14300,10 @@
             "description": "The ID of a project"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Project"
@@ -13154,7 +14330,11 @@
             "description": "The file to be uploaded"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "file"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13189,7 +14369,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserBasic"
@@ -13222,7 +14405,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
@@ -13253,7 +14439,12 @@
             "description": "The value of the variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key",
+          "value"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
@@ -13280,7 +14471,11 @@
             "description": "The key of the variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
@@ -13307,7 +14502,11 @@
             "description": "The key of the variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
@@ -13338,7 +14537,11 @@
             "description": "The value of the variable"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Variable"
@@ -13446,7 +14649,10 @@
             "description": "The ID of the runner"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Runner"
@@ -13470,7 +14676,10 @@
             "description": "The ID of the runner"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RunnerDetails"
@@ -13514,7 +14723,10 @@
             "description": "Flag indicating the runner is locked"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RunnerDetails"
@@ -13545,7 +14757,10 @@
             "description": "The password of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserWithPrivateToken"
@@ -13666,7 +14881,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "file_name",
+          "content"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
@@ -13722,7 +14942,10 @@
             "description": "The ID of a snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
@@ -13746,7 +14969,10 @@
             "description": "The ID of a snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
@@ -13792,7 +15018,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PersonalSnippet"
@@ -13816,7 +15045,10 @@
             "description": "The ID of a snippet"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -13851,7 +15083,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -13888,7 +15123,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -13925,7 +15163,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Template"
@@ -13974,7 +15215,10 @@
             "description": "The name of the template"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepoLicense"
@@ -14042,7 +15286,10 @@
             "description": "The ID of the todo being marked as done"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Todo"
@@ -14093,7 +15340,10 @@
             "description": "The new email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14117,7 +15367,10 @@
             "description": "The ID of the email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14139,7 +15392,10 @@
             "description": "The ID of the email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14180,7 +15436,11 @@
             "description": "The title of the new SSH key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14204,7 +15464,10 @@
             "description": "The ID of the SSH key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14228,7 +15491,10 @@
             "description": "The ID of the SSH key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14372,7 +15638,13 @@
             "description": "Flag indicating the user is an external user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "email",
+          "password",
+          "name",
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
@@ -14396,7 +15668,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14420,7 +15695,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserBasic"
@@ -14517,7 +15795,10 @@
             "description": "Flag indicating the user is an external user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserPublic"
@@ -14541,7 +15822,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -14563,7 +15847,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14591,7 +15878,11 @@
             "description": "The email of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "email"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14620,7 +15911,11 @@
             "description": "The ID of the email"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "email_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Email"
@@ -14654,7 +15949,10 @@
             "description": "Number of items per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Event"
@@ -14678,7 +15976,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14710,7 +16011,12 @@
             "description": "The title of the new SSH key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key",
+          "title"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14739,7 +16045,11 @@
             "description": "The ID of the SSH key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "key_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SSHKey"
@@ -14763,7 +16073,10 @@
             "description": "The ID of the user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {

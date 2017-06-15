@@ -172,7 +172,12 @@
             "description": "The client secret of the application requesting authentication."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "client_id",
+          "client_secret"
+        ]
       },
       "outputSchema": {}
     },
@@ -226,7 +231,12 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "grant_type",
+          "client_id",
+          "client_secret"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessToken"

@@ -78,7 +78,11 @@
             "description": "Text [up to 400 characters]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SentencePieceTokenResponseEntity"
@@ -100,7 +104,11 @@
             "description": "Text [up to 400 characters]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SentencePieceTokenResponseEntity"

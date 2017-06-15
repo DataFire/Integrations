@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -517,6 +518,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_adexchangeseller": {
+          "integration": "google_adexchangeseller"
+        }
+      }
+    },
+    {
       "id": "accounts.list",
       "title": "accounts.list",
       "description": "List all accounts available to this Ad Exchange account.",
@@ -624,7 +696,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
@@ -689,7 +764,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AdClients"
@@ -758,7 +836,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannels"
@@ -821,7 +903,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId",
+          "customChannelId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomChannel"
@@ -890,7 +977,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "adClientId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UrlChannels"
@@ -949,7 +1040,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Alerts"
@@ -1004,7 +1098,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -1059,7 +1156,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Metadata"
@@ -1114,7 +1214,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PreferredDeals"
@@ -1173,7 +1276,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "dealId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PreferredDeal"
@@ -1268,7 +1375,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
@@ -1333,7 +1445,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedReports"
@@ -1408,7 +1523,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountId",
+          "savedReportId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"

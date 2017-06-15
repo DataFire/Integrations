@@ -1353,7 +1353,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "st",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APIDistrictList"
@@ -1379,7 +1384,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APIDistrict"
@@ -1420,7 +1430,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "st",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APIDistrictListRank"
@@ -1465,7 +1480,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "st",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APISchoolListRank"
@@ -1588,7 +1608,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "st",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APISchoolList"
@@ -1614,7 +1639,12 @@
             "description": "Your API app key"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "appID",
+          "appKey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/APISchool"

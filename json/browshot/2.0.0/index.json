@@ -656,7 +656,10 @@
             "description": "list of headers to add to the S3 object (for S3 only)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "instance_id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -682,7 +685,10 @@
             "description": "batch ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Batch"
@@ -705,7 +711,10 @@
             "description": "browser ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Browser"
@@ -742,7 +751,10 @@
             "description": "instance ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Instance"
@@ -912,7 +924,11 @@
             "description": "list of headers to add to the S3 object (for S3 only)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "instance_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Screenshot"
@@ -939,7 +955,10 @@
             "description": "data to remove. You can specify multiple of them (separated by a ,): *image* (image files), *url* (url requested), *metadata* (time added, time finished, post data, cookie and referer used for the screenshot), *all* (all data and files)\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1002,7 +1021,11 @@
             "description": "HTTP headers to add to your S3 object - optional, used with hosting=s3"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "hosting"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1028,7 +1051,10 @@
             "description": "screenshot ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1055,7 +1081,10 @@
             "minimum": 0
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1242,7 +1271,11 @@
             "description": "list of headers to add to the S3 object (for S3 only)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "instance_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ScreenshotList"
@@ -1280,7 +1313,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1310,7 +1346,10 @@
             "description": "note to add on the sharing page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1406,7 +1445,10 @@
             "minimum": 1
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {

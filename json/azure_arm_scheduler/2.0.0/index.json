@@ -914,7 +914,11 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCollectionListResult"
@@ -940,7 +944,12 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCollectionListResult"
@@ -970,7 +979,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -998,7 +1013,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCollectionDefinition"
@@ -1031,7 +1052,14 @@
             "$ref": "#/definitions/JobCollectionDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version",
+          "jobCollection"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCollectionDefinition"
@@ -1064,7 +1092,14 @@
             "$ref": "#/definitions/JobCollectionDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version",
+          "jobCollection"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCollectionDefinition"
@@ -1094,7 +1129,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -1122,7 +1163,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -1164,7 +1211,13 @@
             "description": "The filter to apply on the job state."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobListResult"
@@ -1198,7 +1251,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -1230,7 +1290,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobDefinition"
@@ -1267,7 +1334,15 @@
             "$ref": "#/definitions/JobDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version",
+          "job"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobDefinition"
@@ -1304,7 +1379,15 @@
             "$ref": "#/definitions/JobDefinition"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version",
+          "job"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobDefinition"
@@ -1352,7 +1435,14 @@
             "description": "The filter to apply on the job state."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobHistoryListResult"
@@ -1386,7 +1476,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "jobCollectionName",
+          "jobName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     }

@@ -331,7 +331,10 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
@@ -360,7 +363,13 @@
             "$ref": "#/definitions/CheckNameRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "location",
+          "api-version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameResponse"
@@ -382,7 +391,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollectionList"
@@ -411,7 +424,13 @@
             "$ref": "#/definitions/MigrateWorkspaceCollectionRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -435,7 +454,12 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollectionList"
@@ -465,7 +489,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {}
     },
@@ -493,7 +523,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollection"
@@ -526,7 +562,14 @@
             "$ref": "#/definitions/UpdateWorkspaceCollectionRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollection"
@@ -559,7 +602,14 @@
             "$ref": "#/definitions/CreateWorkspaceCollectionRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollection"
@@ -589,7 +639,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollectionAccessKeys"
@@ -622,7 +678,14 @@
             "$ref": "#/definitions/WorkspaceCollectionAccessKey"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceCollectionAccessKeys"
@@ -652,7 +715,13 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workspaceCollectionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkspaceList"

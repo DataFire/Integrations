@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -3186,6 +3187,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_sheets": {
+          "integration": "google_sheets"
+        }
+      }
+    },
+    {
       "id": "spreadsheets.create",
       "title": "spreadsheets.create",
       "description": "Creates a spreadsheet, returning the newly created spreadsheet.",
@@ -3352,7 +3424,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Spreadsheet"
@@ -3443,7 +3518,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId",
+          "sheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SheetProperties"
@@ -3557,7 +3636,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId",
+          "range"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ValueRange"
@@ -3678,7 +3761,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId",
+          "range"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UpdateValuesResponse"
@@ -3807,7 +3894,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId",
+          "range"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppendValuesResponse"
@@ -3898,7 +3989,11 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId",
+          "range"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClearValuesResponse"
@@ -3985,7 +4080,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchClearValuesResponse"
@@ -4099,7 +4197,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchGetValuesResponse"
@@ -4186,7 +4287,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdateValuesResponse"
@@ -4273,7 +4377,10 @@
             "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "spreadsheetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BatchUpdateSpreadsheetResponse"

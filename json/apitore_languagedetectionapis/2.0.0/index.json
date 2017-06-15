@@ -89,7 +89,11 @@
             "description": "Text [10-20 words over is recommended]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LanguageResponseEntity"
@@ -111,7 +115,11 @@
             "description": "Text [Short message like tweet is supported]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "text"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LanguageResponseEntity"

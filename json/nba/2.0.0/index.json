@@ -52,7 +52,19 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "WestPlayer1",
+          "WestPlayer2",
+          "WestPlayer3",
+          "WestPlayer4",
+          "WestPlayer5",
+          "EastPlayer1",
+          "EastPlayer2",
+          "EastPlayer3",
+          "EastPlayer4",
+          "EastPlayer5"
+        ]
       },
       "outputSchema": {}
     },
@@ -148,7 +160,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -211,7 +231,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -274,7 +302,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -289,7 +325,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID"
+        ]
       },
       "outputSchema": {}
     },
@@ -352,7 +391,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -367,7 +414,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID"
+        ]
       },
       "outputSchema": {}
     },
@@ -397,7 +447,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -460,7 +518,15 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod",
+          "StartRange",
+          "EndRange",
+          "RangeType"
+        ]
       },
       "outputSchema": {}
     },
@@ -475,7 +541,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID"
+        ]
       },
       "outputSchema": {}
     },
@@ -496,7 +565,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "Season",
+          "IsOnlyCurrentSeason"
+        ]
       },
       "outputSchema": {}
     },
@@ -511,7 +585,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PlayerID"
+        ]
       },
       "outputSchema": {}
     },
@@ -529,7 +606,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "Season"
+        ]
       },
       "outputSchema": {}
     },
@@ -547,7 +628,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Season",
+          "TeamID"
+        ]
       },
       "outputSchema": {}
     },
@@ -565,7 +650,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonYear"
+        ]
       },
       "outputSchema": {}
     },
@@ -583,7 +672,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonYear"
+        ]
       },
       "outputSchema": {}
     },
@@ -601,7 +694,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonYear"
+        ]
       },
       "outputSchema": {}
     },
@@ -619,7 +716,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonYear"
+        ]
       },
       "outputSchema": {}
     },
@@ -637,7 +738,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonYear"
+        ]
       },
       "outputSchema": {}
     },
@@ -652,7 +757,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID"
+        ]
       },
       "outputSchema": {}
     },
@@ -667,7 +775,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID"
+        ]
       },
       "outputSchema": {}
     },
@@ -706,7 +817,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "StatCategory",
+          "LeagueID",
+          "Season",
+          "SeasonType",
+          "PlayerOrTeam",
+          "PlayerScope",
+          "GameScope"
+        ]
       },
       "outputSchema": {}
     },
@@ -745,7 +865,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "StatType",
+          "LeagueID",
+          "Season",
+          "SeasonType",
+          "PlayerOrTeam",
+          "PlayerScope",
+          "GameScope"
+        ]
       },
       "outputSchema": {}
     },
@@ -784,7 +913,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Stat",
+          "LeagueID",
+          "Season",
+          "SeasonType",
+          "PlayerOrTeam",
+          "PlayerScope",
+          "GameScope"
+        ]
       },
       "outputSchema": {}
     },
@@ -856,7 +994,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GroupQuantity",
+          "SeasonType",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -880,7 +1040,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "LeagueID",
+          "Season",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -970,7 +1136,35 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ClutchTime",
+          "AheadBehind",
+          "PointDiff",
+          "GameScope",
+          "PlayerExperience",
+          "PlayerPosition",
+          "StarterBench",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -994,7 +1188,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PerMode",
+          "Season",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -1078,7 +1278,33 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames",
+          "DistanceRange",
+          "GameScope",
+          "PlayerExperience",
+          "PlayerPosition",
+          "StarterBench"
+        ]
       },
       "outputSchema": {}
     },
@@ -1159,7 +1385,32 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameScope",
+          "PlayerExperience",
+          "PlayerPosition",
+          "StarterBench",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1186,7 +1437,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "DefenseCategory"
+        ]
       },
       "outputSchema": {}
     },
@@ -1213,7 +1471,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "DefenseCategory"
+        ]
       },
       "outputSchema": {}
     },
@@ -1303,7 +1568,35 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ClutchTime",
+          "AheadBehind",
+          "PointDiff",
+          "GameScope",
+          "PlayerExperience",
+          "PlayerPosition",
+          "StarterBench",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1327,7 +1620,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PerMode",
+          "Season",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -1411,7 +1710,33 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames",
+          "DistanceRange",
+          "GameScope",
+          "PlayerExperience",
+          "PlayerPosition",
+          "StarterBench"
+        ]
       },
       "outputSchema": {}
     },
@@ -1480,7 +1805,28 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1510,7 +1856,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "Scope"
+        ]
       },
       "outputSchema": {}
     },
@@ -1531,7 +1884,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod"
+        ]
       },
       "outputSchema": {}
     },
@@ -1552,7 +1910,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameID",
+          "StartPeriod",
+          "EndPeriod"
+        ]
       },
       "outputSchema": {}
     },
@@ -1570,7 +1933,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "PlayerID"
+        ]
       },
       "outputSchema": {}
     },
@@ -1645,7 +2012,30 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PlayerIDList",
+          "VsPlayerIDList",
+          "SeasonType",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1717,7 +2107,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1789,7 +2201,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1861,7 +2295,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -1933,7 +2389,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2005,7 +2483,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2077,7 +2577,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2149,7 +2671,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2221,7 +2765,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2278,7 +2844,24 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2341,7 +2924,26 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2467,7 +3069,26 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2560,7 +3181,26 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "PlayerID",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2581,7 +3221,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PlayerID",
+          "Season",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -2614,7 +3259,16 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "PlayerID",
+          "Season",
+          "SeasonType",
+          "GraphStartSeason",
+          "GraphEndSeason",
+          "GraphStat"
+        ]
       },
       "outputSchema": {}
     },
@@ -2632,7 +3286,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "PlayerID"
+        ]
       },
       "outputSchema": {}
     },
@@ -2737,7 +3395,40 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PlayerTeamID",
+          "PlayerID1",
+          "PlayerID2",
+          "PlayerID3",
+          "PlayerID4",
+          "PlayerID5",
+          "VsTeamID",
+          "VsPlayerID1",
+          "VsPlayerID2",
+          "VsPlayerID3",
+          "VsPlayerID4",
+          "VsPlayerID5",
+          "SeasonType",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2812,7 +3503,30 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PlayerID",
+          "VsPlayerID",
+          "SeasonType",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -2830,7 +3544,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonID"
+        ]
       },
       "outputSchema": {}
     },
@@ -2851,7 +3569,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameDate",
+          "LeagueID",
+          "DayOffset"
+        ]
       },
       "outputSchema": {}
     },
@@ -2872,7 +3595,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GameDate",
+          "LeagueID",
+          "DayOffset"
+        ]
       },
       "outputSchema": {}
     },
@@ -2941,7 +3669,28 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SeasonType",
+          "TeamID",
+          "PlayerID",
+          "GameID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "Position",
+          "RookieYear",
+          "GameSegment",
+          "Period",
+          "LastNGames",
+          "ContextMeasure"
+        ]
       },
       "outputSchema": {}
     },
@@ -3013,7 +3762,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "Season",
+          "SeasonType",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames",
+          "GameID",
+          "GROUP_ID",
+          "ContextMeasure",
+          "ContextFilter"
+        ]
       },
       "outputSchema": {}
     },
@@ -3085,7 +3856,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3157,7 +3950,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3229,7 +4044,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SeasonType",
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3301,7 +4138,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3373,7 +4232,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3445,7 +4326,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3517,7 +4420,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3589,7 +4514,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3667,7 +4614,31 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "GroupQuantity",
+          "GameID",
+          "SeasonType",
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3721,7 +4692,23 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3781,7 +4768,25 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3841,7 +4846,25 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "PerMode",
+          "Season",
+          "SeasonType",
+          "TeamID",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -3862,7 +4885,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "Season",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -3886,7 +4914,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Season",
+          "TeamID",
+          "LeagueID",
+          "SeasonType"
+        ]
       },
       "outputSchema": {}
     },
@@ -3958,7 +4992,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "SeasonType",
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -4030,7 +5086,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -4102,7 +5180,29 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "SeasonType",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -4177,7 +5277,30 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "TeamID",
+          "VsPlayerID",
+          "SeasonType",
+          "MeasureType",
+          "PerMode",
+          "PlusMinus",
+          "PaceAdjust",
+          "Rank",
+          "Season",
+          "Outcome",
+          "Location",
+          "Month",
+          "SeasonSegment",
+          "DateFrom",
+          "DateTo",
+          "OpponentTeamID",
+          "VsConference",
+          "VsDivision",
+          "GameSegment",
+          "Period",
+          "LastNGames"
+        ]
       },
       "outputSchema": {}
     },
@@ -4201,7 +5324,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "SeasonType",
+          "PerMode",
+          "TeamID"
+        ]
       },
       "outputSchema": {}
     },
@@ -4219,7 +5348,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "LeagueID",
+          "GameDate"
+        ]
       },
       "outputSchema": {}
     }

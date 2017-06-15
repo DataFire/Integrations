@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -790,6 +791,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_clouduseraccounts": {
+          "integration": "google_clouduseraccounts"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_clouduseraccounts": {
+          "integration": "google_clouduseraccounts"
+        }
+      }
+    },
+    {
       "id": "groups.list",
       "title": "groups.list",
       "description": "Retrieves the list of groups contained within the specified project.",
@@ -850,7 +922,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GroupList"
@@ -907,7 +982,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -965,7 +1043,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "groupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1023,7 +1105,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "groupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Group"
@@ -1084,7 +1170,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "groupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1145,7 +1235,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "groupName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1203,7 +1297,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -1264,7 +1362,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -1325,7 +1427,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestPermissionsResponse"
@@ -1397,7 +1503,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationList"
@@ -1455,7 +1564,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "operation"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1511,7 +1624,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "operation"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1583,7 +1700,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/UserList"
@@ -1640,7 +1760,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1698,7 +1821,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -1759,7 +1886,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Policy"
@@ -1820,7 +1951,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "resource"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TestPermissionsResponse"
@@ -1878,7 +2013,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -1936,7 +2075,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1997,7 +2140,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2059,7 +2206,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "user",
+          "fingerprint"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Operation"
@@ -2129,7 +2281,13 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "zone",
+          "user",
+          "instance"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LinuxGetAuthorizedKeysViewResponse"
@@ -2209,7 +2367,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "project",
+          "zone",
+          "instance"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LinuxGetLinuxAccountViewsResponse"

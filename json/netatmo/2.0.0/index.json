@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://api.netatmo.net/oauth2/authorize",
@@ -1620,6 +1621,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "netatmo": {
+          "integration": "netatmo"
+        }
+      }
+    },
+    {
       "id": "addwebhook",
       "title": "addwebhook",
       "description": "Links a callback url to a user.\n",
@@ -1635,7 +1707,11 @@
             "description": "Webhooks are only available for Welcome, enter app_camera."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "app_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeWebhookResponse"
@@ -1665,7 +1741,12 @@
             "$ref": "#/definitions/NAThermProgram"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "module_id",
+          "therm_program"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NANewScheduleResponse"
@@ -1726,7 +1807,10 @@
             "description": "For Welcome, use app_camera"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeWebhookResponse"
@@ -1753,7 +1837,11 @@
             "description": "Security key to access snapshots."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "image_id",
+          "key"
+        ]
       },
       "outputSchema": {
         "format": "byte",
@@ -1781,7 +1869,11 @@
             "description": "Your request will retrieve all the events until this one"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "home_id",
+          "event_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
@@ -1842,7 +1934,11 @@
             "description": "Number of events to retrieve. Default is 30."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "home_id",
+          "person_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
@@ -1909,7 +2005,12 @@
             "description": "In scales higher than max, since the data is aggregated, the timestamps returned are by default offset by +(scale/2).\nFor instance, if you ask for measurements at a daily scale, you will receive data timestamped at 12:00 if real_time is set to false (default case), and timestamped at 00:00 if real_time is set to true.\nNB : The servers always store data with real_time set to true and data are offset by this parameter AFTER having being time-filtered, thus you could have data after date_end if real_time is set to false.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "scale",
+          "type"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAMeasureResponse"
@@ -1940,7 +2041,11 @@
             "description": "Number of events to retrieve. Default is 30."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "home_id",
+          "event_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomeEventsResponse"
@@ -2019,7 +2124,11 @@
             "description": "The thermostat id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "module_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAThermStateResponse"
@@ -2074,7 +2183,10 @@
             "description": "If a person_id is specified, that person will be set as 'Away'. If no person_id is specified, the Home will be set as 'Empty'."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "home_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAWelcomePersonsAwayResponse"
@@ -2123,7 +2235,12 @@
             "description": "When using the manual setpoint_mode, this parameter defines the temperature setpoint (in Celcius) to use."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "module_id",
+          "setpoint_mode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"
@@ -2154,7 +2271,12 @@
             "description": "The schedule id. It can be found in the getthermstate response, under the keys \"therm_program_backup\" and \"therm_program\".\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "module_id",
+          "schedule_id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"
@@ -2184,7 +2306,12 @@
             "$ref": "#/definitions/NAThermProgram"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "device_id",
+          "module_id",
+          "therm_program"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/NAOkResponse"

@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -940,7 +941,11 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "checkNameAvailabilityInput",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckNameAvailabilityOutput"
@@ -963,7 +968,10 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EdgenodeResult"
@@ -986,7 +994,10 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
@@ -1013,7 +1024,11 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
@@ -1040,7 +1055,11 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileListResult"
@@ -1074,7 +1093,12 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProfileListResult"
@@ -1112,7 +1136,13 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1148,7 +1178,13 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -1189,7 +1225,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "profileUpdateParameters",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -1230,7 +1273,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "profile",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Profile"
@@ -1268,7 +1318,13 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
@@ -1306,7 +1362,13 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EndpointListResult"
@@ -1348,7 +1410,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1388,7 +1457,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
@@ -1433,7 +1509,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "endpointUpdateProperties",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
@@ -1478,7 +1562,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "endpoint",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
@@ -1520,7 +1612,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ResourceUsageListResult"
@@ -1562,7 +1661,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomainListResult"
@@ -1608,7 +1714,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1652,7 +1766,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomain"
@@ -1701,7 +1823,16 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainName",
+          "customDomainProperties",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDomain"
@@ -1747,7 +1878,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1791,7 +1930,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1834,7 +1981,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "contentFilePaths",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1874,7 +2029,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OriginListResult"
@@ -1920,7 +2082,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "originName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Origin"
@@ -1969,7 +2139,16 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "originName",
+          "originUpdateProperties",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Origin"
@@ -2014,7 +2193,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "contentFilePaths",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2054,7 +2241,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
@@ -2096,7 +2290,14 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Endpoint"
@@ -2141,7 +2342,15 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "endpointName",
+          "customDomainProperties",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ValidateCustomDomainOutput"
@@ -2179,7 +2388,13 @@
             "description": "Version of the API to be used with the client request. Current version is 2016-10-02."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "profileName",
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SsoUri"

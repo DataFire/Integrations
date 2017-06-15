@@ -254,7 +254,11 @@
             "description": "Search radius for parks, in metres, between 100 and 2000"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PointInfo"
@@ -285,7 +289,10 @@
             "description": "Search radius for parks, in metres, between 100 and 2000"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "postcode"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PointInfo"

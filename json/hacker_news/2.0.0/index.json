@@ -128,7 +128,10 @@
             "description": "The ID of the item to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "itemID"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Item"
@@ -146,7 +149,10 @@
             "description": "The unique username for this user"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"

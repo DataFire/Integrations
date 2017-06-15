@@ -32,7 +32,11 @@
             "description": "Entry ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "output",
+          "entryid"
+        ]
       },
       "outputSchema": {},
       "security": {

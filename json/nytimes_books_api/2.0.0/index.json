@@ -80,7 +80,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -401,7 +404,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -471,7 +477,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -631,7 +640,11 @@
             "description": "Name of the Best Sellers List. You can get the full list from /lists/names.json"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "list"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -801,7 +814,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {
         "properties": {

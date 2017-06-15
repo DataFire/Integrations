@@ -814,7 +814,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/blogPage"
@@ -836,7 +839,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/blogPage"
@@ -858,7 +864,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/glossaryPage"
@@ -880,7 +889,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questionPage"
@@ -902,7 +914,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/page"
@@ -924,7 +939,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stateName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/statePage"
@@ -946,7 +964,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/glossaryPage"
@@ -968,7 +989,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/questionPage"
@@ -990,7 +1014,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pageName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/page"
@@ -1012,7 +1039,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stateName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/statePage"

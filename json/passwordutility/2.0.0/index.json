@@ -35,7 +35,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "length"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -52,7 +55,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"

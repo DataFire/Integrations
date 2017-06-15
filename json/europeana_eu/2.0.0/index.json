@@ -257,7 +257,10 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -330,7 +333,10 @@
             "description": "count"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "searchTerms"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RssResponse"
@@ -356,7 +362,10 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -382,7 +391,10 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -453,7 +465,12 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -487,7 +504,12 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -513,7 +535,12 @@
             "description": "wskey"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "collectionId",
+          "recordId",
+          "wskey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -593,7 +620,10 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wskey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -629,7 +659,10 @@
             "description": "language"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -660,7 +693,10 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"
@@ -694,7 +730,12 @@
             "description": "callback"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term",
+          "languageCodes",
+          "wskey"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ModelAndView"

@@ -243,7 +243,10 @@
             "description": "Arquivo CNAB"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "file"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -266,7 +269,10 @@
             "description": "ID Temporário gerado no endpoint file"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -289,7 +295,10 @@
             "description": "ID Temporário gerado no endpoint file"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -315,7 +324,10 @@
             "description": "ID Temporário gerado no endpoint file"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "fileId"
+        ]
       },
       "outputSchema": {
         "properties": {

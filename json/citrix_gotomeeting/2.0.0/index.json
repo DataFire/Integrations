@@ -1567,7 +1567,10 @@
             "description": "Access token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1603,7 +1606,11 @@
             "description": "End of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1639,7 +1646,13 @@
             "description": "Required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1679,7 +1692,14 @@
             "description": "If history=true, required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "history",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1705,7 +1725,11 @@
             "description": "The key of the group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1734,7 +1758,12 @@
             "$ref": "#/definitions/OrganizerReq"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1760,7 +1789,11 @@
             "description": "The key of the group"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "groupKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1791,7 +1824,12 @@
             "description": "Required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1829,7 +1867,10 @@
             "description": "If history=true, required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1853,7 +1894,11 @@
             "$ref": "#/definitions/MeetingReqCreate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1879,7 +1924,11 @@
             "description": "The meeting ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "meetingId"
+        ]
       },
       "outputSchema": {}
     },
@@ -1900,7 +1949,11 @@
             "description": "The meeting ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "meetingId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1929,7 +1982,12 @@
             "$ref": "#/definitions/MeetingReqUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "meetingId",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -1950,7 +2008,11 @@
             "description": "The meeting ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "meetingId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1976,7 +2038,11 @@
             "description": "The meeting ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "meetingId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartUrl"
@@ -1998,7 +2064,11 @@
             "description": "The email address of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "email"
+        ]
       },
       "outputSchema": {}
     },
@@ -2018,7 +2088,10 @@
             "description": "The email address of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2042,7 +2115,11 @@
             "$ref": "#/definitions/OrganizerReq"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2068,7 +2145,11 @@
             "description": "The key of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {}
     },
@@ -2089,7 +2170,11 @@
             "description": "The key of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2118,7 +2203,12 @@
             "$ref": "#/definitions/OrganizerStatus"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "body"
+        ]
       },
       "outputSchema": {}
     },
@@ -2149,7 +2239,13 @@
             "description": "A required end of date range in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2185,7 +2281,13 @@
             "description": "Required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey",
+          "startDate",
+          "endDate"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2229,7 +2331,11 @@
             "description": "If history is 'true', required end of date range, in ISO8601 UTC format, e.g. 2015-07-01T23:00:00Z"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2255,7 +2361,11 @@
             "description": "The key of the organizer"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization",
+          "organizerKey"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2276,7 +2386,10 @@
             "description": "Access token"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Authorization"
+        ]
       },
       "outputSchema": {
         "items": {

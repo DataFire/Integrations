@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -1788,6 +1789,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_bigquery": {
+          "integration": "google_bigquery"
+        }
+      }
+    },
+    {
       "id": "projects.list",
       "title": "projects.list",
       "description": "Lists all projects to which you have been granted any project role.",
@@ -1907,7 +1979,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatasetList"
@@ -1964,7 +2039,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -2026,7 +2104,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2082,7 +2164,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -2143,7 +2229,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -2204,7 +2294,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Dataset"
@@ -2270,7 +2364,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TableList"
@@ -2331,7 +2429,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -2393,7 +2495,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2457,7 +2564,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -2522,7 +2634,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -2587,7 +2704,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Table"
@@ -2665,7 +2787,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TableDataList"
@@ -2730,7 +2857,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "datasetId",
+          "tableId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/TableDataInsertAllResponse"
@@ -2808,7 +2940,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobList"
@@ -2865,7 +3000,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -2923,7 +3061,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Job"
@@ -2981,7 +3123,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/JobCancelResponse"
@@ -3038,7 +3184,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/QueryResponse"
@@ -3112,7 +3261,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "projectId",
+          "jobId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetQueryResultsResponse"

@@ -173,7 +173,11 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "source"
+        ]
       },
       "outputSchema": {
         "type": "string"

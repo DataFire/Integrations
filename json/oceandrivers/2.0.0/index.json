@@ -19,7 +19,10 @@
             "description": "Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stationName"
+        ]
       },
       "outputSchema": {}
     },
@@ -39,7 +42,11 @@
             "description": "Period of time to get the data. Options: lastdata lastday"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stationName",
+          "period"
+        ]
       },
       "outputSchema": {}
     },
@@ -58,7 +65,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "yatchclubid",
+          "language"
+        ]
       },
       "outputSchema": {}
     },
@@ -110,7 +121,12 @@
             "description": "Direct file I want to extract"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude",
+          "weather"
+        ]
       },
       "outputSchema": {}
     },
@@ -162,7 +178,12 @@
             "description": "Direct file I want to extract"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "latitude",
+          "longitude",
+          "weather"
+        ]
       },
       "outputSchema": {}
     },
@@ -182,7 +203,11 @@
             "description": "Period of time to get the data. Options: lastdata lasthour lastday"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stationName",
+          "period"
+        ]
       },
       "outputSchema": {}
     },
@@ -202,7 +227,11 @@
             "description": "Period of time to get the data latestdata|latesthour|latestday|dailylog"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "stationName",
+          "period"
+        ]
       },
       "outputSchema": {}
     },

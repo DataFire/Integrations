@@ -276,7 +276,11 @@
             "description": "num [max 10, default 1]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "positives"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AnalogyResponseEntity"
@@ -303,7 +307,11 @@
             "description": "num [max 10, default 1]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DistanceResponseEntity"
@@ -329,7 +337,12 @@
             "description": "word2"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word1",
+          "word2"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SimilarityResponseEntity"
@@ -356,7 +369,11 @@
             "description": "num [max 10, default 1]"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "vector"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VectorDistanceResponseEntity"
@@ -378,7 +395,11 @@
             "description": "word"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WordVectorResponseEntity"

@@ -1556,7 +1556,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
@@ -1580,7 +1583,10 @@
             "description": "the collection identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API2.CollectionInfo"
@@ -1631,7 +1637,10 @@
             "description": "Keyword used to look up article, e.g., asparagus"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "term"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.GlossaryEntry"
@@ -1655,7 +1664,10 @@
             "description": "identifier of article to retrieve"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1703,7 +1715,10 @@
             "$ref": "#/definitions/API2.Controllers.GroceryListController.DepartmentModel"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1728,7 +1743,10 @@
             "$ref": "#/definitions/API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "newItem"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.ShoppingListLine"
@@ -1751,7 +1769,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "guid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -1776,7 +1797,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "req",
+          "guid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -1798,7 +1823,10 @@
             "$ref": "#/definitions/API2.Controllers.GroceryListController.PostGroceryListRecipeRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -1820,7 +1848,10 @@
             "$ref": "#/definitions/API2.Controllers.GroceryListController.PostGroceryListSyncRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "req"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -1842,7 +1873,10 @@
             "$ref": "#/definitions/BigOven.Model.API.Recipe"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipe"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Recipe"
@@ -1864,7 +1898,10 @@
             "$ref": "#/definitions/BigOven.Model.API.Recipe"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipe"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Recipe"
@@ -1892,7 +1929,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1935,7 +1975,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "replyId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -1961,7 +2004,11 @@
             "$ref": "#/definitions/API2.Controllers.ReviewController.PostReplyReq"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "replyId",
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Reply"
@@ -1983,7 +2030,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Review"
@@ -2009,7 +2059,11 @@
             "$ref": "#/definitions/API2.Controllers.ReviewController.ReviewRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId",
+          "review"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Review"
@@ -2042,7 +2096,10 @@
             "description": "results per page (int)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2071,7 +2128,11 @@
             "$ref": "#/definitions/API2.Controllers.ReviewController.PostReplyReq"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId",
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Reply"
@@ -2128,7 +2189,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2155,7 +2219,10 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API2.Recipe"
@@ -2182,7 +2249,11 @@
             "$ref": "#/definitions/API2.Controllers.RecipeController.FeedbackDTO"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2215,7 +2286,10 @@
             "format": "double"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2239,7 +2313,10 @@
             "description": "Recipe ID (required)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2269,7 +2346,11 @@
             "$ref": "#/definitions/API2.Controllers.NoteController.NoteRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "note"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API2.RecipeNote"
@@ -2298,7 +2379,11 @@
             "description": "noteId (int)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "noteId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2327,7 +2412,11 @@
             "description": "The note ID (note -- it's not the RecipeID)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "noteId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.RecipeNote"
@@ -2357,7 +2446,12 @@
             "$ref": "#/definitions/API2.Controllers.NoteController.NoteRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "noteId",
+          "recipeNote"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.RecipeNote"
@@ -2391,7 +2485,10 @@
             "description": "recipeId"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.RecipeNoteList"
@@ -2423,7 +2520,10 @@
             "format": "int32"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/API2.Controllers.ImagesController.RecipePhotosResponse"
@@ -2456,7 +2556,12 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "pg",
+          "rpp"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
@@ -2480,7 +2585,10 @@
             "description": ""
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Review"
@@ -2507,7 +2615,11 @@
             "$ref": "#/definitions/API2.Controllers.ReviewController.ReviewRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId",
+          "data"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2533,7 +2645,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId",
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/System.Object"
@@ -2562,7 +2678,11 @@
             "description": "int"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId",
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Review"
@@ -2594,7 +2714,12 @@
             "description": "recipeId (int)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reviewId",
+          "review",
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BigOven.Model.API.Review"
@@ -2628,7 +2753,10 @@
             "description": "results per page (int)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2655,7 +2783,10 @@
             "description": "the recipe identifier (int)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "recipeId"
+        ]
       },
       "outputSchema": {
         "items": {

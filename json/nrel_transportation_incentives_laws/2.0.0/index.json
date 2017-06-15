@@ -472,7 +472,10 @@
             "description": "Show only local examples of laws and incentives."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "output_format"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LawsResponse"
@@ -509,7 +512,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "output_format"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CategoryResults"
@@ -540,7 +546,11 @@
             "description": "Return the points of contact for the given Jurisdiction. Jurisdiction must be given as a two character state code (eg, 'CO' for Colorado). A single jurisdiction, or a comma-separate list of multiple jurisdiction, may be given.  Use the code 'US' for federal laws and the code 'DC' for Washington D.C."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "output_format",
+          "jurisdiction"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PocResults"
@@ -575,7 +585,11 @@
             "description": "Include points of contacts in the return value."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "output_format",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LawResult"

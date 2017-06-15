@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -619,6 +620,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_doubleclicksearch": {
+          "integration": "google_doubleclicksearch"
+        }
+      }
+    },
+    {
       "id": "conversion.get",
       "title": "conversion.get",
       "description": "Retrieves a list of conversions from a DoubleClick Search engine account.",
@@ -707,7 +779,16 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "agencyId",
+          "advertiserId",
+          "engineAccountId",
+          "endDate",
+          "rowCount",
+          "startDate",
+          "startRow"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
@@ -765,7 +846,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "agencyId",
+          "advertiserId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SavedColumnList"
@@ -852,7 +937,16 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "advertiserId",
+          "agencyId",
+          "endDate",
+          "engineAccountId",
+          "rowCount",
+          "startDate",
+          "startRow"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ConversionList"
@@ -1186,7 +1280,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reportId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Report"
@@ -1245,7 +1342,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "reportId",
+          "reportFragment"
+        ]
       },
       "outputSchema": {},
       "security": {

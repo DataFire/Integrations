@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -1946,7 +1947,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppCollectionListResult"
@@ -1976,7 +1981,12 @@
             "$ref": "#/definitions/AppCollectionNameAvailability"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppCollectionNameAvailability"
@@ -2003,7 +2013,11 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SupportedPlatformsListResult"
@@ -2038,7 +2052,13 @@
             "description": "Application collection."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version",
+          "resourceGroupName",
+          "appCollection"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AppListResult"
@@ -2107,7 +2127,15 @@
             "description": "Restrict results to campaigns matching the optional `search` expression. This currently performs the search based on the name on the campaign only, case insensitive. If the campaign contains the value of the `search` parameter anywhere in the name, it matches."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "kind"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignsListResult"
@@ -2159,7 +2187,16 @@
             "$ref": "#/definitions/Campaign"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2211,7 +2248,16 @@
             "$ref": "#/definitions/CampaignTestNewParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "kind",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignState"
@@ -2264,7 +2310,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "id",
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2315,7 +2370,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "id",
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignResult"
@@ -2371,7 +2435,17 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "id",
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2424,7 +2498,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "id",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2477,7 +2560,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "id",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2533,7 +2625,17 @@
             "$ref": "#/definitions/CampaignPushParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "kind",
+          "id",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignPushResult"
@@ -2586,7 +2688,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "id",
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStatisticsResult"
@@ -2639,7 +2750,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "id",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2695,7 +2815,17 @@
             "$ref": "#/definitions/CampaignTestSavedParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "id",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignStateResult"
@@ -2748,7 +2878,16 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "kind",
+          "name",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CampaignResult"
@@ -2799,7 +2938,14 @@
             "description": "Filter can be used to reduce the number of results. Filter is a boolean expression that can look like the following examples: * `$filter=deviceId gt 'abcdef0123456789abcdef0123456789'` * `$filter=lastModified le 1447284263690L` * `$filter=(deviceId ge 'abcdef0123456789abcdef0123456789') and (deviceId lt 'bacdef0123456789abcdef0123456789') and (lastModified gt 1447284263690L)` The first example is used automatically for paging when returning the `nextLink` property. The filter expression is a combination of checks on some properties that can be compared to their value. The available operators are: * `gt`  : greater than * `ge`  : greater than or equals * `lt`  : less than * `le`  : less than or equals * `and` : to add multiple checks (all checks must pass), optional parentheses can be used. The properties that can be used in the expression are the following: * `deviceId {operator} '{deviceIdValue}'` : a lexicographical comparison is made on the deviceId value, use single quotes for the value. * `lastModified {operator} {number}L` : returns only meta properties or appInfo properties whose last value modification timestamp compared to the specified value is matching (value is milliseconds since January 1st, 1970 UTC). Please note the `L` character after the number of milliseconds, its required when the number of milliseconds exceeds `2^31 - 1` (which is always the case for recent timestamps). Using `lastModified` excludes all devices from the output that have no property matching the timestamp criteria, like `$select`. Please note that the internal value of `lastModified` timestamp for a given property is never part of the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DevicesQueryResult"
@@ -2853,7 +2999,14 @@
             "description": "Sort results by an expression which looks like `$orderby=taskId asc` (default when not specified).\nThe syntax is orderby={property} {direction} or just orderby={property}.\nProperties that can be specified for sorting: taskId, errorDetails, dateCreated, taskStatus, and dateCreated.\nThe available directions are asc (for ascending order) and desc (for descending order).\nWhen not specified the asc direction is used.\nOnly one orderby property can be specified."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskListResult"
@@ -2895,7 +3048,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -2937,7 +3098,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -2979,7 +3148,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3021,7 +3198,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3063,7 +3248,15 @@
             "$ref": "#/definitions/feedbackByCampaignParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3105,7 +3298,15 @@
             "$ref": "#/definitions/feedbackByDateRangeParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3147,7 +3348,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3189,7 +3398,15 @@
             "$ref": "#/definitions/dateRangeExportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3231,7 +3448,15 @@
             "$ref": "#/definitions/exportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3273,7 +3498,15 @@
             "$ref": "#/definitions/exportTaskParameter"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3316,7 +3549,15 @@
             "description": "Export task identifier."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/exportTaskResult"
@@ -3370,7 +3611,14 @@
             "description": "Sort results by an expression which looks like `$orderby=jobId asc` (default when not specified).\nThe syntax is orderby={property} {direction} or just orderby={property}.\nProperties that can be specified for sorting: jobId, errorDetails, dateCreated, jobStatus, and dateCreated.\nThe available directions are asc (for ascending order) and desc (for descending order).\nWhen not specified the asc direction is used.\nOnly one orderby property can be specified."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskListResult"
@@ -3412,7 +3660,15 @@
             "$ref": "#/definitions/importTask"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskResult"
@@ -3455,7 +3711,15 @@
             "description": "Client Api Version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/importTaskResult"
@@ -3497,7 +3761,15 @@
             "$ref": "#/definitions/DeviceTagsParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceTagsResult"
@@ -3540,7 +3812,15 @@
             "description": "Device identifier."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "deviceId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -3582,7 +3862,15 @@
             "$ref": "#/definitions/DeviceTagsParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceTagsResult"
@@ -3625,7 +3913,15 @@
             "description": "User identifier."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "appCollection",
+          "appName",
+          "api-version",
+          "userId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"

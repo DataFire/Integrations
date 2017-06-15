@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -3899,6 +3900,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_content": {
+          "integration": "google_content"
+        }
+      }
+    },
+    {
       "id": "accounts.authinfo",
       "title": "accounts.authinfo",
       "description": "Returns information about the authenticated user.",
@@ -4586,7 +4658,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountsListResponse"
@@ -4647,7 +4722,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
@@ -4709,7 +4787,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4765,7 +4847,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
@@ -4830,7 +4916,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
@@ -4895,7 +4985,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Account"
@@ -4957,7 +5051,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountstatusesListResponse"
@@ -5015,7 +5112,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountStatus"
@@ -5077,7 +5178,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccounttaxListResponse"
@@ -5135,7 +5239,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
@@ -5200,7 +5308,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
@@ -5265,7 +5377,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccountTax"
@@ -5327,7 +5443,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedsListResponse"
@@ -5387,7 +5506,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
@@ -5447,7 +5569,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "datafeedId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5501,7 +5627,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "datafeedId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
@@ -5564,7 +5694,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "datafeedId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
@@ -5627,7 +5761,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "datafeedId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Datafeed"
@@ -5689,7 +5827,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedstatusesListResponse"
@@ -5745,7 +5886,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "datafeedId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatafeedStatus"
@@ -5814,7 +5959,12 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "storeCode",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InventorySetResponse"
@@ -5900,7 +6050,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersListResponse"
@@ -5958,7 +6111,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
@@ -6019,7 +6176,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersAcknowledgeResponse"
@@ -6080,7 +6241,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCancelResponse"
@@ -6141,7 +6306,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCancelLineItemResponse"
@@ -6202,7 +6371,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersRefundResponse"
@@ -6263,7 +6436,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersReturnLineItemResponse"
@@ -6324,7 +6501,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersShipLineItemsResponse"
@@ -6385,7 +6566,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersUpdateMerchantOrderIdResponse"
@@ -6446,7 +6631,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersUpdateShipmentResponse"
@@ -6504,7 +6693,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "merchantOrderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersGetByMerchantOrderIdResponse"
@@ -6570,7 +6763,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductsListResponse"
@@ -6631,7 +6827,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -6693,7 +6892,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "productId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6749,7 +6952,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Product"
@@ -6815,7 +7022,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductstatusesListResponse"
@@ -6873,7 +7083,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "productId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ProductStatus"
@@ -6935,7 +7149,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingsettingsListResponse"
@@ -6993,7 +7210,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
@@ -7058,7 +7279,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
@@ -7123,7 +7348,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "accountId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingSettings"
@@ -7177,7 +7406,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ShippingsettingsGetSupportedCarriersResponse"
@@ -7234,7 +7466,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersCreateTestOrderResponse"
@@ -7292,7 +7527,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersAdvanceTestOrderResponse"
@@ -7356,7 +7595,11 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "merchantId",
+          "templateName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OrdersGetTestOrderTemplateResponse"

@@ -778,7 +778,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Builds"
@@ -822,7 +826,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildSummary"
@@ -849,7 +857,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -881,7 +893,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Keys"
@@ -915,7 +931,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
@@ -946,7 +966,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "fingerprint"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -985,7 +1010,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "fingerprint"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
@@ -1012,7 +1042,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvars"
@@ -1039,7 +1073,11 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvar"
@@ -1070,7 +1108,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "name"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1109,7 +1152,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "name"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Envvar"
@@ -1153,7 +1201,13 @@
             "description": "XXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "body",
+          "username",
+          "project"
+        ]
       },
       "outputSchema": {
         "properties": {
@@ -1203,7 +1257,12 @@
             "description": "The branch name should be url-encoded.\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "branch"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -1234,7 +1293,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/BuildDetail"
@@ -1265,7 +1329,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Artifacts"
@@ -1296,7 +1365,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -1327,7 +1401,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Build"
@@ -1358,7 +1437,12 @@
             "description": "XXXXXXXXXX\n"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Tests"

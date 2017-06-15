@@ -4207,7 +4207,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -5760,7 +5763,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/cwa5_FeatureCollection"
@@ -5786,7 +5792,10 @@
             "description": "Optional flag to request GeoJSON formatted results to be pretty printed.  Only provide a numeric value when the output needs to be human readable as pretty printing has a performance cost."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "p_qid"
+        ]
       },
       "outputSchema": {
         "type": "file"
@@ -5845,7 +5854,11 @@
             "description": "Nine-character code used to uniquely identify a permitted NPDES facility. The NPDES permit program regulates the direct discharge of pollutants into US waters."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid",
+          "p_id"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",
@@ -5905,7 +5918,10 @@
             "description": "Used to cutomize service output.  A list of comma-separated column IDs of output objects that will be returned in the service query object or download.  Use the metadata service endpoint for a complete list of Ids and definitions."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "qid"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",
@@ -6412,7 +6428,10 @@
             "description": "The number of digits of the watershed code [Hydrologic Unit Code (HUC)] returned in the ValueCode. Must be an even number between 4 and 12."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "wbd_name"
+        ]
       },
       "outputSchema": {
         "description": "Root Object",

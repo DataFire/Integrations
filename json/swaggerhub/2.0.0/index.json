@@ -996,7 +996,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
@@ -1023,7 +1026,11 @@
             "description": "Token for updating owner name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "newNameToken"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1048,7 +1055,11 @@
             "description": "API identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1073,7 +1084,11 @@
             "description": "API identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
@@ -1115,7 +1130,12 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "definition"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1140,7 +1160,11 @@
             "description": "API identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1168,7 +1192,11 @@
             "type": "boolean"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Collaboration"
@@ -1198,7 +1226,11 @@
             "$ref": "#/definitions/Collaboration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1227,7 +1259,12 @@
             "description": "New name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "newName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1260,7 +1297,12 @@
             "description": "Template id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "template"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1293,7 +1335,12 @@
             "description": "Transfer integrations"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "newOwner"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -1325,7 +1372,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1354,7 +1406,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -1398,7 +1455,13 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "newVersion"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1427,7 +1490,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1464,7 +1532,13 @@
             "$ref": "#/definitions/NewComment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
@@ -1498,7 +1572,13 @@
             "$ref": "#/definitions/CommentsBatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1531,7 +1611,13 @@
             "description": "comment identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1567,7 +1653,13 @@
             "$ref": "#/definitions/ClosableCommentPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
@@ -1605,7 +1697,14 @@
             "$ref": "#/definitions/NewReply"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1647,7 +1746,14 @@
             "description": "reply identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "reply"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1687,7 +1793,14 @@
             "$ref": "#/definitions/CommentPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "reply"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -1730,7 +1843,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "comment",
+          "status"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1759,7 +1879,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1788,7 +1913,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -1823,7 +1953,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "definition"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1863,7 +1999,13 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "newSpec"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1905,7 +2047,14 @@
             "description": "URL to external API or path to internal API"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "method",
+          "otherApiPath"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comparison"
@@ -1948,7 +2097,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version",
+          "method",
+          "definition"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comparison"
@@ -1979,7 +2135,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2011,7 +2172,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "api",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2139,7 +2305,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
@@ -2162,7 +2331,10 @@
             "description": "API owner identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
@@ -2193,7 +2365,11 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2218,7 +2394,11 @@
             "description": "domain identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ApisJson"
@@ -2260,7 +2440,12 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2293,7 +2478,12 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "newName"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2326,7 +2516,12 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "newOwner"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2362,7 +2557,12 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2391,7 +2591,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2435,7 +2640,13 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "newVersion"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2464,7 +2675,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2501,7 +2717,13 @@
             "$ref": "#/definitions/NewComment"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
@@ -2535,7 +2757,13 @@
             "$ref": "#/definitions/CommentsBatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2568,7 +2796,13 @@
             "description": "comment identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2604,7 +2838,13 @@
             "$ref": "#/definitions/ClosableCommentPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ClosableComment"
@@ -2642,7 +2882,14 @@
             "$ref": "#/definitions/NewReply"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "body"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -2684,7 +2931,14 @@
             "description": "reply identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "reply"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2724,7 +2978,14 @@
             "$ref": "#/definitions/CommentPatch"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "reply"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Comment"
@@ -2767,7 +3028,14 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "comment",
+          "status"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2796,7 +3064,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2825,7 +3098,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2860,7 +3138,12 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2900,7 +3183,13 @@
             "description": "force update"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "newSpec"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2937,7 +3226,13 @@
             "description": "Template id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version",
+          "template"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2966,7 +3261,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -2998,7 +3298,12 @@
             "description": "version identifier"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "owner",
+          "domain",
+          "version"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -3038,7 +3343,10 @@
             "$ref": "#/definitions/PluginConfiguration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3069,7 +3377,10 @@
             "description": "number of results per page"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "objectId"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -3098,7 +3409,10 @@
             "description": "if true, also execute plugin"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3122,7 +3436,10 @@
             "description": "if true, also execute plugin"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3143,7 +3460,10 @@
             "description": "plugin configuration id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -3163,7 +3483,10 @@
             "$ref": "#/definitions/PluginConfiguration"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "pluginConfiguration"
+        ]
       },
       "outputSchema": {
         "properties": {},
@@ -3186,7 +3509,10 @@
             "$ref": "#/definitions/UserCredentials"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "user"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AccessToken"

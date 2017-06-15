@@ -24,7 +24,10 @@
             "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {}
     },
@@ -84,7 +87,10 @@
             "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "url"
+        ]
       },
       "outputSchema": {}
     },

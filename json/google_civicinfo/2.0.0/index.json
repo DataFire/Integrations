@@ -1164,7 +1164,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ocdId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RepresentativeInfoData"
@@ -1228,7 +1231,10 @@
             "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "address"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/VoterInfoResponse"

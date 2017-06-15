@@ -788,7 +788,10 @@
             "description": "The 2 digit country code"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "code"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Country_Code_Check"
@@ -823,7 +826,11 @@
             "description": "Optional, an amount you are wanting to convert. Leave blank to just get the current rate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "currency_from",
+          "currency_to"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Currency_Conversion"
@@ -849,7 +856,10 @@
             "$ref": "#/definitions/Invoice_Data"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Create_Invoice"
@@ -876,7 +886,10 @@
             "description": "Enter an invoice id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -901,7 +914,10 @@
             "description": "Enter the invoice id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Retrieve_Invoice"
@@ -931,7 +947,11 @@
             "$ref": "#/definitions/Update_Invoice_Array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Update_Invoice"
@@ -958,7 +978,10 @@
             "description": "The IP address to search against"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "address"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IP_Check"
@@ -985,7 +1008,10 @@
             "description": "The VAT number to validate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "vatid"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1022,7 +1048,11 @@
             "description": "Optional, if the price is including VAT set the type to 'incl'. Otherwise the default is assumed as excluding VAT already, 'excl'"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "price"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Convert_Price"

@@ -44,7 +44,12 @@
             "description": "If true, the system will not signal an error if the bot is uncompiled, and will instead look for a previous version of the bot that is available."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "input"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -65,7 +70,10 @@
             "description": "Your Application ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -90,7 +98,11 @@
             "description": "Name of the bot to delete."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -119,7 +131,11 @@
             "description": "If set to zip, a zip file with all bot files will be returned."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -144,7 +160,11 @@
             "description": "Must be unique from all the other bots you have created under this app_id. Can only be numbers and lowercase letters, and must be between 3 and 64 characters long."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -169,7 +189,11 @@
             "description": "Your bot's name"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -198,7 +222,12 @@
             "description": "Specify the type of file being deleted: pdefaults, properties"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -227,7 +256,12 @@
             "description": "Specify the type of file being retrieved: pdefaults, properties"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -259,7 +293,13 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind",
+          "content"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -292,7 +332,13 @@
             "description": "Filename to delete. Note: for non-AIML files, do not include the file extension in the path."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind",
+          "filename"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -325,7 +371,13 @@
             "description": "Filename to retrieve. Note: for non-AIML files, do not include the file extension in the path."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind",
+          "filename"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -361,7 +413,14 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "file-kind",
+          "filename",
+          "content"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -426,7 +485,12 @@
             "description": "If true, the system will not signal an error if the bot is uncompiled, and will instead look for a previous version of the bot that is available."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "botname",
+          "input"
+        ]
       },
       "outputSchema": {},
       "security": {

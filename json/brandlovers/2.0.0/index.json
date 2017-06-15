@@ -1627,7 +1627,11 @@
             "description": "Unique Id of this order."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "orderId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Order"
@@ -1657,7 +1661,12 @@
             "description": "Unique Order Id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body",
+          "orderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1685,7 +1694,12 @@
             "description": "Unique Order Id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body",
+          "orderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1713,7 +1727,12 @@
             "description": "Unique Order Id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body",
+          "orderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1741,7 +1760,12 @@
             "description": "Order unique Id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body",
+          "orderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1769,7 +1793,12 @@
             "description": "Unique Order Id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body",
+          "orderId"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1798,7 +1827,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -1833,7 +1865,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersShipments"
@@ -1859,7 +1894,11 @@
             "$ref": "#/definitions/OrdersShipments"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "ordersshipments"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1898,7 +1937,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrdersShipments"
@@ -1920,7 +1962,10 @@
             "$ref": "#/definitions/OrdersShipments"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "ordersshipments"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1949,7 +1994,10 @@
             "description": "Number or items to return when executing query. Defaults to 100, max 200. Use this in conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -1980,7 +2028,10 @@
             "description": "Number or items to return when executing query. Default 100, max 250. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2011,7 +2062,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2042,7 +2096,10 @@
             "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2073,7 +2130,10 @@
             "description": "Number or items to return when executing query. Defaults to 100. Max 250. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2104,7 +2164,10 @@
             "description": "Number or items to return when executing query. Defaults to 100. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2135,7 +2198,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetOrders"
@@ -2161,7 +2227,11 @@
             "$ref": "#/definitions/Product"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "product"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2186,7 +2256,11 @@
             "description": "SKU ID do Lojista."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "skuSellerId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProduct"
@@ -2216,7 +2290,12 @@
             "$ref": "#/definitions/ProductUpdate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "skuSellerId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2244,7 +2323,12 @@
             "$ref": "#/definitions/ProductPrice"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "skuSellerId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2272,7 +2356,12 @@
             "$ref": "#/definitions/SellerItemStatus"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "skuSellerId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2300,7 +2389,12 @@
             "$ref": "#/definitions/Stock"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "skuSellerId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2329,7 +2423,10 @@
             "description": "Number of items to retun. Defaults to 100. Max alowed is 200. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProductsResponse"
@@ -2358,7 +2455,11 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "products"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2385,7 +2486,11 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2414,7 +2519,10 @@
             "description": "Number of items to return in this query. Defaults to 250. Maximum 1000. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetSellerProductsStatus"
@@ -2443,7 +2551,11 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2472,7 +2584,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetProductsStatusSelling"
@@ -2501,7 +2616,11 @@
             "type": "array"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2525,7 +2644,11 @@
             "$ref": "#/definitions/NewTicket"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "newTicket"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2553,7 +2676,12 @@
             "$ref": "#/definitions/NewTicketMessage"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "ticketId",
+          "message"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2586,7 +2714,11 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "ticketId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTicketMessages"
@@ -2616,7 +2748,12 @@
             "$ref": "#/definitions/TicketStatus"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization",
+          "ticketId",
+          "body"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -2654,7 +2791,10 @@
             "description": "Number or items to return when executing query. Defaults to 10. Use this conjuction with `offset` to paginate across the results."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "authorization"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/GetTickets"

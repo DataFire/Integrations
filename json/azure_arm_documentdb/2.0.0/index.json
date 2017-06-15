@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -457,7 +458,11 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -482,7 +487,11 @@
             "description": "Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountsListResult"
@@ -516,7 +525,12 @@
             "description": "Azure subscription ID."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "api-version",
+          "subscriptionId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountsListResult"
@@ -556,7 +570,13 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -594,7 +614,13 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
@@ -637,7 +663,14 @@
             "$ref": "#/definitions/DatabaseAccountPatchParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "updateParameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
@@ -680,7 +713,14 @@
             "$ref": "#/definitions/DatabaseAccountCreateUpdateParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "createUpdateParameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccount"
@@ -723,7 +763,14 @@
             "$ref": "#/definitions/FailoverPolicies"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "failoverParameters"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -761,7 +808,13 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListConnectionStringsResult"
@@ -801,7 +854,13 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListKeysResult"
@@ -841,7 +900,13 @@
             "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult"
@@ -884,7 +949,14 @@
             "$ref": "#/definitions/DatabaseAccountRegenerateKeyParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "keyToRegenerate"
+        ]
       },
       "outputSchema": {},
       "security": {

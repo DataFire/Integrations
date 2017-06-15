@@ -127,7 +127,11 @@
             "description": "RSS"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "rss"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SyndFeedResponseEntity"

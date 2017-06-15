@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -4164,7 +4165,10 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/OperationListResult"
@@ -4196,7 +4200,11 @@
             "description": "The number of items to be included in the result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountListResult"
@@ -4232,7 +4240,11 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowListResult"
@@ -4268,7 +4280,12 @@
             "description": "The number of items to be included in the result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountListResult"
@@ -4303,7 +4320,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4336,7 +4359,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
@@ -4374,7 +4403,14 @@
             "$ref": "#/definitions/IntegrationAccount"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version",
+          "integrationAccount"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
@@ -4412,7 +4448,14 @@
             "$ref": "#/definitions/IntegrationAccount"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version",
+          "integrationAccount"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccount"
@@ -4456,7 +4499,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreementListResult"
@@ -4495,7 +4544,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "agreementName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4532,7 +4588,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "agreementName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreement"
@@ -4574,7 +4637,15 @@
             "$ref": "#/definitions/IntegrationAccountAgreement"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "agreementName",
+          "api-version",
+          "agreement"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountAgreement"
@@ -4614,7 +4685,13 @@
             "description": "The number of items to be included in the result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificateListResult"
@@ -4653,7 +4730,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "certificateName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4690,7 +4774,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "certificateName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificate"
@@ -4732,7 +4823,15 @@
             "$ref": "#/definitions/IntegrationAccountCertificate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "certificateName",
+          "api-version",
+          "certificate"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountCertificate"
@@ -4770,7 +4869,14 @@
             "$ref": "#/definitions/GetCallbackUrlParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CallbackUrl"
@@ -4814,7 +4920,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMapListResult"
@@ -4853,7 +4965,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "mapName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -4890,7 +5009,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "mapName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMap"
@@ -4932,7 +5058,15 @@
             "$ref": "#/definitions/IntegrationAccountMap"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "mapName",
+          "api-version",
+          "map"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountMap"
@@ -4976,7 +5110,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartnerListResult"
@@ -5015,7 +5155,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "partnerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5052,7 +5199,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "partnerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartner"
@@ -5094,7 +5248,15 @@
             "$ref": "#/definitions/IntegrationAccountPartner"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "partnerName",
+          "api-version",
+          "partner"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountPartner"
@@ -5138,7 +5300,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchemaListResult"
@@ -5177,7 +5345,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "schemaName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5214,7 +5389,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "schemaName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchema"
@@ -5256,7 +5438,15 @@
             "$ref": "#/definitions/IntegrationAccountSchema"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "schemaName",
+          "api-version",
+          "schema"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSchema"
@@ -5300,7 +5490,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSessionListResult"
@@ -5339,7 +5535,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "sessionName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5376,7 +5579,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "sessionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSession"
@@ -5418,7 +5628,15 @@
             "$ref": "#/definitions/IntegrationAccountSession"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "integrationAccountName",
+          "sessionName",
+          "api-version",
+          "session"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IntegrationAccountSession"
@@ -5460,7 +5678,15 @@
             "$ref": "#/definitions/Workflow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "location",
+          "workflowName",
+          "api-version",
+          "workflow"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5498,7 +5724,12 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowListResult"
@@ -5533,7 +5764,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5566,7 +5803,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
@@ -5604,7 +5847,14 @@
             "$ref": "#/definitions/Workflow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version",
+          "workflow"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
@@ -5642,7 +5892,14 @@
             "$ref": "#/definitions/Workflow"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version",
+          "workflow"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Workflow"
@@ -5677,7 +5934,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5710,7 +5973,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5746,7 +6015,14 @@
             "$ref": "#/definitions/GenerateUpgradedDefinitionParameters"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version",
+          "parameters"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5781,7 +6057,13 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -5819,7 +6101,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "keyType",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -5861,7 +6150,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunListResult"
@@ -5900,7 +6195,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "runName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRun"
@@ -5948,7 +6250,14 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "runName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunActionListResult"
@@ -5991,7 +6300,15 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "runName",
+          "actionName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowRunAction"
@@ -6030,7 +6347,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "runName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6072,7 +6396,13 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerListResult"
@@ -6111,7 +6441,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTrigger"
@@ -6159,7 +6496,14 @@
             "description": "The filter to apply on the operation."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerHistoryListResult"
@@ -6202,7 +6546,15 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "historyName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerHistory"
@@ -6245,7 +6597,15 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "historyName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -6282,7 +6642,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerCallbackUrl"
@@ -6321,7 +6688,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "triggerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -6361,7 +6735,13 @@
             "description": "The number of items to be included in the result."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowVersionListResult"
@@ -6400,7 +6780,14 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "versionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowVersion"
@@ -6446,7 +6833,15 @@
             "description": "The API version."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "workflowName",
+          "versionId",
+          "triggerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WorkflowTriggerCallbackUrl"

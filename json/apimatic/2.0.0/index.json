@@ -44,7 +44,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
       },
       "outputSchema": {
         "type": "object"

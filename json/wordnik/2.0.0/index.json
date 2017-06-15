@@ -893,7 +893,11 @@
             "description": "The user's password"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
@@ -919,7 +923,11 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AuthenticationToken"
@@ -942,7 +950,10 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -975,7 +986,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1009,7 +1023,10 @@
             "description": "Return suggestions (for correct spelling, case variants, etc.)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WordObject"
@@ -1041,7 +1058,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1092,7 +1112,10 @@
             "description": "Return a closed set of XML tags in response"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1122,7 +1145,10 @@
             "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1166,7 +1192,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ExampleSearchResults"
@@ -1203,7 +1232,10 @@
             "description": "Ending Year"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/FrequencySummary"
@@ -1239,7 +1271,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1279,7 +1314,10 @@
             "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1322,7 +1360,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1361,7 +1402,10 @@
             "description": "Restrict to the supplied relationship types"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1391,7 +1435,10 @@
             "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "word"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Example"
@@ -1418,7 +1465,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1443,7 +1494,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WordList"
@@ -1473,7 +1528,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1504,7 +1563,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1547,7 +1610,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1583,7 +1650,11 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "permalink",
+          "auth_token"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1607,7 +1678,10 @@
             "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "auth_token"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WordList"
@@ -1839,7 +1913,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DefinitionSearchResults"
@@ -1914,7 +1991,10 @@
             "description": "Maximum number of results to return"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "query"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/WordSearchResults"

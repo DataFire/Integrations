@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
@@ -823,7 +824,10 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/AvailableProviderOperationList"
@@ -850,7 +854,11 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerList"
@@ -881,7 +889,12 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerList"
@@ -918,7 +931,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -953,7 +972,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Manager"
@@ -993,7 +1018,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Manager"
@@ -1033,7 +1065,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1072,7 +1111,13 @@
             "description": "Specify $expand=details to populate additional fields related to the device."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceList"
@@ -1113,7 +1158,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceName",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1156,7 +1208,14 @@
             "description": "Specify $expand=details to populate additional fields related to the device."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceName",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -1200,7 +1259,15 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceName",
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -1241,7 +1308,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceName",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1280,7 +1354,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "deviceName",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/PublicKey"
@@ -1317,7 +1398,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/EncryptionSettings"
@@ -1354,7 +1441,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1389,7 +1482,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
@@ -1433,7 +1532,15 @@
             "description": "Pass the ETag of ExtendedInfo fetched from GET call"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version",
+          "If-Match"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
@@ -1473,7 +1580,14 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ManagerExtendedInfo"
@@ -1510,7 +1624,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"
@@ -1547,7 +1667,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SymmetricEncryptedSecret"
@@ -1584,7 +1710,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/SymmetricEncryptedSecret"
@@ -1621,7 +1753,13 @@
             "description": "The api version"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId",
+          "resourceGroupName",
+          "managerName",
+          "api-version"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Key"

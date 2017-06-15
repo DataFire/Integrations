@@ -111,7 +111,11 @@
             "description": "MJPEG URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "vendor_id",
+          "model[model]"
+        ]
       },
       "outputSchema": {}
     },
@@ -198,7 +202,10 @@
             "description": "Model ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -286,7 +293,11 @@
             "description": "MJPEG URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -374,7 +385,11 @@
             "description": "MJPEG URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id"
+        ]
       },
       "outputSchema": {}
     },
@@ -537,7 +552,13 @@
             "description": "Official URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
       },
       "outputSchema": {}
     },
@@ -644,7 +665,10 @@
             "description": "Recorder ID"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -788,7 +812,14 @@
             "description": "Official URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
       },
       "outputSchema": {}
     },
@@ -932,7 +963,14 @@
             "description": "Official URL"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "vendor_id",
+          "recorder[model]",
+          "recorder[name]",
+          "recorder[recorder_type]"
+        ]
       },
       "outputSchema": {}
     },
@@ -983,7 +1021,10 @@
             "description": "MAC"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "vendor[name]"
+        ]
       },
       "outputSchema": {}
     },
@@ -1003,7 +1044,10 @@
             "description": "Sort order"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1035,7 +1079,10 @@
             "description": "MAC"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     },
@@ -1067,7 +1114,10 @@
             "description": "MAC"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {}
     }

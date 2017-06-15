@@ -9,7 +9,8 @@
         "access_token": "An OAuth access token",
         "refresh_token": "An OAuth refresh token (optional)",
         "client_id": "An OAuth client ID (optional)",
-        "client_secret": "An OAuth client secret (optional)"
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
         "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
@@ -744,6 +745,77 @@
   },
   "actions": [
     {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_logging": {
+          "integration": "google_logging"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "google_logging": {
+          "integration": "google_logging"
+        }
+      }
+    },
+    {
       "id": "entries.list",
       "title": "entries.list",
       "description": "Lists log entries. Use this method to retrieve log entries from Stackdriver Logging. For ways to export log entries, see Exporting Logs.",
@@ -1079,7 +1151,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "logName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1163,7 +1238,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "metricName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1247,7 +1325,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "metricName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogMetric"
@@ -1334,7 +1415,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "metricName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogMetric"
@@ -1426,7 +1510,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLogsResponse"
@@ -1518,7 +1605,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListLogMetricsResponse"
@@ -1605,7 +1695,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogMetric"
@@ -1697,7 +1790,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/ListSinksResponse"
@@ -1788,7 +1884,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "parent"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogSink"
@@ -1872,7 +1971,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sinkName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Empty"
@@ -1956,7 +2058,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sinkName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogSink"
@@ -2047,7 +2152,10 @@
             "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "sinkName"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LogSink"

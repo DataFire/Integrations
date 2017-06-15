@@ -366,7 +366,10 @@
             "description": "condition id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Condition"
@@ -383,7 +386,10 @@
             "$ref": "#/definitions/DiagnosisRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DiagnosisResponse"
@@ -418,7 +424,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "phrase"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Observation"
@@ -448,7 +457,10 @@
             "description": "observation id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Observation"
@@ -478,7 +490,10 @@
             "description": "risk factor id"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/RiskFactor"

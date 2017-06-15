@@ -80,7 +80,10 @@
             "type": "number"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "comicId"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/comic"

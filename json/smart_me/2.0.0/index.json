@@ -691,7 +691,10 @@
             "$ref": "#/definitions/AccessTokenToPut"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "accessTokenToPut"
+        ]
       },
       "outputSchema": {
         "type": "string"
@@ -713,7 +716,10 @@
             "$ref": "#/definitions/ActionToPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "actionToPost"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -734,7 +740,10 @@
             "description": "The ID of the device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -776,7 +785,10 @@
             "$ref": "#/definitions/CustomDeviceToPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "newDevice"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDeviceToPost"
@@ -799,7 +811,10 @@
             "description": "The ID of the device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CustomDeviceToPost"
@@ -823,7 +838,10 @@
             "description": "The Serial Number of the device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "serial"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -862,7 +880,10 @@
             "$ref": "#/definitions/DeviceToPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "newDevice"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceToPost"
@@ -885,7 +906,10 @@
             "description": "The ID of the device"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -917,7 +941,11 @@
             "description": "The number of the switch if there are multiple (1 for L1, 3 for L3)"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "switchState"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -954,7 +982,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "meterEnergyType"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -985,7 +1016,10 @@
             ]
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "meterSubType"
+        ]
       },
       "outputSchema": {
         "items": {
@@ -1010,7 +1044,10 @@
             "$ref": "#/definitions/MBusData"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "mbusData"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"
@@ -1032,7 +1069,10 @@
             "$ref": "#/definitions/MeterFolderInformationToPost"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "meterFolderInformation"
+        ]
       },
       "outputSchema": {},
       "security": {
@@ -1052,7 +1092,10 @@
             "type": "string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/MeterFolderInformation"
@@ -1078,7 +1121,11 @@
             "format": "date-time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "date"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/DeviceInPast"
@@ -1100,7 +1147,10 @@
             "$ref": "#/definitions/SignUpData"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "signUpData"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/User"
@@ -1153,7 +1203,10 @@
             "$ref": "#/definitions/VMeterToActivate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "meterToActivate"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Device"
@@ -1175,7 +1228,10 @@
             "$ref": "#/definitions/VMeterToDeactivate"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "meterToDeactivate"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/Object"

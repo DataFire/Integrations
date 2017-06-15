@@ -234,7 +234,10 @@
             "description": "JSONP callback name."
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "r"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/combinedResult"

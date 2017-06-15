@@ -206,7 +206,10 @@
             "$ref": "#/definitions/CheckZappitiServiceRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/CheckZappitiServiceResult"
@@ -223,7 +226,10 @@
             "$ref": "#/definitions/InstallZappitiServiceRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/InstallZappitiServiceResult"
@@ -240,7 +246,10 @@
             "$ref": "#/definitions/IsAliveRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/IsAliveResult"
@@ -257,7 +266,10 @@
             "$ref": "#/definitions/LastMediaRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/LastMediaResult"
@@ -274,7 +286,10 @@
             "$ref": "#/definitions/StartVideoRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartVideoResult"
@@ -291,7 +306,10 @@
             "$ref": "#/definitions/StartZappitiServiceRequest"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
       },
       "outputSchema": {
         "$ref": "#/definitions/StartZappitiServiceResult"
