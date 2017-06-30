@@ -7,8 +7,16 @@ var files    = {
 	"swagger-ui-standalone-preset.js": fs.readFileSync( process.cwd()+"/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js" ).toString()
 }
 
-module.exports = new datafire.Action({
-		handler: (input, context) => {
+module.exports = new datafire.Integration({
+	id: "Swagger UI", 
+	title:"Display Swagger UI for your DataFire API"
+});
+
+module.exports.addAction('get', new datafire.Action({
+	title:"GET", 
+	description:"serves swagger-ui html+css files", 
+	inputs:[], 
+	handler: (input, context) => {
 		var file  = context.request.query.file || ""
 		var data  = files[ file ] || files['index.html'] 
 		var ctype = "text/html"
@@ -20,12 +28,5 @@ module.exports = new datafire.Action({
 			headers: {'Content-Type':ctype}, 
 			body: data 
 		})
-  }, 
-	inputs: [
-		{
-			type:"string", 
-			title:"file", 
-			default:"" 
-		}
-	]
-});
+  } 
+}))

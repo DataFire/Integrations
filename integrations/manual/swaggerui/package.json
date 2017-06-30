@@ -1,7 +1,7 @@
 {
   "name": "@datafire/swaggerui",
   "version": "1.0.0",
-  "main": "integration",
+  "main": "index.js",
   "description": "Swagger UI interface for DataFire",
   "repository": {
     "type": "git",
