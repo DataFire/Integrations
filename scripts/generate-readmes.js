@@ -9,6 +9,7 @@ function schemaToMarkdown(schema, title) {
 }
 
 iterateIntegs((dir, name, integ) => {
+  console.log('Generating README for ' + name);
   let md = '# @datafire/' + integ.id + '\n';
   md += integ.description + '\n\n';
   integ.allActions.forEach(action => {
