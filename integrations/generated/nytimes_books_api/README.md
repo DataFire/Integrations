@@ -1,0 +1,849 @@
+# @datafire/nytimes_books_api
+The Books API provides information about book reviews and The New York Times bestsellers lists.
+
+## Operation: lists.format.get
+Best Seller List
+
+### Input Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "list": {
+      "type": "string",
+      "description": "The name of the Times best-seller list. To get valid values, use a list names request.\n\nBe sure to replace spaces with hyphens (e.g., e-book-fiction or hardcover-fiction, not E-Book Fiction or Hardcover Fiction). (The parameter is not case sensitive.)"
+    },
+    "weeks-on-list": {
+      "type": "integer",
+      "description": "The number of weeks that the best seller has been on list-name, as of bestsellers-date"
+    },
+    "bestsellers-date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "YYYY-MM-DD\n\nThe week-ending date for the sales reflected on list-name. Times best-seller lists are compiled using available book sale data. The bestsellers-date may be significantly earlier than published-date. For additional information, see the explanation at the bottom of any best-seller list page on NYTimes.com (example: Hardcover Fiction, published Dec. 5 but reflecting sales to Nov. 29)."
+    },
+    "date": {
+      "type": "string",
+      "description": "YYYY-MM-DD  The date the best-seller list was published on NYTimes.com (compare bestsellers-date)"
+    },
+    "isbn": {
+      "type": "string",
+      "description": "International Standard Book Number, 10 or 13 digits"
+    },
+    "published-date": {
+      "type": "string",
+      "description": "YYYY-MM-DD\n\nThe date the best-seller list was published on NYTimes.com (compare bestsellers-date)"
+    },
+    "rank": {
+      "type": "integer",
+      "description": "The rank of the best seller on list-name as of bestsellers-date"
+    },
+    "rank-last-week": {
+      "type": "integer",
+      "description": "The rank of the best seller on list-name one week prior to bestsellers-date"
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Sets the starting point of the result set",
+      "multipleOf": 20
+    },
+    "sort-order": {
+      "type": "string",
+      "description": "Sets the sort order of the result set",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "format"
+  ]
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "last_modified": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "items": {
+        "properties": {
+          "amazon_product_url": {
+            "type": "string"
+          },
+          "asterisk": {
+            "type": "integer"
+          },
+          "bestsellers_date": {
+            "type": "string"
+          },
+          "book_details": {
+            "items": {
+              "properties": {
+                "age_group": {
+                  "type": "string"
+                },
+                "author": {
+                  "type": "string"
+                },
+                "contributor": {
+                  "type": "string"
+                },
+                "contributor_note": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "primary_isbn10": {
+                  "type": "string"
+                },
+                "primary_isbn13": {
+                  "type": "string"
+                },
+                "publisher": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "dagger": {
+            "type": "integer"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "isbns": {
+            "items": {
+              "properties": {
+                "isbn10": {
+                  "type": "string"
+                },
+                "isbn13": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "list_name": {
+            "type": "string"
+          },
+          "published_date": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "rank_last_week": {
+            "type": "integer"
+          },
+          "reviews": {
+            "items": {
+              "properties": {
+                "article_chapter_link": {
+                  "type": "string"
+                },
+                "book_review_link": {
+                  "type": "string"
+                },
+                "first_chapter_link": {
+                  "type": "string"
+                },
+                "sunday_review_link": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "weeks_on_list": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
+## Operation: lists.best_sellers.history.json.get
+Best Seller History List
+
+### Input Schema
+```json
+{
+  "type": [
+    "object",
+    "null"
+  ],
+  "properties": {
+    "age-group": {
+      "type": "string",
+      "description": "The target age group for the best seller."
+    },
+    "author": {
+      "type": "string",
+      "description": "The author of the best seller. The author field does not include additional contributors (see Data Structure for more details about the author and contributor fields).\n\nWhen searching the author field, you can specify any combination of first, middle and last names.\n\nWhen sort-by is set to author, the results will be sorted by author's first name. "
+    },
+    "contributor": {
+      "type": "string",
+      "description": "The author of the best seller, as well as other contributors such as the illustrator (to search or sort by author name only, use author instead).\n\nWhen searching, you can specify any combination of first, middle and last names of any of the contributors.\n\nWhen sort-by is set to contributor, the results will be sorted by the first name of the first contributor listed. "
+    },
+    "isbn": {
+      "type": "string",
+      "description": "International Standard Book Number, 10 or 13 digits\n\nA best seller may have both 10-digit and 13-digit ISBNs, and may have multiple ISBNs of each type. To search on multiple ISBNs, separate the ISBNs with semicolons (example: 9780446579933;0061374229)."
+    },
+    "price": {
+      "type": "string",
+      "description": "The publisher's list price of the best seller, including decimal point"
+    },
+    "publisher": {
+      "type": "string",
+      "description": "The standardized name of the publisher"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the best seller\n\nWhen searching, you can specify a portion of a title or a full title."
+    }
+  },
+  "additionalProperties": false
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "items": {
+        "properties": {
+          "age_group": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "contributor": {
+            "type": "string"
+          },
+          "contributor_note": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "isbns": {
+            "items": {
+              "properties": {
+                "isbn10": {
+                  "type": "string"
+                },
+                "isbn13": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "price": {
+            "type": "integer"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "ranks_history": {
+            "items": {
+              "properties": {
+                "asterisk": {
+                  "type": "integer"
+                },
+                "bestsellers_date": {
+                  "type": "string"
+                },
+                "dagger": {
+                  "type": "integer"
+                },
+                "display_name": {
+                  "type": "string"
+                },
+                "list_name": {
+                  "type": "string"
+                },
+                "primary_isbn10": {
+                  "type": "string"
+                },
+                "primary_isbn13": {
+                  "type": "string"
+                },
+                "published_date": {
+                  "type": "string"
+                },
+                "rank": {
+                  "type": "integer"
+                },
+                "ranks_last_week": {
+                  "type": "null"
+                },
+                "weeks_on_list": {
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reviews": {
+            "items": {
+              "properties": {
+                "article_chapter_link": {
+                  "type": "string"
+                },
+                "book_review_link": {
+                  "type": "string"
+                },
+                "first_chapter_link": {
+                  "type": "string"
+                },
+                "sunday_review_link": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
+## Operation: lists.names.format.get
+Best Seller List Names
+
+### Input Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "api-key": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "format"
+  ]
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "items": {
+        "properties": {
+          "display_name": {
+            "type": "string"
+          },
+          "list_name": {
+            "type": "string"
+          },
+          "list_name_encoded": {
+            "type": "string"
+          },
+          "newest_published_date": {
+            "type": "string"
+          },
+          "oldest_published_date": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
+## Operation: lists.overview.format.get
+Best Seller List Overview
+
+### Input Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "published_date": {
+      "type": "string",
+      "description": "The best-seller list publication date. YYYY-MM-DD\n\nYou do not have to specify the exact date the list was published. The service will search forward (into the future) for the closest publication date to the date you specify. For example, a request for lists/overview/2013-05-22 will retrieve the list that was published on 05-26.\n\nIf you do not include a published_date, the current week's best-sellers lists will be returned."
+    },
+    "api-key": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "format"
+  ]
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "properties": {
+        "bestsellers_date": {
+          "type": "string"
+        },
+        "lists": {
+          "items": {
+            "properties": {
+              "books": {
+                "items": {
+                  "properties": {
+                    "age_group": {
+                      "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
+                    },
+                    "contributor": {
+                      "type": "string"
+                    },
+                    "contributor_note": {
+                      "type": "string"
+                    },
+                    "created_date": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "integer"
+                    },
+                    "primary_isbn10": {
+                      "type": "string"
+                    },
+                    "primary_isbn13": {
+                      "type": "string"
+                    },
+                    "publisher": {
+                      "type": "string"
+                    },
+                    "rank": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "updated_date": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "display_name": {
+                "type": "string"
+              },
+              "list_id": {
+                "type": "integer"
+              },
+              "list_image": {
+                "type": "string"
+              },
+              "list_name": {
+                "type": "string"
+              },
+              "updated": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "published_date": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
+## Operation: lists.date.list.json.get
+Best Seller List by Date
+
+### Input Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "isbn": {
+      "type": "integer",
+      "description": "International Standard Book Number, 10 or 13 digits"
+    },
+    "list-name": {
+      "type": "string",
+      "description": "The name of the Times best-seller list. To get valid values, use a list names request.\n\nBe sure to replace spaces with hyphens (e.g., e-book-fiction or hardcover-fiction, not E-Book Fiction or Hardcover Fiction). (The parameter is not case sensitive.)"
+    },
+    "published-date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "YYYY-MM-DD\n\nThe date the best-seller list was published on NYTimes.com (compare bestsellers-date)"
+    },
+    "bestsellers-date": {
+      "type": "string",
+      "description": "YYYY-MM-DD\n\nThe week-ending date for the sales reflected on list-name. Times best-seller lists are compiled using available book sale data. The bestsellers-date may be significantly earlier than published-date. For additional information, see the explanation at the bottom of any best-seller list page on NYTimes.com (example: Hardcover Fiction, published Dec. 5 but reflecting sales to Nov. 29)."
+    },
+    "weeks-on-list": {
+      "type": "integer",
+      "description": "The number of weeks that the best seller has been on list-name, as of bestsellers-date"
+    },
+    "rank": {
+      "type": "string",
+      "description": "The rank of the best seller on list-name as of bestsellers-date"
+    },
+    "rank-last-week": {
+      "type": "integer",
+      "description": "The rank of the best seller on list-name one week prior to bestsellers-date"
+    },
+    "offset": {
+      "type": "integer",
+      "description": "Sets the starting point of the result set",
+      "multipleOf": 20
+    },
+    "sort-order": {
+      "type": "string",
+      "description": "The default is ASC (ascending). The sort-order parameter is used with the sort-by parameter — for details, see each request type.",
+      "enum": [
+        "ASC",
+        "DESC"
+      ]
+    },
+    "date": {
+      "type": "string"
+    },
+    "list": {
+      "type": "string",
+      "description": "Name of the Best Sellers List. You can get the full list from /lists/names.json"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "date",
+    "list"
+  ]
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "last_modified": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "properties": {
+        "bestsellers_date": {
+          "type": "string"
+        },
+        "books": {
+          "items": {
+            "properties": {
+              "age_group": {
+                "type": "string"
+              },
+              "amazon_product_url": {
+                "type": "string"
+              },
+              "article_chapter_link": {
+                "type": "string"
+              },
+              "asterisk": {
+                "type": "integer"
+              },
+              "author": {
+                "type": "string"
+              },
+              "book_image": {
+                "type": "string"
+              },
+              "book_review_link": {
+                "type": "string"
+              },
+              "contributor": {
+                "type": "string"
+              },
+              "contributor_note": {
+                "type": "string"
+              },
+              "dagger": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "first_chapter_link": {
+                "type": "string"
+              },
+              "isbns": {
+                "items": {
+                  "properties": {
+                    "isbn10": {
+                      "type": "string"
+                    },
+                    "isbn13": {
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "price": {
+                "type": "integer"
+              },
+              "primary_isbn10": {
+                "type": "string"
+              },
+              "primary_isbn13": {
+                "type": "string"
+              },
+              "publisher": {
+                "type": "string"
+              },
+              "rank": {
+                "type": "integer"
+              },
+              "rank_last_week": {
+                "type": "integer"
+              },
+              "sunday_review_link": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "weeks_on_list": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "corrections": {
+          "items": {
+            "properties": {},
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "list_name": {
+          "type": "string"
+        },
+        "normal_list_ends_at": {
+          "type": "integer"
+        },
+        "published_date": {
+          "type": "string"
+        },
+        "updated": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
+## Operation: reviews.format.get
+Reviews
+
+### Input Schema
+```json
+{
+  "type": "object",
+  "properties": {
+    "isbn": {
+      "type": "integer",
+      "description": "Searching by ISBN is the recommended method. You can enter 10- or 13-digit ISBNs."
+    },
+    "title": {
+      "type": "string",
+      "description": "You’ll need to enter the full title of the book. Spaces in the title will be converted into the characters %20."
+    },
+    "author": {
+      "type": "string",
+      "description": "You’ll need to enter the author’s first and last name, separated by a space. This space will be converted into the characters %20."
+    },
+    "api-key": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "json",
+        "jsonp"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "format"
+  ]
+}
+```
+### Output Schema
+```json
+{
+  "properties": {
+    "copyright": {
+      "type": "string"
+    },
+    "num_results": {
+      "type": "integer"
+    },
+    "results": {
+      "items": {
+        "properties": {
+          "book_author": {
+            "type": "string"
+          },
+          "book_title": {
+            "type": "string"
+          },
+          "byline": {
+            "type": "string"
+          },
+          "isbn13": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "publication_dt": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "type": "object"
+}
+```
