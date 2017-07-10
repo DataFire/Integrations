@@ -3,6 +3,8 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 const datafire = require('datafire');
 
+const iterateIntegs = require('./iterate-integrations');
+
 const MAX_DESCRIPTION_LENGTH = 120;
 
 const maybeMkdirp = (dir) => {
@@ -31,13 +33,10 @@ const BASE_DIR = __dirname + '/../integrations/';
 const OUT_DIR = __dirname + '/../json/';
 
 let list = {};
-function addDirToList(dir) {
-  fs.readdirSync(dir).forEach(name => {
+iterateIntegs((dir, name, integ) => {
     console.log('adding', name);
-    let packageName = require.resolve(path.join(dir, name));
-    let integ = require(packageName);
-    let package = require(path.join(dir, name, 'package.json'));
-    let openapiFile = path.join(dir, name, 'openapi.json');
+    let package = require(path.join(dir, 'package.json'));
+    let openapiFile = path.join(dir, 'openapi.json');
     let openapi = {info: {}};
     if (fs.existsSync(openapiFile)) {
       openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
@@ -79,19 +78,7 @@ function addDirToList(dir) {
     let integDir = path.join(OUT_DIR, name, package.version);
     maybeMkdirp(integDir);
     fs.writeFileSync(path.join(integDir, 'index.json'), JSON.stringify(details, null, 2));
-    if (integ.ajv) {
-      integ.ajv._cache.clear();
-    }
-    integ = null;
-    for (let key in require.cache) {
-      if (key.indexOf(path.join(__dirname, '..')) !== -1) {
-        delete require.cache[key];
-      }
-    }
-  })
-}
+})
 
-addDirToList(BASE_DIR + 'generated');
-addDirToList(BASE_DIR + 'manual');
 fs.writeFileSync(OUT_DIR + 'list.json', JSON.stringify(list, null, 2));
 
