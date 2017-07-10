@@ -46,8 +46,13 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   if (args.new) {
     keys = keys.filter(key => {
       let {provider, name} = getName(key);
-      let e = !fs.existsSync(OUT_DIR + '/' + name);
-      return e;
+      return !fs.existsSync(OUT_DIR + '/' + name);
+    })
+  }
+  if (args.name) {
+    keys = keys.filter(key => {
+      let {provider, name} = getName(key);
+       return name === args.name;
     })
   }
   async.parallel(keys.map(key => {
