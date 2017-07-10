@@ -642,6 +642,29 @@
     "actionCount": 19,
     "latestVersion": "2.0.0"
   },
+  "amazonaws_dax": {
+    "id": "amazonaws_dax",
+    "title": "Amazon DynamoDB Accelerator (DAX)",
+    "description": "DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramatically speeds up database reads by caching fr...",
+    "security": {
+      "amazonaws_dax": {
+        "integration": "amazonaws_dax",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "actionCount": 21,
+    "latestVersion": "2.0.0"
+  },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
     "title": "AWS Device Farm",
@@ -1146,6 +1169,29 @@
       "aws"
     ],
     "actionCount": 18,
+    "latestVersion": "2.0.0"
+  },
+  "amazonaws_greengrass": {
+    "id": "amazonaws_greengrass",
+    "title": "AWS Greengrass",
+    "description": "AWS Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while sti...",
+    "security": {
+      "amazonaws_greengrass": {
+        "integration": "amazonaws_greengrass",
+        "fields": {
+          "hmac": "Amazon Signature authorization v4"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+    },
+    "tags": [
+      "cloud",
+      "aws"
+    ],
+    "actionCount": 32,
     "latestVersion": "2.0.0"
   },
   "amazonaws_health": {
@@ -5199,6 +5245,41 @@
       "storage"
     ],
     "actionCount": 35,
+    "latestVersion": "2.0.0"
+  },
+  "figshare": {
+    "id": "figshare",
+    "title": "Figshare",
+    "description": "Figshare apiv2. Using Swagger 2.0",
+    "security": {
+      "figshare": {
+        "integration": "figshare",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "authorizationUrl": "https://figshare.com/account/applications/authorize",
+          "flow": "accessCode",
+          "scopes": {
+            "all": "Grants all access"
+          },
+          "tokenUrl": "https://api.figshare.com/v2/token",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27885832-5da28e32-61d1-11e7-8811-ed7238df2c20.png"
+    },
+    "tags": [
+      "open data"
+    ],
+    "actionCount": 111,
     "latestVersion": "2.0.0"
   },
   "firebrowse": {
@@ -10058,6 +10139,20 @@
     "actionCount": 18,
     "latestVersion": "2.0.0"
   },
+  "magento": {
+    "id": "magento",
+    "title": "Magento Enterprise",
+    "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
+    "security": {},
+    "logo": {
+      "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
+    },
+    "tags": [
+      "ecommerce"
+    ],
+    "actionCount": 355,
+    "latestVersion": "2.0.0"
+  },
   "magick_nu": {
     "id": "magick_nu",
     "title": "Tradeworks",
@@ -10130,6 +10225,27 @@
       "social"
     ],
     "actionCount": 7,
+    "latestVersion": "2.0.0"
+  },
+  "microsoft": {
+    "id": "microsoft",
+    "title": "Microsoft Security Updates",
+    "security": {
+      "microsoft": {
+        "integration": "microsoft",
+        "fields": {
+          "api-key": "API key"
+        }
+      }
+    },
+    "logo": {
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_9_96_Microsoft_logo_(2012).svg_200px-Microsoft_logo_(2012).svg.png"
+    },
+    "tags": [
+      "security"
+    ],
+    "actionCount": 3,
     "latestVersion": "2.0.0"
   },
   "moonmoonmoonmoon": {
