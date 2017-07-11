@@ -10227,12 +10227,12 @@
     "actionCount": 7,
     "latestVersion": "2.0.0"
   },
-  "microsoft": {
-    "id": "microsoft",
+  "microsoft_security_updates": {
+    "id": "microsoft_security_updates",
     "title": "Microsoft Security Updates",
     "security": {
-      "microsoft": {
-        "integration": "microsoft",
+      "microsoft_security_updates": {
+        "integration": "microsoft_security_updates",
         "fields": {
           "api-key": "API key"
         }

@@ -17,7 +17,8 @@ const NAME_CHANGES = {
   "citrixonline.com": "citrix",
   "hetrascertification.net": "hetras",
   "nrel.gov": "nrel",
-  "posty-api.herokuapp.com": "posty"
+  "posty-api.herokuapp.com": "posty",
+  "microsoft.com": "microsoft_security_updates",
 }
 
 const getName = (apisGuruName) => {

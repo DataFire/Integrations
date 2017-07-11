@@ -1,10 +1,10 @@
 {
-  "id": "microsoft",
+  "id": "microsoft_security_updates",
   "title": "Microsoft Security Updates",
   "description": "",
   "security": {
-    "microsoft": {
-      "integration": "microsoft",
+    "microsoft_security_updates": {
+      "integration": "microsoft_security_updates",
       "fields": {
         "api-key": "API key"
       }
@@ -1132,8 +1132,8 @@
         "$ref": "#/definitions/UpdatesReturnTypes200"
       },
       "security": {
-        "microsoft": {
-          "integration": "microsoft"
+        "microsoft_security_updates": {
+          "integration": "microsoft_security_updates"
         }
       }
     },
@@ -1161,8 +1161,8 @@
         "$ref": "#/definitions/UpdatesReturnTypes200"
       },
       "security": {
-        "microsoft": {
-          "integration": "microsoft"
+        "microsoft_security_updates": {
+          "integration": "microsoft_security_updates"
         }
       }
     },
@@ -1190,8 +1190,8 @@
         "$ref": "#/definitions/cvrfReturnTypes200"
       },
       "security": {
-        "microsoft": {
-          "integration": "microsoft"
+        "microsoft_security_updates": {
+          "integration": "microsoft_security_updates"
         }
       }
     }

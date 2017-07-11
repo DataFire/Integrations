@@ -24,7 +24,7 @@
     "x-preferred": true,
     "x-providerName": "microsoft.com",
     "x-datafire": {
-      "name": "microsoft",
+      "name": "microsoft_security_updates",
       "type": "openapi"
     }
   },
