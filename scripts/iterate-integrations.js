@@ -2,9 +2,11 @@ const path = require('path');
 const fs = require('fs');
 const BASE_DIR = __dirname + '/../integrations/';
 
-module.exports = function(fn) {
+module.exports = function(fn, filterFn) {
+  if (!filterFn) filterFn = (name) => true;
   function iterateDir(dir) {
     fs.readdirSync(dir).forEach(name => {
+      if (!filterFn(name)) return;
       let fullDir = path.join(dir, name);
       let integ = require(fullDir);
       fn(fullDir, name, integ)

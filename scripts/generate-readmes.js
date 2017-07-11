@@ -1,6 +1,7 @@
 let path = require('path');
 let fs = require('fs');
 let iterateIntegs = require('./iterate-integrations');
+let args = require('yargs').argv;
 
 function schemaToMarkdown(schema, title) {
   if (!schema) return '';
@@ -20,5 +21,5 @@ iterateIntegs((dir, name, integ) => {
   })
   let readmeFile = path.join(dir, 'README.md');
   fs.writeFileSync(readmeFile, md);
-})
+}, name => !args.name || name === args.name)
 
