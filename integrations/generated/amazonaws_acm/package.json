@@ -1,6 +1,6 @@
 {
   "name": "@datafire/amazonaws_acm",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "description": "DataFire integration for AWS Certificate Manager",
   "repository": {

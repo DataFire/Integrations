@@ -1,0 +1,535 @@
+{
+  "id": "rummblelabs",
+  "title": "Seldon",
+  "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
+  },
+  "tags": [
+    "machine learning"
+  ],
+  "definitions": {
+    "Action": {
+      "properties": {
+        "item": {
+          "example": "item1234",
+          "type": "string"
+        },
+        "type": {
+          "description": "action type",
+          "type": "integer"
+        },
+        "user": {
+          "example": "user1234",
+          "type": "string"
+        },
+        "value": {
+          "description": "action value (e.g. a rating)",
+          "type": "number"
+        }
+      },
+      "required": [
+        "user",
+        "item",
+        "type"
+      ]
+    },
+    "AttributesName": {
+      "properties": {
+        "attrName1": {
+          "example": "attrValue1",
+          "type": "string"
+        },
+        "attrName2": {
+          "example": "attrValue2",
+          "type": "string"
+        }
+      }
+    },
+    "Item": {
+      "properties": {
+        "attributesName": {
+          "$ref": "#/definitions/AttributesName"
+        },
+        "id": {
+          "example": "myid1234",
+          "type": "string"
+        },
+        "type": {
+          "description": "type of item",
+          "example": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "User": {
+      "properties": {
+        "active": {
+          "description": "whether user is active",
+          "type": "boolean"
+        },
+        "attributesName": {
+          "$ref": "#/definitions/AttributesName"
+        },
+        "id": {
+          "example": "myid1234",
+          "type": "string"
+        },
+        "username": {
+          "description": "name of user",
+          "example": "Joe Bloggs",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  "actions": [
+    {
+      "id": "postAction",
+      "title": "postAction",
+      "description": "post new action between a user and an item",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "body": {
+            "$ref": "#/definitions/Action"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getItems",
+      "title": "getItems",
+      "description": "get items",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for item"
+          },
+          "name": {
+            "type": "string",
+            "description": "keywords to match"
+          },
+          "dimension": {
+            "type": "integer",
+            "description": "limit items to a particular dimension"
+          },
+          "type": {
+            "type": "integer",
+            "description": "limit items to a particular type"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit number of items returned"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postItem",
+      "title": "postItem",
+      "description": "post new item",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "body": {
+            "$ref": "#/definitions/Item"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "putItem",
+      "title": "putItem",
+      "description": "update item",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "body": {
+            "$ref": "#/definitions/Item"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getItemTypes",
+      "title": "getItemTypes",
+      "description": "get item type",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getItem",
+      "title": "getItem",
+      "description": "get item",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "itemId": {
+            "type": "string",
+            "description": "the item id to get"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for item"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "itemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "addAction",
+      "title": "addAction",
+      "description": "Add a user interaction",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {
+            "type": "string",
+            "description": "consumer key"
+          },
+          "user": {
+            "type": "string",
+            "description": "user id"
+          },
+          "item": {
+            "type": "string",
+            "description": "item id"
+          },
+          "type": {
+            "type": "string",
+            "description": "type"
+          },
+          "jsonpCallback": {
+            "type": "string",
+            "description": "JSONP callback"
+          },
+          "timestamp": {
+            "type": "integer",
+            "description": "time"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user",
+          "item",
+          "type",
+          "jsonpCallback"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getRecommendation",
+      "title": "getRecommendation",
+      "description": "Get recommendations for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {
+            "type": "string",
+            "description": "consumer key"
+          },
+          "user": {
+            "type": "string",
+            "description": "user id"
+          },
+          "item": {
+            "type": "string",
+            "description": "currently viewed item id"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "max number of recommendations to return"
+          },
+          "dimension": {
+            "type": "integer",
+            "description": "get recommendations for a particular item dimension (e.g., just sports articles)"
+          },
+          "attributes": {
+            "type": "string",
+            "format": "command separated list",
+            "description": "the fields to return"
+          },
+          "algorithms": {
+            "type": "string",
+            "description": "override default algorithms with specified algorithms"
+          },
+          "jsonpCallback": {
+            "type": "string",
+            "description": "JSONP callback"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "user",
+          "jsonpCallback"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getToken",
+      "title": "getToken",
+      "description": "get token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "consumer_key": {
+            "type": "string",
+            "description": "consumer key"
+          },
+          "consumer_secret": {
+            "type": "string",
+            "description": "consumer secret"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "consumer_key",
+          "consumer_secret"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsers",
+      "title": "getUsers",
+      "description": "get users",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for user"
+          },
+          "name": {
+            "type": "string",
+            "description": "keywords to match"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit number of users returned"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postUser",
+      "title": "postUser",
+      "description": "post new user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "body": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "updateUser",
+      "title": "updateUser",
+      "description": "update user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "body": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUser",
+      "title": "getUser",
+      "description": "get a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "userId": {
+            "type": "string",
+            "description": "the user id to get"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for user"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUserActions",
+      "title": "getUserActions",
+      "description": "get a user's recent actions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "userId": {
+            "type": "string",
+            "description": "the user id to get"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for user"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit number of actions returned"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUserRecommendations",
+      "title": "getUserRecommendations",
+      "description": "get recommendations for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "oauth_token": {
+            "type": "string",
+            "description": "oauth token"
+          },
+          "userId": {
+            "type": "string",
+            "description": "the user id to get"
+          },
+          "full": {
+            "type": "boolean",
+            "description": "get all attributes for user"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "limit number of actions returned"
+          },
+          "dimension": {
+            "type": "integer",
+            "description": "get recommendations for a particular item dimension (e.g., just sports articles)"
+          },
+          "algorithms": {
+            "type": "string",
+            "description": "override default algorithms with specified algorithms"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

@@ -1,0 +1,5006 @@
+{
+  "id": "reverb",
+  "title": "reverb",
+  "description": "reverb",
+  "security": {
+    "reverb": {
+      "integration": "reverb",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "flow": "application",
+        "scopes": {
+          "public": "",
+          "read_feedback": "",
+          "read_listings": "",
+          "read_lists": "",
+          "read_messages": "",
+          "read_offers": "",
+          "read_orders": "",
+          "read_profile": "",
+          "write_feedback": "",
+          "write_listings": "",
+          "write_lists": "",
+          "write_messages": "",
+          "write_offers": "",
+          "write_orders": "",
+          "write_profile": "",
+          "write_reviews": ""
+        },
+        "tokenUrl": "https://reverb.com/oauth/token",
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
+  },
+  "tags": [
+    "ecommerce"
+  ],
+  "definitions": {},
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "accounts.post",
+      "title": "accounts.post",
+      "description": "Create an account.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "accept_terms": {
+                "description": "Accept the Reverb terms of use and privacy policy",
+                "type": "boolean"
+              },
+              "email": {
+                "description": "Email address.",
+                "type": "string"
+              },
+              "first_name": {
+                "description": "First Name",
+                "type": "string"
+              },
+              "last_name": {
+                "description": "Last Name",
+                "type": "string"
+              },
+              "newsletter_opt_in": {
+                "description": "Subscribe to gear deals by email",
+                "type": "boolean"
+              },
+              "password": {
+                "description": "Password (at least 8 characters).",
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "password",
+              "first_name",
+              "last_name"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "articles.get",
+      "title": "articles.get",
+      "description": "See all Reverb blog posts",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "articles.featured.get",
+      "title": "articles.featured.get",
+      "description": "See featured Reverb blog posts",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "articles.recently_featured.get",
+      "title": "articles.recently_featured.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "articles.slug.get",
+      "title": "articles.slug.get",
+      "description": "Display a single article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "articles.slug.related_listings.get",
+      "title": "articles.slug.related_listings.get",
+      "description": "Find listings related to an article",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "auth.forgot_password.post",
+      "title": "auth.forgot_password.post",
+      "description": "Send a password reset email",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "email": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "auth.logout.put",
+      "title": "auth.logout.put",
+      "description": "Logout (primarily for mobile clients)",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "device_token": {
+                "type": "string"
+              },
+              "device_type": {
+                "enum": [
+                  "ios",
+                  "android"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "device_type"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "autosuggest.get",
+      "title": "autosuggest.get",
+      "description": "Autosuggest terms for searches",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "cart.get",
+      "title": "cart.get",
+      "description": "Get all cart items",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "cart.move_to_watch_list.cart_item_id.post",
+      "title": "cart.move_to_watch_list.cart_item_id.post",
+      "description": "Remove a cart item and add it to watch list",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cart_item_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cart_item_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "cart.id.delete",
+      "title": "cart.id.delete",
+      "description": "Remove a product from the cart",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "cart.id.post",
+      "title": "cart.id.post",
+      "description": "Add product to the cart",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "cart.id.put",
+      "title": "cart.id.put",
+      "description": "Update cart item details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "categories.get",
+      "title": "categories.get",
+      "description": "List of supported product categories",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "categories.flat.get",
+      "title": "categories.flat.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "categories.product_type.category.get",
+      "title": "categories.product_type.category.get",
+      "description": "Get subcategory details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "product_type": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "product_type",
+          "category"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "categories.uuid.get",
+      "title": "categories.uuid.get",
+      "description": "Get category details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "uuid"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "collections.get",
+      "title": "collections.get",
+      "description": "List of curated collections",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "collections.slug.get",
+      "title": "collections.slug.get",
+      "description": "Collection details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "comparison_shopping_pages.get",
+      "title": "comparison_shopping_pages.get",
+      "description": "Returns a set of comparison shopping pages based on the current params",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "comparison_shopping_pages.id.get",
+      "title": "comparison_shopping_pages.id.get",
+      "description": "Show comparison shopping page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "comparison_shopping_pages.id.listings.get",
+      "title": "comparison_shopping_pages.id.listings.get",
+      "description": "Return new or used listings for a comparison shopping page",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string",
+            "description": "Condition of the listing"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "condition"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "conversations.id.offer.post",
+      "title": "conversations.id.offer.post",
+      "description": "Make an offer to the other participant in the conversation",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "message": {
+                "description": "Message to include with counter offer",
+                "type": "string"
+              },
+              "price": {
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              },
+              "shipping_price": {
+                "description": "Shipping price (sellers only)",
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "price"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "countries.get",
+      "title": "countries.get",
+      "description": "Retrieve a list of country codes with corresponding subregions",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "currencies.display.get",
+      "title": "currencies.display.get",
+      "description": "List of supported display currencies for browsing listings",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "currencies.listing.get",
+      "title": "currencies.listing.get",
+      "description": "List of supported listing currencies for shops",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "feedback.feedback_id.get",
+      "title": "feedback.feedback_id.get",
+      "description": "Feedback details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "feedback_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedback_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "handpicked.slug.get",
+      "title": "handpicked.slug.get",
+      "description": "Handpicked collection details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listing_conditions.get",
+      "title": "listing_conditions.get",
+      "description": "List of supported product conditions",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.get",
+      "title": "listings.get",
+      "description": "Default search of listings includes only used & handmade. Add a filter to view all listings or use the /listings/all endpoint.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          },
+          "auction_price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum current auction price"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug from /api/categories"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "Product type slug from /api/categories"
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Condition: all,new,b-stock,used,non-functioning"
+          },
+          "decade": {
+            "type": "string",
+            "description": "Decade: e.g. 1970s, early 70s"
+          },
+          "finish": {
+            "type": "string",
+            "description": "Visual finish of the item, common for guitars"
+          },
+          "handmade": {
+            "type": "boolean",
+            "description": "Handmade items only"
+          },
+          "item_city": {
+            "type": "string",
+            "description": "City where item is located"
+          },
+          "item_country": {
+            "type": "string",
+            "description": "DEPRECATED - Country code where item is located"
+          },
+          "item_region": {
+            "type": "string",
+            "description": "Country code where item is located"
+          },
+          "item_state": {
+            "type": "string",
+            "description": "State or region code where item is located"
+          },
+          "make": {
+            "type": "array",
+            "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array."
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of item (e.g. Stratocaster)"
+          },
+          "must_not": {
+            "type": "string",
+            "description": "Search term negation. If you want to exclude a term, add it here"
+          },
+          "price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum price of search results (USD)"
+          },
+          "price_min": {
+            "type": "number",
+            "format": "float",
+            "description": "Minimum price of search results (USD)"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency to be used for the price filters"
+          },
+          "year_max": {
+            "type": "integer",
+            "description": "Maximum year of manufacture"
+          },
+          "year_min": {
+            "type": "integer",
+            "description": "Minumum year of manufacture"
+          },
+          "accepts_gift_cards": {
+            "type": "boolean",
+            "description": "If true, include only items that accept gift cards"
+          },
+          "preferred_seller": {
+            "type": "boolean",
+            "description": "If true, include only items by Reverb Preferred Sellers"
+          },
+          "shop": {
+            "type": "string",
+            "description": "Slug of shop to search"
+          },
+          "shop_id": {
+            "type": "string",
+            "description": "ID of shop to search"
+          },
+          "listing_type": {
+            "type": "string",
+            "description": "Type of listing: auctions,offers"
+          },
+          "ships_to": {
+            "type": "string",
+            "description": "Limit search to items that ship to this country code"
+          },
+          "exclude_auctions": {
+            "type": "boolean",
+            "description": "If true, exclude auctions"
+          },
+          "accepts_payment_plans": {
+            "type": "boolean",
+            "description": "If true, only show items that can be purchased with a payment plan"
+          },
+          "watchers_count_min": {
+            "type": "integer",
+            "description": "Minimum number of watchers (used to find popular items)"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.post",
+      "title": "listings.post",
+      "description": "Create a listing",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "properties": {
+                    "uuid": {
+                      "description": "UUID of the category for this listing.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "condition": {
+                "description": "Condition",
+                "properties": {
+                  "uuid": {
+                    "description": "Condition UUID",
+                    "enum": [
+                      "fbf35668-96a0-4baa-bcde-ab18d6b1b329",
+                      "6a9dfcad-600b-46c8-9e08-ce6e5057921e",
+                      "98777886-76d0-44c8-865e-bb40e669e934",
+                      "f7a3f48c-972a-44c6-b01a-0cd27488d3f6",
+                      "ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d",
+                      "df268ad1-c462-4ba6-b6db-e007e23922ea",
+                      "ac5b9c1e-dc78-466d-b0b3-7cf712967a48",
+                      "6db7df88-293b-4017-a1c1-cdb5e599fa1a",
+                      "9225283f-60c2-4413-ad18-1f5eba7a856f",
+                      "7c3f45de-2ae0-4c81-8400-fdb6b1d74890"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "uuid"
+                ],
+                "type": "object"
+              },
+              "description": {
+                "description": "Product description. Please keep formatting to a minimum.",
+                "type": "string"
+              },
+              "finish": {
+                "description": "Finish, e.g. 'Sunburst'",
+                "type": "string"
+              },
+              "has_inventory": {
+                "description": "Set true if selling more than one",
+                "type": "boolean"
+              },
+              "inventory": {
+                "description": "Number of items available for sale. Reverb will increment and decrement automatically.",
+                "type": "integer"
+              },
+              "location": {
+                "properties": {
+                  "country_code": {
+                    "description": "Ex: US",
+                    "type": "string"
+                  },
+                  "locality": {
+                    "description": "Ex: Chicago",
+                    "type": "string"
+                  },
+                  "region": {
+                    "description": "Ex: IL",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "make": {
+                "description": "ex: Fender, Gibson",
+                "type": "string"
+              },
+              "model": {
+                "description": "ex: Stratocaster, SG",
+                "type": "string"
+              },
+              "offers_enabled": {
+                "description": "Whether the listing accepts negotiated offers (default: true)",
+                "type": "boolean"
+              },
+              "origin_country_code": {
+                "description": "Country of origin/manufacture, ISO code (e.g: US)",
+                "type": "string"
+              },
+              "photos": {
+                "description": "An array of image URLs. Ex: ['http://my.site.com/image.jpg']",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "price": {
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              },
+              "publish": {
+                "description": "Publish your listing if draft",
+                "type": "boolean"
+              },
+              "seller": {
+                "properties": {
+                  "paypal_email": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "seller_cost": {
+                "description": "Cost of goods in your currency (internal use only, not shown to buyers)",
+                "type": "string"
+              },
+              "shipping": {
+                "properties": {
+                  "local": {
+                    "description": "True if you offer local pickup",
+                    "type": "boolean"
+                  },
+                  "rates": {
+                    "description": "List of shipping rates. Set to null to clear rates.",
+                    "items": {
+                      "properties": {
+                        "rate": {
+                          "properties": {
+                            "amount": {
+                              "description": "The amount of money being expressed, as a decimal number",
+                              "type": "string"
+                            },
+                            "currency": {
+                              "description": "The currency the money will be expressed in",
+                              "enum": [
+                                "USD",
+                                "CAD",
+                                "EUR",
+                                "GBP",
+                                "AUD",
+                                "JPY",
+                                "NZD",
+                                "MXN"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "type": "object"
+                        },
+                        "region_code": {
+                          "description": "Country code or subregion/superregion code. Full list of codes at /api/shipping/regions",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "shipping_profile_id": {
+                "description": "id of a shop's shipping profile",
+                "type": "string"
+              },
+              "shipping_profile_name": {
+                "description": "DEPRECATED, please use shipping_profile_id. Name of a shipping profile",
+                "type": "string"
+              },
+              "sku": {
+                "description": "Unique identifier for product",
+                "type": "string"
+              },
+              "sold_as_is": {
+                "description": "This item is sold As-Is and cannot be returned",
+                "type": "boolean"
+              },
+              "tax_exempt": {
+                "description": "Listing is exempt from taxes / VAT",
+                "type": "boolean"
+              },
+              "title": {
+                "description": "Title of your listing",
+                "type": "string"
+              },
+              "upc": {
+                "description": "Valid UPC code",
+                "type": "string"
+              },
+              "year": {
+                "description": "Supports many formats. Ex: 1979, mid-70s, late 90s",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.all.get",
+      "title": "listings.all.get",
+      "description": "All listings including used, handmade, and brand new",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          },
+          "auction_price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum current auction price"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug from /api/categories"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "Product type slug from /api/categories"
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Condition: all,new,b-stock,used,non-functioning"
+          },
+          "decade": {
+            "type": "string",
+            "description": "Decade: e.g. 1970s, early 70s"
+          },
+          "finish": {
+            "type": "string",
+            "description": "Visual finish of the item, common for guitars"
+          },
+          "handmade": {
+            "type": "boolean",
+            "description": "Handmade items only"
+          },
+          "item_city": {
+            "type": "string",
+            "description": "City where item is located"
+          },
+          "item_country": {
+            "type": "string",
+            "description": "DEPRECATED - Country code where item is located"
+          },
+          "item_region": {
+            "type": "string",
+            "description": "Country code where item is located"
+          },
+          "item_state": {
+            "type": "string",
+            "description": "State or region code where item is located"
+          },
+          "make": {
+            "type": "array",
+            "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array."
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of item (e.g. Stratocaster)"
+          },
+          "must_not": {
+            "type": "string",
+            "description": "Search term negation. If you want to exclude a term, add it here"
+          },
+          "price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum price of search results (USD)"
+          },
+          "price_min": {
+            "type": "number",
+            "format": "float",
+            "description": "Minimum price of search results (USD)"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency to be used for the price filters"
+          },
+          "year_max": {
+            "type": "integer",
+            "description": "Maximum year of manufacture"
+          },
+          "year_min": {
+            "type": "integer",
+            "description": "Minumum year of manufacture"
+          },
+          "accepts_gift_cards": {
+            "type": "boolean",
+            "description": "If true, include only items that accept gift cards"
+          },
+          "preferred_seller": {
+            "type": "boolean",
+            "description": "If true, include only items by Reverb Preferred Sellers"
+          },
+          "shop": {
+            "type": "string",
+            "description": "Slug of shop to search"
+          },
+          "shop_id": {
+            "type": "string",
+            "description": "ID of shop to search"
+          },
+          "listing_type": {
+            "type": "string",
+            "description": "Type of listing: auctions,offers"
+          },
+          "ships_to": {
+            "type": "string",
+            "description": "Limit search to items that ship to this country code"
+          },
+          "exclude_auctions": {
+            "type": "boolean",
+            "description": "If true, exclude auctions"
+          },
+          "accepts_payment_plans": {
+            "type": "boolean",
+            "description": "If true, only show items that can be purchased with a payment plan"
+          },
+          "watchers_count_min": {
+            "type": "integer",
+            "description": "Minimum number of watchers (used to find popular items)"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.id.offer.post",
+      "title": "listings.id.offer.post",
+      "description": "Make an offer to the seller of a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "message": {
+                "description": "Message to include with counter offer",
+                "type": "string"
+              },
+              "price": {
+                "description": "Offer price",
+                "type": "string"
+              },
+              "shipping_price": {
+                "description": "Shipping price (sellers only)",
+                "type": "string"
+              }
+            },
+            "required": [
+              "price"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.bump.get",
+      "title": "listings.listing_id.bump.get",
+      "description": "View available bump tiers and stats for a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.bump.budget_type.post",
+      "title": "listings.listing_id.bump.budget_type.post",
+      "description": "Bump a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          },
+          "budget_type": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id",
+          "budget_type"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.conversations.post",
+      "title": "listings.listing_id.conversations.post",
+      "description": "Start a conversation with a seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "body": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.images.get",
+      "title": "listings.listing_id.images.get",
+      "description": "View the images associated with a particular listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.images.image_id.delete",
+      "title": "listings.listing_id.images.image_id.delete",
+      "description": "Delete an image from a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          },
+          "image_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id",
+          "image_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.product_bundle.get",
+      "title": "listings.listing_id.product_bundle.get",
+      "description": "Find a product bundle attached to a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          },
+          "for_seller": {
+            "type": "boolean",
+            "description": "Pass to see non-live bundles as the seller"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.listing_id.sales.get",
+      "title": "listings.listing_id.sales.get",
+      "description": "See all sales that include a listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "listing_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.delete",
+      "title": "listings.slug.delete",
+      "description": "Delete a draft listing. Cannot be used on non-drafts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.get",
+      "title": "listings.slug.get",
+      "description": "Listing details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.put",
+      "title": "listings.slug.put",
+      "description": "Update a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "categories": {
+                "items": {
+                  "properties": {
+                    "uuid": {
+                      "description": "UUID of the category for this listing.",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "condition": {
+                "description": "Condition",
+                "properties": {
+                  "uuid": {
+                    "description": "Condition UUID",
+                    "enum": [
+                      "fbf35668-96a0-4baa-bcde-ab18d6b1b329",
+                      "6a9dfcad-600b-46c8-9e08-ce6e5057921e",
+                      "98777886-76d0-44c8-865e-bb40e669e934",
+                      "f7a3f48c-972a-44c6-b01a-0cd27488d3f6",
+                      "ae4d9114-1bd7-4ec5-a4ba-6653af5ac84d",
+                      "df268ad1-c462-4ba6-b6db-e007e23922ea",
+                      "ac5b9c1e-dc78-466d-b0b3-7cf712967a48",
+                      "6db7df88-293b-4017-a1c1-cdb5e599fa1a",
+                      "9225283f-60c2-4413-ad18-1f5eba7a856f",
+                      "7c3f45de-2ae0-4c81-8400-fdb6b1d74890"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "uuid"
+                ],
+                "type": "object"
+              },
+              "description": {
+                "description": "Product description. Please keep formatting to a minimum.",
+                "type": "string"
+              },
+              "finish": {
+                "description": "Finish, e.g. 'Sunburst'",
+                "type": "string"
+              },
+              "has_inventory": {
+                "description": "Set true if selling more than one",
+                "type": "boolean"
+              },
+              "inventory": {
+                "description": "Number of items available for sale. Reverb will increment and decrement automatically.",
+                "type": "integer"
+              },
+              "location": {
+                "properties": {
+                  "country_code": {
+                    "description": "Ex: US",
+                    "type": "string"
+                  },
+                  "locality": {
+                    "description": "Ex: Chicago",
+                    "type": "string"
+                  },
+                  "region": {
+                    "description": "Ex: IL",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "make": {
+                "description": "ex: Fender, Gibson",
+                "type": "string"
+              },
+              "model": {
+                "description": "ex: Stratocaster, SG",
+                "type": "string"
+              },
+              "offers_enabled": {
+                "description": "Whether the listing accepts negotiated offers (default: true)",
+                "type": "boolean"
+              },
+              "origin_country_code": {
+                "description": "Country of origin/manufacture, ISO code (e.g: US)",
+                "type": "string"
+              },
+              "photos": {
+                "description": "An array of image URLs. Ex: ['http://my.site.com/image.jpg']",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "price": {
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              },
+              "publish": {
+                "description": "Publish your listing if draft",
+                "type": "boolean"
+              },
+              "seller": {
+                "properties": {
+                  "paypal_email": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "seller_cost": {
+                "description": "Cost of goods in your currency (internal use only, not shown to buyers)",
+                "type": "string"
+              },
+              "shipping": {
+                "properties": {
+                  "local": {
+                    "description": "True if you offer local pickup",
+                    "type": "boolean"
+                  },
+                  "rates": {
+                    "description": "List of shipping rates. Set to null to clear rates.",
+                    "items": {
+                      "properties": {
+                        "rate": {
+                          "properties": {
+                            "amount": {
+                              "description": "The amount of money being expressed, as a decimal number",
+                              "type": "string"
+                            },
+                            "currency": {
+                              "description": "The currency the money will be expressed in",
+                              "enum": [
+                                "USD",
+                                "CAD",
+                                "EUR",
+                                "GBP",
+                                "AUD",
+                                "JPY",
+                                "NZD",
+                                "MXN"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "amount",
+                            "currency"
+                          ],
+                          "type": "object"
+                        },
+                        "region_code": {
+                          "description": "Country code or subregion/superregion code. Full list of codes at /api/shipping/regions",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                "type": "object"
+              },
+              "shipping_profile_id": {
+                "description": "id of a shop's shipping profile",
+                "type": "string"
+              },
+              "shipping_profile_name": {
+                "description": "DEPRECATED, please use shipping_profile_id. Name of a shipping profile",
+                "type": "string"
+              },
+              "sku": {
+                "description": "Unique identifier for product",
+                "type": "string"
+              },
+              "sold_as_is": {
+                "description": "This item is sold As-Is and cannot be returned",
+                "type": "boolean"
+              },
+              "tax_exempt": {
+                "description": "Listing is exempt from taxes / VAT",
+                "type": "boolean"
+              },
+              "title": {
+                "description": "Title of your listing",
+                "type": "string"
+              },
+              "upc": {
+                "description": "Valid UPC code",
+                "type": "string"
+              },
+              "year": {
+                "description": "Supports many formats. Ex: 1979, mid-70s, late 90s",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.edit.get",
+      "title": "listings.slug.edit.get",
+      "description": "Edit listing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.flag.post",
+      "title": "listings.slug.flag.post",
+      "description": "Flag a listing for inappropriate content or fraud",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "reason": {
+                "description": "Valid reasons: 'Sexuality/nudity', 'Hateful or inappropriate speech', 'Item not as described or potential fraud', 'Trademark infringement', 'Other'",
+                "type": "string"
+              }
+            },
+            "required": [
+              "reason"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.reviews.get",
+      "title": "listings.slug.reviews.get",
+      "description": "View reviews of a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.reviews.post",
+      "title": "listings.slug.reviews.post",
+      "description": "Create a review for a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "listings.slug.similar_listings.get",
+      "title": "listings.slug.similar_listings.get",
+      "description": "Listing details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.account.get",
+      "title": "my.account.get",
+      "description": "Get account details",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.account.put",
+      "title": "my.account.put",
+      "description": "Update account details",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "currency": {
+                "description": "The currency preference for the account",
+                "type": "string"
+              },
+              "first_name": {
+                "description": "The first name of the account holder",
+                "type": "string"
+              },
+              "last_name": {
+                "description": "The last name of the account holder",
+                "type": "string"
+              },
+              "shipping_region_code": {
+                "description": "The shipping region preference for the account",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.addresses.get",
+      "title": "my.addresses.get",
+      "description": "See all addresses in your address book",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.addresses.post",
+      "title": "my.addresses.post",
+      "description": "Create a new address in your address book",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.addresses.address_id.delete",
+      "title": "my.addresses.address_id.delete",
+      "description": "Delete an existing address in your address book",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "address_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.addresses.address_id.put",
+      "title": "my.addresses.address_id.put",
+      "description": "Update an existing address in your address book",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "address_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "address_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.conversations.get",
+      "title": "my.conversations.get",
+      "description": "Get a list of your conversations",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "search": {
+            "type": "string",
+            "description": "Query string to search conversations by"
+          },
+          "unread_only": {
+            "type": "boolean",
+            "description": "Show unread conversations only"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.conversations.post",
+      "title": "my.conversations.post",
+      "description": "Start a conversation",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "body": {
+                "description": "The body of the message",
+                "type": "string"
+              },
+              "cloudinary_photos": {
+                "description": "An array of cloudinary data hashes (Reverb internal use only).",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "listing_id": {
+                "description": "The id of the listing being discussed",
+                "type": "integer"
+              },
+              "recipient_id": {
+                "description": "The id of the user you are trying to contact",
+                "type": "integer"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.conversations.conversation_id.messages.post",
+      "title": "my.conversations.conversation_id.messages.post",
+      "description": "Send a message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "conversation_id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "body": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "body"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "conversation_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.conversations.id.get",
+      "title": "my.conversations.id.get",
+      "description": "Display conversation details with messages in natural time order (oldest to newest)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.conversations.id.put",
+      "title": "my.conversations.id.put",
+      "description": "Mark a conversation read/unread",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "read": {
+                "description": "Should the conversation be marked as read",
+                "type": "boolean"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.counts.get",
+      "title": "my.counts.get",
+      "description": "Get your actionable status counts",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.feed.get",
+      "title": "my.feed.get",
+      "description": "Get listings from your feed",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.feed.grid.get",
+      "title": "my.feed.grid.get",
+      "description": "get your feed",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.feedback.received.get",
+      "title": "my.feedback.received.get",
+      "description": "List of received feedback",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.feedback.sent.get",
+      "title": "my.feedback.sent.get",
+      "description": "List of sent feedback",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.get",
+      "title": "my.follows.get",
+      "description": "See what the user is following",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.brands.slug.delete",
+      "title": "my.follows.brands.slug.delete",
+      "description": "Unfollow a brand",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.brands.slug.get",
+      "title": "my.follows.brands.slug.get",
+      "description": "Follow status for a brand",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.brands.slug.post",
+      "title": "my.follows.brands.slug.post",
+      "description": "Follow a brand",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.category.subcategory.delete",
+      "title": "my.follows.categories.category.subcategory.delete",
+      "description": "Unfollow a subcategory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "subcategory": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "subcategory"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.category.subcategory.get",
+      "title": "my.follows.categories.category.subcategory.get",
+      "description": "Follow status for a subcategory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "subcategory": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "subcategory"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.category.subcategory.post",
+      "title": "my.follows.categories.category.subcategory.post",
+      "description": "Follow a subcategory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "subcategory": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "subcategory"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.identifier.delete",
+      "title": "my.follows.categories.identifier.delete",
+      "description": "Unfollow a category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "identifier"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.identifier.get",
+      "title": "my.follows.categories.identifier.get",
+      "description": "Follow status for a category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "identifier"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.categories.identifier.post",
+      "title": "my.follows.categories.identifier.post",
+      "description": "Follow a category",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "identifier": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "identifier"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.collections.slug.delete",
+      "title": "my.follows.collections.slug.delete",
+      "description": "Unfollow a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.collections.slug.get",
+      "title": "my.follows.collections.slug.get",
+      "description": "Follow status for a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.collections.slug.post",
+      "title": "my.follows.collections.slug.post",
+      "description": "Follow a collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.handpicked.slug.delete",
+      "title": "my.follows.handpicked.slug.delete",
+      "description": "Unfollow a handpicked collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.handpicked.slug.get",
+      "title": "my.follows.handpicked.slug.get",
+      "description": "Follow status for a handpicked collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.handpicked.slug.post",
+      "title": "my.follows.handpicked.slug.post",
+      "description": "Follow a handpicked collection",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.search.get",
+      "title": "my.follows.search.get",
+      "description": "Follow status for a search",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.search.post",
+      "title": "my.follows.search.post",
+      "description": "Follow a search",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "accepts_gift_cards": {
+                "description": "If true, include only items that accept gift cards",
+                "type": "boolean"
+              },
+              "accepts_payment_plans": {
+                "description": "If true, only show items that can be purchased with a payment plan",
+                "type": "boolean"
+              },
+              "auction_price_max": {
+                "description": "Maximum current auction price",
+                "format": "float",
+                "type": "number"
+              },
+              "category": {
+                "description": "Category slug from /api/categories",
+                "type": "string"
+              },
+              "conditions": {
+                "description": "Condition: all,new,b-stock,used,non-functioning",
+                "enum": [
+                  "all",
+                  "new",
+                  "b-stock",
+                  "used",
+                  "non-functioning"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "currency": {
+                "description": "The currency to be used for the price filters",
+                "enum": [
+                  "USD",
+                  "CAD",
+                  "EUR",
+                  "GBP",
+                  "AUD",
+                  "JPY",
+                  "NZD",
+                  "MXN"
+                ],
+                "type": "string"
+              },
+              "decade": {
+                "description": "Decade: e.g. 1970s, early 70s",
+                "type": "string"
+              },
+              "exclude_auctions": {
+                "description": "If true, exclude auctions",
+                "type": "boolean"
+              },
+              "finish": {
+                "description": "Visual finish of the item, common for guitars",
+                "type": "string"
+              },
+              "handmade": {
+                "description": "Handmade items only",
+                "type": "boolean"
+              },
+              "item_city": {
+                "description": "City where item is located",
+                "type": "string"
+              },
+              "item_country": {
+                "description": "DEPRECATED - Country code where item is located",
+                "type": "string"
+              },
+              "item_region": {
+                "description": "Country code where item is located",
+                "type": "string"
+              },
+              "item_state": {
+                "description": "State or region code where item is located",
+                "type": "string"
+              },
+              "listing_type": {
+                "description": "Type of listing: auctions,offers",
+                "enum": [
+                  "auctions",
+                  "offers"
+                ],
+                "type": "string"
+              },
+              "make": {
+                "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array.",
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "model": {
+                "description": "Model of item (e.g. Stratocaster)",
+                "type": "string"
+              },
+              "must_not": {
+                "description": "Search term negation. If you want to exclude a term, add it here",
+                "type": "string"
+              },
+              "preferred_seller": {
+                "description": "If true, include only items by Reverb Preferred Sellers",
+                "type": "boolean"
+              },
+              "price_max": {
+                "description": "Maximum price of search results (USD)",
+                "format": "float",
+                "type": "number"
+              },
+              "price_min": {
+                "description": "Minimum price of search results (USD)",
+                "format": "float",
+                "type": "number"
+              },
+              "product_type": {
+                "description": "Product type slug from /api/categories",
+                "type": "string"
+              },
+              "query": {
+                "description": "Search query.",
+                "type": "string"
+              },
+              "ships_to": {
+                "description": "Limit search to items that ship to this country code",
+                "type": "string"
+              },
+              "shop": {
+                "description": "Slug of shop to search",
+                "type": "string"
+              },
+              "shop_id": {
+                "description": "ID of shop to search",
+                "type": "string"
+              },
+              "watchers_count_min": {
+                "description": "Minimum number of watchers (used to find popular items)",
+                "type": "integer"
+              },
+              "year_max": {
+                "description": "Maximum year of manufacture",
+                "type": "integer"
+              },
+              "year_min": {
+                "description": "Minumum year of manufacture",
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.shops.slug.delete",
+      "title": "my.follows.shops.slug.delete",
+      "description": "Unfollow a shop",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.shops.slug.get",
+      "title": "my.follows.shops.slug.get",
+      "description": "Follow status for a shop",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.shops.slug.post",
+      "title": "my.follows.shops.slug.post",
+      "description": "Follow a shop",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.follow_id.delete",
+      "title": "my.follows.follow_id.delete",
+      "description": "Delete a follow",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "follow_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "follow_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.follow_id.alert.delete",
+      "title": "my.follows.follow_id.alert.delete",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "follow_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "follow_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.follows.follow_id.alert.post",
+      "title": "my.follows.follow_id.alert.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "follow_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "follow_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.listings.get",
+      "title": "my.listings.get",
+      "description": "Retrieve a list of live listings for the seller. To search all listings specify state=all",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          },
+          "auction_price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum current auction price"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug from /api/categories"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "Product type slug from /api/categories"
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Condition: all,new,b-stock,used,non-functioning"
+          },
+          "decade": {
+            "type": "string",
+            "description": "Decade: e.g. 1970s, early 70s"
+          },
+          "finish": {
+            "type": "string",
+            "description": "Visual finish of the item, common for guitars"
+          },
+          "handmade": {
+            "type": "boolean",
+            "description": "Handmade items only"
+          },
+          "item_city": {
+            "type": "string",
+            "description": "City where item is located"
+          },
+          "item_country": {
+            "type": "string",
+            "description": "DEPRECATED - Country code where item is located"
+          },
+          "item_region": {
+            "type": "string",
+            "description": "Country code where item is located"
+          },
+          "item_state": {
+            "type": "string",
+            "description": "State or region code where item is located"
+          },
+          "make": {
+            "type": "array",
+            "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array."
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of item (e.g. Stratocaster)"
+          },
+          "must_not": {
+            "type": "string",
+            "description": "Search term negation. If you want to exclude a term, add it here"
+          },
+          "price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum price of search results (USD)"
+          },
+          "price_min": {
+            "type": "number",
+            "format": "float",
+            "description": "Minimum price of search results (USD)"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency to be used for the price filters"
+          },
+          "year_max": {
+            "type": "integer",
+            "description": "Maximum year of manufacture"
+          },
+          "year_min": {
+            "type": "integer",
+            "description": "Minumum year of manufacture"
+          },
+          "accepts_gift_cards": {
+            "type": "boolean",
+            "description": "If true, include only items that accept gift cards"
+          },
+          "preferred_seller": {
+            "type": "boolean",
+            "description": "If true, include only items by Reverb Preferred Sellers"
+          },
+          "shop": {
+            "type": "string",
+            "description": "Slug of shop to search"
+          },
+          "shop_id": {
+            "type": "string",
+            "description": "ID of shop to search"
+          },
+          "listing_type": {
+            "type": "string",
+            "description": "Type of listing: auctions,offers"
+          },
+          "ships_to": {
+            "type": "string",
+            "description": "Limit search to items that ship to this country code"
+          },
+          "exclude_auctions": {
+            "type": "boolean",
+            "description": "If true, exclude auctions"
+          },
+          "accepts_payment_plans": {
+            "type": "boolean",
+            "description": "If true, only show items that can be purchased with a payment plan"
+          },
+          "watchers_count_min": {
+            "type": "integer",
+            "description": "Minimum number of watchers (used to find popular items)"
+          },
+          "state": {
+            "type": "string",
+            "description": "Available: [\"all\", \"draft\", \"ended\", \"live\", \"ordered\", \"sold_out\", \"suspended\", \"seller_unavailable\"]. Defaults to 'live'"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.listings.drafts.get",
+      "title": "my.listings.drafts.get",
+      "description": "Retrieve a list your draft listings",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          },
+          "auction_price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum current auction price"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category slug from /api/categories"
+          },
+          "product_type": {
+            "type": "string",
+            "description": "Product type slug from /api/categories"
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Condition: all,new,b-stock,used,non-functioning"
+          },
+          "decade": {
+            "type": "string",
+            "description": "Decade: e.g. 1970s, early 70s"
+          },
+          "finish": {
+            "type": "string",
+            "description": "Visual finish of the item, common for guitars"
+          },
+          "handmade": {
+            "type": "boolean",
+            "description": "Handmade items only"
+          },
+          "item_city": {
+            "type": "string",
+            "description": "City where item is located"
+          },
+          "item_country": {
+            "type": "string",
+            "description": "DEPRECATED - Country code where item is located"
+          },
+          "item_region": {
+            "type": "string",
+            "description": "Country code where item is located"
+          },
+          "item_state": {
+            "type": "string",
+            "description": "State or region code where item is located"
+          },
+          "make": {
+            "type": "array",
+            "description": "Make(s)/brand of item (e.g. Fender). Can take a single value or an array."
+          },
+          "model": {
+            "type": "string",
+            "description": "Model of item (e.g. Stratocaster)"
+          },
+          "must_not": {
+            "type": "string",
+            "description": "Search term negation. If you want to exclude a term, add it here"
+          },
+          "price_max": {
+            "type": "number",
+            "format": "float",
+            "description": "Maximum price of search results (USD)"
+          },
+          "price_min": {
+            "type": "number",
+            "format": "float",
+            "description": "Minimum price of search results (USD)"
+          },
+          "currency": {
+            "type": "string",
+            "description": "The currency to be used for the price filters"
+          },
+          "year_max": {
+            "type": "integer",
+            "description": "Maximum year of manufacture"
+          },
+          "year_min": {
+            "type": "integer",
+            "description": "Minumum year of manufacture"
+          },
+          "accepts_gift_cards": {
+            "type": "boolean",
+            "description": "If true, include only items that accept gift cards"
+          },
+          "preferred_seller": {
+            "type": "boolean",
+            "description": "If true, include only items by Reverb Preferred Sellers"
+          },
+          "shop": {
+            "type": "string",
+            "description": "Slug of shop to search"
+          },
+          "shop_id": {
+            "type": "string",
+            "description": "ID of shop to search"
+          },
+          "listing_type": {
+            "type": "string",
+            "description": "Type of listing: auctions,offers"
+          },
+          "ships_to": {
+            "type": "string",
+            "description": "Limit search to items that ship to this country code"
+          },
+          "exclude_auctions": {
+            "type": "boolean",
+            "description": "If true, exclude auctions"
+          },
+          "accepts_payment_plans": {
+            "type": "boolean",
+            "description": "If true, only show items that can be purchased with a payment plan"
+          },
+          "watchers_count_min": {
+            "type": "integer",
+            "description": "Minimum number of watchers (used to find popular items)"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.listings.negotiations.get",
+      "title": "my.listings.negotiations.get",
+      "description": "Get a list of active negotiations as a seller",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.listings.slug.state.end.put",
+      "title": "my.listings.slug.state.end.put",
+      "description": "End a listing",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "reason": {
+                "description": "The reason this listing is being ended. Valid reasons: [\"not_sold\", \"reverb_sale\"].",
+                "enum": [
+                  "not_sold",
+                  "reverb_sale"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "reason"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.lists.get",
+      "title": "my.lists.get",
+      "description": "Get a list of your lists (wishlist, watch list, etc)",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.negotiations.buying.get",
+      "title": "my.negotiations.buying.get",
+      "description": "Get a list of active negotiations as a buyer",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.negotiations.id.get",
+      "title": "my.negotiations.id.get",
+      "description": "Get offer details",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.negotiations.id.accept.post",
+      "title": "my.negotiations.id.accept.post",
+      "description": "Accept an offer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "message": {
+                "description": "Message to include with accepted offer",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.negotiations.id.counter.post",
+      "title": "my.negotiations.id.counter.post",
+      "description": "Counter an offer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "message": {
+                "description": "Message to include with counter offer",
+                "type": "string"
+              },
+              "price": {
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              },
+              "shipping_price": {
+                "description": "Shipping price (sellers only)",
+                "properties": {
+                  "amount": {
+                    "description": "The amount of money being expressed, as a decimal number",
+                    "type": "string"
+                  },
+                  "currency": {
+                    "description": "The currency the money will be expressed in",
+                    "enum": [
+                      "USD",
+                      "CAD",
+                      "EUR",
+                      "GBP",
+                      "AUD",
+                      "JPY",
+                      "NZD",
+                      "MXN"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "amount",
+                  "currency"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "price"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.negotiations.id.decline.post",
+      "title": "my.negotiations.id.decline.post",
+      "description": "Decline an offer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.awaiting_feedback.get",
+      "title": "my.orders.awaiting_feedback.get",
+      "description": "List of orders that need feedback",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.buying.all.get",
+      "title": "my.orders.buying.all.get",
+      "description": "Returns all orders, newest first.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.buying.buying_history.seller_id.get",
+      "title": "my.orders.buying.buying_history.seller_id.get",
+      "description": "See previous orders from a seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "seller_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "seller_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.buying.unpaid.get",
+      "title": "my.orders.buying.unpaid.get",
+      "description": "Returns unpaid orders, newest first.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.buying.id.get",
+      "title": "my.orders.buying.id.get",
+      "description": "Returns order details for a buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.buying.id.mark_received.post",
+      "title": "my.orders.buying.id.mark_received.post",
+      "description": "Marks an order as received by the buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.all.get",
+      "title": "my.orders.selling.all.get",
+      "description": "Get all seller orders, newest first.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "created_start_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "created_end_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_start_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_end_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.awaiting_shipment.get",
+      "title": "my.orders.selling.awaiting_shipment.get",
+      "description": "Get seller orders awaiting shipment, newest first.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "created_start_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "created_end_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_start_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_end_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.buyer_history.buyer_id.get",
+      "title": "my.orders.selling.buyer_history.buyer_id.get",
+      "description": "See previous orders from buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "buyer_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "buyer_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.unpaid.get",
+      "title": "my.orders.selling.unpaid.get",
+      "description": "Get unpaid seller orders, newest first.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "created_start_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "created_end_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_start_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_end_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.id.get",
+      "title": "my.orders.selling.id.get",
+      "description": "Returns order details for a seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.id.mark_picked_up.post",
+      "title": "my.orders.selling.id.mark_picked_up.post",
+      "description": "Marks an order as picked up",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "date": {
+                "description": "Date the item was picked up.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.orders.selling.id.ship.post",
+      "title": "my.orders.selling.id.ship.post",
+      "description": "Marks an order as shipped",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "provider": {
+                "description": "Shipping provider: One of UPS, USPS, FedEx, DHL, DHLExpress, DHLGlobalMail, DHL Germany, Canada Post, Royal Mail, PostNL, Australia Post, EMS, La Poste, China Post, GLS, Parcelforce, Purolator, Other",
+                "type": "string"
+              },
+              "send_notification": {
+                "description": "Should we send an email notification to the buyer",
+                "type": "boolean"
+              },
+              "tracking_number": {
+                "description": "Tracking number provided by the shipping provider",
+                "type": "string"
+              }
+            },
+            "required": [
+              "provider",
+              "tracking_number",
+              "send_notification"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.payments.selling.get",
+      "title": "my.payments.selling.get",
+      "description": "Get payments",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "per_page": {
+            "type": "integer"
+          },
+          "created_start_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "created_end_date": {
+            "type": "string",
+            "description": "Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_start_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "updated_end_date": {
+            "type": "string",
+            "description": "Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00"
+          },
+          "order_id": {
+            "type": "string",
+            "description": "Look up payments by order id"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.payments.selling.id.get",
+      "title": "my.payments.selling.id.get",
+      "description": "Get payment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.viewed_listings.get",
+      "title": "my.viewed_listings.get",
+      "description": "Get a list of your recently viewed listings.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.wishlist.get",
+      "title": "my.wishlist.get",
+      "description": "Get a list of wishlisted items",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.wishlist.id.delete",
+      "title": "my.wishlist.id.delete",
+      "description": "Remove a listing from your wishlist",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "my.wishlist.id.put",
+      "title": "my.wishlist.id.put",
+      "description": "Add a listing to your wishlist",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "orders.order_id.feedback.buyer.get",
+      "title": "orders.order_id.feedback.buyer.get",
+      "description": "Feedback details for an order's buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "orders.order_id.feedback.buyer.post",
+      "title": "orders.order_id.feedback.buyer.post",
+      "description": "Add feedback about an order's buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "orders.order_id.feedback.seller.get",
+      "title": "orders.order_id.feedback.seller.get",
+      "description": "Feedback details for an order's seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "orders.order_id.feedback.seller.post",
+      "title": "orders.order_id.feedback.seller.post",
+      "description": "Add feedback about an order's seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "order_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "payment_methods.get",
+      "title": "payment_methods.get",
+      "description": "Get list of payment methods",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "priceguide.get",
+      "title": "priceguide.get",
+      "description": "Search the Price Guide",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "priceguide.id.get",
+      "title": "priceguide.id.get",
+      "description": "Retrieve a Price Guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "priceguide.id.transactions.get",
+      "title": "priceguide.id.transactions.get",
+      "description": "Get a list of paginated transactions for a price guide.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "priceguide.id.transactions.summary.get",
+      "title": "priceguide.id.transactions.summary.get",
+      "description": "Get a summary of transactions for a given price guide",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "number_of_months": {
+            "type": "integer"
+          },
+          "condition": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "products.reviews.id.get",
+      "title": "products.reviews.id.get",
+      "description": "View a review",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "products.reviews.id.put",
+      "title": "products.reviews.id.put",
+      "description": "Update a review",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "body": {
+            "properties": {
+              "body": {
+                "description": "Content of the review",
+                "type": "string"
+              },
+              "rating": {
+                "description": "Rating from 1 to 5",
+                "type": "integer"
+              },
+              "title": {
+                "description": "Title for the review",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "products.slug.reviews.get",
+      "title": "products.slug.reviews.get",
+      "description": "View reviews of a product",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "products.slug.reviews.post",
+      "title": "products.slug.reviews.post",
+      "description": "Create a review for a product",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "sales.reverb.get",
+      "title": "sales.reverb.get",
+      "description": "View upcoming and live Reverb official sales.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "sales.seller.get",
+      "title": "sales.seller.get",
+      "description": "View your created sales.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "sales.sale_id.listings.delete",
+      "title": "sales.sale_id.listings.delete",
+      "description": "Remove a listing from a sale",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sale_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sale_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "sales.sale_id.listings.post",
+      "title": "sales.sale_id.listings.post",
+      "description": "Add listings to a sale",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sale_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sale_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "sales.slug.get",
+      "title": "sales.slug.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shipping.providers.get",
+      "title": "shipping.providers.get",
+      "description": "List of supported shipping providers",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shipping.regions.get",
+      "title": "shipping.regions.get",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.get",
+      "title": "shop.get",
+      "description": "Get your own shop details",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.put",
+      "title": "shop.put",
+      "description": "Update your shop profile",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "address": {
+                "properties": {
+                  "country_code": {
+                    "type": "string"
+                  },
+                  "extended_address": {
+                    "type": "string"
+                  },
+                  "locality": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "type": "string"
+                  },
+                  "region": {
+                    "type": "string"
+                  },
+                  "street_address": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "currency": {
+                "enum": [
+                  "USD",
+                  "CAD",
+                  "EUR",
+                  "GBP",
+                  "AUD",
+                  "JPY",
+                  "NZD",
+                  "MXN"
+                ],
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "payment_policy": {
+                "type": "string"
+              },
+              "return_policy": {
+                "type": "string"
+              },
+              "shipping_policy": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.listing_conditions.get",
+      "title": "shop.listing_conditions.get",
+      "description": "List of supported product conditions",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.payment_methods.get",
+      "title": "shop.payment_methods.get",
+      "description": "Get accepted payment methods",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.stats.get",
+      "title": "shop.stats.get",
+      "description": "Get listings stats",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.stats.activity.get",
+      "title": "shop.stats.activity.get",
+      "description": "Get shop activity for a particular time period",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "start_time": {
+            "type": "string",
+            "description": "Filter by date in ISO8601 format - e.g: 2015-04-09T10:52:23-05:00"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "Filter by date in ISO8601 format - e.g: 2015-04-09T10:52:23-05:00"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "start_time"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.vacation.delete",
+      "title": "shop.vacation.delete",
+      "description": "Disable vacation mode. All listings will be re-enabled.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.vacation.get",
+      "title": "shop.vacation.get",
+      "description": "Returns shop vacation status",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shop.vacation.post",
+      "title": "shop.vacation.post",
+      "description": "Enable vacation mode. All listings will be unavailable until vacation mode is turned off.",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shops.slug.get",
+      "title": "shops.slug.get",
+      "description": "Get details on a shop.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shops.slug.feedback.get",
+      "title": "shops.slug.feedback.get",
+      "description": "Get seller's feedback",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shops.slug.feedback.buyer.get",
+      "title": "shops.slug.feedback.buyer.get",
+      "description": "Get seller's feedback as a buyer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "shops.slug.feedback.seller.get",
+      "title": "shops.slug.feedback.seller.get",
+      "description": "Get seller's feedback as a seller",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "slug"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "vinyl.listings.get",
+      "title": "vinyl.listings.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "merchandising_uuid": {
+            "type": "string",
+            "description": "Merchandising UUID of the release"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "merchandising_uuid"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "vinyl.listings.post",
+      "title": "vinyl.listings.post",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "vinyl.listings.id.get",
+      "title": "vinyl.listings.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "wants.get",
+      "title": "wants.get",
+      "description": "A list of wanted items by the user",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "wants.id.delete",
+      "title": "wants.id.delete",
+      "description": "Unmark an item wanted.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "wants.id.put",
+      "title": "wants.id.put",
+      "description": "Mark an item wanted. Returns 200 on success or 422 on failure.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "webhooks.registrations.get",
+      "title": "webhooks.registrations.get",
+      "description": "Get webhook registrations",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "webhooks.registrations.post",
+      "title": "webhooks.registrations.post",
+      "description": "Register a webhook",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "body": {
+            "properties": {
+              "topic": {
+                "description": "Valid values: listings/update, listings/publish, listings/bumps-ran-out, orders/create, orders/update, payments/create, payments/update, app/uninstalled",
+                "enum": [
+                  "listings/update",
+                  "listings/publish",
+                  "listings/bumps-ran-out",
+                  "orders/create",
+                  "orders/update",
+                  "payments/create",
+                  "payments/update",
+                  "app/uninstalled"
+                ],
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url",
+              "topic"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "webhooks.registrations.id.delete",
+      "title": "webhooks.registrations.id.delete",
+      "description": "Remove a webhook",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    },
+    {
+      "id": "webhooks.registrations.id.get",
+      "title": "webhooks.registrations.id.get",
+      "description": "Get details of a webhook registration",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "reverb": {
+          "integration": "reverb"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4152 @@
+{
+  "id": "ijenko",
+  "title": "IoE² IoT API - to create end-user applications",
+  "description": "",
+  "security": {
+    "ijenko": {
+      "integration": "ijenko",
+      "fields": {
+        "Token in Access-Token header": "Token in Access-Token header",
+        "Token in query": "Token in query"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#383D41",
+    "url": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
+  },
+  "tags": [
+    "iot"
+  ],
+  "definitions": {
+    "AccountId": {
+      "description": "Unique identifier of the *Account*",
+      "example": "t1hqYcQITCFX-AObjs_t4Q",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "AccountLogin": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ActionArgs": {
+      "example": [
+        true,
+        1,
+        "hello"
+      ],
+      "items": {
+        "$ref": "#/definitions/AnyJSON"
+      },
+      "type": "array"
+    },
+    "ActionMultiResult": {
+      "items": {
+        "$ref": "#/definitions/ActionResult"
+      },
+      "type": "array"
+    },
+    "ActionName": {
+      "minLength": 1,
+      "readOnly": true,
+      "type": "string"
+    },
+    "ActionResult": {
+      "example": {
+        "functionality": "RnVuY3Rpb25hbGl0eTAwMA",
+        "result": [],
+        "status": 200
+      },
+      "properties": {
+        "functionality": {
+          "$ref": "#/definitions/FunctionalityId"
+        },
+        "result": {
+          "items": {
+            "$ref": "#/definitions/AnyJSON"
+          },
+          "type": "array"
+        },
+        "status": {
+          "description": "Return code (HTTP status code)",
+          "example": 200,
+          "maximum": 599,
+          "minimum": 200,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/functionalities/{functionality}",
+          "rel": "functionality"
+        }
+      ]
+    },
+    "AnyJSON": {
+      "description": "null/boolean/integer/number/string/object/array",
+      "x-type": "any"
+    },
+    "AppId": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "AttributeName": {
+      "minLength": 1,
+      "readOnly": true,
+      "type": "string"
+    },
+    "AttributeValue": {
+      "example": {
+        "value": 0,
+        "when": "2014-02-17T12:31:00Z"
+      },
+      "properties": {
+        "value": {
+          "$ref": "#/definitions/AnyJSON"
+        },
+        "when": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "when",
+        "value"
+      ],
+      "type": "object"
+    },
+    "AttributesValues": {
+      "additionalProperties": {
+        "items": {
+          "$ref": "#/definitions/AttributeValue"
+        },
+        "type": "array"
+      },
+      "description": "Keys are attribute ids",
+      "example": {
+        "Counter": [
+          {
+            "value": 0,
+            "when": "2014-02-17T12:31:00Z"
+          }
+        ],
+        "Schedule": [
+          {
+            "value": [
+              {
+                "DTSTAMP": "20120101T000000Z",
+                "DTSTART": {
+                  "": "20120101T063000",
+                  "TZID": "Europe/Paris"
+                },
+                "RRULE": {
+                  "FREQ": "DAILY"
+                },
+                "SUMMARY": "2",
+                "UID": "HP-06h30@si.ijenko.net"
+              },
+              {
+                "DTSTAMP": "20120101T000000Z",
+                "DTSTART": {
+                  "": "20120101T223000",
+                  "TZID": "Europe/Paris"
+                },
+                "RRULE": {
+                  "FREQ": "DAILY"
+                },
+                "SUMMARY": "3",
+                "UID": "HC-22h30@si.ijenko.net"
+              }
+            ],
+            "when": "2014-02-17T00:00:00Z"
+          }
+        ]
+      },
+      "type": "object"
+    },
+    "AuthChangePassword": {
+      "properties": {
+        "newPassword": {
+          "$ref": "#/definitions/Password"
+        },
+        "oldPassword": {
+          "$ref": "#/definitions/Password"
+        }
+      },
+      "required": [
+        "oldPassword",
+        "newPassword"
+      ],
+      "type": "object"
+    },
+    "AuthLogin": {
+      "properties": {
+        "appId": {
+          "$ref": "#/definitions/AppId"
+        },
+        "login": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "password": {
+          "$ref": "#/definitions/Password"
+        },
+        "ttl": {
+          "description": "Desired maximum life-time in seconds for the refresh token",
+          "example": 1800,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "login",
+        "password",
+        "appId"
+      ],
+      "type": "object"
+    },
+    "AuthRefresh": {
+      "properties": {
+        "appId": {
+          "$ref": "#/definitions/AppId"
+        },
+        "refreshToken": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "refreshToken",
+        "appId"
+      ],
+      "type": "object"
+    },
+    "AuthResetPassword": {
+      "properties": {
+        "appId": {
+          "$ref": "#/definitions/AppId"
+        },
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "login": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "appId"
+      ],
+      "type": "object"
+    },
+    "AuthTokens": {
+      "properties": {
+        "accessToken": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "accessTokenExpires": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "refreshToken": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "refreshTokenExpires": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "accessToken",
+        "refreshToken",
+        "accessTokenExpires",
+        "refreshTokenExpires"
+      ],
+      "type": "object"
+    },
+    "BusId": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "BusItem": {
+      "properties": {
+        "functionality": {
+          "$ref": "#/definitions/FunctionalityId"
+        },
+        "id": {
+          "$ref": "#/definitions/BusId"
+        },
+        "protocol": {
+          "$ref": "#/definitions/BusProtocol"
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "functionality",
+        "protocol"
+      ],
+      "type": "object"
+    },
+    "BusPairing": {
+      "properties": {
+        "duration": {
+          "description": "Duration of the pairing window.",
+          "type": "integer"
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "type": "object"
+    },
+    "BusProtocol": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "CountryCode": {
+      "description": "Country code (ISO 3166-1 alpha-2)",
+      "example": "FR",
+      "maxLength": 2,
+      "minLength": 2,
+      "pattern": "^[A-Z][A-Z]$",
+      "type": "string"
+    },
+    "DefaultError": {
+      "description": "Any error.",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "type": "object"
+    },
+    "Device": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/DeviceAddress"
+        },
+        "class": {
+          "$ref": "#/definitions/DeviceClass"
+        },
+        "functionalities": {
+          "items": {
+            "$ref": "#/definitions/FunctionalityItem"
+          },
+          "readOnly": true,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "isOnline": {
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "manufacturer": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "model": {
+          "readOnly": true,
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the device. User defined.",
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/definitions/PlaceId"
+        },
+        "protocol": {
+          "$ref": "#/definitions/BusProtocol"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/DeviceTag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "place",
+        "class",
+        "address",
+        "isOnline",
+        "functionalities",
+        "tags"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/places/{place}",
+          "rel": "place"
+        }
+      ]
+    },
+    "DeviceAddress": {
+      "minLength": 1,
+      "pattern": "^[A-Z0-9]{1,32}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "DeviceClass": {
+      "maxLength": 4,
+      "minLength": 4,
+      "pattern": "^[A-Z][A-Z0-9]{3}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "DeviceId": {
+      "description": "Unique identifier of the *Device*",
+      "example": "RGV2aWNlMDAwMDAwMDAwMA",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "DeviceItem": {
+      "properties": {
+        "address": {
+          "$ref": "#/definitions/DeviceAddress"
+        },
+        "class": {
+          "$ref": "#/definitions/DeviceClass"
+        },
+        "id": {
+          "$ref": "#/definitions/DeviceId"
+        },
+        "isOnline": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetadataSelected"
+        },
+        "name": {
+          "description": "Name of the *Device* as defined by the user. Can be used for user interfaces.",
+          "minLength": 2,
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/definitions/PlaceId"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/DeviceTag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "place",
+        "class",
+        "address",
+        "isOnline",
+        "tags"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/devices/{id}",
+          "rel": "full"
+        },
+        {
+          "href": "/places/{place}",
+          "rel": "place"
+        }
+      ]
+    },
+    "DevicePatch": {
+      "properties": {
+        "name": {
+          "description": "Name of the *Device* as defined by the user. Can be used for user interfaces.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DeviceTag": {
+      "maxLength": 21,
+      "minLength": 1,
+      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "type": "string"
+    },
+    "ElectricityAutonomy": {
+      "example": {
+        "autonomy": 0.4,
+        "code": 200000,
+        "from": "2016-03-02T09:00:00Z",
+        "to": "2016-03-02T10:00:00Z"
+      },
+      "properties": {
+        "autonomy": {
+          "description": "Average electricity autonomy in % (value in range [0, 1], rounded)",
+          "example": 0.4,
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "code": {
+          "$ref": "#/definitions/ElectricityStatusCode"
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "message": {
+          "description": "Message for cases where computation is not possible (codes 200001, 200002)",
+          "minLength": 1,
+          "type": "string"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    },
+    "ElectricityFlow": {
+      "items": {
+        "$ref": "#/definitions/ElectricityFunctionality"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ElectricityFlowFormula": {
+      "items": {
+        "$ref": "#/definitions/ElectricityFlowFunctionality"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ElectricityFlowFunctionality": {
+      "example": {
+        "class": "ElecMetering",
+        "factor": 1,
+        "flow": "elec_total_gen",
+        "id": "RnVuY3Rpb25hbGl0eTAwMA"
+      },
+      "properties": {
+        "class": {
+          "$ref": "#/definitions/FunctionalityClass"
+        },
+        "factor": {
+          "type": "integer"
+        },
+        "flow": {
+          "$ref": "#/definitions/ElectricityFlowName"
+        },
+        "id": {
+          "$ref": "#/definitions/FunctionalityId"
+        }
+      },
+      "required": [
+        "id",
+        "class",
+        "flow",
+        "factor"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/functionalities/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "ElectricityFlowName": {
+      "description": "Name of an electricity flow",
+      "enum": [
+        "battery_charge",
+        "battery_discharge",
+        "battery_grid",
+        "elec_total_gen",
+        "elec_total_usage",
+        "elec_feed_in",
+        "elec_drawn",
+        "elec_local",
+        "elec_from_household",
+        "elec_to_pv",
+        "elec_usage"
+      ],
+      "minLength": 1,
+      "type": "string"
+    },
+    "ElectricityFlows": {
+      "example": {
+        "code": 200000,
+        "flows": {
+          "elec_local": [
+            {
+              "class": "ElecMetering",
+              "factor": 1,
+              "id": "SF4_y4SoTCpYXgGODJplJQ"
+            }
+          ],
+          "elec_total_usage": [
+            {
+              "class": "ElecMetering",
+              "factor": 1,
+              "flow": "elec_total_gen",
+              "id": "SF4_y4SoTCpYXgGODJplJQ"
+            },
+            {
+              "class": "ElecSmartMetering",
+              "factor": 1,
+              "flow": "elec_drawn",
+              "id": "lvxvQ9SqXCpYSqHOJI7tIA"
+            },
+            {
+              "class": "ElecSmartMetering",
+              "factor": -1,
+              "flow": "elec_feed_in",
+              "id": "d1xvwdWKWCpYH6GPjovnLg"
+            }
+          ]
+        }
+      },
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ElectricityStatusCode"
+        },
+        "flows": {
+          "$ref": "#/definitions/ElectricityVirtualFlows"
+        },
+        "message": {
+          "$ref": "#/definitions/ElectricityStatusMessage"
+        },
+        "missing": {
+          "$ref": "#/definitions/ElectricityMissingFlows"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    },
+    "ElectricityFlowsSetup": {
+      "example": {
+        "elec_drawn": [
+          {
+            "class": "ElecSmartMetering",
+            "id": "lvxvQ9SqXCpYSqHOJI7tIA"
+          }
+        ],
+        "elec_feed_in": [
+          {
+            "class": "ElecSmartMetering",
+            "id": "d1xvwdWKWCpYH6GPjovnLg"
+          }
+        ],
+        "elec_total_gen": [
+          {
+            "class": "ElecMetering",
+            "id": "SF4_y4SoTCpYXgGODJplJQ"
+          }
+        ]
+      },
+      "properties": {
+        "battery_charge": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "battery_discharge": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "battery_grid": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_drawn": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_feed_in": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_from_household": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_local": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_to_pv": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_total_gen": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_total_usage": {
+          "$ref": "#/definitions/ElectricityFlow"
+        },
+        "elec_usage": {
+          "$ref": "#/definitions/ElectricityFlow"
+        }
+      },
+      "type": "object"
+    },
+    "ElectricityFunctionality": {
+      "example": {
+        "class": "ElecMetering",
+        "id": "RnVuY3Rpb25hbGl0eTAwMA"
+      },
+      "properties": {
+        "class": {
+          "$ref": "#/definitions/FunctionalityClass"
+        },
+        "id": {
+          "$ref": "#/definitions/FunctionalityId"
+        }
+      },
+      "required": [
+        "id",
+        "class"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/functionalities/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "ElectricityMissingFlows": {
+      "description": "List of missing flows (not available either directly or indirectly)",
+      "properties": {
+        "battery_charge": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "battery_discharge": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "battery_grid": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_drawn": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_feed_in": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_from_household": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_local": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_to_pv": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_total_gen": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_total_usage": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        },
+        "elec_usage": {
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ElectricitySelfConsumption": {
+      "example": {
+        "code": 200000,
+        "from": "2016-03-02T10:00:00Z",
+        "selfConsumption": 1,
+        "to": "2016-03-02T11:00:00Z"
+      },
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ElectricityStatusCode"
+        },
+        "from": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "message": {
+          "description": "Message for cases where computation is not possible (codes 200001, 200002)",
+          "minLength": 1,
+          "type": "string"
+        },
+        "selfConsumption": {
+          "description": "Average self-consumption rate in % (value in range [0, 1], rounded)",
+          "example": 0.555555,
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "to": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "type": "object"
+    },
+    "ElectricityStatusCode": {
+      "description": "Status code. 200000 means OK. Other codes indicate full or partial failure.",
+      "enum": [
+        200000,
+        200001,
+        200002
+      ],
+      "example": 200000,
+      "type": "integer"
+    },
+    "ElectricityStatusMessage": {
+      "description": "Message for cases where computation is not possible (codes 200001, 200002)",
+      "minLength": 1,
+      "type": "string"
+    },
+    "ElectricityVirtualFlows": {
+      "properties": {
+        "battery_charge": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "battery_discharge": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "battery_grid": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_drawn": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_feed_in": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_from_household": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_local": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_to_pv": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_total_gen": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_total_usage": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        },
+        "elec_usage": {
+          "$ref": "#/definitions/ElectricityFlowFormula"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorEntity": {
+      "description": "An error related to access to an entity (400, 403, 404, 410)",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/ResourceRef"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "ErrorGatewayUnreachable": {
+      "description": "The gateway of the Place is not reachable.",
+      "properties": {
+        "code": {
+          "enum": [
+            "450"
+          ],
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "type": "object"
+    },
+    "ErrorSubEntity": {
+      "description": "An error related to access to an sub-entity (400, 403, 404, 410)",
+      "properties": {
+        "code": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "resource": {
+          "properties": {
+            "entity": {
+              "enum": [
+                "Action",
+                "Attribute",
+                "Bus"
+              ],
+              "type": "string"
+            },
+            "href": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "id": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "parent": {
+              "description": "Container resource.",
+              "properties": {
+                "entity": {
+                  "enum": [
+                    "Place",
+                    "Functionality"
+                  ],
+                  "type": "string"
+                },
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "entity",
+                "id"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "id",
+            "entity",
+            "href"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "Functionality": {
+      "properties": {
+        "actions": {
+          "items": {
+            "$ref": "#/definitions/ActionName"
+          },
+          "readOnly": true,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "attributes": {
+          "items": {
+            "$ref": "#/definitions/AttributeName"
+          },
+          "readOnly": true,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "class": {
+          "$ref": "#/definitions/FunctionalityClass"
+        },
+        "device": {
+          "$ref": "#/definitions/DeviceId"
+        },
+        "endpoint": {
+          "$ref": "#/definitions/FunctionalityEndpoint"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "$ref": "#/definitions/FunctionalityName"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/FunctionalityTag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "class",
+        "endpoint",
+        "device",
+        "attributes",
+        "tags"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/devices/{id}",
+          "rel": "device"
+        }
+      ]
+    },
+    "FunctionalityClass": {
+      "minLength": 2,
+      "pattern": "^[A-Z][A-Za-z0-9]+$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "FunctionalityCreated": {
+      "description": "A resource has been created. The `resource` property gives its reference.",
+      "example": {
+        "code": 201,
+        "message": "Functionality created",
+        "resource": {
+          "entity": "Functionality",
+          "href": "/functionalities/RnVuY3Rpb25hbGl0eTAwMA",
+          "id": "RnVuY3Rpb25hbGl0eTAwMA"
+        }
+      },
+      "properties": {
+        "code": {
+          "enum": [
+            201
+          ],
+          "example": 201,
+          "type": "integer"
+        },
+        "message": {
+          "enum": [
+            "Functionality created"
+          ],
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/FunctionalityResource"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "FunctionalityEndpoint": {
+      "maximum": 255,
+      "minimum": 0,
+      "readOnly": true,
+      "type": "integer"
+    },
+    "FunctionalityId": {
+      "description": "Unique identifier of the *Functionality*",
+      "example": "RnVuY3Rpb25hbGl0eTAwMA",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "FunctionalityItem": {
+      "properties": {
+        "class": {
+          "$ref": "#/definitions/FunctionalityClass"
+        },
+        "device": {
+          "$ref": "#/definitions/DeviceId"
+        },
+        "endpoint": {
+          "$ref": "#/definitions/FunctionalityEndpoint"
+        },
+        "id": {
+          "$ref": "#/definitions/FunctionalityId"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetadataSelected"
+        },
+        "name": {
+          "$ref": "#/definitions/FunctionalityName"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/FunctionalityTag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "device",
+        "class",
+        "endpoint"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/functionalities/{id}",
+          "rel": "full"
+        },
+        {
+          "href": "/devices/{device}",
+          "rel": "device"
+        }
+      ]
+    },
+    "FunctionalityName": {
+      "description": "Free functionality name",
+      "type": "string"
+    },
+    "FunctionalityNew": {
+      "properties": {
+        "class": {
+          "$ref": "#/definitions/FunctionalityClass"
+        },
+        "endpoint": {
+          "$ref": "#/definitions/FunctionalityEndpoint"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "$ref": "#/definitions/FunctionalityName"
+        },
+        "tags": {
+          "items": {
+            "$ref": "#/definitions/FunctionalityTag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "class",
+        "endpoint"
+      ],
+      "type": "object"
+    },
+    "FunctionalityPatch": {
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/FunctionalityName"
+        }
+      },
+      "type": "object"
+    },
+    "FunctionalityResource": {
+      "example": {
+        "entity": "Functionality",
+        "href": "/functionalities/RnVuY3Rpb25hbGl0eTAwMA",
+        "id": "RnVuY3Rpb25hbGl0eTAwMA"
+      },
+      "properties": {
+        "entity": {
+          "enum": [
+            "Functionality"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/FunctionalityId"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "FunctionalityTag": {
+      "maxLength": 21,
+      "minLength": 1,
+      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "type": "string"
+    },
+    "Locale": {
+      "description": "Locale identifier (language, region). See https://tools.ietf.org/html/rfc5646 and https://www.iana.org/assignments/lang-subtags-templates/lang-subtags-templates.xhtml .\n",
+      "example": "fr-FR",
+      "minLength": 2,
+      "pattern": "^[a-z]{2}[A-Za-z0-9-]*$",
+      "type": "string"
+    },
+    "Metadata": {
+      "additionalProperties": {
+        "$ref": "#/definitions/AnyJSON"
+      },
+      "description": "Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.",
+      "type": "object"
+    },
+    "MetadataKey": {
+      "maxLength": 21,
+      "minLength": 1,
+      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "type": "string"
+    },
+    "MetadataPatch": {
+      "properties": {
+        "add": {
+          "additionalProperties": {
+            "$ref": "#/definitions/AnyJSON"
+          },
+          "description": "list of pairs key/value to add/replace",
+          "type": "object"
+        },
+        "remove": {
+          "description": "list of keys to remove",
+          "items": {
+            "$ref": "#/definitions/MetadataKey"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
+    "MetadataSelected": {
+      "additionalProperties": {
+        "$ref": "#/definitions/AnyJSON"
+      },
+      "description": "Subset of metadata attached to the resource selected using the 'embed-metadata' parameter",
+      "type": "object"
+    },
+    "Notification": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/definitions/PlaceId"
+        },
+        "routing": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "place"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/places/{place}",
+          "rel": "place"
+        }
+      ]
+    },
+    "NotificationCreated": {
+      "description": "A resource has been created. The `resource` property gives its reference.",
+      "example": {
+        "code": 201,
+        "message": "Notification created",
+        "resource": {
+          "entity": "Notification",
+          "href": "/notifications/InovwcCIGM5X7KvKrJ7vJw",
+          "id": "InovwcCIGM5X7KvKrJ7vJw"
+        }
+      },
+      "properties": {
+        "code": {
+          "enum": [
+            201
+          ],
+          "example": 201,
+          "type": "integer"
+        },
+        "message": {
+          "enum": [
+            "Notification created"
+          ],
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/NotificationResource"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "NotificationId": {
+      "description": "Unique identifier of the *Notification*",
+      "example": "InovwcCIGM5X7KvKrJ7vJw",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "NotificationItem": {
+      "description": "Notification",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/NotificationId"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetadataSelected"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/notifications/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "NotificationNew": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "routing": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "NotificationPatch": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "routing": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NotificationResource": {
+      "example": {
+        "entity": "Notification",
+        "href": "/notifications/InovwcCIGM5X7KvKrJ7vJw",
+        "id": "InovwcCIGM5X7KvKrJ7vJw"
+      },
+      "properties": {
+        "entity": {
+          "enum": [
+            "Notification"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/NotificationId"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "Password": {
+      "format": "password",
+      "minLength": 5,
+      "type": "string"
+    },
+    "PhoneNumber": {
+      "description": "Phone number of the *User* in international format, for SMS notifications.",
+      "example": "+33177494646",
+      "minLength": 6,
+      "pattern": "^\\+[0-9]{5,}$",
+      "type": "string"
+    },
+    "Place": {
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "country": {
+          "$ref": "#/definitions/CountryCode"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "example": "⌂ Home",
+          "minLength": 1,
+          "type": "string"
+        },
+        "timeZone": {
+          "$ref": "#/definitions/TimeZone"
+        },
+        "zipCode": {
+          "$ref": "#/definitions/ZipCode"
+        }
+      },
+      "required": [
+        "name",
+        "zipCode",
+        "country",
+        "timeZone"
+      ],
+      "type": "object"
+    },
+    "PlaceCreated": {
+      "description": "A resource has been created. The `resource` property gives its reference.",
+      "example": {
+        "code": 201,
+        "message": "Place created",
+        "resource": {
+          "entity": "Place",
+          "href": "/places/3HA6YcSCTSFX6SPPrI9PxQ",
+          "id": "3HA6YcSCTSFX6SPPrI9PxQ"
+        }
+      },
+      "properties": {
+        "code": {
+          "enum": [
+            201
+          ],
+          "example": 201,
+          "type": "integer"
+        },
+        "message": {
+          "enum": [
+            "Place created"
+          ],
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/PlaceResource"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "PlaceId": {
+      "description": "Unique identifier of the *Place*",
+      "example": "3HA6YcSCTSFX6SPPrI9PxQ",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "PlaceItem": {
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/PlaceId"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "rel": "full"
+        },
+        {
+          "href": "/places/{id}"
+        }
+      ]
+    },
+    "PlaceNew": {
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/CountryCode"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "example": "⌂ Home",
+          "minLength": 1,
+          "type": "string"
+        },
+        "timeZone": {
+          "$ref": "#/definitions/TimeZone"
+        },
+        "zipCode": {
+          "$ref": "#/definitions/ZipCode"
+        }
+      },
+      "required": [
+        "name",
+        "zipCode",
+        "country",
+        "timeZone"
+      ],
+      "type": "object"
+    },
+    "PlacePatch": {
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/CountryCode"
+        },
+        "name": {
+          "example": "⌂ Home",
+          "minLength": 1,
+          "type": "string"
+        },
+        "timeZone": {
+          "$ref": "#/definitions/TimeZone"
+        },
+        "zipCode": {
+          "$ref": "#/definitions/ZipCode"
+        }
+      },
+      "type": "object"
+    },
+    "PlaceResource": {
+      "example": {
+        "entity": "Place",
+        "href": "/places/3HA6YcSCTSFX6SPPrI9PxQ",
+        "id": "3HA6YcSCTSFX6SPPrI9PxQ"
+      },
+      "properties": {
+        "entity": {
+          "enum": [
+            "Place"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/PlaceId"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "Program": {
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/AnyJSON"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/definitions/PlaceId"
+        }
+      },
+      "required": [
+        "name",
+        "enabled",
+        "code"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/places/{place}",
+          "rel": "place"
+        }
+      ]
+    },
+    "ProgramCreated": {
+      "description": "A resource has been created. The `resource` property gives its reference.",
+      "example": {
+        "code": 201,
+        "message": "Program created",
+        "resource": {
+          "entity": "Program",
+          "href": "/programs/3_J_6ZWICc5X_KverorNvw",
+          "id": "3_J_6ZWICc5X_KverorNvw"
+        }
+      },
+      "properties": {
+        "code": {
+          "enum": [
+            201
+          ],
+          "example": 201,
+          "type": "integer"
+        },
+        "message": {
+          "enum": [
+            "Program created"
+          ],
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/ProgramResource"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "ProgramId": {
+      "description": "Unique identifier of the *Program*",
+      "example": "3_J_6ZWICc5X_KverorNvw",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "ProgramItem": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "$ref": "#/definitions/ProgramId"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetadataSelected"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "id",
+        "name",
+        "enabled"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/programs/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "ProgramLog": {
+      "properties": {
+        "actions": {
+          "items": {
+            "$ref": "#/definitions/ActionResult"
+          },
+          "type": "array"
+        },
+        "errors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "notifications": {
+          "items": {
+            "$ref": "#/definitions/NotificationId"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "when": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "required": [
+        "when"
+      ],
+      "type": "object"
+    },
+    "ProgramNew": {
+      "example": {
+        "code": [],
+        "enabled": false,
+        "name": "NOOP"
+      },
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/AnyJSON"
+        },
+        "enabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "code"
+      ],
+      "type": "object"
+    },
+    "ProgramPatch": {
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/AnyJSON"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ProgramResource": {
+      "example": {
+        "entity": "Program",
+        "href": "/programs/3_J_6ZWICc5X_KverorNvw",
+        "id": "3_J_6ZWICc5X_KverorNvw"
+      },
+      "properties": {
+        "entity": {
+          "enum": [
+            "Program"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/ProgramId"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "ResourceRef": {
+      "properties": {
+        "entity": {
+          "enum": [
+            "Device",
+            "Functionality",
+            "Notification",
+            "Place",
+            "Program",
+            "User",
+            "Account",
+            "AccountsBase"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "Tag": {
+      "maxLength": 21,
+      "minLength": 1,
+      "pattern": "^[a-z](?=.{0,20}$)(?:[a-z0-9_]{0,4}:[a-z0-9_])?[a-z0-9_]{0,20}$",
+      "type": "string"
+    },
+    "Tags": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "TagsPatch": {
+      "properties": {
+        "add": {
+          "description": "list of tags to add",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "remove": {
+          "description": "list of tags to remove",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
+    "TimeZone": {
+      "description": "A time zone name from the Time Zone Database at https://www.iana.org/time-zones",
+      "example": "Europe/Paris",
+      "minLength": 2,
+      "pattern": "^[A-Z][A-Za-z0-9-_+]+(?:/[A-Z][A-Za-z0-9-_+]+)*$",
+      "type": "string"
+    },
+    "TokenId": {
+      "example": "dfSDdRcsd",
+      "minLength": 1,
+      "type": "string"
+    },
+    "User": {
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "canLogin": {
+          "default": false,
+          "description": "true if the user owning the account (can get tokens with /auth/login)",
+          "example": false,
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/PhoneNumber"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "locale",
+        "canLogin"
+      ],
+      "type": "object"
+    },
+    "UserCreated": {
+      "description": "A resource has been created. The `resource` property gives its reference.",
+      "example": {
+        "code": 201,
+        "message": "User created",
+        "resource": {
+          "entity": "User",
+          "href": "/users/RGV2aWNlMDAwMDAwMDAwMZ",
+          "id": "RGV2aWNlMDAwMDAwMDAwMZ"
+        }
+      },
+      "properties": {
+        "code": {
+          "enum": [
+            201
+          ],
+          "example": 201,
+          "type": "integer"
+        },
+        "message": {
+          "enum": [
+            "User created"
+          ],
+          "type": "string"
+        },
+        "resource": {
+          "$ref": "#/definitions/UserResource"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "resource"
+      ],
+      "type": "object"
+    },
+    "UserEmail": {
+      "format": "email",
+      "minLength": 6,
+      "type": "string"
+    },
+    "UserId": {
+      "description": "Unique identifier of the *User*",
+      "example": "RGV2aWNlMDAwMDAwMDAwMZ",
+      "maxLength": 22,
+      "minLength": 22,
+      "pattern": "^[A-Za-z0-9-_]{22}$",
+      "readOnly": true,
+      "type": "string"
+    },
+    "UserItem": {
+      "properties": {
+        "canLogin": {
+          "default": false,
+          "description": "true if the user owning the account (can get tokens with /auth/login)",
+          "example": false,
+          "readOnly": true,
+          "type": "boolean"
+        },
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "id": {
+          "$ref": "#/definitions/UserId"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "metadata": {
+          "$ref": "#/definitions/MetadataSelected"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/PhoneNumber"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "locale",
+        "id"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/users/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "UserMe": {
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "id": {
+          "$ref": "#/definitions/UserId"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "login": {
+          "$ref": "#/definitions/AccountLogin"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/PhoneNumber"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "locale",
+        "id"
+      ],
+      "type": "object",
+      "x-links": [
+        {
+          "href": "/account/users/{id}",
+          "rel": "full"
+        }
+      ]
+    },
+    "UserMePatch": {
+      "properties": {
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        }
+      },
+      "type": "object"
+    },
+    "UserNew": {
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/PhoneNumber"
+        }
+      },
+      "required": [
+        "email",
+        "name",
+        "locale"
+      ],
+      "type": "object"
+    },
+    "UserPatch": {
+      "properties": {
+        "email": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "phoneNumber": {
+          "$ref": "#/definitions/PhoneNumber"
+        }
+      },
+      "type": "object"
+    },
+    "UserResource": {
+      "example": {
+        "entity": "User",
+        "href": "/users/RGV2aWNlMDAwMDAwMDAwMZ",
+        "id": "RGV2aWNlMDAwMDAwMDAwMZ"
+      },
+      "properties": {
+        "entity": {
+          "enum": [
+            "User"
+          ],
+          "type": "string"
+        },
+        "href": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/UserId"
+        }
+      },
+      "required": [
+        "id",
+        "entity",
+        "href"
+      ],
+      "type": "object"
+    },
+    "UserTokenItem": {
+      "description": "Token for User API access",
+      "properties": {
+        "appName": {
+          "description": "Application name",
+          "example": "Home Eopath",
+          "type": "string"
+        },
+        "id": {
+          "$ref": "#/definitions/TokenId"
+        },
+        "lastUse": {
+          "description": "Time of last use of the token to access the API. Updated at most every 15 minutes. If absent, the token has never been used.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "places": {
+          "description": "List of Places to which the User has access. If absent, it means any Place of the account are allowed.",
+          "items": {
+            "$ref": "#/definitions/PlaceItem"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "refreshTokenExpires": {
+          "description": "If absent, infinite validity.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "self": {
+          "description": "True if this token is the one used for this API request",
+          "type": "boolean"
+        },
+        "user": {
+          "$ref": "#/definitions/UserItem"
+        }
+      },
+      "required": [
+        "id",
+        "appName",
+        "user"
+      ],
+      "type": "object"
+    },
+    "ZipCode": {
+      "description": "Postal code",
+      "maxLength": 10,
+      "minLength": 0,
+      "pattern": "^(?:[A-Z0-9](?:[A-Z0-9][- ]?)*[A-Z0-9])?$",
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "Account.changePassword",
+      "title": "Account.changePassword",
+      "description": "Set a new password for the account.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "changePasswordInfo": {
+            "$ref": "#/definitions/AuthChangePassword"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "changePasswordInfo"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.places",
+      "title": "Account.places",
+      "description": "List the *Places* of the account.\n\n**Note:** requires full access to the *Account*.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PlaceItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.newPlace",
+      "title": "Account.newPlace",
+      "description": "Create a new *Place*.\n\n**Note:** requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "place": {
+            "$ref": "#/definitions/PlaceNew"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PlaceCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.tokens",
+      "title": "Account.tokens",
+      "description": "List the active *Tokens* on the account.\n\n**Note:** requires full access to the *Account*.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserTokenItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.revokeToken",
+      "title": "Account.revokeToken",
+      "description": "Revoke the given *Token*.\n\n**Note:** requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string",
+            "description": "Identifier of the token"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tokenId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.users",
+      "title": "Account.users",
+      "description": "Get the list of *Users* of this *Account*.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.newUser",
+      "title": "Account.newUser",
+      "description": "Add a *User*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userInfo": {
+            "$ref": "#/definitions/UserNew"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userInfo"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.deleteUser",
+      "title": "Account.deleteUser",
+      "description": "Delete a *User* from this *Account*, and revoke all his/her *Tokens*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier of a *User*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.getUser",
+      "title": "Account.getUser",
+      "description": "Get information about a *User* in the same *Account*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier of a *User*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Account.patchUser",
+      "title": "Account.patchUser",
+      "description": "Modify a *User*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier of a *User*."
+          },
+          "userPatch": {
+            "$ref": "#/definitions/UserPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "userPatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "User.getMetadata",
+      "title": "User.getMetadata",
+      "description": "Get the metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier of a *User*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "User.patchMetadata",
+      "title": "User.patchMetadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "Unique identifier of a *User*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "AuthAccountLogin",
+      "title": "AuthAccountLogin",
+      "description": "Get an access+refresh tokens pair from login and password information.\n\nThe *access token* obtained with this request can then be used in\nan `Access-Token` HTTP header or in a `token` URL query parameter\nin requests that require authentication.\n\nThe *refresh token* can be used with `/auth/refresh` when the *access\ntoken* expires to retrieve a new *access token*. The lifetime of the\nrefresh token is the maximum lifetime of this authentication request.\n\nThe default lifetime of the *refresh token* is defined by the `appId`\nused. The `ttl` input parameter allows to request a *refresh token*\nwith a shorter lifetime.\n\nTo implement *logout*, use `/auth/revoke`.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "loginInfo": {
+            "$ref": "#/definitions/AuthLogin"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "loginInfo"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuthTokens"
+      }
+    },
+    {
+      "id": "AuthRefreshToken",
+      "title": "AuthRefreshToken",
+      "description": "Get a new *access token* using a valid *refresh token*.\n\nThis is a **replacement** of the *access token*: if an existing *access\ntoken* was still not expired, it is invalidated.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "refreshInfo": {
+            "$ref": "#/definitions/AuthRefresh"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "refreshInfo"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AuthTokens"
+      }
+    },
+    {
+      "id": "AuthResetPassword",
+      "title": "AuthResetPassword",
+      "description": "Trigger the request of a new password.\n\nThe account administrator will receive an e-mail with an URL pointing to a form\nto allow him/her to enter a new password.\nThe old password is still functional until a new one is submitted.\n\nEither the login or e-mail of the account must be given.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resetPasswordInfo": {
+            "$ref": "#/definitions/AuthResetPassword"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resetPasswordInfo"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "AuthRevokeToken",
+      "title": "AuthRevokeToken",
+      "description": "Invalidate the authentication used for the request. The access token and the refresh token will be invalid after this request.\nThis request is typically called to implement logout.\n",
+      "inputSchema": {},
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Devices.get",
+      "title": "Devices.get",
+      "description": "Get information about a *Device*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Device"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Devices.patch",
+      "title": "Devices.patch",
+      "description": "Modify information about a *Device*: its name.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          },
+          "devicePatch": {
+            "$ref": "#/definitions/DevicePatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "devicePatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.addFunctionality",
+      "title": "Device.addFunctionality",
+      "description": "Add a *Functionality* to the device.\n\nRequired parameters are :\n- functionality class\n- endpoint\n\nEach device class has its own restrictions on which Functionality classes can be added and on which endpoints.\nOnly a few devices allow to add Functionalities.\n\n|Device class|Functionality class|Endpoints|\n|------------|-------------------|---------|\n|MINT        |CurrentPeriod      |1,2,3    |\n|MINT        |ElectricityRates   |1,2,3    |\n|MINT        |GenericRate        |1,2,3    |\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          },
+          "functionalityInfo": {
+            "$ref": "#/definitions/FunctionalityNew"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "functionalityInfo"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FunctionalityCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.getMetadata",
+      "title": "Device.getMetadata",
+      "description": "Get the metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.patchMetadata",
+      "title": "Device.patchMetadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.run",
+      "title": "Device.run",
+      "description": "Run an *Action* on zero, one or multiple Functionalities selected with tags.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          },
+          "action": {
+            "type": "string",
+            "description": "Identifier of an *Action* inside a *Functionality*."
+          },
+          "functionalities": {
+            "type": "string",
+            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "arguments": {
+            "$ref": "#/definitions/ActionArgs"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "action",
+          "functionalities",
+          "arguments"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActionMultiResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.getTags",
+      "title": "Device.getTags",
+      "description": "Get the tags of a *Device*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Device.patchTags",
+      "title": "Device.patchTags",
+      "description": "Modify the tags of a *Device*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "description": "Unique identifier of a *Device*."
+          },
+          "tagsPatch": {
+            "$ref": "#/definitions/TagsPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "deviceId",
+          "tagsPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionalities.get",
+      "title": "Functionalities.get",
+      "description": "Get the *Functionality*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Functionality"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.patch",
+      "title": "Functionality.patch",
+      "description": "Modify information about a *Functionality*: its name.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "functionalityPatch": {
+            "$ref": "#/definitions/FunctionalityPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "functionalityPatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.values",
+      "title": "Functionality.values",
+      "description": "Get the values of multiple *Attributes* and their history.\n\nIf the `names` parameter is not given, all the attributes of the *Functionality*\nare returned. As the list may be huge, this must be avoided.\n\nIf the `to` parameter is set, `from` must also be set.\n\nIf `from` is not set, only the last value is returned.\n\nThe request may fail if too many values are asked.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "names": {
+            "type": "array",
+            "description": "One or multiple *Attribute* names separated by commas"
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Beginning of the time interval."
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "End of the interval. Default: now.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttributesValues"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.value",
+      "title": "Functionality.value",
+      "description": "Get the *Attribute* value and the last time when it changed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "attributeName": {
+            "type": "string",
+            "description": "Identifier of an *Attribute* inside a *Functionality*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "attributeName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AttributeValue"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.set",
+      "title": "Functionality.set",
+      "description": "Modify the value of the *Attribute*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "attributeName": {
+            "type": "string",
+            "description": "Identifier of an *Attribute* inside a *Functionality*."
+          },
+          "value": {
+            "$ref": "#/definitions/AnyJSON"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "attributeName",
+          "value"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.getMetadata",
+      "title": "Functionality.getMetadata",
+      "description": "Get the metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.patchMetadata",
+      "title": "Functionality.patchMetadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.run",
+      "title": "Functionality.run",
+      "description": "Run an action on the Functionality.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "action": {
+            "type": "string",
+            "description": "Identifier of an *Action* inside a *Functionality*."
+          },
+          "arguments": {
+            "$ref": "#/definitions/ActionArgs"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "action",
+          "arguments"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActionResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.getTags",
+      "title": "Functionality.getTags",
+      "description": "Get the tags of a *Functionality*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Functionality.patchTags",
+      "title": "Functionality.patchTags",
+      "description": "Modify the tags of a *Functionality*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "functionalityId": {
+            "type": "string",
+            "description": "Unique identifier of a *Functionality*."
+          },
+          "tagsPatch": {
+            "$ref": "#/definitions/TagsPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "functionalityId",
+          "tagsPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tags"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Me.get",
+      "title": "Me.get",
+      "description": "Get information on the authenticated *User* who does the request.\n\nThe *login* property is returned only if the *User* is the administrator of\nthe *Account*.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/UserMe"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Me.patch",
+      "title": "Me.patch",
+      "description": "Update *User* information (locale).\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userPatch": {
+            "$ref": "#/definitions/UserMePatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userPatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Notification.delete",
+      "title": "Notification.delete",
+      "description": "Delete a *Notification*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "Unique identifier of a *Notification*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Notifications.get",
+      "title": "Notifications.get",
+      "description": "Get information about a *Notification*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "Unique identifier of a *Notification*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Notification"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Notification.patch",
+      "title": "Notification.patch",
+      "description": "Modify a *Notification*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "Unique identifier of a *Notification*."
+          },
+          "notificationPatch": {
+            "$ref": "#/definitions/NotificationPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notificationId",
+          "notificationPatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Notification.getMetadata",
+      "title": "Notification.getMetadata",
+      "description": "Get the metadata of the *Notification*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "Unique identifier of a *Notification*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notificationId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Notification.patchMetadata",
+      "title": "Notification.patchMetadata",
+      "description": "Modify the metadata of a *Notification*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "Unique identifier of a *Notification*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notificationId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Me.places",
+      "title": "Me.places",
+      "description": "List the *Places* to which the *Token* has access.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/PlaceItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Places.get",
+      "title": "Places.get",
+      "description": "Get information about a *Place*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Place"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.patch",
+      "title": "Place.patch",
+      "description": "Change information about a *Place*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "placePatch": {
+            "$ref": "#/definitions/PlacePatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "placePatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.buses",
+      "title": "Place.buses",
+      "description": "Get the list of *Buses* available on the gateway of this *Place*.\nIf `withPairing` is `true`, return only buses that allow device pairing (see `/places/{placeId}/buses/{busId}/pairing`).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "withPairing": {
+            "type": "boolean",
+            "description": "Filter out buses that have no pairing window"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/BusItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.pairing",
+      "title": "Place.pairing",
+      "description": "Get the state of the pairing window of the *Bus*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "busId": {
+            "type": "string",
+            "description": "Unique identifier of a *Bus*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "busId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BusPairing"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.openPairing",
+      "title": "Place.openPairing",
+      "description": "Open/Close the pairing window.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "busId": {
+            "type": "string",
+            "description": "Unique identifier of a *Bus*."
+          },
+          "pairing": {
+            "$ref": "#/definitions/BusPairing"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "busId",
+          "pairing"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BusPairing"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.devices",
+      "title": "Place.devices",
+      "description": "Get the list of *Devices* available in this *Place*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "devices": {
+            "type": "string",
+            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/DeviceItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.Electricity.autonomy",
+      "title": "Place.Electricity.autonomy",
+      "description": "Compute the autonomy rate of the *Place* on a time period.\n\n`autonomy = 1 - (elec_drawn / elec_total_usage)`\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "when": {
+            "type": "string",
+            "format": "date-time",
+            "description": "A time part of the time span."
+          },
+          "span": {
+            "type": "string",
+            "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
+            "enum": [
+              "H",
+              "D",
+              "Wmo",
+              "Wsu",
+              "M",
+              "Y"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "when",
+          "span"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ElectricityAutonomy"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.Electricity.getFlows",
+      "title": "Place.Electricity.getFlows",
+      "description": "Get the mapping of virtual electricity flows to functionalities.\n\nSome rules are applied to expand the virtual flows using the concrete\nflows available.\n\nThe `factor` tells how each energy value coming from a functionality\nmust be added with values from other functionality to compute the\nenergy of the virtual flow. Factors are usually `1` or `-1`.\n\nThe `code` property gives the result which may be partial:\n- If all flows are available, `200000` is returned.\n- If no flows are available (indicating that the place has no\n  electricity functionality or that no functionality has been attached\n  to a flow), the `code` is `200001`. The `missing` property contains\n  all the requested flows.\n- If some flows are missing, the `code` is `200002` and the `missing`\n  property lists them.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "flows": {
+            "type": "array",
+            "description": "Names of the flows requested"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "flows"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ElectricityFlows"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.Electricity.getFlowsSetup",
+      "title": "Place.Electricity.getFlowsSetup",
+      "description": "Get the mapping of functionalities to electricity flows.\n\nA functionality is attached to *at most* one flow.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ElectricityFlowsSetup"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.Electricity.selfConsumption",
+      "title": "Place.Electricity.selfConsumption",
+      "description": "Compute the self-consumption rate of the *Place* on a time period.\n\n`selfConsumption = 1 - (elec_feed_in / elec_total_usage)`\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "when": {
+            "type": "string",
+            "format": "date-time",
+            "description": "A time part of the time span."
+          },
+          "span": {
+            "type": "string",
+            "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
+            "enum": [
+              "H",
+              "D",
+              "Wmo",
+              "Wsu",
+              "M",
+              "Y"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "when",
+          "span"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ElectricitySelfConsumption"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.functionalities",
+      "title": "Place.functionalities",
+      "description": "Get the list of *Functionalities* available in this *Place*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "devices": {
+            "type": "string",
+            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "functionalities": {
+            "type": "string",
+            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/FunctionalityItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.getMetadata",
+      "title": "Place.getMetadata",
+      "description": "Get the metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.patchMetadata",
+      "title": "Place.patchMetadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.notifications",
+      "title": "Place.notifications",
+      "description": "Get the list of *Notifications* available in this *Place*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/NotificationItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.newNotification",
+      "title": "Place.newNotification",
+      "description": "Create a new *Notification*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "notification": {
+            "$ref": "#/definitions/NotificationNew"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "notification"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/NotificationCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.programs",
+      "title": "Place.programs",
+      "description": "Get the list of *Programs* available in this *Place*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "embed-metadata": {
+            "type": "array",
+            "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProgramItem"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.newProgram",
+      "title": "Place.newProgram",
+      "description": "Create a new *Program*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "programInfo": {
+            "$ref": "#/definitions/ProgramNew"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "programInfo"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ProgramCreated"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Place.run",
+      "title": "Place.run",
+      "description": "Run an *Action* on zero, one or multiple *Functionalities* selected with tags.\n\n*Device* and *Functionality* selection are combined with « AND ».\n\nIf no functionality is matched by the device/functionality selection, an empty array is returned.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "string",
+            "description": "Unique identifier of a *Place*."
+          },
+          "action": {
+            "type": "string",
+            "description": "Identifier of an *Action* inside a *Functionality*."
+          },
+          "devices": {
+            "type": "string",
+            "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "functionalities": {
+            "type": "string",
+            "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
+            "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
+          },
+          "arguments": {
+            "$ref": "#/definitions/ActionArgs"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "placeId",
+          "action",
+          "devices",
+          "functionalities",
+          "arguments"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActionMultiResult"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.delete",
+      "title": "Program.delete",
+      "description": "Delete a *Program*.\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Programs.get",
+      "title": "Programs.get",
+      "description": "Get information about a *Program*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Program"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.patch",
+      "title": "Program.patch",
+      "description": "Modify a *Program*:\n- name\n- status (enabled/disabled)\n- code\n\n**Note**: requires full access to the *Account*.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          },
+          "programPatch": {
+            "$ref": "#/definitions/ProgramPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "programPatch"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.log",
+      "title": "Program.log",
+      "description": "Get the execution history list of this *Program*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          },
+          "from": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Beginning of the time interval."
+          },
+          "to": {
+            "type": "string",
+            "format": "date-time",
+            "description": "End of the interval. Default: now.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "from"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ProgramLog"
+        },
+        "type": "array",
+        "uniqueItems": true
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.getMetadata",
+      "title": "Program.getMetadata",
+      "description": "Get the metadata of the *Program*.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.patchMetadata",
+      "title": "Program.patchMetadata",
+      "description": "Modify the metadata of a *Program*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          },
+          "metadataPatch": {
+            "$ref": "#/definitions/MetadataPatch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId",
+          "metadataPatch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Metadata"
+      },
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    },
+    {
+      "id": "Program.run",
+      "title": "Program.run",
+      "description": "Launch the *Program*.\nThe result will be available later in the run history.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "programId": {
+            "type": "string",
+            "description": "Unique identifier of a *Program*."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "programId"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ijenko": {
+          "integration": "ijenko"
+        }
+      }
+    }
+  ]
+}

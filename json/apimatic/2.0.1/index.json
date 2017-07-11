@@ -1,0 +1,57 @@
+{
+  "id": "apimatic",
+  "title": "APIMATIC API Transformer",
+  "description": "Transform API Descriptions from/to various formats",
+  "security": {
+    "apimatic": {
+      "integration": "apimatic",
+      "fields": {
+        "api-key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#2a313a",
+    "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
+  },
+  "tags": [
+    "developer tools",
+    "tools"
+  ],
+  "actions": [
+    {
+      "id": "ConvertAPI",
+      "title": "ConvertAPI",
+      "description": "Transform API Descriptions from/to various formats e.g., Swagger, API Blueprint, RAML, WADL, Google Discovery, I/O Docs.\n\n### INPUTS\n* API Blueprint\n* Swagger 1.0 - 1.2\n* Swagger 2.0 JSON\n* Swagger 2.0 YAML\n* WADL - W3C 2009\n* Google Discovery\n* RAML 0.8\n* I/O Docs - Mashery\n* HAR 1.2\n* Postman Collection 1.0 - 2.0\n* APIMATIC Format\n* Mashape\n\n### OUTPUTS\n* API Blueprint\n* Swagger 1.2\n* Swagger 2.0 JSON\n* Swagger 2.0 YAML\n* WADL - W3C 2009\n* RAML 0.8 - 1.0\n* APIMATIC Format",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "swagger10",
+              "swagger20",
+              "swaggeryaml",
+              "apiblueprint",
+              "wadl2009",
+              "raml",
+              "apimatic"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      }
+    }
+  ]
+}

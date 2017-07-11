@@ -1,0 +1,2012 @@
+{
+  "id": "windows_arm_graphrbac",
+  "title": "GraphRbacManagementClient",
+  "description": "The Graph RBAC Management Client",
+  "security": {
+    "windows_arm_graphrbac": {
+      "integration": "windows_arm_graphrbac",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "description": "Azure Active Directory OAuth2 Flow",
+        "flow": "implicit",
+        "scopes": {
+          "user_impersonation": "impersonate your user account"
+        },
+        "type": "oauth2"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+  },
+  "tags": [],
+  "definitions": {
+    "AADObject": {
+      "description": "The properties of an Active Directory object.",
+      "properties": {
+        "displayName": {
+          "description": "The display name of the object.",
+          "type": "string"
+        },
+        "mail": {
+          "description": "The primary email address of the object.",
+          "type": "string"
+        },
+        "mailEnabled": {
+          "description": "Whether the AAD object is mail-enabled.",
+          "type": "boolean"
+        },
+        "objectId": {
+          "description": "The ID of the object.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The type of AAD object.",
+          "type": "string"
+        },
+        "securityEnabled": {
+          "description": "Whether the AAD object is security-enabled.",
+          "type": "boolean"
+        },
+        "servicePrincipalNames": {
+          "description": "A collection of service principal names associated with the object.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "signInName": {
+          "description": "The sign-in name of the object.",
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "description": "The principal name of the object.",
+          "type": "string"
+        },
+        "userType": {
+          "description": "The user type of the object.",
+          "type": "string"
+        }
+      }
+    },
+    "ADGroup": {
+      "description": "Active Directory group information.",
+      "properties": {
+        "displayName": {
+          "description": "The display name of the group.",
+          "type": "string"
+        },
+        "mail": {
+          "description": "The primary email address of the group.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The object type.",
+          "type": "string"
+        },
+        "securityEnabled": {
+          "description": "Whether the group is security-enable.",
+          "type": "boolean"
+        }
+      }
+    },
+    "Application": {
+      "description": "Active Directory application information.",
+      "properties": {
+        "appId": {
+          "description": "The application ID.",
+          "type": "string"
+        },
+        "appPermissions": {
+          "description": "The application permissions.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "availableToOtherTenants": {
+          "description": "Whether the application is be available to other tenants.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name of the application.",
+          "type": "string"
+        },
+        "homepage": {
+          "description": "The home page of the application.",
+          "type": "string"
+        },
+        "identifierUris": {
+          "description": "A collection of URIs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "objectId": {
+          "description": "The object ID.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The object type.",
+          "type": "string"
+        },
+        "replyUrls": {
+          "description": "A collection of reply URLs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ApplicationCreateParameters": {
+      "description": "Request parameters for creating a new application.",
+      "properties": {
+        "availableToOtherTenants": {
+          "description": "Whether the application is available to other tenants.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name of the application.",
+          "type": "string"
+        },
+        "homepage": {
+          "description": "The home page of the application.",
+          "type": "string"
+        },
+        "identifierUris": {
+          "description": "A collection of URIs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "keyCredentials": {
+          "description": "The list of KeyCredential objects.",
+          "items": {
+            "$ref": "#/definitions/KeyCredential"
+          },
+          "type": "array"
+        },
+        "passwordCredentials": {
+          "description": "The list of PasswordCredential objects.",
+          "items": {
+            "$ref": "#/definitions/PasswordCredential"
+          },
+          "type": "array"
+        },
+        "replyUrls": {
+          "description": "A collection of reply URLs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "availableToOtherTenants",
+        "displayName",
+        "identifierUris"
+      ]
+    },
+    "ApplicationListResult": {
+      "description": "Application list operation result.",
+      "properties": {
+        "odata.nextLink": {
+          "description": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A collection of applications.",
+          "items": {
+            "$ref": "#/definitions/Application"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ApplicationUpdateParameters": {
+      "description": "Request parameters for updating an existing application.",
+      "properties": {
+        "availableToOtherTenants": {
+          "description": "Whether the application is available to other tenants",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name of the application.",
+          "type": "string"
+        },
+        "homepage": {
+          "description": "The home page of the application.",
+          "type": "string"
+        },
+        "identifierUris": {
+          "description": "A collection of URIs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "keyCredentials": {
+          "description": "The list of KeyCredential objects.",
+          "items": {
+            "$ref": "#/definitions/KeyCredential"
+          },
+          "type": "array"
+        },
+        "passwordCredentials": {
+          "description": "The list of PasswordCredential objects.",
+          "items": {
+            "$ref": "#/definitions/PasswordCredential"
+          },
+          "type": "array"
+        },
+        "replyUrls": {
+          "description": "A collection of reply URLs for the application.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "CheckGroupMembershipParameters": {
+      "description": "Request parameters for IsMemberOf API call.",
+      "properties": {
+        "groupId": {
+          "description": "The object ID of the group to check.",
+          "type": "string"
+        },
+        "memberId": {
+          "description": "The object ID of the contact, group, user, or service principal to check for membership in the specified group.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "groupId",
+        "memberId"
+      ]
+    },
+    "CheckGroupMembershipResult": {
+      "description": "Server response for IsMemberOf API call",
+      "properties": {
+        "value": {
+          "description": "True if the specified user, group, contact, or service principal has either direct or transitive membership in the specified group; otherwise, false.",
+          "type": "boolean"
+        }
+      }
+    },
+    "ErrorMessage": {
+      "description": "Active Directory error message.",
+      "properties": {
+        "value": {
+          "description": "Error message value.",
+          "type": "string",
+          "x-ms-client-name": "message"
+        }
+      }
+    },
+    "GetObjectsParameters": {
+      "description": "Request parameters for the GetObjectsByObjectIds API.",
+      "properties": {
+        "includeDirectoryObjectReferences": {
+          "description": "If true, also searches for object IDs in the partner tenant.",
+          "type": "boolean"
+        },
+        "objectIds": {
+          "description": "The requested object IDs.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "types": {
+          "description": "The requested object types.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "includeDirectoryObjectReferences"
+      ]
+    },
+    "GetObjectsResult": {
+      "description": "The response to an Active Directory object inquiry API request.",
+      "properties": {
+        "odata.nextLink": {
+          "description": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A collection of Active Directory objects.",
+          "items": {
+            "$ref": "#/definitions/AADObject"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "GraphError": {
+      "description": "Active Directory error information.",
+      "properties": {
+        "odata.error": {
+          "$ref": "#/definitions/OdataError",
+          "description": "A Graph API error.",
+          "type": "object",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "GroupAddMemberParameters": {
+      "description": "Request parameters for adding a member to a group.",
+      "properties": {
+        "url": {
+          "description": "A member object URL, such as \"https://graph.windows.net/0b1f9851-1bf0-433f-aec3-cb9272f093dc/directoryObjects/f260bbc4-c254-447b-94cf-293b5ec434dd\", where \"0b1f9851-1bf0-433f-aec3-cb9272f093dc\" is the tenantId and \"f260bbc4-c254-447b-94cf-293b5ec434dd\" is the objectId of the member (user, application, servicePrincipal, group) to be added.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    },
+    "GroupCreateParameters": {
+      "description": "Request parameters for creating a new group.",
+      "properties": {
+        "displayName": {
+          "description": "Group display name",
+          "type": "string"
+        },
+        "mailEnabled": {
+          "description": "Whether the group is mail-enabled. Must be false. This is because only pure security groups can be created using the Graph API.",
+          "enum": [
+            false
+          ],
+          "type": "boolean"
+        },
+        "mailNickname": {
+          "description": "Mail nickname",
+          "type": "string"
+        },
+        "securityEnabled": {
+          "description": "Whether the group is a security group. Must be true. This is because only pure security groups can be created using the Graph API.",
+          "enum": [
+            true
+          ],
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "displayName",
+        "mailEnabled",
+        "mailNickname",
+        "securityEnabled"
+      ]
+    },
+    "GroupGetMemberGroupsParameters": {
+      "description": "Request parameters for GetMemberGroups API call.",
+      "properties": {
+        "securityEnabledOnly": {
+          "description": "If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "securityEnabledOnly"
+      ]
+    },
+    "GroupGetMemberGroupsResult": {
+      "description": "Server response for GetMemberGroups API call.",
+      "properties": {
+        "value": {
+          "description": "A collection of group IDs of which the group is a member.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "GroupListResult": {
+      "description": "Server response for Get tenant groups API call",
+      "properties": {
+        "odata.nextLink": {
+          "description": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "A collection of Active Directory groups.",
+          "items": {
+            "$ref": "#/definitions/ADGroup"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "KeyCredential": {
+      "description": "Active Directory Key Credential information.",
+      "properties": {
+        "endDate": {
+          "description": "End date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "keyId": {
+          "description": "Key ID.",
+          "type": "string"
+        },
+        "startDate": {
+          "description": "Start date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type. Acceptable values are 'AsymmetricX509Cert' and 'Symmetric'.",
+          "type": "string"
+        },
+        "usage": {
+          "description": "Usage. Acceptable values are 'Verify' and 'Sign'.",
+          "type": "string"
+        },
+        "value": {
+          "description": "Key value.",
+          "type": "string"
+        }
+      }
+    },
+    "KeyCredentialListResult": {
+      "description": "KeyCredential list operation result.",
+      "properties": {
+        "value": {
+          "description": "A collection of KeyCredentials.",
+          "items": {
+            "$ref": "#/definitions/KeyCredential"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "KeyCredentialsUpdateParameters": {
+      "description": "Request parameters for a KeyCredentials update operation",
+      "properties": {
+        "value": {
+          "description": "A collection of KeyCredentials.",
+          "items": {
+            "$ref": "#/definitions/KeyCredential"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "OdataError": {
+      "description": "Active Directory OData error information.",
+      "properties": {
+        "code": {
+          "description": "Error code.",
+          "type": "string"
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Error Message.",
+          "type": "object",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "PasswordCredential": {
+      "description": "Active Directory Password Credential information.",
+      "properties": {
+        "endDate": {
+          "description": "End date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "keyId": {
+          "description": "Key ID.",
+          "type": "string"
+        },
+        "startDate": {
+          "description": "Start date.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "value": {
+          "description": "Key value.",
+          "type": "string"
+        }
+      }
+    },
+    "PasswordCredentialListResult": {
+      "description": "PasswordCredential list operation result.",
+      "properties": {
+        "value": {
+          "description": "A collection of PasswordCredentials.",
+          "items": {
+            "$ref": "#/definitions/PasswordCredential"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "PasswordCredentialsUpdateParameters": {
+      "description": "Request parameters for a PasswordCredentials update operation.",
+      "properties": {
+        "value": {
+          "description": "A collection of PasswordCredentials.",
+          "items": {
+            "$ref": "#/definitions/PasswordCredential"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
+    "PasswordProfile": {
+      "description": "The password profile associated with a user.",
+      "properties": {
+        "forceChangePasswordNextLogin": {
+          "description": "Whether to force a password change on next login.",
+          "type": "boolean"
+        },
+        "password": {
+          "description": "Password",
+          "type": "string"
+        }
+      },
+      "required": [
+        "password"
+      ]
+    },
+    "ServicePrincipal": {
+      "description": "Active Directory service principal information.",
+      "properties": {
+        "appId": {
+          "description": "The application ID.",
+          "type": "string"
+        },
+        "displayName": {
+          "description": "The display name of the service principal.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The object type.",
+          "type": "string"
+        },
+        "servicePrincipalNames": {
+          "description": "A collection of service principal names.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "ServicePrincipalCreateParameters": {
+      "description": "Request parameters for creating a new service principal.",
+      "properties": {
+        "accountEnabled": {
+          "description": "Whether the account is enabled",
+          "type": "boolean"
+        },
+        "appId": {
+          "description": "application Id",
+          "type": "string"
+        },
+        "keyCredentials": {
+          "description": "A collection of KeyCredential objects.",
+          "items": {
+            "$ref": "#/definitions/KeyCredential"
+          },
+          "type": "array"
+        },
+        "passwordCredentials": {
+          "description": "A collection of PasswordCredential objects",
+          "items": {
+            "$ref": "#/definitions/PasswordCredential"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "appId",
+        "accountEnabled"
+      ]
+    },
+    "ServicePrincipalListResult": {
+      "description": "Server response for get tenant service principals API call.",
+      "properties": {
+        "odata.nextLink": {
+          "description": "the URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "the list of service principals.",
+          "items": {
+            "$ref": "#/definitions/ServicePrincipal"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "User": {
+      "description": "Active Directory user information.",
+      "properties": {
+        "displayName": {
+          "description": "The display name of the user.",
+          "type": "string"
+        },
+        "mail": {
+          "description": "The primary email address of the user.",
+          "type": "string"
+        },
+        "mailNickname": {
+          "description": "The mail alias for the user.",
+          "type": "string"
+        },
+        "objectId": {
+          "description": "The object ID.",
+          "type": "string"
+        },
+        "objectType": {
+          "description": "The object type.",
+          "type": "string"
+        },
+        "signInName": {
+          "description": "The sign-in name of the user.",
+          "type": "string"
+        },
+        "userPrincipalName": {
+          "description": "The principal name of the user.",
+          "type": "string"
+        }
+      }
+    },
+    "UserCreateParameters": {
+      "description": "Request parameters for creating a new work or school account user.",
+      "properties": {
+        "accountEnabled": {
+          "description": "Whether the account is enabled.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name of the user.",
+          "type": "string"
+        },
+        "immutableId": {
+          "description": "This must be specified if you are using a federated domain for the user's userPrincipalName (UPN) property when creating a new user account. It is used to associate an on-premises Active Directory user account with their Azure AD user object.",
+          "type": "string"
+        },
+        "mailNickname": {
+          "description": "The mail alias for the user.",
+          "type": "string"
+        },
+        "passwordProfile": {
+          "$ref": "#/definitions/PasswordProfile",
+          "description": "Password Profile"
+        },
+        "userPrincipalName": {
+          "description": "The user principal name (someuser@contoso.com). It must contain one of the verified domains for the tenant.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "accountEnabled",
+        "displayName",
+        "passwordProfile",
+        "userPrincipalName",
+        "mailNickname"
+      ]
+    },
+    "UserGetMemberGroupsParameters": {
+      "description": "Request parameters for GetMemberGroups API call.",
+      "properties": {
+        "securityEnabledOnly": {
+          "description": "If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "securityEnabledOnly"
+      ]
+    },
+    "UserGetMemberGroupsResult": {
+      "description": "Server response for GetMemberGroups API call.",
+      "properties": {
+        "value": {
+          "description": "A collection of group IDs of which the user is a member.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "UserListResult": {
+      "description": "Server response for Get tenant users API call.",
+      "properties": {
+        "odata.nextLink": {
+          "description": "The URL to get the next set of results.",
+          "type": "string"
+        },
+        "value": {
+          "description": "the list of users.",
+          "items": {
+            "$ref": "#/definitions/User"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "UserUpdateParameters": {
+      "description": "Request parameters for updating an existing work or school account user.",
+      "properties": {
+        "accountEnabled": {
+          "description": "Whether the account is enabled.",
+          "type": "boolean"
+        },
+        "displayName": {
+          "description": "The display name of the user.",
+          "type": "string"
+        },
+        "mailNickname": {
+          "description": "The mail alias for the user.",
+          "type": "string"
+        },
+        "passwordProfile": {
+          "$ref": "#/definitions/PasswordProfile",
+          "description": "The password profile of the user."
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "Applications_List",
+      "title": "Applications_List",
+      "description": "Lists applications by filter parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "$filter": {
+            "type": "string",
+            "description": "The filters to apply to the operation."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ApplicationListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_Create",
+      "title": "Applications_Create",
+      "description": "Create a new application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ApplicationCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_Delete",
+      "title": "Applications_Delete",
+      "description": "Delete an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_Get",
+      "title": "Applications_Get",
+      "description": "Get an application by object ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Application"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_Patch",
+      "title": "Applications_Patch",
+      "description": "Update an existing application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "parameters": {
+            "$ref": "#/definitions/ApplicationUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_ListKeyCredentials",
+      "title": "Applications_ListKeyCredentials",
+      "description": "Get the keyCredentials associated with an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/KeyCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_UpdateKeyCredentials",
+      "title": "Applications_UpdateKeyCredentials",
+      "description": "Update the keyCredentials associated with an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "parameters": {
+            "$ref": "#/definitions/KeyCredentialsUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_ListPasswordCredentials",
+      "title": "Applications_ListPasswordCredentials",
+      "description": "Get the passwordCredentials associated with an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PasswordCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Applications_UpdatePasswordCredentials",
+      "title": "Applications_UpdatePasswordCredentials",
+      "description": "Update passwordCredentials associated with an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "applicationObjectId": {
+            "type": "string",
+            "description": "Application object ID."
+          },
+          "parameters": {
+            "$ref": "#/definitions/PasswordCredentialsUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "applicationObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Objects_GetObjectsByObjectIds",
+      "title": "Objects_GetObjectsByObjectIds",
+      "description": "Gets AD group membership for the specified AD object IDs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/GetObjectsParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_List",
+      "title": "Groups_List",
+      "description": "Gets list of groups for the current tenant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply to the operation."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GroupListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_Create",
+      "title": "Groups_Create",
+      "description": "Create a group in the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/GroupCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ADGroup"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_Delete",
+      "title": "Groups_Delete",
+      "description": "Delete a group from the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupObjectId": {
+            "type": "string",
+            "description": "The object ID of the group to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_AddMember",
+      "title": "Groups_AddMember",
+      "description": "Add a member to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupObjectId": {
+            "type": "string",
+            "description": "The object ID of the group to which to add the member."
+          },
+          "parameters": {
+            "$ref": "#/definitions/GroupAddMemberParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_RemoveMember",
+      "title": "Groups_RemoveMember",
+      "description": "Remove a member from a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupObjectId": {
+            "type": "string",
+            "description": "The object ID of the group from which to remove the member."
+          },
+          "memberObjectId": {
+            "type": "string",
+            "description": "Member object id"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupObjectId",
+          "memberObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_Get",
+      "title": "Groups_Get",
+      "description": "Gets group information from the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the user for which to get group information."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ADGroup"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_GetMemberGroups",
+      "title": "Groups_GetMemberGroups",
+      "description": "Gets a collection of object IDs of groups of which the specified group is a member.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the group for which to get group membership."
+          },
+          "parameters": {
+            "$ref": "#/definitions/GroupGetMemberGroupsParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GroupGetMemberGroupsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_GetGroupMembers",
+      "title": "Groups_GetGroupMembers",
+      "description": "Gets the members of a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the group whose members should be retrieved."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetObjectsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Groups_IsMemberOf",
+      "title": "Groups_IsMemberOf",
+      "description": "Checks whether the specified user, group, contact, or service principal is a direct or transitive member of the specified group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/CheckGroupMembershipParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CheckGroupMembershipResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Objects_GetCurrentUser",
+      "title": "Objects_GetCurrentUser",
+      "description": "Gets the details for the currently logged-in user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AADObject"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_List",
+      "title": "ServicePrincipals_List",
+      "description": "Gets a list of service principals from the current tenant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply to the operation."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServicePrincipalListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_Create",
+      "title": "ServicePrincipals_Create",
+      "description": "Creates a service principal in the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/ServicePrincipalCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServicePrincipal"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_Delete",
+      "title": "ServicePrincipals_Delete",
+      "description": "Deletes a service principal from the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the service principal to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_Get",
+      "title": "ServicePrincipals_Get",
+      "description": "Gets service principal information from the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the service principal to get."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ServicePrincipal"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_ListKeyCredentials",
+      "title": "ServicePrincipals_ListKeyCredentials",
+      "description": "Get the keyCredentials associated with the specified service principal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the service principal for which to get keyCredentials."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/KeyCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_UpdateKeyCredentials",
+      "title": "ServicePrincipals_UpdateKeyCredentials",
+      "description": "Update the keyCredentials associated with a service principal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID for which to get service principal information."
+          },
+          "parameters": {
+            "$ref": "#/definitions/KeyCredentialsUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_ListPasswordCredentials",
+      "title": "ServicePrincipals_ListPasswordCredentials",
+      "description": "Gets the passwordCredentials associated with a service principal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the service principal."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PasswordCredentialListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "ServicePrincipals_UpdatePasswordCredentials",
+      "title": "ServicePrincipals_UpdatePasswordCredentials",
+      "description": "Updates the passwordCredentials associated with a service principal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the service principal."
+          },
+          "parameters": {
+            "$ref": "#/definitions/PasswordCredentialsUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_List",
+      "title": "Users_List",
+      "description": "Gets list of users for the current tenant.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "$filter": {
+            "type": "string",
+            "description": "The filter to apply to the operation."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserListResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_Create",
+      "title": "Users_Create",
+      "description": "Create a new user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "$ref": "#/definitions/UserCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_GetMemberGroups",
+      "title": "Users_GetMemberGroups",
+      "description": "Gets a collection that contains the object IDs of the groups of which the user is a member.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "The object ID of the user for which to get group membership."
+          },
+          "parameters": {
+            "$ref": "#/definitions/UserGetMemberGroupsParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "objectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserGetMemberGroupsResult"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_Delete",
+      "title": "Users_Delete",
+      "description": "Delete a user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "upnOrObjectId": {
+            "type": "string",
+            "description": "The object ID or principal name of the user to delete."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_Get",
+      "title": "Users_Get",
+      "description": "Gets user information from the directory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "upnOrObjectId": {
+            "type": "string",
+            "description": "The object ID or principal name of the user for which to get information."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    },
+    {
+      "id": "Users_Update",
+      "title": "Users_Update",
+      "description": "Updates a user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "upnOrObjectId": {
+            "type": "string",
+            "description": "The object ID or principal name of the user to update."
+          },
+          "parameters": {
+            "$ref": "#/definitions/UserUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Client API version."
+          },
+          "tenantID": {
+            "type": "string",
+            "description": "The tenant ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "upnOrObjectId",
+          "parameters",
+          "api-version",
+          "tenantID"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "windows_arm_graphrbac": {
+          "integration": "windows_arm_graphrbac"
+        }
+      }
+    }
+  ]
+}

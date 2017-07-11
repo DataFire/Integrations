@@ -1,0 +1,154 @@
+{
+  "id": "magick_nu",
+  "title": "Tradeworks",
+  "description": "Authentication is required to access all methods of the API. Enter username and password.\n                Credentials are automatically set as you type.",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png"
+  },
+  "tags": [
+    "financial"
+  ],
+  "definitions": {
+    "TradingAccount": {
+      "properties": {
+        "brokerServer": {
+          "type": "string"
+        },
+        "magickUsername": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    },
+    "UserDTO": {
+      "properties": {
+        "affiliateId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "subscriptionType": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "getStrategiesStrategyIdStrategyId",
+      "title": "getStrategiesStrategyIdStrategyId",
+      "description": "Get Strategy by ID",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "strategyId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "strategyId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getStrategiesTemplates",
+      "title": "getStrategiesTemplates",
+      "description": "Get all Template Strategies",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postTradingAccounts",
+      "title": "postTradingAccounts",
+      "description": "Add a Trading Account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/TradingAccount"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postUsers",
+      "title": "postUsers",
+      "description": "Create a new Tradeworks User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UserDTO"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersEmailEmail",
+      "title": "getUsersEmailEmail",
+      "description": "Check if email is available",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "email"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersUsernameUsername",
+      "title": "getUsersUsernameUsername",
+      "description": "Check if username is available",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

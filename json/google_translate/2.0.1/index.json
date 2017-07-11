@@ -1,0 +1,278 @@
+{
+  "id": "google_translate",
+  "title": "Translate",
+  "description": "Translates text from one language to another.",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+  },
+  "tags": [
+    "text",
+    "google"
+  ],
+  "definitions": {
+    "DetectionsListResponse": {
+      "properties": {
+        "detections": {
+          "description": "A detections contains detection results of several text",
+          "items": {
+            "$ref": "#/definitions/DetectionsResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "DetectionsResource": {
+      "description": "An array of languages which we detect for the given text The most likely language list first.",
+      "items": {
+        "properties": {
+          "confidence": {
+            "description": "The confidence of the detection resul of this language.",
+            "format": "float",
+            "type": "number"
+          },
+          "isReliable": {
+            "description": "A boolean to indicate is the language detection result reliable.",
+            "type": "boolean"
+          },
+          "language": {
+            "description": "The language we detect",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "LanguagesListResponse": {
+      "properties": {
+        "languages": {
+          "description": "List of source/target languages supported by the translation API. If target parameter is unspecified, the list is sorted by the ASCII code point order of the language code. If target parameter is specified, the list is sorted by the collation order of the language name in the target language.",
+          "items": {
+            "$ref": "#/definitions/LanguagesResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "LanguagesResource": {
+      "properties": {
+        "language": {
+          "description": "The language code.",
+          "type": "string"
+        },
+        "name": {
+          "description": "The localized name of the language if target parameter is given.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TranslationsListResponse": {
+      "properties": {
+        "translations": {
+          "description": "Translations contains list of translation results of given text",
+          "items": {
+            "$ref": "#/definitions/TranslationsResource"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "TranslationsResource": {
+      "properties": {
+        "detectedSourceLanguage": {
+          "description": "Detected source language if source parameter is unspecified.",
+          "type": "string"
+        },
+        "translatedText": {
+          "description": "The translation.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "translations.list",
+      "title": "translations.list",
+      "description": "Returns text translations from one language to another.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "array",
+            "description": "The text to translate"
+          },
+          "target": {
+            "type": "string",
+            "description": "The target language into which the text should be translated"
+          },
+          "cid": {
+            "type": "array",
+            "description": "The customization id for translate"
+          },
+          "format": {
+            "type": "string",
+            "description": "The format of the text",
+            "enum": [
+              "html",
+              "text"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "description": "The source language of the text"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "target"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TranslationsListResponse"
+      }
+    },
+    {
+      "id": "detections.list",
+      "title": "detections.list",
+      "description": "Detect the language of text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "array",
+            "description": "The text to detect"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectionsListResponse"
+      }
+    },
+    {
+      "id": "languages.list",
+      "title": "languages.list",
+      "description": "List the source/target languages supported by the API",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "the language and collation in which the localized results should be returned"
+          },
+          "alt": {
+            "type": "string",
+            "description": "Data format for the response.",
+            "enum": [
+              "json"
+            ]
+          },
+          "fields": {
+            "type": "string",
+            "description": "Selector specifying which fields to include in a partial response."
+          },
+          "key": {
+            "type": "string",
+            "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
+          },
+          "oauth_token": {
+            "type": "string",
+            "description": "OAuth 2.0 token for the current user."
+          },
+          "prettyPrint": {
+            "type": "boolean",
+            "description": "Returns response with indentations and line breaks."
+          },
+          "quotaUser": {
+            "type": "string",
+            "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
+          },
+          "userIp": {
+            "type": "string",
+            "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LanguagesListResponse"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1521 @@
+{
+  "id": "circleci",
+  "title": "CircleCI",
+  "description": "The CircleCI API is a RESTful, fully-featured API that allows you to do almost anything in CircleCI.\nYou can access all information and trigger all actions.\nThe only thing we don’t provide access to is billing functions, which must be done from the CircleCI web UI.\n",
+  "security": {
+    "circleci": {
+      "integration": "circleci",
+      "fields": {
+        "apikey": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
+  },
+  "tags": [
+    "developer tools"
+  ],
+  "definitions": {
+    "Artifact": {
+      "properties": {
+        "node_index": {
+          "type": "integer"
+        },
+        "path": {
+          "type": "string"
+        },
+        "pretty_path": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Artifacts": {
+      "items": {
+        "$ref": "#/definitions/Artifact"
+      },
+      "type": "array"
+    },
+    "Aws": {
+      "properties": {
+        "keypair": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Build": {
+      "properties": {
+        "body": {
+          "description": "commit message body",
+          "type": "string"
+        },
+        "branch": {
+          "type": "string"
+        },
+        "build_time_millis": {
+          "type": "integer"
+        },
+        "build_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "committer_email": {
+          "format": "email",
+          "type": "string"
+        },
+        "committer_name": {
+          "type": "string"
+        },
+        "dont_build": {
+          "description": "reason why we didn't build, if we didn't build",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lifecycle": {
+          "$ref": "#/definitions/Lifecycle"
+        },
+        "previous": {
+          "$ref": "#/definitions/PreviousBuild"
+        },
+        "queued_at": {
+          "description": "time build was queued",
+          "format": "date-time",
+          "type": "string"
+        },
+        "reponame": {
+          "type": "string"
+        },
+        "retry_of": {
+          "description": "build_num of the build this is a retry of",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "start_time": {
+          "description": "time build started",
+          "format": "date-time",
+          "type": "string"
+        },
+        "stop_time": {
+          "description": "time build finished",
+          "format": "date-time",
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "vcs_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "why": {
+          "description": "short string explaining the reason we built",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BuildDetail": {
+      "description": "previous build",
+      "properties": {
+        "all_commit_details": {
+          "$ref": "#/definitions/CommitDetails"
+        },
+        "compare": {
+          "format": "uri",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "job_name": {
+          "type": "string"
+        },
+        "node": {
+          "type": "null"
+        },
+        "previous_successful_build": {
+          "$ref": "#/definitions/PreviousBuild"
+        },
+        "retries": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "ssh_enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "timedout": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "usage_queued_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "type": "object"
+    },
+    "BuildParameters": {
+      "description": "Additional environment variables to inject into the build environment. A map of names to values.\n",
+      "type": "object"
+    },
+    "BuildSummary": {
+      "properties": {
+        "added_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "build_num": {
+          "type": "integer"
+        },
+        "outcome": {
+          "$ref": "#/definitions/Outcome"
+        },
+        "pushed_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        },
+        "vcs_revision": {
+          "$ref": "#/definitions/Sha1"
+        }
+      },
+      "type": "object"
+    },
+    "Builds": {
+      "items": {
+        "$ref": "#/definitions/Build"
+      },
+      "type": "array"
+    },
+    "CommitDetail": {
+      "properties": {
+        "author_date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "author_email": {
+          "format": "email",
+          "type": "string"
+        },
+        "author_login": {
+          "type": "string"
+        },
+        "author_name": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "commit": {
+          "$ref": "#/definitions/Sha1"
+        },
+        "commit_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "committer_date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "committer_email": {
+          "format": "email",
+          "type": "string"
+        },
+        "committer_login": {
+          "type": "string"
+        },
+        "committer_name": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommitDetails": {
+      "items": {
+        "$ref": "#/definitions/CommitDetail"
+      },
+      "type": "array"
+    },
+    "Envvar": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Envvars": {
+      "items": {
+        "$ref": "#/definitions/Envvar"
+      },
+      "type": "array"
+    },
+    "Key": {
+      "properties": {
+        "fingerprint": {
+          "type": "string"
+        },
+        "preferred": {
+          "type": "boolean"
+        },
+        "public_key": {
+          "type": "string"
+        },
+        "time": {
+          "description": "when the key was issued",
+          "format": "date-time",
+          "type": "string"
+        },
+        "type": {
+          "description": "can be \"deploy-key\" or \"github-user-key\"\n",
+          "enum": [
+            "deploy-key",
+            "github-user-key"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Keys": {
+      "items": {
+        "$ref": "#/definitions/Key"
+      },
+      "type": "array"
+    },
+    "Lifecycle": {
+      "enum": [
+        "queued",
+        "scheduled",
+        "not_run",
+        "not_running",
+        "running",
+        "finished"
+      ],
+      "type": "string"
+    },
+    "Outcome": {
+      "enum": [
+        "canceled",
+        "infrastructure_fail",
+        "timedout",
+        "failed",
+        "no_tests",
+        "success"
+      ],
+      "type": "string"
+    },
+    "Parallel": {
+      "description": "The number of containers to use to run the build. Default is null and the project default is used.\n",
+      "type": "string"
+    },
+    "PreviousBuild": {
+      "description": "previous build",
+      "properties": {
+        "build_num": {
+          "type": "integer"
+        },
+        "build_time_millis": {
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "type": "object"
+    },
+    "Project": {
+      "properties": {
+        "aws": {
+          "$ref": "#/definitions/Aws"
+        },
+        "branches": {
+          "type": "object"
+        },
+        "campfire_notify_prefs": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "campfire_room": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "campfire_subdomain": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "campfire_token": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "compile": {
+          "type": "string"
+        },
+        "default_branch": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "feature_flags": {
+          "properties": {
+            "build-fork-prs": {
+              "type": "boolean"
+            },
+            "fleet": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "junit": {
+              "type": "boolean"
+            },
+            "oss": {
+              "type": "boolean"
+            },
+            "osx": {
+              "type": "boolean"
+            },
+            "set-github-status": {
+              "type": "boolean"
+            },
+            "trusty-beta": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
+        "flowdock_api_token": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "followed": {
+          "type": "boolean"
+        },
+        "has_usable_key": {
+          "type": "boolean"
+        },
+        "heroku_deploy_user": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "hipchat_api_token": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "hipchat_notify": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "hipchat_notify_prefs": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hipchat_room": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_channel": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_keyword": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_notify_prefs": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_password": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_server": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "irc_username": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "language": {
+          "type": "string"
+        },
+        "oss": {
+          "type": "boolean"
+        },
+        "parallel": {
+          "type": "integer"
+        },
+        "reponame": {
+          "type": "string"
+        },
+        "scopes": {
+          "items": {
+            "$ref": "#/definitions/Scope"
+          },
+          "type": "array"
+        },
+        "setup": {
+          "type": "string"
+        },
+        "slack_api_token": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "slack_channel": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "slack_channel_override": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "slack_notify_prefs": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "slack_subdomain": {
+          "$ref": "#/definitions/StringOrNull"
+        },
+        "slack_webhook_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "ssh_keys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "test": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "vcs_type": {
+          "type": "string"
+        },
+        "vcs_url": {
+          "format": "uri",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Projects": {
+      "items": {
+        "$ref": "#/definitions/Project"
+      },
+      "type": "array"
+    },
+    "Revision": {
+      "description": "The specific revision to build.\nDefault is null and the head of the branch is used. Cannot be used with tag parameter.\n",
+      "type": "string"
+    },
+    "Scope": {
+      "enum": [
+        "write-settings",
+        "view-builds",
+        "read-settings",
+        "trigger-builds",
+        "all",
+        "status",
+        "none"
+      ],
+      "type": "string"
+    },
+    "Sha1": {
+      "type": "string"
+    },
+    "Status": {
+      "enum": [
+        "retried",
+        "canceled",
+        "infrastructure_fail",
+        "timedout",
+        "not_run",
+        "running",
+        "failed",
+        "queued",
+        "scheduled",
+        "not_running",
+        "no_tests",
+        "fixed",
+        "success"
+      ],
+      "type": "string"
+    },
+    "StringOrNull": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "Tag": {
+      "description": "The tag to build. Default is null. Cannot be used with revision parameter.\n",
+      "type": "string"
+    },
+    "Tests": {
+      "properties": {
+        "tests": {
+          "items": {
+            "properties": {
+              "classname": {
+                "type": "string"
+              },
+              "file": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "result": {
+                "$ref": "#/definitions/Status"
+              },
+              "run_time": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "User": {
+      "properties": {
+        "admin": {
+          "type": "boolean"
+        },
+        "all_emails": {
+          "items": {
+            "format": "email",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "analytics_id": {
+          "type": "string"
+        },
+        "avatar_url": {
+          "format": "uri",
+          "type": "string"
+        },
+        "basic_email_prefs": {
+          "type": "string"
+        },
+        "bitbucket": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "bitbucket_authorized": {
+          "type": "boolean"
+        },
+        "containers": {
+          "type": "integer"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "days_left_in_trial": {
+          "type": "integer"
+        },
+        "dev_admin": {
+          "type": "boolean"
+        },
+        "enrolled_betas": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "github_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "github_oauth_scopes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "gravatar_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "heroku_api_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "in_beta_program": {
+          "type": "boolean"
+        },
+        "login": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organization_prefs": {
+          "type": "object"
+        },
+        "parallelism": {
+          "type": "integer"
+        },
+        "plan": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "projects": {
+          "type": "object"
+        },
+        "pusher_id": {
+          "type": "string"
+        },
+        "selected_email": {
+          "format": "email",
+          "type": "string"
+        },
+        "sign_in_count": {
+          "type": "integer"
+        },
+        "trial_end": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "me.get",
+      "title": "me.get",
+      "description": "Provides information about the signed in user.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/User"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.get",
+      "title": "project.username.project.get",
+      "description": "Build summary for each of the last 30 builds for a single git repo.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
+            "maximum": 100
+          },
+          "offset": {
+            "type": "integer",
+            "description": "The API returns builds starting from this offset, defaults to 0.\n"
+          },
+          "filter": {
+            "type": "string",
+            "description": "Restricts which builds are returned.\nSet to \"completed\", \"successful\", \"failed\", \"running\", or defaults to no filter.\n",
+            "enum": [
+              "completed",
+              "successful",
+              "failed",
+              "running"
+            ]
+          },
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Builds"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.post",
+      "title": "project.username.project.post",
+      "description": "Triggers a new build, returns a summary of the build.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "build_parameters": {
+                "$ref": "#/definitions/BuildParameters"
+              },
+              "parallel": {
+                "$ref": "#/definitions/Parallel"
+              },
+              "revision": {
+                "$ref": "#/definitions/Revision"
+              },
+              "tag": {
+                "$ref": "#/definitions/Tag"
+              }
+            },
+            "type": "object"
+          },
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BuildSummary"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_cache.delete",
+      "title": "project.username.project.build_cache.delete",
+      "description": "Clears the cache for a project.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.checkout_key.get",
+      "title": "project.username.project.checkout_key.get",
+      "description": "Lists checkout keys.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Keys"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.checkout_key.post",
+      "title": "project.username.project.checkout_key.post",
+      "description": "Creates a new checkout key.\nOnly usable with a user API token.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "deploy-key",
+              "github-user-key"
+            ],
+            "type": "string"
+          },
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.checkout_key.fingerprint.delete",
+      "title": "project.username.project.checkout_key.fingerprint.delete",
+      "description": "Delete a checkout key.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "fingerprint": {
+            "type": "string",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "fingerprint"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "enum": [
+              "OK"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.checkout_key.fingerprint.get",
+      "title": "project.username.project.checkout_key.fingerprint.get",
+      "description": "Get a checkout key.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "fingerprint": {
+            "type": "string",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "fingerprint"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Key"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.envvar.get",
+      "title": "project.username.project.envvar.get",
+      "description": "Lists the environment variables for :project\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Envvars"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.envvar.post",
+      "title": "project.username.project.envvar.post",
+      "description": "Creates a new environment variable\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Envvar"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.envvar.name.delete",
+      "title": "project.username.project.envvar.name.delete",
+      "description": "Deletes the environment variable named ':name'\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "enum": [
+              "OK"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.envvar.name.get",
+      "title": "project.username.project.envvar.name.get",
+      "description": "Gets the hidden value of environment variable :name\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "name"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Envvar"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.ssh_key.post",
+      "title": "project.username.project.ssh_key.post",
+      "description": "Create an ssh key used to access external systems that require SSH key-based authentication\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "enum": [
+              "application/json"
+            ]
+          },
+          "body": {
+            "properties": {
+              "hostname": {
+                "type": "string"
+              },
+              "private_key": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "body",
+          "username",
+          "project"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.tree.branch.post",
+      "title": "project.username.project.tree.branch.post",
+      "description": "Triggers a new build, returns a summary of the build.\nOptional build parameters can be set using an experimental API.\n\nNote: For more about build parameters, read about [using parameterized builds](https://circleci.com/docs/parameterized-builds/)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "properties": {
+              "build_parameters": {
+                "$ref": "#/definitions/BuildParameters"
+              },
+              "parallel": {
+                "$ref": "#/definitions/Parallel"
+              },
+              "revision": {
+                "$ref": "#/definitions/Revision"
+              }
+            },
+            "type": "object"
+          },
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "branch": {
+            "type": "string",
+            "description": "The branch name should be url-encoded.\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "branch"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_num.get",
+      "title": "project.username.project.build_num.get",
+      "description": "Full details for a single build. The response includes all of the fields from the build summary.\nThis is also the payload for the [notification webhooks](/docs/configuration/#notify), in which case this object is the value to a key named 'payload'.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "build_num": {
+            "type": "integer",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/BuildDetail"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_num.artifacts.get",
+      "title": "project.username.project.build_num.artifacts.get",
+      "description": "List the artifacts produced by a given build.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "build_num": {
+            "type": "integer",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Artifacts"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_num.cancel.post",
+      "title": "project.username.project.build_num.cancel.post",
+      "description": "Cancels the build, returns a summary of the build.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "build_num": {
+            "type": "integer",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_num.retry.post",
+      "title": "project.username.project.build_num.retry.post",
+      "description": "Retries the build, returns a summary of the new build.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "build_num": {
+            "type": "integer",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Build"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "project.username.project.build_num.tests.get",
+      "title": "project.username.project.build_num.tests.get",
+      "description": "Provides test metadata for a build\nNote: [Learn how to set up your builds to collect test metadata](https://circleci.com/docs/test-metadata/)\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "project": {
+            "type": "string",
+            "description": "XXXXXXXXX\n"
+          },
+          "build_num": {
+            "type": "integer",
+            "description": "XXXXXXXXXX\n"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "project",
+          "build_num"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Tests"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "projects.get",
+      "title": "projects.get",
+      "description": "List of all the projects you're following on CircleCI, with build information organized by branch.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Projects"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "recent_builds.get",
+      "title": "recent_builds.get",
+      "description": "Build summary for each of the last 30 recent builds, ordered by build_num.\n",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "The number of builds to return. Maximum 100, defaults to 30.\n",
+            "maximum": 100
+          },
+          "offset": {
+            "type": "integer",
+            "description": "The API returns builds starting from this offset, defaults to 0.\n"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Builds"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    },
+    {
+      "id": "user.heroku_key.post",
+      "title": "user.heroku_key.post",
+      "description": "Adds your Heroku API key to CircleCI, takes apikey as form param name.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "circleci": {
+          "integration": "circleci"
+        }
+      }
+    }
+  ]
+}

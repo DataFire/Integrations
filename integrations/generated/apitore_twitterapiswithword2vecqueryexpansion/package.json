@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apitore_twitterapiswithword2vecqueryexpansion",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "description": "DataFire integration for Twitter APIs with Word2Vec query expansion",
   "repository": {

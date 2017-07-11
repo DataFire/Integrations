@@ -1,0 +1,506 @@
+{
+  "id": "posty",
+  "title": "posty_API",
+  "description": "The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Postfix and Dovecot. It offers an easy REST interface which can be used in own applications or with the posty client applications, posty_CLI and posty_webUI.",
+  "security": {},
+  "tags": [
+    "email"
+  ],
+  "actions": [
+    {
+      "id": "api.v1.domains.json.get",
+      "title": "api.v1.domains.json.get",
+      "description": "Returns all available domains",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.json.post",
+      "title": "api.v1.domains.json.post",
+      "description": "Create new domain",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.json.delete",
+      "title": "api.v1.domains.domain_name.json.delete",
+      "description": "Delete the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.json.get",
+      "title": "api.v1.domains.domain_name.json.get",
+      "description": "Returns the information to the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.json.put",
+      "title": "api.v1.domains.domain_name.json.put",
+      "description": "Update the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.aliases.json.get",
+      "title": "api.v1.domains.domain_name.aliases.json.get",
+      "description": "Returns all aliases for the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.aliases.json.post",
+      "title": "api.v1.domains.domain_name.aliases.json.post",
+      "description": "Create new domain alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.aliases.alias_name.json.delete",
+      "title": "api.v1.domains.domain_name.aliases.alias_name.json.delete",
+      "description": "Delete the specified domain alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.aliases.alias_name.json.get",
+      "title": "api.v1.domains.domain_name.aliases.alias_name.json.get",
+      "description": "Returns the information to the specified domain alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.aliases.alias_name.json.put",
+      "title": "api.v1.domains.domain_name.aliases.alias_name.json.put",
+      "description": "Update the specified domain alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.json.get",
+      "title": "api.v1.domains.domain_name.users.json.get",
+      "description": "Returns all users for the specified domain",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.json.post",
+      "title": "api.v1.domains.domain_name.users.json.post",
+      "description": "Create new user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.json.delete",
+      "title": "api.v1.domains.domain_name.users.user_name.json.delete",
+      "description": "Delete the specified user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.json.get",
+      "title": "api.v1.domains.domain_name.users.user_name.json.get",
+      "description": "Returns the information to the specified user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.json.put",
+      "title": "api.v1.domains.domain_name.users.user_name.json.put",
+      "description": "Update the specified user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.aliases.json.get",
+      "title": "api.v1.domains.domain_name.users.user_name.aliases.json.get",
+      "description": "Returns all aliases for the specified user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.aliases.json.post",
+      "title": "api.v1.domains.domain_name.users.user_name.aliases.json.post",
+      "description": "Create new user alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete",
+      "title": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete",
+      "description": "Delete the specified user alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get",
+      "title": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get",
+      "description": "Returns the information to the specified user alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put",
+      "title": "api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put",
+      "description": "Update the specified user alias",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain_name": {
+            "type": "string"
+          },
+          "user_name": {
+            "type": "string"
+          },
+          "alias_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "domain_name",
+          "user_name",
+          "alias_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.summary.json.get",
+      "title": "api.v1.summary.json.get",
+      "description": "Returns a summary of all Resources",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.swagger_doc.json.get",
+      "title": "api.v1.swagger_doc.json.get",
+      "description": "Swagger compatible API description",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.swagger_doc.name.json.get",
+      "title": "api.v1.swagger_doc.name.json.get",
+      "description": "Swagger compatible API description for specific API",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Resource name of mounted API"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.transports.json.get",
+      "title": "api.v1.transports.json.get",
+      "description": "Returns all available transports",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.transports.json.post",
+      "title": "api.v1.transports.json.post",
+      "description": "Create new transport",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.transports.transport_name.json.delete",
+      "title": "api.v1.transports.transport_name.json.delete",
+      "description": "Delete the specified transport",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transport_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.transports.transport_name.json.get",
+      "title": "api.v1.transports.transport_name.json.get",
+      "description": "Returns the information to the specified transport",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transport_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "api.v1.transports.transport_name.json.put",
+      "title": "api.v1.transports.transport_name.json.put",
+      "description": "Update the specified transport",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transport_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transport_name"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

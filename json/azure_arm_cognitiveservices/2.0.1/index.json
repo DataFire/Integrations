@@ -1,0 +1,634 @@
+{
+  "id": "azure_arm_cognitiveservices",
+  "title": "CognitiveServicesManagementClient",
+  "description": "Cognitive Services Management Client",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+  },
+  "tags": [
+    "machine learning",
+    "cloud",
+    "azure"
+  ],
+  "definitions": {
+    "CognitiveServicesAccount": {
+      "description": "Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.",
+      "properties": {
+        "etag": {
+          "description": "Entity Tag",
+          "type": "string"
+        },
+        "id": {
+          "description": "The id of the created account",
+          "type": "string"
+        },
+        "kind": {
+          "description": "Type of cognitive service account.",
+          "type": "string"
+        },
+        "location": {
+          "description": "The location of the resource",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the created account",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/CognitiveServicesAccountProperties",
+          "x-ms-client-flatten": true
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+          "type": "object"
+        },
+        "type": {
+          "description": "Resource type",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "CognitiveServicesAccountCreateParameters": {
+      "description": "The parameters to provide for the account.",
+      "properties": {
+        "kind": {
+          "description": "Required. Indicates the type of cognitive service account.",
+          "enum": [
+            "Academic",
+            "Bing.Autosuggest",
+            "Bing.Search",
+            "Bing.Speech",
+            "Bing.SpellCheck",
+            "ComputerVision",
+            "ContentModerator",
+            "Emotion",
+            "Face",
+            "LUIS",
+            "Recommendations",
+            "SpeakerRecognition",
+            "Speech",
+            "SpeechTranslation",
+            "TextAnalytics",
+            "TextTranslation",
+            "WebLM"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "Kind"
+          }
+        },
+        "location": {
+          "description": "Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.",
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/definitions/CognitiveServicesAccountPropertiesCreateParameters",
+          "description": "Must exist in the request. Must not be null.",
+          "x-ms-client-flatten": true
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+          "type": "object"
+        }
+      },
+      "required": [
+        "sku",
+        "kind",
+        "location",
+        "properties"
+      ]
+    },
+    "CognitiveServicesAccountEnumerateSkusResult": {
+      "description": "The list of cognitive services accounts operation response.",
+      "properties": {
+        "value": {
+          "description": "Gets the list of Cognitive Services accounts and their properties.",
+          "items": {
+            "$ref": "#/definitions/CognitiveServicesResourceAndSku"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "CognitiveServicesAccountKeys": {
+      "description": "The access keys for the cognitive services account.",
+      "properties": {
+        "key1": {
+          "description": "Gets the value of key 1.",
+          "type": "string"
+        },
+        "key2": {
+          "description": "Gets the value of key 2.",
+          "type": "string"
+        }
+      }
+    },
+    "CognitiveServicesAccountListResult": {
+      "description": "The list of cognitive services accounts operation response.",
+      "properties": {
+        "value": {
+          "description": "Gets the list of Cognitive Services accounts and their properties.",
+          "items": {
+            "$ref": "#/definitions/CognitiveServicesAccount"
+          },
+          "readOnly": true,
+          "type": "array"
+        }
+      }
+    },
+    "CognitiveServicesAccountProperties": {
+      "properties": {
+        "endpoint": {
+          "description": "Endpoint of the created account",
+          "type": "string"
+        },
+        "provisioningState": {
+          "description": "Gets the status of the cognitive services account at the time the operation was called.",
+          "enum": [
+            "Creating",
+            "ResolvingDNS",
+            "Succeeded",
+            "Failed"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "ProvisioningState"
+          }
+        }
+      }
+    },
+    "CognitiveServicesAccountPropertiesCreateParameters": {
+      "description": "required empty proprties object. Must be an empty object, and must exist in the request."
+    },
+    "CognitiveServicesAccountUpdateParameters": {
+      "description": "The parameters to provide for the account.",
+      "properties": {
+        "sku": {
+          "$ref": "#/definitions/Sku"
+        },
+        "tags": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.",
+          "type": "object"
+        }
+      }
+    },
+    "CognitiveServicesResourceAndSku": {
+      "properties": {
+        "resourceType": {
+          "description": "Resource Namespace and Type",
+          "type": "string"
+        },
+        "sku": {
+          "$ref": "#/definitions/Sku"
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorBody"
+        }
+      }
+    },
+    "ErrorBody": {
+      "properties": {
+        "code": {
+          "description": "error code",
+          "type": "string"
+        },
+        "message": {
+          "description": "error message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ]
+    },
+    "RegenerateKeyParameters": {
+      "description": "Regenerate key parameters.",
+      "properties": {
+        "keyName": {
+          "description": "key name to generate (Key1|Key2)",
+          "enum": [
+            "Key1",
+            "Key2"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "KeyName"
+          }
+        }
+      }
+    },
+    "Sku": {
+      "description": "The SKU of the cognitive services account.",
+      "properties": {
+        "name": {
+          "description": "Gets or sets the sku name. Required for account creation, optional for update.",
+          "enum": [
+            "F0",
+            "P0",
+            "P1",
+            "P2",
+            "S0",
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6"
+          ],
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": true,
+            "name": "SkuName"
+          }
+        },
+        "tier": {
+          "description": "Gets the sku tier. This is based on the SKU name.",
+          "enum": [
+            "Free",
+            "Standard",
+            "Premium"
+          ],
+          "readOnly": true,
+          "type": "string",
+          "x-ms-enum": {
+            "modelAsString": false,
+            "name": "SkuTier"
+          }
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "actions": [
+    {
+      "id": "CognitiveServicesAccounts_List",
+      "title": "CognitiveServicesAccounts_List",
+      "description": "Returns all the resources of a particular type belonging to a subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccountListResult"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_ListByResourceGroup",
+      "title": "CognitiveServicesAccounts_ListByResourceGroup",
+      "description": "Returns all the resources of a particular type belonging to a resource group",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "subscriptionId",
+          "api-version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccountListResult"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_Delete",
+      "title": "CognitiveServicesAccounts_Delete",
+      "description": "Deletes a Cognitive Services account from the resource group. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "CognitiveServicesAccounts_GetProperties",
+      "title": "CognitiveServicesAccounts_GetProperties",
+      "description": "Returns a Cognitive Services account specified by the parameters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccount"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_Update",
+      "title": "CognitiveServicesAccounts_Update",
+      "description": "Updates a Cognitive Services account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "body": {
+            "$ref": "#/definitions/CognitiveServicesAccountUpdateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "body",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccount"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_Create",
+      "title": "CognitiveServicesAccounts_Create",
+      "description": "Create Cognitive Services Account. Accounts is a resource group wide resource type. It holds the keys for developer to access intelligent APIs. It's also the resource type for billing.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "parameters": {
+            "$ref": "#/definitions/CognitiveServicesAccountCreateParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "parameters",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccount"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_ListKeys",
+      "title": "CognitiveServicesAccounts_ListKeys",
+      "description": "Lists the account keys for the specified Cognitive Services account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Congitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccountKeys"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_RegenerateKey",
+      "title": "CognitiveServicesAccounts_RegenerateKey",
+      "description": "Regenerates the specified account key for the specified Cognitive Services account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "body": {
+            "$ref": "#/definitions/RegenerateKeyParameters"
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "body",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccountKeys"
+      }
+    },
+    {
+      "id": "CognitiveServicesAccounts_ListSkus",
+      "title": "CognitiveServicesAccounts_ListSkus",
+      "description": "List available SKUs for the requested Cognitive Services account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "resourceGroupName": {
+            "type": "string",
+            "description": "The name of the resource group within the user's subscription."
+          },
+          "accountName": {
+            "type": "string",
+            "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
+            "maxLength": 24,
+            "minLength": 3
+          },
+          "api-version": {
+            "type": "string",
+            "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
+          },
+          "subscriptionId": {
+            "type": "string",
+            "description": "Azure Subscription ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "resourceGroupName",
+          "accountName",
+          "api-version",
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CognitiveServicesAccountEnumerateSkusResult"
+      }
+    }
+  ]
+}

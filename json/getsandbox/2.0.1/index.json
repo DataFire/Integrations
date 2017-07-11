@@ -1,0 +1,689 @@
+{
+  "id": "getsandbox",
+  "title": "Sandbox",
+  "description": "Sandbox API",
+  "security": {
+    "getsandbox": {
+      "integration": "getsandbox",
+      "fields": {
+        "api_key": "API key"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#161924",
+    "url": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
+  },
+  "tags": [
+    "developer tools"
+  ],
+  "definitions": {
+    "ActivityMessage": {
+      "properties": {
+        "createdTimestamp": {
+          "description": "Epoch time in milliseconds when the message was created",
+          "format": "int64",
+          "type": "integer"
+        },
+        "message": {
+          "description": "The details of the message when type is 'log'",
+          "type": "string"
+        },
+        "messageObject": {
+          "$ref": "#/definitions/RuntimeTransaction",
+          "description": "The details of the message when type is 'request'"
+        },
+        "messageType": {
+          "enum": [
+            "request",
+            "log"
+          ],
+          "type": "string"
+        },
+        "sandboxId": {
+          "description": "The ID of the sandbox that generated this message",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConfiguredRouteDetails": {
+      "properties": {
+        "activeErrorOverride": {
+          "default": false,
+          "description": "Whether error overrides are enabled or not.",
+          "type": "boolean"
+        },
+        "activeLatency": {
+          "default": false,
+          "description": "Whether latency delays are enabled or not.",
+          "type": "boolean"
+        },
+        "defaultLatency": {
+          "description": "A delay in milliseconds applied to requests at a 'normal' level.",
+          "format": "int32",
+          "maximum": 30000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "errorOverrideType": {
+          "description": "The type of error override applied to this route.",
+          "enum": [
+            "NONE",
+            "TIMEOUT",
+            "SERVICE_DOWN"
+          ],
+          "type": "string"
+        },
+        "loadLatency": {
+          "description": "A delay in milliseconds applied to requests at a 'high' level.",
+          "format": "int32",
+          "maximum": 30000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "loadThreshold": {
+          "description": "The threshold in transactions/second to signify 'high' load",
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "method": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "routeConfig": {
+          "$ref": "#/definitions/RouteConfig"
+        },
+        "transport": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "errorOverrideType"
+      ],
+      "type": "object"
+    },
+    "CreateSandbox": {
+      "properties": {
+        "commitBaseTemplate": {
+          "default": false,
+          "description": "Whether to commit the example Sandbox definition upon creation.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "Text describing this Sandbox.",
+          "maxLength": 255,
+          "minLength": 0,
+          "pattern": "^[A-Za-z-_ 0-9]*$",
+          "type": "string"
+        },
+        "name": {
+          "description": "Optional name to give the Sandbox, will be generated if omitted.",
+          "pattern": "^[A-Za-z-_ 0-9]*$",
+          "type": "string"
+        },
+        "ownerOrganisationName": {
+          "description": "Name of the team this Sandbox should be created under.",
+          "maxLength": 36,
+          "minLength": 2,
+          "pattern": "^[a-zA-Z-_0-9]*$",
+          "type": "string"
+        },
+        "parentSandboxName": {
+          "description": "Name of the Sandbox this should be created under, if exists will be a 'clone'.",
+          "pattern": "^[A-Za-z-_ 0-9]*$",
+          "type": "string"
+        },
+        "transportType": {
+          "enum": [
+            "HTTP",
+            "JMS"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "detailedMessage": {
+          "description": "Longer message describing the error.",
+          "type": "string"
+        },
+        "field": {
+          "description": "Message describing which field the error relates to.",
+          "type": "string"
+        },
+        "message": {
+          "description": "Short message describing the error.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RouteConfig": {
+      "properties": {
+        "errorStrategy": {
+          "enum": [
+            "NONE",
+            "TIMEOUT",
+            "SERVICE_DOWN"
+          ],
+          "type": "string"
+        },
+        "latencyMs": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "latencyMultiplier": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "latencyType": {
+          "enum": [
+            "NONE",
+            "CONSTANT",
+            "LINEAR"
+          ],
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeRequest": {
+      "properties": {
+        "body": {
+          "description": "The body of the given request.",
+          "type": "string"
+        },
+        "contentType": {
+          "description": "The content type of the body, for example 'application/json'.",
+          "type": "string"
+        },
+        "fullSandboxId": {
+          "description": "The parent ID of the Sandbox that received the request.",
+          "type": "string"
+        },
+        "fullSandboxName": {
+          "description": "The parent name of the Sandbox that received the request.",
+          "type": "string"
+        },
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Transport headers for the given request.",
+          "type": "object"
+        },
+        "ip": {
+          "description": "The requestor IP address.",
+          "type": "string"
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "receivedTimestamp": {
+          "description": "The epoch time in milliseconds when the request was received.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sandboxId": {
+          "description": "The ID of the Sandbox that received the request.",
+          "type": "string"
+        },
+        "sandboxName": {
+          "description": "The name of the Sandbox that received the request.",
+          "type": "string"
+        },
+        "transport": {
+          "description": "Which transport the request was for, 'HTTP' or 'JMS'.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeResponse": {
+      "properties": {
+        "body": {
+          "description": "The body of the given response.",
+          "type": "string"
+        },
+        "durationMillis": {
+          "description": "Duration in milliseconds of the processing time in Sandbox.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "error": {
+          "$ref": "#/definitions/Error",
+          "description": "Error if there is a problem during Sandbox execution."
+        },
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Transport headers for the given response.",
+          "type": "object"
+        },
+        "respondedTimestamp": {
+          "description": "The epoch time in milliseconds when the response was sent.",
+          "format": "int64",
+          "type": "integer"
+        },
+        "transport": {
+          "description": "Which transport the request was for, 'HTTP' or 'JMS'.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeTransaction": {
+      "properties": {
+        "request": {
+          "$ref": "#/definitions/RuntimeRequest"
+        },
+        "responses": {
+          "items": {
+            "$ref": "#/definitions/RuntimeResponse"
+          },
+          "type": "array"
+        },
+        "sandboxName": {
+          "description": "The source sandbox name.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Sandbox": {
+      "properties": {
+        "apiDefinition": {
+          "description": "The import source of this Sandbox.",
+          "enum": [
+            "None",
+            "Apiary",
+            "Swagger_V2_Json",
+            "RAML_V08",
+            "WSDL"
+          ],
+          "type": "string"
+        },
+        "childSandboxes": {
+          "description": "Clones of this Sandbox.",
+          "items": {
+            "$ref": "#/definitions/Sandbox"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "configuredRoutes": {
+          "description": "Extra configuration applied to some routes, delays, overrides etc.",
+          "items": {
+            "$ref": "#/definitions/ConfiguredRouteDetails"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "description": {
+          "maxLength": 255,
+          "minLength": 0,
+          "pattern": "^[A-Za-z0-9 _\\-]*$",
+          "type": "string"
+        },
+        "gitAccessToken": {
+          "type": "string"
+        },
+        "gitUrl": {
+          "description": "The git clone URL.",
+          "type": "string"
+        },
+        "hasRepository": {
+          "default": false,
+          "description": "Whether this Sandbox has a git repository or not.",
+          "type": "boolean"
+        },
+        "id": {
+          "description": "The ID of the Sandbox.",
+          "type": "string"
+        },
+        "ipWhitelist": {
+          "description": "The list of IPs allowed to make requests, all allowed if omitted.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "name": {
+          "pattern": "^[a-z0-9\\-]*$",
+          "type": "string"
+        },
+        "parentSandbox": {
+          "$ref": "#/definitions/Sandbox",
+          "description": "If the Sandbox is a clone, which is it a clone of."
+        },
+        "properties": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "proxyStatus": {
+          "description": "The listener status.",
+          "enum": [
+            "STARTED",
+            "STOPPED"
+          ],
+          "type": "string"
+        },
+        "runtimeVersion": {
+          "description": "The library version of this Sandbox.",
+          "enum": [
+            "VERSION_1",
+            "VERSION_2"
+          ],
+          "type": "string"
+        },
+        "sandboxUrl": {
+          "description": "The request URL for this Sandbox.",
+          "type": "string"
+        },
+        "stackType": {
+          "enum": [
+            "JavaScript"
+          ],
+          "type": "string"
+        },
+        "transportType": {
+          "description": "The listener transport.",
+          "enum": [
+            "HTTP",
+            "JMS"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "getSandboxesActivity",
+      "title": "getSandboxesActivity",
+      "description": "searchActivity",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "fromTimestamp": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Timestamp to start search from, epoch time in milliseconds."
+          },
+          "sourceSandboxes": {
+            "type": "string",
+            "description": "Comma-separated list of Sandbox names to search."
+          },
+          "keyword": {
+            "type": "string",
+            "description": "A keyword to search activities by, will match any part of the ActivityMessage."
+          },
+          "allTypes": {
+            "type": "boolean",
+            "description": "Flag to return all types of activity, defaults to just Requests"
+          },
+          "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum number of results to return"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ActivityMessage"
+        },
+        "type": "array"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "getSandboxes",
+      "title": "getSandboxes",
+      "description": "getSandboxes",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "filterType": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/Sandbox"
+        },
+        "type": "array"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "createSandbox",
+      "title": "createSandbox",
+      "description": "createSandbox",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateSandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "deleteSandbox",
+      "title": "deleteSandbox",
+      "description": "deleteSandbox",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "getSandbox",
+      "title": "getSandbox",
+      "description": "getSandbox",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "updateSandbox",
+      "title": "updateSandbox",
+      "description": "updateSandbox",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          },
+          "body": {
+            "$ref": "#/definitions/Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "forkSandbox",
+      "title": "forkSandbox",
+      "description": "forkSandbox",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/Sandbox"
+      },
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "deleteSandboxState",
+      "title": "deleteSandboxState",
+      "description": "deleteSandboxState",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    },
+    {
+      "id": "getSandboxState",
+      "title": "getSandboxState",
+      "description": "getSandboxState",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sandboxName": {
+            "type": "string",
+            "description": "Name of the Sandbox"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sandboxName"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "getsandbox": {
+          "integration": "getsandbox"
+        }
+      }
+    }
+  ]
+}

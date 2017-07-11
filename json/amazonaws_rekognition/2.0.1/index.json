@@ -1,0 +1,2264 @@
+{
+  "id": "amazonaws_rekognition",
+  "title": "Amazon Rekognition",
+  "description": "This is the Amazon Rekognition API reference.",
+  "security": {
+    "amazonaws_rekognition": {
+      "integration": "amazonaws_rekognition",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AccessDeniedException": {
+      "description": "You are not authorized to perform the action.",
+      "properties": {},
+      "type": "object"
+    },
+    "AgeRange": {
+      "description": "<p>Structure containing the estimated age range, in years, for a face.</p> <p>Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.</p>",
+      "properties": {
+        "High": {
+          "$ref": "#/definitions/UInteger",
+          "description": "The highest estimated age."
+        },
+        "Low": {
+          "$ref": "#/definitions/UInteger",
+          "description": "The lowest estimated age."
+        }
+      },
+      "type": "object"
+    },
+    "Attribute": {
+      "enum": [
+        "DEFAULT",
+        "ALL"
+      ],
+      "type": "string"
+    },
+    "Attributes": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "type": "array"
+    },
+    "Beard": {
+      "description": "Indicates whether or not the face has a beard, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the face has beard or not."
+        }
+      },
+      "type": "object"
+    },
+    "Boolean": {
+      "type": "boolean"
+    },
+    "BoundingBox": {
+      "description": "<p>Identifies the bounding box around the object or face. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p> <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p> <p> The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p> <note> <p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p> </note>",
+      "properties": {
+        "Height": {
+          "$ref": "#/definitions/Float",
+          "description": "Height of the bounding box as a ratio of the overall image height."
+        },
+        "Left": {
+          "$ref": "#/definitions/Float",
+          "description": "Left coordinate of the bounding box as a ratio of overall image width."
+        },
+        "Top": {
+          "$ref": "#/definitions/Float",
+          "description": "Top coordinate of the bounding box as a ratio of overall image height."
+        },
+        "Width": {
+          "$ref": "#/definitions/Float",
+          "description": "Width of the bounding box as a ratio of the overall image width."
+        }
+      },
+      "type": "object"
+    },
+    "CollectionId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.\\-]+",
+      "type": "string"
+    },
+    "CollectionIdList": {
+      "items": {
+        "$ref": "#/definitions/CollectionId"
+      },
+      "type": "array"
+    },
+    "CompareFacesMatch": {
+      "description": "For the provided the bounding box, confidence level that the bounding box actually contains a face, and the similarity between the face in the bounding box and the face in the source image.",
+      "properties": {
+        "Face": {
+          "$ref": "#/definitions/ComparedFace",
+          "description": "Provides face metadata (bounding box and confidence that the bounding box actually contains a face)."
+        },
+        "Similarity": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence that the faces match."
+        }
+      },
+      "type": "object"
+    },
+    "CompareFacesMatchList": {
+      "items": {
+        "$ref": "#/definitions/CompareFacesMatch"
+      },
+      "type": "array"
+    },
+    "CompareFacesRequest": {
+      "example": {
+        "SimilarityThreshold": 90,
+        "SourceImage": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "mysourceimage"
+          }
+        },
+        "TargetImage": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "mytargetimage"
+          }
+        }
+      },
+      "properties": {
+        "SimilarityThreshold": {
+          "$ref": "#/definitions/Percent",
+          "description": "The minimum level of confidence in the match you want included in the result."
+        },
+        "SourceImage": {
+          "$ref": "#/definitions/Image",
+          "description": "Source image either as bytes or an S3 object"
+        },
+        "TargetImage": {
+          "$ref": "#/definitions/Image",
+          "description": "Target image either as bytes or an S3 object"
+        }
+      },
+      "required": [
+        "SourceImage",
+        "TargetImage"
+      ],
+      "type": "object"
+    },
+    "CompareFacesResponse": {
+      "example": {
+        "FaceMatches": [
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.33481481671333313,
+                "Left": 0.31888890266418457,
+                "Top": 0.4933333396911621,
+                "Width": 0.25
+              },
+              "Confidence": 99.9991226196289
+            },
+            "Similarity": 100
+          }
+        ],
+        "SourceImageFace": {
+          "BoundingBox": {
+            "Height": 0.33481481671333313,
+            "Left": 0.31888890266418457,
+            "Top": 0.4933333396911621,
+            "Width": 0.25
+          },
+          "Confidence": 99.9991226196289
+        }
+      },
+      "properties": {
+        "FaceMatches": {
+          "$ref": "#/definitions/CompareFacesMatchList",
+          "description": "Provides an array of <code>CompareFacesMatch</code> objects. Each object provides the bounding box, confidence that the bounding box contains a face, and the similarity between the face in the bounding box and the face in the source image."
+        },
+        "SourceImageFace": {
+          "$ref": "#/definitions/ComparedSourceImageFace",
+          "description": "The face from the source image that was used for comparison."
+        }
+      },
+      "type": "object"
+    },
+    "ComparedFace": {
+      "description": "Provides face metadata (bounding box and confidence that the bounding box actually contains a face).",
+      "properties": {
+        "BoundingBox": {
+          "$ref": "#/definitions/BoundingBox"
+        },
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence that what the bounding box contains is a face."
+        }
+      },
+      "type": "object"
+    },
+    "ComparedSourceImageFace": {
+      "description": "Type that describes the face Amazon Rekognition chose to compare with the faces in the target. This contains a bounding box for the selected face and confidence level that the bounding box contains a face. Note that Amazon Rekognition selects the largest face in the source image for this comparison. ",
+      "properties": {
+        "BoundingBox": {
+          "$ref": "#/definitions/BoundingBox"
+        },
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Confidence level that the selected bounding box contains a face."
+        }
+      },
+      "type": "object"
+    },
+    "CreateCollectionRequest": {
+      "example": {
+        "CollectionId": "myphotos"
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "ID for the collection that you are creating."
+        }
+      },
+      "required": [
+        "CollectionId"
+      ],
+      "type": "object"
+    },
+    "CreateCollectionResponse": {
+      "example": {
+        "CollectionArn": "aws:rekognition:us-west-2:123456789012:collection/myphotos",
+        "StatusCode": 200
+      },
+      "properties": {
+        "CollectionArn": {
+          "$ref": "#/definitions/String",
+          "description": "Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources. "
+        },
+        "StatusCode": {
+          "$ref": "#/definitions/UInteger",
+          "description": "HTTP status code indicating the result of the operation."
+        }
+      },
+      "type": "object"
+    },
+    "Degree": {
+      "format": "float",
+      "maximum": 180,
+      "minimum": -180,
+      "type": "number"
+    },
+    "DeleteCollectionRequest": {
+      "example": {
+        "CollectionId": "myphotos"
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "ID of the collection to delete."
+        }
+      },
+      "required": [
+        "CollectionId"
+      ],
+      "type": "object"
+    },
+    "DeleteCollectionResponse": {
+      "example": {
+        "StatusCode": 200
+      },
+      "properties": {
+        "StatusCode": {
+          "$ref": "#/definitions/UInteger",
+          "description": "HTTP status code that indicates the result of the operation."
+        }
+      },
+      "type": "object"
+    },
+    "DeleteFacesRequest": {
+      "example": {
+        "CollectionId": "myphotos",
+        "FaceIds": [
+          "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+        ]
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "Collection from which to remove the specific faces."
+        },
+        "FaceIds": {
+          "$ref": "#/definitions/FaceIdList",
+          "description": "An array of face IDs to delete."
+        }
+      },
+      "required": [
+        "CollectionId",
+        "FaceIds"
+      ],
+      "type": "object"
+    },
+    "DeleteFacesResponse": {
+      "example": {
+        "DeletedFaces": [
+          "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
+        ]
+      },
+      "properties": {
+        "DeletedFaces": {
+          "$ref": "#/definitions/FaceIdList",
+          "description": "An array of strings (face IDs) of the faces that were deleted."
+        }
+      },
+      "type": "object"
+    },
+    "DetectFacesRequest": {
+      "example": {
+        "Image": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "myphoto"
+          }
+        }
+      },
+      "properties": {
+        "Attributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "<p>A list of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>[\"DEFAULT\"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>[\"ALL\"]</code>, all facial attributes are returned but the operation will take longer to complete.</p> <p>If you provide both, <code>[\"ALL\", \"DEFAULT\"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>"
+        },
+        "Image": {
+          "$ref": "#/definitions/Image",
+          "description": "The image in which you want to detect faces. You can specify a blob or an S3 object. "
+        }
+      },
+      "required": [
+        "Image"
+      ],
+      "type": "object"
+    },
+    "DetectFacesResponse": {
+      "example": {
+        "FaceDetails": [
+          {
+            "BoundingBox": {
+              "Height": 0.18000000715255737,
+              "Left": 0.5555555820465088,
+              "Top": 0.33666667342185974,
+              "Width": 0.23999999463558197
+            },
+            "Confidence": 100,
+            "Landmarks": [
+              {
+                "Type": "EYE_LEFT",
+                "X": 0.6394737362861633,
+                "Y": 0.40819624066352844
+              },
+              {
+                "Type": "EYE_RIGHT",
+                "X": 0.7266660928726196,
+                "Y": 0.41039225459098816
+              },
+              {
+                "Type": "NOSE_LEFT",
+                "X": 0.6912462115287781,
+                "Y": 0.44240960478782654
+              },
+              {
+                "Type": "MOUTH_DOWN",
+                "X": 0.6306198239326477,
+                "Y": 0.46700039505958557
+              },
+              {
+                "Type": "MOUTH_UP",
+                "X": 0.7215608954429626,
+                "Y": 0.47114261984825134
+              }
+            ],
+            "Pose": {
+              "Pitch": 4.050806522369385,
+              "Roll": 0.9950747489929199,
+              "Yaw": 13.693790435791016
+            },
+            "Quality": {
+              "Brightness": 37.60169982910156,
+              "Sharpness": 80
+            }
+          }
+        ],
+        "OrientationCorrection": "ROTATE_0"
+      },
+      "properties": {
+        "FaceDetails": {
+          "$ref": "#/definitions/FaceDetailList",
+          "description": "Details of each face found in the image. "
+        },
+        "OrientationCorrection": {
+          "$ref": "#/definitions/OrientationCorrection",
+          "description": "<p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degrees of rotation. If your application is displaying the image, you can use this value to adjust the orientation. </p> <p>For example, if the service detects that the input image was rotated by 90 degrees, it corrects orientation, performs face detection, and then returns the faces. That is, the bounding box coordinates in the response are based on the corrected orientation. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "DetectLabelsRequest": {
+      "example": {
+        "Image": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "myphoto"
+          }
+        },
+        "MaxLabels": 123,
+        "MinConfidence": 70
+      },
+      "properties": {
+        "Image": {
+          "$ref": "#/definitions/Image",
+          "description": "The input image. You can provide a blob of image bytes or an S3 object."
+        },
+        "MaxLabels": {
+          "$ref": "#/definitions/UInteger",
+          "description": "Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels. "
+        },
+        "MinConfidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.</p> <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a confidence values greater than or equal to 50 percent.</p>"
+        }
+      },
+      "required": [
+        "Image"
+      ],
+      "type": "object"
+    },
+    "DetectLabelsResponse": {
+      "example": {
+        "Labels": [
+          {
+            "Confidence": 99.25072479248047,
+            "Name": "People"
+          },
+          {
+            "Confidence": 99.25074005126953,
+            "Name": "Person"
+          }
+        ]
+      },
+      "properties": {
+        "Labels": {
+          "$ref": "#/definitions/Labels",
+          "description": "An array of labels for the real-world objects detected. "
+        },
+        "OrientationCorrection": {
+          "$ref": "#/definitions/OrientationCorrection",
+          "description": "<p> Amazon Rekognition returns the orientation of the input image that was detected (clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "DetectModerationLabelsRequest": {
+      "properties": {
+        "Image": {
+          "$ref": "#/definitions/Image"
+        },
+        "MinConfidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "<p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value.</p> <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>"
+        }
+      },
+      "required": [
+        "Image"
+      ],
+      "type": "object"
+    },
+    "DetectModerationLabelsResponse": {
+      "properties": {
+        "ModerationLabels": {
+          "$ref": "#/definitions/ModerationLabels",
+          "description": "A list of labels for explicit or suggestive adult content found in the image. The list includes the top-level label and each child label detected in the image. This is useful for filtering specific categories of content. "
+        }
+      },
+      "type": "object"
+    },
+    "Emotion": {
+      "description": "The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Type": {
+          "$ref": "#/definitions/EmotionName",
+          "description": "Type of emotion detected."
+        }
+      },
+      "type": "object"
+    },
+    "EmotionName": {
+      "enum": [
+        "HAPPY",
+        "SAD",
+        "ANGRY",
+        "CONFUSED",
+        "DISGUSTED",
+        "SURPRISED",
+        "CALM",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "Emotions": {
+      "items": {
+        "$ref": "#/definitions/Emotion"
+      },
+      "type": "array"
+    },
+    "ExternalImageId": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_.\\-:]+",
+      "type": "string"
+    },
+    "EyeOpen": {
+      "description": "Indicates whether or not the eyes on the face are open, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the eyes on the face are open."
+        }
+      },
+      "type": "object"
+    },
+    "Eyeglasses": {
+      "description": "Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the face is wearing eye glasses or not."
+        }
+      },
+      "type": "object"
+    },
+    "Face": {
+      "description": "Describes the face properties such as the bounding box, face ID, image ID of the source image, and external image ID that you assigned. ",
+      "properties": {
+        "BoundingBox": {
+          "$ref": "#/definitions/BoundingBox"
+        },
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Confidence level that the bounding box contains a face (and not a different object such as a tree)."
+        },
+        "ExternalImageId": {
+          "$ref": "#/definitions/ExternalImageId",
+          "description": "Identifier that you assign to all the faces in the input image."
+        },
+        "FaceId": {
+          "$ref": "#/definitions/FaceId",
+          "description": "Unique identifier that Amazon Rekognition assigns to the face."
+        },
+        "ImageId": {
+          "$ref": "#/definitions/ImageId",
+          "description": "Unique identifier that Amazon Rekognition assigns to the source image."
+        }
+      },
+      "type": "object"
+    },
+    "FaceDetail": {
+      "description": "Structure containing attributes of the face that the algorithm detected.",
+      "properties": {
+        "AgeRange": {
+          "$ref": "#/definitions/AgeRange",
+          "description": "The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age."
+        },
+        "Beard": {
+          "$ref": "#/definitions/Beard",
+          "description": "Indicates whether or not the face has a beard, and the confidence level in the determination."
+        },
+        "BoundingBox": {
+          "$ref": "#/definitions/BoundingBox",
+          "description": "Bounding box of the face."
+        },
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Confidence level that the bounding box contains a face (and not a different object such as a tree)."
+        },
+        "Emotions": {
+          "$ref": "#/definitions/Emotions",
+          "description": "The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY. "
+        },
+        "Eyeglasses": {
+          "$ref": "#/definitions/Eyeglasses",
+          "description": "Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination."
+        },
+        "EyesOpen": {
+          "$ref": "#/definitions/EyeOpen",
+          "description": "Indicates whether or not the eyes on the face are open, and the confidence level in the determination."
+        },
+        "Gender": {
+          "$ref": "#/definitions/Gender",
+          "description": "Gender of the face and the confidence level in the determination."
+        },
+        "Landmarks": {
+          "$ref": "#/definitions/Landmarks",
+          "description": "Indicates the location of the landmark on the face."
+        },
+        "MouthOpen": {
+          "$ref": "#/definitions/MouthOpen",
+          "description": "Indicates whether or not the mouth on the face is open, and the confidence level in the determination."
+        },
+        "Mustache": {
+          "$ref": "#/definitions/Mustache",
+          "description": "Indicates whether or not the face has a mustache, and the confidence level in the determination."
+        },
+        "Pose": {
+          "$ref": "#/definitions/Pose",
+          "description": "Indicates the pose of the face as determined by pitch, roll, and the yaw."
+        },
+        "Quality": {
+          "$ref": "#/definitions/ImageQuality",
+          "description": "Identifies image brightness and sharpness."
+        },
+        "Smile": {
+          "$ref": "#/definitions/Smile",
+          "description": "Indicates whether or not the face is smiling, and the confidence level in the determination."
+        },
+        "Sunglasses": {
+          "$ref": "#/definitions/Sunglasses",
+          "description": "Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination."
+        }
+      },
+      "type": "object"
+    },
+    "FaceDetailList": {
+      "items": {
+        "$ref": "#/definitions/FaceDetail"
+      },
+      "type": "array"
+    },
+    "FaceId": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string"
+    },
+    "FaceIdList": {
+      "items": {
+        "$ref": "#/definitions/FaceId"
+      },
+      "maxItems": 4096,
+      "minItems": 1,
+      "type": "array"
+    },
+    "FaceList": {
+      "items": {
+        "$ref": "#/definitions/Face"
+      },
+      "type": "array"
+    },
+    "FaceMatch": {
+      "description": "Provides face metadata. In addition, it also provides the confidence in the match of this face with the input face.",
+      "properties": {
+        "Face": {
+          "$ref": "#/definitions/Face"
+        },
+        "Similarity": {
+          "$ref": "#/definitions/Percent",
+          "description": "Confidence in the match of this face with the input face."
+        }
+      },
+      "type": "object"
+    },
+    "FaceMatchList": {
+      "items": {
+        "$ref": "#/definitions/FaceMatch"
+      },
+      "type": "array"
+    },
+    "FaceRecord": {
+      "description": "Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren't stored in the database.",
+      "properties": {
+        "Face": {
+          "$ref": "#/definitions/Face"
+        },
+        "FaceDetail": {
+          "$ref": "#/definitions/FaceDetail"
+        }
+      },
+      "type": "object"
+    },
+    "FaceRecordList": {
+      "items": {
+        "$ref": "#/definitions/FaceRecord"
+      },
+      "type": "array"
+    },
+    "Float": {
+      "format": "float",
+      "type": "number"
+    },
+    "Gender": {
+      "description": "Gender of the face and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/GenderType",
+          "description": "Gender of the face."
+        }
+      },
+      "type": "object"
+    },
+    "GenderType": {
+      "enum": [
+        "MALE",
+        "FEMALE"
+      ],
+      "type": "string"
+    },
+    "Image": {
+      "description": "<p>Provides the source image either as bytes or an S3 object.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>You may need to Base64-encode the image bytes depending on the language you are using and whether or not you are using the AWS SDK. For more information, see <a>example4</a>.</p> <p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>",
+      "properties": {
+        "Bytes": {
+          "$ref": "#/definitions/ImageBlob",
+          "description": "Blob of image bytes up to 5 MBs."
+        },
+        "S3Object": {
+          "$ref": "#/definitions/S3Object",
+          "description": "Identifies an S3 object as the image source."
+        }
+      },
+      "type": "object"
+    },
+    "ImageBlob": {
+      "maxLength": 5242880,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ImageId": {
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      "type": "string"
+    },
+    "ImageQuality": {
+      "description": "Identifies face image brightness and sharpness. ",
+      "properties": {
+        "Brightness": {
+          "$ref": "#/definitions/Float",
+          "description": "Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image."
+        },
+        "Sharpness": {
+          "$ref": "#/definitions/Float",
+          "description": "Value representing sharpness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a sharper face image."
+        }
+      },
+      "type": "object"
+    },
+    "ImageTooLargeException": {
+      "description": "The input image size exceeds the allowed limit. For more information, see <a>limits</a>. ",
+      "properties": {},
+      "type": "object"
+    },
+    "IndexFacesRequest": {
+      "example": {
+        "CollectionId": "myphotos",
+        "DetectionAttributes": [],
+        "ExternalImageId": "myphotoid",
+        "Image": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "myphoto"
+          }
+        }
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "The ID of an existing collection to which you want to add the faces that are detected in the input images."
+        },
+        "DetectionAttributes": {
+          "$ref": "#/definitions/Attributes",
+          "description": "<p>A list of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>[\"DEFAULT\"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>[\"ALL\"]</code>, all facial attributes are returned but the operation will take longer to complete.</p> <p>If you provide both, <code>[\"ALL\", \"DEFAULT\"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>"
+        },
+        "ExternalImageId": {
+          "$ref": "#/definitions/ExternalImageId",
+          "description": "ID you want to assign to all the faces detected in the image."
+        },
+        "Image": {
+          "$ref": "#/definitions/Image"
+        }
+      },
+      "required": [
+        "CollectionId",
+        "Image"
+      ],
+      "type": "object"
+    },
+    "IndexFacesResponse": {
+      "example": {
+        "FaceRecords": [
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.33481481671333313,
+                "Left": 0.31888890266418457,
+                "Top": 0.4933333396911621,
+                "Width": 0.25
+              },
+              "Confidence": 99.9991226196289,
+              "FaceId": "ff43d742-0c13-5d16-a3e8-03d3f58e980b",
+              "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+            },
+            "FaceDetail": {
+              "BoundingBox": {
+                "Height": 0.33481481671333313,
+                "Left": 0.31888890266418457,
+                "Top": 0.4933333396911621,
+                "Width": 0.25
+              },
+              "Confidence": 99.9991226196289,
+              "Landmarks": [
+                {
+                  "Type": "EYE_LEFT",
+                  "X": 0.3976764678955078,
+                  "Y": 0.6248345971107483
+                },
+                {
+                  "Type": "EYE_RIGHT",
+                  "X": 0.4810936450958252,
+                  "Y": 0.6317117214202881
+                },
+                {
+                  "Type": "NOSE_LEFT",
+                  "X": 0.41986238956451416,
+                  "Y": 0.7111940383911133
+                },
+                {
+                  "Type": "MOUTH_DOWN",
+                  "X": 0.40525302290916443,
+                  "Y": 0.7497701048851013
+                },
+                {
+                  "Type": "MOUTH_UP",
+                  "X": 0.4753248989582062,
+                  "Y": 0.7558549642562866
+                }
+              ],
+              "Pose": {
+                "Pitch": -9.713645935058594,
+                "Roll": 4.707281112670898,
+                "Yaw": -24.438663482666016
+              },
+              "Quality": {
+                "Brightness": 29.23358917236328,
+                "Sharpness": 80
+              }
+            }
+          },
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.32592591643333435,
+                "Left": 0.5144444704055786,
+                "Top": 0.15111111104488373,
+                "Width": 0.24444444477558136
+              },
+              "Confidence": 99.99950408935547,
+              "FaceId": "8be04dba-4e58-520d-850e-9eae4af70eb2",
+              "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+            },
+            "FaceDetail": {
+              "BoundingBox": {
+                "Height": 0.32592591643333435,
+                "Left": 0.5144444704055786,
+                "Top": 0.15111111104488373,
+                "Width": 0.24444444477558136
+              },
+              "Confidence": 99.99950408935547,
+              "Landmarks": [
+                {
+                  "Type": "EYE_LEFT",
+                  "X": 0.6006892323493958,
+                  "Y": 0.290842205286026
+                },
+                {
+                  "Type": "EYE_RIGHT",
+                  "X": 0.6808141469955444,
+                  "Y": 0.29609042406082153
+                },
+                {
+                  "Type": "NOSE_LEFT",
+                  "X": 0.6395332217216492,
+                  "Y": 0.3522595763206482
+                },
+                {
+                  "Type": "MOUTH_DOWN",
+                  "X": 0.5892083048820496,
+                  "Y": 0.38689887523651123
+                },
+                {
+                  "Type": "MOUTH_UP",
+                  "X": 0.674560010433197,
+                  "Y": 0.394125759601593
+                }
+              ],
+              "Pose": {
+                "Pitch": -4.683138370513916,
+                "Roll": 2.1029529571533203,
+                "Yaw": 6.716655254364014
+              },
+              "Quality": {
+                "Brightness": 34.951698303222656,
+                "Sharpness": 160
+              }
+            }
+          }
+        ],
+        "OrientationCorrection": "ROTATE_0"
+      },
+      "properties": {
+        "FaceRecords": {
+          "$ref": "#/definitions/FaceRecordList",
+          "description": "An array of faces detected and added to the collection. For more information, see <a>howitworks-index-faces</a>. "
+        },
+        "OrientationCorrection": {
+          "$ref": "#/definitions/OrientationCorrection",
+          "description": "<p>The algorithm detects the image orientation. If it detects that the image was rotated, it returns the degree of rotation. You can use this value to correct the orientation and also appropriately analyze the bounding box coordinates that are returned. </p> <note> <p>If the source image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be nil.</p> </note>"
+        }
+      },
+      "type": "object"
+    },
+    "InternalServerError": {
+      "description": "Amazon Rekognition experienced a service issue. Try your call again.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidImageFormatException": {
+      "description": "The provided image format is not supported. ",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidPaginationTokenException": {
+      "description": "Pagination token in the request is not valid.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidParameterException": {
+      "description": "Input parameter violated a constraint. Validate your parameter before calling the API operation again.",
+      "properties": {},
+      "type": "object"
+    },
+    "InvalidS3ObjectException": {
+      "description": "Amazon Rekognition is unable to access the S3 object specified in the request.",
+      "properties": {},
+      "type": "object"
+    },
+    "Label": {
+      "description": "Structure containing details about the detected label, including name, and level of confidence.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence."
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The name (label) of the object."
+        }
+      },
+      "type": "object"
+    },
+    "Labels": {
+      "items": {
+        "$ref": "#/definitions/Label"
+      },
+      "type": "array"
+    },
+    "Landmark": {
+      "description": "Indicates the location of the landmark on the face.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/LandmarkType",
+          "description": "Type of the landmark."
+        },
+        "X": {
+          "$ref": "#/definitions/Float",
+          "description": "x-coordinate from the top left of the landmark expressed as the ration of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. "
+        },
+        "Y": {
+          "$ref": "#/definitions/Float",
+          "description": "y-coordinate from the top left of the landmark expressed as the ration of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5."
+        }
+      },
+      "type": "object"
+    },
+    "LandmarkType": {
+      "enum": [
+        "EYE_LEFT",
+        "EYE_RIGHT",
+        "NOSE",
+        "MOUTH_LEFT",
+        "MOUTH_RIGHT",
+        "LEFT_EYEBROW_LEFT",
+        "LEFT_EYEBROW_RIGHT",
+        "LEFT_EYEBROW_UP",
+        "RIGHT_EYEBROW_LEFT",
+        "RIGHT_EYEBROW_RIGHT",
+        "RIGHT_EYEBROW_UP",
+        "LEFT_EYE_LEFT",
+        "LEFT_EYE_RIGHT",
+        "LEFT_EYE_UP",
+        "LEFT_EYE_DOWN",
+        "RIGHT_EYE_LEFT",
+        "RIGHT_EYE_RIGHT",
+        "RIGHT_EYE_UP",
+        "RIGHT_EYE_DOWN",
+        "NOSE_LEFT",
+        "NOSE_RIGHT",
+        "MOUTH_UP",
+        "MOUTH_DOWN",
+        "LEFT_PUPIL",
+        "RIGHT_PUPIL"
+      ],
+      "type": "string"
+    },
+    "Landmarks": {
+      "items": {
+        "$ref": "#/definitions/Landmark"
+      },
+      "type": "array"
+    },
+    "ListCollectionsRequest": {
+      "example": {},
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "Maximum number of collection IDs to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "Pagination token from the previous response."
+        }
+      },
+      "type": "object"
+    },
+    "ListCollectionsResponse": {
+      "example": {
+        "CollectionIds": [
+          "myphotos"
+        ]
+      },
+      "properties": {
+        "CollectionIds": {
+          "$ref": "#/definitions/CollectionIdList",
+          "description": "An array of collection IDs."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If the result is truncated, the response provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs."
+        }
+      },
+      "type": "object"
+    },
+    "ListFacesRequest": {
+      "example": {
+        "CollectionId": "myphotos",
+        "MaxResults": 20
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "ID of the collection from which to list the faces."
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/PageSize",
+          "description": "Maximum number of faces to return."
+        },
+        "NextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces."
+        }
+      },
+      "required": [
+        "CollectionId"
+      ],
+      "type": "object"
+    },
+    "ListFacesResponse": {
+      "example": {
+        "Faces": [
+          {
+            "BoundingBox": {
+              "Height": 0.18000000715255737,
+              "Left": 0.5555559992790222,
+              "Top": 0.336667001247406,
+              "Width": 0.23999999463558197
+            },
+            "Confidence": 100,
+            "FaceId": "1c62e8b5-69a7-5b7d-b3cd-db4338a8a7e7",
+            "ImageId": "147fdf82-7a71-52cf-819b-e786c7b9746e"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.16555599868297577,
+              "Left": 0.30963000655174255,
+              "Top": 0.7066670060157776,
+              "Width": 0.22074100375175476
+            },
+            "Confidence": 100,
+            "FaceId": "29a75abe-397b-5101-ba4f-706783b2246c",
+            "ImageId": "147fdf82-7a71-52cf-819b-e786c7b9746e"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.3234420120716095,
+              "Left": 0.3233329951763153,
+              "Top": 0.5,
+              "Width": 0.24222199618816376
+            },
+            "Confidence": 99.99829864501953,
+            "FaceId": "38271d79-7bc2-5efb-b752-398a8d575b85",
+            "ImageId": "d5631190-d039-54e4-b267-abd22c8647c5"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.03555560111999512,
+              "Left": 0.37388700246810913,
+              "Top": 0.2477779984474182,
+              "Width": 0.04747769981622696
+            },
+            "Confidence": 99.99210357666016,
+            "FaceId": "3b01bef0-c883-5654-ba42-d5ad28b720b3",
+            "ImageId": "812d9f04-86f9-54fc-9275-8d0dcbcb6784"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.05333330109715462,
+              "Left": 0.2937690019607544,
+              "Top": 0.35666701197624207,
+              "Width": 0.07121659815311432
+            },
+            "Confidence": 99.99919891357422,
+            "FaceId": "4839a608-49d0-566c-8301-509d71b534d1",
+            "ImageId": "812d9f04-86f9-54fc-9275-8d0dcbcb6784"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.3249259889125824,
+              "Left": 0.5155559778213501,
+              "Top": 0.1513350009918213,
+              "Width": 0.24333299696445465
+            },
+            "Confidence": 99.99949645996094,
+            "FaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14",
+            "ImageId": "d5631190-d039-54e4-b267-abd22c8647c5"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.03777780011296272,
+              "Left": 0.7002969980239868,
+              "Top": 0.18777799606323242,
+              "Width": 0.05044509842991829
+            },
+            "Confidence": 99.92639923095703,
+            "FaceId": "7f5f88ed-d684-5a88-b0df-01e4a521552b",
+            "ImageId": "812d9f04-86f9-54fc-9275-8d0dcbcb6784"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.05555560067296028,
+              "Left": 0.13946600258350372,
+              "Top": 0.46333301067352295,
+              "Width": 0.07270029932260513
+            },
+            "Confidence": 99.99469757080078,
+            "FaceId": "895b4e2c-81de-5902-a4bd-d1792bda00b2",
+            "ImageId": "812d9f04-86f9-54fc-9275-8d0dcbcb6784"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.3259260058403015,
+              "Left": 0.5144439935684204,
+              "Top": 0.15111100673675537,
+              "Width": 0.24444399774074554
+            },
+            "Confidence": 99.99949645996094,
+            "FaceId": "8be04dba-4e58-520d-850e-9eae4af70eb2",
+            "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.18888899683952332,
+              "Left": 0.3783380091190338,
+              "Top": 0.2355560064315796,
+              "Width": 0.25222599506378174
+            },
+            "Confidence": 99.9999008178711,
+            "FaceId": "908544ad-edc3-59df-8faf-6a87cc256cf5",
+            "ImageId": "3c731605-d772-541a-a5e7-0375dbc68a07"
+          },
+          {
+            "BoundingBox": {
+              "Height": 0.33481499552726746,
+              "Left": 0.31888899207115173,
+              "Top": 0.49333301186561584,
+              "Width": 0.25
+            },
+            "Confidence": 99.99909973144531,
+            "FaceId": "ff43d742-0c13-5d16-a3e8-03d3f58e980b",
+            "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+          }
+        ]
+      },
+      "properties": {
+        "Faces": {
+          "$ref": "#/definitions/FaceList",
+          "description": "An array of <code>Face</code> objects. "
+        },
+        "NextToken": {
+          "$ref": "#/definitions/String",
+          "description": "If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces."
+        }
+      },
+      "type": "object"
+    },
+    "MaxFaces": {
+      "maximum": 4096,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "ModerationLabel": {
+      "description": "Provides information about a single type of moderated content found in an image. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see <a>howitworks-moderateimage</a>.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "<p>Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.</p> <p>If you don't specify the <code>MinConfidence</code> parameter in the call to <code>DetectModerationLabels</code>, the operation returns labels with a confidence value greater than or equal to 50 percent.</p>"
+        },
+        "Name": {
+          "$ref": "#/definitions/String",
+          "description": "The label name for the type of content detected in the image."
+        },
+        "ParentName": {
+          "$ref": "#/definitions/String",
+          "description": "The name for the parent label. Labels at the top-level of the hierarchy have the parent label <code>\"\"</code>."
+        }
+      },
+      "type": "object"
+    },
+    "ModerationLabels": {
+      "items": {
+        "$ref": "#/definitions/ModerationLabel"
+      },
+      "type": "array"
+    },
+    "MouthOpen": {
+      "description": "Indicates whether or not the mouth on the face is open, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the mouth on the face is open or not."
+        }
+      },
+      "type": "object"
+    },
+    "Mustache": {
+      "description": "Indicates whether or not the face has a mustache, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the face has mustache or not."
+        }
+      },
+      "type": "object"
+    },
+    "OrientationCorrection": {
+      "enum": [
+        "ROTATE_0",
+        "ROTATE_90",
+        "ROTATE_180",
+        "ROTATE_270"
+      ],
+      "type": "string"
+    },
+    "PageSize": {
+      "maximum": 4096,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PaginationToken": {
+      "maxLength": 255,
+      "type": "string"
+    },
+    "Percent": {
+      "format": "float",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+    },
+    "Pose": {
+      "description": "Indicates the pose of the face as determined by pitch, roll, and the yaw.",
+      "properties": {
+        "Pitch": {
+          "$ref": "#/definitions/Degree",
+          "description": "Value representing the face rotation on the pitch axis."
+        },
+        "Roll": {
+          "$ref": "#/definitions/Degree",
+          "description": "Value representing the face rotation on the roll axis."
+        },
+        "Yaw": {
+          "$ref": "#/definitions/Degree",
+          "description": "Value representing the face rotation on the yaw axis."
+        }
+      },
+      "type": "object"
+    },
+    "ProvisionedThroughputExceededException": {
+      "description": "The number of requests exceeded your throughput limit. If you want to increase this limit, contact Amazon Rekognition.",
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceAlreadyExistsException": {
+      "description": "A collection with the specified ID already exists.",
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceNotFoundException": {
+      "description": "Collection specified in the request is not found.",
+      "properties": {},
+      "type": "object"
+    },
+    "S3Bucket": {
+      "maxLength": 255,
+      "minLength": 3,
+      "pattern": "[0-9A-Za-z\\.\\-_]*",
+      "type": "string"
+    },
+    "S3Object": {
+      "description": "<p>Provides the S3 bucket name and object name.</p> <p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p> <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>",
+      "properties": {
+        "Bucket": {
+          "$ref": "#/definitions/S3Bucket",
+          "description": "Name of the S3 bucket."
+        },
+        "Name": {
+          "$ref": "#/definitions/S3ObjectName",
+          "description": "S3 object key name."
+        },
+        "Version": {
+          "$ref": "#/definitions/S3ObjectVersion",
+          "description": "If the bucket is versioning enabled, you can specify the object version. "
+        }
+      },
+      "type": "object"
+    },
+    "S3ObjectName": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "S3ObjectVersion": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SearchFacesByImageRequest": {
+      "example": {
+        "CollectionId": "myphotos",
+        "FaceMatchThreshold": 95,
+        "Image": {
+          "S3Object": {
+            "Bucket": "mybucket",
+            "Name": "myphoto"
+          }
+        },
+        "MaxFaces": 5
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "ID of the collection to search."
+        },
+        "FaceMatchThreshold": {
+          "$ref": "#/definitions/Percent",
+          "description": "(Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%."
+        },
+        "Image": {
+          "$ref": "#/definitions/Image"
+        },
+        "MaxFaces": {
+          "$ref": "#/definitions/MaxFaces",
+          "description": "Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match."
+        }
+      },
+      "required": [
+        "CollectionId",
+        "Image"
+      ],
+      "type": "object"
+    },
+    "SearchFacesByImageResponse": {
+      "example": {
+        "FaceMatches": [
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.3234420120716095,
+                "Left": 0.3233329951763153,
+                "Top": 0.5,
+                "Width": 0.24222199618816376
+              },
+              "Confidence": 99.99829864501953,
+              "FaceId": "38271d79-7bc2-5efb-b752-398a8d575b85",
+              "ImageId": "d5631190-d039-54e4-b267-abd22c8647c5"
+            },
+            "Similarity": 99.97036743164062
+          }
+        ],
+        "SearchedFaceBoundingBox": {
+          "Height": 0.33481481671333313,
+          "Left": 0.31888890266418457,
+          "Top": 0.4933333396911621,
+          "Width": 0.25
+        },
+        "SearchedFaceConfidence": 99.9991226196289
+      },
+      "properties": {
+        "FaceMatches": {
+          "$ref": "#/definitions/FaceMatchList",
+          "description": "An array of faces that match the input face, along with the confidence in the match."
+        },
+        "SearchedFaceBoundingBox": {
+          "$ref": "#/definitions/BoundingBox",
+          "description": "The bounding box around the face in the input image that Amazon Rekognition used for the search."
+        },
+        "SearchedFaceConfidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a face."
+        }
+      },
+      "type": "object"
+    },
+    "SearchFacesRequest": {
+      "example": {
+        "CollectionId": "myphotos",
+        "FaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14",
+        "FaceMatchThreshold": 90,
+        "MaxFaces": 10
+      },
+      "properties": {
+        "CollectionId": {
+          "$ref": "#/definitions/CollectionId",
+          "description": "ID of the collection the face belongs to."
+        },
+        "FaceId": {
+          "$ref": "#/definitions/FaceId",
+          "description": "ID of a face to find matches for in the collection."
+        },
+        "FaceMatchThreshold": {
+          "$ref": "#/definitions/Percent",
+          "description": "Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%."
+        },
+        "MaxFaces": {
+          "$ref": "#/definitions/MaxFaces",
+          "description": "Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match."
+        }
+      },
+      "required": [
+        "CollectionId",
+        "FaceId"
+      ],
+      "type": "object"
+    },
+    "SearchFacesResponse": {
+      "example": {
+        "FaceMatches": [
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.3259260058403015,
+                "Left": 0.5144439935684204,
+                "Top": 0.15111100673675537,
+                "Width": 0.24444399774074554
+              },
+              "Confidence": 99.99949645996094,
+              "FaceId": "8be04dba-4e58-520d-850e-9eae4af70eb2",
+              "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+            },
+            "Similarity": 99.97222137451172
+          },
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.16555599868297577,
+                "Left": 0.30963000655174255,
+                "Top": 0.7066670060157776,
+                "Width": 0.22074100375175476
+              },
+              "Confidence": 100,
+              "FaceId": "29a75abe-397b-5101-ba4f-706783b2246c",
+              "ImageId": "147fdf82-7a71-52cf-819b-e786c7b9746e"
+            },
+            "Similarity": 97.04154968261719
+          },
+          {
+            "Face": {
+              "BoundingBox": {
+                "Height": 0.18888899683952332,
+                "Left": 0.3783380091190338,
+                "Top": 0.2355560064315796,
+                "Width": 0.25222599506378174
+              },
+              "Confidence": 99.9999008178711,
+              "FaceId": "908544ad-edc3-59df-8faf-6a87cc256cf5",
+              "ImageId": "3c731605-d772-541a-a5e7-0375dbc68a07"
+            },
+            "Similarity": 95.94520568847656
+          }
+        ],
+        "SearchedFaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14"
+      },
+      "properties": {
+        "FaceMatches": {
+          "$ref": "#/definitions/FaceMatchList",
+          "description": "An array of faces that matched the input face, along with the confidence in the match."
+        },
+        "SearchedFaceId": {
+          "$ref": "#/definitions/FaceId",
+          "description": "ID of the face that was searched for matches in a collection."
+        }
+      },
+      "type": "object"
+    },
+    "Smile": {
+      "description": "Indicates whether or not the face is smiling, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the face is smiling or not."
+        }
+      },
+      "type": "object"
+    },
+    "String": {
+      "type": "string"
+    },
+    "Sunglasses": {
+      "description": "Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.",
+      "properties": {
+        "Confidence": {
+          "$ref": "#/definitions/Percent",
+          "description": "Level of confidence in the determination."
+        },
+        "Value": {
+          "$ref": "#/definitions/Boolean",
+          "description": "Boolean value that indicates whether the face is wearing sunglasses or not."
+        }
+      },
+      "type": "object"
+    },
+    "ThrottlingException": {
+      "description": "Amazon Rekognition is temporarily unable to process the request. Try your call again.",
+      "properties": {},
+      "type": "object"
+    },
+    "UInteger": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "actions": [
+    {
+      "id": "CompareFaces",
+      "title": "CompareFaces",
+      "description": "<p>Compares a face in the <i>source</i> input image with each face detected in the <i>target</i> input image. </p> <note> <p> If the source image contains multiple faces, the service detects the largest face and uses it to compare with each face detected in the target image. </p> </note> <p>In response, the operation returns an array of face matches ordered by similarity score with the highest similarity scores first. For each face match, the response provides a bounding box of the face and <code>confidence</code> value (indicating the level of confidence that the bounding box contains a face). The response also provides a <code>similarity</code> score, which indicates how closely the faces match. </p> <note> <p>By default, only faces with the similarity score of greater than or equal to 80% are returned in the response. You can change this value.</p> </note> <p>In addition to the face matches, the response returns information about the face in the source image, including the bounding box of the face and confidence value.</p> <note> <p> This is a stateless API operation. That is, the operation does not persist any data.</p> </note> <p>For an example, see <a>get-started-exercise-compare-faces</a> </p> <p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CompareFacesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CompareFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "CreateCollection",
+      "title": "CreateCollection",
+      "description": "<p>Creates a collection in an AWS Region. You can add faces to the collection using the operation. </p> <p>For example, you might create collections, one for each of your application users. A user can then index faces using the <code>IndexFaces</code> operation and persist results in a specific collection. Then, a user can search the collection for faces in the user-specific container. </p> <p>For an example, see <a>example1</a>. </p> <p>This operation requires permissions to perform the <code>rekognition:CreateCollection</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateCollectionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCollectionResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "DeleteCollection",
+      "title": "DeleteCollection",
+      "description": "<p>Deletes the specified collection. Note that this operation removes all faces in the collection. For an example, see <a>example1</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteCollection</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteCollectionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteCollectionResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "DeleteFaces",
+      "title": "DeleteFaces",
+      "description": "<p>Deletes faces from a collection. You specify a collection ID and an array of face IDs to remove from the collection.</p> <p>This operation requires permissions to perform the <code>rekognition:DeleteFaces</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteFacesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "DetectFaces",
+      "title": "DetectFaces",
+      "description": "<p>Detects faces within an image (JPEG or PNG) that is provided as input.</p> <p> For each face detected, the operation returns face details including a bounding box of the face, a confidence value (that the bounding box contains a face), and a fixed set of attributes such as facial landmarks (for example, coordinates of eye and mouth), gender, presence of beard, sunglasses, etc. </p> <p>The face-detection algorithm is most effective on frontal faces. For non-frontal or obscured faces, the algorithm may not detect the faces or might detect faces with lower confidence. </p> <note> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> </note> <p>For an example, see <a>get-started-exercise-detect-faces</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectFaces</code> action. </p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DetectFacesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "DetectLabels",
+      "title": "DetectLabels",
+      "description": "<p>Detects instances of real-world labels within an image (JPEG or PNG) provided as input. This includes objects like flower, tree, and table; events like wedding, graduation, and birthday party; and concepts like landscape, evening, and nature. For an example, see <a>get-started-exercise-detect-labels</a>.</p> <p> For each object, scene, and concept the API returns one or more labels. Each label provides the object name, and the level of confidence that the image contains the object. For example, suppose the input image has a lighthouse, the sea, and a rock. The response will include all three labels, one for each object. </p> <p> <code>{Name: lighthouse, Confidence: 98.4629}</code> </p> <p> <code>{Name: rock,Confidence: 79.2097}</code> </p> <p> <code> {Name: sea,Confidence: 75.061}</code> </p> <p> In the preceding example, the operation returns one label for each of the three objects. The operation can also return multiple labels for the same object in the image. For example, if the input image shows a flower (for example, a tulip), the operation might return the following three labels. </p> <p> <code>{Name: flower,Confidence: 99.0562}</code> </p> <p> <code>{Name: plant,Confidence: 99.0562}</code> </p> <p> <code>{Name: tulip,Confidence: 99.0562}</code> </p> <p>In this example, the detection algorithm more precisely identifies the flower as a tulip.</p> <p>You can provide the input image as an S3 object or as base64-encoded bytes. In response, the API returns an array of labels. In addition, the response also includes the orientation correction. Optionally, you can specify <code>MinConfidence</code> to control the confidence threshold for the labels returned. The default is 50%. You can also add the <code>MaxLabels</code> parameter to limit the number of labels returned. </p> <note> <p>If the object detected is a person, the operation doesn't provide the same facial details that the <a>DetectFaces</a> operation provides.</p> </note> <p>This is a stateless API operation. That is, the operation does not persist any data.</p> <p>This operation requires permissions to perform the <code>rekognition:DetectLabels</code> action. </p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DetectLabelsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectLabelsResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "DetectModerationLabels",
+      "title": "DetectModerationLabels",
+      "description": "<p>Detects explicit or suggestive adult content in a specified .jpeg or .png image. Use <code>DetectModerationLabels</code> to moderate images depending on your requirements. For example, you might want to filter images that contain nudity, but not images containing suggestive content.</p> <p>To filter images, use the labels returned by <code>DetectModerationLabels</code> to determine which types of content are appropriate. For information about moderation labels, see <a>howitworks-moderateimage</a>.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DetectModerationLabelsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DetectModerationLabelsResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "IndexFaces",
+      "title": "IndexFaces",
+      "description": "<p>Detects faces in the input image and adds them to the specified collection. </p> <p> Amazon Rekognition does not save the actual faces detected. Instead, the underlying detection algorithm first detects the faces in the input image, and for each face extracts facial features into a feature vector, and stores it in the back-end database. Amazon Rekognition uses feature vectors when performing face match and search operations using the and operations. </p> <p>If you provide the optional <code>externalImageID</code> for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image. </p> <p>In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image If you request all facial attributes (using the <code>detectionAttributes</code> parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mount) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata. </p> <p>For an example, see <a>example2</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:IndexFaces</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/IndexFacesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/IndexFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "ListCollections",
+      "title": "ListCollections",
+      "description": "<p>Returns list of collection IDs in your account. If the result is truncated, the response also provides a <code>NextToken</code> that you can use in the subsequent request to fetch the next set of collection IDs.</p> <p>For an example, see <a>example1</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListCollectionsRequest"
+          },
+          "MaxResults": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "NextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCollectionsResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "ListFaces",
+      "title": "ListFaces",
+      "description": "<p>Returns metadata for faces in the specified collection. This metadata includes information such as the bounding box coordinates, the confidence (that the bounding box contains a face), and face ID. For an example, see <a>example3</a>. </p> <p>This operation requires permissions to perform the <code>rekognition:ListFaces</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListFacesRequest"
+          },
+          "MaxResults": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "NextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "SearchFaces",
+      "title": "SearchFaces",
+      "description": "<p>For a given input face ID, searches for matching faces in the collection the face belongs to. You get a face ID when you add a face to the collection using the <a>IndexFaces</a> operation. The operation compares the features of the input face with faces in the specified collection. </p> <note> <p>You can also search faces without indexing faces by using the <code>SearchFacesByImage</code> operation.</p> </note> <p> The operation response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match that is found. Along with the metadata, the response also includes a <code>confidence</code> value for each face match, indicating the confidence that the specific face matches the input face. </p> <p>For an example, see <a>example3</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SearchFacesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchFacesResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    },
+    {
+      "id": "SearchFacesByImage",
+      "title": "SearchFacesByImage",
+      "description": "<p>For a given input image, first detects the largest face in the image, and then searches the specified collection for matching faces. The operation compares the features of the input face with faces in the specified collection. </p> <note> <p> To search for all faces in an input image, you might first call the operation, and then use the face IDs returned in subsequent calls to the operation. </p> <p> You can also call the <code>DetectFaces</code> operation and use the bounding boxes in the response to make face crops, which then you can pass in to the <code>SearchFacesByImage</code> operation. </p> </note> <p> The response returns an array of faces that match, ordered by similarity score with the highest similarity first. More specifically, it is an array of metadata for each face match found. Along with the metadata, the response also includes a <code>similarity</code> indicating how similar the face is to the input face. In the response, the operation also returns the bounding box (and a confidence level that the bounding box contains a face) of the face that Amazon Rekognition used for the input image. </p> <p>For an example, see <a>example3</a>.</p> <p>This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code> action.</p>",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SearchFacesByImageRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/SearchFacesByImageResponse"
+      },
+      "security": {
+        "amazonaws_rekognition": {
+          "integration": "amazonaws_rekognition"
+        }
+      }
+    }
+  ]
+}

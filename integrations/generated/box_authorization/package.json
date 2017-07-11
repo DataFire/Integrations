@@ -1,6 +1,6 @@
 {
   "name": "@datafire/box_authorization",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "description": "DataFire integration for Box 2.0 Authorization",
   "repository": {

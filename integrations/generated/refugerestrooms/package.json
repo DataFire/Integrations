@@ -1,6 +1,6 @@
 {
   "name": "@datafire/refugerestrooms",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "description": "DataFire integration for Refuge Restrooms",
   "repository": {

@@ -1,0 +1,1455 @@
+{
+  "id": "amazonaws_budgets",
+  "title": "AWS Budgets",
+  "description": "All public APIs for AWS Budgets",
+  "security": {
+    "amazonaws_budgets": {
+      "integration": "amazonaws_budgets",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AccountId": {
+      "description": "Account Id of the customer. It should be a 12 digit number.",
+      "maxLength": 12,
+      "minLength": 12,
+      "type": "string"
+    },
+    "Budget": {
+      "description": "AWS Budget model",
+      "properties": {
+        "BudgetLimit": {
+          "$ref": "#/definitions/Spend"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "BudgetType": {
+          "$ref": "#/definitions/BudgetType"
+        },
+        "CalculatedSpend": {
+          "$ref": "#/definitions/CalculatedSpend"
+        },
+        "CostFilters": {
+          "$ref": "#/definitions/CostFilters"
+        },
+        "CostTypes": {
+          "$ref": "#/definitions/CostTypes"
+        },
+        "TimePeriod": {
+          "$ref": "#/definitions/TimePeriod"
+        },
+        "TimeUnit": {
+          "$ref": "#/definitions/TimeUnit"
+        }
+      },
+      "required": [
+        "BudgetName",
+        "BudgetLimit",
+        "CostTypes",
+        "TimeUnit",
+        "TimePeriod",
+        "BudgetType"
+      ],
+      "type": "object"
+    },
+    "BudgetName": {
+      "description": "A string represents the budget name. No \":\" character is allowed.",
+      "maxLength": 100,
+      "pattern": "[^:]+",
+      "type": "string"
+    },
+    "BudgetType": {
+      "description": "The type of a budget. Can be COST or USAGE.",
+      "enum": [
+        "USAGE",
+        "COST"
+      ],
+      "type": "string"
+    },
+    "Budgets": {
+      "description": "A list of budgets",
+      "items": {
+        "$ref": "#/definitions/Budget"
+      },
+      "type": "array"
+    },
+    "CalculatedSpend": {
+      "description": "A structure holds the actual and forecasted spend for a budget.",
+      "properties": {
+        "ActualSpend": {
+          "$ref": "#/definitions/Spend"
+        },
+        "ForecastedSpend": {
+          "$ref": "#/definitions/Spend"
+        }
+      },
+      "required": [
+        "ActualSpend"
+      ],
+      "type": "object"
+    },
+    "ComparisonOperator": {
+      "description": "The comparison operator of a notification. Currently we support less than, equal to and greater than.",
+      "enum": [
+        "GREATER_THAN",
+        "LESS_THAN",
+        "EQUAL_TO"
+      ],
+      "type": "string"
+    },
+    "CostFilters": {
+      "description": "A map represents the cost filters applied to the budget.",
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/GenericString"
+          },
+          "value": {
+            "$ref": "#/definitions/DimensionValues"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "CostTypes": {
+      "description": "This includes the options for getting the cost of a budget.",
+      "properties": {
+        "IncludeSubscription": {
+          "$ref": "#/definitions/GenericBoolean"
+        },
+        "IncludeTax": {
+          "$ref": "#/definitions/GenericBoolean"
+        },
+        "UseBlended": {
+          "$ref": "#/definitions/GenericBoolean"
+        }
+      },
+      "required": [
+        "IncludeTax",
+        "IncludeSubscription",
+        "UseBlended"
+      ],
+      "type": "object"
+    },
+    "CreateBudgetRequest": {
+      "description": "Request of CreateBudget",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "Budget": {
+          "$ref": "#/definitions/Budget"
+        },
+        "NotificationsWithSubscribers": {
+          "$ref": "#/definitions/NotificationWithSubscribersList"
+        }
+      },
+      "required": [
+        "AccountId",
+        "Budget"
+      ],
+      "type": "object"
+    },
+    "CreateBudgetResponse": {
+      "description": "Response of CreateBudget",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateNotificationRequest": {
+      "description": "Request of CreateNotification",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/Subscribers"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification",
+        "Subscribers"
+      ],
+      "type": "object"
+    },
+    "CreateNotificationResponse": {
+      "description": "Response of CreateNotification",
+      "properties": {},
+      "type": "object"
+    },
+    "CreateSubscriberRequest": {
+      "description": "Request of CreateSubscriber",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "Subscriber": {
+          "$ref": "#/definitions/Subscriber"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification",
+        "Subscriber"
+      ],
+      "type": "object"
+    },
+    "CreateSubscriberResponse": {
+      "description": "Response of CreateSubscriber",
+      "properties": {},
+      "type": "object"
+    },
+    "CreationLimitExceededException": {
+      "description": "The exception is thrown when customer tries to create a record (e.g. budget), but the number this record already exceeds the limitation.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteBudgetRequest": {
+      "description": "Request of DeleteBudget",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName"
+      ],
+      "type": "object"
+    },
+    "DeleteBudgetResponse": {
+      "description": "Response of DeleteBudget",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteNotificationRequest": {
+      "description": "Request of DeleteNotification",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification"
+      ],
+      "type": "object"
+    },
+    "DeleteNotificationResponse": {
+      "description": "Response of DeleteNotification",
+      "properties": {},
+      "type": "object"
+    },
+    "DeleteSubscriberRequest": {
+      "description": "Request of DeleteSubscriber",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "Subscriber": {
+          "$ref": "#/definitions/Subscriber"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification",
+        "Subscriber"
+      ],
+      "type": "object"
+    },
+    "DeleteSubscriberResponse": {
+      "description": "Response of DeleteSubscriber",
+      "properties": {},
+      "type": "object"
+    },
+    "DescribeBudgetRequest": {
+      "description": "Request of DescribeBudget",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName"
+      ],
+      "type": "object"
+    },
+    "DescribeBudgetResponse": {
+      "description": "Response of DescribeBudget",
+      "properties": {
+        "Budget": {
+          "$ref": "#/definitions/Budget"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeBudgetsRequest": {
+      "description": "Request of DescribeBudgets",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "required": [
+        "AccountId"
+      ],
+      "type": "object"
+    },
+    "DescribeBudgetsResponse": {
+      "description": "Response of DescribeBudgets",
+      "properties": {
+        "Budgets": {
+          "$ref": "#/definitions/Budgets"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeNotificationsForBudgetRequest": {
+      "description": "Request of DescribeNotificationsForBudget",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName"
+      ],
+      "type": "object"
+    },
+    "DescribeNotificationsForBudgetResponse": {
+      "description": "Response of GetNotificationsForBudget",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "Notifications": {
+          "$ref": "#/definitions/Notifications"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeSubscribersForNotificationRequest": {
+      "description": "Request of DescribeSubscribersForNotification",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification"
+      ],
+      "type": "object"
+    },
+    "DescribeSubscribersForNotificationResponse": {
+      "description": "Response of DescribeSubscribersForNotification",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/Subscribers"
+        }
+      },
+      "type": "object"
+    },
+    "DimensionValues": {
+      "items": {
+        "$ref": "#/definitions/GenericString"
+      },
+      "type": "array"
+    },
+    "DuplicateRecordException": {
+      "description": "The exception is thrown when customer tries to create a record (e.g. budget) that already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ExpiredNextTokenException": {
+      "description": "This exception is thrown if the paging token is expired - past its TTL",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "GenericBoolean": {
+      "description": "A generic boolean value.",
+      "type": "boolean"
+    },
+    "GenericString": {
+      "description": "A generic String.",
+      "type": "string"
+    },
+    "GenericTimestamp": {
+      "description": "A generic timestamp. In Java it is transformed to a Date object.",
+      "format": "date-time",
+      "type": "string"
+    },
+    "InternalErrorException": {
+      "description": "This exception is thrown on an unknown internal failure.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidNextTokenException": {
+      "description": "This exception is thrown if paging token signature didn't match the token, or the paging token isn't for this request",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "InvalidParameterException": {
+      "description": "This exception is thrown if any request is given an invalid parameter. E.g., if a required Date field is null.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "description": "An integer to represent how many entries should a pagianted response contains. Maxium is set to 100.",
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "NotFoundException": {
+      "description": "This exception is thrown if a requested entity is not found. E.g., if a budget id doesn't exist for an account ID.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/errorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "Notification": {
+      "description": "Notification model. Each budget may contain multiple notifications with different settings.",
+      "properties": {
+        "ComparisonOperator": {
+          "$ref": "#/definitions/ComparisonOperator"
+        },
+        "NotificationType": {
+          "$ref": "#/definitions/NotificationType"
+        },
+        "Threshold": {
+          "$ref": "#/definitions/NotificationThreshold"
+        }
+      },
+      "required": [
+        "NotificationType",
+        "ComparisonOperator",
+        "Threshold"
+      ],
+      "type": "object"
+    },
+    "NotificationThreshold": {
+      "description": "The threshold of the a notification. It should be a number between 0 and 100.",
+      "format": "double",
+      "maximum": 300,
+      "minimum": 0.1,
+      "type": "number"
+    },
+    "NotificationType": {
+      "description": "The type of a notification. It should be ACTUAL or FORECASTED.",
+      "enum": [
+        "ACTUAL",
+        "FORECASTED"
+      ],
+      "type": "string"
+    },
+    "NotificationWithSubscribers": {
+      "description": "A structure to relate notification and a list of subscribers who belong to the notification.",
+      "properties": {
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "Subscribers": {
+          "$ref": "#/definitions/Subscribers"
+        }
+      },
+      "required": [
+        "Notification",
+        "Subscribers"
+      ],
+      "type": "object"
+    },
+    "NotificationWithSubscribersList": {
+      "description": "A list of Notifications, each with a list of subscribers.",
+      "items": {
+        "$ref": "#/definitions/NotificationWithSubscribers"
+      },
+      "maxItems": 5,
+      "type": "array"
+    },
+    "Notifications": {
+      "description": "A list of notifications.",
+      "items": {
+        "$ref": "#/definitions/Notification"
+      },
+      "type": "array"
+    },
+    "NumericValue": {
+      "description": "A string to represent NumericValue.",
+      "pattern": "[0-9]*(\\.)?[0-9]+",
+      "type": "string"
+    },
+    "Spend": {
+      "description": "A structure represent either a cost spend or usage spend. Contains an amount and a unit.",
+      "properties": {
+        "Amount": {
+          "$ref": "#/definitions/NumericValue"
+        },
+        "Unit": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "required": [
+        "Amount",
+        "Unit"
+      ],
+      "type": "object"
+    },
+    "Subscriber": {
+      "description": "Subscriber model. Each notification may contain multiple subscribers with different addresses.",
+      "properties": {
+        "Address": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "SubscriptionType": {
+          "$ref": "#/definitions/SubscriptionType"
+        }
+      },
+      "required": [
+        "SubscriptionType",
+        "Address"
+      ],
+      "type": "object"
+    },
+    "Subscribers": {
+      "description": "A list of subscribers.",
+      "items": {
+        "$ref": "#/definitions/Subscriber"
+      },
+      "maxItems": 11,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SubscriptionType": {
+      "description": "The subscription type of the subscriber. It can be SMS or EMAIL.",
+      "enum": [
+        "SNS",
+        "EMAIL"
+      ],
+      "type": "string"
+    },
+    "TimePeriod": {
+      "description": "A time period indicated the start date and end date of a budget.",
+      "properties": {
+        "End": {
+          "$ref": "#/definitions/GenericTimestamp"
+        },
+        "Start": {
+          "$ref": "#/definitions/GenericTimestamp"
+        }
+      },
+      "required": [
+        "Start",
+        "End"
+      ],
+      "type": "object"
+    },
+    "TimeUnit": {
+      "description": "The time unit of the budget. e.g. weekly, monthly, etc.",
+      "enum": [
+        "MONTHLY",
+        "QUARTERLY",
+        "ANNUALLY"
+      ],
+      "type": "string"
+    },
+    "UpdateBudgetRequest": {
+      "description": "Request of UpdateBudget",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "NewBudget": {
+          "$ref": "#/definitions/Budget"
+        }
+      },
+      "required": [
+        "AccountId",
+        "NewBudget"
+      ],
+      "type": "object"
+    },
+    "UpdateBudgetResponse": {
+      "description": "Response of UpdateBudget",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateNotificationRequest": {
+      "description": "Request of UpdateNotification",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "NewNotification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "OldNotification": {
+          "$ref": "#/definitions/Notification"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "OldNotification",
+        "NewNotification"
+      ],
+      "type": "object"
+    },
+    "UpdateNotificationResponse": {
+      "description": "Response of UpdateNotification",
+      "properties": {},
+      "type": "object"
+    },
+    "UpdateSubscriberRequest": {
+      "description": "Request of UpdateSubscriber",
+      "properties": {
+        "AccountId": {
+          "$ref": "#/definitions/AccountId"
+        },
+        "BudgetName": {
+          "$ref": "#/definitions/BudgetName"
+        },
+        "NewSubscriber": {
+          "$ref": "#/definitions/Subscriber"
+        },
+        "Notification": {
+          "$ref": "#/definitions/Notification"
+        },
+        "OldSubscriber": {
+          "$ref": "#/definitions/Subscriber"
+        }
+      },
+      "required": [
+        "AccountId",
+        "BudgetName",
+        "Notification",
+        "OldSubscriber",
+        "NewSubscriber"
+      ],
+      "type": "object"
+    },
+    "UpdateSubscriberResponse": {
+      "description": "Response of UpdateSubscriber",
+      "properties": {},
+      "type": "object"
+    },
+    "errorMessage": {
+      "description": "The error message the exception carries.",
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "CreateBudget",
+      "title": "CreateBudget",
+      "description": "Create a new budget",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateBudgetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateBudgetResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "CreateNotification",
+      "title": "CreateNotification",
+      "description": "Create a new Notification with subscribers for a budget",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateNotificationRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateNotificationResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "CreateSubscriber",
+      "title": "CreateSubscriber",
+      "description": "Create a new Subscriber for a notification",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateSubscriberRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateSubscriberResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DeleteBudget",
+      "title": "DeleteBudget",
+      "description": "Delete a budget and related notifications",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteBudgetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteBudgetResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DeleteNotification",
+      "title": "DeleteNotification",
+      "description": "Delete a notification and related subscribers",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteNotificationRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteNotificationResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DeleteSubscriber",
+      "title": "DeleteSubscriber",
+      "description": "Delete a Subscriber for a notification",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteSubscriberRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteSubscriberResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DescribeBudget",
+      "title": "DescribeBudget",
+      "description": "Get a single budget",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeBudgetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeBudgetResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DescribeBudgets",
+      "title": "DescribeBudgets",
+      "description": "Get all budgets for an account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeBudgetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeBudgetsResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DescribeNotificationsForBudget",
+      "title": "DescribeNotificationsForBudget",
+      "description": "Get notifications of a budget",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeNotificationsForBudgetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeNotificationsForBudgetResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "DescribeSubscribersForNotification",
+      "title": "DescribeSubscribersForNotification",
+      "description": "Get subscribers of a notification",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeSubscribersForNotificationRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeSubscribersForNotificationResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "UpdateBudget",
+      "title": "UpdateBudget",
+      "description": "Update the information of a budget already created",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateBudgetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateBudgetResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "UpdateNotification",
+      "title": "UpdateNotification",
+      "description": "Update the information about a notification already created",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateNotificationRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateNotificationResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    },
+    {
+      "id": "UpdateSubscriber",
+      "title": "UpdateSubscriber",
+      "description": "Update a subscriber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateSubscriberRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateSubscriberResponse"
+      },
+      "security": {
+        "amazonaws_budgets": {
+          "integration": "amazonaws_budgets"
+        }
+      }
+    }
+  ]
+}

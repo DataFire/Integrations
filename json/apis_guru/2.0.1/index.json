@@ -1,0 +1,33 @@
+{
+  "id": "apis_guru",
+  "title": "APIs.guru",
+  "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.\n\n**Warning**: If you want to be notified about changes in advance please subscribe to our [Gitter channel](https://gitter.im/APIs-guru/api-models).\n\nClient sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com/APIs-guru/simple-ui)\n",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
+  },
+  "tags": [
+    "open data",
+    "developer tools"
+  ],
+  "actions": [
+    {
+      "id": "listAPIs",
+      "title": "listAPIs",
+      "description": "List all APIs in the directory.\nReturns links to OpenAPI specification for each API in the directory.\nIf API exist in multiply versions `preferred` one is explicitly marked.\n\nSome basic info from OpenAPI spec is cached inside each object.\nThis allows to generate some simple views without need to fetch OpenAPI spec for each API.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/APIs"
+      }
+    },
+    {
+      "id": "getMetrics",
+      "title": "getMetrics",
+      "description": "Some basic metrics for the entire directory.\nJust stunning numbers to put on a front page and are intended purely for WoW effect :)\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Metrics"
+      }
+    }
+  ]
+}

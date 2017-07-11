@@ -1,0 +1,1666 @@
+{
+  "id": "netlicensing",
+  "title": "Labs64 NetLicensing RESTful API Test Center",
+  "description": "The Labs64 <a href='https://www.labs64.de/confluence/x/pwCo' target='_blank'>NetLicensing RESTful API</a> gives you access to NetLicensing’s core features.<br/><br/><strong>Authentication</strong><br/>You authenticate to the NetLicensing API by providing your account credentials or simply use our demo account - <code>demo:demo</code><br/><br/>Find out more about Labs64 NetLicensing at <a href='http://netlicensing.io' target='_blank'>netlicensing.io</a>",
+  "security": {
+    "netlicensing": {
+      "integration": "netlicensing",
+      "fields": {
+        "api_key": "API key",
+        "username": "Your username",
+        "password": "Your password"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
+  },
+  "tags": [],
+  "definitions": {
+    "License": {
+      "properties": {
+        "active": {
+          "description": "If set to 'false', the license is disabled. License can be re-enabled, but as long as it is disabled, the license is excluded from the validation process.",
+          "type": "boolean"
+        },
+        "currency": {
+          "description": "specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation.",
+          "type": "string"
+        },
+        "hidden": {
+          "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly.",
+          "type": "string"
+        },
+        "number": {
+          "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed.",
+          "type": "string"
+        },
+        "price": {
+          "description": "price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "license"
+      }
+    },
+    "LicenseTemplate": {
+      "properties": {
+        "active": {
+          "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template.",
+          "type": "boolean"
+        },
+        "automatic": {
+          "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0.",
+          "type": "boolean"
+        },
+        "currency": {
+          "description": "specifies currency for the license price. Check data types to discover which currencies are supported.",
+          "type": "string"
+        },
+        "hidden": {
+          "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase.",
+          "type": "boolean"
+        },
+        "hiddenLicenses": {
+          "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation.",
+          "type": "boolean"
+        },
+        "licenseType": {
+          "description": "type of licenses created from this license template",
+          "enum": [
+            "FEATURE",
+            "TIMEVOLUME"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "description": "Name for the licensed item.",
+          "type": "string"
+        },
+        "number": {
+          "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template.",
+          "type": "string"
+        },
+        "price": {
+          "description": "price for the license. If >0, it must always be accompanied by the currency specification.",
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "licensetemplate"
+      }
+    },
+    "Licensee": {
+      "properties": {
+        "active": {
+          "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled.",
+          "type": "boolean"
+        },
+        "number": {
+          "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "licensee"
+      }
+    },
+    "PaymentMethod": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "paymentmethod"
+      }
+    },
+    "Product": {
+      "properties": {
+        "active": {
+          "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses",
+          "type": "boolean"
+        },
+        "licenseeAutoCreate": {
+          "description": "If set to 'true', non-existing licensees will be created at first validation attempt.",
+          "type": "boolean"
+        },
+        "name": {
+          "description": "Product name. Together with the version identifies the product for the end customer",
+          "type": "string"
+        },
+        "number": {
+          "description": "Unique number that identifies the product. Vendor can assign this number when creating a product or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Product version. Convenience parameter, additional to the product name.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "product"
+      }
+    },
+    "ProductModule": {
+      "properties": {
+        "active": {
+          "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module.",
+          "type": "boolean"
+        },
+        "licensingInfo": {
+          "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Product module name that is visible to the end customers in NetLicensing Shop.",
+          "type": "string"
+        },
+        "number": {
+          "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product.",
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "productmodule"
+      }
+    },
+    "Token": {
+      "properties": {
+        "active": {
+          "type": "boolean"
+        },
+        "expirationTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "licenseNumber": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "shopURL": {
+          "type": "string"
+        },
+        "tokenType": {
+          "type": "string"
+        },
+        "vensorNumber": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "token"
+      }
+    },
+    "Transaction": {
+      "properties": {
+        "active": {
+          "description": "Always true for the transactions",
+          "type": "string"
+        },
+        "number": {
+          "description": "Unique number (across all products of a vendor) that identifies the transaction. This number is always generated by NetLicensing.",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "SHOP"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "CANCELLED",
+            "CLOSED",
+            "PENDING"
+          ],
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "transaction"
+      }
+    },
+    "discount": {
+      "properties": {
+        "amountPercent": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "totalPrice": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "discount"
+      }
+    },
+    "infos": {
+      "properties": {},
+      "xml": {
+        "name": "infos"
+      }
+    },
+    "items": {
+      "properties": {},
+      "xml": {
+        "name": "items"
+      }
+    },
+    "licensingModel": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object",
+      "xml": {
+        "name": "licensingModel"
+      }
+    },
+    "netlicensing": {
+      "properties": {
+        "infos": {
+          "$ref": "#/definitions/infos"
+        },
+        "items": {
+          "$ref": "#/definitions/items"
+        }
+      },
+      "xml": {
+        "name": "netlicensing"
+      }
+    }
+  },
+  "actions": [
+    {
+      "id": "listLicenses",
+      "title": "listLicenses",
+      "description": "Return a list of all licenses for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createLicense",
+      "title": "createLicense",
+      "description": "Creates a new license",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string"
+          },
+          "licenseTemplateNumber": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "number": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly."
+          },
+          "parentfeature": {
+            "type": "string",
+            "description": "Mandatory for 'TIMEVOLUME' license type and 'RENTAL' licensing model"
+          },
+          "timeVolume": {
+            "type": "string",
+            "description": "Mandatory for 'TIMEVOLUME' license type."
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Mandatory for 'TIMEVOLUME' license type."
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "Price for the license. If >0, it must always be accompanied by the currency specification. Read-only, set from license template on creation"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber",
+          "licenseTemplateNumber",
+          "active",
+          "number"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteLicense",
+      "title": "deleteLicense",
+      "description": "Delete license by a licenseNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseNumber": {
+            "type": "string",
+            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getLicense",
+      "title": "getLicense",
+      "description": "Get license by a licenseNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseNumber": {
+            "type": "string",
+            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateLicense",
+      "title": "updateLicense",
+      "description": "Update license by a licenseNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseNumber": {
+            "type": "string",
+            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
+          },
+          "number": {
+            "type": "string",
+            "description": "Unique number (across all products/licensees of a vendor) that identifies the license. Vendor can assign this number when creating a license or let NetLicensing generate one. Read-only after corresponding creation transaction status is set to closed."
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name for the licensed item. Set from license template on creation, if not specified explicitly."
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "for TIMEVOLUME licenseType"
+          },
+          "parentfeature": {
+            "type": "string"
+          },
+          "timeVolume": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "Price for the license. If > 0, it must always be accompanied by the currency specification. Read-only, set from license template on creation"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported. Read-only, set from license template on creation"
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If set to 'true', this license is not shown in NetLicensing Shop as purchased license. Set from license template on creation, if not specified explicitly"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listLicensees",
+      "title": "listLicensees",
+      "description": "Return a list of all licensees for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createLicensee",
+      "title": "createLicensee",
+      "description": "Creates a new licensee",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee"
+          },
+          "productNumber": {
+            "type": "string",
+            "description": "productNumber to assign new licensee object"
+          },
+          "name": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productNumber",
+          "active"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteLicensee",
+      "title": "deleteLicensee",
+      "description": "Delete a licensee by number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the licensee."
+          },
+          "forceCascade": {
+            "type": "boolean",
+            "description": "Force object deletion and all descendants."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getLicensee",
+      "title": "getLicensee",
+      "description": "Return a licensee by licenseeNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateLicensee",
+      "title": "updateLicensee",
+      "description": "Sets the provided properties to a licensee. Return an updated licensee",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for the licensee."
+          },
+          "number": {
+            "type": "string",
+            "description": "New licensee number (update)."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the licensee is disabled. Licensee can not obtain new licenses, and validation is disabled"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "validateLicensee",
+      "title": "validateLicensee",
+      "description": "Validates active licenses of the licensee",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string",
+            "description": "Licensee number with a maximum length of 1000 characters"
+          },
+          "productNumber": {
+            "type": "string",
+            "description": "Product number, must be provided when 'licensee auto-create' is enabled (see also Product JavaDoc). Identifies the product to which new licensee should be added"
+          },
+          "licenseeName": {
+            "type": "string",
+            "description": "Human-readable name for the auto-created licensee (will be set as custom Licensee property)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listLicenseTemplates",
+      "title": "listLicenseTemplates",
+      "description": "Return a list of all license templates for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createLicenseTemplate",
+      "title": "createLicenseTemplate",
+      "description": "Creates a new license template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productModuleNumber": {
+            "type": "string",
+            "description": "Number of product module to сreate license template object"
+          },
+          "number": {
+            "type": "string",
+            "description": "lUnique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template."
+          },
+          "name": {
+            "type": "string",
+            "description": "license template name to сreate license template object"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template."
+          },
+          "licenseType": {
+            "type": "array",
+            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME"
+          },
+          "timeVolume": {
+            "type": "string",
+            "description": "Mandatory for 'TIMEVOLUME' license type."
+          },
+          "maxSessions": {
+            "type": "string",
+            "description": "Mandatory for 'FLOATING' license type."
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "price for the license. If >0, it must always be accompanied by the currency specification."
+          },
+          "currency": {
+            "type": "string",
+            "description": "specifies currency for the license price. Check data types to discover which currencies are supported."
+          },
+          "automatic": {
+            "type": "boolean",
+            "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0."
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase."
+          },
+          "hideLicenses": {
+            "type": "boolean",
+            "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber",
+          "number",
+          "name",
+          "active",
+          "licenseType"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteLicenseTemplate",
+      "title": "deleteLicenseTemplate",
+      "description": "Delete a license template by number.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseTemplateNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the license template."
+          },
+          "forceCascade": {
+            "type": "boolean",
+            "description": "Force object deletion and all descendants."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getLicenseTemplate",
+      "title": "getLicenseTemplate",
+      "description": "Return a license template by licenseTemplateNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseTemplateNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateLicenseTemplate",
+      "title": "updateLicenseTemplate",
+      "description": "Sets the provided properties to a license template. Return an updated license template",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseTemplateNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the license template. Vendor can assign this number when creating a license template or let NetLicensing generate one. Read-only after creation of the first license from this license template."
+          },
+          "number": {
+            "type": "string",
+            "description": "New license template number (update)."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name for the licensed item"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the license template is disabled. Licensee can not obtain any new licenses off this license template."
+          },
+          "licenseType": {
+            "type": "array",
+            "description": "type of licenses created from this license template. Supported types: FEATURE, TIMEVOLUME, FLOATING"
+          },
+          "timeVolume": {
+            "type": "string",
+            "description": "Mandatory for 'TIMEVOLUME' license type."
+          },
+          "maxSessions": {
+            "type": "string",
+            "description": "Mandatory for 'FLOATING' license type."
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "description": "Price for the license. If >0, it must always be accompanied by the currency specification."
+          },
+          "currency": {
+            "type": "string",
+            "description": "Specifies currency for the license price. Check data types to discover which currencies are supported."
+          },
+          "automatic": {
+            "type": "boolean",
+            "description": "If set to 'true', every new licensee automatically gets one license out of this license template on creation. Automatic licenses must have their price set to 0."
+          },
+          "hidden": {
+            "type": "boolean",
+            "description": "If set to 'true', this license template is not shown in NetLicensing Shop as offered for purchase."
+          },
+          "hideLicenses": {
+            "type": "boolean",
+            "description": "If set to 'true', licenses from this license template are not visible to the end customer, but participate in validation."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseTemplateNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listPaymentMethods",
+      "title": "listPaymentMethods",
+      "description": "Return a list of all payment methods for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getPaymentMethod",
+      "title": "getPaymentMethod",
+      "description": "Return a payment method info by paymentMethodNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "paymentMethodNumber": {
+            "type": "string",
+            "description": "Payment method number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "paymentMethodNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updatePaymentMethod",
+      "title": "updatePaymentMethod",
+      "description": "Sets the provided properties to a payment method. Return an updated payment method",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "paymentMethodNumber": {
+            "type": "string",
+            "description": "Payment method number"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the payment method is disabled."
+          },
+          "paypal.subject": {
+            "type": "string",
+            "description": "The e-mail address of the PayPal account for which you are making the API calls."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "paymentMethodNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listProducts",
+      "title": "listProducts",
+      "description": "Return a list of all configured products for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createProduct",
+      "title": "createProduct",
+      "description": "Creates a new product",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "description": "Unique number that identifies the product. Vendor can assign this number when creating a product or let NetLicensing generate one."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses."
+          },
+          "name": {
+            "type": "string",
+            "description": "Product name. Together with the version identifies the product for the end customer."
+          },
+          "version": {
+            "type": "string",
+            "description": "Product version. Convenience parameter, additional to the product name."
+          },
+          "licenseeAutoCreate": {
+            "type": "boolean",
+            "description": "If set to 'true', non-existing licensees will be created at first validation attempt."
+          },
+          "description": {
+            "type": "string",
+            "description": "Product description."
+          },
+          "licensingInfo": {
+            "type": "string",
+            "description": "Licensing information."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "active",
+          "name",
+          "version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteProduct",
+      "title": "deleteProduct",
+      "description": "Delete a product by number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productNumber": {
+            "type": "string",
+            "description": "Unique number that identifies the product."
+          },
+          "forceCascade": {
+            "type": "boolean",
+            "description": "Force object deletion and all descendants."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "productNumber",
+      "title": "productNumber",
+      "description": "Return a product by productNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productNumber": {
+            "type": "string",
+            "description": "Unique number that identifies the product."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateProduct",
+      "title": "updateProduct",
+      "description": "Sets the provided properties to a product. Return an updated product",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productNumber": {
+            "type": "string",
+            "description": "Unique number that identifies the product."
+          },
+          "number": {
+            "type": "string",
+            "description": "New product number (update)"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the product is disabled. No new licensees can be registered for the product, existing licensees can not obtain new licenses."
+          },
+          "name": {
+            "type": "string",
+            "description": "Product name. Together with the version identifies the product for the end customer."
+          },
+          "version": {
+            "type": "string",
+            "description": "Product version. Convenience parameter, additional to the product name."
+          },
+          "licenseeAutoCreate": {
+            "type": "boolean",
+            "description": "If set to 'true', non-existing licensees will be created at first validation attempt."
+          },
+          "description": {
+            "type": "string",
+            "description": "Product description."
+          },
+          "licensingInfo": {
+            "type": "string",
+            "description": "Licensing information."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listProductModules",
+      "title": "listProductModules",
+      "description": "Return a list of all product modules for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createProductModule",
+      "title": "createProductModule",
+      "description": "Creates a new product module",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product."
+          },
+          "number": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module."
+          },
+          "name": {
+            "type": "string",
+            "description": "Product module name that is visible to the end customers in NetLicensing Shop."
+          },
+          "licensingModel": {
+            "type": "array",
+            "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation."
+          },
+          "maxCheckoutValidity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model."
+          },
+          "yellowThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model."
+          },
+          "redThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model."
+          },
+          "licenseTemplate": {
+            "type": "array",
+            "description": "License template. Mandatory for 'Try &amp; Buy' licensing model."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productNumber",
+          "active",
+          "name",
+          "licensingModel"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteProductModule",
+      "title": "deleteProductModule",
+      "description": "Delete a product module by number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productModuleNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the product module."
+          },
+          "forceCascade": {
+            "type": "boolean",
+            "description": "Force object deletion and all descendants."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getProductModule",
+      "title": "getProductModule",
+      "description": "Return a product module by productModuleNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productModuleNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateProductModule",
+      "title": "updateProductModule",
+      "description": "Sets the provided properties to a product module. Return an updated product module",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "productModuleNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the product module. Vendor can assign this number when creating a product module or let NetLicensing generate one. Read-only after creation of the first licensee for the product."
+          },
+          "number": {
+            "type": "string",
+            "description": "New product module number (update)."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "If set to 'false', the product module is disabled. Licensees can not obtain any new licenses for this product module."
+          },
+          "name": {
+            "type": "string",
+            "description": "Product module name that is visible to the end customers in NetLicensing Shop."
+          },
+          "licensingModel": {
+            "type": "array",
+            "description": "Licensing model applied to this product module. Defines what license templates can be configured for the product module and how licenses for this product module are processed during validation."
+          },
+          "maxCheckoutValidity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum checkout validity (days). Mandatory for 'Floating' licensing model."
+          },
+          "yellowThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Remaining time volume for yellow level. Mandatory for 'Rental' licensing model."
+          },
+          "redThreshold": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Remaining time volume for red level. Mandatory for 'Rental' licensing model."
+          },
+          "licenseTemplate": {
+            "type": "array",
+            "description": "License template. Mandatory for 'Try &amp; Buy' licensing model."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "productModuleNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listTokens",
+      "title": "listTokens",
+      "description": "Return a list of all tokens for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createToken",
+      "title": "createToken",
+      "description": "Create token by tokenType and additional token parameters",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tokenType": {
+            "type": "string",
+            "description": "Token type to be generated",
+            "enum": [
+              "DEFAULT",
+              "SHOP",
+              "APIKEY"
+            ]
+          },
+          "licenseeNumber": {
+            "type": "string",
+            "description": "for <i>tokenType=SHOP</i> only (mandatory); identifies licensee that will be assigned to the shop token"
+          },
+          "successURL": {
+            "type": "string",
+            "description": "for <i>tokenType=SHOP</i> only; take customers to this URL when they finish checkout"
+          },
+          "successURLTitle": {
+            "type": "string",
+            "description": "for <i>tokenType=SHOP</i> only; shop link title for successful checkout process"
+          },
+          "cancelURL": {
+            "type": "string",
+            "description": "for <i>tokenType=SHOP</i> only; take customers to this URL when they cancel their checkout"
+          },
+          "cancelURLTitle": {
+            "type": "string",
+            "description": "for <i>tokenType=SHOP</i> only; shop link title for cancel checkout process"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tokenType"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "deleteToken",
+      "title": "deleteToken",
+      "description": "Delete a token by number",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tokenNumber": {
+            "type": "string",
+            "description": "Token number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tokenNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getToken",
+      "title": "getToken",
+      "description": "Return a token by tokenNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tokenNumber": {
+            "type": "string",
+            "description": "Token number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tokenNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "listTransactions",
+      "title": "listTransactions",
+      "description": "Return a list of all transactions for the current vendor",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/netlicensing"
+        },
+        "type": "array"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "createTransaction",
+      "title": "createTransaction",
+      "description": "Creates a new transaction",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "licenseeNumber": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the transaction"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "always true for transactions"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CANCELLED",
+              "CLOSED",
+              "PENDING"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "description": "AUTO transaction for internal use only",
+            "enum": [
+              "SHOP"
+            ]
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateClosed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "paymentMethod": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "licenseeNumber",
+          "active",
+          "status",
+          "source"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "getTransaction",
+      "title": "getTransaction",
+      "description": "Return a transaction by transactionNumber",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transactionNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the transaction"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transactionNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "updateTransaction",
+      "title": "updateTransaction",
+      "description": "Sets the provided properties to a transaction. Return an updated transaction",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "transactionNumber": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the transaction"
+          },
+          "number": {
+            "type": "string",
+            "description": "Unique number (across all products of a vendor) that identifies the transaction"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "always true for transactions"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CANCELLED",
+              "CLOSED",
+              "PENDING"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "description": "AUTO transaction for internal use only",
+            "enum": [
+              "SHOP"
+            ]
+          },
+          "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateClosed": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "paymentMethod": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "transactionNumber"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "licenseTypes",
+      "title": "licenseTypes",
+      "description": "Return a list of all license types supported by the service",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    },
+    {
+      "id": "licensingModels",
+      "title": "licensingModels",
+      "description": "Return a list of all licensing models supported by the service",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/netlicensing"
+      },
+      "security": {
+        "netlicensing": {
+          "integration": "netlicensing"
+        }
+      }
+    }
+  ]
+}

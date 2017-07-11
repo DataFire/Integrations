@@ -1,0 +1,4871 @@
+{
+  "id": "amazonaws_inspector",
+  "title": "Amazon Inspector",
+  "description": "<fullname>Amazon Inspector</fullname> <p>Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <a href=\"http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html\"> Amazon Inspector User Guide</a>.</p>",
+  "security": {
+    "amazonaws_inspector": {
+      "integration": "amazonaws_inspector",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AccessDeniedErrorCode": {
+      "enum": [
+        "ACCESS_DENIED_TO_ASSESSMENT_TARGET",
+        "ACCESS_DENIED_TO_ASSESSMENT_TEMPLATE",
+        "ACCESS_DENIED_TO_ASSESSMENT_RUN",
+        "ACCESS_DENIED_TO_FINDING",
+        "ACCESS_DENIED_TO_RESOURCE_GROUP",
+        "ACCESS_DENIED_TO_RULES_PACKAGE",
+        "ACCESS_DENIED_TO_SNS_TOPIC",
+        "ACCESS_DENIED_TO_IAM_ROLE"
+      ],
+      "type": "string"
+    },
+    "AccessDeniedException": {
+      "description": "You do not have required permissions to access the requested resource.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/AccessDeniedErrorCode",
+          "description": "Code that indicates the type of error that is generated."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "errorCode",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "AddAttributesToFindingsRequest": {
+      "example": {
+        "attributes": [
+          {
+            "key": "Example",
+            "value": "example"
+          }
+        ],
+        "findingArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
+        ]
+      },
+      "properties": {
+        "attributes": {
+          "$ref": "#/definitions/UserAttributeList",
+          "description": "The array of attributes that you want to assign to specified findings."
+        },
+        "findingArns": {
+          "$ref": "#/definitions/AddRemoveAttributesFindingArnList",
+          "description": "The ARNs that specify the findings that you want to assign attributes to."
+        }
+      },
+      "required": [
+        "findingArns",
+        "attributes"
+      ],
+      "type": "object"
+    },
+    "AddAttributesToFindingsResponse": {
+      "example": {
+        "failedItems": {}
+      },
+      "properties": {
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Attribute details that cannot be described. An error code is provided for each failed item."
+        }
+      },
+      "required": [
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "AddRemoveAttributesFindingArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AgentAlreadyRunningAssessment": {
+      "description": "Used in the exception error that is thrown if you start an assessment run for an assessment target that includes an EC2 instance that is already participating in another started assessment run.",
+      "properties": {
+        "agentId": {
+          "$ref": "#/definitions/AgentId",
+          "description": "ID of the agent that is running on an EC2 instance that is already participating in another started assessment run."
+        },
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run that has already been started."
+        }
+      },
+      "required": [
+        "agentId",
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "AgentAlreadyRunningAssessmentList": {
+      "items": {
+        "$ref": "#/definitions/AgentAlreadyRunningAssessment"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AgentFilter": {
+      "description": "Contains information about an Amazon Inspector agent. This data type is used as a request parameter in the <a>ListAssessmentRunAgents</a> action.",
+      "properties": {
+        "agentHealthCodes": {
+          "$ref": "#/definitions/AgentHealthCodeList",
+          "description": "The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. "
+        },
+        "agentHealths": {
+          "$ref": "#/definitions/AgentHealthList",
+          "description": "The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>."
+        }
+      },
+      "required": [
+        "agentHealths",
+        "agentHealthCodes"
+      ],
+      "type": "object"
+    },
+    "AgentHealth": {
+      "enum": [
+        "HEALTHY",
+        "UNHEALTHY"
+      ],
+      "type": "string"
+    },
+    "AgentHealthCode": {
+      "enum": [
+        "IDLE",
+        "RUNNING",
+        "SHUTDOWN",
+        "UNHEALTHY",
+        "THROTTLED",
+        "UNKNOWN"
+      ],
+      "type": "string"
+    },
+    "AgentHealthCodeList": {
+      "items": {
+        "$ref": "#/definitions/AgentHealthCode"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AgentHealthList": {
+      "items": {
+        "$ref": "#/definitions/AgentHealth"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AgentId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AgentIdList": {
+      "items": {
+        "$ref": "#/definitions/AgentId"
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AgentPreview": {
+      "description": "Used as a response element in the <a>PreviewAgents</a> action.",
+      "properties": {
+        "agentId": {
+          "$ref": "#/definitions/AgentId",
+          "description": "The ID of the EC2 instance where the agent is installed."
+        },
+        "autoScalingGroup": {
+          "$ref": "#/definitions/AutoScalingGroup",
+          "description": "The Auto Scaling group for the EC2 instance where the agent is installed."
+        }
+      },
+      "required": [
+        "agentId"
+      ],
+      "type": "object"
+    },
+    "AgentPreviewList": {
+      "items": {
+        "$ref": "#/definitions/AgentPreview"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AgentsAlreadyRunningAssessmentException": {
+      "description": "You started an assessment run, but one of the instances is already participating in another assessment run.",
+      "properties": {
+        "agents": {
+          "$ref": "#/definitions/AgentAlreadyRunningAssessmentList",
+          "description": "<p/>"
+        },
+        "agentsTruncated": {
+          "$ref": "#/definitions/Bool",
+          "description": "<p/>"
+        },
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "agents",
+        "agentsTruncated",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "AmiId": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "Arn": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssessmentRulesPackageArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AssessmentRun": {
+      "description": "<p>A snapshot of an Amazon Inspector assessment run that contains the findings of the assessment run .</p> <p>Used as the response element in the <a>DescribeAssessmentRuns</a> action.</p>",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run."
+        },
+        "assessmentTemplateArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template that is associated with the assessment run."
+        },
+        "completedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The assessment run completion time that corresponds to the rules packages evaluation completion time or failure."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time when <a>StartAssessmentRun</a> was called."
+        },
+        "dataCollected": {
+          "$ref": "#/definitions/Bool",
+          "description": "A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed."
+        },
+        "durationInSeconds": {
+          "$ref": "#/definitions/AssessmentRunDuration",
+          "description": "The duration of the assessment run."
+        },
+        "name": {
+          "$ref": "#/definitions/AssessmentRunName",
+          "description": "The auto-generated name for the assessment run."
+        },
+        "notifications": {
+          "$ref": "#/definitions/AssessmentRunNotificationList",
+          "description": "A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/AssessmentRulesPackageArnList",
+          "description": "The rules packages selected for the assessment run."
+        },
+        "startedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time when <a>StartAssessmentRun</a> was called."
+        },
+        "state": {
+          "$ref": "#/definitions/AssessmentRunState",
+          "description": "The state of the assessment run."
+        },
+        "stateChangedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The last time when the assessment run's state changed."
+        },
+        "stateChanges": {
+          "$ref": "#/definitions/AssessmentRunStateChangeList",
+          "description": "A list of the assessment run state changes."
+        },
+        "userAttributesForFindings": {
+          "$ref": "#/definitions/UserAttributeList",
+          "description": "The user-defined attributes that are assigned to every generated finding."
+        }
+      },
+      "required": [
+        "arn",
+        "name",
+        "assessmentTemplateArn",
+        "state",
+        "durationInSeconds",
+        "rulesPackageArns",
+        "userAttributesForFindings",
+        "createdAt",
+        "stateChangedAt",
+        "dataCollected",
+        "stateChanges",
+        "notifications"
+      ],
+      "type": "object"
+    },
+    "AssessmentRunAgent": {
+      "description": "Contains information about an Amazon Inspector agent. This data type is used as a response element in the <a>ListAssessmentRunAgents</a> action.",
+      "properties": {
+        "agentHealth": {
+          "$ref": "#/definitions/AgentHealth",
+          "description": "The current health state of the agent."
+        },
+        "agentHealthCode": {
+          "$ref": "#/definitions/AgentHealthCode",
+          "description": "The detailed health state of the agent."
+        },
+        "agentHealthDetails": {
+          "$ref": "#/definitions/Message",
+          "description": "The description for the agent health code."
+        },
+        "agentId": {
+          "$ref": "#/definitions/AgentId",
+          "description": "The AWS account of the EC2 instance where the agent is installed."
+        },
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run that is associated with the agent."
+        },
+        "autoScalingGroup": {
+          "$ref": "#/definitions/AutoScalingGroup",
+          "description": "The Auto Scaling group of the EC2 instance that is specified by the agent ID."
+        },
+        "telemetryMetadata": {
+          "$ref": "#/definitions/TelemetryMetadataList",
+          "description": "The Amazon Inspector application data metrics that are collected by the agent."
+        }
+      },
+      "required": [
+        "agentId",
+        "assessmentRunArn",
+        "agentHealth",
+        "agentHealthCode",
+        "telemetryMetadata"
+      ],
+      "type": "object"
+    },
+    "AssessmentRunAgentList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentRunAgent"
+      },
+      "maxItems": 500,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentRunDuration": {
+      "maximum": 86400,
+      "minimum": 180,
+      "type": "integer"
+    },
+    "AssessmentRunFilter": {
+      "description": "Used as the request parameter in the <a>ListAssessmentRuns</a> action.",
+      "properties": {
+        "completionTimeRange": {
+          "$ref": "#/definitions/TimestampRange",
+          "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "durationRange": {
+          "$ref": "#/definitions/DurationRange",
+          "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "namePattern": {
+          "$ref": "#/definitions/NamePattern",
+          "description": "For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/FilterRulesPackageArnList",
+          "description": "For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the <b>rulesPackages</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "startTimeRange": {
+          "$ref": "#/definitions/TimestampRange",
+          "description": "For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>startTime</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "stateChangeTimeRange": {
+          "$ref": "#/definitions/TimestampRange",
+          "description": "For a record to match a filter, the value that is specified for this data type property must match the <b>stateChangedAt</b> property of the <a>AssessmentRun</a> data type."
+        },
+        "states": {
+          "$ref": "#/definitions/AssessmentRunStateList",
+          "description": "For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the <b>assessmentRunState</b> property of the <a>AssessmentRun</a> data type."
+        }
+      },
+      "type": "object"
+    },
+    "AssessmentRunInProgressArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "AssessmentRunInProgressException": {
+      "description": "You cannot perform a specified action if an assessment run is currently in progress.",
+      "properties": {
+        "assessmentRunArns": {
+          "$ref": "#/definitions/AssessmentRunInProgressArnList",
+          "description": "The ARNs of the assessment runs that are currently in progress."
+        },
+        "assessmentRunArnsTruncated": {
+          "$ref": "#/definitions/Bool",
+          "description": "Boolean value that indicates whether the ARN list of the assessment runs is truncated."
+        },
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "assessmentRunArns",
+        "assessmentRunArnsTruncated",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "AssessmentRunList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentRun"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentRunName": {
+      "maxLength": 140,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssessmentRunNotification": {
+      "description": "Used as one of the elements of the <a>AssessmentRun</a> data type.",
+      "properties": {
+        "date": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date of the notification."
+        },
+        "error": {
+          "$ref": "#/definitions/Bool",
+          "description": "The Boolean value that specifies whether the notification represents an error."
+        },
+        "event": {
+          "$ref": "#/definitions/InspectorEvent",
+          "description": "The event for which a notification is sent."
+        },
+        "message": {
+          "$ref": "#/definitions/Message"
+        },
+        "snsPublishStatusCode": {
+          "$ref": "#/definitions/AssessmentRunNotificationSnsStatusCode",
+          "description": "The status code of the SNS notification."
+        },
+        "snsTopicArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The SNS topic to which the SNS notification is sent."
+        }
+      },
+      "required": [
+        "date",
+        "event",
+        "error"
+      ],
+      "type": "object"
+    },
+    "AssessmentRunNotificationList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentRunNotification"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentRunNotificationSnsStatusCode": {
+      "enum": [
+        "SUCCESS",
+        "TOPIC_DOES_NOT_EXIST",
+        "ACCESS_DENIED",
+        "INTERNAL_ERROR"
+      ],
+      "type": "string"
+    },
+    "AssessmentRunState": {
+      "enum": [
+        "CREATED",
+        "START_DATA_COLLECTION_PENDING",
+        "START_DATA_COLLECTION_IN_PROGRESS",
+        "COLLECTING_DATA",
+        "STOP_DATA_COLLECTION_PENDING",
+        "DATA_COLLECTED",
+        "EVALUATING_RULES",
+        "FAILED",
+        "COMPLETED",
+        "COMPLETED_WITH_ERRORS"
+      ],
+      "type": "string"
+    },
+    "AssessmentRunStateChange": {
+      "description": "Used as one of the elements of the <a>AssessmentRun</a> data type.",
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/AssessmentRunState",
+          "description": "The assessment run state."
+        },
+        "stateChangedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The last time the assessment run state changed."
+        }
+      },
+      "required": [
+        "stateChangedAt",
+        "state"
+      ],
+      "type": "object"
+    },
+    "AssessmentRunStateChangeList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentRunStateChange"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentRunStateList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentRunState"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentTarget": {
+      "description": "Contains information about an Amazon Inspector application. This data type is used as the response element in the <a>DescribeAssessmentTargets</a> action.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the Amazon Inspector assessment target."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the assessment target is created."
+        },
+        "name": {
+          "$ref": "#/definitions/AssessmentTargetName",
+          "description": "The name of the Amazon Inspector assessment target."
+        },
+        "resourceGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the resource group that is associated with the assessment target."
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which <a>UpdateAssessmentTarget</a> is called."
+        }
+      },
+      "required": [
+        "arn",
+        "name",
+        "resourceGroupArn",
+        "createdAt",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "AssessmentTargetFilter": {
+      "description": "Used as the request parameter in the <a>ListAssessmentTargets</a> action.",
+      "properties": {
+        "assessmentTargetNamePattern": {
+          "$ref": "#/definitions/NamePattern",
+          "description": "For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the <b>assessmentTargetName</b> property of the <a>AssessmentTarget</a> data type."
+        }
+      },
+      "type": "object"
+    },
+    "AssessmentTargetList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentTarget"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentTargetName": {
+      "maxLength": 140,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssessmentTemplate": {
+      "description": "Contains information about an Amazon Inspector assessment template. This data type is used as the response element in the <a>DescribeAssessmentTemplates</a> action.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template."
+        },
+        "assessmentTargetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment target that corresponds to this assessment template."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which the assessment template is created."
+        },
+        "durationInSeconds": {
+          "$ref": "#/definitions/AssessmentRunDuration",
+          "description": "The duration in seconds specified for this assessment tempate. The default value is 3600 seconds (one hour). The maximum value is 86400 seconds (one day)."
+        },
+        "name": {
+          "$ref": "#/definitions/AssessmentTemplateName",
+          "description": "The name of the assessment template."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/AssessmentTemplateRulesPackageArnList",
+          "description": "The rules packages that are specified for this assessment template."
+        },
+        "userAttributesForFindings": {
+          "$ref": "#/definitions/UserAttributeList",
+          "description": "The user-defined attributes that are assigned to every generated finding from the assessment run that uses this assessment template."
+        }
+      },
+      "required": [
+        "arn",
+        "name",
+        "assessmentTargetArn",
+        "durationInSeconds",
+        "rulesPackageArns",
+        "userAttributesForFindings",
+        "createdAt"
+      ],
+      "type": "object"
+    },
+    "AssessmentTemplateFilter": {
+      "description": "Used as the request parameter in the <a>ListAssessmentTemplates</a> action.",
+      "properties": {
+        "durationRange": {
+          "$ref": "#/definitions/DurationRange",
+          "description": "For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type."
+        },
+        "namePattern": {
+          "$ref": "#/definitions/NamePattern",
+          "description": "For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the <b>assessmentTemplateName</b> property of the <a>AssessmentTemplate</a> data type."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/FilterRulesPackageArnList",
+          "description": "For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the <b>rulesPackageArns</b> property of the <a>AssessmentTemplate</a> data type."
+        }
+      },
+      "type": "object"
+    },
+    "AssessmentTemplateList": {
+      "items": {
+        "$ref": "#/definitions/AssessmentTemplate"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssessmentTemplateName": {
+      "maxLength": 140,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AssessmentTemplateRulesPackageArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AssetAttributes": {
+      "description": "A collection of attributes of the host from which the finding is generated.",
+      "properties": {
+        "agentId": {
+          "$ref": "#/definitions/AgentId",
+          "description": "The ID of the agent that is installed on the EC2 instance where the finding is generated."
+        },
+        "amiId": {
+          "$ref": "#/definitions/AmiId",
+          "description": "The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where the finding is generated."
+        },
+        "autoScalingGroup": {
+          "$ref": "#/definitions/AutoScalingGroup",
+          "description": "The Auto Scaling group of the EC2 instance where the finding is generated."
+        },
+        "hostname": {
+          "$ref": "#/definitions/Hostname",
+          "description": "The hostname of the EC2 instance where the finding is generated."
+        },
+        "ipv4Addresses": {
+          "$ref": "#/definitions/Ipv4AddressList",
+          "description": "The list of IP v4 addresses of the EC2 instance where the finding is generated."
+        },
+        "schemaVersion": {
+          "$ref": "#/definitions/NumericVersion",
+          "description": "The schema version of this data type."
+        }
+      },
+      "required": [
+        "schemaVersion"
+      ],
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "ec2-instance"
+      ],
+      "type": "string"
+    },
+    "Attribute": {
+      "description": "This data type is used as a request parameter in the <a>AddAttributesToFindings</a> and <a>CreateAssessmentTemplate</a> actions.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/AttributeKey",
+          "description": "The attribute key."
+        },
+        "value": {
+          "$ref": "#/definitions/AttributeValue",
+          "description": "The value assigned to the attribute key."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "AttributeKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AttributeList": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "AttributeValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AutoScalingGroup": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AutoScalingGroupList": {
+      "items": {
+        "$ref": "#/definitions/AutoScalingGroup"
+      },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
+    "BatchDescribeArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "Bool": {
+      "type": "boolean"
+    },
+    "CreateAssessmentTargetRequest": {
+      "example": {
+        "assessmentTargetName": "ExampleAssessmentTarget",
+        "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
+      },
+      "properties": {
+        "assessmentTargetName": {
+          "$ref": "#/definitions/AssessmentTargetName",
+          "description": "The user-defined name that identifies the assessment target that you want to create. The name must be unique within the AWS account."
+        },
+        "resourceGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the resource group that is used to create the assessment target."
+        }
+      },
+      "required": [
+        "assessmentTargetName",
+        "resourceGroupArn"
+      ],
+      "type": "object"
+    },
+    "CreateAssessmentTargetResponse": {
+      "example": {
+        "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX"
+      },
+      "properties": {
+        "assessmentTargetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment target that is created."
+        }
+      },
+      "required": [
+        "assessmentTargetArn"
+      ],
+      "type": "object"
+    },
+    "CreateAssessmentTemplateRequest": {
+      "example": {
+        "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+        "assessmentTemplateName": "ExampleAssessmentTemplate",
+        "durationInSeconds": 180,
+        "rulesPackageArns": [
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-11B9DBXp"
+        ],
+        "userAttributesForFindings": [
+          {
+            "key": "Example",
+            "value": "example"
+          }
+        ]
+      },
+      "properties": {
+        "assessmentTargetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment target for which you want to create the assessment template."
+        },
+        "assessmentTemplateName": {
+          "$ref": "#/definitions/AssessmentTemplateName",
+          "description": "The user-defined name that identifies the assessment template that you want to create. You can create several assessment templates for an assessment target. The names of the assessment templates that correspond to a particular assessment target must be unique."
+        },
+        "durationInSeconds": {
+          "$ref": "#/definitions/AssessmentRunDuration",
+          "description": "The duration of the assessment run in seconds. The default value is 3600 seconds (one hour)."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/AssessmentTemplateRulesPackageArnList",
+          "description": "The ARNs that specify the rules packages that you want to attach to the assessment template."
+        },
+        "userAttributesForFindings": {
+          "$ref": "#/definitions/UserAttributeList",
+          "description": "The user-defined attributes that are assigned to every finding that is generated by the assessment run that uses this assessment template."
+        }
+      },
+      "required": [
+        "assessmentTargetArn",
+        "assessmentTemplateName",
+        "durationInSeconds",
+        "rulesPackageArns"
+      ],
+      "type": "object"
+    },
+    "CreateAssessmentTemplateResponse": {
+      "example": {
+        "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+      },
+      "properties": {
+        "assessmentTemplateArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment template that is created."
+        }
+      },
+      "required": [
+        "assessmentTemplateArn"
+      ],
+      "type": "object"
+    },
+    "CreateResourceGroupRequest": {
+      "example": {
+        "resourceGroupTags": [
+          {
+            "key": "Name",
+            "value": "example"
+          }
+        ]
+      },
+      "properties": {
+        "resourceGroupTags": {
+          "$ref": "#/definitions/ResourceGroupTags",
+          "description": "<p>A collection of keys and an array of possible values, '[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]'.</p> <p>For example,'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]'.</p>"
+        }
+      },
+      "required": [
+        "resourceGroupTags"
+      ],
+      "type": "object"
+    },
+    "CreateResourceGroupResponse": {
+      "example": {
+        "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-AB6DMKnv"
+      },
+      "properties": {
+        "resourceGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the resource group that is created."
+        }
+      },
+      "required": [
+        "resourceGroupArn"
+      ],
+      "type": "object"
+    },
+    "DeleteAssessmentRunRequest": {
+      "example": {
+        "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+      },
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment run that you want to delete."
+        }
+      },
+      "required": [
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "DeleteAssessmentTargetRequest": {
+      "example": {
+        "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+      },
+      "properties": {
+        "assessmentTargetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment target that you want to delete."
+        }
+      },
+      "required": [
+        "assessmentTargetArn"
+      ],
+      "type": "object"
+    },
+    "DeleteAssessmentTemplateRequest": {
+      "example": {
+        "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+      },
+      "properties": {
+        "assessmentTemplateArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment template that you want to delete."
+        }
+      },
+      "required": [
+        "assessmentTemplateArn"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentRunsRequest": {
+      "example": {
+        "assessmentRunArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE"
+        ]
+      },
+      "properties": {
+        "assessmentRunArns": {
+          "$ref": "#/definitions/BatchDescribeArnList",
+          "description": "The ARN that specifies the assessment run that you want to describe."
+        }
+      },
+      "required": [
+        "assessmentRunArns"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentRunsResponse": {
+      "example": {
+        "assessmentRuns": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+            "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+            "completedAt": "1458680301.4",
+            "createdAt": "1458680170.035",
+            "dataCollected": true,
+            "durationInSeconds": 3600,
+            "name": "Run 1 for ExampleAssessmentTemplate",
+            "notifications": [],
+            "rulesPackageArns": [
+              "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
+            ],
+            "startedAt": "1458680170.161",
+            "state": "COMPLETED",
+            "stateChangedAt": "1458680301.4",
+            "stateChanges": [
+              {
+                "state": "CREATED",
+                "stateChangedAt": "1458680170.035"
+              },
+              {
+                "state": "START_DATA_COLLECTION_PENDING",
+                "stateChangedAt": "1458680170.065"
+              },
+              {
+                "state": "START_DATA_COLLECTION_IN_PROGRESS",
+                "stateChangedAt": "1458680170.096"
+              },
+              {
+                "state": "COLLECTING_DATA",
+                "stateChangedAt": "1458680170.161"
+              },
+              {
+                "state": "STOP_DATA_COLLECTION_PENDING",
+                "stateChangedAt": "1458680239.883"
+              },
+              {
+                "state": "DATA_COLLECTED",
+                "stateChangedAt": "1458680299.847"
+              },
+              {
+                "state": "EVALUATING_RULES",
+                "stateChangedAt": "1458680300.099"
+              },
+              {
+                "state": "COMPLETED",
+                "stateChangedAt": "1458680301.4"
+              }
+            ],
+            "userAttributesForFindings": []
+          }
+        ],
+        "failedItems": {}
+      },
+      "properties": {
+        "assessmentRuns": {
+          "$ref": "#/definitions/AssessmentRunList",
+          "description": "Information about the assessment run."
+        },
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Assessment run details that cannot be described. An error code is provided for each failed item."
+        }
+      },
+      "required": [
+        "assessmentRuns",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentTargetsRequest": {
+      "example": {
+        "assessmentTargetArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+        ]
+      },
+      "properties": {
+        "assessmentTargetArns": {
+          "$ref": "#/definitions/BatchDescribeArnList",
+          "description": "The ARNs that specifies the assessment targets that you want to describe."
+        }
+      },
+      "required": [
+        "assessmentTargetArns"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentTargetsResponse": {
+      "example": {
+        "assessmentTargets": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
+            "createdAt": "1458074191.459",
+            "name": "ExampleAssessmentTarget",
+            "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
+            "updatedAt": "1458074191.459"
+          }
+        ],
+        "failedItems": {}
+      },
+      "properties": {
+        "assessmentTargets": {
+          "$ref": "#/definitions/AssessmentTargetList",
+          "description": "Information about the assessment targets."
+        },
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Assessment target details that cannot be described. An error code is provided for each failed item."
+        }
+      },
+      "required": [
+        "assessmentTargets",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentTemplatesRequest": {
+      "example": {
+        "assessmentTemplateArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
+        ]
+      },
+      "properties": {
+        "assessmentTemplateArns": {
+          "$ref": "#/definitions/BatchDescribeArnList"
+        }
+      },
+      "required": [
+        "assessmentTemplateArns"
+      ],
+      "type": "object"
+    },
+    "DescribeAssessmentTemplatesResponse": {
+      "example": {
+        "assessmentTemplates": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+            "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
+            "createdAt": "1458074191.844",
+            "durationInSeconds": 3600,
+            "name": "ExampleAssessmentTemplate",
+            "rulesPackageArns": [
+              "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
+            ],
+            "userAttributesForFindings": []
+          }
+        ],
+        "failedItems": {}
+      },
+      "properties": {
+        "assessmentTemplates": {
+          "$ref": "#/definitions/AssessmentTemplateList",
+          "description": "Information about the assessment templates."
+        },
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Assessment template details that cannot be described. An error code is provided for each failed item."
+        }
+      },
+      "required": [
+        "assessmentTemplates",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DescribeCrossAccountAccessRoleResponse": {
+      "example": {
+        "registeredAt": "1458069182.826",
+        "roleArn": "arn:aws:iam::123456789012:role/inspector",
+        "valid": true
+      },
+      "properties": {
+        "registeredAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The date when the cross-account access role was registered."
+        },
+        "roleArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account."
+        },
+        "valid": {
+          "$ref": "#/definitions/Bool",
+          "description": "A Boolean value that specifies whether the IAM role has the necessary policies attached to enable Amazon Inspector to access your AWS account."
+        }
+      },
+      "required": [
+        "roleArn",
+        "valid",
+        "registeredAt"
+      ],
+      "type": "object"
+    },
+    "DescribeFindingsRequest": {
+      "example": {
+        "findingArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4"
+        ]
+      },
+      "properties": {
+        "findingArns": {
+          "$ref": "#/definitions/BatchDescribeArnList",
+          "description": "The ARN that specifies the finding that you want to describe."
+        },
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": "The locale into which you want to translate a finding description, recommendation, and the short description that identifies the finding."
+        }
+      },
+      "required": [
+        "findingArns"
+      ],
+      "type": "object"
+    },
+    "DescribeFindingsResponse": {
+      "example": {
+        "failedItems": {},
+        "findings": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4",
+            "assetAttributes": {
+              "ipv4Addresses": [],
+              "schemaVersion": 1
+            },
+            "assetType": "ec2-instance",
+            "attributes": [],
+            "confidence": 10,
+            "createdAt": "1458680301.37",
+            "description": "Amazon Inspector did not find any potential security issues during this assessment.",
+            "indicatorOfCompromise": false,
+            "numericSeverity": 0,
+            "recommendation": "No remediation needed.",
+            "schemaVersion": 1,
+            "service": "Inspector",
+            "serviceAttributes": {
+              "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+              "rulesPackageArn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP",
+              "schemaVersion": 1
+            },
+            "severity": "Informational",
+            "title": "No potential security issues found",
+            "updatedAt": "1458680301.37",
+            "userAttributes": []
+          }
+        ]
+      },
+      "properties": {
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Finding details that cannot be described. An error code is provided for each failed item."
+        },
+        "findings": {
+          "$ref": "#/definitions/FindingList",
+          "description": "Information about the finding."
+        }
+      },
+      "required": [
+        "findings",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DescribeResourceGroupsRequest": {
+      "example": {
+        "resourceGroupArns": [
+          "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI"
+        ]
+      },
+      "properties": {
+        "resourceGroupArns": {
+          "$ref": "#/definitions/BatchDescribeArnList",
+          "description": "The ARN that specifies the resource group that you want to describe."
+        }
+      },
+      "required": [
+        "resourceGroupArns"
+      ],
+      "type": "object"
+    },
+    "DescribeResourceGroupsResponse": {
+      "example": {
+        "failedItems": {},
+        "resourceGroups": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
+            "createdAt": "1458074191.098",
+            "tags": [
+              {
+                "key": "Name",
+                "value": "example"
+              }
+            ]
+          }
+        ]
+      },
+      "properties": {
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Resource group details that cannot be described. An error code is provided for each failed item."
+        },
+        "resourceGroups": {
+          "$ref": "#/definitions/ResourceGroupList",
+          "description": "Information about a resource group."
+        }
+      },
+      "required": [
+        "resourceGroups",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DescribeRulesPackagesRequest": {
+      "example": {
+        "rulesPackageArns": [
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ"
+        ]
+      },
+      "properties": {
+        "locale": {
+          "$ref": "#/definitions/Locale",
+          "description": "The locale that you want to translate a rules package description into."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/BatchDescribeArnList",
+          "description": "The ARN that specifies the rules package that you want to describe."
+        }
+      },
+      "required": [
+        "rulesPackageArns"
+      ],
+      "type": "object"
+    },
+    "DescribeRulesPackagesResponse": {
+      "example": {
+        "failedItems": {},
+        "rulesPackages": [
+          {
+            "arn": "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+            "description": "The rules in this package help determine whether your systems are configured securely.",
+            "name": "Security Best Practices",
+            "provider": "Amazon Web Services, Inc.",
+            "version": "1.1"
+          }
+        ]
+      },
+      "properties": {
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Rules package details that cannot be described. An error code is provided for each failed item."
+        },
+        "rulesPackages": {
+          "$ref": "#/definitions/RulesPackageList",
+          "description": "Information about the rules package."
+        }
+      },
+      "required": [
+        "rulesPackages",
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "DurationRange": {
+      "description": "This data type is used in the <a>AssessmentTemplateFilter</a> data type.",
+      "properties": {
+        "maxSeconds": {
+          "$ref": "#/definitions/AssessmentRunDuration",
+          "description": "The maximum value of the duration range. Must be less than or equal to 604800 seconds (1 week)."
+        },
+        "minSeconds": {
+          "$ref": "#/definitions/AssessmentRunDuration",
+          "description": "The minimum value of the duration range. Must be greater than zero."
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "EventSubscription": {
+      "description": "This data type is used in the <a>Subscription</a> data type.",
+      "properties": {
+        "event": {
+          "$ref": "#/definitions/InspectorEvent",
+          "description": "The event for which Amazon Simple Notification Service (SNS) notifications are sent."
+        },
+        "subscribedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which <a>SubscribeToEvent</a> is called."
+        }
+      },
+      "required": [
+        "event",
+        "subscribedAt"
+      ],
+      "type": "object"
+    },
+    "EventSubscriptionList": {
+      "items": {
+        "$ref": "#/definitions/EventSubscription"
+      },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
+    "FailedItemDetails": {
+      "description": "Includes details about the failed items.",
+      "properties": {
+        "failureCode": {
+          "$ref": "#/definitions/FailedItemErrorCode",
+          "description": "The status code of a failed item."
+        },
+        "retryable": {
+          "$ref": "#/definitions/Bool",
+          "description": "Indicates whether you can immediately retry a request for this item for a specified resource."
+        }
+      },
+      "required": [
+        "failureCode",
+        "retryable"
+      ],
+      "type": "object"
+    },
+    "FailedItemErrorCode": {
+      "enum": [
+        "INVALID_ARN",
+        "DUPLICATE_ARN",
+        "ITEM_DOES_NOT_EXIST",
+        "ACCESS_DENIED",
+        "LIMIT_EXCEEDED",
+        "INTERNAL_ERROR"
+      ],
+      "type": "string"
+    },
+    "FailedItems": {
+      "items": {
+        "properties": {
+          "key": {
+            "$ref": "#/definitions/Arn"
+          },
+          "value": {
+            "$ref": "#/definitions/FailedItemDetails"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "FilterRulesPackageArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Finding": {
+      "description": "Contains information about an Amazon Inspector finding. This data type is used as the response element in the <a>DescribeFindings</a> action.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the finding."
+        },
+        "assetAttributes": {
+          "$ref": "#/definitions/AssetAttributes",
+          "description": "A collection of attributes of the host from which the finding is generated."
+        },
+        "assetType": {
+          "$ref": "#/definitions/AssetType",
+          "description": "The type of the host from which the finding is generated."
+        },
+        "attributes": {
+          "$ref": "#/definitions/AttributeList",
+          "description": "The system-defined attributes for the finding."
+        },
+        "confidence": {
+          "$ref": "#/definitions/IocConfidence",
+          "description": "This data element is currently not used."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time when the finding was generated."
+        },
+        "description": {
+          "$ref": "#/definitions/Text",
+          "description": "The description of the finding."
+        },
+        "id": {
+          "$ref": "#/definitions/FindingId",
+          "description": "The ID of the finding."
+        },
+        "indicatorOfCompromise": {
+          "$ref": "#/definitions/Bool",
+          "description": "This data element is currently not used."
+        },
+        "numericSeverity": {
+          "$ref": "#/definitions/NumericSeverity",
+          "description": "The numeric value of the finding severity."
+        },
+        "recommendation": {
+          "$ref": "#/definitions/Text",
+          "description": "The recommendation for the finding."
+        },
+        "schemaVersion": {
+          "$ref": "#/definitions/NumericVersion",
+          "description": "The schema version of this data type."
+        },
+        "service": {
+          "$ref": "#/definitions/ServiceName",
+          "description": "The data element is set to \"Inspector\"."
+        },
+        "serviceAttributes": {
+          "$ref": "#/definitions/InspectorServiceAttributes"
+        },
+        "severity": {
+          "$ref": "#/definitions/Severity",
+          "description": "The finding severity. Values can be set to High, Medium, Low, and Informational."
+        },
+        "title": {
+          "$ref": "#/definitions/Text",
+          "description": "The name of the finding."
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time when <a>AddAttributesToFindings</a> is called."
+        },
+        "userAttributes": {
+          "$ref": "#/definitions/UserAttributeList",
+          "description": "The user-defined attributes that are assigned to the finding."
+        }
+      },
+      "required": [
+        "arn",
+        "attributes",
+        "userAttributes",
+        "createdAt",
+        "updatedAt"
+      ],
+      "type": "object"
+    },
+    "FindingFilter": {
+      "description": "This data type is used as a request parameter in the <a>ListFindings</a> action.",
+      "properties": {
+        "agentIds": {
+          "$ref": "#/definitions/AgentIdList",
+          "description": "For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type."
+        },
+        "attributes": {
+          "$ref": "#/definitions/AttributeList",
+          "description": "For a record to match a filter, the list of values that are specified for this data type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type."
+        },
+        "autoScalingGroups": {
+          "$ref": "#/definitions/AutoScalingGroupList",
+          "description": "For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>autoScalingGroup</b> property of the <a>Finding</a> data type."
+        },
+        "creationTimeRange": {
+          "$ref": "#/definitions/TimestampRange",
+          "description": "The time range during which the finding is generated."
+        },
+        "ruleNames": {
+          "$ref": "#/definitions/RuleNameList",
+          "description": "For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/FilterRulesPackageArnList",
+          "description": "For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>rulesPackageArn</b> property of the <a>Finding</a> data type."
+        },
+        "severities": {
+          "$ref": "#/definitions/SeverityList",
+          "description": "For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type."
+        },
+        "userAttributes": {
+          "$ref": "#/definitions/AttributeList",
+          "description": "For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the <b>userAttributes</b> property of the <a>Finding</a> data type."
+        }
+      },
+      "type": "object"
+    },
+    "FindingId": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "FindingList": {
+      "items": {
+        "$ref": "#/definitions/Finding"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "GetTelemetryMetadataRequest": {
+      "example": {
+        "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE"
+      },
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment run that has the telemetry data that you want to obtain."
+        }
+      },
+      "required": [
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "GetTelemetryMetadataResponse": {
+      "example": {
+        "telemetryMetadata": [
+          {
+            "count": 2,
+            "dataSize": 345,
+            "messageType": "InspectorDuplicateProcess"
+          },
+          {
+            "count": 3,
+            "dataSize": 255,
+            "messageType": "InspectorTimeEventMsg"
+          },
+          {
+            "count": 4,
+            "dataSize": 1082,
+            "messageType": "InspectorNetworkInterface"
+          },
+          {
+            "count": 2,
+            "dataSize": 349,
+            "messageType": "InspectorDnsEntry"
+          },
+          {
+            "count": 11,
+            "dataSize": 2514,
+            "messageType": "InspectorDirectoryInfoMsg"
+          },
+          {
+            "count": 1,
+            "dataSize": 179,
+            "messageType": "InspectorTcpV6ListeningPort"
+          },
+          {
+            "count": 101,
+            "dataSize": 10949,
+            "messageType": "InspectorTerminal"
+          },
+          {
+            "count": 26,
+            "dataSize": 5916,
+            "messageType": "InspectorUser"
+          },
+          {
+            "count": 282,
+            "dataSize": 32148,
+            "messageType": "InspectorDynamicallyLoadedCodeModule"
+          },
+          {
+            "count": 18,
+            "dataSize": 10172,
+            "messageType": "InspectorCreateProcess"
+          },
+          {
+            "count": 3,
+            "dataSize": 8001,
+            "messageType": "InspectorProcessPerformance"
+          },
+          {
+            "count": 1,
+            "dataSize": 360,
+            "messageType": "InspectorOperatingSystem"
+          },
+          {
+            "count": 6,
+            "dataSize": 546,
+            "messageType": "InspectorStopProcess"
+          },
+          {
+            "count": 1,
+            "dataSize": 1553,
+            "messageType": "InspectorInstanceMetaData"
+          },
+          {
+            "count": 2,
+            "dataSize": 434,
+            "messageType": "InspectorTcpV4Connection"
+          },
+          {
+            "count": 474,
+            "dataSize": 2960322,
+            "messageType": "InspectorPackageInfo"
+          },
+          {
+            "count": 3,
+            "dataSize": 2235,
+            "messageType": "InspectorSystemPerformance"
+          },
+          {
+            "count": 105,
+            "dataSize": 46048,
+            "messageType": "InspectorCodeModule"
+          },
+          {
+            "count": 1,
+            "dataSize": 182,
+            "messageType": "InspectorUdpV6ListeningPort"
+          },
+          {
+            "count": 2,
+            "dataSize": 371,
+            "messageType": "InspectorUdpV4ListeningPort"
+          },
+          {
+            "count": 18,
+            "dataSize": 8362,
+            "messageType": "InspectorKernelModule"
+          },
+          {
+            "count": 29,
+            "dataSize": 48788,
+            "messageType": "InspectorConfigurationInfo"
+          },
+          {
+            "count": 1,
+            "dataSize": 79,
+            "messageType": "InspectorMonitoringStart"
+          },
+          {
+            "count": 5,
+            "dataSize": 0,
+            "messageType": "InspectorSplitMsgBegin"
+          },
+          {
+            "count": 51,
+            "dataSize": 4593,
+            "messageType": "InspectorGroup"
+          },
+          {
+            "count": 1,
+            "dataSize": 184,
+            "messageType": "InspectorTcpV4ListeningPort"
+          },
+          {
+            "count": 1159,
+            "dataSize": 3146579,
+            "messageType": "Total"
+          },
+          {
+            "count": 5,
+            "dataSize": 0,
+            "messageType": "InspectorSplitMsgEnd"
+          },
+          {
+            "count": 1,
+            "dataSize": 612,
+            "messageType": "InspectorLoadImageInProcess"
+          }
+        ]
+      },
+      "properties": {
+        "telemetryMetadata": {
+          "$ref": "#/definitions/TelemetryMetadataList",
+          "description": "Telemetry details."
+        }
+      },
+      "required": [
+        "telemetryMetadata"
+      ],
+      "type": "object"
+    },
+    "Hostname": {
+      "maxLength": 256,
+      "minLength": 0,
+      "type": "string"
+    },
+    "InspectorEvent": {
+      "enum": [
+        "ASSESSMENT_RUN_STARTED",
+        "ASSESSMENT_RUN_COMPLETED",
+        "ASSESSMENT_RUN_STATE_CHANGED",
+        "FINDING_REPORTED",
+        "OTHER"
+      ],
+      "type": "string"
+    },
+    "InspectorServiceAttributes": {
+      "description": "This data type is used in the <a>Finding</a> data type.",
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run during which the finding is generated."
+        },
+        "rulesPackageArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the rules package that is used to generate the finding."
+        },
+        "schemaVersion": {
+          "$ref": "#/definitions/NumericVersion",
+          "description": "The schema version of this data type."
+        }
+      },
+      "required": [
+        "schemaVersion"
+      ],
+      "type": "object"
+    },
+    "InternalException": {
+      "description": "Internal server error.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "InvalidCrossAccountRoleErrorCode": {
+      "enum": [
+        "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
+        "ROLE_DOES_NOT_HAVE_CORRECT_POLICY"
+      ],
+      "type": "string"
+    },
+    "InvalidCrossAccountRoleException": {
+      "description": "Amazon Inspector cannot assume the cross-account role that it needs to list your EC2 instances during the assessment run.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/InvalidCrossAccountRoleErrorCode",
+          "description": "Code that indicates the type of error that is generated."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "errorCode",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "InvalidInputErrorCode": {
+      "enum": [
+        "INVALID_ASSESSMENT_TARGET_ARN",
+        "INVALID_ASSESSMENT_TEMPLATE_ARN",
+        "INVALID_ASSESSMENT_RUN_ARN",
+        "INVALID_FINDING_ARN",
+        "INVALID_RESOURCE_GROUP_ARN",
+        "INVALID_RULES_PACKAGE_ARN",
+        "INVALID_RESOURCE_ARN",
+        "INVALID_SNS_TOPIC_ARN",
+        "INVALID_IAM_ROLE_ARN",
+        "INVALID_ASSESSMENT_TARGET_NAME",
+        "INVALID_ASSESSMENT_TARGET_NAME_PATTERN",
+        "INVALID_ASSESSMENT_TEMPLATE_NAME",
+        "INVALID_ASSESSMENT_TEMPLATE_NAME_PATTERN",
+        "INVALID_ASSESSMENT_TEMPLATE_DURATION",
+        "INVALID_ASSESSMENT_TEMPLATE_DURATION_RANGE",
+        "INVALID_ASSESSMENT_RUN_DURATION_RANGE",
+        "INVALID_ASSESSMENT_RUN_START_TIME_RANGE",
+        "INVALID_ASSESSMENT_RUN_COMPLETION_TIME_RANGE",
+        "INVALID_ASSESSMENT_RUN_STATE_CHANGE_TIME_RANGE",
+        "INVALID_ASSESSMENT_RUN_STATE",
+        "INVALID_TAG",
+        "INVALID_TAG_KEY",
+        "INVALID_TAG_VALUE",
+        "INVALID_RESOURCE_GROUP_TAG_KEY",
+        "INVALID_RESOURCE_GROUP_TAG_VALUE",
+        "INVALID_ATTRIBUTE",
+        "INVALID_USER_ATTRIBUTE",
+        "INVALID_USER_ATTRIBUTE_KEY",
+        "INVALID_USER_ATTRIBUTE_VALUE",
+        "INVALID_PAGINATION_TOKEN",
+        "INVALID_MAX_RESULTS",
+        "INVALID_AGENT_ID",
+        "INVALID_AUTO_SCALING_GROUP",
+        "INVALID_RULE_NAME",
+        "INVALID_SEVERITY",
+        "INVALID_LOCALE",
+        "INVALID_EVENT",
+        "ASSESSMENT_TARGET_NAME_ALREADY_TAKEN",
+        "ASSESSMENT_TEMPLATE_NAME_ALREADY_TAKEN",
+        "INVALID_NUMBER_OF_ASSESSMENT_TARGET_ARNS",
+        "INVALID_NUMBER_OF_ASSESSMENT_TEMPLATE_ARNS",
+        "INVALID_NUMBER_OF_ASSESSMENT_RUN_ARNS",
+        "INVALID_NUMBER_OF_FINDING_ARNS",
+        "INVALID_NUMBER_OF_RESOURCE_GROUP_ARNS",
+        "INVALID_NUMBER_OF_RULES_PACKAGE_ARNS",
+        "INVALID_NUMBER_OF_ASSESSMENT_RUN_STATES",
+        "INVALID_NUMBER_OF_TAGS",
+        "INVALID_NUMBER_OF_RESOURCE_GROUP_TAGS",
+        "INVALID_NUMBER_OF_ATTRIBUTES",
+        "INVALID_NUMBER_OF_USER_ATTRIBUTES",
+        "INVALID_NUMBER_OF_AGENT_IDS",
+        "INVALID_NUMBER_OF_AUTO_SCALING_GROUPS",
+        "INVALID_NUMBER_OF_RULE_NAMES",
+        "INVALID_NUMBER_OF_SEVERITIES"
+      ],
+      "type": "string"
+    },
+    "InvalidInputException": {
+      "description": "The request was rejected because an invalid or out-of-range value was supplied for an input parameter.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/InvalidInputErrorCode",
+          "description": "Code that indicates the type of error that is generated."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "errorCode",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "IocConfidence": {
+      "maximum": 10,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "Ipv4Address": {
+      "maxLength": 15,
+      "minLength": 7,
+      "type": "string"
+    },
+    "Ipv4AddressList": {
+      "items": {
+        "$ref": "#/definitions/Ipv4Address"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "LimitExceededErrorCode": {
+      "enum": [
+        "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
+        "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
+        "ASSESSMENT_RUN_LIMIT_EXCEEDED",
+        "RESOURCE_GROUP_LIMIT_EXCEEDED",
+        "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED"
+      ],
+      "type": "string"
+    },
+    "LimitExceededException": {
+      "description": "The request was rejected because it attempted to create resources beyond the current AWS account limits. The error code describes the limit exceeded.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/LimitExceededErrorCode",
+          "description": "Code that indicates the type of error that is generated."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "errorCode",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "ListAssessmentRunAgentsRequest": {
+      "example": {
+        "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+        "maxResults": 123
+      },
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment run whose agents you want to list."
+        },
+        "filter": {
+          "$ref": "#/definitions/AgentFilter",
+          "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentRunAgents</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "required": [
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "ListAssessmentRunAgentsResponse": {
+      "example": {
+        "assessmentRunAgents": [
+          {
+            "agentHealth": "HEALTHY",
+            "agentHealthCode": "RUNNING",
+            "agentId": "i-49113b93",
+            "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+            "telemetryMetadata": [
+              {
+                "count": 2,
+                "dataSize": 345,
+                "messageType": "InspectorDuplicateProcess"
+              },
+              {
+                "count": 3,
+                "dataSize": 255,
+                "messageType": "InspectorTimeEventMsg"
+              },
+              {
+                "count": 4,
+                "dataSize": 1082,
+                "messageType": "InspectorNetworkInterface"
+              },
+              {
+                "count": 2,
+                "dataSize": 349,
+                "messageType": "InspectorDnsEntry"
+              },
+              {
+                "count": 11,
+                "dataSize": 2514,
+                "messageType": "InspectorDirectoryInfoMsg"
+              },
+              {
+                "count": 1,
+                "dataSize": 179,
+                "messageType": "InspectorTcpV6ListeningPort"
+              },
+              {
+                "count": 101,
+                "dataSize": 10949,
+                "messageType": "InspectorTerminal"
+              },
+              {
+                "count": 26,
+                "dataSize": 5916,
+                "messageType": "InspectorUser"
+              },
+              {
+                "count": 282,
+                "dataSize": 32148,
+                "messageType": "InspectorDynamicallyLoadedCodeModule"
+              },
+              {
+                "count": 18,
+                "dataSize": 10172,
+                "messageType": "InspectorCreateProcess"
+              },
+              {
+                "count": 3,
+                "dataSize": 8001,
+                "messageType": "InspectorProcessPerformance"
+              },
+              {
+                "count": 1,
+                "dataSize": 360,
+                "messageType": "InspectorOperatingSystem"
+              },
+              {
+                "count": 6,
+                "dataSize": 546,
+                "messageType": "InspectorStopProcess"
+              },
+              {
+                "count": 1,
+                "dataSize": 1553,
+                "messageType": "InspectorInstanceMetaData"
+              },
+              {
+                "count": 2,
+                "dataSize": 434,
+                "messageType": "InspectorTcpV4Connection"
+              },
+              {
+                "count": 474,
+                "dataSize": 2960322,
+                "messageType": "InspectorPackageInfo"
+              },
+              {
+                "count": 3,
+                "dataSize": 2235,
+                "messageType": "InspectorSystemPerformance"
+              },
+              {
+                "count": 105,
+                "dataSize": 46048,
+                "messageType": "InspectorCodeModule"
+              },
+              {
+                "count": 1,
+                "dataSize": 182,
+                "messageType": "InspectorUdpV6ListeningPort"
+              },
+              {
+                "count": 2,
+                "dataSize": 371,
+                "messageType": "InspectorUdpV4ListeningPort"
+              },
+              {
+                "count": 18,
+                "dataSize": 8362,
+                "messageType": "InspectorKernelModule"
+              },
+              {
+                "count": 29,
+                "dataSize": 48788,
+                "messageType": "InspectorConfigurationInfo"
+              },
+              {
+                "count": 1,
+                "dataSize": 79,
+                "messageType": "InspectorMonitoringStart"
+              },
+              {
+                "count": 5,
+                "dataSize": 0,
+                "messageType": "InspectorSplitMsgBegin"
+              },
+              {
+                "count": 51,
+                "dataSize": 4593,
+                "messageType": "InspectorGroup"
+              },
+              {
+                "count": 1,
+                "dataSize": 184,
+                "messageType": "InspectorTcpV4ListeningPort"
+              },
+              {
+                "count": 1159,
+                "dataSize": 3146579,
+                "messageType": "Total"
+              },
+              {
+                "count": 5,
+                "dataSize": 0,
+                "messageType": "InspectorSplitMsgEnd"
+              },
+              {
+                "count": 1,
+                "dataSize": 612,
+                "messageType": "InspectorLoadImageInProcess"
+              }
+            ]
+          }
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "assessmentRunAgents": {
+          "$ref": "#/definitions/AssessmentRunAgentList",
+          "description": "A list of ARNs that specifies the agents returned by the action."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "assessmentRunAgents"
+      ],
+      "type": "object"
+    },
+    "ListAssessmentRunsRequest": {
+      "example": {
+        "assessmentTemplateArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
+        ],
+        "maxResults": 123
+      },
+      "properties": {
+        "assessmentTemplateArns": {
+          "$ref": "#/definitions/ListParentArnList",
+          "description": "The ARNs that specify the assessment templates whose assessment runs you want to list."
+        },
+        "filter": {
+          "$ref": "#/definitions/AssessmentRunFilter",
+          "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentRuns</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "ListAssessmentRunsResponse": {
+      "example": {
+        "assessmentRunArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-v5D6fI3v"
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "assessmentRunArns": {
+          "$ref": "#/definitions/ListReturnedArnList",
+          "description": "A list of ARNs that specifies the assessment runs that are returned by the action."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "assessmentRunArns"
+      ],
+      "type": "object"
+    },
+    "ListAssessmentTargetsRequest": {
+      "example": {
+        "maxResults": 123
+      },
+      "properties": {
+        "filter": {
+          "$ref": "#/definitions/AssessmentTargetFilter",
+          "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentTargets</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "ListAssessmentTargetsResponse": {
+      "example": {
+        "assessmentTargetArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "assessmentTargetArns": {
+          "$ref": "#/definitions/ListReturnedArnList",
+          "description": "A list of ARNs that specifies the assessment targets that are returned by the action."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "assessmentTargetArns"
+      ],
+      "type": "object"
+    },
+    "ListAssessmentTemplatesRequest": {
+      "example": {
+        "assessmentTargetArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+        ],
+        "maxResults": 123
+      },
+      "properties": {
+        "assessmentTargetArns": {
+          "$ref": "#/definitions/ListParentArnList",
+          "description": "A list of ARNs that specifies the assessment targets whose assessment templates you want to list."
+        },
+        "filter": {
+          "$ref": "#/definitions/AssessmentTemplateFilter",
+          "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListAssessmentTemplates</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "ListAssessmentTemplatesResponse": {
+      "example": {
+        "assessmentTemplateArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-Uza6ihLh"
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "assessmentTemplateArns": {
+          "$ref": "#/definitions/ListReturnedArnList",
+          "description": "A list of ARNs that specifies the assessment templates returned by the action."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "assessmentTemplateArns"
+      ],
+      "type": "object"
+    },
+    "ListEventSubscriptionsMaxResults": {
+      "type": "integer"
+    },
+    "ListEventSubscriptionsRequest": {
+      "example": {
+        "maxResults": 123,
+        "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0"
+      },
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/ListEventSubscriptionsMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListEventSubscriptions</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        },
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template for which you want to list the existing event subscriptions."
+        }
+      },
+      "type": "object"
+    },
+    "ListEventSubscriptionsResponse": {
+      "example": {
+        "nextToken": "1",
+        "subscriptions": [
+          {
+            "eventSubscriptions": [
+              {
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "subscribedAt": "1459455440.867"
+              }
+            ],
+            "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+            "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+          }
+        ]
+      },
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        },
+        "subscriptions": {
+          "$ref": "#/definitions/SubscriptionList",
+          "description": "Details of the returned event subscriptions."
+        }
+      },
+      "required": [
+        "subscriptions"
+      ],
+      "type": "object"
+    },
+    "ListFindingsRequest": {
+      "example": {
+        "assessmentRunArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE"
+        ],
+        "maxResults": 123
+      },
+      "properties": {
+        "assessmentRunArns": {
+          "$ref": "#/definitions/ListParentArnList",
+          "description": "The ARNs of the assessment runs that generate the findings that you want to list."
+        },
+        "filter": {
+          "$ref": "#/definitions/FindingFilter",
+          "description": "<p>You can use this parameter to specify a subset of data to be included in the action's response.</p> <p>For a record to match a filter, all specified filter attributes must match. When multiple values are specified for a filter attribute, any of the values can match.</p>"
+        },
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListFindings</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "ListFindingsResponse": {
+      "example": {
+        "findingArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE/finding/0-HwPnsDm4",
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-v5D6fI3v/finding/0-tyvmqBLy"
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "findingArns": {
+          "$ref": "#/definitions/ListReturnedArnList",
+          "description": "A list of ARNs that specifies the findings returned by the action."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "findingArns"
+      ],
+      "type": "object"
+    },
+    "ListMaxResults": {
+      "type": "integer"
+    },
+    "ListParentArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ListReturnedArnList": {
+      "items": {
+        "$ref": "#/definitions/Arn"
+      },
+      "maxItems": 100,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ListRulesPackagesRequest": {
+      "example": {
+        "maxResults": 123
+      },
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/ListMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListRulesPackages</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        }
+      },
+      "type": "object"
+    },
+    "ListRulesPackagesResponse": {
+      "example": {
+        "nextToken": "1",
+        "rulesPackageArns": [
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
+          "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD"
+        ]
+      },
+      "properties": {
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        },
+        "rulesPackageArns": {
+          "$ref": "#/definitions/ListReturnedArnList",
+          "description": "The list of ARNs that specifies the rules packages returned by the action."
+        }
+      },
+      "required": [
+        "rulesPackageArns"
+      ],
+      "type": "object"
+    },
+    "ListTagsForResourceRequest": {
+      "example": {
+        "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-gcwFliYu"
+      },
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN that specifies the assessment template whose tags you want to list."
+        }
+      },
+      "required": [
+        "resourceArn"
+      ],
+      "type": "object"
+    },
+    "ListTagsForResourceResponse": {
+      "example": {
+        "tags": [
+          {
+            "key": "Name",
+            "value": "Example"
+          }
+        ]
+      },
+      "properties": {
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "A collection of key and value pairs."
+        }
+      },
+      "required": [
+        "tags"
+      ],
+      "type": "object"
+    },
+    "Locale": {
+      "enum": [
+        "EN_US"
+      ],
+      "type": "string"
+    },
+    "Long": {
+      "type": "integer"
+    },
+    "Message": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "MessageType": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NamePattern": {
+      "maxLength": 140,
+      "minLength": 1,
+      "type": "string"
+    },
+    "NoSuchEntityErrorCode": {
+      "enum": [
+        "ASSESSMENT_TARGET_DOES_NOT_EXIST",
+        "ASSESSMENT_TEMPLATE_DOES_NOT_EXIST",
+        "ASSESSMENT_RUN_DOES_NOT_EXIST",
+        "FINDING_DOES_NOT_EXIST",
+        "RESOURCE_GROUP_DOES_NOT_EXIST",
+        "RULES_PACKAGE_DOES_NOT_EXIST",
+        "SNS_TOPIC_DOES_NOT_EXIST",
+        "IAM_ROLE_DOES_NOT_EXIST"
+      ],
+      "type": "string"
+    },
+    "NoSuchEntityException": {
+      "description": "The request was rejected because it referenced an entity that does not exist. The error code describes the entity.",
+      "properties": {
+        "canRetry": {
+          "$ref": "#/definitions/Bool",
+          "description": "You can immediately retry your request."
+        },
+        "errorCode": {
+          "$ref": "#/definitions/NoSuchEntityErrorCode",
+          "description": "Code that indicates the type of error that is generated."
+        },
+        "message": {
+          "$ref": "#/definitions/ErrorMessage",
+          "description": "Details of the exception error."
+        }
+      },
+      "required": [
+        "message",
+        "errorCode",
+        "canRetry"
+      ],
+      "type": "object"
+    },
+    "NumericSeverity": {
+      "format": "double",
+      "maximum": 10,
+      "minimum": 0,
+      "type": "number"
+    },
+    "NumericVersion": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "PaginationToken": {
+      "maxLength": 300,
+      "minLength": 1,
+      "type": "string"
+    },
+    "PreviewAgentsMaxResults": {
+      "type": "integer"
+    },
+    "PreviewAgentsRequest": {
+      "example": {
+        "maxResults": 123,
+        "previewAgentsArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
+      },
+      "properties": {
+        "maxResults": {
+          "$ref": "#/definitions/PreviewAgentsMaxResults",
+          "description": "You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": "You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>PreviewAgents</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data."
+        },
+        "previewAgentsArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment target whose agents you want to preview."
+        }
+      },
+      "required": [
+        "previewAgentsArn"
+      ],
+      "type": "object"
+    },
+    "PreviewAgentsResponse": {
+      "example": {
+        "agentPreviews": [
+          {
+            "agentId": "i-49113b93"
+          }
+        ],
+        "nextToken": "1"
+      },
+      "properties": {
+        "agentPreviews": {
+          "$ref": "#/definitions/AgentPreviewList",
+          "description": "The resulting list of agents."
+        },
+        "nextToken": {
+          "$ref": "#/definitions/PaginationToken",
+          "description": " When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the <b>nextToken</b> parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null."
+        }
+      },
+      "required": [
+        "agentPreviews"
+      ],
+      "type": "object"
+    },
+    "ProviderName": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "RegisterCrossAccountAccessRoleRequest": {
+      "example": {
+        "roleArn": "arn:aws:iam::123456789012:role/inspector"
+      },
+      "properties": {
+        "roleArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the IAM role that Amazon Inspector uses to list your EC2 instances during the assessment run or when you call the <a>PreviewAgents</a> action. "
+        }
+      },
+      "required": [
+        "roleArn"
+      ],
+      "type": "object"
+    },
+    "RemoveAttributesFromFindingsRequest": {
+      "example": {
+        "attributeKeys": [
+          "key=Example,value=example"
+        ],
+        "findingArns": [
+          "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
+        ]
+      },
+      "properties": {
+        "attributeKeys": {
+          "$ref": "#/definitions/UserAttributeKeyList",
+          "description": "The array of attribute keys that you want to remove from specified findings."
+        },
+        "findingArns": {
+          "$ref": "#/definitions/AddRemoveAttributesFindingArnList",
+          "description": "The ARNs that specify the findings that you want to remove attributes from."
+        }
+      },
+      "required": [
+        "findingArns",
+        "attributeKeys"
+      ],
+      "type": "object"
+    },
+    "RemoveAttributesFromFindingsResponse": {
+      "example": {
+        "failedItems": {}
+      },
+      "properties": {
+        "failedItems": {
+          "$ref": "#/definitions/FailedItems",
+          "description": "Attributes details that cannot be described. An error code is provided for each failed item."
+        }
+      },
+      "required": [
+        "failedItems"
+      ],
+      "type": "object"
+    },
+    "ResourceGroup": {
+      "description": "Contains information about a resource group. The resource group defines a set of tags that, when queried, identify the AWS resources that make up the assessment target. This data type is used as the response element in the <a>DescribeResourceGroups</a> action.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the resource group."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The time at which resource group is created."
+        },
+        "tags": {
+          "$ref": "#/definitions/ResourceGroupTags",
+          "description": "The tags (key and value pairs) of the resource group. This data type property is used in the <a>CreateResourceGroup</a> action."
+        }
+      },
+      "required": [
+        "arn",
+        "tags",
+        "createdAt"
+      ],
+      "type": "object"
+    },
+    "ResourceGroupList": {
+      "items": {
+        "$ref": "#/definitions/ResourceGroup"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "ResourceGroupTag": {
+      "description": "This data type is used as one of the elements of the <a>ResourceGroup</a> data type.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "A tag key."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "The value assigned to a tag key."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "ResourceGroupTags": {
+      "items": {
+        "$ref": "#/definitions/ResourceGroupTag"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "RuleName": {
+      "maxLength": 1000,
+      "type": "string"
+    },
+    "RuleNameList": {
+      "items": {
+        "$ref": "#/definitions/RuleName"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RulesPackage": {
+      "description": "Contains information about an Amazon Inspector rules package. This data type is used as the response element in the <a>DescribeRulesPackages</a> action.",
+      "properties": {
+        "arn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the rules package."
+        },
+        "description": {
+          "$ref": "#/definitions/Text",
+          "description": "The description of the rules package."
+        },
+        "name": {
+          "$ref": "#/definitions/RulesPackageName",
+          "description": "The name of the rules package."
+        },
+        "provider": {
+          "$ref": "#/definitions/ProviderName",
+          "description": "The provider of the rules package."
+        },
+        "version": {
+          "$ref": "#/definitions/Version",
+          "description": "The version ID of the rules package."
+        }
+      },
+      "required": [
+        "arn",
+        "name",
+        "version",
+        "provider"
+      ],
+      "type": "object"
+    },
+    "RulesPackageList": {
+      "items": {
+        "$ref": "#/definitions/RulesPackage"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RulesPackageName": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "ServiceName": {
+      "maxLength": 128,
+      "minLength": 0,
+      "type": "string"
+    },
+    "SetTagsForResourceRequest": {
+      "example": {
+        "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+        "tags": [
+          {
+            "key": "Example",
+            "value": "example"
+          }
+        ]
+      },
+      "properties": {
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template that you want to set tags to."
+        },
+        "tags": {
+          "$ref": "#/definitions/TagList",
+          "description": "A collection of key and value pairs that you want to set to the assessment template."
+        }
+      },
+      "required": [
+        "resourceArn"
+      ],
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Informational",
+        "Undefined"
+      ],
+      "type": "string"
+    },
+    "SeverityList": {
+      "items": {
+        "$ref": "#/definitions/Severity"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "StartAssessmentRunRequest": {
+      "example": {
+        "assessmentRunName": "examplerun",
+        "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T"
+      },
+      "properties": {
+        "assessmentRunName": {
+          "$ref": "#/definitions/AssessmentRunName",
+          "description": "You can specify the name for the assessment run. The name must be unique for the assessment template whose ARN is used to start the assessment run."
+        },
+        "assessmentTemplateArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template of the assessment run that you want to start."
+        }
+      },
+      "required": [
+        "assessmentTemplateArn"
+      ],
+      "type": "object"
+    },
+    "StartAssessmentRunResponse": {
+      "example": {
+        "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-jOoroxyY"
+      },
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run that has been started."
+        }
+      },
+      "required": [
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "StopAssessmentRunRequest": {
+      "example": {
+        "assessmentRunArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-it5r2S4T/run/0-11LMTAVe"
+      },
+      "properties": {
+        "assessmentRunArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment run that you want to stop."
+        }
+      },
+      "required": [
+        "assessmentRunArn"
+      ],
+      "type": "object"
+    },
+    "SubscribeToEventRequest": {
+      "example": {
+        "event": "ASSESSMENT_RUN_COMPLETED",
+        "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+        "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+      },
+      "properties": {
+        "event": {
+          "$ref": "#/definitions/InspectorEvent",
+          "description": "The event for which you want to receive SNS notifications."
+        },
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template that is used during the event for which you want to receive SNS notifications."
+        },
+        "topicArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the SNS topic to which the SNS notifications are sent."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "event",
+        "topicArn"
+      ],
+      "type": "object"
+    },
+    "Subscription": {
+      "description": "This data type is used as a response element in the <a>ListEventSubscriptions</a> action.",
+      "properties": {
+        "eventSubscriptions": {
+          "$ref": "#/definitions/EventSubscriptionList",
+          "description": "The list of existing event subscriptions."
+        },
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template that is used during the event for which the SNS notification is sent."
+        },
+        "topicArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the Amazon Simple Notification Service (SNS) topic to which the SNS notifications are sent."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "topicArn",
+        "eventSubscriptions"
+      ],
+      "type": "object"
+    },
+    "SubscriptionList": {
+      "items": {
+        "$ref": "#/definitions/Subscription"
+      },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Tag": {
+      "description": "A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.",
+      "properties": {
+        "key": {
+          "$ref": "#/definitions/TagKey",
+          "description": "A tag key."
+        },
+        "value": {
+          "$ref": "#/definitions/TagValue",
+          "description": "A value assigned to a tag key."
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "type": "object"
+    },
+    "TagKey": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TagList": {
+      "items": {
+        "$ref": "#/definitions/Tag"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "TagValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "TelemetryMetadata": {
+      "description": "The metadata about the Amazon Inspector application data metrics collected by the agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.",
+      "properties": {
+        "count": {
+          "$ref": "#/definitions/Long",
+          "description": "The count of messages that the agent sends to the Amazon Inspector service."
+        },
+        "dataSize": {
+          "$ref": "#/definitions/Long",
+          "description": "The data size of messages that the agent sends to the Amazon Inspector service."
+        },
+        "messageType": {
+          "$ref": "#/definitions/MessageType",
+          "description": "A specific type of behavioral data that is collected by the agent."
+        }
+      },
+      "required": [
+        "messageType",
+        "count"
+      ],
+      "type": "object"
+    },
+    "TelemetryMetadataList": {
+      "items": {
+        "$ref": "#/definitions/TelemetryMetadata"
+      },
+      "maxItems": 5000,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Text": {
+      "maxLength": 20000,
+      "minLength": 0,
+      "type": "string"
+    },
+    "Timestamp": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "TimestampRange": {
+      "description": "This data type is used in the <a>AssessmentRunFilter</a> data type.",
+      "properties": {
+        "beginDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The minimum value of the timestamp range."
+        },
+        "endDate": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "The maximum value of the timestamp range."
+        }
+      },
+      "type": "object"
+    },
+    "UnsubscribeFromEventRequest": {
+      "example": {
+        "event": "ASSESSMENT_RUN_COMPLETED",
+        "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+        "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+      },
+      "properties": {
+        "event": {
+          "$ref": "#/definitions/InspectorEvent",
+          "description": "The event for which you want to stop receiving SNS notifications."
+        },
+        "resourceArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment template that is used during the event for which you want to stop receiving SNS notifications."
+        },
+        "topicArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the SNS topic to which SNS notifications are sent."
+        }
+      },
+      "required": [
+        "resourceArn",
+        "event",
+        "topicArn"
+      ],
+      "type": "object"
+    },
+    "UpdateAssessmentTargetRequest": {
+      "example": {
+        "assessmentTargetArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX",
+        "assessmentTargetName": "Example",
+        "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-yNbgL5Pt"
+      },
+      "properties": {
+        "assessmentTargetArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the assessment target that you want to update."
+        },
+        "assessmentTargetName": {
+          "$ref": "#/definitions/AssessmentTargetName",
+          "description": "The name of the assessment target that you want to update."
+        },
+        "resourceGroupArn": {
+          "$ref": "#/definitions/Arn",
+          "description": "The ARN of the resource group that is used to specify the new resource group to associate with the assessment target."
+        }
+      },
+      "required": [
+        "assessmentTargetArn",
+        "assessmentTargetName",
+        "resourceGroupArn"
+      ],
+      "type": "object"
+    },
+    "UserAttributeKeyList": {
+      "items": {
+        "$ref": "#/definitions/AttributeKey"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "UserAttributeList": {
+      "items": {
+        "$ref": "#/definitions/Attribute"
+      },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "Version": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "type": "string"
+    }
+  },
+  "actions": [
+    {
+      "id": "AddAttributesToFindings",
+      "title": "AddAttributesToFindings",
+      "description": "Assigns attributes (key and value pairs) to the findings that are specified by the ARNs of the findings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/AddAttributesToFindingsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AddAttributesToFindingsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "CreateAssessmentTarget",
+      "title": "CreateAssessmentTarget",
+      "description": "Creates a new assessment target using the ARN of the resource group that is generated by <a>CreateResourceGroup</a>. You can create up to 50 assessment targets per AWS account. You can run up to 500 concurrent agents per AWS account. For more information, see <a href=\"http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html\"> Amazon Inspector Assessment Targets</a>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateAssessmentTargetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateAssessmentTargetResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "CreateAssessmentTemplate",
+      "title": "CreateAssessmentTemplate",
+      "description": "Creates an assessment template for the assessment target that is specified by the ARN of the assessment target.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateAssessmentTemplateRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateAssessmentTemplateResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "CreateResourceGroup",
+      "title": "CreateResourceGroup",
+      "description": "Creates a resource group using the specified set of tags (key and value pairs) that are used to select the EC2 instances to be included in an Amazon Inspector assessment target. The created resource group is then used to create an Amazon Inspector assessment target. For more information, see <a>CreateAssessmentTarget</a>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateResourceGroupRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateResourceGroupResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DeleteAssessmentRun",
+      "title": "DeleteAssessmentRun",
+      "description": "Deletes the assessment run that is specified by the ARN of the assessment run.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteAssessmentRunRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DeleteAssessmentTarget",
+      "title": "DeleteAssessmentTarget",
+      "description": "Deletes the assessment target that is specified by the ARN of the assessment target.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteAssessmentTargetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DeleteAssessmentTemplate",
+      "title": "DeleteAssessmentTemplate",
+      "description": "Deletes the assessment template that is specified by the ARN of the assessment template.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteAssessmentTemplateRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeAssessmentRuns",
+      "title": "DescribeAssessmentRuns",
+      "description": "Describes the assessment runs that are specified by the ARNs of the assessment runs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeAssessmentRunsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAssessmentRunsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeAssessmentTargets",
+      "title": "DescribeAssessmentTargets",
+      "description": "Describes the assessment targets that are specified by the ARNs of the assessment targets.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeAssessmentTargetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAssessmentTargetsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeAssessmentTemplates",
+      "title": "DescribeAssessmentTemplates",
+      "description": "Describes the assessment templates that are specified by the ARNs of the assessment templates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeAssessmentTemplatesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeAssessmentTemplatesResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeCrossAccountAccessRole",
+      "title": "DescribeCrossAccountAccessRole",
+      "description": "Describes the IAM role that enables Amazon Inspector to access your AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeCrossAccountAccessRoleResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeFindings",
+      "title": "DescribeFindings",
+      "description": "Describes the findings that are specified by the ARNs of the findings.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeFindingsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeFindingsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeResourceGroups",
+      "title": "DescribeResourceGroups",
+      "description": "Describes the resource groups that are specified by the ARNs of the resource groups.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeResourceGroupsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeResourceGroupsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "DescribeRulesPackages",
+      "title": "DescribeRulesPackages",
+      "description": "Describes the rules packages that are specified by the ARNs of the rules packages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeRulesPackagesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeRulesPackagesResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "GetTelemetryMetadata",
+      "title": "GetTelemetryMetadata",
+      "description": "Information about the data that is collected for the specified assessment run.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/GetTelemetryMetadataRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/GetTelemetryMetadataResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListAssessmentRunAgents",
+      "title": "ListAssessmentRunAgents",
+      "description": "Lists the agents of the assessment runs that are specified by the ARNs of the assessment runs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssessmentRunAgentsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssessmentRunAgentsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListAssessmentRuns",
+      "title": "ListAssessmentRuns",
+      "description": "Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssessmentRunsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssessmentRunsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListAssessmentTargets",
+      "title": "ListAssessmentTargets",
+      "description": "Lists the ARNs of the assessment targets within this AWS account. For more information about assessment targets, see <a href=\"http://docs.aws.amazon.com/inspector/latest/userguide/inspector_applications.html\">Amazon Inspector Assessment Targets</a>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssessmentTargetsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssessmentTargetsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListAssessmentTemplates",
+      "title": "ListAssessmentTemplates",
+      "description": "Lists the assessment templates that correspond to the assessment targets that are specified by the ARNs of the assessment targets.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListAssessmentTemplatesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListAssessmentTemplatesResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListEventSubscriptions",
+      "title": "ListEventSubscriptions",
+      "description": "Lists all the event subscriptions for the assessment template that is specified by the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListEventSubscriptionsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListEventSubscriptionsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListFindings",
+      "title": "ListFindings",
+      "description": "Lists findings that are generated by the assessment runs that are specified by the ARNs of the assessment runs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListFindingsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListFindingsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListRulesPackages",
+      "title": "ListRulesPackages",
+      "description": "Lists all available Amazon Inspector rules packages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListRulesPackagesRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRulesPackagesResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "ListTagsForResource",
+      "title": "ListTagsForResource",
+      "description": "Lists all tags associated with an assessment template.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/ListTagsForResourceRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTagsForResourceResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "PreviewAgents",
+      "title": "PreviewAgents",
+      "description": "Previews the agents installed on the EC2 instances that are part of the specified assessment target.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PreviewAgentsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PreviewAgentsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "RegisterCrossAccountAccessRole",
+      "title": "RegisterCrossAccountAccessRole",
+      "description": "Registers the IAM role that Amazon Inspector uses to list your EC2 instances at the start of the assessment run or when you call the <a>PreviewAgents</a> action.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RegisterCrossAccountAccessRoleRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "RemoveAttributesFromFindings",
+      "title": "RemoveAttributesFromFindings",
+      "description": "Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/RemoveAttributesFromFindingsRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RemoveAttributesFromFindingsResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "SetTagsForResource",
+      "title": "SetTagsForResource",
+      "description": "Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SetTagsForResourceRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "StartAssessmentRun",
+      "title": "StartAssessmentRun",
+      "description": "Starts the assessment run specified by the ARN of the assessment template. For this API to function properly, you must not exceed the limit of running up to 500 concurrent agents per AWS account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StartAssessmentRunRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/StartAssessmentRunResponse"
+      },
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "StopAssessmentRun",
+      "title": "StopAssessmentRun",
+      "description": "Stops the assessment run that is specified by the ARN of the assessment run.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/StopAssessmentRunRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "SubscribeToEvent",
+      "title": "SubscribeToEvent",
+      "description": "Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/SubscribeToEventRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "UnsubscribeFromEvent",
+      "title": "UnsubscribeFromEvent",
+      "description": "Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UnsubscribeFromEventRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    },
+    {
+      "id": "UpdateAssessmentTarget",
+      "title": "UpdateAssessmentTarget",
+      "description": "Updates the assessment target that is specified by the ARN of the assessment target.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/UpdateAssessmentTargetRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "amazonaws_inspector": {
+          "integration": "amazonaws_inspector"
+        }
+      }
+    }
+  ]
+}

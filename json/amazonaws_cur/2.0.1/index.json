@@ -1,0 +1,441 @@
+{
+  "id": "amazonaws_cur",
+  "title": "AWS Cost and Usage Report Service",
+  "description": "All public APIs for AWS Cost and Usage Report service",
+  "security": {
+    "amazonaws_cur": {
+      "integration": "amazonaws_cur",
+      "fields": {
+        "hmac": "Amazon Signature authorization v4"
+      }
+    }
+  },
+  "logo": {
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+  },
+  "tags": [
+    "cloud",
+    "aws"
+  ],
+  "definitions": {
+    "AWSRegion": {
+      "description": "Region of customer S3 bucket.",
+      "enum": [
+        "us-east-1",
+        "us-west-1",
+        "us-west-2",
+        "eu-central-1",
+        "eu-west-1",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ap-northeast-1"
+      ],
+      "type": "string"
+    },
+    "AdditionalArtifact": {
+      "description": "Enable support for Redshift and/or QuickSight.",
+      "enum": [
+        "REDSHIFT",
+        "QUICKSIGHT"
+      ],
+      "type": "string"
+    },
+    "AdditionalArtifactList": {
+      "description": "A list of additional artifacts.",
+      "items": {
+        "$ref": "#/definitions/AdditionalArtifact"
+      },
+      "type": "array"
+    },
+    "CompressionFormat": {
+      "description": "Preferred compression format for report.",
+      "enum": [
+        "ZIP",
+        "GZIP"
+      ],
+      "type": "string"
+    },
+    "DeleteReportDefinitionRequest": {
+      "description": "Request of DeleteReportDefinition",
+      "properties": {
+        "ReportName": {
+          "$ref": "#/definitions/ReportName"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteReportDefinitionResponse": {
+      "description": "Response of DeleteReportDefinition",
+      "properties": {
+        "ResponseMessage": {
+          "$ref": "#/definitions/DeleteResponseMessage"
+        }
+      },
+      "type": "object"
+    },
+    "DeleteResponseMessage": {
+      "description": "A message indicates if the deletion is successful.",
+      "type": "string"
+    },
+    "DescribeReportDefinitionsRequest": {
+      "description": "Request of DescribeReportDefinitions",
+      "properties": {
+        "MaxResults": {
+          "$ref": "#/definitions/MaxResults"
+        },
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        }
+      },
+      "type": "object"
+    },
+    "DescribeReportDefinitionsResponse": {
+      "description": "Response of DescribeReportDefinitions",
+      "properties": {
+        "NextToken": {
+          "$ref": "#/definitions/GenericString"
+        },
+        "ReportDefinitions": {
+          "$ref": "#/definitions/ReportDefinitionList"
+        }
+      },
+      "type": "object"
+    },
+    "DuplicateReportNameException": {
+      "description": "This exception is thrown when putting a report preference with a name that already exists.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ErrorMessage": {
+      "description": "A message to show the detail of the exception.",
+      "type": "string"
+    },
+    "GenericString": {
+      "description": "A generic string.",
+      "type": "string"
+    },
+    "InternalErrorException": {
+      "description": "This exception is thrown on a known dependency failure.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "MaxResults": {
+      "description": "The max number of results returned by the operation.",
+      "maximum": 5,
+      "minimum": 5,
+      "type": "integer"
+    },
+    "PutReportDefinitionRequest": {
+      "description": "Request of PutReportDefinition",
+      "properties": {
+        "ReportDefinition": {
+          "$ref": "#/definitions/ReportDefinition"
+        }
+      },
+      "required": [
+        "ReportDefinition"
+      ],
+      "type": "object"
+    },
+    "PutReportDefinitionResponse": {
+      "description": "Response of PutReportDefinition",
+      "properties": {},
+      "type": "object"
+    },
+    "ReportDefinition": {
+      "description": "The definition of AWS Cost and Usage Report. Customer can specify the report name, time unit, report format, compression format, S3 bucket and additional artifacts and schema elements in the definition.",
+      "properties": {
+        "AdditionalArtifacts": {
+          "$ref": "#/definitions/AdditionalArtifactList"
+        },
+        "AdditionalSchemaElements": {
+          "$ref": "#/definitions/SchemaElementList"
+        },
+        "Compression": {
+          "$ref": "#/definitions/CompressionFormat"
+        },
+        "Format": {
+          "$ref": "#/definitions/ReportFormat"
+        },
+        "ReportName": {
+          "$ref": "#/definitions/ReportName"
+        },
+        "S3Bucket": {
+          "$ref": "#/definitions/S3Bucket"
+        },
+        "S3Prefix": {
+          "$ref": "#/definitions/S3Prefix"
+        },
+        "S3Region": {
+          "$ref": "#/definitions/AWSRegion"
+        },
+        "TimeUnit": {
+          "$ref": "#/definitions/TimeUnit"
+        }
+      },
+      "required": [
+        "ReportName",
+        "TimeUnit",
+        "Format",
+        "Compression",
+        "AdditionalSchemaElements",
+        "S3Bucket",
+        "S3Prefix",
+        "S3Region"
+      ],
+      "type": "object"
+    },
+    "ReportDefinitionList": {
+      "description": "A list of report definitions.",
+      "items": {
+        "$ref": "#/definitions/ReportDefinition"
+      },
+      "type": "array"
+    },
+    "ReportFormat": {
+      "description": "Preferred format for report.",
+      "enum": [
+        "textORcsv"
+      ],
+      "type": "string"
+    },
+    "ReportLimitReachedException": {
+      "description": "This exception is thrown when the number of report preference reaches max limit. The max number is 5.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    },
+    "ReportName": {
+      "description": "Preferred name for a report, it has to be unique. Must starts with a number/letter, case sensitive. Limited to 256 characters.",
+      "maxLength": 256,
+      "pattern": "[0-9A-Za-z!\\-_.*\\'()]+",
+      "type": "string"
+    },
+    "S3Bucket": {
+      "description": "Name of customer S3 bucket.",
+      "maxLength": 256,
+      "type": "string"
+    },
+    "S3Prefix": {
+      "description": "Preferred report path prefix. Limited to 256 characters.",
+      "maxLength": 256,
+      "pattern": "[0-9A-Za-z!\\-_.*\\'()/]*",
+      "type": "string"
+    },
+    "SchemaElement": {
+      "description": "Preference of including Resource IDs. You can include additional details about individual resource IDs in your report.",
+      "enum": [
+        "RESOURCES"
+      ],
+      "type": "string"
+    },
+    "SchemaElementList": {
+      "description": "A list of schema elements.",
+      "items": {
+        "$ref": "#/definitions/SchemaElement"
+      },
+      "type": "array"
+    },
+    "TimeUnit": {
+      "description": "The frequency on which report data are measured and displayed.",
+      "enum": [
+        "HOURLY",
+        "DAILY"
+      ],
+      "type": "string"
+    },
+    "ValidationException": {
+      "description": "This exception is thrown when providing an invalid input. eg. Put a report preference with an invalid report name, or Delete a report preference with an empty report name.",
+      "properties": {
+        "Message": {
+          "$ref": "#/definitions/ErrorMessage"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "DeleteReportDefinition",
+      "title": "DeleteReportDefinition",
+      "description": "Delete a specified report definition",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DeleteReportDefinitionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteReportDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_cur": {
+          "integration": "amazonaws_cur"
+        }
+      }
+    },
+    {
+      "id": "DescribeReportDefinitions",
+      "title": "DescribeReportDefinitions",
+      "description": "Describe a list of report definitions owned by the account",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/DescribeReportDefinitionsRequest"
+          },
+          "MaxResults": {
+            "type": "string",
+            "description": "Pagination limit"
+          },
+          "NextToken": {
+            "type": "string",
+            "description": "Pagination token"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DescribeReportDefinitionsResponse"
+      },
+      "security": {
+        "amazonaws_cur": {
+          "integration": "amazonaws_cur"
+        }
+      }
+    },
+    {
+      "id": "PutReportDefinition",
+      "title": "PutReportDefinition",
+      "description": "Create a new report definition",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/PutReportDefinitionRequest"
+          },
+          "Action": {
+            "type": "string"
+          },
+          "Version": {
+            "type": "string"
+          },
+          "X-Amz-Content-Sha256": {
+            "type": "string"
+          },
+          "X-Amz-Date": {
+            "type": "string"
+          },
+          "X-Amz-Algorithm": {
+            "type": "string"
+          },
+          "X-Amz-Credential": {
+            "type": "string"
+          },
+          "X-Amz-Security-Token": {
+            "type": "string"
+          },
+          "X-Amz-Signature": {
+            "type": "string"
+          },
+          "X-Amz-SignedHeaders": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body",
+          "Action",
+          "Version"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/PutReportDefinitionResponse"
+      },
+      "security": {
+        "amazonaws_cur": {
+          "integration": "amazonaws_cur"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,460 @@
+{
+  "id": "nytimes_most_popular_api",
+  "title": "Most Popular",
+  "description": "Get lists of NYT Articles based on shares, emails, and views.",
+  "security": {
+    "nytimes_most_popular_api": {
+      "integration": "nytimes_most_popular_api",
+      "fields": {
+        "api-key": "API key"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+  },
+  "tags": [
+    "media",
+    "open data"
+  ],
+  "definitions": {
+    "Article": {
+      "properties": {
+        "abstract": {
+          "type": "string"
+        },
+        "byline": {
+          "type": "string"
+        },
+        "column": {
+          "type": "string"
+        },
+        "des_facet": {
+          "$ref": "#/definitions/DesFacet"
+        },
+        "geo_facet": {
+          "$ref": "#/definitions/GeoFacet"
+        },
+        "media": {
+          "items": {},
+          "type": [
+            "array",
+            "string"
+          ]
+        },
+        "org_facet": {
+          "$ref": "#/definitions/OrgFacet"
+        },
+        "per_facet": {
+          "$ref": "#/definitions/PerFacet"
+        },
+        "published_date": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ArticleWithCountType": {
+      "properties": {
+        "abstract": {
+          "type": "string"
+        },
+        "byline": {
+          "type": "string"
+        },
+        "column": {
+          "type": "string"
+        },
+        "count_type": {
+          "type": "string"
+        },
+        "des_facet": {
+          "$ref": "#/definitions/DesFacet"
+        },
+        "geo_facet": {
+          "$ref": "#/definitions/GeoFacet"
+        },
+        "media": {
+          "items": {
+            "properties": {
+              "caption": {
+                "type": "string"
+              },
+              "copyright": {
+                "type": "string"
+              },
+              "media-metadata": {
+                "properties": {
+                  "format": {
+                    "type": "string"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                },
+                "type": "object"
+              },
+              "subtype": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array",
+          "x-runscope/nullable": true,
+          "x-runscope/nullable/value": "''"
+        },
+        "org_facet": {
+          "$ref": "#/definitions/OrgFacet"
+        },
+        "per_facet": {
+          "$ref": "#/definitions/PerFacet"
+        },
+        "published_date": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DesFacet": {
+      "items": {},
+      "type": [
+        "array",
+        "string"
+      ]
+    },
+    "GeoFacet": {
+      "enum": [
+        ""
+      ],
+      "items": {},
+      "type": [
+        "array",
+        "null",
+        "string"
+      ]
+    },
+    "OrgFacet": {
+      "items": {},
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "PerFacet": {
+      "items": {},
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "actions": [
+    {
+      "id": "mostemailed.section.time_period.json.get",
+      "title": "mostemailed.section.time_period.json.get",
+      "description": "Most Emailed by Section & Time Period",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
+            "enum": [
+              "Arts",
+              "Automobiles",
+              "Blogs",
+              "Books",
+              "Business Day",
+              "Education",
+              "Fashion & Style",
+              "Food",
+              "Health",
+              "Job Market",
+              "Magazine",
+              "membercenter",
+              "Movies",
+              "Multimedia",
+              "N.Y.%20%2F%20Region",
+              "NYT Now",
+              "Obituaries",
+              "Open",
+              "Opinion",
+              "Public Editor",
+              "Real Estate",
+              "Science",
+              "Sports",
+              "Style",
+              "Sunday Review",
+              "T Magazine",
+              "Technology",
+              "The Upshot",
+              "Theater",
+              "Times Insider",
+              "Today’s Paper",
+              "Travel",
+              "U.S.",
+              "World",
+              "Your Money",
+              "all-sections"
+            ]
+          },
+          "time-period": {
+            "type": "string",
+            "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
+            "enum": [
+              "1",
+              "7",
+              "30"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "num_results": {
+            "type": "integer"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/definitions/ArticleWithCountType"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
+      }
+    },
+    {
+      "id": "mostshared.section.time_period.json.get",
+      "title": "mostshared.section.time_period.json.get",
+      "description": "Most Shared by Section & Time Period",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
+            "enum": [
+              "Arts",
+              "Automobiles",
+              "Blogs",
+              "Books",
+              "Business Day",
+              "Education",
+              "Fashion & Style",
+              "Food",
+              "Health",
+              "Job Market",
+              "Magazine",
+              "membercenter",
+              "Movies",
+              "Multimedia",
+              "N.Y.%20%2F%20Region",
+              "NYT Now",
+              "Obituaries",
+              "Open",
+              "Opinion",
+              "Public Editor",
+              "Real Estate",
+              "Science",
+              "Sports",
+              "Style",
+              "Sunday Review",
+              "T Magazine",
+              "Technology",
+              "The Upshot",
+              "Theater",
+              "Times Insider",
+              "Today’s Paper",
+              "Travel",
+              "U.S.",
+              "World",
+              "Your Money",
+              "all-sections"
+            ]
+          },
+          "time-period": {
+            "type": "string",
+            "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
+            "enum": [
+              "1",
+              "7",
+              "30"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "num_results": {
+            "type": "integer"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/definitions/Article"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
+      }
+    },
+    {
+      "id": "mostviewed.section.time_period.json.get",
+      "title": "mostviewed.section.time_period.json.get",
+      "description": "Most Viewed by Section & Time Period",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
+            "enum": [
+              "Arts",
+              "Automobiles",
+              "Blogs",
+              "Books",
+              "Business Day",
+              "Education",
+              "Fashion & Style",
+              "Food",
+              "Health",
+              "Job Market",
+              "Magazine",
+              "membercenter",
+              "Movies",
+              "Multimedia",
+              "N.Y.%20%2F%20Region",
+              "NYT Now",
+              "Obituaries",
+              "Open",
+              "Opinion",
+              "Public Editor",
+              "Real Estate",
+              "Science",
+              "Sports",
+              "Style",
+              "Sunday Review",
+              "T Magazine",
+              "Technology",
+              "The Upshot",
+              "Theater",
+              "Times Insider",
+              "Today’s Paper",
+              "Travel",
+              "U.S.",
+              "World",
+              "Your Money",
+              "all-sections"
+            ]
+          },
+          "time-period": {
+            "type": "string",
+            "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
+            "enum": [
+              "1",
+              "7",
+              "30"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "section",
+          "time-period"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "copyright": {
+            "type": "string"
+          },
+          "num_results": {
+            "type": "integer"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/definitions/Article"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "security": {
+        "nytimes_most_popular_api": {
+          "integration": "nytimes_most_popular_api"
+        }
+      }
+    }
+  ]
+}

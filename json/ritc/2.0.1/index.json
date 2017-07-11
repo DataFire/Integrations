@@ -1,0 +1,2770 @@
+{
+  "id": "ritc",
+  "title": "Ritc",
+  "description": "Rules in the Cloud",
+  "security": {
+    "ritc": {
+      "integration": "ritc",
+      "fields": {
+        "Authorization": "HTTP Basic Authentication/API Key. Basic Auth requires a username and a password. For the username, use a valid API key. Ritc accepts the API key as both plaintext and base64 encoded. Remember that you must append a colon after the api key in order to avoid being prompted for a password. The format is Base64encode(api-key:)"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
+  },
+  "tags": [
+    "cloud"
+  ],
+  "definitions": {
+    "Action": {
+      "properties": {
+        "channelId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "The date the rule was created",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the rule was modified",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Action",
+      "type": "object"
+    },
+    "Action59": {
+      "properties": {
+        "channelId": {
+          "description": "Id of channel used by action",
+          "format": "int32",
+          "type": "integer"
+        },
+        "codes": {
+          "description": "Object containing named Javascript code sets",
+          "type": "object"
+        },
+        "desc": {
+          "description": "Action description",
+          "type": "string"
+        },
+        "functionId": {
+          "description": "Hash id of channel function used by action",
+          "type": "string"
+        },
+        "name": {
+          "description": "Action name",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "Object containing channel-defined action parameters",
+          "type": "object"
+        }
+      },
+      "required": [
+        "name",
+        "channelId",
+        "functionId"
+      ],
+      "title": "Action59",
+      "type": "object"
+    },
+    "ActionFullResponse": {
+      "properties": {
+        "channelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "codes": {
+          "type": "object"
+        },
+        "createdDate": {
+          "description": "The date the action was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Action description",
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the action was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Action name",
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Action_Full_Response",
+      "type": "object"
+    },
+    "ActionShortResponse": {
+      "properties": {
+        "channelId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "The date the action was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Action description",
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the action was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Action name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Action_Short_Response",
+      "type": "object"
+    },
+    "AdminUser": {
+      "properties": {
+        "email": {
+          "description": "Admin User email address",
+          "type": "string"
+        },
+        "password": {
+          "description": "Admin User password",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/Type41"
+        }
+      },
+      "title": "Admin_User",
+      "type": "object"
+    },
+    "AdminUserResponse": {
+      "properties": {
+        "createdDate": {
+          "description": "The date the admin user was created",
+          "type": "string"
+        },
+        "email": {
+          "description": "Admin User email address",
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the admin user was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Admin User name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "Indicates the status of an Admin User"
+        }
+      },
+      "title": "Admin_User_Response",
+      "type": "object"
+    },
+    "ApiType": {
+      "enum": [
+        "Internal",
+        "REST",
+        "SDK"
+      ],
+      "title": "ApiType",
+      "type": "string"
+    },
+    "App": {
+      "properties": {
+        "desc": {
+          "description": "App description",
+          "type": "string"
+        },
+        "name": {
+          "description": "App name",
+          "type": "string"
+        }
+      },
+      "title": "App",
+      "type": "object"
+    },
+    "AppChannelResponse": {
+      "properties": {
+        "channelId": {
+          "description": "Channel Id",
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "description": "The date the user was created",
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "Assignment status"
+        },
+        "userId": {
+          "description": "Id of App User assigned to Channel",
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "App_Channel_Response",
+      "type": "object"
+    },
+    "AppExternalCredentials": {
+      "properties": {
+        "authType": {
+          "$ref": "#/definitions/AuthType"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "credentials": {
+          "type": "object"
+        },
+        "name": {
+          "description": "App external credentials api name",
+          "type": "string"
+        }
+      },
+      "title": "App_External_Credentials",
+      "type": "object"
+    },
+    "AppExternalCredentialsResponse": {
+      "properties": {
+        "authType": {
+          "$ref": "#/definitions/AuthType"
+        },
+        "channel_id": {
+          "type": "string"
+        },
+        "credentials": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "App external credentials api name",
+          "type": "string"
+        }
+      },
+      "title": "App_External_Credentials_Response",
+      "type": "object"
+    },
+    "AppResponse": {
+      "properties": {
+        "apiKey": {
+          "description": "App ApiKey",
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "The date the app was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "App description",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the app was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "App name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "App_Response",
+      "type": "object"
+    },
+    "AppUser": {
+      "properties": {
+        "config": {
+          "description": "Object containing user-defined app user configuration",
+          "type": "object"
+        },
+        "name": {
+          "description": "Display name of App User",
+          "type": "string"
+        },
+        "password": {
+          "description": "App User password",
+          "type": "string"
+        }
+      },
+      "title": "App_User",
+      "type": "object"
+    },
+    "AppUserResponse": {
+      "properties": {
+        "createdDate": {
+          "description": "The date the user was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of App User",
+          "type": "string"
+        },
+        "id": {
+          "description": "Id of App User",
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the user was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Display name of App User",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "App User status"
+        }
+      },
+      "title": "App_User_Response",
+      "type": "object"
+    },
+    "AuthType": {
+      "enum": [
+        "apikey",
+        "basic",
+        "none",
+        "oauth2"
+      ],
+      "title": "AuthType",
+      "type": "string"
+    },
+    "AuthorizeUrlResponse": {
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "title": "Authorize_Url_Response",
+      "type": "object"
+    },
+    "Channel": {
+      "properties": {
+        "description": {
+          "description": "Channel description",
+          "type": "string"
+        },
+        "functions": {
+          "items": {
+            "$ref": "#/definitions/Function"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id of channel",
+          "type": "string"
+        },
+        "name": {
+          "description": "Channel name",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of channel. Choices are 'public' or 'private'. Private channels are only viewable within an account, while public channels are viewable to everyone in the system",
+          "type": "object"
+        }
+      },
+      "title": "Channel",
+      "type": "object"
+    },
+    "ChannelResponse": {
+      "properties": {
+        "description": {
+          "description": "Channel description",
+          "type": "string"
+        },
+        "functions": {
+          "items": {
+            "$ref": "#/definitions/Function5"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "Id of channel",
+          "type": "string"
+        },
+        "name": {
+          "description": "Channel name",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of channel. Choices are 'public' or 'private'. Private channels are only viewable within an account, while public channels are viewable to everyone",
+          "type": "object"
+        }
+      },
+      "title": "Channel_Response",
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fields": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "Error",
+      "type": "object"
+    },
+    "Function": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Function name",
+          "type": "string"
+        },
+        "parameters": {
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          },
+          "type": "array"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Function",
+      "type": "object"
+    },
+    "Function5": {
+      "properties": {
+        "description": {
+          "description": "Function description",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Function name",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Function5",
+      "type": "object"
+    },
+    "Function7": {
+      "properties": {
+        "apiType": {
+          "$ref": "#/definitions/ApiType"
+        },
+        "desc": {
+          "description": "Function description",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Function endpoint",
+          "type": "string"
+        },
+        "httpMethod": {
+          "$ref": "#/definitions/HttpMethod"
+        },
+        "name": {
+          "description": "Function name",
+          "type": "string"
+        },
+        "requestParameters": {
+          "items": {
+            "$ref": "#/definitions/RequestParameter"
+          },
+          "type": "array"
+        },
+        "responseFormat": {
+          "$ref": "#/definitions/ResponseFormat"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Function7",
+      "type": "object"
+    },
+    "FunctionResponse": {
+      "properties": {
+        "apiType": {
+          "$ref": "#/definitions/ApiType"
+        },
+        "description": {
+          "description": "Function description",
+          "type": "string"
+        },
+        "endpoint": {
+          "description": "Function endpoint",
+          "type": "string"
+        },
+        "httpMethod": {
+          "$ref": "#/definitions/HttpMethod"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Function name",
+          "type": "string"
+        },
+        "requestParameters": {
+          "items": {
+            "$ref": "#/definitions/RequestParameter"
+          },
+          "type": "array"
+        },
+        "responseFormat": {
+          "$ref": "#/definitions/ResponseFormat"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Function_Response",
+      "type": "object"
+    },
+    "HttpMethod": {
+      "enum": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST"
+      ],
+      "title": "HttpMethod",
+      "type": "string"
+    },
+    "Org": {
+      "properties": {
+        "desc": {
+          "description": "Org description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Org name",
+          "type": "string"
+        },
+        "type": {
+          "description": "Org type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "Org",
+      "type": "object"
+    },
+    "OrgResponse": {
+      "properties": {
+        "createdDate": {
+          "description": "The date the org was created",
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the org was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Org name",
+          "type": "string"
+        },
+        "plan": {
+          "$ref": "#/definitions/Plan"
+        },
+        "planCat": {
+          "type": "object"
+        },
+        "status": {
+          "description": "Org name",
+          "type": "string"
+        },
+        "type": {
+          "type": "object"
+        }
+      },
+      "title": "Org_Response",
+      "type": "object"
+    },
+    "Parameter": {
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "title": "Parameter",
+      "type": "object"
+    },
+    "Plan": {
+      "enum": [
+        "free",
+        "basic"
+      ],
+      "title": "Plan",
+      "type": "string"
+    },
+    "RequestParameter": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "fieldType": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "schema": {
+          "$ref": "#/definitions/Schema"
+        }
+      },
+      "title": "RequestParameter",
+      "type": "object"
+    },
+    "ResponseFormat": {
+      "enum": [
+        "Html",
+        "Json",
+        "Text",
+        "Xml"
+      ],
+      "title": "ResponseFormat",
+      "type": "string"
+    },
+    "Rule": {
+      "properties": {
+        "actionIds": {
+          "description": "Rule description",
+          "type": "string"
+        },
+        "description": {
+          "description": "Rule description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Rule name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "Rule status"
+        },
+        "triggerIds": {
+          "description": "Rule description",
+          "type": "string"
+        }
+      },
+      "title": "Rule",
+      "type": "object"
+    },
+    "RuleFullResponse": {
+      "properties": {
+        "actions": {
+          "items": {
+            "$ref": "#/definitions/Action"
+          },
+          "type": "array"
+        },
+        "createdDate": {
+          "description": "The date the rule was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Rule description",
+          "type": "string"
+        },
+        "id": {
+          "description": "Rule Id",
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the rule was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Rule name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "Rule status"
+        },
+        "triggers": {
+          "items": {
+            "$ref": "#/definitions/Trigger"
+          },
+          "type": "array"
+        }
+      },
+      "title": "Rule_Full_Response",
+      "type": "object"
+    },
+    "RuleResults": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of rule results",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/Type"
+        }
+      },
+      "title": "Rule_Results",
+      "type": "object"
+    },
+    "RuleShortResponse": {
+      "properties": {
+        "createdDate": {
+          "description": "The date the rule was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Rule description",
+          "type": "string"
+        },
+        "id": {
+          "description": "Rule Id",
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the rule was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Rule name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status",
+          "description": "Rule status"
+        }
+      },
+      "title": "Rule_Short_Response",
+      "type": "object"
+    },
+    "Schema": {
+      "properties": {
+        "datatype": {
+          "type": "object"
+        },
+        "default": {
+          "type": "string"
+        },
+        "expose": {
+          "type": "object"
+        },
+        "required": {
+          "type": "object"
+        },
+        "style": {
+          "$ref": "#/definitions/Style"
+        }
+      },
+      "title": "Schema",
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "Style": {
+      "enum": [
+        "postbody",
+        "query",
+        "template"
+      ],
+      "title": "Style",
+      "type": "string"
+    },
+    "Trigger": {
+      "properties": {
+        "channelId": {
+          "type": "string"
+        },
+        "createdDate": {
+          "description": "The date the rule was created",
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "modifiedDate": {
+          "description": "The date the rule was modified",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Trigger",
+      "type": "object"
+    },
+    "Trigger54": {
+      "properties": {
+        "channelId": {
+          "description": "Id of channel used by trigger",
+          "format": "int32",
+          "type": "integer"
+        },
+        "codes": {
+          "description": "Object containing named Javascript code sets",
+          "type": "object"
+        },
+        "desc": {
+          "description": "Trigger description",
+          "type": "string"
+        },
+        "functionId": {
+          "description": "Hash id of channel function used by trigger",
+          "type": "string"
+        },
+        "name": {
+          "description": "Trigger name",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "Object containing channel-defined trigger parameters",
+          "type": "object"
+        }
+      },
+      "required": [
+        "name",
+        "channelId",
+        "functionId"
+      ],
+      "title": "Trigger54",
+      "type": "object"
+    },
+    "TriggerFullResponse": {
+      "properties": {
+        "channelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "codes": {
+          "type": "object"
+        },
+        "createdDate": {
+          "description": "The date the trigger was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Trigger description",
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the trigger was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Trigger name",
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Trigger_Full_Response",
+      "type": "object"
+    },
+    "TriggerShortResponse": {
+      "properties": {
+        "channelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdDate": {
+          "description": "The date the trigger was created",
+          "type": "string"
+        },
+        "description": {
+          "description": "Trigger description",
+          "type": "string"
+        },
+        "functionId": {
+          "type": "string"
+        },
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "modifiedDate": {
+          "description": "The date the trigger was modified",
+          "type": "string"
+        },
+        "name": {
+          "description": "Trigger name",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/Status"
+        }
+      },
+      "title": "Trigger_Short_Response",
+      "type": "object"
+    },
+    "Type": {
+      "enum": [
+        "action",
+        "trigger"
+      ],
+      "title": "Type",
+      "type": "string"
+    },
+    "Type41": {
+      "enum": [
+        "admin",
+        "guest"
+      ],
+      "title": "Type41",
+      "type": "string"
+    },
+    "UserChannel": {
+      "properties": {
+        "channelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "title": "User_Channel",
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "listActions",
+      "title": "listActions",
+      "description": "List actions",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ActionShortResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAction",
+      "title": "addAction",
+      "description": "Create a new action",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Action Object": {
+            "$ref": "#/definitions/Action59"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Action Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActionShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeAction",
+      "title": "removeAction",
+      "description": "Delete an action",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "description": "Id of action"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAction",
+      "title": "getAction",
+      "description": "Get an action",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "description": "Id of action_id"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ActionFullResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateAction",
+      "title": "updateAction",
+      "description": "Update information about a specific action",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "Action Object": {
+            "$ref": "#/definitions/Action59"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "Action Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ActionShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "admin",
+      "title": "admin",
+      "description": "Ping the server",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "logInRitc",
+      "title": "logInRitc",
+      "description": "Log a message",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "message"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "pingRitc",
+      "title": "pingRitc",
+      "description": "Ping the server",
+      "inputSchema": {},
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listApps",
+      "title": "listApps",
+      "description": "Get apps information",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addApp",
+      "title": "addApp",
+      "description": "Create a new app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "App Object": {
+            "$ref": "#/definitions/App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "App Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAppChannels",
+      "title": "listAppChannels",
+      "description": "Get app channels",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAppChannelUsers",
+      "title": "listAppChannelUsers",
+      "description": "Get users of a specified channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAppChannelUser",
+      "title": "getAppChannelUser",
+      "description": "Get user of a specified channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAppChannelUser",
+      "title": "addAppChannelUser",
+      "description": "Create user channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listChannelExternalCredentials",
+      "title": "listChannelExternalCredentials",
+      "description": "Get external credentials",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppExternalCredentialsResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addChannelExternalCredentials",
+      "title": "addChannelExternalCredentials",
+      "description": "Create new external credentials",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "App_External_Credentials Object": {
+            "$ref": "#/definitions/AppExternalCredentials"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "App_External_Credentials Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppExternalCredentialsResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeChannelExternalCredentials",
+      "title": "removeChannelExternalCredentials",
+      "description": "Delete credentials for a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getChannelExternalCredentials",
+      "title": "getChannelExternalCredentials",
+      "description": "Get credentials for a channel in an app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppExternalCredentialsResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateChannelExternalCredentials",
+      "title": "updateChannelExternalCredentials",
+      "description": "Update credentials for a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "App_External_Credentials Object": {
+            "$ref": "#/definitions/AppExternalCredentials"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "App_External_Credentials Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppExternalCredentialsResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "runRuleGroup",
+      "title": "runRuleGroup",
+      "description": "Run specified rule group in the app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rule_id_list": {
+            "type": "string",
+            "description": "Ids of rules in the group, separated by commas, no spaces"
+          },
+          "initial_data": {
+            "type": "object"
+          },
+          "break_when_rule_fires": {
+            "type": "boolean",
+            "description": "Do not continue with remaining rules after a rule fires"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rule_id_list"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleResults"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "runApp",
+      "title": "runApp",
+      "description": "Run active app rules",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "initial_data": {
+            "type": "object"
+          },
+          "break_when_rule_fires": {
+            "type": "boolean",
+            "description": "Do not continue with remaining rules after a rule fires"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleResults"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeApp",
+      "title": "removeApp",
+      "description": "Delete an app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "Id of App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getApp",
+      "title": "getApp",
+      "description": "Get app information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "Id of App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateApp",
+      "title": "updateApp",
+      "description": "Update an app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "app_id": {
+            "type": "string",
+            "description": "Id of app"
+          },
+          "App Object": {
+            "$ref": "#/definitions/App"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "app_id",
+          "App Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listChannels",
+      "title": "listChannels",
+      "description": "Retrieve Channels",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addChannel",
+      "title": "addChannel",
+      "description": "Create a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Channel Object": {
+            "$ref": "#/definitions/Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Channel Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAnonymousChannels",
+      "title": "listAnonymousChannels",
+      "description": "Retrieve Channels anonymously",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeChannel",
+      "title": "removeChannel",
+      "description": "Delete a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getChannel",
+      "title": "getChannel",
+      "description": "Get channel information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/ChannelResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateChannel",
+      "title": "updateChannel",
+      "description": "Update a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "Channel Object": {
+            "$ref": "#/definitions/Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "Channel Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChannelResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listChannelFunctions",
+      "title": "listChannelFunctions",
+      "description": "Retrieve Channel Functions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/FunctionResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addChannelFunction",
+      "title": "addChannelFunction",
+      "description": "Create a channel function",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "Channel Function Object": {
+            "$ref": "#/definitions/Function7"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "Channel Function Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FunctionResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getChannelFunction",
+      "title": "getChannelFunction",
+      "description": "Get channel function information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          },
+          "function_id": {
+            "type": "string",
+            "description": "Id of Channel Function"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "channel_id",
+          "function_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/FunctionResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addOrganization",
+      "title": "addOrganization",
+      "description": "Create an org",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Org Object": {
+            "$ref": "#/definitions/Org"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Org Object"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OrgResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getMyOrganization",
+      "title": "getMyOrganization",
+      "description": "Get org information",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/OrgResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listRules",
+      "title": "listRules",
+      "description": "List rules",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleShortResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addRule",
+      "title": "addRule",
+      "description": "Create a new rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Rule Object": {
+            "$ref": "#/definitions/Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Rule Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RuleFullResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeRule",
+      "title": "removeRule",
+      "description": "Delete a rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Id of rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getRule",
+      "title": "getRule",
+      "description": "Get a rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Id of rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleFullResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateRule",
+      "title": "updateRule",
+      "description": "Update information about a specific rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "Rule Object": {
+            "$ref": "#/definitions/Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "Rule Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RuleFullResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "runRule",
+      "title": "runRule",
+      "description": "Run a rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "description": "Id of rule"
+          },
+          "initial_data": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "rule_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listTriggers",
+      "title": "listTriggers",
+      "description": "Triggers in an app",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/TriggerShortResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addTrigger",
+      "title": "addTrigger",
+      "description": "Create a new trigger in an app",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Trigger Object": {
+            "$ref": "#/definitions/Trigger54"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Trigger Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TriggerShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeTrigger",
+      "title": "removeTrigger",
+      "description": "Delete a trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "trigger_id": {
+            "type": "string",
+            "description": "Id of Trigger"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "trigger_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getTrigger",
+      "title": "getTrigger",
+      "description": "Get a trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "trigger_id": {
+            "type": "string",
+            "description": "Id of Trigger"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "trigger_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/TriggerFullResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateTrigger",
+      "title": "updateTrigger",
+      "description": "Update a trigger",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "trigger_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "Trigger Object": {
+            "$ref": "#/definitions/Trigger54"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "trigger_id",
+          "Trigger Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/TriggerShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAppUsers",
+      "title": "listAppUsers",
+      "description": "Users",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppUserResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAppUser",
+      "title": "addAppUser",
+      "description": "Create a new App User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "App User Object": {
+            "$ref": "#/definitions/AppUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "App User Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAdminUsers",
+      "title": "listAdminUsers",
+      "description": "Admin users",
+      "inputSchema": {},
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AdminUserResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAdminUser",
+      "title": "addAdminUser",
+      "description": "Create a new admin user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Admin_User Object": {
+            "$ref": "#/definitions/AdminUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Admin_User Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeAdminUser",
+      "title": "removeAdminUser",
+      "description": "Remove an admin user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of Admin_User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAdminUser",
+      "title": "getAdminUser",
+      "description": "Get an admin user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of Admin_User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AdminUserResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateAdminUser",
+      "title": "updateAdminUser",
+      "description": "Update information about an admin user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "Admin_User Object": {
+            "$ref": "#/definitions/AdminUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "Admin_User Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AdminUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "authenticateAppUserForChannel",
+      "title": "authenticateAppUserForChannel",
+      "description": "Authenticate a user for a channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AuthorizeUrlResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeAppUser",
+      "title": "removeAppUser",
+      "description": "Remove a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAppUser",
+      "title": "getAppUser",
+      "description": "Get an App User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of App User"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/AppUserResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "updateAppUser",
+      "title": "updateAppUser",
+      "description": "Update information about an App User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "App User Object": {
+            "$ref": "#/definitions/AppUser"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "App User Object"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/AppUserResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAppUserChannels",
+      "title": "listAppUserChannels",
+      "description": "Channels available to a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserChannel"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAppUserToChannel",
+      "title": "addAppUserToChannel",
+      "description": "Assign a channel to a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          },
+          "channel_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UserChannel"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeAppUserFromChannel",
+      "title": "removeAppUserFromChannel",
+      "description": "Remove a user channel assignment",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAppUserChannel",
+      "title": "getAppUserChannel",
+      "description": "Get a user channel",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "channel_id": {
+            "type": "string",
+            "description": "Id of Channel"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "channel_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/UserChannel"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "listAppUserRules",
+      "title": "listAppUserRules",
+      "description": "Rules for a User",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of user"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleShortResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "removeAppUserFromRule",
+      "title": "removeAppUserFromRule",
+      "description": "Remove a rule user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Id of Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "getAppUserRule",
+      "title": "getAppUserRule",
+      "description": "Get a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Id of Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
+      },
+      "outputSchema": {
+        "items": {
+          "$ref": "#/definitions/RuleFullResponse"
+        },
+        "type": "array"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "addAppUserToRule",
+      "title": "addAppUserToRule",
+      "description": "Assign a user to a rule",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Id of Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RuleShortResponse"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    },
+    {
+      "id": "runRuleForAppUser",
+      "title": "runRuleForAppUser",
+      "description": "Run rule for a user",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "Id of User"
+          },
+          "rule_id": {
+            "type": "string",
+            "description": "Id of Rule"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "rule_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "security": {
+        "ritc": {
+          "integration": "ritc"
+        }
+      }
+    }
+  ]
+}

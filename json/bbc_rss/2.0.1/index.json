@@ -1,0 +1,45 @@
+{
+  "id": "bbc_rss",
+  "title": "feeds.bbci.co.uk",
+  "description": "",
+  "security": {},
+  "tags": [],
+  "actions": [
+    {
+      "id": "topStories",
+      "title": "topStories",
+      "description": "BBC News - Home",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "world",
+      "title": "world",
+      "description": "BBC News - World",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "uk",
+      "title": "uk",
+      "description": "BBC News - UK",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    },
+    {
+      "id": "technology",
+      "title": "technology",
+      "description": "BBC News - Technology",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/Feed"
+      }
+    }
+  ]
+}

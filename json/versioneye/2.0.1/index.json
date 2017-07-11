@@ -1,0 +1,973 @@
+{
+  "id": "versioneye",
+  "title": "Available API endpoints",
+  "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
+  },
+  "tags": [
+    "open data",
+    "search"
+  ],
+  "actions": [
+    {
+      "id": "getFacebookPing",
+      "title": "getFacebookPing",
+      "description": "ping pong",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postFacebookPing",
+      "title": "postFacebookPing",
+      "description": "ping pong",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithub",
+      "title": "getGithub",
+      "description": "\nThis endpoint shows all imported repositories from your Github account.\n\nThis enpoint expects that you have a GitHub account connected and the token\nis still valid. If that is not the case please visit **https://www.versioneye.com/settings/connect**.\nto update your GitHub credentials.\n\nIf it shows no or old data, then you can use the `github/sync` endpoint\nto update your account with the current meta data from GitHub.\n        ",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Filter by language"
+          },
+          "private": {
+            "type": "boolean",
+            "description": "Filter by visibility"
+          },
+          "org_name": {
+            "type": "string",
+            "description": "Filter by name of organization"
+          },
+          "org_type": {
+            "type": "string",
+            "description": "Filter by type of organization"
+          },
+          "page": {
+            "type": "string",
+            "description": "Number of page"
+          },
+          "only_imported": {
+            "type": "boolean",
+            "description": "Show only imported repositories"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postGithubHookProjectId",
+      "title": "postGithubHookProjectId",
+      "description": "This endpoint is registered as service hook on GitHub. It triggers a project re-parse on each git push. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubSync",
+      "title": "getGithubSync",
+      "description": "\nReimports ALL GitHub Repositories. This Endpoint fetches meta information to all\nrepositories in your GitHub account. Meta information such as repo name, branches and\nsupported project files.\n\nThis endpoint works asynchronously and returns a status code. The status code is either\n**running** or **done**.\n        ",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteGithubRepoKey",
+      "title": "deleteGithubRepoKey",
+      "description": "\nThis Endpoint deletes a project on VersionEye!\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repo_key": {
+            "type": "string",
+            "description": "encoded repo-key"
+          },
+          "branch": {
+            "type": "string",
+            "description": "the name of the branch"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getGithubRepoKey",
+      "title": "getGithubRepoKey",
+      "description": "\nThis Endpoint returns detailed information about a GitHub repository.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repo_key": {
+            "type": "string",
+            "description": "encoded repo name with optional branch info."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postGithubRepoKey",
+      "title": "postGithubRepoKey",
+      "description": "\nUse this Endpoint to import a project file from GitHub. This will create a new project on VersionEye.\n\nDue the limits of our current API framework, the repo key has to be\nencoded as url-safe string. That means all '/' has to be replaced with\ncolons ':' and '.' has to be replaced with '~'.\n\nFor example,  repository with fullname `versioneye/veye` has to transformed\nto `versioneye:veye`.\n        ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "repo_key": {
+            "type": "string",
+            "description": "encoded repo name"
+          },
+          "branch": {
+            "type": "string",
+            "description": "the name of the branch"
+          },
+          "file": {
+            "type": "string",
+            "description": "the project file (default is Gemfile)"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "repo_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getMe",
+      "title": "getMe",
+      "description": "On Swagger, you can create session by adding additional parameter :api_key.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getMeComments",
+      "title": "getMeComments",
+      "description": "shows comments of authorized user",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number for pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getMeFavorites",
+      "title": "getMeFavorites",
+      "description": "shows the packages you are following",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "page number for pagination"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getMeNotifications",
+      "title": "getMeNotifications",
+      "description": "\nThis Endpoint returns the 30 latest notifications.\n\nIf there are new versions out there for software packages you follow directly on VersionEye, then\neach new version is a new **notification** for your account.\n        ",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specify page for paging"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisations",
+      "title": "getOrganisations",
+      "description": "\nThis endpoint requires the API key from a user. The result is a set of organisations and their API keys.\n              ",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsOrgaNameInventory",
+      "title": "getOrganisationsOrgaNameInventory",
+      "description": "\nFind a detailed description here: https://github.com/versioneye/versioneye-api/blob/master/docs/api/v2/organisation.md\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "team_name": {
+            "type": "string",
+            "description": "Filter by team name"
+          },
+          "language": {
+            "type": "string",
+            "description": "Filter by programming language"
+          },
+          "project_version": {
+            "type": "string",
+            "description": "Filter down by project version"
+          },
+          "post_filter": {
+            "type": "string",
+            "description": "Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'"
+          },
+          "orga_name": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsOrgaNameProjects",
+      "title": "getOrganisationsOrgaNameProjects",
+      "description": "Returns the list of projects",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orga_name": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getOrganisationsOrgaNameTeams",
+      "title": "getOrganisationsOrgaNameTeams",
+      "description": "Returns the list of teams",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "orga_name": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "orga_name"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsSearchQ",
+      "title": "getProductsSearchQ",
+      "description": "\nThis resource returns same results as our web application. But you get it as JSON objects -\nthe result is an JSON array of product objects.\n\nWhen there's no match for the query, the result array will be empty.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Query string. At least 2 characters."
+          },
+          "lang": {
+            "type": "string",
+            "description": "Filter results by programming languages;\n                                  For filtering multiple languages submit a comma separated list of language strings.\n                                "
+          },
+          "g": {
+            "type": "string",
+            "description": "Filter by GroupID. This is Java/Maven specific"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specify page for paging"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "q"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsShaSha",
+      "title": "getProductsShaSha",
+      "description": "\nThis Endpoint expects a SHA value and returns the corresponding product to it, if available.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sha": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "sha"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsLangProdKey",
+      "title": "getProductsLangProdKey",
+      "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "\"Name of programming language\""
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "\"Encoded product key, replace all `/` and `.`"
+          },
+          "prod_version": {
+            "type": "string",
+            "description": "\"Version string\""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteProductsLangProdKeyFollow",
+      "title": "deleteProductsLangProdKeyFollow",
+      "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Response codes\n\n  * 400 - bad request; you used wrong product key;\n  * 401 - unauthorized - please append api_key\n  * 403 - forbidden; you are not authorized; or just missed api_key;\n        ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Programming language"
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "Package specifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsLangProdKeyFollow",
+      "title": "getProductsLangProdKeyFollow",
+      "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will returns the status code 404 if there is no product\nfor the given prod_key.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "\"Name of programming language\""
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "Package specifier"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postProductsLangProdKeyFollow",
+      "title": "postProductsLangProdKeyFollow",
+      "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Programming language"
+          },
+          "prod_key": {
+            "type": "string",
+            "description": " Package product key. "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsLangProdKeyReferences",
+      "title": "getProductsLangProdKeyReferences",
+      "description": "\nIt returns the references of a package.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nThis resource will return the status code 404 if there is no product for\nthe given prod_key or the product has 0 references.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Language"
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "Product Key"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page for paging"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProductsLangProdKeyVersions",
+      "title": "getProductsLangProdKeyVersions",
+      "description": "\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\n  * API returns 404, when the product with given product key doesnt exists.\n\n  * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "\"Name of programming language\""
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "\"Encoded product key, replace all `/` and `.`"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postProductsLangProdKeyProdVersionLicense",
+      "title": "postProductsLangProdKeyProdVersionLicense",
+      "description": "With this endpoint users can suggest a license for an artifact.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": " programming language "
+          },
+          "prod_key": {
+            "type": "string",
+            "description": " product key "
+          },
+          "prod_version": {
+            "type": "string",
+            "description": " product version "
+          },
+          "license_name": {
+            "type": "string",
+            "description": " name of the license "
+          },
+          "license_source": {
+            "type": "string",
+            "description": " source of the license. Where did you find it? "
+          },
+          "comments": {
+            "type": "string",
+            "description": " you wanna say anyting important to this license? "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key",
+          "prod_version",
+          "license_name",
+          "license_source"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postProductsLangProdKeyProdVersionScmChanges",
+      "title": "postProductsLangProdKeyProdVersionScmChanges",
+      "description": "\nThis resource can parse a changelog.xml from the maven-changelog-plugin, assign\nit to a specific artifact and display the changelog infos on the product page.\n\nPlease replace all slashes `/` through colons `:` and all dots `.` through `~`!\n\nExample: The clojure package `yummy.json/json` has to be transformed to  `yummy~json:json`.\n\n#### Notes about status codes\n\nIt will respond 404, when you are using wrong product key or encode it uncorrectly.\n              ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": " programming language "
+          },
+          "prod_key": {
+            "type": "string",
+            "description": " product key "
+          },
+          "prod_version": {
+            "type": "string",
+            "description": " product version "
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "lang",
+          "prod_key",
+          "prod_version"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjects",
+      "title": "getProjects",
+      "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "orga_name": {
+            "type": "string",
+            "description": "The name of the organisation the project is assigned to."
+          },
+          "team_name": {
+            "type": "string",
+            "description": "The name of the team in the organisation this project is assigned to."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postProjects",
+      "title": "postProjects",
+      "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "upload": {
+            "type": "string",
+            "description": "Project file - [maven.pom, Gemfile ...]"
+          },
+          "visibility": {
+            "type": "string",
+            "description": "By default 'public'. If 'public' everybody can see the project."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the VersionEye project. By default it is the filename."
+          },
+          "orga_name": {
+            "type": "string",
+            "description": "The name of the organisation this project should be assigned to."
+          },
+          "team_name": {
+            "type": "string",
+            "description": "The name of the team in the organisation this project should be assigned to."
+          },
+          "temp": {
+            "type": "string",
+            "description": "If 'true' this project will not show up in the UI and gets removed later."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "upload"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectsGroupIdArtifactIdMergeGaChildId",
+      "title": "getProjectsGroupIdArtifactIdMergeGaChildId",
+      "description": "\nThis endpoint merges a project (child_id) into another project (group_id/artifact_id).\nThis endpoint is specially for Maven based projects!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "string",
+            "description": "GroupId of the parent project"
+          },
+          "artifact_id": {
+            "type": "string",
+            "description": "ArtifactId of the parent project"
+          },
+          "child_id": {
+            "type": "string",
+            "description": "Project ID of the child"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "group_id",
+          "artifact_id",
+          "child_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectsParentIdMergeChildId",
+      "title": "getProjectsParentIdMergeChildId",
+      "description": "\nThis endpoint merges a project (child_id) into another project (parent_id).\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parent_id": {
+            "type": "string",
+            "description": "Project ID of the parent"
+          },
+          "child_id": {
+            "type": "string",
+            "description": "Project ID of the child"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parent_id",
+          "child_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectsParentIdUnmergeChildId",
+      "title": "getProjectsParentIdUnmergeChildId",
+      "description": "\nThis endpoint unmerges a project (child_id) from another project (parent_id). It makes the\nchilld again a separate project!\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "parent_id": {
+            "type": "string",
+            "description": "Project ID of the parent"
+          },
+          "child_id": {
+            "type": "string",
+            "description": "Project ID of the child"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parent_id",
+          "child_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteProjectsProjectKey",
+      "title": "deleteProjectsProjectKey",
+      "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "type": "string",
+            "description": "Delete project with given project ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectsProjectKey",
+      "title": "getProjectsProjectKey",
+      "description": " It shows detailed info of your project. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "type": "string",
+            "description": "Project ID"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postProjectsProjectKey",
+      "title": "postProjectsProjectKey",
+      "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "type": "string",
+            "description": "Project ID"
+          },
+          "project_file": {
+            "type": "string",
+            "description": "Project file - [maven.pom, Gemfile ...]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_key",
+          "project_file"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getProjectsProjectKeyLicenses",
+      "title": "getProjectsProjectKeyLicenses",
+      "description": "\nTo use this resource you need either an active session or you have to append\nyour API Key to the URL as parameter. For example: \"?api_key=666_your_api_key_666\"\n            ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "project_key": {
+            "type": "string",
+            "description": "Project ID or project_key"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getSecurity",
+      "title": "getSecurity",
+      "description": "Security Vulnerabilities",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Filter by programming languages"
+          },
+          "prod_key": {
+            "type": "string",
+            "description": "prod_key of the package"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Specify page for paging"
+          },
+          "asc_sort": {
+            "type": "string",
+            "description": "Asc sort by value"
+          },
+          "desc_sort": {
+            "type": "string",
+            "description": "Desc sort by value"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "language"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getServicesPing",
+      "title": "getServicesPing",
+      "description": "check is the service up and running",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "deleteSessions",
+      "title": "deleteSessions",
+      "description": "Close current session. It's very handy method when you re-generated your current API-key.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "getSessions",
+      "title": "getSessions",
+      "description": "\nIf current user has active session, then this\nmethod will return 200 with short user profile.\nFor othercase, it will return error message with status code 401.\n              ",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "postSessions",
+      "title": "postSessions",
+      "description": " You need to append your api_key to request. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "api_key": {
+            "type": "string",
+            "description": "your personal token for API."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "api_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "postSessionsLogin",
+      "title": "postSessionsLogin",
+      "description": " You need to append your api_key to request. ",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "email or username"
+          },
+          "password": {
+            "type": "string",
+            "description": "password"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersUsername",
+      "title": "getUsersUsername",
+      "description": "shows profile of given user_id",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "username"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersUsernameComments",
+      "title": "getUsersUsernameComments",
+      "description": "shows user's comments",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "VersionEye users' nickname"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "pagination number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "getUsersUsernameFavorites",
+      "title": "getUsersUsernameFavorites",
+      "description": "shows user's favorite packages",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "username"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Pagination number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

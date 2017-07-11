@@ -1,0 +1,98 @@
+{
+  "id": "xkcd",
+  "title": "XKCD",
+  "description": "Webcomic of romance, sarcasm, math, and language.",
+  "security": {
+    "xkcd": {
+      "integration": "xkcd",
+      "fields": {}
+    }
+  },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
+  },
+  "tags": [
+    "media"
+  ],
+  "definitions": {
+    "comic": {
+      "properties": {
+        "alt": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "img": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "month": {
+          "type": "string"
+        },
+        "news": {
+          "type": "string"
+        },
+        "num": {
+          "type": "number"
+        },
+        "safe_title": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "transcript": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "info.0.json.get",
+      "title": "info.0.json.get",
+      "description": "Fetch current comic and metadata.\n",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/comic"
+      },
+      "security": {
+        "xkcd": {
+          "integration": "xkcd"
+        }
+      }
+    },
+    {
+      "id": "comicId.info.0.json.get",
+      "title": "comicId.info.0.json.get",
+      "description": "Fetch comics and metadata  by comic id.\n",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "comicId": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "comicId"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/comic"
+      },
+      "security": {
+        "xkcd": {
+          "integration": "xkcd"
+        }
+      }
+    }
+  ]
+}

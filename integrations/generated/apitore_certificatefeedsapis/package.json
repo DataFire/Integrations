@@ -1,6 +1,6 @@
 {
   "name": "@datafire/apitore_certificatefeedsapis",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "description": "DataFire integration for Certificate feeds APIs",
   "repository": {

@@ -1,0 +1,793 @@
+{
+  "id": "waag",
+  "title": "CitySDK Linked Data",
+  "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
+  },
+  "tags": [
+    "open data"
+  ],
+  "actions": [
+    {
+      "id": "layers.get",
+      "title": "layers.get",
+      "description": "Return all layers",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.post",
+      "title": "layers.post",
+      "description": "Create new layer",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.delete",
+      "title": "layers.layer.delete",
+      "description": "Delete a layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.get",
+      "title": "layers.layer.get",
+      "description": "Return single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.patch",
+      "title": "layers.layer.patch",
+      "description": "Edit a layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.context.get",
+      "title": "layers.layer.context.get",
+      "description": "Return JSON-LD context of single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.context.put",
+      "title": "layers.layer.context.put",
+      "description": "Overwrite JSON-LD context of single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.get",
+      "title": "layers.layer.fields.get",
+      "description": "Return all fields of single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.post",
+      "title": "layers.layer.fields.post",
+      "description": "Create new field for single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.field.delete",
+      "title": "layers.layer.fields.field.delete",
+      "description": "Delete a single field on single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.field.get",
+      "title": "layers.layer.fields.field.get",
+      "description": "Return single field of single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.field.patch",
+      "title": "layers.layer.fields.field.patch",
+      "description": "Edit single field on single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.fields.field.put",
+      "title": "layers.layer.fields.field.put",
+      "description": "Overwrite single field on single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "field"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.objects.delete",
+      "title": "layers.layer.objects.delete",
+      "description": "Delete all objects from a single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.objects.get",
+      "title": "layers.layer.objects.get",
+      "description": "Return all objects with data on single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.objects.patch",
+      "title": "layers.layer.objects.patch",
+      "description": "Edit one or more objects and data on single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.objects.post",
+      "title": "layers.layer.objects.post",
+      "description": "Create one or more objects with data on single layer, or add data to existing objects (or a combination thereof)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.objects.cdk_id.get",
+      "title": "layers.layer.objects.cdk_id.get",
+      "description": "Return metadata of single layer about single object, e.g. the date the data was added/modified, etc.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "cdk_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "cdk_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "layers.layer.owners.get",
+      "title": "layers.layer.owners.get",
+      "description": "Return all owners associated with single layer",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.contextEntities.entity.get",
+      "title": "ngsi10.contextEntities.entity.get",
+      "description": "Return single context entity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "entity"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.contextEntities.entity.attributes.put",
+      "title": "ngsi10.contextEntities.entity.attributes.put",
+      "description": "Update attributes for single context entity",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "entity"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.contextEntities.entity.attributes.attribute.get",
+      "title": "ngsi10.contextEntities.entity.attributes.attribute.get",
+      "description": "Return single context entity attribute",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "entity": {
+            "type": "string"
+          },
+          "attribute": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "entity",
+          "attribute"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.contextEntityTypes.cetype.get",
+      "title": "ngsi10.contextEntityTypes.cetype.get",
+      "description": "Return objects of particular type",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cetype": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cetype"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.contextEntityTypes.cetype.attributes.attribute.get",
+      "title": "ngsi10.contextEntityTypes.cetype.attributes.attribute.get",
+      "description": "Return objects of particular type",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cetype": {
+            "type": "string"
+          },
+          "attribute": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cetype",
+          "attribute"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.queryContext.post",
+      "title": "ngsi10.queryContext.post",
+      "description": "Query context broker for contextElements",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.subscribeContext.post",
+      "title": "ngsi10.subscribeContext.post",
+      "description": "Create a new context subscription",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.unsubscribeContext.post",
+      "title": "ngsi10.unsubscribeContext.post",
+      "description": "Delete a context subscription",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.updateContext.post",
+      "title": "ngsi10.updateContext.post",
+      "description": "Add or update NGSI contextElements",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "ngsi10.updateContextSubscription.post",
+      "title": "ngsi10.updateContextSubscription.post",
+      "description": "Update/edit a context subscription",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.get",
+      "title": "objects.get",
+      "description": "Return all objects",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.delete",
+      "title": "objects.cdk_id.delete",
+      "description": "Delete a single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.get",
+      "title": "objects.cdk_id.get",
+      "description": "Get a single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.patch",
+      "title": "objects.cdk_id.patch",
+      "description": "Edit a single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.get",
+      "title": "objects.cdk_id.layers.get",
+      "description": "Get all layers that contain data of single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.layer.delete",
+      "title": "objects.cdk_id.layers.layer.delete",
+      "description": "Remove data on layer from single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.layer.get",
+      "title": "objects.cdk_id.layers.layer.get",
+      "description": "Return all data on single layer of single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.layer.patch",
+      "title": "objects.cdk_id.layers.layer.patch",
+      "description": "Update data on layer to single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.layer.post",
+      "title": "objects.cdk_id.layers.layer.post",
+      "description": "Add data on layer to single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "objects.cdk_id.layers.layer.put",
+      "title": "objects.cdk_id.layers.layer.put",
+      "description": "Overwrite data on layer to single object",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cdk_id": {
+            "type": "string"
+          },
+          "layer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "cdk_id",
+          "layer"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.get",
+      "title": "owners.get",
+      "description": "Return all owners",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.post",
+      "title": "owners.post",
+      "description": "Create new owner",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.owner.delete",
+      "title": "owners.owner.delete",
+      "description": "Delete owner - and all layers and data belonging to this owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.owner.get",
+      "title": "owners.owner.get",
+      "description": "Get a single owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.owner.patch",
+      "title": "owners.owner.patch",
+      "description": "Edit an owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "owners.owner.layers.get",
+      "title": "owners.owner.layers.get",
+      "description": "Return all layers belonging to a single owner",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "owner"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "session.delete",
+      "title": "session.delete",
+      "description": "Close session",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "session.get",
+      "title": "session.get",
+      "description": "Return a session key",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Login name."
+          },
+          "password": {
+            "type": "string",
+            "description": "Login password."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "password"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

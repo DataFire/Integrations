@@ -1,0 +1,134 @@
+{
+  "id": "apitore_2chmatomefeedsapis",
+  "title": "2ch matome feeds APIs",
+  "description": "Various 2ch matome feeds.<BR />[Endpoint] https://api.apitore.com/api/29",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
+  },
+  "tags": [],
+  "definitions": {
+    "FeedEntryEntity": {
+      "properties": {
+        "author": {
+          "description": "Author",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description",
+          "type": "string"
+        },
+        "link": {
+          "description": "Link",
+          "type": "string"
+        },
+        "pubDate": {
+          "description": "Published Date",
+          "format": "int64",
+          "type": "integer"
+        },
+        "sourceLink": {
+          "description": "Source Link",
+          "type": "string"
+        },
+        "sourceTitle": {
+          "description": "Source Title",
+          "type": "string"
+        },
+        "title": {
+          "description": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "link",
+        "pubDate",
+        "sourceLink",
+        "sourceTitle",
+        "title"
+      ],
+      "type": "object"
+    },
+    "FeedResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "entries": {
+          "description": "Entries",
+          "items": {
+            "$ref": "#/definitions/FeedEntryEntity"
+          },
+          "type": "array"
+        },
+        "lastUpdatedAt": {
+          "description": "Last Updated At",
+          "format": "int64",
+          "type": "integer"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "num": {
+          "description": "Num",
+          "format": "int32",
+          "type": "integer"
+        },
+        "page": {
+          "description": "Input page num",
+          "format": "int32",
+          "type": "integer"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "entries",
+        "lastUpdatedAt",
+        "log",
+        "num",
+        "page",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "feedUsingGET",
+      "title": "feedUsingGET",
+      "description": "2ch matome feeds.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response\">rome-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.rome.FeedResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Page number [page x 10 feeds]"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/FeedResponseEntity"
+      }
+    }
+  ]
+}

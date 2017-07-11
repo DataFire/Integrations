@@ -12,7 +12,7 @@
       "financial"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "6_dot_authentiqio_appspot": {
     "id": "6_dot_authentiqio_appspot",
@@ -24,7 +24,7 @@
     },
     "tags": [],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amadeus": {
     "id": "amadeus",
@@ -42,7 +42,7 @@
     },
     "tags": [],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_acm": {
     "id": "amazonaws_acm",
@@ -65,7 +65,7 @@
       "aws"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_apigateway": {
     "id": "amazonaws_apigateway",
@@ -88,7 +88,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_appstream2": {
     "id": "amazonaws_appstream2",
@@ -111,7 +111,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_athena": {
     "id": "amazonaws_athena",
@@ -134,7 +134,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_autoscaling": {
     "id": "amazonaws_autoscaling",
@@ -157,7 +157,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_batch": {
     "id": "amazonaws_batch",
@@ -180,7 +180,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_budgets": {
     "id": "amazonaws_budgets",
@@ -203,7 +203,7 @@
       "aws"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_clouddirectory": {
     "id": "amazonaws_clouddirectory",
@@ -226,7 +226,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudformation": {
     "id": "amazonaws_cloudformation",
@@ -249,7 +249,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudfront": {
     "id": "amazonaws_cloudfront",
@@ -272,7 +272,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudhsm": {
     "id": "amazonaws_cloudhsm",
@@ -295,7 +295,7 @@
       "aws"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudsearch": {
     "id": "amazonaws_cloudsearch",
@@ -318,7 +318,7 @@
       "aws"
     ],
     "actionCount": 24,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudsearchdomain": {
     "id": "amazonaws_cloudsearchdomain",
@@ -341,7 +341,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cloudtrail": {
     "id": "amazonaws_cloudtrail",
@@ -364,7 +364,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_codebuild": {
     "id": "amazonaws_codebuild",
@@ -387,7 +387,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_codecommit": {
     "id": "amazonaws_codecommit",
@@ -410,7 +410,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
@@ -433,7 +433,7 @@
       "aws"
     ],
     "actionCount": 37,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_codepipeline": {
     "id": "amazonaws_codepipeline",
@@ -456,7 +456,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_codestar": {
     "id": "amazonaws_codestar",
@@ -479,7 +479,7 @@
       "aws"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cognito_identity": {
     "id": "amazonaws_cognito_identity",
@@ -502,7 +502,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
@@ -525,7 +525,7 @@
       "aws"
     ],
     "actionCount": 65,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cognito_sync": {
     "id": "amazonaws_cognito_sync",
@@ -548,7 +548,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_config": {
     "id": "amazonaws_config",
@@ -571,7 +571,7 @@
       "aws"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_cur": {
     "id": "amazonaws_cur",
@@ -594,7 +594,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_data_iot": {
     "id": "amazonaws_data_iot",
@@ -617,7 +617,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_datapipeline": {
     "id": "amazonaws_datapipeline",
@@ -640,7 +640,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_dax": {
     "id": "amazonaws_dax",
@@ -663,7 +663,7 @@
       "aws"
     ],
     "actionCount": 21,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_devicefarm": {
     "id": "amazonaws_devicefarm",
@@ -686,7 +686,7 @@
       "aws"
     ],
     "actionCount": 49,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_directconnect": {
     "id": "amazonaws_directconnect",
@@ -709,7 +709,7 @@
       "aws"
     ],
     "actionCount": 37,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_discovery": {
     "id": "amazonaws_discovery",
@@ -732,7 +732,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_dms": {
     "id": "amazonaws_dms",
@@ -755,7 +755,7 @@
       "aws"
     ],
     "actionCount": 33,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_ds": {
     "id": "amazonaws_ds",
@@ -778,7 +778,7 @@
       "aws"
     ],
     "actionCount": 38,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_dynamodb": {
     "id": "amazonaws_dynamodb",
@@ -801,7 +801,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_ec2": {
     "id": "amazonaws_ec2",
@@ -824,7 +824,7 @@
       "aws"
     ],
     "actionCount": 228,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_ecr": {
     "id": "amazonaws_ecr",
@@ -847,7 +847,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_ecs": {
     "id": "amazonaws_ecs",
@@ -870,7 +870,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elasticache": {
     "id": "amazonaws_elasticache",
@@ -893,7 +893,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elasticbeanstalk": {
     "id": "amazonaws_elasticbeanstalk",
@@ -916,7 +916,7 @@
       "aws"
     ],
     "actionCount": 41,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elasticfilesystem": {
     "id": "amazonaws_elasticfilesystem",
@@ -939,7 +939,7 @@
       "aws"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elasticloadbalancing": {
     "id": "amazonaws_elasticloadbalancing",
@@ -962,7 +962,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elasticmapreduce": {
     "id": "amazonaws_elasticmapreduce",
@@ -985,7 +985,7 @@
       "aws"
     ],
     "actionCount": 27,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_elastictranscoder": {
     "id": "amazonaws_elastictranscoder",
@@ -1008,7 +1008,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_email": {
     "id": "amazonaws_email",
@@ -1031,7 +1031,7 @@
       "aws"
     ],
     "actionCount": 49,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_entitlement_marketplace": {
     "id": "amazonaws_entitlement_marketplace",
@@ -1054,7 +1054,7 @@
       "aws"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_es": {
     "id": "amazonaws_es",
@@ -1077,7 +1077,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_events": {
     "id": "amazonaws_events",
@@ -1100,7 +1100,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_firehose": {
     "id": "amazonaws_firehose",
@@ -1123,7 +1123,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_gamelift": {
     "id": "amazonaws_gamelift",
@@ -1146,7 +1146,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_glacier": {
     "id": "amazonaws_glacier",
@@ -1169,7 +1169,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_greengrass": {
     "id": "amazonaws_greengrass",
@@ -1192,7 +1192,7 @@
       "aws"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_health": {
     "id": "amazonaws_health",
@@ -1215,7 +1215,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_iam": {
     "id": "amazonaws_iam",
@@ -1238,7 +1238,7 @@
       "aws"
     ],
     "actionCount": 120,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_importexport": {
     "id": "amazonaws_importexport",
@@ -1261,7 +1261,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_inspector": {
     "id": "amazonaws_inspector",
@@ -1284,7 +1284,7 @@
       "aws"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_iot": {
     "id": "amazonaws_iot",
@@ -1307,7 +1307,7 @@
       "aws"
     ],
     "actionCount": 34,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_kinesis": {
     "id": "amazonaws_kinesis",
@@ -1330,7 +1330,7 @@
       "aws"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_kinesisanalytics": {
     "id": "amazonaws_kinesisanalytics",
@@ -1352,7 +1352,7 @@
       "aws"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_kms": {
     "id": "amazonaws_kms",
@@ -1375,7 +1375,7 @@
       "aws"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_lambda": {
     "id": "amazonaws_lambda",
@@ -1398,7 +1398,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_lightsail": {
     "id": "amazonaws_lightsail",
@@ -1421,7 +1421,7 @@
       "aws"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_machinelearning": {
     "id": "amazonaws_machinelearning",
@@ -1444,7 +1444,7 @@
       "aws"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_marketplacecommerceanalytics": {
     "id": "amazonaws_marketplacecommerceanalytics",
@@ -1467,7 +1467,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_metering_marketplace": {
     "id": "amazonaws_metering_marketplace",
@@ -1490,7 +1490,7 @@
       "aws"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_mobileanalytics": {
     "id": "amazonaws_mobileanalytics",
@@ -1513,7 +1513,7 @@
       "aws"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_models_lex": {
     "id": "amazonaws_models_lex",
@@ -1536,7 +1536,7 @@
       "aws"
     ],
     "actionCount": 29,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
@@ -1559,7 +1559,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_mturk_requester": {
     "id": "amazonaws_mturk_requester",
@@ -1582,7 +1582,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_opsworks": {
     "id": "amazonaws_opsworks",
@@ -1605,7 +1605,7 @@
       "aws"
     ],
     "actionCount": 70,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_opsworks_cm": {
     "id": "amazonaws_opsworks_cm",
@@ -1628,7 +1628,7 @@
       "aws"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_organizations": {
     "id": "amazonaws_organizations",
@@ -1651,7 +1651,7 @@
       "aws"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_pinpoint": {
     "id": "amazonaws_pinpoint",
@@ -1673,7 +1673,7 @@
       "aws"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_polly": {
     "id": "amazonaws_polly",
@@ -1696,7 +1696,7 @@
       "aws"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_rds": {
     "id": "amazonaws_rds",
@@ -1719,7 +1719,7 @@
       "aws"
     ],
     "actionCount": 87,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_redshift": {
     "id": "amazonaws_redshift",
@@ -1742,7 +1742,7 @@
       "aws"
     ],
     "actionCount": 63,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_rekognition": {
     "id": "amazonaws_rekognition",
@@ -1765,7 +1765,7 @@
       "aws"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_route53": {
     "id": "amazonaws_route53",
@@ -1787,7 +1787,7 @@
       "aws"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_route53domains": {
     "id": "amazonaws_route53domains",
@@ -1810,7 +1810,7 @@
       "aws"
     ],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_runtime_lex": {
     "id": "amazonaws_runtime_lex",
@@ -1833,7 +1833,7 @@
       "aws"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_s3": {
     "id": "amazonaws_s3",
@@ -1855,7 +1855,7 @@
       "aws"
     ],
     "actionCount": 66,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_sdb": {
     "id": "amazonaws_sdb",
@@ -1878,7 +1878,7 @@
       "aws"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_servicecatalog": {
     "id": "amazonaws_servicecatalog",
@@ -1901,7 +1901,7 @@
       "aws"
     ],
     "actionCount": 43,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_shield": {
     "id": "amazonaws_shield",
@@ -1924,7 +1924,7 @@
       "aws"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_sms": {
     "id": "amazonaws_sms",
@@ -1947,7 +1947,7 @@
       "aws"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_snowball": {
     "id": "amazonaws_snowball",
@@ -1970,7 +1970,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_sns": {
     "id": "amazonaws_sns",
@@ -1993,7 +1993,7 @@
       "aws"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_sqs": {
     "id": "amazonaws_sqs",
@@ -2016,7 +2016,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_ssm": {
     "id": "amazonaws_ssm",
@@ -2039,7 +2039,7 @@
       "aws"
     ],
     "actionCount": 80,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_states": {
     "id": "amazonaws_states",
@@ -2062,7 +2062,7 @@
       "aws"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_storagegateway": {
     "id": "amazonaws_storagegateway",
@@ -2085,7 +2085,7 @@
       "aws"
     ],
     "actionCount": 62,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_streams_dynamodb": {
     "id": "amazonaws_streams_dynamodb",
@@ -2108,7 +2108,7 @@
       "aws"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_sts": {
     "id": "amazonaws_sts",
@@ -2131,7 +2131,7 @@
       "aws"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_support": {
     "id": "amazonaws_support",
@@ -2154,7 +2154,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_swf": {
     "id": "amazonaws_swf",
@@ -2177,7 +2177,7 @@
       "aws"
     ],
     "actionCount": 31,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_tagging": {
     "id": "amazonaws_tagging",
@@ -2200,7 +2200,7 @@
       "aws"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_waf": {
     "id": "amazonaws_waf",
@@ -2223,7 +2223,7 @@
       "aws"
     ],
     "actionCount": 38,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_waf_regional": {
     "id": "amazonaws_waf_regional",
@@ -2246,7 +2246,7 @@
       "aws"
     ],
     "actionCount": 42,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_workdocs": {
     "id": "amazonaws_workdocs",
@@ -2269,7 +2269,7 @@
       "aws"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_workspaces": {
     "id": "amazonaws_workspaces",
@@ -2292,7 +2292,7 @@
       "aws"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "amazonaws_xray": {
     "id": "amazonaws_xray",
@@ -2315,7 +2315,7 @@
       "aws"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apacta": {
     "id": "apacta",
@@ -2336,7 +2336,7 @@
     },
     "tags": [],
     "actionCount": 123,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apimatic": {
     "id": "apimatic",
@@ -2361,7 +2361,7 @@
       "tools"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apis_guru": {
     "id": "apis_guru",
@@ -2376,7 +2376,7 @@
       "developer tools"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_2chmatomefeedsapis": {
     "id": "apitore_2chmatomefeedsapis",
@@ -2388,7 +2388,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_certificatefeedsapis": {
     "id": "apitore_certificatefeedsapis",
@@ -2400,7 +2400,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_designfeedsapis": {
     "id": "apitore_designfeedsapis",
@@ -2412,7 +2412,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_documentfrequencyapis": {
     "id": "apitore_documentfrequencyapis",
@@ -2424,7 +2424,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_gamefeedsapis": {
     "id": "apitore_gamefeedsapis",
@@ -2436,7 +2436,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_kuromojiapis": {
     "id": "apitore_kuromojiapis",
@@ -2448,7 +2448,7 @@
     },
     "tags": [],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_languagedetectionapis": {
     "id": "apitore_languagedetectionapis",
@@ -2460,7 +2460,7 @@
     },
     "tags": [],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_newsfeedsapis": {
     "id": "apitore_newsfeedsapis",
@@ -2472,7 +2472,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_pioneerblogfeedsapis": {
     "id": "apitore_pioneerblogfeedsapis",
@@ -2484,7 +2484,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_rss2jsonapis": {
     "id": "apitore_rss2jsonapis",
@@ -2496,7 +2496,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_sentencepieceapis_wikipedia_": {
     "id": "apitore_sentencepieceapis_wikipedia_",
@@ -2508,7 +2508,7 @@
     },
     "tags": [],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_sentenceseparatorapis": {
     "id": "apitore_sentenceseparatorapis",
@@ -2520,7 +2520,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_sentimentapis": {
     "id": "apitore_sentimentapis",
@@ -2534,7 +2534,7 @@
       "developer tools"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_synonymapis": {
     "id": "apitore_synonymapis",
@@ -2546,7 +2546,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_techfeedsapis": {
     "id": "apitore_techfeedsapis",
@@ -2558,7 +2558,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_text2labelbytfidfapis": {
     "id": "apitore_text2labelbytfidfapis",
@@ -2570,7 +2570,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_text2labelbywordvectorapis": {
     "id": "apitore_text2labelbywordvectorapis",
@@ -2582,7 +2582,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_travelfeedsapis": {
     "id": "apitore_travelfeedsapis",
@@ -2594,7 +2594,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_tweetsummarizationapis": {
     "id": "apitore_tweetsummarizationapis",
@@ -2606,7 +2606,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_twitterapis": {
     "id": "apitore_twitterapis",
@@ -2618,7 +2618,7 @@
     },
     "tags": [],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_twitterapiswithword2vecqueryexpansion": {
     "id": "apitore_twitterapiswithword2vecqueryexpansion",
@@ -2630,7 +2630,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2hrefapis": {
     "id": "apitore_url2hrefapis",
@@ -2642,7 +2642,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2htmlapis": {
     "id": "apitore_url2htmlapis",
@@ -2654,7 +2654,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2labelbytfidfapis": {
     "id": "apitore_url2labelbytfidfapis",
@@ -2666,7 +2666,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2labelbywordvectorapis": {
     "id": "apitore_url2labelbywordvectorapis",
@@ -2678,7 +2678,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2srcapis": {
     "id": "apitore_url2srcapis",
@@ -2690,7 +2690,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_url2textapis": {
     "id": "apitore_url2textapis",
@@ -2702,7 +2702,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_word2vecapis": {
     "id": "apitore_word2vecapis",
@@ -2714,7 +2714,7 @@
     },
     "tags": [],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "apitore_wordstovectorsapis": {
     "id": "apitore_wordstovectorsapis",
@@ -2726,7 +2726,7 @@
     },
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "appveyor": {
     "id": "appveyor",
@@ -2745,7 +2745,7 @@
     },
     "tags": [],
     "actionCount": 45,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "authentiq": {
     "id": "authentiq",
@@ -2779,7 +2779,7 @@
     },
     "tags": [],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_advisor": {
     "id": "azure_arm_advisor",
@@ -2814,7 +2814,7 @@
       "azure"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_analysisservices": {
     "id": "azure_arm_analysisservices",
@@ -2849,7 +2849,7 @@
       "azure"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_apimanagement": {
     "id": "azure_arm_apimanagement",
@@ -2884,7 +2884,7 @@
       "azure"
     ],
     "actionCount": 99,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_appinsights": {
     "id": "azure_arm_appinsights",
@@ -2919,7 +2919,7 @@
       "azure"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_authorization": {
     "id": "azure_arm_authorization",
@@ -2954,7 +2954,7 @@
       "azure"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_batch": {
     "id": "azure_arm_batch",
@@ -2988,7 +2988,7 @@
       "azure"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_billing": {
     "id": "azure_arm_billing",
@@ -3023,7 +3023,7 @@
       "azure"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_cdn": {
     "id": "azure_arm_cdn",
@@ -3059,7 +3059,7 @@
       "azure"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_cognitiveservices": {
     "id": "azure_arm_cognitiveservices",
@@ -3075,7 +3075,7 @@
       "azure"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_commerce": {
     "id": "azure_arm_commerce",
@@ -3090,7 +3090,7 @@
       "azure"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_compute": {
     "id": "azure_arm_compute",
@@ -3125,7 +3125,7 @@
       "azure"
     ],
     "actionCount": 54,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_compute_containerservice": {
     "id": "azure_arm_compute_containerservice",
@@ -3140,7 +3140,7 @@
       "azure"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_compute_disk": {
     "id": "azure_arm_compute_disk",
@@ -3155,7 +3155,7 @@
       "azure"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_consumption": {
     "id": "azure_arm_consumption",
@@ -3190,7 +3190,7 @@
       "azure"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_containerregistry": {
     "id": "azure_arm_containerregistry",
@@ -3204,7 +3204,7 @@
       "azure"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
@@ -3240,7 +3240,7 @@
       "azure"
     ],
     "actionCount": 52,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_dns": {
     "id": "azure_arm_dns",
@@ -3256,7 +3256,7 @@
       "azure"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_documentdb": {
     "id": "azure_arm_documentdb",
@@ -3326,7 +3326,7 @@
       "azure"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_insights": {
     "id": "azure_arm_insights",
@@ -3340,7 +3340,7 @@
       "azure"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_intune": {
     "id": "azure_arm_intune",
@@ -3357,7 +3357,7 @@
       "azure"
     ],
     "actionCount": 33,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_iothub": {
     "id": "azure_arm_iothub",
@@ -3373,7 +3373,7 @@
       "azure"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_keyvault": {
     "id": "azure_arm_keyvault",
@@ -3390,7 +3390,7 @@
       "azure"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_logic": {
     "id": "azure_arm_logic",
@@ -3426,7 +3426,7 @@
       "azure"
     ],
     "actionCount": 59,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_machinelearning_commitmentplans": {
     "id": "azure_arm_machinelearning_commitmentplans",
@@ -3441,7 +3441,7 @@
       "azure"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_machinelearning_webservices": {
     "id": "azure_arm_machinelearning_webservices",
@@ -3456,7 +3456,7 @@
       "azure"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_mediaservices": {
     "id": "azure_arm_mediaservices",
@@ -3492,7 +3492,7 @@
       "azure"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_mobileengagement": {
     "id": "azure_arm_mobileengagement",
@@ -3529,7 +3529,7 @@
       "azure"
     ],
     "actionCount": 37,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_monitor": {
     "id": "azure_arm_monitor",
@@ -3563,7 +3563,7 @@
       "azure"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_network": {
     "id": "azure_arm_network",
@@ -3598,7 +3598,7 @@
       "azure"
     ],
     "actionCount": 97,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_notificationhubs": {
     "id": "azure_arm_notificationhubs",
@@ -3633,7 +3633,7 @@
       "azure"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_operationalinsights": {
     "id": "azure_arm_operationalinsights",
@@ -3668,7 +3668,7 @@
       "azure"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_powerbiembedded": {
     "id": "azure_arm_powerbiembedded",
@@ -3683,7 +3683,7 @@
       "azure"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_recoveryservicesbackup": {
     "id": "azure_arm_recoveryservicesbackup",
@@ -3717,7 +3717,7 @@
       "azure"
     ],
     "actionCount": 33,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_redis": {
     "id": "azure_arm_redis",
@@ -3752,7 +3752,7 @@
       "azure"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_relay": {
     "id": "azure_arm_relay",
@@ -3787,7 +3787,7 @@
       "azure"
     ],
     "actionCount": 34,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_resourcehealth": {
     "id": "azure_arm_resourcehealth",
@@ -3822,7 +3822,7 @@
       "azure"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_scheduler": {
     "id": "azure_arm_scheduler",
@@ -3836,7 +3836,7 @@
       "azure"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_search": {
     "id": "azure_arm_search",
@@ -3871,7 +3871,7 @@
       "azure"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_servermanagement": {
     "id": "azure_arm_servermanagement",
@@ -3906,7 +3906,7 @@
       "azure"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_service_map": {
     "id": "azure_arm_service_map",
@@ -3941,7 +3941,7 @@
       "azure"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_servicebus": {
     "id": "azure_arm_servicebus",
@@ -3976,7 +3976,7 @@
       "azure"
     ],
     "actionCount": 38,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_servicefabric": {
     "id": "azure_arm_servicefabric",
@@ -4010,7 +4010,7 @@
       "azure"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
@@ -4025,7 +4025,7 @@
       "azure"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_storage": {
     "id": "azure_arm_storage",
@@ -4040,7 +4040,7 @@
       "azure"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_storageimportexport": {
     "id": "azure_arm_storageimportexport",
@@ -4075,7 +4075,7 @@
       "azure"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_storsimple8000series": {
     "id": "azure_arm_storsimple8000series",
@@ -4109,7 +4109,7 @@
       "azure"
     ],
     "actionCount": 22,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_trafficmanager": {
     "id": "azure_arm_trafficmanager",
@@ -4123,7 +4123,7 @@
       "azure"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_arm_web": {
     "id": "azure_arm_web",
@@ -4158,7 +4158,7 @@
       "azure"
     ],
     "actionCount": 295,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_insights": {
     "id": "azure_insights",
@@ -4172,7 +4172,7 @@
       "azure"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "azure_monitor": {
     "id": "azure_monitor",
@@ -4206,7 +4206,7 @@
       "azure"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bbc": {
     "id": "bbc",
@@ -4228,7 +4228,7 @@
       "open data"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bbc_rss": {
     "id": "bbc_rss",
@@ -4236,7 +4236,7 @@
     "security": {},
     "tags": [],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bbci": {
     "id": "bbci",
@@ -4260,7 +4260,7 @@
       "media"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bclaws_ca_bclaws": {
     "id": "bclaws_ca_bclaws",
@@ -4274,7 +4274,7 @@
       "open data"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "beanstream": {
     "id": "beanstream",
@@ -4290,7 +4290,7 @@
       "ecommerce"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "beezup": {
     "id": "beezup",
@@ -4312,7 +4312,7 @@
       "ecommerce"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bigoven": {
     "id": "bigoven",
@@ -4333,7 +4333,7 @@
     },
     "tags": [],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bikewise": {
     "id": "bikewise",
@@ -4347,7 +4347,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bitbucket": {
     "id": "bitbucket",
@@ -4407,7 +4407,7 @@
       "collaboration"
     ],
     "actionCount": 183,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bluemix_containers": {
     "id": "bluemix_containers",
@@ -4419,7 +4419,7 @@
     },
     "tags": [],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "botify": {
     "id": "botify",
@@ -4442,7 +4442,7 @@
       "tools"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "box_authorization": {
     "id": "box_authorization",
@@ -4456,7 +4456,7 @@
       "cloud"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "box_content": {
     "id": "box_content",
@@ -4487,7 +4487,7 @@
       "cloud"
     ],
     "actionCount": 129,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "box_token": {
     "id": "box_token",
@@ -4501,7 +4501,7 @@
       "cloud"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "box_upload": {
     "id": "box_upload",
@@ -4532,7 +4532,7 @@
       "cloud"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "brandlovers": {
     "id": "brandlovers",
@@ -4554,7 +4554,7 @@
       "ecommerce"
     ],
     "actionCount": 36,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "browshot": {
     "id": "browshot",
@@ -4575,7 +4575,7 @@
       "tools"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "bufferapp": {
     "id": "bufferapp",
@@ -4609,7 +4609,7 @@
       "marketing"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cambase": {
     "id": "cambase",
@@ -4621,7 +4621,7 @@
     },
     "tags": [],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cenit": {
     "id": "cenit",
@@ -4641,7 +4641,7 @@
     },
     "tags": [],
     "actionCount": 40,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "channel4": {
     "id": "channel4",
@@ -4663,7 +4663,7 @@
       "media"
     ],
     "actionCount": 68,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "circleci": {
     "id": "circleci",
@@ -4684,7 +4684,7 @@
       "developer tools"
     ],
     "actionCount": 22,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cisco": {
     "id": "cisco",
@@ -4715,7 +4715,7 @@
       "security"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "citrix_gotoassistseeit": {
     "id": "citrix_gotoassistseeit",
@@ -4745,7 +4745,7 @@
       "collaboration"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "citrix_gototraining": {
     "id": "citrix_gototraining",
@@ -4786,7 +4786,7 @@
     },
     "tags": [],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "citycontext": {
     "id": "citycontext",
@@ -4804,7 +4804,7 @@
       "open data"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "clarify": {
     "id": "clarify",
@@ -4819,7 +4819,7 @@
       "search"
     ],
     "actionCount": 21,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "clickmeter": {
     "id": "clickmeter",
@@ -4840,7 +4840,7 @@
       "marketing"
     ],
     "actionCount": 108,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cloud_gov": {
     "id": "cloud_gov",
@@ -4854,7 +4854,7 @@
       "open data"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cnab_online_herokuapp": {
     "id": "cnab_online_herokuapp",
@@ -4869,7 +4869,7 @@
       "financial"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cnn_rss": {
     "id": "cnn_rss",
@@ -4877,7 +4877,7 @@
     "security": {},
     "tags": [],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "consumerfinance_gov": {
     "id": "consumerfinance_gov",
@@ -4889,7 +4889,7 @@
     },
     "tags": [],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "core_ac_uk": {
     "id": "core_ac_uk",
@@ -4910,7 +4910,7 @@
       "open data"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "cybertaxonomy_eu": {
     "id": "cybertaxonomy_eu",
@@ -4924,7 +4924,7 @@
       "open data"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "data2crm": {
     "id": "data2crm",
@@ -4937,7 +4937,7 @@
     },
     "tags": [],
     "actionCount": 95,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "data_gov": {
     "id": "data_gov",
@@ -4956,7 +4956,7 @@
     },
     "tags": [],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "datumbox": {
     "id": "datumbox",
@@ -4978,7 +4978,7 @@
       "text"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_betriebsstellen": {
     "id": "deutschebahn_betriebsstellen",
@@ -4998,7 +4998,7 @@
       "open data"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_fahrplan": {
     "id": "deutschebahn_fahrplan",
@@ -5013,7 +5013,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_fasta": {
     "id": "deutschebahn_fasta",
@@ -5035,7 +5035,7 @@
       "open data"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_flinkster": {
     "id": "deutschebahn_flinkster",
@@ -5050,7 +5050,7 @@
       "open data"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_reisezentren": {
     "id": "deutschebahn_reisezentren",
@@ -5070,7 +5070,7 @@
       "open data"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "deutschebahn_stada": {
     "id": "deutschebahn_stada",
@@ -5085,7 +5085,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "dweet": {
     "id": "dweet",
@@ -5096,7 +5096,7 @@
       "iot"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_air": {
     "id": "epa_gov_air",
@@ -5111,7 +5111,7 @@
       "open data"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_case": {
     "id": "epa_gov_case",
@@ -5126,7 +5126,7 @@
       "open data"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_cwa": {
     "id": "epa_gov_cwa",
@@ -5141,7 +5141,7 @@
       "open data"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_dfr": {
     "id": "epa_gov_dfr",
@@ -5156,7 +5156,7 @@
       "open data"
     ],
     "actionCount": 34,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_echo": {
     "id": "epa_gov_echo",
@@ -5171,7 +5171,7 @@
       "open data"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_eff": {
     "id": "epa_gov_eff",
@@ -5186,7 +5186,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_rcra": {
     "id": "epa_gov_rcra",
@@ -5201,7 +5201,7 @@
       "open data"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "epa_gov_sdw": {
     "id": "epa_gov_sdw",
@@ -5216,7 +5216,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "europeana_eu": {
     "id": "europeana_eu",
@@ -5230,7 +5230,7 @@
       "open data"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "exavault": {
     "id": "exavault",
@@ -5245,7 +5245,7 @@
       "storage"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "figshare": {
     "id": "figshare",
@@ -5280,7 +5280,7 @@
       "open data"
     ],
     "actionCount": 111,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "firebrowse": {
     "id": "firebrowse",
@@ -5294,7 +5294,7 @@
       "open data"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "flat": {
     "id": "flat",
@@ -5334,7 +5334,7 @@
       "collaboration"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "furkot": {
     "id": "furkot",
@@ -5368,7 +5368,7 @@
       "location"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "geneea": {
     "id": "geneea",
@@ -5389,7 +5389,7 @@
       "text"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "geodesystems": {
     "id": "geodesystems",
@@ -5409,7 +5409,7 @@
     },
     "tags": [],
     "actionCount": 228,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "getgo_gototraining": {
     "id": "getgo_gototraining",
@@ -5418,7 +5418,7 @@
     "security": {},
     "tags": [],
     "actionCount": 22,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "getgo_gotowebinar": {
     "id": "getgo_gotowebinar",
@@ -5427,7 +5427,7 @@
     "security": {},
     "tags": [],
     "actionCount": 38,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "getsandbox": {
     "id": "getsandbox",
@@ -5449,7 +5449,7 @@
       "developer tools"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gettyimages": {
     "id": "gettyimages",
@@ -5470,7 +5470,7 @@
       "media"
     ],
     "actionCount": 40,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "github": {
     "id": "github",
@@ -5525,7 +5525,7 @@
       "developer tools"
     ],
     "actionCount": 246,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gitlab": {
     "id": "gitlab",
@@ -5548,7 +5548,7 @@
       "developer tools"
     ],
     "actionCount": 358,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
@@ -5562,7 +5562,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adexchangebuyer": {
     "id": "google_adexchangebuyer",
@@ -5597,7 +5597,7 @@
       "google"
     ],
     "actionCount": 40,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adexchangebuyer2": {
     "id": "google_adexchangebuyer2",
@@ -5632,7 +5632,7 @@
       "google"
     ],
     "actionCount": 21,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adexchangeseller": {
     "id": "google_adexchangeseller",
@@ -5668,7 +5668,7 @@
       "google"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adexperiencereport": {
     "id": "google_adexperiencereport",
@@ -5703,7 +5703,7 @@
       "google"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_admin": {
     "id": "google_admin",
@@ -5740,7 +5740,7 @@
       "google"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adsense": {
     "id": "google_adsense",
@@ -5776,7 +5776,7 @@
       "google"
     ],
     "actionCount": 40,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_adsensehost": {
     "id": "google_adsensehost",
@@ -5811,7 +5811,7 @@
       "google"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_analytics": {
     "id": "google_analytics",
@@ -5852,7 +5852,7 @@
       "google"
     ],
     "actionCount": 87,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_analyticsreporting": {
     "id": "google_analyticsreporting",
@@ -5888,7 +5888,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_androiddeviceprovisioning": {
     "id": "google_androiddeviceprovisioning",
@@ -5937,7 +5937,7 @@
       "google"
     ],
     "actionCount": 79,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_androidpublisher": {
     "id": "google_androidpublisher",
@@ -5973,7 +5973,7 @@
       "google"
     ],
     "actionCount": 59,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_appengine": {
     "id": "google_appengine",
@@ -6010,7 +6010,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_appsactivity": {
     "id": "google_appsactivity",
@@ -6049,7 +6049,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_appstate": {
     "id": "google_appstate",
@@ -6084,7 +6084,7 @@
       "google"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_bigquery": {
     "id": "google_bigquery",
@@ -6126,7 +6126,7 @@
       "google"
     ],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_bigquerydatatransfer": {
     "id": "google_bigquerydatatransfer",
@@ -6161,7 +6161,7 @@
       "google"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_blogger": {
     "id": "google_blogger",
@@ -6198,7 +6198,7 @@
       "google"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_books": {
     "id": "google_books",
@@ -6233,7 +6233,7 @@
       "google"
     ],
     "actionCount": 50,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_calendar": {
     "id": "google_calendar",
@@ -6270,7 +6270,7 @@
       "google"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_civicinfo": {
     "id": "google_civicinfo",
@@ -6284,7 +6284,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_classroom": {
     "id": "google_classroom",
@@ -6331,7 +6331,7 @@
       "google"
     ],
     "actionCount": 44,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudbilling": {
     "id": "google_cloudbilling",
@@ -6366,7 +6366,7 @@
       "google"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudbuild": {
     "id": "google_cloudbuild",
@@ -6401,7 +6401,7 @@
       "google"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_clouddebugger": {
     "id": "google_clouddebugger",
@@ -6437,7 +6437,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_clouderrorreporting": {
     "id": "google_clouderrorreporting",
@@ -6472,7 +6472,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudfunctions": {
     "id": "google_cloudfunctions",
@@ -6507,7 +6507,7 @@
       "google"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudkms": {
     "id": "google_cloudkms",
@@ -6543,7 +6543,7 @@
       "google"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudmonitoring": {
     "id": "google_cloudmonitoring",
@@ -6579,7 +6579,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudresourcemanager": {
     "id": "google_cloudresourcemanager",
@@ -6615,7 +6615,7 @@
       "google"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_cloudtrace": {
     "id": "google_cloudtrace",
@@ -6652,7 +6652,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_clouduseraccounts": {
     "id": "google_clouduseraccounts",
@@ -6690,7 +6690,7 @@
       "google"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_compute": {
     "id": "google_compute",
@@ -6730,7 +6730,7 @@
       "google"
     ],
     "actionCount": 263,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_consumersurveys": {
     "id": "google_consumersurveys",
@@ -6767,7 +6767,7 @@
       "google"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_container": {
     "id": "google_container",
@@ -6802,7 +6802,7 @@
       "google"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_content": {
     "id": "google_content",
@@ -6838,7 +6838,7 @@
       "google"
     ],
     "actionCount": 59,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_customsearch": {
     "id": "google_customsearch",
@@ -6853,7 +6853,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_dataflow": {
     "id": "google_dataflow",
@@ -6890,7 +6890,7 @@
       "google"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_dataproc": {
     "id": "google_dataproc",
@@ -6925,7 +6925,7 @@
       "google"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_datastore": {
     "id": "google_datastore",
@@ -6962,7 +6962,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_deploymentmanager": {
     "id": "google_deploymentmanager",
@@ -7000,7 +7000,7 @@
       "google"
     ],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_dfareporting": {
     "id": "google_dfareporting",
@@ -7037,7 +7037,7 @@
       "google"
     ],
     "actionCount": 206,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_discovery": {
     "id": "google_discovery",
@@ -7051,7 +7051,7 @@
       "google"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_dlp": {
     "id": "google_dlp",
@@ -7086,7 +7086,7 @@
       "google"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_dns": {
     "id": "google_dns",
@@ -7124,7 +7124,7 @@
       "google"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_doubleclickbidmanager": {
     "id": "google_doubleclickbidmanager",
@@ -7138,7 +7138,7 @@
       "google"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_doubleclicksearch": {
     "id": "google_doubleclicksearch",
@@ -7173,7 +7173,7 @@
       "google"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_drive": {
     "id": "google_drive",
@@ -7216,7 +7216,7 @@
       "google"
     ],
     "actionCount": 41,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_firebasedynamiclinks": {
     "id": "google_firebasedynamiclinks",
@@ -7251,7 +7251,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_firebaserules": {
     "id": "google_firebaserules",
@@ -7288,7 +7288,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_fitness": {
     "id": "google_fitness",
@@ -7340,7 +7340,7 @@
       "google"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_fusiontables": {
     "id": "google_fusiontables",
@@ -7376,7 +7376,7 @@
       "google"
     ],
     "actionCount": 35,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_games": {
     "id": "google_games",
@@ -7413,7 +7413,7 @@
       "google"
     ],
     "actionCount": 55,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_gamesconfiguration": {
     "id": "google_gamesconfiguration",
@@ -7448,7 +7448,7 @@
       "google"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_gamesmanagement": {
     "id": "google_gamesmanagement",
@@ -7484,7 +7484,7 @@
       "google"
     ],
     "actionCount": 29,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_genomics": {
     "id": "google_genomics",
@@ -7523,7 +7523,7 @@
       "google"
     ],
     "actionCount": 55,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_gmail": {
     "id": "google_gmail",
@@ -7568,7 +7568,7 @@
       "google"
     ],
     "actionCount": 65,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_groupsmigration": {
     "id": "google_groupsmigration",
@@ -7603,7 +7603,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_groupssettings": {
     "id": "google_groupssettings",
@@ -7638,7 +7638,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_iam": {
     "id": "google_iam",
@@ -7673,7 +7673,7 @@
       "google"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_identitytoolkit": {
     "id": "google_identitytoolkit",
@@ -7709,7 +7709,7 @@
       "google"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_kgsearch": {
     "id": "google_kgsearch",
@@ -7723,7 +7723,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_language": {
     "id": "google_language",
@@ -7759,7 +7759,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_licensing": {
     "id": "google_licensing",
@@ -7795,7 +7795,7 @@
       "google"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_logging": {
     "id": "google_logging",
@@ -7834,7 +7834,7 @@
       "google"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_manufacturers": {
     "id": "google_manufacturers",
@@ -7869,7 +7869,7 @@
       "google"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_mirror": {
     "id": "google_mirror",
@@ -7905,7 +7905,7 @@
       "google"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_ml": {
     "id": "google_ml",
@@ -7941,7 +7941,7 @@
       "google"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_monitoring": {
     "id": "google_monitoring",
@@ -7979,7 +7979,7 @@
       "google"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_oauth2": {
     "id": "google_oauth2",
@@ -8017,7 +8017,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_pagespeedonline": {
     "id": "google_pagespeedonline",
@@ -8032,7 +8032,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_partners": {
     "id": "google_partners",
@@ -8046,7 +8046,7 @@
       "google"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_people": {
     "id": "google_people",
@@ -8089,7 +8089,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_playmoviespartner": {
     "id": "google_playmoviespartner",
@@ -8124,7 +8124,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_plus": {
     "id": "google_plus",
@@ -8163,7 +8163,7 @@
       "google"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_plusdomains": {
     "id": "google_plusdomains",
@@ -8207,7 +8207,7 @@
       "google"
     ],
     "actionCount": 22,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_prediction": {
     "id": "google_prediction",
@@ -8247,7 +8247,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_proximitybeacon": {
     "id": "google_proximitybeacon",
@@ -8282,7 +8282,7 @@
       "google"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_pubsub": {
     "id": "google_pubsub",
@@ -8319,7 +8319,7 @@
       "google"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_qpxexpress": {
     "id": "google_qpxexpress",
@@ -8333,7 +8333,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_replicapool": {
     "id": "google_replicapool",
@@ -8371,7 +8371,7 @@
       "google"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_replicapoolupdater": {
     "id": "google_replicapoolupdater",
@@ -8409,7 +8409,7 @@
       "google"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_reseller": {
     "id": "google_reseller",
@@ -8446,7 +8446,7 @@
       "google"
     ],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_resourceviews": {
     "id": "google_resourceviews",
@@ -8486,7 +8486,7 @@
       "google"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_runtimeconfig": {
     "id": "google_runtimeconfig",
@@ -8522,7 +8522,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_safebrowsing": {
     "id": "google_safebrowsing",
@@ -8537,7 +8537,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_script": {
     "id": "google_script",
@@ -8582,7 +8582,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_searchconsole": {
     "id": "google_searchconsole",
@@ -8597,7 +8597,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_servicecontrol": {
     "id": "google_servicecontrol",
@@ -8633,7 +8633,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_servicemanagement": {
     "id": "google_servicemanagement",
@@ -8671,7 +8671,7 @@
       "google"
     ],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_serviceuser": {
     "id": "google_serviceuser",
@@ -8708,7 +8708,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_sheets": {
     "id": "google_sheets",
@@ -8746,7 +8746,7 @@
       "google"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_siteverification": {
     "id": "google_siteverification",
@@ -8782,7 +8782,7 @@
       "google"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_slides": {
     "id": "google_slides",
@@ -8822,7 +8822,7 @@
       "google"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_sourcerepo": {
     "id": "google_sourcerepo",
@@ -8857,7 +8857,7 @@
       "google"
     ],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_spanner": {
     "id": "google_spanner",
@@ -8892,7 +8892,7 @@
       "google"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_spectrum": {
     "id": "google_spectrum",
@@ -8906,7 +8906,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_speech": {
     "id": "google_speech",
@@ -8941,7 +8941,7 @@
       "google"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_sqladmin": {
     "id": "google_sqladmin",
@@ -8977,7 +8977,7 @@
       "google"
     ],
     "actionCount": 42,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_storage": {
     "id": "google_storage",
@@ -9017,7 +9017,7 @@
       "google"
     ],
     "actionCount": 48,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_storagetransfer": {
     "id": "google_storagetransfer",
@@ -9053,7 +9053,7 @@
       "google"
     ],
     "actionCount": 12,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_supportcases": {
     "id": "google_supportcases",
@@ -9127,7 +9127,7 @@
       "google"
     ],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_tagmanager": {
     "id": "google_tagmanager",
@@ -9168,7 +9168,7 @@
       "google"
     ],
     "actionCount": 52,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_taskqueue": {
     "id": "google_taskqueue",
@@ -9204,7 +9204,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_tasks": {
     "id": "google_tasks",
@@ -9241,7 +9241,7 @@
       "google"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_toolresults": {
     "id": "google_toolresults",
@@ -9276,7 +9276,7 @@
       "google"
     ],
     "actionCount": 24,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_tracing": {
     "id": "google_tracing",
@@ -9313,7 +9313,7 @@
       "google"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_translate": {
     "id": "google_translate",
@@ -9328,7 +9328,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_urlshortener": {
     "id": "google_urlshortener",
@@ -9364,7 +9364,7 @@
       "google"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_videointelligence": {
     "id": "google_videointelligence",
@@ -9399,7 +9399,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_vision": {
     "id": "google_vision",
@@ -9434,7 +9434,7 @@
       "google"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_webfonts": {
     "id": "google_webfonts",
@@ -9448,7 +9448,7 @@
       "google"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_webmasters": {
     "id": "google_webmasters",
@@ -9484,7 +9484,7 @@
       "google"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_youtube": {
     "id": "google_youtube",
@@ -9524,7 +9524,7 @@
       "google"
     ],
     "actionCount": 74,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_youtubeanalytics": {
     "id": "google_youtubeanalytics",
@@ -9564,7 +9564,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "google_youtubereporting": {
     "id": "google_youtubereporting",
@@ -9601,7 +9601,7 @@
       "google"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_bcdc": {
     "id": "gov_bc_ca_bcdc",
@@ -9654,7 +9654,7 @@
       "open data"
     ],
     "actionCount": 24,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_bcgnws": {
     "id": "gov_bc_ca_bcgnws",
@@ -9668,7 +9668,7 @@
       "open data"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_geocoder": {
     "id": "gov_bc_ca_geocoder",
@@ -9689,7 +9689,7 @@
       "open data"
     ],
     "actionCount": 14,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_geomark": {
     "id": "gov_bc_ca_geomark",
@@ -9703,7 +9703,7 @@
       "open data"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_jobposting": {
     "id": "gov_bc_ca_jobposting",
@@ -9717,7 +9717,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_open511": {
     "id": "gov_bc_ca_open511",
@@ -9731,7 +9731,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "gov_bc_ca_router": {
     "id": "gov_bc_ca_router",
@@ -9752,7 +9752,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "graphhopper": {
     "id": "graphhopper",
@@ -9773,7 +9773,7 @@
       "location"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "hacker_news": {
     "id": "hacker_news",
@@ -9800,7 +9800,7 @@
       "open data"
     ],
     "actionCount": 16,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
@@ -9811,7 +9811,7 @@
     },
     "tags": [],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "hetras_certification_hotel": {
     "id": "hetras_certification_hotel",
@@ -9822,7 +9822,7 @@
     },
     "tags": [],
     "actionCount": 19,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "hhs_gov": {
     "id": "hhs_gov",
@@ -9837,7 +9837,7 @@
       "open data"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "idtbeyond": {
     "id": "idtbeyond",
@@ -9852,7 +9852,7 @@
       "telecom"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "ijenko": {
     "id": "ijenko",
@@ -9874,7 +9874,7 @@
       "iot"
     ],
     "actionCount": 67,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "import_data": {
     "id": "import_data",
@@ -9895,7 +9895,7 @@
       "tools"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "import_extraction": {
     "id": "import_extraction",
@@ -9916,7 +9916,7 @@
       "tools"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "import_rss": {
     "id": "import_rss",
@@ -9937,7 +9937,7 @@
       "tools"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "import_run": {
     "id": "import_run",
@@ -9958,7 +9958,7 @@
       "tools"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "import_schedule": {
     "id": "import_schedule",
@@ -9979,7 +9979,7 @@
       "tools"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "inboxroute": {
     "id": "inboxroute",
@@ -10001,7 +10001,7 @@
       "marketing"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "infermedica": {
     "id": "infermedica",
@@ -10014,7 +10014,7 @@
     },
     "tags": [],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "instagram": {
     "id": "instagram",
@@ -10054,7 +10054,7 @@
       "media"
     ],
     "actionCount": 27,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "jirafe": {
     "id": "jirafe",
@@ -10089,7 +10089,7 @@
       "marketing"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "learnifier": {
     "id": "learnifier",
@@ -10103,7 +10103,7 @@
       "education"
     ],
     "actionCount": 34,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "lyft": {
     "id": "lyft",
@@ -10137,7 +10137,7 @@
       "location"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "magento": {
     "id": "magento",
@@ -10151,7 +10151,7 @@
       "ecommerce"
     ],
     "actionCount": 355,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "magick_nu": {
     "id": "magick_nu",
@@ -10165,7 +10165,7 @@
       "financial"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "mandrillapp": {
     "id": "mandrillapp",
@@ -10185,7 +10185,7 @@
       "marketing"
     ],
     "actionCount": 90,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "medium": {
     "id": "medium",
@@ -10225,7 +10225,7 @@
       "social"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "microsoft_security_updates": {
     "id": "microsoft_security_updates",
@@ -10246,7 +10246,7 @@
       "security"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "moonmoonmoonmoon": {
     "id": "moonmoonmoonmoon",
@@ -10259,7 +10259,7 @@
     },
     "tags": [],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "motaword": {
     "id": "motaword",
@@ -10288,7 +10288,7 @@
     },
     "tags": [],
     "actionCount": 45,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "mozilla_kinto": {
     "id": "mozilla_kinto",
@@ -10310,7 +10310,7 @@
       "cloud"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nativeads": {
     "id": "nativeads",
@@ -10322,7 +10322,7 @@
     },
     "tags": [],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nba": {
     "id": "nba",
@@ -10337,7 +10337,7 @@
       "open data"
     ],
     "actionCount": 91,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "neowsapp": {
     "id": "neowsapp",
@@ -10348,7 +10348,7 @@
       "open data"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "netatmo": {
     "id": "netatmo",
@@ -10387,7 +10387,7 @@
       "iot"
     ],
     "actionCount": 21,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "netlicensing": {
     "id": "netlicensing",
@@ -10408,7 +10408,7 @@
     },
     "tags": [],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "neutrinoapi": {
     "id": "neutrinoapi",
@@ -10435,7 +10435,7 @@
       "text"
     ],
     "actionCount": 25,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "npr_rss": {
     "id": "npr_rss",
@@ -10443,7 +10443,7 @@
     "security": {},
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nrel_building_case_studies": {
     "id": "nrel_building_case_studies",
@@ -10465,7 +10465,7 @@
       "open data"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nrel_transportation_incentives_laws": {
     "id": "nrel_transportation_incentives_laws",
@@ -10487,7 +10487,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nsidc": {
     "id": "nsidc",
@@ -10501,7 +10501,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_article_search": {
     "id": "nytimes_article_search",
@@ -10523,7 +10523,7 @@
       "search"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_books_api": {
     "id": "nytimes_books_api",
@@ -10545,7 +10545,7 @@
       "open data"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_community": {
     "id": "nytimes_community",
@@ -10567,7 +10567,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_geo_api": {
     "id": "nytimes_geo_api",
@@ -10589,7 +10589,7 @@
       "open data"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_most_popular_api": {
     "id": "nytimes_most_popular_api",
@@ -10611,7 +10611,7 @@
       "open data"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_movie_reviews": {
     "id": "nytimes_movie_reviews",
@@ -10633,7 +10633,7 @@
       "open data"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_rss": {
     "id": "nytimes_rss",
@@ -10641,7 +10641,7 @@
     "security": {},
     "tags": [],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_semantic_api": {
     "id": "nytimes_semantic_api",
@@ -10663,7 +10663,7 @@
       "open data"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_times_tags": {
     "id": "nytimes_times_tags",
@@ -10685,7 +10685,7 @@
       "open data"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_timeswire": {
     "id": "nytimes_timeswire",
@@ -10707,7 +10707,7 @@
       "open data"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "nytimes_top_stories": {
     "id": "nytimes_top_stories",
@@ -10729,7 +10729,7 @@
       "open data"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "oceandrivers": {
     "id": "oceandrivers",
@@ -10740,7 +10740,7 @@
       "open data"
     ],
     "actionCount": 8,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "omdbapi": {
     "id": "omdbapi",
@@ -10761,7 +10761,7 @@
       "open data"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "openapi_converter_herokuapp": {
     "id": "openapi_converter_herokuapp",
@@ -10776,7 +10776,7 @@
       "developer tools"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "opencagedata": {
     "id": "opencagedata",
@@ -10790,7 +10790,7 @@
       "location"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "orghunter": {
     "id": "orghunter",
@@ -10809,7 +10809,7 @@
     },
     "tags": [],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "owler": {
     "id": "owler",
@@ -10830,7 +10830,7 @@
       "search"
     ],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "oxforddictionaries": {
     "id": "oxforddictionaries",
@@ -10843,7 +10843,7 @@
       "text"
     ],
     "actionCount": 27,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "pandorabots": {
     "id": "pandorabots",
@@ -10859,7 +10859,7 @@
     },
     "tags": [],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "passwordutility": {
     "id": "passwordutility",
@@ -10871,7 +10871,7 @@
       "tools"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "patientview": {
     "id": "patientview",
@@ -10883,7 +10883,7 @@
     },
     "tags": [],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "peel_ci": {
     "id": "peel_ci",
@@ -10897,7 +10897,7 @@
       "media"
     ],
     "actionCount": 5,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "posty": {
     "id": "posty",
@@ -10908,7 +10908,7 @@
       "email"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "rbaskets_in": {
     "id": "rbaskets_in",
@@ -10927,7 +10927,7 @@
     },
     "tags": [],
     "actionCount": 9,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "rebilly": {
     "id": "rebilly",
@@ -10953,7 +10953,7 @@
       "ecommerce"
     ],
     "actionCount": 233,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "reddit_rss": {
     "id": "reddit_rss",
@@ -10961,7 +10961,7 @@
     "security": {},
     "tags": [],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "refugerestrooms": {
     "id": "refugerestrooms",
@@ -10976,7 +10976,7 @@
       "open data"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "reverb": {
     "id": "reverb",
@@ -11024,7 +11024,7 @@
       "ecommerce"
     ],
     "actionCount": 163,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "ritc": {
     "id": "ritc",
@@ -11045,7 +11045,7 @@
       "cloud"
     ],
     "actionCount": 66,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "rottentomatoes": {
     "id": "rottentomatoes",
@@ -11066,7 +11066,7 @@
       "media"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "rummblelabs": {
     "id": "rummblelabs",
@@ -11080,7 +11080,7 @@
       "machine learning"
     ],
     "actionCount": 15,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "runscope": {
     "id": "runscope",
@@ -11122,7 +11122,7 @@
       "developer tools"
     ],
     "actionCount": 27,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "schooldigger": {
     "id": "schooldigger",
@@ -11134,7 +11134,7 @@
       "education"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "scrapewebsite_email": {
     "id": "scrapewebsite_email",
@@ -11146,7 +11146,7 @@
       "tools"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "semantria": {
     "id": "semantria",
@@ -11161,7 +11161,7 @@
       "text"
     ],
     "actionCount": 41,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "sendgrid": {
     "id": "sendgrid",
@@ -11182,7 +11182,7 @@
       "marketing"
     ],
     "actionCount": 231,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "simplyrets": {
     "id": "simplyrets",
@@ -11199,7 +11199,7 @@
     },
     "tags": [],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "slack": {
     "id": "slack",
@@ -11274,7 +11274,7 @@
       "messaging"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "slideroom": {
     "id": "slideroom",
@@ -11287,7 +11287,7 @@
     },
     "tags": [],
     "actionCount": 11,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "smart_me": {
     "id": "smart_me",
@@ -11307,7 +11307,7 @@
     },
     "tags": [],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "solarvps": {
     "id": "solarvps",
@@ -11326,7 +11326,7 @@
     },
     "tags": [],
     "actionCount": 20,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "spectrocoin": {
     "id": "spectrocoin",
@@ -11342,7 +11342,7 @@
       "payment"
     ],
     "actionCount": 1,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "spotify": {
     "id": "spotify",
@@ -11383,7 +11383,7 @@
       "media"
     ],
     "actionCount": 39,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "squareup": {
     "id": "squareup",
@@ -11431,7 +11431,7 @@
       "payment"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "stackexchange": {
     "id": "stackexchange",
@@ -11465,7 +11465,7 @@
       "support"
     ],
     "actionCount": 124,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "statsocial": {
     "id": "statsocial",
@@ -11487,7 +11487,7 @@
       "marketing"
     ],
     "actionCount": 17,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "swagger_generator": {
     "id": "swagger_generator",
@@ -11503,7 +11503,7 @@
       "tools"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "swaggerhub": {
     "id": "swaggerhub",
@@ -11524,7 +11524,7 @@
       "developer tools"
     ],
     "actionCount": 69,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "synq_fm": {
     "id": "synq_fm",
@@ -11538,7 +11538,7 @@
       "media"
     ],
     "actionCount": 7,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "t213_vg": {
     "id": "t213_vg",
@@ -11573,7 +11573,7 @@
       "payment"
     ],
     "actionCount": 36,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "tfl_gov_uk": {
     "id": "tfl_gov_uk",
@@ -11596,7 +11596,7 @@
       "open data"
     ],
     "actionCount": 78,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "thenounproject": {
     "id": "thenounproject",
@@ -11608,7 +11608,7 @@
     },
     "tags": [],
     "actionCount": 13,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "thetvdb": {
     "id": "thetvdb",
@@ -11630,7 +11630,7 @@
       "open data"
     ],
     "actionCount": 30,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "traccar": {
     "id": "traccar",
@@ -11652,7 +11652,7 @@
       "location"
     ],
     "actionCount": 55,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "trello": {
     "id": "trello",
@@ -11674,7 +11674,7 @@
       "collaboration"
     ],
     "actionCount": 324,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "twilio": {
     "id": "twilio",
@@ -11697,7 +11697,7 @@
       "messaging"
     ],
     "actionCount": 116,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "uebermaps": {
     "id": "uebermaps",
@@ -11711,7 +11711,7 @@
       "location"
     ],
     "actionCount": 54,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "vatapi": {
     "id": "vatapi",
@@ -11730,7 +11730,7 @@
     },
     "tags": [],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "versioneye": {
     "id": "versioneye",
@@ -11745,7 +11745,7 @@
       "search"
     ],
     "actionCount": 44,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "vestorly": {
     "id": "vestorly",
@@ -11760,7 +11760,7 @@
       "marketing"
     ],
     "actionCount": 33,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "victorops": {
     "id": "victorops",
@@ -11774,7 +11774,7 @@
       "developer tools"
     ],
     "actionCount": 42,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "visagecloud": {
     "id": "visagecloud",
@@ -11795,7 +11795,7 @@
       "search"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "waag": {
     "id": "waag",
@@ -11809,7 +11809,7 @@
       "open data"
     ],
     "actionCount": 47,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "watchful_li": {
     "id": "watchful_li",
@@ -11821,7 +11821,7 @@
     },
     "tags": [],
     "actionCount": 61,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "wavecell": {
     "id": "wavecell",
@@ -11844,7 +11844,7 @@
       "messaging"
     ],
     "actionCount": 4,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "wealthport": {
     "id": "wealthport",
@@ -11868,7 +11868,7 @@
       "machine learning"
     ],
     "actionCount": 26,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "wikimedia": {
     "id": "wikimedia",
@@ -11889,7 +11889,7 @@
       "media"
     ],
     "actionCount": 10,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "windows_arm_graphrbac": {
     "id": "windows_arm_graphrbac",
@@ -11921,7 +11921,7 @@
     },
     "tags": [],
     "actionCount": 34,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "windows_batch": {
     "id": "windows_batch",
@@ -11933,7 +11933,7 @@
     },
     "tags": [],
     "actionCount": 74,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "winning_email": {
     "id": "winning_email",
@@ -11955,7 +11955,7 @@
       "marketing"
     ],
     "actionCount": 3,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "wordnik": {
     "id": "wordnik",
@@ -11976,7 +11976,7 @@
       "text"
     ],
     "actionCount": 28,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "xkcd": {
     "id": "xkcd",
@@ -11995,7 +11995,7 @@
       "media"
     ],
     "actionCount": 2,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "yunbi": {
     "id": "yunbi",
@@ -12009,7 +12009,7 @@
       "financial"
     ],
     "actionCount": 23,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "zappiti": {
     "id": "zappiti",
@@ -12024,7 +12024,7 @@
       "entertainment"
     ],
     "actionCount": 6,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "zoomconnect": {
     "id": "zoomconnect",
@@ -12047,7 +12047,7 @@
       "marketing"
     ],
     "actionCount": 44,
-    "latestVersion": "2.0.0"
+    "latestVersion": "2.0.1"
   },
   "http": {
     "id": "http",

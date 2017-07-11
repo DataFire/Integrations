@@ -1,0 +1,75 @@
+{
+  "id": "apitore_url2srcapis",
+  "title": "Url2Src APIs",
+  "description": "Url to Image src urls.<BR />[Endpoint] https://api.apitore.com/api/15",
+  "security": {},
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
+  },
+  "tags": [],
+  "definitions": {
+    "LinkResponseEntity": {
+      "properties": {
+        "endTime": {
+          "description": "End date",
+          "type": "string"
+        },
+        "links": {
+          "description": "Links",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "log": {
+          "description": "Log message",
+          "type": "string"
+        },
+        "processTime": {
+          "description": "Process time [millisecond]",
+          "type": "string"
+        },
+        "startTime": {
+          "description": "Start date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "endTime",
+        "links",
+        "log",
+        "processTime",
+        "startTime"
+      ],
+      "type": "object"
+    }
+  },
+  "actions": [
+    {
+      "id": "url2srcUsingGET",
+      "title": "url2srcUsingGET",
+      "description": "Jsoup Web scraper.<BR />Response<BR />&nbsp; Github: <a href=\"https://github.com/keigohtr/apitore-response-parent/tree/master/jsoup-response\">jsoup-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.jsoup.LinkResponseEntity<BR />",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "description": "Access Token"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "access_token",
+          "url"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/LinkResponseEntity"
+      }
+    }
+  ]
+}
