@@ -19,6 +19,10 @@ module.exports = (args, callback=()=>{}) => {
     pkg.datafire.origin = args[type];
     pkg.datafire.type = type;
     let packageFile = path.join(args.destination, args.name, 'package.json');
+    if (process.env.NO_UPDATE && fs.existsSync(packageFile)) {
+      let origPackage = require(packageFile);
+      pkg.datafire = origPackage.datafire;
+    }
     fs.writeFileSync(packageFile, JSON.stringify(pkg, null, 2));
     callback();
   }
