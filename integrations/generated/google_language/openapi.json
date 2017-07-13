@@ -10,7 +10,7 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations.",
+    "description": "Provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, entity sentiment analysis, and text annotations.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"

@@ -14,7 +14,7 @@
       "marketing"
     ],
     "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27865240-b4c0da22-6189-11e7-9f2c-f35f4c6fa57c.png"
     },
     "x-origin": [
       {
@@ -28,7 +28,8 @@
     "x-datafire": {
       "name": "sendgrid",
       "type": "openapi"
-    }
+    },
+    "description": "# The SendGrid Web API V3 Documentation\n\nThis is the entirety of the documented v3 endpoints. We have updated all the descriptions, parameters, requests, and responses.\n\n## Authentication \n\nEvery endpoint requires Authentication in the form of an Authorization Header:\n\nAuthorization: Bearer API_KEY"
   },
   "externalDocs": {
     "url": "https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html"

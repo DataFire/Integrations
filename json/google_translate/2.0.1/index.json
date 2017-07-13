@@ -1,7 +1,7 @@
 {
   "id": "google_translate",
-  "title": "Translate",
-  "description": "Translates text from one language to another.",
+  "title": "Google Cloud Translation",
+  "description": "The Google Cloud Translation API lets websites and programs integrate with\n    Google Translate programmatically.",
   "security": {},
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"

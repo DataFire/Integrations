@@ -1,7 +1,7 @@
 {
   "id": "azure_arm_iothub",
   "title": "iotHubClient",
-  "description": "Use this API to manage the IoT hubs in your subscription.",
+  "description": "Use this API to manage the IoT hubs in your Azure subscription.",
   "security": {},
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"

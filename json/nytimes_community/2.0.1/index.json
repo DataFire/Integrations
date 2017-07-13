@@ -1,7 +1,7 @@
 {
   "id": "nytimes_community",
   "title": "Community",
-  "description": "Get access to comments from registered users on New York Times articles.",
+  "description": "Get access to comments from registered users on New York Times articles.  NOTE: This API is deprecated.",
   "security": {
     "nytimes_community": {
       "integration": "nytimes_community",

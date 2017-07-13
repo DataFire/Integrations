@@ -2,10 +2,10 @@
   "1forge": {
     "id": "1forge",
     "title": "1Forge Finance APIs",
-    "description": "API Program description",
+    "description": "Stock and Forex Data and Realtime Quotes",
     "security": {},
     "logo": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#24292e",
       "url": "https://api.apis.guru/v2/cache/logo/http_1forge.com_logo.png"
     },
     "tags": [
@@ -415,7 +415,7 @@
   "amazonaws_codedeploy": {
     "id": "amazonaws_codedeploy",
     "title": "AWS CodeDeploy",
-    "description": "AWS CodeDeploy  Overview  This reference guide provides descriptions of the AWS CodeDeploy APIs. For more information ab...",
+    "description": "AWS CodeDeploy AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances or ...",
     "security": {
       "amazonaws_codedeploy": {
         "integration": "amazonaws_codedeploy",
@@ -507,7 +507,7 @@
   "amazonaws_cognito_idp": {
     "id": "amazonaws_cognito_idp",
     "title": "Amazon Cognito Identity Provider",
-    "description": "Using the Amazon Cognito Your User Pools API, you can create a user pool to manage directories and users. You can authen...",
+    "description": "Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticat...",
     "security": {
       "amazonaws_cognito_idp": {
         "integration": "amazonaws_cognito_idp",
@@ -1541,7 +1541,7 @@
   "amazonaws_monitoring": {
     "id": "amazonaws_monitoring",
     "title": "Amazon CloudWatch",
-    "description": "Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real-time. Yo...",
+    "description": "Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. Yo...",
     "security": {
       "amazonaws_monitoring": {
         "integration": "amazonaws_monitoring",
@@ -3209,7 +3209,7 @@
   "azure_arm_devtestlabs": {
     "id": "azure_arm_devtestlabs",
     "title": "DevTestLabsClient",
-    "description": "Azure DevTest Labs REST API.",
+    "description": "The DevTest Labs Client.",
     "security": {
       "azure_arm_devtestlabs": {
         "integration": "azure_arm_devtestlabs",
@@ -3362,7 +3362,7 @@
   "azure_arm_iothub": {
     "id": "azure_arm_iothub",
     "title": "iotHubClient",
-    "description": "Use this API to manage the IoT hubs in your subscription.",
+    "description": "Use this API to manage the IoT hubs in your Azure subscription.",
     "security": {},
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
@@ -4014,8 +4014,8 @@
   },
   "azure_arm_sql": {
     "id": "azure_arm_sql",
-    "title": "Azure SQL Database",
-    "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, el...",
+    "title": "Azure SQL Database Backup",
+    "description": "Provides read functionality for Azure SQL Database Backups",
     "security": {},
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
@@ -4079,7 +4079,7 @@
   },
   "azure_arm_storsimple8000series": {
     "id": "azure_arm_storsimple8000series",
-    "title": "StorSimpleSeries8000ManagementClient",
+    "title": "StorSimple8000SeriesManagementClient",
     "security": {
       "azure_arm_storsimple8000series": {
         "integration": "azure_arm_storsimple8000series",
@@ -4210,8 +4210,8 @@
   },
   "bbc": {
     "id": "bbc",
-    "title": "BBC Nitro",
-    "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
+    "title": "Radio & Music Services",
+    "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by r...",
     "security": {
       "bbc": {
         "integration": "bbc",
@@ -4221,7 +4221,8 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
+      "backgroundColor": "#FFFFFF",
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_6_63_BBC_Radio_logo.svg_140px-BBC_Radio_logo.svg.png"
     },
     "tags": [
       "media",
@@ -4294,8 +4295,8 @@
   },
   "beezup": {
     "id": "beezup",
-    "title": "Marketplaces - Orders",
-    "description": "This API will gives you the ability to manage your orders.",
+    "title": "BeezUP",
+    "description": "# The REST API of BeezUP system",
     "security": {
       "beezup": {
         "integration": "beezup",
@@ -4415,7 +4416,7 @@
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_823529626819432448_wykDHAof_400x400.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_875126609501495297_NWAUHB3O_400x400.jpg"
     },
     "tags": [],
     "actionCount": 47,
@@ -5543,7 +5544,7 @@
   "google_acceleratedmobilepageurl": {
     "id": "google_acceleratedmobilepageurl",
     "title": "Accelerated Mobile Pages (AMP) URL",
-    "description": "This API contains a single method, batchGet. Call this method to retrieve the AMP URL (and equivalent AMP Cache URL) for...",
+    "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).",
     "security": {},
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
@@ -6432,7 +6433,7 @@
   "google_clouderrorreporting": {
     "id": "google_clouderrorreporting",
     "title": "Stackdriver Error Reporting",
-    "description": "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API pr...",
+    "description": "Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error ...",
     "security": {
       "google_clouderrorreporting": {
         "integration": "google_clouderrorreporting",
@@ -6502,7 +6503,7 @@
   "google_cloudkms": {
     "id": "google_cloudkms",
     "title": "Google Cloud Key Management Service (KMS)",
-    "description": "Manages encryption for your cloud services the same way you do on-premise. You can generate, use, rotate, and destroy AE...",
+    "description": "Manages encryption for your cloud services the same way you do on-premises. You can generate, use, rotate, and destroy A...",
     "security": {
       "google_cloudkms": {
         "integration": "google_cloudkms",
@@ -6833,7 +6834,7 @@
   "google_customsearch": {
     "id": "google_customsearch",
     "title": "CustomSearch",
-    "description": "Lets you search over a website or collection of websites",
+    "description": "Searches over a website or collection of websites",
     "security": {},
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
@@ -7211,7 +7212,7 @@
   "google_firebasedynamiclinks": {
     "id": "google_firebasedynamiclinks",
     "title": "Firebase Dynamic Links",
-    "description": "Firebase Dynamic Links API enables third party developers to programmatically create and manage Dynamic Links.",
+    "description": "Programmatically creates and manages Firebase Dynamic Links.",
     "security": {
       "google_firebasedynamiclinks": {
         "integration": "google_firebasedynamiclinks",
@@ -7718,7 +7719,7 @@
   "google_language": {
     "id": "google_language",
     "title": "Google Cloud Natural Language",
-    "description": "Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include s...",
+    "description": "Provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognit...",
     "security": {
       "google_language": {
         "integration": "google_language",
@@ -8480,8 +8481,8 @@
   },
   "google_runtimeconfig": {
     "id": "google_runtimeconfig",
-    "title": "Google Cloud RuntimeConfig",
-    "description": "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform.",
+    "title": "Google Cloud Runtime Configuration",
+    "description": "The Runtime Configurator allows you to dynamically configure and expose variables through Google Cloud Platform. In addi...",
     "security": {
       "google_runtimeconfig": {
         "integration": "google_runtimeconfig",
@@ -8901,7 +8902,7 @@
   "google_speech": {
     "id": "google_speech",
     "title": "Google Cloud Speech",
-    "description": "Google Cloud Speech API.",
+    "description": "Converts audio to text by applying powerful neural network models.",
     "security": {
       "google_speech": {
         "integration": "google_speech",
@@ -9270,8 +9271,8 @@
   },
   "google_tracing": {
     "id": "google_tracing",
-    "title": "Google Tracing",
-    "description": "Send and retrieve trace data from Google Stackdriver Trace.",
+    "title": "Stackdriver Trace",
+    "description": "Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine appli...",
     "security": {
       "google_tracing": {
         "integration": "google_tracing",
@@ -9307,8 +9308,8 @@
   },
   "google_translate": {
     "id": "google_translate",
-    "title": "Translate",
-    "description": "Translates text from one language to another.",
+    "title": "Google Cloud Translation",
+    "description": "The Google Cloud Translation API lets websites and programs integrate with",
     "security": {},
     "logo": {
       "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
@@ -9853,7 +9854,7 @@
     },
     "logo": {
       "backgroundColor": "#383D41",
-      "url": "https://api.apis.guru/v2/cache/logo/http_developers.ijenko.com_favicon.ico"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_1706275304__0_logo_carr__fd_gris_400x400.png"
     },
     "tags": [
       "iot"
@@ -10310,7 +10311,7 @@
     "description": "The destination for current and historic NBA statistics.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_797568531047051264_LcjOmxGH.jpg"
+      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_0_03_National_Basketball_Association_logo.svg_100px-National_Basketball_Association_logo.svg.png"
     },
     "tags": [
       "media",
@@ -10530,7 +10531,7 @@
   "nytimes_community": {
     "id": "nytimes_community",
     "title": "Community",
-    "description": "Get access to comments from registered users on New York Times articles.",
+    "description": "Get access to comments from registered users on New York Times articles.  NOTE: This API is deprecated.",
     "security": {
       "nytimes_community": {
         "integration": "nytimes_community",
@@ -10945,7 +10946,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#4C4C4C",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.refugerestrooms.org_assets_logo-100x100-b51b21506bb80bbcece1dd7b4c141c35.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_432717338270380032_BZWevLrA.jpeg"
     },
     "tags": [
       "open data"
@@ -11035,7 +11036,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_staticv2.rottentomatoes.com_static_images_logos_rtlogo.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_811034417850220544_NDVQTlyz_400x400.jpg"
     },
     "tags": [
       "media"
@@ -11141,6 +11142,7 @@
   "sendgrid": {
     "id": "sendgrid",
     "title": "SendGrid v3",
+    "description": "# The SendGrid Web API V3 Documentation",
     "security": {
       "sendgrid": {
         "integration": "sendgrid",
@@ -11150,7 +11152,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_sendgrid.com_wp-content_themes_sgdotcom_pages_logo-brand_img_2015_SG_Logo_RGB.png"
+      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27865240-b4c0da22-6189-11e7-9f2c-f35f4c6fa57c.png"
     },
     "tags": [
       "email",
@@ -11483,7 +11485,7 @@
   "swaggerhub": {
     "id": "swaggerhub",
     "title": "SwaggerHub Registry",
-    "description": "The registry API for SwaggerHub",
+    "description": "# Introduction",
     "security": {
       "swaggerhub": {
         "integration": "swaggerhub",

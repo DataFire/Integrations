@@ -10,7 +10,7 @@
       "name": "SwaggerHub",
       "url": "http://swaggerhub.com"
     },
-    "description": "The registry API for SwaggerHub",
+    "description": "# Introduction\nThis is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.\n\n# Authentication\nUse your personal API Key: you may find it by visiting the   [API Key page](https://app.swaggerhub.com/settings/apiKey).\n",
     "title": "SwaggerHub Registry",
     "version": "1.0.41",
     "x-apisguru-categories": [

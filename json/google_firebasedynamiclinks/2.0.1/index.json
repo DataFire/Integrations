@@ -1,7 +1,7 @@
 {
   "id": "google_firebasedynamiclinks",
   "title": "Firebase Dynamic Links",
-  "description": "Firebase Dynamic Links API enables third party developers to programmatically create and manage Dynamic Links.",
+  "description": "Programmatically creates and manages Firebase Dynamic Links.",
   "security": {
     "google_firebasedynamiclinks": {
       "integration": "google_firebasedynamiclinks",

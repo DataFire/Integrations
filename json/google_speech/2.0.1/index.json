@@ -1,7 +1,7 @@
 {
   "id": "google_speech",
   "title": "Google Cloud Speech",
-  "description": "Google Cloud Speech API.",
+  "description": "Converts audio to text by applying powerful neural network models.",
   "security": {
     "google_speech": {
       "integration": "google_speech",

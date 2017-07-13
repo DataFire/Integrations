@@ -1,7 +1,7 @@
 {
   "id": "google_runtimeconfig",
-  "title": "Google Cloud RuntimeConfig",
-  "description": "Provides capabilities for dynamic configuration and coordination for applications running on Google Cloud Platform.\n",
+  "title": "Google Cloud Runtime Configuration",
+  "description": "The Runtime Configurator allows you to dynamically configure and expose variables through Google Cloud Platform. In addition, you can also set Watchers and Waiters that will watch for changes to your data and return based on certain conditions.",
   "security": {
     "google_runtimeconfig": {
       "integration": "google_runtimeconfig",

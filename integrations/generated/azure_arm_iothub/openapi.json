@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "Use this API to manage the IoT hubs in your subscription.",
+    "description": "Use this API to manage the IoT hubs in your Azure subscription.",
     "title": "iotHubClient",
     "version": "2016-02-03",
     "x-apisguru-categories": [

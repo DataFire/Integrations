@@ -1,7 +1,7 @@
 {
   "id": "azure_arm_devtestlabs",
   "title": "DevTestLabsClient",
-  "description": "Azure DevTest Labs REST API.",
+  "description": "The DevTest Labs Client.",
   "security": {
     "azure_arm_devtestlabs": {
       "integration": "azure_arm_devtestlabs",

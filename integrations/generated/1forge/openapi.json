@@ -12,14 +12,14 @@
       "name": "1Forge",
       "url": "http://1forge.com"
     },
-    "description": "API Program description",
+    "description": "Stock and Forex Data and Realtime Quotes",
     "title": "1Forge Finance APIs",
     "version": "0.0.1",
     "x-apisguru-categories": [
       "financial"
     ],
     "x-logo": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#24292e",
       "url": "https://api.apis.guru/v2/cache/logo/http_1forge.com_logo.png"
     },
     "x-origin": [

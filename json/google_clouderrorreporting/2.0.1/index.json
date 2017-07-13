@@ -1,7 +1,7 @@
 {
   "id": "google_clouderrorreporting",
   "title": "Stackdriver Error Reporting",
-  "description": "Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API provides a way to report new errors and read access to error groups and their associated errors.\n",
+  "description": "Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.\n",
   "security": {
     "google_clouderrorreporting": {
       "integration": "google_clouderrorreporting",

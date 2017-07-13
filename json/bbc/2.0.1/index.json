@@ -1,7 +1,7 @@
 {
   "id": "bbc",
-  "title": "BBC Nitro",
-  "description": "BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.",
+  "title": "Radio & Music Services",
+  "description": "We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.",
   "security": {
     "bbc": {
       "integration": "bbc",
@@ -11,7 +11,8 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_developer.bbc.co.uk_sites_default_files_Nitro On White.png"
+    "backgroundColor": "#FFFFFF",
+    "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_6_63_BBC_Radio_logo.svg_140px-BBC_Radio_logo.svg.png"
   },
   "tags": [
     "media",

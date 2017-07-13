@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "Azure DevTest Labs REST API.",
+    "description": "The DevTest Labs Client.",
     "title": "DevTestLabsClient",
     "version": "2016-05-15",
     "x-apisguru-categories": [

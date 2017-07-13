@@ -1,6 +1,6 @@
 {
   "id": "azure_arm_storsimple8000series",
-  "title": "StorSimpleSeries8000ManagementClient",
+  "title": "StorSimple8000SeriesManagementClient",
   "description": "",
   "security": {
     "azure_arm_storsimple8000series": {

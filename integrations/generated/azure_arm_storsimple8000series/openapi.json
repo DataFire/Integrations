@@ -5,7 +5,7 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "title": "StorSimpleSeries8000ManagementClient",
+    "title": "StorSimple8000SeriesManagementClient",
     "version": "2017-06-01",
     "x-apisguru-categories": [
       "cloud"

@@ -10,13 +10,13 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Send and retrieve trace data from Google Stackdriver Trace.\n",
+    "description": "Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Stackdriver Trace for display, reporting, and analysis.\n",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"
     },
     "termsOfService": "https://developers.google.com/terms/",
-    "title": "Google Tracing",
+    "title": "Stackdriver Trace",
     "version": "v2",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"

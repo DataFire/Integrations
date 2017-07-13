@@ -5,8 +5,8 @@
   ],
   "host": "management.azure.com",
   "info": {
-    "description": "Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.",
-    "title": "Azure SQL Database",
+    "description": "Provides read functionality for Azure SQL Database Backups",
+    "title": "Azure SQL Database Backup",
     "version": "2014-04-01",
     "x-apisguru-categories": [
       "enterprise"

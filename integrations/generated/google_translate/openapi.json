@@ -10,13 +10,13 @@
       "name": "Google",
       "url": "https://google.com"
     },
-    "description": "Translates text from one language to another.",
+    "description": "The Google Cloud Translation API lets websites and programs integrate with\n    Google Translate programmatically.",
     "license": {
       "name": "Creative Commons Attribution 3.0",
       "url": "http://creativecommons.org/licenses/by/3.0/"
     },
     "termsOfService": "https://developers.google.com/terms/",
-    "title": "Translate",
+    "title": "Google Cloud Translation",
     "version": "v2",
     "x-apiClientRegistration": {
       "url": "https://console.developers.google.com"
