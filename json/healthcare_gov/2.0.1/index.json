@@ -2,12 +2,7 @@
   "id": "healthcare_gov",
   "title": "Healthcare",
   "description": "",
-  "security": {
-    "healthcare_gov": {
-      "integration": "healthcare_gov",
-      "fields": {}
-    }
-  },
+  "security": {},
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
   },
@@ -726,11 +721,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/articlesList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -740,11 +730,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/blogList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -754,11 +739,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/glossaryList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -768,11 +748,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/questionsList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -782,11 +757,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/statesList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -796,11 +766,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/topicsList"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -821,11 +786,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/blogPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -846,11 +806,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/blogPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -871,11 +826,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/glossaryPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -896,11 +846,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questionPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -921,11 +866,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/page"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -946,11 +886,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/statePage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -971,11 +906,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/glossaryPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -996,11 +926,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/questionPage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -1021,11 +946,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/page"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     },
     {
@@ -1046,11 +966,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/statePage"
-      },
-      "security": {
-        "healthcare_gov": {
-          "integration": "healthcare_gov"
-        }
       }
     }
   ]

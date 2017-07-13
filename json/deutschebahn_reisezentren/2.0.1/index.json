@@ -2,12 +2,7 @@
   "id": "deutschebahn_reisezentren",
   "title": "Reisezentren",
   "description": "This REST-API enables you to query information about travel centers in Germany.",
-  "security": {
-    "deutschebahn_reisezentren": {
-      "integration": "deutschebahn_reisezentren",
-      "fields": {}
-    }
-  },
+  "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
@@ -129,11 +124,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelCenterList"
-      },
-      "security": {
-        "deutschebahn_reisezentren": {
-          "integration": "deutschebahn_reisezentren"
-        }
       }
     },
     {
@@ -162,11 +152,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelCenter"
-      },
-      "security": {
-        "deutschebahn_reisezentren": {
-          "integration": "deutschebahn_reisezentren"
-        }
       }
     },
     {
@@ -188,11 +173,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/TravelCenter"
-      },
-      "security": {
-        "deutschebahn_reisezentren": {
-          "integration": "deutschebahn_reisezentren"
-        }
       }
     }
   ]

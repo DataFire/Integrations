@@ -2,12 +2,7 @@
   "id": "xkcd",
   "title": "XKCD",
   "description": "Webcomic of romance, sarcasm, math, and language.",
-  "security": {
-    "xkcd": {
-      "integration": "xkcd",
-      "fields": {}
-    }
-  },
+  "security": {},
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
   },
@@ -62,11 +57,6 @@
       "inputSchema": {},
       "outputSchema": {
         "$ref": "#/definitions/comic"
-      },
-      "security": {
-        "xkcd": {
-          "integration": "xkcd"
-        }
       }
     },
     {
@@ -87,11 +77,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/comic"
-      },
-      "security": {
-        "xkcd": {
-          "integration": "xkcd"
-        }
       }
     }
   ]

@@ -2,12 +2,7 @@
   "id": "mandrillapp",
   "title": "Mandrill",
   "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages.\n",
-  "security": {
-    "mandrillapp": {
-      "integration": "mandrillapp",
-      "fields": {}
-    }
-  },
+  "security": {},
   "logo": {
     "url": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
   },
@@ -3609,11 +3604,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exports_satus"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3634,11 +3624,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exports_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3659,11 +3644,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exports_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3684,11 +3664,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exports_satus"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3709,11 +3684,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/exports_satus"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3734,11 +3704,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3759,11 +3724,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/route"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3784,11 +3744,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3809,11 +3764,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3834,11 +3784,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/route"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3859,11 +3804,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_domains-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3884,11 +3824,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_routes-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3909,11 +3844,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/inbound_send-raw-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3934,11 +3864,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/route"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3959,11 +3884,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -3984,11 +3904,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_check-custom-dns-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4009,11 +3924,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_pool"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4034,11 +3944,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_delete-pool-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4059,11 +3964,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_delete-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4084,11 +3984,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4109,11 +4004,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_list-pools-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4134,11 +4024,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4159,11 +4044,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_pool"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4184,11 +4064,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ips_provision-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4209,11 +4084,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4234,11 +4104,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4259,11 +4124,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/ip_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4284,11 +4144,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/schedulingchange_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4309,11 +4164,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages_content-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4334,11 +4184,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4359,11 +4204,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages_list-scheduled-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4384,11 +4224,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages_parse-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4409,11 +4244,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/schedulingchange_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4434,11 +4264,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/timeseries"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4459,11 +4284,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/messages_search-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4484,11 +4304,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/message_send-status"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4509,11 +4324,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/message_send-status"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4534,11 +4344,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/message_send-status"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4559,11 +4364,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/metadata_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4584,11 +4384,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/metadata_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4609,11 +4404,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/metadata_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4634,11 +4424,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/metadata_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4659,11 +4444,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/rejects_add-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4684,11 +4464,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/rejects_delete-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4709,11 +4484,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/rejects_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4734,11 +4504,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/sender_domain_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4759,11 +4524,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/sender_domain_info"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4784,11 +4544,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senders_domains-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4809,11 +4564,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senders_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4834,11 +4584,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senders"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4859,11 +4604,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/time-series"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4884,11 +4624,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senders_verify-domain-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4909,11 +4644,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccount_info2"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4934,11 +4664,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccount_info2"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4959,11 +4684,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccounts_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -4984,11 +4704,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccounts_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5009,11 +4724,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccount_info2"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5034,11 +4744,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccount_info2"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5059,11 +4764,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/subaccount_info2"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5084,11 +4784,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/timeseries"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5109,11 +4804,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags_delete-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5134,11 +4824,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5159,11 +4844,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tags_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5184,11 +4864,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/timeseries"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5209,11 +4884,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/template_detailed"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5234,11 +4904,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/template_detailed"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5259,11 +4924,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/template_detailed"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5284,11 +4944,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/templates_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5309,11 +4964,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/template_detailed"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5334,11 +4984,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/templates_render-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5359,11 +5004,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/time-series"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5384,11 +5024,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/template_detailed"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5409,11 +5044,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tracking-domain-status"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5434,11 +5064,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/tracking-domain-status"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5459,11 +5084,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/url_infos"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5484,11 +5104,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/url_infos"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5509,11 +5124,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/urls_time-series-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5534,11 +5144,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/urls_tracking-domains-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5559,11 +5164,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users_info-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5582,12 +5182,7 @@
           "body"
         ]
       },
-      "outputSchema": {},
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
-      }
+      "outputSchema": {}
     },
     {
       "id": "users.ping2.json.post",
@@ -5607,11 +5202,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/users_ping2-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5632,11 +5222,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/senders"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5657,11 +5242,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5682,11 +5262,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5707,11 +5282,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5732,11 +5302,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhooks_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5757,11 +5322,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/webhook"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5782,11 +5342,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelists_add-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5807,11 +5362,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelists_delete-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     },
     {
@@ -5832,11 +5382,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/whitelists_list-response"
-      },
-      "security": {
-        "mandrillapp": {
-          "integration": "mandrillapp"
-        }
       }
     }
   ]

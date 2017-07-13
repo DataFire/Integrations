@@ -2,12 +2,7 @@
   "id": "deutschebahn_betriebsstellen",
   "title": "Betriebsstellen",
   "description": "This REST-API enables you to query station and stop infos",
-  "security": {
-    "deutschebahn_betriebsstellen": {
-      "integration": "deutschebahn_betriebsstellen",
-      "fields": {}
-    }
-  },
+  "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
     "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
@@ -125,11 +120,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/StationList"
-      },
-      "security": {
-        "deutschebahn_betriebsstellen": {
-          "integration": "deutschebahn_betriebsstellen"
-        }
       }
     },
     {
@@ -151,11 +141,6 @@
       },
       "outputSchema": {
         "$ref": "#/definitions/Station"
-      },
-      "security": {
-        "deutschebahn_betriebsstellen": {
-          "integration": "deutschebahn_betriebsstellen"
-        }
       }
     }
   ]
