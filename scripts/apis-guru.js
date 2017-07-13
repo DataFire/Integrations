@@ -1,6 +1,7 @@
 const request = require('request');
 const async = require('async');
 const fs = require('fs');
+const path = require('path');
 const integrate = require('./integrate');
 
 const args = require('yargs').argv;
@@ -58,22 +59,38 @@ request.get(APIS_GURU_URL, {json: true}, (err, resp, body) => {
   }
   async.parallel(keys.map(key => {
     return acb => {
-      let api = body[key];
-      let version = api.preferred + '.0';
-      api = api.versions[api.preferred];
       let {name, provider} = getName(key);
-      integrate({
-        name,
-        version,
-        openapi: api.swaggerUrl,
-        patch: maybeGetPatch(name) || maybeGetPatch(provider),
-      }, acb);
+      let info = body[key];
+      let api = info.versions[info.preferred];
+      if (args.spec_only) {
+        updateSpec(name, api.swaggerUrl, acb)
+      } else {
+        integrate({
+          name,
+          openapi: api.swaggerUrl,
+          patch: maybeGetPatch(name) || maybeGetPatch(provider),
+        }, acb);
+      }
     }
   }), err => {
     if (err) throw err;
     console.log('done');
   })
 })
+
+function updateSpec(name, url, callback) {
+  request.get(url, {json: true}, (err, resp, newSpec) => {
+    if (err) return callback(err);
+    let specFile = path.join(OUT_DIR, name, 'openapi.json');
+    let oldSpec = require(specFile);
+    oldSpec.info.title = newSpec.info.title;
+    oldSpec.info.description = newSpec.info.description;
+    oldSpec.info['x-logo'] = newSpec.info['x-logo'];
+    fs.writeFile(specFile, JSON.stringify(oldSpec, null, 2), (err) => {
+      callback(err, oldSpec);
+    });
+  })
+}
 
 const maybeGetPatch = (name) => {
   try {
