@@ -2,9 +2,9 @@ var fs       = require('fs')
 var datafire = require('datafire')
 var files    = {
 	"index.html":                      fs.readFileSync( __dirname+"/index.html" ).toString(),
-	"swagger-ui.css":                  fs.readFileSync( process.cwd()+"/node_modules/swagger-ui-dist/swagger-ui.css" ).toString(),
-	"swagger-ui-bundle.js":            fs.readFileSync( process.cwd()+"/node_modules/swagger-ui-dist/swagger-ui-bundle.js" ).toString(),
-	"swagger-ui-standalone-preset.js": fs.readFileSync( process.cwd()+"/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js" ).toString()
+	"swagger-ui.css":                  fs.readFileSync( __dirname+"/node_modules/swagger-ui-dist/swagger-ui.css" ).toString(),
+	"swagger-ui-bundle.js":            fs.readFileSync( __dirname+"/node_modules/swagger-ui-dist/swagger-ui-bundle.js" ).toString(),
+	"swagger-ui-standalone-preset.js": fs.readFileSync( __dirname+"/node_modules/swagger-ui-dist/swagger-ui-standalone-preset.js" ).toString()
 }
 
 module.exports = new datafire.Integration({
