@@ -12045,5 +12045,14 @@
     "tags": [],
     "actionCount": 6,
     "latestVersion": "2.0.0"
+  },
+  "swaggerui": {
+    "id": "swaggerui",
+    "title": "Swagger UI",
+    "description": "Display Swagger UI for your DataFire API",
+    "security": {},
+    "tags": [],
+    "actionCount": 1,
+    "latestVersion": "1.0.0"
   }
 }

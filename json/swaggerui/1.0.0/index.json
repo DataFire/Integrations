@@ -1,0 +1,22 @@
+{
+  "id": "swaggerui",
+  "title": "Swagger UI",
+  "description": "Display Swagger UI for your DataFire API",
+  "security": {},
+  "tags": [],
+  "actions": [
+    {
+      "id": "get",
+      "title": "GET",
+      "description": "serves swagger-ui html+css files",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {}
+      },
+      "outputSchema": {}
+    }
+  ]
+}
