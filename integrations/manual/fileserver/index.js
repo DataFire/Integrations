@@ -18,6 +18,11 @@ let CONTENT_TYPES = {
   '.png': 'image/png',
   '.jpeg': 'image/jpeg',
   '.gif': 'image/gif',
+  '.eot': 'application/vnd.ms-fontobject',
+  '.otf': 'application/font-sfnt',
+  '.svg': 'image/svg+xml',
+  '.ttf': 'application/font-sfnt',
+  '.woff': 'application/font-woff',
 }
 
 let fileserver = module.exports = new datafire.Integration({
