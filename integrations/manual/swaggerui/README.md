@@ -1,4 +1,22 @@
 This will serve a swagger-ui webinterface for trying out & viewing your datafire endpoints.
 
-> NOTE: executing endpoints only works on productionservers (datafire on port 80). This is because datafire does not specify the port in the baseurl of /openapi.json.
-This shouldn't be a problem since you probably want to use the datafire CLI for local testing anyways.
+Here's a sample DataFire.yml for serving swagger-ui:
+
+```
+openapi:
+  host: localhost:3333
+
+paths:
+  '/documentation/{file}':
+    get:
+      action: swaggerui/get
+  /hello
+    get:
+      action: ./actions/hello.js
+```
+
+```bash
+datafire serve --port 3333
+```
+
+Your documentation will be available at `localhost:3333/documentation/index.html`.
