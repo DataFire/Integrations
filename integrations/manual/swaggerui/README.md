@@ -2,7 +2,7 @@ This will serve a swagger-ui webinterface for trying out & viewing your datafire
 
 Here's a sample DataFire.yml for serving swagger-ui:
 
-```
+```yaml
 openapi:
   host: localhost:3333
 
