@@ -13,9 +13,11 @@ Create DataFire.yml:
 paths:
   '/{filename}'
     get:
+      extendPath: 5 // captures /baz.txt, /bar/baz.txt, /foo/bar/baz.txt, 5 levels deep
       action: fileserver/serve
-      input:
-        baseDirectory: '.'
+      accounts:
+        fileserver:
+          baseDirectory: '.'
 ```
 
 Start the server:
