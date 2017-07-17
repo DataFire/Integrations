@@ -5,6 +5,7 @@ let nodepath = require('path');
 let fs = require('fs');
 
 let CONTENT_TYPES = {
+  default: 'text/plain',
   '.html': 'text/html',
   '.js': 'application/javascript',
   '.json': 'application/json',
@@ -23,6 +24,13 @@ let CONTENT_TYPES = {
   '.svg': 'image/svg+xml',
   '.ttf': 'application/font-sfnt',
   '.woff': 'application/font-woff',
+  '.woff2': 'application/font-woff2',
+}
+
+let ENCODINGS = {
+  default: 'utf8',
+  '.woff': 'binary',
+  '.woff2': 'binary',
 }
 
 let fileserver = module.exports = new datafire.Integration({
@@ -55,12 +63,10 @@ fileserver.addAction('serve', {
     return new Promise((resolve, reject) => {
       let filename = nodepath.join('/', input.filename);
       filename = nodepath.join(baseDir, filename);
-      let ctype = input.contentType;
-      if (!ctype) {
-        let extname = nodepath.extname(filename);
-        ctype = CONTENT_TYPES[extname] || 'text/plain';
-      }
-      fs.readFile(filename, 'utf8', (err, contents) => {
+      let extname = nodepath.extname(filename);
+      let ctype = input.contentType || CONTENT_TYPES[extname] || CONTENT_TYPES.default;
+      let encoding = ENCODINGS[extname] || ENCODINGS.default;
+      fs.readFile(filename, encoding, (err, contents) => {
         if (err) {
           let resp = {statusCode: 500, body: "Error retrieving file " + input.filename};
           if (err.code === 'ENOENT') {
@@ -74,6 +80,7 @@ fileserver.addAction('serve', {
           return reject(new datafire.Response(resp));
         }
         resolve(new datafire.Response({
+          encoding,
           headers: {'Content-Type': ctype},
           body: contents,
         }))
