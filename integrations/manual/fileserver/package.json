@@ -1,6 +1,6 @@
 {
   "name": "@datafire/fileserver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "Serve static files, such as HTML, CSS, JavaScript, and images",
   "repository": {
