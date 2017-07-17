@@ -1,0 +1,16 @@
+{
+  "id": "lucybot_docs",
+  "title": "LucyBot API Documentation",
+  "description": "",
+  "security": {},
+  "tags": [],
+  "actions": [
+    {
+      "id": "serve",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {}
+    }
+  ]
+}

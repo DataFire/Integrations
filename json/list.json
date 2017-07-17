@@ -12021,6 +12021,15 @@
     "actionCount": 44,
     "latestVersion": "2.0.1"
   },
+  "fileserver": {
+    "id": "fileserver",
+    "title": "File Server",
+    "description": "Serve static files, such as HTML, CSS, JavaScript, and images",
+    "security": {},
+    "tags": [],
+    "actionCount": 1,
+    "latestVersion": "1.0.0"
+  },
   "http": {
     "id": "http",
     "title": "HTTP",
@@ -12029,6 +12038,14 @@
     "tags": [],
     "actionCount": 8,
     "latestVersion": "2.0.0"
+  },
+  "lucybot_docs": {
+    "id": "lucybot_docs",
+    "title": "LucyBot API Documentation",
+    "security": {},
+    "tags": [],
+    "actionCount": 1,
+    "latestVersion": "1.0.1"
   },
   "mongodb": {
     "id": "mongodb",
