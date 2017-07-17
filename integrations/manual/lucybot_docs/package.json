@@ -2,7 +2,7 @@
   "name": "@datafire/lucybot_docs",
   "version": "1.0.0",
   "main": "index.js",
-  "description": "An integration for DataFire",
+  "description": "Documentation for your DataFire API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DataFire/integrations.git"
