@@ -1,6 +1,6 @@
 {
   "name": "@datafire/lucybot_docs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "description": "Documentation for your DataFire API",
   "repository": {
