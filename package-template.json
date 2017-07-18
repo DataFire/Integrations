@@ -14,6 +14,9 @@
   },
   "homepage": "https://github.com/DataFire/integrations#readme",
   "datafire": {},
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
   "dependencies": {
     "datafire": "^2.0.0"
   }
