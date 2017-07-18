@@ -14,10 +14,17 @@
         "redirect_uri": "The callback URL for your application"
       },
       "oauth": {
-        "description": "Session management by confidential clients.",
-        "flow": "password",
+        "authorizationUrl": "https://connect.authentiq.io/authorize",
+        "description": "End-user authentication.",
+        "flow": "accessCode",
         "scopes": {
-          "clients": "Enable client management"
+          "address": "The user's postal address",
+          "aq:location": "The user's current location",
+          "aq:name": "The user's full name",
+          "aq:push": "Enable *One click sign-in*",
+          "email": "The user's email address",
+          "oidc": "Enable OIDC flow",
+          "phone": "The user's phone number"
         },
         "tokenUrl": "https://connect.authentiq.io/token",
         "type": "oauth2"
