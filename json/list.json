@@ -12028,7 +12028,7 @@
     "security": {},
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "1.0.0"
+    "latestVersion": "1.0.1"
   },
   "http": {
     "id": "http",
@@ -12045,7 +12045,7 @@
     "security": {},
     "tags": [],
     "actionCount": 1,
-    "latestVersion": "1.0.1"
+    "latestVersion": "1.0.2"
   },
   "mongodb": {
     "id": "mongodb",

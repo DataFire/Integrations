@@ -1,0 +1,37 @@
+{
+  "id": "fileserver",
+  "title": "File Server",
+  "description": "Serve static files, such as HTML, CSS, JavaScript, and images",
+  "security": {},
+  "tags": [],
+  "actions": [
+    {
+      "id": "serve",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "title": "filename",
+            "type": "string"
+          },
+          "contentType": {
+            "title": "contentType",
+            "type": "string",
+            "default": ""
+          }
+        },
+        "required": [
+          "filename"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fileserver": {
+          "integration": "fileserver"
+        }
+      }
+    }
+  ]
+}
