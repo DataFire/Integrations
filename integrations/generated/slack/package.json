@@ -17,6 +17,9 @@
     "origin": "https://api.apis.guru/v2/specs/slack.com/1.0.0/swagger.json",
     "type": "openapi"
   },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
   "dependencies": {
     "datafire": "^2.0.0"
   }

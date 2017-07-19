@@ -83,7 +83,10 @@
       },
       "tokenUrl": "https://slack.com/api/oauth.access",
       "type": "oauth2",
-      "name": "token"
+      "x-location": {
+        "name": "token",
+        "in": "query"
+      }
     }
   },
   "paths": {
