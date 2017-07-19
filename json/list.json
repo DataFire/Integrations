@@ -11250,7 +11250,8 @@
           },
           "tokenUrl": "https://slack.com/api/oauth.access",
           "type": "oauth2",
-          "name": "token"
+          "name": "token",
+          "in": "query"
         }
       }
     },
@@ -11262,7 +11263,7 @@
       "messaging"
     ],
     "actionCount": 32,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "slideroom": {
     "id": "slideroom",
