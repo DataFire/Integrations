@@ -11389,7 +11389,7 @@
           "redirect_uri": "The callback URL for your application"
         },
         "oauth": {
-          "authorizationUrl": "https://connect.squareup.com/oauth2/authorize?<PARAMETERS>",
+          "authorizationUrl": "https://connect.squareup.com/oauth2/authorize",
           "flow": "accessCode",
           "scopes": {
             "BANK_ACCOUNTS_READ": "GET endpoints related to a merchant's bank accounts",
@@ -11420,7 +11420,7 @@
       "payment"
     ],
     "actionCount": 18,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "stackexchange": {
     "id": "stackexchange",

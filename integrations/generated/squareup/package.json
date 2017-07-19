@@ -1,6 +1,6 @@
 {
   "name": "@datafire/squareup",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "index.js",
   "description": "DataFire integration for Square Connect",
   "repository": {
@@ -16,6 +16,9 @@
   "datafire": {
     "origin": "https://api.apis.guru/v2/specs/squareup.com/2.0/swagger.json",
     "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
   },
   "dependencies": {
     "datafire": "^2.0.0"

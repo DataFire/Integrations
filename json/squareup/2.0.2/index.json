@@ -1,691 +1,48 @@
 {
-  "swagger": "2.0",
-  "schemes": [
-    "https"
-  ],
-  "host": "connect.squareup.com",
-  "info": {
-    "contact": {
-      "email": "developers@squareup.com",
-      "name": "Square Developer Platform",
-      "url": "https://squareup.com/developers"
-    },
-    "description": "Client library for accessing the Square Connect APIs",
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "termsOfService": "https://connect.squareup.com/tos",
-    "title": "Square Connect",
-    "version": "2.0",
-    "x-apisguru-categories": [
-      "payment"
-    ],
-    "x-logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
-    },
-    "x-origin": [
-      {
-        "format": "swagger",
-        "url": "https://raw.githubusercontent.com/square/connect-api-specification/master/api.json",
-        "version": "2.0"
-      }
-    ],
-    "x-preferred": true,
-    "x-providerName": "squareup.com",
-    "x-datafire": {
-      "name": "squareup",
-      "type": "openapi"
-    }
-  },
-  "externalDocs": {
-    "description": "Read the official documentation here:",
-    "url": "https://docs.connect.squareup.com/"
-  },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "securityDefinitions": {
-    "oauth2": {
-      "authorizationUrl": "https://connect.squareup.com/oauth2/authorize",
-      "flow": "accessCode",
-      "scopes": {
-        "BANK_ACCOUNTS_READ": "GET endpoints related to a merchant's bank accounts",
-        "CUSTOMERS_READ": " GET endpoints related to customer management",
-        "CUSTOMERS_WRITE": "POST, PUT, and DELETE endpoints related to customer management",
-        "EMPLOYEES_READ": "GET endpoints related to employee management",
-        "EMPLOYEES_WRITE": "POST, PUT, and DELETE endpoints related to employee management",
-        "ITEMS_READ": "GET endpoints related to a merchant's item library",
-        "ITEMS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's item library",
-        "MERCHANT_PROFILE_READ": "GET endpoints related to a merchant's business and location entities. Almost all Connect API applications need this permission in order to obtain a merchant's location IDs",
-        "ORDERS_READ": "GET endpoints related to a merchant's Square online store.",
-        "ORDERS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's Square online store",
-        "PAYMENTS_READ": "GET endpoints related to transactions and refunds",
-        "PAYMENTS_WRITE": "POST, PUT, and DELETE endpoints related to transactions and refunds. E-commerce applications must request this permission",
-        "SETTLEMENTS_READ": "GET endpoints related to settlements (deposits)",
-        "TIMECARDS_READ": "GET endpoints related to employee timecards",
-        "TIMECARDS_WRITE": "POST, PUT, and DELETE endpoints related to employee timecards"
+  "id": "squareup",
+  "title": "Square Connect",
+  "description": "Client library for accessing the Square Connect APIs",
+  "security": {
+    "squareup": {
+      "integration": "squareup",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
       },
-      "tokenUrl": "https://connect.squareup.com/oauth2/token",
-      "type": "oauth2"
-    }
-  },
-  "paths": {
-    "/v2/customers": {
-      "get": {
-        "description": "Lists a business's customers.",
-        "operationId": "ListCustomers",
-        "parameters": [
-          {
-            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information.",
-            "in": "query",
-            "name": "cursor",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListCustomersResponse"
-            }
-          }
+      "oauth": {
+        "authorizationUrl": "https://connect.squareup.com/oauth2/authorize",
+        "flow": "accessCode",
+        "scopes": {
+          "BANK_ACCOUNTS_READ": "GET endpoints related to a merchant's bank accounts",
+          "CUSTOMERS_READ": " GET endpoints related to customer management",
+          "CUSTOMERS_WRITE": "POST, PUT, and DELETE endpoints related to customer management",
+          "EMPLOYEES_READ": "GET endpoints related to employee management",
+          "EMPLOYEES_WRITE": "POST, PUT, and DELETE endpoints related to employee management",
+          "ITEMS_READ": "GET endpoints related to a merchant's item library",
+          "ITEMS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's item library",
+          "MERCHANT_PROFILE_READ": "GET endpoints related to a merchant's business and location entities. Almost all Connect API applications need this permission in order to obtain a merchant's location IDs",
+          "ORDERS_READ": "GET endpoints related to a merchant's Square online store.",
+          "ORDERS_WRITE": "POST, PUT, and DELETE endpoints related to a merchant's Square online store",
+          "PAYMENTS_READ": "GET endpoints related to transactions and refunds",
+          "PAYMENTS_WRITE": "POST, PUT, and DELETE endpoints related to transactions and refunds. E-commerce applications must request this permission",
+          "SETTLEMENTS_READ": "GET endpoints related to settlements (deposits)",
+          "TIMECARDS_READ": "GET endpoints related to employee timecards",
+          "TIMECARDS_WRITE": "POST, PUT, and DELETE endpoints related to employee timecards"
         },
-        "summary": "ListCustomers",
-        "tags": [
-          "Customer"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_READ"
-        ]
-      },
-      "post": {
-        "description": "Creates a new customer for a business, which can have associated cards on file.\n\nYou must provide __at least one__ of the following values in your request to this\nendpoint:\n\n- `given_name`\n- `family_name`\n- `company_name`\n- `email_address`\n- `phone_number`\n\nThis endpoint does not accept an idempotency key. If you accidentally create\na duplicate customer, you can delete it with the\n[DeleteCustomer](#endpoint-deletecustomer) endpoint.",
-        "operationId": "CreateCustomer",
-        "parameters": [
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateCustomerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CreateCustomerResponse"
-            }
-          }
-        },
-        "summary": "CreateCustomer",
-        "tags": [
-          "Customer"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_WRITE"
-        ]
-      }
-    },
-    "/v2/customers/{customer_id}": {
-      "delete": {
-        "description": "Deletes a customer from a business, along with any linked cards on file.",
-        "operationId": "DeleteCustomer",
-        "parameters": [
-          {
-            "description": "The ID of the customer to delete.",
-            "in": "path",
-            "name": "customer_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/DeleteCustomerResponse"
-            }
-          }
-        },
-        "summary": "DeleteCustomer",
-        "tags": [
-          "Customer"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_WRITE"
-        ]
-      },
-      "get": {
-        "description": "Returns details for a single customer.",
-        "operationId": "RetrieveCustomer",
-        "parameters": [
-          {
-            "description": "The ID of the customer to retrieve.",
-            "in": "path",
-            "name": "customer_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RetrieveCustomerResponse"
-            }
-          }
-        },
-        "summary": "RetrieveCustomer",
-        "tags": [
-          "Customer"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_READ"
-        ]
-      },
-      "put": {
-        "description": "Updates the details of an existing customer.\n\nYou cannot edit a customer's cards on file with this endpoint. To make changes\nto a card on file, you must delete the existing card on file with the\n[DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then create a new one with the\n[CreateCustomerCard](#endpoint-createcustomercard) endpoint.",
-        "operationId": "UpdateCustomer",
-        "parameters": [
-          {
-            "description": "The ID of the customer to update.",
-            "in": "path",
-            "name": "customer_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UpdateCustomerRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/UpdateCustomerResponse"
-            }
-          }
-        },
-        "summary": "UpdateCustomer",
-        "tags": [
-          "Customer"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_WRITE"
-        ]
-      }
-    },
-    "/v2/customers/{customer_id}/cards": {
-      "post": {
-        "description": "Adds a card on file to an existing customer.",
-        "operationId": "CreateCustomerCard",
-        "parameters": [
-          {
-            "description": "The ID of the customer to link the card on file to.",
-            "in": "path",
-            "name": "customer_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateCustomerCardRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CreateCustomerCardResponse"
-            }
-          }
-        },
-        "summary": "CreateCustomerCard",
-        "tags": [
-          "Customer.Card"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_WRITE"
-        ]
-      }
-    },
-    "/v2/customers/{customer_id}/cards/{card_id}": {
-      "delete": {
-        "description": "Removes a card on file from a customer.",
-        "operationId": "DeleteCustomerCard",
-        "parameters": [
-          {
-            "description": "The ID of the customer that the card on file belongs to.",
-            "in": "path",
-            "name": "customer_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the card on file to delete.",
-            "in": "path",
-            "name": "card_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/DeleteCustomerCardResponse"
-            }
-          }
-        },
-        "summary": "DeleteCustomerCard",
-        "tags": [
-          "Customer.Card"
-        ],
-        "x-oauthpermissions": [
-          "CUSTOMERS_WRITE"
-        ]
-      }
-    },
-    "/v2/locations": {
-      "get": {
-        "description": "Provides the details for all of a business's locations.\n\nMost other Connect API endpoints have a required `location_id` path parameter.\nThe `id` field of the [`Location`](#type-location) objects returned by this\nendpoint correspond to that `location_id` parameter.",
-        "operationId": "ListLocations",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListLocationsResponse"
-            }
-          }
-        },
-        "summary": "ListLocations",
-        "tags": [
-          "Location"
-        ],
-        "x-oauthpermissions": [
-          "MERCHANT_PROFILE_READ"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/checkouts": {
-      "post": {
-        "description": "Creates a [Checkout](#type-checkout) response that links a\n`checkoutId` and `checkout_page_url` that customers can be directed to in\norder to provide their payment information using a payment processing\nworkflow hosted on connect.squareup.com.",
-        "operationId": "CreateCheckout",
-        "parameters": [
-          {
-            "description": "The ID of the business location to associate the checkout with.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateCheckoutRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CreateCheckoutResponse"
-            }
-          }
-        },
-        "summary": "CreateCheckout",
-        "tags": [
-          "Checkout"
-        ],
-        "x-oauthpermissions": [
-          "ORDERS_V2_WRITE",
-          "PAYMENTS_WRITE"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/refunds": {
-      "get": {
-        "description": "Lists refunds for one of a business's locations.\n\nRefunds with a `status` of `PENDING` are not currently included in this\nendpoint's response.\n\nMax results per [page](#paginatingresults): 50",
-        "operationId": "ListRefunds",
-        "parameters": [
-          {
-            "description": "The ID of the location to list refunds for.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The beginning of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time minus one year.",
-            "in": "query",
-            "name": "begin_time",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The end of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time.",
-            "in": "query",
-            "name": "end_time",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The order in which results are listed in the response (`ASC` for\noldest first, `DESC` for newest first).\n\nDefault value: `DESC`",
-            "enum": [
-              "DESC",
-              "ASC"
-            ],
-            "in": "query",
-            "name": "sort_order",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information.",
-            "in": "query",
-            "name": "cursor",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListRefundsResponse"
-            }
-          }
-        },
-        "summary": "ListRefunds",
-        "tags": [
-          "Refund"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_READ"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/transactions": {
-      "get": {
-        "description": "Lists transactions for a particular location.\n\nMax results per [page](#paginatingresults): 50",
-        "operationId": "ListTransactions",
-        "parameters": [
-          {
-            "description": "The ID of the location to list transactions for.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The beginning of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time minus one year.",
-            "in": "query",
-            "name": "begin_time",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The end of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time.",
-            "in": "query",
-            "name": "end_time",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "The order in which results are listed in the response (`ASC` for\noldest first, `DESC` for newest first).\n\nDefault value: `DESC`",
-            "enum": [
-              "DESC",
-              "ASC"
-            ],
-            "in": "query",
-            "name": "sort_order",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information.",
-            "in": "query",
-            "name": "cursor",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ListTransactionsResponse"
-            }
-          }
-        },
-        "summary": "ListTransactions",
-        "tags": [
-          "Transaction"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_READ"
-        ]
-      },
-      "post": {
-        "description": "Charges a card represented by a card nonce or a customer's card on file.\n\nYour request to this endpoint must include _either_:\n\n- A value for the `card_nonce` parameter (to charge a card nonce generated\nwith the `SqPaymentForm`)\n- Values for the `customer_card_id` and `customer_id` parameters (to charge\na customer's card on file)\n\nIn order for an e-commerce payment to potentially qualify for\n[Square chargeback protection](https://squareup.com/help/article/5394), you\n_must_ provide values for the following parameters in your request:\n\n- `buyer_email_address`\n- At least one of `billing_address` or `shipping_address`\n\nWhen this response is returned, the amount of Square's processing fee might not yet be\ncalculated. To obtain the processing fee, wait about ten seconds and call\n[RetrieveTransaction](#endpoint-retrievetransaction). See the `processing_fee_money`\nfield of each [Tender included](#type-tender) in the transaction.",
-        "operationId": "Charge",
-        "parameters": [
-          {
-            "description": "The ID of the location to associate the created transaction with.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ChargeRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/ChargeResponse"
-            }
-          }
-        },
-        "summary": "Charge",
-        "tags": [
-          "Transaction"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_WRITE"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/transactions/{transaction_id}": {
-      "get": {
-        "description": "Retrieves details for a single transaction.",
-        "operationId": "RetrieveTransaction",
-        "parameters": [
-          {
-            "description": "The ID of the transaction's associated location.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the transaction to retrieve.",
-            "in": "path",
-            "name": "transaction_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/RetrieveTransactionResponse"
-            }
-          }
-        },
-        "summary": "RetrieveTransaction",
-        "tags": [
-          "Transaction"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_READ"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/transactions/{transaction_id}/capture": {
-      "post": {
-        "description": "Captures a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
-        "operationId": "CaptureTransaction",
-        "parameters": [
-          {
-            "description": "",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "",
-            "in": "path",
-            "name": "transaction_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CaptureTransactionResponse"
-            }
-          }
-        },
-        "summary": "CaptureTransaction",
-        "tags": [
-          "Transaction"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_WRITE"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/transactions/{transaction_id}/refund": {
-      "post": {
-        "description": "Initiates a refund for a previously charged tender.",
-        "operationId": "CreateRefund",
-        "parameters": [
-          {
-            "description": "The ID of the original transaction's associated location.",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "The ID of the original transaction that includes the tender to refund.",
-            "in": "path",
-            "name": "transaction_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "An object containing the fields to POST for the request.\n\nSee the corresponding object definition for field details.",
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateRefundRequest"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/CreateRefundResponse"
-            }
-          }
-        },
-        "summary": "CreateRefund",
-        "tags": [
-          "Refund"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_WRITE"
-        ]
-      }
-    },
-    "/v2/locations/{location_id}/transactions/{transaction_id}/void": {
-      "post": {
-        "description": "Cancels a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
-        "operationId": "VoidTransaction",
-        "parameters": [
-          {
-            "description": "",
-            "in": "path",
-            "name": "location_id",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "description": "",
-            "in": "path",
-            "name": "transaction_id",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/VoidTransactionResponse"
-            }
-          }
-        },
-        "summary": "VoidTransaction",
-        "tags": [
-          "Transaction"
-        ],
-        "x-oauthpermissions": [
-          "PAYMENTS_WRITE"
-        ]
+        "tokenUrl": "https://connect.squareup.com/oauth2/token",
+        "type": "oauth2"
       }
     }
   },
+  "logo": {
+    "url": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
+  },
+  "tags": [
+    "payment"
+  ],
   "definitions": {
     "Address": {
       "description": "Represents a physical address.",
@@ -3804,5 +3161,566 @@
         "ruby": "/sdk_samples/VoidTransaction/VoidTransactionResponse.ruby"
       }
     }
-  }
+  },
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "ListCustomers",
+      "title": "ListCustomers",
+      "description": "Lists a business's customers.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListCustomersResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "CreateCustomer",
+      "title": "CreateCustomer",
+      "description": "Creates a new customer for a business, which can have associated cards on file.\n\nYou must provide __at least one__ of the following values in your request to this\nendpoint:\n\n- `given_name`\n- `family_name`\n- `company_name`\n- `email_address`\n- `phone_number`\n\nThis endpoint does not accept an idempotency key. If you accidentally create\na duplicate customer, you can delete it with the\n[DeleteCustomer](#endpoint-deletecustomer) endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "$ref": "#/definitions/CreateCustomerRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "DeleteCustomer",
+      "title": "DeleteCustomer",
+      "description": "Deletes a customer from a business, along with any linked cards on file.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "The ID of the customer to delete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customer_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "RetrieveCustomer",
+      "title": "RetrieveCustomer",
+      "description": "Returns details for a single customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "The ID of the customer to retrieve."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customer_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "UpdateCustomer",
+      "title": "UpdateCustomer",
+      "description": "Updates the details of an existing customer.\n\nYou cannot edit a customer's cards on file with this endpoint. To make changes\nto a card on file, you must delete the existing card on file with the\n[DeleteCustomerCard](#endpoint-deletecustomercard) endpoint, then create a new one with the\n[CreateCustomerCard](#endpoint-createcustomercard) endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "The ID of the customer to update."
+          },
+          "body": {
+            "$ref": "#/definitions/UpdateCustomerRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customer_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/UpdateCustomerResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "CreateCustomerCard",
+      "title": "CreateCustomerCard",
+      "description": "Adds a card on file to an existing customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "The ID of the customer to link the card on file to."
+          },
+          "body": {
+            "$ref": "#/definitions/CreateCustomerCardRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customer_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCustomerCardResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "DeleteCustomerCard",
+      "title": "DeleteCustomerCard",
+      "description": "Removes a card on file from a customer.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "customer_id": {
+            "type": "string",
+            "description": "The ID of the customer that the card on file belongs to."
+          },
+          "card_id": {
+            "type": "string",
+            "description": "The ID of the card on file to delete."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "customer_id",
+          "card_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/DeleteCustomerCardResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "ListLocations",
+      "title": "ListLocations",
+      "description": "Provides the details for all of a business's locations.\n\nMost other Connect API endpoints have a required `location_id` path parameter.\nThe `id` field of the [`Location`](#type-location) objects returned by this\nendpoint correspond to that `location_id` parameter.",
+      "inputSchema": {},
+      "outputSchema": {
+        "$ref": "#/definitions/ListLocationsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "CreateCheckout",
+      "title": "CreateCheckout",
+      "description": "Creates a [Checkout](#type-checkout) response that links a\n`checkoutId` and `checkout_page_url` that customers can be directed to in\norder to provide their payment information using a payment processing\nworkflow hosted on connect.squareup.com.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the business location to associate the checkout with."
+          },
+          "body": {
+            "$ref": "#/definitions/CreateCheckoutRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateCheckoutResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "ListRefunds",
+      "title": "ListRefunds",
+      "description": "Lists refunds for one of a business's locations.\n\nRefunds with a `status` of `PENDING` are not currently included in this\nendpoint's response.\n\nMax results per [page](#paginatingresults): 50",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the location to list refunds for."
+          },
+          "begin_time": {
+            "type": "string",
+            "description": "The beginning of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time minus one year."
+          },
+          "end_time": {
+            "type": "string",
+            "description": "The end of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time."
+          },
+          "sort_order": {
+            "type": "string",
+            "description": "The order in which results are listed in the response (`ASC` for\noldest first, `DESC` for newest first).\n\nDefault value: `DESC`",
+            "enum": [
+              "DESC",
+              "ASC"
+            ]
+          },
+          "cursor": {
+            "type": "string",
+            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListRefundsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "ListTransactions",
+      "title": "ListTransactions",
+      "description": "Lists transactions for a particular location.\n\nMax results per [page](#paginatingresults): 50",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the location to list transactions for."
+          },
+          "begin_time": {
+            "type": "string",
+            "description": "The beginning of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time minus one year."
+          },
+          "end_time": {
+            "type": "string",
+            "description": "The end of the requested reporting period, in RFC 3339 format.\n\nSee [Date ranges](#dateranges) for details on date inclusivity/exclusivity.\n\nDefault value: The current time."
+          },
+          "sort_order": {
+            "type": "string",
+            "description": "The order in which results are listed in the response (`ASC` for\noldest first, `DESC` for newest first).\n\nDefault value: `DESC`",
+            "enum": [
+              "DESC",
+              "ASC"
+            ]
+          },
+          "cursor": {
+            "type": "string",
+            "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ListTransactionsResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "Charge",
+      "title": "Charge",
+      "description": "Charges a card represented by a card nonce or a customer's card on file.\n\nYour request to this endpoint must include _either_:\n\n- A value for the `card_nonce` parameter (to charge a card nonce generated\nwith the `SqPaymentForm`)\n- Values for the `customer_card_id` and `customer_id` parameters (to charge\na customer's card on file)\n\nIn order for an e-commerce payment to potentially qualify for\n[Square chargeback protection](https://squareup.com/help/article/5394), you\n_must_ provide values for the following parameters in your request:\n\n- `buyer_email_address`\n- At least one of `billing_address` or `shipping_address`\n\nWhen this response is returned, the amount of Square's processing fee might not yet be\ncalculated. To obtain the processing fee, wait about ten seconds and call\n[RetrieveTransaction](#endpoint-retrievetransaction). See the `processing_fee_money`\nfield of each [Tender included](#type-tender) in the transaction.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the location to associate the created transaction with."
+          },
+          "body": {
+            "$ref": "#/definitions/ChargeRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/ChargeResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "RetrieveTransaction",
+      "title": "RetrieveTransaction",
+      "description": "Retrieves details for a single transaction.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the transaction's associated location."
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "The ID of the transaction to retrieve."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "transaction_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/RetrieveTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "CaptureTransaction",
+      "title": "CaptureTransaction",
+      "description": "Captures a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": ""
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "transaction_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CaptureTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "CreateRefund",
+      "title": "CreateRefund",
+      "description": "Initiates a refund for a previously charged tender.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": "The ID of the original transaction's associated location."
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "The ID of the original transaction that includes the tender to refund."
+          },
+          "body": {
+            "$ref": "#/definitions/CreateRefundRequest"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "transaction_id",
+          "body"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/CreateRefundResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    },
+    {
+      "id": "VoidTransaction",
+      "title": "VoidTransaction",
+      "description": "Cancels a transaction that was created with the [Charge](#endpoint-charge)\nendpoint with a `delay_capture` value of `true`.\n\nSee [Delayed capture transactions](/articles/delayed-capture-transactions/)\nfor more information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location_id": {
+            "type": "string",
+            "description": ""
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": ""
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "location_id",
+          "transaction_id"
+        ]
+      },
+      "outputSchema": {
+        "$ref": "#/definitions/VoidTransactionResponse"
+      },
+      "security": {
+        "squareup": {
+          "integration": "squareup"
+        }
+      }
+    }
+  ]
 }
