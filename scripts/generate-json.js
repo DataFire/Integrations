@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const datafire = require('datafire');
+const args = require('yargs').argv;
 
 const iterateIntegs = require('./iterate-integrations');
 
@@ -33,6 +34,7 @@ const BASE_DIR = __dirname + '/../integrations/';
 const OUT_DIR = __dirname + '/../json/';
 
 let list = {};
+if (args.name) list = require(OUT_DIR + 'list.json');
 iterateIntegs((dir, name, integ) => {
     console.log('adding', name);
     let package = require(path.join(dir, 'package.json'));
@@ -41,7 +43,7 @@ iterateIntegs((dir, name, integ) => {
     if (fs.existsSync(openapiFile)) {
       openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
     }
-    if (list[name]) throw new Error("Duplicate name " + name);
+    if (list[name] && !args.name) throw new Error("Duplicate name " + name);
     list[name] = {
       id: name,
       title: integ.title,
@@ -78,7 +80,7 @@ iterateIntegs((dir, name, integ) => {
     let integDir = path.join(OUT_DIR, name, package.version);
     maybeMkdirp(integDir);
     fs.writeFileSync(path.join(integDir, 'index.json'), JSON.stringify(details, null, 2));
-})
+}, name => !args.name || name === args.name)
 
 fs.writeFileSync(OUT_DIR + 'list.json', JSON.stringify(list, null, 2));
 
