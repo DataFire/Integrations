@@ -1,0 +1,708 @@
+{
+  "id": "linkedin",
+  "title": "LinkedIn",
+  "description": "Bring user profiles and professional networks to your apps.",
+  "security": {
+    "linkedin": {
+      "integration": "linkedin",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "type": "oauth2",
+        "flow": "application",
+        "scopes": {
+          "r_basicprofile": "",
+          "r_emailaddress": "",
+          "rw_company_admin": "",
+          "w_share": ""
+        },
+        "tokenUrl": "https://www.linkedin.com/oauth/v2/accessToken",
+        "authorizationUrl": "https://www.linkedin.com/oauth/v2/authorization"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/linkedin.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.updates.key_update_key.update_comments_as_company.post",
+      "title": "companies.id.updates.key_update_key.update_comments_as_company.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "update-key": {
+            "type": "string",
+            "description": "The unique company update identifier."
+          },
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type."
+          },
+          "x-li-format": {
+            "type": "string",
+            "description": "The content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "update-key",
+          "Content-Type",
+          "x-li-format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "people._.get",
+      "title": "people._.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "Accept-Language": {
+            "type": "string",
+            "description": "Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "people._id_num_connections_picture_url_.get",
+      "title": "people._id_num_connections_picture_url_.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "people._.shares.post",
+      "title": "people._.shares.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type."
+          },
+          "x-li-format": {
+            "type": "string",
+            "description": "The content type."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "x-li-format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.is_company_share_enabled.get",
+      "title": "companies.id.is_company_share_enabled.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.relation_to_viewer.is_company_share_enabled.get",
+      "title": "companies.id.relation_to_viewer.is_company_share_enabled.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.get",
+      "title": "companies.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "start": {
+            "type": "integer",
+            "description": "The offset value for paginating company results by.",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "count": {
+            "type": "integer",
+            "description": "Maximum number of companies to return.",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.get",
+      "title": "companies.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id_id_name_ticker_description_.get",
+      "title": "companies.id_id_name_ticker_description_.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.updates.get",
+      "title": "companies.id.updates.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "event-type": {
+            "type": "integer",
+            "description": "The offset value for paginating update results by.",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "start": {
+            "type": "integer",
+            "description": "The offset value for paginating update results by.",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "count": {
+            "type": "integer",
+            "description": "Maximum number of updates to return.",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.updates.key_update_key.get",
+      "title": "companies.id.updates.key_update_key.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "update-key": {
+            "type": "string",
+            "description": "The unique company update identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "update-key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.updates.key_update_key.update_comments.get",
+      "title": "companies.id.updates.key_update_key.update_comments.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "update-key": {
+            "type": "string",
+            "description": "The unique company update identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "update-key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.updates.key_update_key.likes.get",
+      "title": "companies.id.updates.key_update_key.likes.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "update-key": {
+            "type": "string",
+            "description": "The unique company update identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "update-key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.shares.post",
+      "title": "companies.id.shares.post",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type."
+          },
+          "x-li-format": {
+            "type": "string",
+            "description": "The content type."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "Content-Type",
+          "x-li-format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.num_followers.get",
+      "title": "companies.id.num_followers.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "geos": {
+            "type": "string",
+            "description": "Segment by a particular geographic area."
+          },
+          "companySizes": {
+            "type": "string",
+            "description": "Segment by a particular company size targeting code."
+          },
+          "jobFunc": {
+            "type": "string",
+            "description": "Segment by member job function targeting code."
+          },
+          "industries": {
+            "type": "string",
+            "description": "Segment by member industry."
+          },
+          "seniorities": {
+            "type": "string",
+            "description": "Segment by member seniority level targeting code."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.historical_follow_statistics.get",
+      "title": "companies.id.historical_follow_statistics.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "time-granularity": {
+            "type": "string",
+            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+          },
+          "start-timestamp": {
+            "type": "string",
+            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+          },
+          "end-timestamp": {
+            "type": "string",
+            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "time-granularity",
+          "start-timestamp"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.historical_status_update_statistics.get",
+      "title": "companies.id.historical_status_update_statistics.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "time-granularity": {
+            "type": "string",
+            "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+          },
+          "start-timestamp": {
+            "type": "string",
+            "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+          },
+          "end-timestamp": {
+            "type": "string",
+            "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+          },
+          "update-key": {
+            "type": "string",
+            "description": "Optionally provide an update key value to return statistics for a specific company update."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "time-granularity",
+          "start-timestamp"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    },
+    {
+      "id": "companies.id.company_statistics.get",
+      "title": "companies.id.company_statistics.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique internal numeric company identifier."
+          },
+          "format": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "linkedin": {
+          "integration": "linkedin"
+        }
+      }
+    }
+  ]
+}
