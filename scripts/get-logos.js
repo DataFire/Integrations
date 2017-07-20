@@ -7,9 +7,15 @@ let logos = {};
 const OUTDIR = __dirname + '/../logos';
 
 iterate(function(dir, name, integ) {
-  if (!integ.logo) return;
-  console.log(name, integ.logo.url);
-  logos[name] = integ.logo.url;
+  let logo = integ.logo;
+  if (!logo) {
+    try {
+      logo = require(dir + '/info.json').logo;
+    } catch (e) {}
+  }
+  if (!logo) return;
+  console.log(name);
+  logos[name] = logo.url;
 });
 
 async.series(Object.keys(logos).map(name => {

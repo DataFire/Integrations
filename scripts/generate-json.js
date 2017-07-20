@@ -7,6 +7,7 @@ const args = require('yargs').argv;
 const iterateIntegs = require('./iterate-integrations');
 
 const MAX_DESCRIPTION_LENGTH = 120;
+const LOGO_BASE = 'http://datafire-logos.s3-website-us-west-2.amazonaws.com'
 
 const maybeMkdirp = (dir) => {
   try {
@@ -49,6 +50,10 @@ iterateIntegs((dir, name, integ) => {
     }
     if (fs.existsSync(infoFile)) {
       Object.assign(info, require(infoFile));
+    }
+    if (info.logo) {
+      let extname = info.logo.url.match(/\.(\w+)$/)[1];
+      info.logo.url = LOGO_BASE + '/' + name + '.' + extname;
     }
     if (list[name] && !args.name) throw new Error("Duplicate name " + name);
     list[name] = {
